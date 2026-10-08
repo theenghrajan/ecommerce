@@ -1,0 +1,163 @@
+{%- if predictive_search.performed -%}
+	<div id="predictive-search-results">
+		{%- if predictive_search.resources.products.size > 0 -%}
+			<h2 id="predictive-search-products" class="predictive-search-heading h5">
+				{{ 'templates.search.products' | t }}
+				<span class="spinner-xs"></span>
+			</h2>
+		{%- endif -%}
+		<ul id="predictive-search-results-list" class="predictive-search-results-list" role="listbox" aria-labelledby="predictive-search-products">
+			{%- for product in predictive_search.resources.products -%}
+				<li id="predictive-search-option-product-{{ forloop.index }}" class="predictive-search-list-item predictive-search-list-item-product" role="option" aria-selected="false">
+					<a href="{{ product.url }}" class="predictive-search-item predictive-search-item-link" tabindex="-1">
+						<div class="predictive-search-item-image-wrap">
+							{%- if product.featured_media != blank -%}
+								{% liquid
+									assign ratio = 0
+									if product.featured_media and product.featured_media.aspect_ratio != 0 and product.featured_media.aspect_ratio != nil
+										assign ratio = product.featured_media.aspect_ratio
+									endif
+								%}
+								{% if ratio != 0 %}
+									<div class="aspect-ratio" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
+								{% endif %}
+									<img class="predictive-search-item-image"
+										src="{{ product.featured_media | image_url: width: 70 }}"
+										alt="{{ product.featured_media.alt }}"
+										width="{{ product.featured_media.width }}"
+										height="{{ 70 | divided_by: product.featured_media.aspect_ratio | ceil }}"
+										srcset="{%- if product.featured_media.width >= 70 -%}{{ product.featured_media | image_url: width: 70 }} 1x,{%- endif -%}
+											{%- if product.featured_media.width >= 140 -%}{{ product.featured_media | image_url: width: 140 }} 2x{%- endif -%}"
+										loading="lazy"
+									/>
+								{% if ratio != 0 %}
+									</div>
+								{% endif %}
+							{%- endif -%}
+						</div>
+						<div class="predictive-search-item-content">
+							{%- if settings.predictive_search_show_vendor -%}
+								<span class="visually-hidden">
+									{{ 'accessibility.vendor' | t }}
+								</span>
+								<div class="predictive-search-item-vendor">{{ product.vendor }}</div>
+							{%- endif -%}
+
+							<h3 class="predictive-search-item-heading">{{ product.title }}</h3>
+
+							{% unless settings.catalog_enabled %}
+								{%- if settings.predictive_search_show_price -%}
+									{% render 'price', product: product, use_variant: true %}
+								{%- endif -%}
+							{% endunless %}
+						</div>
+					</a>
+				</li>
+			{%- endfor -%}
+
+			{%- for collection in predictive_search.resources.collections -%}
+				<li id="predictive-search-option-collection-{{ forloop.index }}" class="predictive-search-list-item predictive-search-list-item-collection" role="option" aria-selected="false">
+					<a href="{{ collection.url }}" class="predictive-search-item predictive-search-item-link" tabindex="-1">
+						<div class="predictive-search-item-image-wrap">
+							{%- if collection.featured_image != blank -%}
+								{% liquid
+									assign ratio = 0
+									if collection.featured_image and collection.featured_image.aspect_ratio != 0 and collection.featured_image.aspect_ratio != nil
+										assign ratio = collection.featured_image.aspect_ratio
+									endif
+								%}
+								{% if ratio != 0 %}
+									<div class="aspect-ratio" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
+								{% endif %}
+									<img class="predictive-search-item-image"
+										src="{{ collection.featured_image | image_url: width: 70 }}"
+										alt="{{ collection.featured_image.alt }}"
+										width="{{ collection.featured_image.width }}"
+										height="{{ 70 | divided_by: collection.featured_image.aspect_ratio | ceil }}"
+										srcset="{%- if collection.featured_image.width >= 70 -%}{{ collection.featured_image | image_url: width: 70 }} 1x,{%- endif -%}
+											{%- if collection.featured_image.width >= 140 -%}{{ collection.featured_image | image_url: width: 140 }} 2x{%- endif -%}"
+										loading="lazy"
+									/>
+								{% if ratio != 0 %}
+									</div>
+								{% endif %}
+							{%- endif -%}
+						</div>
+						<div class="predictive-search-item-content">
+							<h3 class="predictive-search-item-heading">{{ collection.title }}</h3>
+						</div>
+					</a>
+				</li>
+			{%- endfor -%}
+
+			{%- for article in predictive_search.resources.articles -%}
+				<li id="predictive-search-option-article-{{ forloop.index }}" class="predictive-search-list-item predictive-search-list-item-article" role="option" aria-selected="false">
+					<a href="{{ article.url }}" class="predictive-search-item predictive-search-item-link" tabindex="-1">
+						<div class="predictive-search-item-image-wrap">
+							{%- if article.image != blank -%}
+								{% liquid
+									assign ratio = 0
+									if article.image and article.image.aspect_ratio != 0 and article.image.aspect_ratio != nil
+										assign ratio = article.image.aspect_ratio
+									endif
+								%}
+								{% if ratio != 0 %}
+									<div class="aspect-ratio" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
+								{% endif %}
+									<img class="predictive-search-item-image"
+										src="{{ article.image | image_url: width: 70 }}"
+										alt="{{ article.image.alt }}"
+										width="{{ article.image.width }}"
+										height="{{ 70 | divided_by: article.image.aspect_ratio | ceil }}"
+										srcset="{%- if article.image.width >= 70 -%}{{ article.image | image_url: width: 70 }} 1x,{%- endif -%}
+											{%- if article.image.width >= 140 -%}{{ article.image | image_url: width: 140 }} 2x{%- endif -%}"
+										loading="lazy"
+									/>
+								{% if ratio != 0 %}
+									</div>
+								{% endif %}
+							{%- endif -%}
+						</div>
+						<div class="predictive-search-item-content">
+							<h3 class="predictive-search-item-heading">{{ article.title }}</h3>
+						</div>
+					</a>
+				</li>
+			{%- endfor -%}
+
+			{%- for page in predictive_search.resources.pages -%}
+				<li id="predictive-search-option-page-{{ forloop.index }}" class="predictive-search-list-item predictive-search-list-item-page" role="option" aria-selected="false">
+					<a href="{{ page.url }}" class="predictive-search-item predictive-search-item-link" tabindex="-1">
+						<div class="predictive-search-item-image-wrap"></div>
+						<div class="predictive-search-item-content">
+							<h3 class="predictive-search-item-heading">{{ page.title }}</h3>
+						</div>
+					</a>
+				</li>
+			{%- endfor -%}
+
+			{% assign term = predictive_search.terms | split: '+* ' | last %}
+			<li id="predictive-search-option-search-keywords" class="predictive-search-list-item predictive-search-list-item-term" role="option">
+				<button class="button predictive-search-item predictive-search-item-term" tabindex="-1">
+					{{ 'templates.search.search_for' | t: terms: term }}
+					{% render 'angle', direction: 'right' %}
+				</button>
+			</li>
+		</ul>
+
+		<div class="predictive-search-loading-state" aria-hidden="true">
+			<span class="spinner-xs"></span>
+		</div>
+	</div>
+
+	<span class="hidden" data-predictive-search-live-region-count-value>
+		{% liquid
+			assign results_count = predictive_search.resources.products.size | plus: predictive_search.resources.collections.size | plus: predictive_search.resources.articles.size | plus: predictive_search.resources.pages.size
+		%}
+		{%- if results_count == 0 -%}
+			{{ 'templates.search.no_results' | t: terms: predictive_search.terms }}
+		{%- else -%}
+			{{ 'templates.search.results_with_count_and_term' | t: terms: predictive_search.terms, count: results_count }}
+		{%- endif -%}
+	</span>
+{%- endif -%}

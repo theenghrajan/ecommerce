@@ -1,0 +1,44 @@
+{% comment %}
+    Renders a collection card.
+
+    Accepts:
+    - collection: {Object} Collection object
+    - title: {Boolean} Show the title. Default: true
+    - overlay: {Boolean} Show overlay. Default: true
+
+    Usage:
+    {% render 'card-collection' collection: collection, title: true, overlay: false %}
+{% endcomment %}
+
+<div class="grid-item">
+	<a href="{{ collection.url }}"
+		class="card-overlay card-overlay-sm card-height-half
+			{% unless overlay == false %}card-overlay-on{% else %}card-overlay-off{% endunless %}">
+		{% if collection.featured_image %}
+			<img
+				class="card-overlay-media"
+				srcset="{%- if collection.featured_image.width >= 250 -%}{{ collection.featured_image | image_url: width: 250 }} 250w,{%- endif -%}
+						{%- if collection.featured_image.width >= 480 -%}{{ collection.featured_image | image_url: width: 480 }} 480w,{%- endif -%}
+						{%- if collection.featured_image.width >= 650 -%}{{ collection.featured_image | image_url: width: 650 }} 650w,{%- endif -%}
+						{%- if collection.featured_image.width >= 700 -%}{{ collection.featured_image | image_url: width: 700 }} 700w,{%- endif -%}
+						{%- if collection.featured_image.width >= 950 -%}{{ collection.featured_image | image_url: width: 950 }} 950w,{%- endif -%}
+						{%- if collection.featured_image.width >= 1400 -%}{{ collection.featured_image | image_url: width: 1400 }} 1400w,{%- endif -%}
+						{{ collection.featured_image | image_url }} {{ collection.featured_image.width }}w"
+				sizes="(min-width: 1200px) 700px, (min-width: 990px) calc((100vw - 2rem - 3rem) / 2), calc((100vw - 3rem - 1rem) / 2)"
+				src="{{ collection.featured_image | image_url: width: 700 }}"
+				alt="{{ collection.featured_image.alt | escape }}"
+				width="{{ collection.featured_image.width }}"
+				height="{{ collection.featured_image.height }}"
+				loading="lazy"
+			/>
+		{% endif %}
+
+		{% unless title == false %}
+			<div class="card-overlay-info">
+				<h3 class="card-overlay-heading">
+					{{ collection.title }}
+				</h3>
+			</div>
+		{% endunless %}
+	</a>
+</div>

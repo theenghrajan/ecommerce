@@ -1,0 +1,70 @@
+{% comment %}
+ ===========================================================
+ LOGO BANNER — CLEAN VERSION
+ Author: Foremost Media
+===========================================================
+{% endcomment %}
+
+{{ 'component-logo-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="logo-banner-section">
+  {% if section.settings.heading %}
+    <h2 class="logo-banner-heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="logo-banner">
+    {% for block in section.blocks %}
+      {% if block.settings.logo_image %}
+        <div class="logo">
+          <img 
+            src="{{ block.settings.logo_image | image_url: width: 200, height: 200, crop: 'center' }}"
+            alt="{{ block.settings.logo_alt | escape | default: 'Partner logo' }}"
+            width="200"
+            height="200"
+            style="object-fit: contain;"
+          >
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Logo Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Our Partners"
+    }
+  ],
+  "blocks": [
+  {
+    "type": "logo",
+    "name": "Logo",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo_image",
+        "label": "Logo Image"
+      },
+      {
+        "type": "text",
+        "id": "logo_alt",
+        "label": "Alt Text",
+        "default": "Partner logo"
+      }
+    ]
+  }
+  ],
+  "max_blocks": 7,
+  "presets": [
+    {
+      "name": "Logo Banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

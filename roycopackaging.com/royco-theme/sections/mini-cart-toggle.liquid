@@ -1,0 +1,9 @@
+<drawer-toggle id="mini-cart-toggle" for="HeaderMiniCart" {% if template == 'cart' %}prevent-open="true"{% endif %}>
+	<a href="{{ routes.cart_url }}" class="head-slot-nav-link head-slot-cart-link">
+		<span class="visually-hidden">{{ 'sections.minicart.open' | t }}</span>
+		{% render 'icon-cart' %}
+		{%- if cart != empty -%}
+			<span class="head-slot-cart-link-quantity">{{ cart.item_count }}</span>
+		{%- endif -%}
+	</a>
+</drawer-toggle>

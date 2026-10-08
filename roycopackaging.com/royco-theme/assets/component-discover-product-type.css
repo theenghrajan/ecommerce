@@ -1,0 +1,203 @@
+/* ===========================
+   Discover Product Type Section
+   =========================== */
+.discover-product-type {
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0;
+}
+
+.discover-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+/* ===========================
+   Product Type Grid Layout
+   =========================== */
+.product-type-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+/* ===========================
+   Product Type Card
+   =========================== */
+.product-type-card {
+  position: relative;
+  flex: 1;
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: flex 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* --- Overlay Background Gradient --- */
+.product-type-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #001046 0%, #030A21 100%);
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* ===========================
+   Overlay (Vertical Title)
+   =========================== */
+.product-type-card .overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.product-type-card .overlay-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 3.8rem;
+  line-height: 3.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 1050px) {
+    .product-type-card .overlay-title {
+        position: unset;
+        transform: rotate(-90deg) translate(-240px, 0);
+        word-break: keep-all;
+        overflow-wrap: normal;
+        margin: 0;
+        min-height: 114px;
+        align-content: center;
+    }
+}
+
+/* ===========================
+   Card Inner Content
+   =========================== */
+.product-type-card .card-inner {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  padding: 40px 24px;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.product-type-card.is-open .card-inner,
+.product-type-card:hover .card-inner {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease 0.3s, transform 0.3s ease 0.3s;
+}
+
+/* ===========================
+   Card Content (Title, Text, Button)
+   =========================== */
+.product-type-card .card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.product-type-card .card-title {
+  color: #fff;
+  font-size: 3.8rem;
+  line-height: 3.8rem;
+  margin: 0 0 22px;
+  position: relative;
+}
+
+.product-type-card .card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+}
+
+.product-type-card .card-text {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.product-type-card .card-button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1.65rem;
+  font-weight: 400;
+  padding: 9px 27px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border 0.3s ease, color 0.3s ease;
+  width: fit-content;
+}
+
+.product-type-card .card-button:hover {
+  border: 1px solid #032963;
+  background-color: #032963;
+}
+
+/* ===========================
+   Card Interaction States
+   =========================== */
+.product-type-card.is-open {
+  flex: 3;
+}
+
+.product-type-card.is-open .overlay,
+.product-type-card:hover .overlay {
+  opacity: 0;
+}
+
+.product-type-card.is-open .overlay {
+  transition: none;
+}
+
+/* ===========================
+   Responsive Adjustments
+   =========================== */
+@media (max-width: 1050px) {
+    .product-type-card:not(.is-open) .card-content {
+    display: none;
+    }
+
+  .product-type-grid {
+    flex-direction: column;
+  }
+
+  .product-type-card {
+    width: 100%;
+    flex: 1 !important;
+  }
+
+  .product-type-card .card-title,
+  .product-type-card .overlay-title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+
+}

@@ -1,0 +1,241 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "colors_text": "#676767",
+    "colors_text_alt": "#232323",
+    "colors_lines": "#dadada",
+    "colors_background_1": "#ffffff",
+    "colors_background_2": "#ededed",
+    "colors_accent_1_text": "#ffffff",
+    "colors_accent_1": "#032963",
+    "colors_accent_2_text": "#ffffff",
+    "colors_accent_2": "#0B6CFF",
+    "colors_accent_3_text": "#ffffff",
+    "colors_accent_3": "#232323",
+    "color_badge_sale": "#CA4141",
+    "color_badge_instock": "#337239",
+    "color_badge_limitedstock": "#bd6b1b",
+    "color_badge_outofstock": "#922C2C",
+    "typography_headings": "roboto_n5",
+    "typography_headings_size": 100,
+    "typography_body": "roboto_n4",
+    "typography_body_size": 100,
+    "favicon": "shopify://shop_images/favicon-32x32.png",
+    "breadcrumbs_enabled": true,
+    "catalog_enabled": false,
+    "button_top_enabled": false,
+    "only_x_left": 0,
+    "sale_badge_mode": "percentage",
+    "predictive_search_enabled": true,
+    "predictive_search_limit": 4,
+    "search_filter_type": "tag",
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": true,
+    "predictive_search_unavailable": "last",
+    "predictive_search_collections": true,
+    "predictive_search_articles": true,
+    "predictive_search_pages": true,
+    "products_show_secondary_image": false,
+    "products_show_add_to_cart": false,
+    "products_two_column_mobile": true,
+    "product_image_ratio": "adapt",
+    "currency_code_enabled": true,
+    "checkout_logo_image": "shopify://shop_images/RoycoLogo_2.png",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "",
+          "link": "",
+          "menu": "",
+          "color_scheme": "accent-2"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/logo.png",
+          "logo_width": 240,
+          "promo_title": "1(800) 67-ROYCO",
+          "promo_text": "<p>sales@roycopackaging.com</p>",
+          "menu": "main-menu-redesign",
+          "menu_right": "",
+          "menu_mobile": "",
+          "menu_mobile_expand_on_arrow": false,
+          "enable_language_selector": true,
+          "enable_country_selector": true,
+          "enable_sticky_header": true,
+          "header_color_scheme": "background-1",
+          "navigation_color_scheme": "accent-1",
+          "navigation_submenu_color_scheme": "background-1",
+          "mobile_navigation_color_scheme": "background-1"
+        }
+      },
+      "header-features": {
+        "type": "header-features",
+        "settings": {
+          "inline": false,
+          "color_scheme": "background-2",
+          "spacing_top": 0,
+          "spacing_bottom": 0
+        }
+      },
+      "footer-features": {
+        "type": "footer-features",
+        "settings": {
+          "inline": false,
+          "color_scheme": "background-2",
+          "spacing_top": 46,
+          "spacing_bottom": 46
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "newsletter_enable": false,
+          "title": "Our newsletter",
+          "text": "Subscribe to our newsletter and receive special offers",
+          "consent_checkbox": false,
+          "consent_text": "I agree to receive marketing emails and special deals.",
+          "color_scheme": "accent-1",
+          "spacing_top": 30,
+          "spacing_bottom": 30
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "image": "shopify://shop_images/RoycoLogo_2.png",
+              "image_width": 160,
+              "text": "<p><strong>3979 Mann Road, Huntingdon Valley, PA 19006<br><a href=\"tel:800-677-6926\">800-677-6926</a><br>sales@roycopackaging.com<br>CAGE: 0LDR8<br>DUNS: 021055363</strong></p>"
+            }
+          },
+          "footer-1": {
+            "type": "menu",
+            "settings": {
+              "title": "Quick Links",
+              "menu": "footer"
+            }
+          },
+          "text_ftpfA3": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "image": "shopify://shop_images/iso-9001-compliance.webp",
+              "image_width": 140,
+              "text": ""
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1",
+          "text_ftpfA3"
+        ],
+        "settings": {
+          "payment_enable": true,
+          "show_social": false,
+          "color_scheme": "background-2"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "colors_text": "#676767",
+      "colors_text_alt": "#232323",
+      "colors_lines": "#dadada",
+      "colors_background_1": "#ffffff",
+      "colors_background_2": "#F8F8F8",
+      "colors_accent_1_text": "#ffffff",
+      "colors_accent_1": "#0244A9",
+      "colors_accent_2_text": "#ffffff",
+      "colors_accent_2": "#0B6CFF",
+      "colors_accent_3_text": "#ffffff",
+      "colors_accent_3": "#232323",
+      "color_badge_sale": "#CA4141",
+      "color_badge_instock": "#337239",
+      "color_badge_limitedstock": "#bd6b1b",
+      "color_badge_outofstock": "#922C2C",
+      "typography_headings": "roboto_n5",
+      "typography_headings_size": 100,
+      "typography_body": "roboto_n4",
+      "typography_body_size": 100,
+      "breadcrumbs_enabled": true,
+      "only_x_left": 3,
+      "sale_badge_mode": "sale",
+      "predictive_search_enabled": true,
+      "predictive_search_limit": 4,
+      "search_filter_type": "tag",
+      "predictive_search_show_vendor": true,
+      "predictive_search_show_price": false,
+      "predictive_search_unavailable": "last",
+      "predictive_search_collections": true,
+      "predictive_search_articles": true,
+      "predictive_search_pages": true,
+      "products_show_secondary_image": false,
+      "products_show_add_to_cart": false,
+      "products_two_column_mobile": true,
+      "product_image_ratio": "adapt",
+      "currency_code_enabled": false
+    },
+    "Spoke": {
+      "colors_text": "#676767",
+      "colors_text_alt": "#232323",
+      "colors_lines": "#dadada",
+      "colors_background_1": "#ffffff",
+      "colors_background_2": "#f8f8f8",
+      "colors_accent_1_text": "#ffffff",
+      "colors_accent_1": "#0f697c",
+      "colors_accent_2_text": "#ffffff",
+      "colors_accent_2": "#60a61b",
+      "colors_accent_3_text": "#ffffff",
+      "colors_accent_3": "#052830",
+      "color_badge_sale": "#CA4141",
+      "color_badge_instock": "#337239",
+      "color_badge_limitedstock": "#bd6b1b",
+      "color_badge_outofstock": "#922C2C",
+      "typography_headings": "fira_sans_n5",
+      "typography_headings_size": 100,
+      "typography_body": "roboto_n4",
+      "typography_body_size": 100,
+      "breadcrumbs_enabled": true,
+      "only_x_left": 3,
+      "sale_badge_mode": "percentage",
+      "predictive_search_enabled": true,
+      "predictive_search_limit": 8,
+      "search_filter_type": "vendor",
+      "predictive_search_show_vendor": true,
+      "predictive_search_show_price": true,
+      "predictive_search_unavailable": "last",
+      "predictive_search_collections": false,
+      "predictive_search_articles": false,
+      "predictive_search_pages": false,
+      "products_show_secondary_image": true,
+      "products_show_add_to_cart": true,
+      "products_two_column_mobile": true,
+      "product_image_ratio": "adapt",
+      "currency_code_enabled": false
+    }
+  }
+}

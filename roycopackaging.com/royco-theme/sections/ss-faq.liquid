@@ -1,0 +1,49 @@
+{%- liquid
+  case request.page_type
+    when 'collection'
+      assign faqs = collection.metafields.custom.ss_faqs.value
+    when 'product'
+      assign faqs = product.metafields.custom.ss_faqs.value
+    when 'page'
+      assign faqs = page.metafields.custom.ss_faqs.value
+    else
+      assign faqs = section.settings.faqs
+  endcase
+-%}
+{%- if faqs != blank -%}
+<div class="page-width ss-faq">
+  <h2>{{ section.settings.heading }}</h2>
+  {%- for faq in faqs -%}
+    <details class="ss-faq__item">
+      <summary>{{ faq.question }}</summary>
+      <div class="rte">{{ faq.answer | metafield_tag }}</div>
+    </details>
+  {%- endfor -%}
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for faq in faqs -%}
+    {
+      "@type": "Question",
+      "name": {{ faq.question.value | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq.answer | metafield_text | json }} }
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SS FAQs",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    { "type": "metaobject_list", "id": "faqs", "label": "FAQs (homepage only)", "metaobject_type": "ss_article_faqs", "limit": 20 }
+  ],
+  "presets": [{ "name": "SS FAQs" }]
+}
+{% endschema %}

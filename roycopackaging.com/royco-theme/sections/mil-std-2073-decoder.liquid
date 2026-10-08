@@ -1,0 +1,1187 @@
+{% comment %}
+  ============================================================================
+  MIL-STD-2073 CODE LOOKUP
+  Royco Packaging, Inc.  —  sections/mil-std-2073-decoder.liquid
+
+  WHAT THIS IS
+    A self-contained Shopify theme section that decodes MIL-STD-2073-1E
+    (w/CHANGE 4) Appendix J packaging codes. One lookup box per Appendix J
+    table. Results give the full requirement, not just the table line, and
+    hyperlink every referenced specification to the matching Royco
+    collection or product.
+
+  INSTALL
+    1. Shopify admin > Online Store > Themes > ... > Edit code
+    2. Sections > Add a new section > name it  mil-std-2073-decoder
+    3. Replace the generated contents with this entire file, Save
+    4. Open the page you want it on in the Theme Editor > Add section >
+       "MIL-STD-2073 Code Lookup"
+
+  TEXT SIZE
+    Theme Editor > Appearance > "Base text size". Everything in the section
+    scales from that one number.
+
+  MAINTAINING THE PRODUCT LINKS
+    Search this file for  specLinks:  (near the top of the <script> block).
+    That object maps a specification designator to a collection handle.
+    Change a handle there and every link that mentions that spec updates
+    everywhere in the tool. A handle left blank ("") renders as plain text
+    rather than a link that 404s.
+
+  SOURCE
+    MIL-STD-2073-1E w/CHANGE 4. Code tables from Appendix J, Tables J-I
+    through J-X. Method of preservation detail from section 5.2.3.
+  ============================================================================
+{% endcomment %}
+
+<div
+  class="royco-2073"
+  id="royco-2073-{{ section.id }}"
+  data-collection-root="{{ section.settings.collection_root | escape }}"
+  data-product-root="{{ section.settings.product_root | escape }}"
+>
+  <div class="royco-2073__inner">
+
+    {% if section.settings.heading != blank %}
+      <h1 class="royco-2073__heading">{{ section.settings.heading | escape }}</h1>
+    {% endif %}
+
+    {% if section.settings.intro != blank %}
+      <div class="royco-2073__intro rte">{{ section.settings.intro }}</div>
+    {% endif %}
+
+    <div class="royco-2073__grid" data-role="field-grid"></div>
+
+    {% if section.settings.disclaimer != blank %}
+      <div class="royco-2073__disclaimer rte">{{ section.settings.disclaimer }}</div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% style %}
+  #royco-2073-{{ section.id }} {
+    --rc-ink:    {{ section.settings.color_ink }};
+    --rc-muted:  {{ section.settings.color_muted }};
+    --rc-accent: {{ section.settings.color_accent }};
+    --rc-bg:     {{ section.settings.color_bg }};
+    --rc-panel:  {{ section.settings.color_panel }};
+    --rc-line:   {{ section.settings.color_line }};
+    --rc-radius: 10px;
+    /* Every size in the section is derived from this one number, set in
+       Theme Editor > Appearance > Base text size. */
+    --rc-fs:     {{ section.settings.text_size }}px;
+  }
+  #royco-2073-{{ section.id }} {
+    background: var(--rc-bg);
+    color: var(--rc-ink);
+    padding: {{ section.settings.padding_top }}px 1.25rem {{ section.settings.padding_bottom }}px;
+    font-size: var(--rc-fs);
+  }
+{% endstyle %}
+
+<style>
+  .royco-2073 *, .royco-2073 *::before, .royco-2073 *::after { box-sizing: border-box; }
+  .royco-2073__inner { max-width: 1180px; margin: 0 auto; }
+
+  .royco-2073__heading {
+    margin: 0 0 .5em;
+    font-size: calc(var(--rc-fs) * 2);
+    line-height: 1.15;
+  }
+  .royco-2073__intro {
+    margin: 0 0 2em;
+    max-width: 62ch;
+    font-size: calc(var(--rc-fs) * 1.06);
+    line-height: 1.6;
+    color: var(--rc-muted);
+  }
+  .royco-2073__intro p:last-child { margin-bottom: 0; }
+
+  /* ---- card grid ---- */
+  .royco-2073__grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+    align-items: start;
+  }
+  .royco-2073__card {
+    border: 1px solid var(--rc-line);
+    border-radius: var(--rc-radius);
+    background: var(--rc-panel);
+    padding: 1.15rem 1.2rem 1.2rem;
+  }
+  .royco-2073__cardhead {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: .6rem; margin-bottom: .7em;
+  }
+  .royco-2073__cardtitle {
+    margin: 0; font-weight: 650; line-height: 1.25;
+    font-size: calc(var(--rc-fs) * 1.12);
+  }
+  .royco-2073__tablabel {
+    font-size: calc(var(--rc-fs) * .78);
+    color: var(--rc-muted); letter-spacing: .07em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+
+  .royco-2073__input {
+    display: block; width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * 1.25);
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--rc-ink); background: var(--rc-bg);
+    border: 1.5px solid var(--rc-line); border-radius: 8px;
+    padding: .55em .6em;
+  }
+  .royco-2073__input::placeholder {
+    letter-spacing: normal; text-transform: none;
+    font-family: inherit; font-size: calc(var(--rc-fs) * .8); color: var(--rc-muted);
+  }
+  .royco-2073__input:focus-visible {
+    outline: 2px solid var(--rc-accent); outline-offset: 1px; border-color: var(--rc-accent);
+  }
+
+  /* ---- result ---- */
+  .royco-2073__cardres {
+    margin-top: .8em;
+    font-size: calc(var(--rc-fs) * 1);
+    line-height: 1.62;
+  }
+  .royco-2073__cardres a {
+    color: var(--rc-accent); text-decoration: underline; text-underline-offset: 2px;
+  }
+  .royco-2073__cardres--err { color: #b3352a; }
+  .royco-2073__cardres--idle { color: var(--rc-muted); font-size: calc(var(--rc-fs) * .9); }
+
+  /* The table line reads as the headline; 5.2.3 detail follows as prose. */
+  .royco-2073__lead { font-weight: 650; }
+  .royco-2073__detail { margin-top: .45em; display: block; }
+
+  /* ---- long procedural text: clamped, never truncated ---- */
+  .royco-2073__longinner { position: relative; max-height: 11em; overflow: hidden; }
+  .royco-2073__longinner::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.4em;
+    background: linear-gradient(to bottom, transparent, var(--rc-panel));
+    pointer-events: none;
+  }
+  .royco-2073__long.is-open .royco-2073__longinner { max-height: none; }
+  .royco-2073__long.is-open .royco-2073__longinner::after { display: none; }
+  .royco-2073__more {
+    margin-top: .5em; font-family: inherit; font-weight: 650;
+    font-size: calc(var(--rc-fs) * .92);
+    color: var(--rc-accent); background: none; border: 0; padding: 0;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  }
+  .royco-2073__more::after { content: " ▾"; text-decoration: none; }
+  .royco-2073__long.is-open .royco-2073__more::after { content: " ▴"; }
+
+  /* ---- Royco products ---- */
+  .royco-2073__stock {
+    display: block; margin-top: .75em; padding-top: .65em;
+    border-top: 1px dashed var(--rc-line);
+    font-size: calc(var(--rc-fs) * .94); line-height: 1.6;
+  }
+  .royco-2073__stock strong { color: var(--rc-ink); font-weight: 650; }
+  .royco-2073__stock a { display: inline-block; margin: .15em .55em .15em 0; }
+
+  /* ---- browse ---- */
+  .royco-2073__browse {
+    margin-top: .8em; font-family: inherit;
+    font-size: calc(var(--rc-fs) * .92);
+    color: var(--rc-muted); background: none; border: 0; padding: 0;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  }
+  .royco-2073__browse:hover { color: var(--rc-ink); }
+  .royco-2073__list {
+    margin-top: .7em; max-height: 20rem; overflow-y: auto;
+    border-top: 1px solid var(--rc-line);
+  }
+  .royco-2073__listitem {
+    display: grid; grid-template-columns: 3.5rem 1fr; gap: .6rem;
+    width: 100%; text-align: left; font-family: inherit;
+    font-size: calc(var(--rc-fs) * .92); line-height: 1.5;
+    background: none; border: 0; border-bottom: 1px solid var(--rc-line);
+    padding: .55em .3em; cursor: pointer; color: inherit;
+  }
+  .royco-2073__listitem:hover { background: var(--rc-bg); }
+  .royco-2073__listitem code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 650; color: var(--rc-accent);
+  }
+  .royco-2073__listitem span { color: var(--rc-muted); }
+
+  .royco-2073__disclaimer {
+    margin-top: 2em; max-width: 78ch;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.6; color: var(--rc-muted);
+  }
+  .royco-2073__disclaimer p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 700px) {
+    .royco-2073__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% raw %}
+<script>
+(function () {
+  "use strict";
+
+  /* == DATA ================================================================ */
+  /* ============================================================
+     MIL-STD-2073-1E w/CHANGE 4 — Appendix J code tables
+     Data block. Kept separate during authoring, inlined into the
+     Shopify section at build time.
+     ============================================================ */
+  var MS2073 = {
+
+  /* ---- Spec designator -> Royco collection handle -------------
+     VERIFIED against roycopackaging.com/collections.json.
+     Every handle below is a live collection on the store.
+     An empty string means "Royco has no collection for this spec yet" —
+     the designator renders as plain text, not a broken link. Create the
+     collection, drop its handle in here, and the links light up
+     everywhere the spec is mentioned.
+
+     Specs currently unlinked, in rough order of how often they appear in
+     Appendix J results:
+       PPP-C-795 / A-A-3129 / PPP-C-1797 / A-A-1898  (cushioning)
+       MIL-PRF-26514 / A-A-59136                     (foam)
+       MIL-PRF-16173                                 (CP compounds)
+       MIL-STD-129                                   (labels)
+       A-A-203 / MIL-P-130 / QQ-A-1876 / A-A-3174    (wraps, foil, poly)
+       ASTM D4727 / ASTM D5168                       (other fiberboard)
+     ------------------------------------------------------------ */
+  specLinks: {
+    "MIL-DTL-117":           "in-stock-heat-seal-barrier-bags",
+    "MIL-PRF-131":           "mil-prf-131",
+    "MIL-PRF-121":           "mil-prf-121",
+    "MIL-PRF-81705":         "mil-prf-81705",
+    "MIL-PRF-22191":         "mil-prf-22191",
+    "MIL-PRF-3420":          "mil-prf-3420",
+    "MIL-DTL-17667":         "mil-dtl-17667",
+    "MIL-D-3464":            "mil-d-3464",
+    "MIL-DTL-22020":         "corrosion-protection",
+    "MIL-PRF-22019":         "corrosion-protection",
+    "MIL-DTL-6060":          "in-stock-heat-seal-barrier-bags",
+    "MIL-DTL-81997":         "static-control-materials",
+    "ASTM D5486":            "mil-spec-tapes",
+    "ASTM D5118/D5118M":     "astm-d5118-v3c-and-w5c-boxes",
+    "ASTM D5118":            "astm-d5118-v3c-and-w5c-boxes",
+
+    "MIL-PRF-26514":         "",
+    "MIL-PRF-16173":         "",
+    "A-A-3129":              "",
+    "PPP-C-795":             "",
+    "PPP-C-1797":            "",
+    "A-A-1898":              "",
+    "A-A-59136":             "",
+    "A-A-3174":              "",
+    "A-A-203":               "",
+    "MIL-P-130":             "",
+    "QQ-A-1876":             "",
+    "ASTM D4727/D4727M":     "",
+    "ASTM D4727":            "",
+    "ASTM D5168":            "",
+    "MIL-STD-129":           ""
+  },
+
+  /* Display names for the "Royco supplies" links. A handle with no entry
+     here falls back to a title-cased version of the handle itself.  */
+  linkLabels: {
+    "in-stock-heat-seal-barrier-bags":          "In-Stock Heat Seal Barrier Bags",
+    "mil-prf-131":                              "MIL-PRF-131 Barrier Material",
+    "mil-prf-121":                              "MIL-PRF-121",
+    "mil-prf-81705":                            "MIL-PRF-81705",
+    "mil-prf-22191":                            "MIL-PRF-22191",
+    "mil-prf-3420":                             "MIL-PRF-3420 VCI Wrapping",
+    "mil-dtl-17667":                            "MIL-DTL-17667 Wrapping Paper",
+    "mil-d-3464":                               "MIL-D-3464 Desiccant",
+    "desiccants":                               "Desiccants & Moisture Control",
+    "bulk-desiccant":                           "Bulk Desiccant",
+    "capsules-cannisters":                      "Capsules & Cannisters",
+    "static-control-materials":                 "ESD Protection",
+    "corrosion-protection":                     "Volatile Corrosion Inhibitors",
+    "grease-water-vapor-proof-barrier-materials":"Roll Stock & Barrier Materials",
+    "astm-d5118-v3c-and-w5c-boxes":             "ASTM D5118 V3c & W5c Boxes",
+    "mil-spec-tapes":                           "ASTM D5486 Packaging Tape",
+    "tapes":                                    "MIL-SPEC Packaging Tapes",
+    "wax-wraps":                                "Industrial Wax & Barrier Wraps",
+
+    "product:specpack-1e1-foil-watervaporproof-barrier-bags": "SpecPack 1E1 — Foil Watervaporproof Bags",
+    "product:specpack-2-c-1-greaseproof-barrier-bags":        "SpecPack 2C1 — Medium Duty Greaseproof Bags",
+    "product:specpack-light-duty-greaseproof-barrier-bags":   "SpecPack 3C1 — Light Duty Greaseproof Bags",
+    "product:specpack-1f1":                                   "SpecPack 1F1 — ESD Watervaporproof Bags",
+    "product:static-shield-bags":                             "Commercial Static Shield Bags"
+  },
+
+  /* Extra links attached to specific codes where the descriptive text
+     names no stocked specification, or where Royco has an exact product
+     match for the code. Prefix a handle with "product:" to link a single
+     product instead of a collection.
+
+     The SpecPack entries below are exact matches: a J-VII container code
+     is a MIL-DTL-117 Type/Class/Style combination, and SpecPack part
+     numbers use that same Type/Class/Style scheme. B9 really is 1F1.   */
+  extraLinks: {
+    "J-I":   { "50": ["desiccants","mil-d-3464"],
+               "51": ["desiccants","in-stock-heat-seal-barrier-bags"],
+               "52": ["desiccants","in-stock-heat-seal-barrier-bags"],
+               "53": ["desiccants","in-stock-heat-seal-barrier-bags"],
+               "54": ["desiccants"],
+               "55": ["desiccants"],
+               "31": ["in-stock-heat-seal-barrier-bags"],
+               "32": ["in-stock-heat-seal-barrier-bags"],
+               "33": ["in-stock-heat-seal-barrier-bags","mil-prf-121"],
+               "41": ["in-stock-heat-seal-barrier-bags","mil-prf-131"],
+               "42": ["in-stock-heat-seal-barrier-bags","mil-prf-131"],
+               "43": ["in-stock-heat-seal-barrier-bags","mil-prf-131"] },
+    "J-Ia":  { "DW": ["desiccants","mil-prf-131"],
+               "GX": ["product:specpack-1f1","static-control-materials"],
+               "GS": ["corrosion-protection"] },
+    "J-IV":  { "K3": ["mil-prf-81705","static-control-materials"],
+               "MB": ["mil-prf-3420"] },
+    "J-VII": { "BS": ["product:specpack-1e1-foil-watervaporproof-barrier-bags"],
+               "BE": ["product:specpack-2-c-1-greaseproof-barrier-bags"],
+               "BV": ["product:specpack-light-duty-greaseproof-barrier-bags"],
+               "B9": ["product:specpack-1f1"],
+               "BT": ["corrosion-protection"],
+               "SH": ["in-stock-heat-seal-barrier-bags"] }
+  },
+
+  /* ---- Field definitions, in packaging-code sequence ---------- */
+  fields: [
+    { key:"J-I",    pos:[1,2],   len:2, label:"Method of Preservation",        table:"J-I",    also:"J-Ia", ref:"J.4.2" },
+    { key:"J-II",   pos:[3,3],   len:1, label:"Cleaning Procedure",            table:"J-II",   ref:"J.4.4" },
+    { key:"J-III",  pos:[4,5],   len:2, label:"Preservative Material",         table:"J-III",  ref:"J.4.5" },
+    { key:"J-IV",   pos:[6,7],   len:2, label:"Wrapping Material",             table:"J-IV",   ref:"J.4.6" },
+    { key:"J-V",    pos:[8,9],   len:2, label:"Cushioning &amp; Dunnage",      table:"J-V",    ref:"J.4.7" },
+    { key:"J-VI",   pos:[10,10], len:1, label:"Cushioning Thickness",          table:"J-VI",   ref:"J.4.8" },
+    { key:"J-VII",  pos:[11,12], len:2, label:"Unit Container",                table:"J-VII",  ref:"J.4.9" },
+    { key:"J-VIIb", pos:[13,14], len:2, label:"Intermediate Container",        table:"J-VII",  ref:"J.4.12" },
+    { key:"J-VIII", pos:[15,15], len:1, label:"Unit Container Level",          table:"J-VIII", ref:"J.4.10" },
+    { key:"J-X",    pos:[16,17], len:2, label:"Special Marking",               table:"J-X",    ref:"J.4.14" },
+    { key:"J-IX",   pos:[18,18], len:1, label:"Level A Packing",               table:"J-IX",   ref:"J.4.13" },
+    { key:"J-IXa",  pos:[19,19], len:1, label:"Level B Packing",               table:"J-IXa",  ref:"J.4.13" },
+    { key:"J-IXb",  pos:[20,20], len:1, label:"Minimal Packing",               table:"J-IXb",  ref:"J.4.13" }
+  ],
+
+  /* Standalone tables not part of the 20-character sequence */
+  extraFields: [
+    { key:"J-VIIIa", label:"Optional Procedure Indicator", table:"J-VIIIa", ref:"J.4.10" }
+  ],
+
+  tables: {
+
+  "J-I": {
+    title:"Table J-I — Methods of preservation codes",
+    note:"Codes 30, 40 and 50 are the family headings; the two-digit codes beneath each are the specific methods. Detail text is from section 5.2.3 of the standard.",
+    rows:[
+    ["10","Physical protection",
+     "The unpreserved item is protected from physical damage and mechanical malfunction. Cushioning, dunnage, blocking and bracing are applied as required to protect the item and the enclosing media and to restrict movement of the item within the container. All blocking and bracing, and its design and application, must be compatible with the item and its bearing load limitations. Materials are to be as clean and dry as practicable."],
+    ["20","Preservative coating",
+     "The item is treated with the appropriate preservative, then wrapped in material conforming to MIL-PRF-121 or QQ-A-1876. Flexible wraps snugly enclose the coated item and are secured to prevent unintentional unwrapping. Items coated with hard film preservative conforming to MIL-PRF-16173, Grade 1 or 4 may be exempted from wrapping once dried. Projections, sharp edges or other features that could damage the wrap are cushioned as required."],
+    ["30","Waterproof protection (family heading)",
+     "Basic group. The item is heat sealed within a waterproof or waterproof-greaseproof bag, with preservative applied as required. Projections, sharp edges or other physical characteristics that could damage the barrier are cushioned, and the item is also cushioned as required to mitigate shock and vibration."],
+    ["31","Waterproof bag, heat sealed",
+     "The preserved, wrapped and cushioned item is enclosed in a heat-sealed bag conforming to MIL-DTL-117, Type III, Class B, Style 2. When the contract or order calls for a carton or box to effect the unit container, the primary cushioning is placed between the outside of the bag and the inside of the carton or box."],
+    ["32","Container, waterproof bag, heat sealed",
+     "The preserved, wrapped and cushioned item is enclosed in a close fitting container (box) selected from table C-I, which in turn is enclosed in a heat-sealed waterproof bag conforming to MIL-DTL-117, Type III, Class B, Style 2."],
+    ["33","Greaseproof-waterproof bag, heat sealed",
+     "The preserved, wrapped and cushioned item is enclosed in a close fitting heat-sealed bag conforming to MIL-DTL-117, Type II, Class C, Style 1, 2 or 3. When the contract or order calls for a carton or box to effect the unit container, the primary cushioning is placed between the outside of the bag and the inside of the carton or box."],
+    ["40","Watervaporproof protection (family heading)",
+     "Basic group. The item is heat sealed within a watervaporproof enclosure, with preservative applied as required. Projections, sharp edges or other physical characteristics that could damage the enclosure are cushioned, and the item is also cushioned as required to mitigate shock and vibration."],
+    ["41","Watervaporproof bag, heat sealed",
+     "The preserved, wrapped and cushioned item is enclosed in a close fitting heat-sealed bag conforming to one of: MIL-DTL-117, Type I, Class E, Style 1, 2 or 3; MIL-DTL-117, Type I, Class F, Style 1 (ESD sensitive items only); MIL-DTL-117, Type II, Class E, Style 1; or MIL-DTL-117, Type IV, Class E, Style 1. Where Type II, Class E, Style 1 bags are selected they are limited to the restrictions detailed in MIL-PRF-131 for Class 2 material."],
+    ["42","Container, watervaporproof bag, heat sealed, container",
+     "The preserved, wrapped and cushioned item is enclosed in a close fitting inner container (box) selected from table C-I, then enclosed in a heat-sealed bag conforming to MIL-DTL-117, Type I, Class E, Style 1 or Type II, Class E, Style 1. Bags conforming to MIL-DTL-6060 are used when the construction limitations of MIL-DTL-117 are exceeded. The sealed bag is then enclosed within an appropriate outer container (box) selected from table C-II."],
+    ["43","Floating watervaporproof bag, heat sealed",
+     "The preserved, wrapped and cushioned item, anchored or shock mounted as necessary, is enclosed in a heat-sealed bag conforming to MIL-DTL-6060."],
+    ["44","Rigid container (other than metal), sealed",
+     "The preserved, wrapped and cushioned item is enclosed in a sealed, snug fitting rigid container other than all metal. Any such container may be used provided the sealed container gives a water vapor transmission rate not exceeding 0.075 gram per 100 square inches per 24 hours when tested in accordance with ASTM D4279."],
+    ["45","Rigid metal container, sealed",
+     "The preserved, wrapped and cushioned item is snugly enclosed in a sealed rigid metal container. Any type of rigid metal container with a machine seamed or gasketed closure may be used. The container is vacuum sealed when specified in the contract or purchase order, or when dictated by the requirements of the item."],
+    ["50","Watervaporproof protection with desiccant (family heading)",
+     "Basic group. The item is heat sealed in a watervaporproof enclosure with activated desiccant, and every unit pack in this group also includes a humidity indicator. Desiccant conforms to MIL-D-3464, Type I unless Type II or III is specified, in standard unit sized bags, strategically placed so it is not load bearing and never in direct contact with critical surfaces of the item. Quantity is computed by Formula I or II. Humidity indicators conform to MS20003, secured directly behind the inspection window or immediately within the closure seal; externally mounted indicators conform to SAE AS26860. Where bags are used they are sized with enough surface area to permit two subsequent resealings after item inspection."],
+    ["51","Watervaporproof bag, heat sealed, with desiccant",
+     "The preserved, wrapped, cushioned and desiccated item, with humidity indicator, is enclosed in a heat-sealed bag conforming to one of: MIL-DTL-117, Type I, Class E, Style 1, 2 or 3; MIL-DTL-117, Type II, Class E, Style 1; or MIL-DTL-117, Type IV, Class E, Style 1. Where Type II, Class E, Style 1 bags are selected they are limited to the restrictions detailed in MIL-PRF-131 for Class 2 material."],
+    ["52","Container, watervaporproof bag, heat sealed, container, with desiccant",
+     "The preserved, wrapped, cushioned and desiccated item, with humidity indicator, is enclosed in a close fitting inner container (box) selected from table C-I, then enclosed in a heat-sealed bag conforming to MIL-DTL-117, Type I, Class E, Style 1; Type II, Class E, Style 1; or Type IV, Class E, Style 1. Bags conforming to MIL-DTL-6060 are used when the construction limitations of MIL-DTL-117 are exceeded. The sealed bag is then enclosed within an appropriate outer container (box) selected from table C-II."],
+    ["53","Floating watervaporproof bag, heat sealed, with desiccant",
+     "The preserved, wrapped, cushioned and desiccated item, with humidity indicator, anchored or shock mounted as necessary, is enclosed in a sealed bag conforming to MIL-DTL-6060. When specified, a window of MIL-PRF-22191, Type I material is provided in the bag for packs of 15 cubic feet or larger, and externally mounted plug type humidity indicators conforming to SAE AS26860 are used. Where an exterior container is placed over the floating bag, a removable inspection port is provided to coincide with the inspection window or humidity plug."],
+    ["54","Rigid container (other than metal), sealed, with desiccant",
+     "The preserved, wrapped, cushioned and desiccated item, with humidity indicator, is enclosed in a sealed, close fitting rigid container other than all metal. Any such container may be used provided it gives a water vapor transmission rate not exceeding 0.075 gram per 100 square inches per 24 hours when tested in accordance with ASTM D4279 using the constant atmosphere method."],
+    ["55","Rigid metal container, sealed, with desiccant",
+     "The preserved, wrapped, cushioned and desiccated item, with humidity indicator, is enclosed in a sealed, close fitting metal container. Any type of rigid metal container with a machine seamed or welded closure, or a reusable container with a gasketed or threaded closure, is used."],
+    ["ZZ","See J.4.1.b",
+     "Supplementary or special requirements apply which are not represented by the code symbols. Details of the requirement must be provided with the acquisition document."]
+  ]},
+
+  "J-Ia": {
+    title:"Table J-Ia — Specialized preservation codes",
+    note:"Specialized preservation codes are typically all-inclusive for preserving an item. All requirement-code digits after the method of preservation enhance the 1st and 2nd digits.",
+    rows:[
+    ["AE","Seal or plug all openings and preserve by Method 10."],
+    ["AH","Preserve Method 20 as follows: Fog spray or flush internally with preservative indicated by preservation code. All openings shall then be plugged or sealed to prevent entrance of dirt and moisture. Exterior unpainted ferrous metal surfaces shall be coated with a suitable paint or enamel, or coated with cold application, nontacky, corrosion preventive compound conforming to MIL-PRF-16173, Grade 4."],
+    ["AU","Preservative compounds shall not be applied to windings, commutators or peripheries of armatures or rotors. Shafts shall be coated with MIL-PRF-16173, Grade 2 preservative and wrapped with MIL-PRF-121 material, secured in place with ASTM D5486 tape. Commutators shall be wrapped with MIL-PRF-121 material, held in place with ASTM D5486 tape. Exposed surfaces of steel collector rings shall be coated with MIL-PRF-16173, Grade 2 preservative. No preservative is required for bronze, brass or corrosion resisting metals. All collector rings shall be wrapped with MIL-PRF-121 material, secured in place with ASTM D5486 tape. Corrodible surfaces, except shafts, commutators, and collector rings, may be preserved by the use of insulating varnish applied during the manufacturing process. In addition to the foregoing requirements, armatures and rotors shall be wrapped with MIL-PRF-121 material, secured with ASTM D5486 tape."],
+    ["AW","Preserve in accordance with any of the following alternate methods (used for gaskets and similar items): (a) Seal in bags conforming to Class B, C or E of MIL-DTL-117, using stiffening material internally if needed to maintain rigidity. (b) Preservation method 42 or 44. (c) Place between sheet of, or in fold of, corrugated fiberboard of sufficient stiffness to resist bending, overwrap with waterproof wrapping paper conforming to PPP-B-1055 and seal with pressure sensitive tape conforming to ASTM D5486 or adhesive conforming to MMM-A-260. Authorization to use other waterproof barrier materials may be granted upon request."],
+    ["BC","Preserve by Method 20 as follows: Coat all pieces of set with preservative compound conforming to MIL-PRF-16173, Grade 4. Wrap or bag each preserved piece individually in MIL-PRF-121 material. Cushion or segregate individually wrapped or bagged pieces in the storage container to prevent movement and possible physical damage. (Segregated identical pieces, such as buckets and seal strips, are to be kept as close together in the container as possible to facilitate ease of counting.) Individually preserved, wrapped or bagged pieces need not be identified since container markings are in accordance with MIL-STD-129. Itemized packing lists for inclusion within or attachment to the outside of the container shall be furnished in accordance with MIL-STD-129. The lists shall show quantity and nomenclature of all items included in the set. (Used for turbine blade sets and similar items.)"],
+    ["BD","Remove parts made of rubber, fiber, or nonmetallic materials adversely affected by preservative compounds and package by Method 41 without a preservative. Preserve metal parts of assembly to conform to the requirements of Method 40. Mark the bag containing nonmetallic parts “Parts for Assembly” and include it within, or securely attached to, the pack containing metal parts in a manner which will assure its being found when the pack is opened. (Use for couplings and similar items.)"],
+    ["BL","Plug or seal all openings and preserve using Method 20."],
+    ["DB","Preserve by Method 10 modified as follows: Preserve in transparent barrier bag made of A-A-3174 or Type III MIL-PRF-22191 material. A-A-3174 or MIL-PRF-22191, Type III material, A-A-3129 or PPP-C-795 cushioning shall be used to cushion sharp edges and protrusions of the preserved items. Bag closure shall be made by any suitable means, except that staples shall not be used. When use of a bag is not practicable, the item shall be completely wrapped in the above barrier or cushioning material and secured with pressure sensitive tape. Also, the use of shaped or molded packs utilizing MIL-PRF-22191 or A-A-3174 materials in conjunction with plastic coated board is acceptable provided the pack’s cube is not increased and the pack meets the tests specified in Appendix G. Strip or block form of multiple packages shall incorporate provisions for separating unit quantities."],
+    ["DC","Preserve by Method 20 modified as follows: Preserve in a transparent barrier wrap made of Type II, MIL-PRF-22191 barrier material, or bag conforming to Type II, Class C, Style 2 of MIL-DTL-117. MIL-PRF-22191, Type II barrier material shall be used to cushion sharp edges and protrusions of item to prevent bag puncture. A-A-3129 or PPP-C-795 may also be used to cushion sharp edges and protrusions if item is first wrapped in MIL-PRF-22191, Type II barrier material. The bag closure shall be made by any suitable means, except that staples shall not be used. Also, the use of shaped, preformed or molded packages utilizing MIL-PRF-22191 or A-A-3174 materials in conjunction with plastic coated board is acceptable, provided that the package cube is not increased and materials are compatible with preservative specified. However, these packages shall be capable of meeting the tests specified in Appendix G. Strip or block form of multiple packages shall incorporate provisions for separating unit quantities."],
+    ["DR","Preserve by Method 30 as follows: Each unit shall have all internal fluid-carrying passages, which are not prelubricated, filled with the specified preservative, allowing space for internal thermal expansion. If filling is not practical, the unit shall be internally fog-sprayed or flushed, then drained to the drip point. All ports, fittings, openings, etc., shall be capped or plugged with noncorrosive (non-interacting) metal caps or plugs conforming to NAS 847 or equivalent. All hydraulic preservative operating fluid used shall be filtered through a 3 micron absolute filter prior to being used as specified above. Exterior bare metal surfaces, subject to corrosion, shall be coated with compound conforming to MIL-PRF-16173, Grade 2 or MIL-C-11796, Class 3. Unit shall be wrapped with a greaseproof wrap conforming to MIL-PRF-121 or equivalent; seal seams with ASTM D5486 tape to effect a measure of waterproofness and prevent unwrapping. The unit must be adequately cushioned with material specified and placed in a grade V3c container fabricated in accordance with ASTM D5118/D5118M (as a minimum), Style FOL or CSSC. All seams, corners, and manufacturer’s joint shall be tape-sealed with two inch tape conforming to ASTM D5486, Type III or IV."],
+    ["DW","Preserve by Method 52 as follows: Item shall be cleaned, wrapped, blocked and braced, with desiccant in an interior fiberboard box fabricated in accordance with ASTM D5118/D5118M, Class domestic. Desiccant shall be placed inside the fiberboard box. A humidity indicator shall be placed on the outside of the fiberboard box. MIL-PRF-131 barrier material, sealed as required, shall be utilized around the first container. The cushioning, to be specified under the cushioning code and in the thickness required to adequately protect the item, shall be placed between the barrier and the outer container."],
+    ["EK","Preserve by Method 10 as follows: Each bolt shall have the shank and threads protected by means of a sleeve extending over the full length of the shank and thread. The sleeve shall be manufactured from paperboard, asphalt impregnated chipboard, or spiral wrap of kraft paper over chipboard, lined with material conforming to MIL-PRF-121. Plastic sleeve coverings may also be used."],
+    ["GS","Preserve by Method 33 (modified) in a transparent, flexible, sealable, volatile corrosion inhibitor treated bag conforming to MIL-DTL-22020. The interleaf furnished inside each Class 2, cold sealable bag shall be withdrawn after inserting item and prior to final sealing in accordance with MIL-DTL-22020. Items with sharp edges or protrusions shall be wrapped with sufficient layers of transparent, flexible, pressure (cold) sealable volatile corrosion inhibitor barrier material conforming to MIL-PRF-22019, Type II to prevent bag puncture. The latex coated (nonprinted) side of the barrier material shall always be facing the item. Alternately, the item may be completely wrapped with transparent, flexible, pressure (cold) sealable volatile corrosion inhibitor barrier material conforming to MIL-PRF-22019, Type II as indicated above and further preserved in a transparent barrier bag conforming to Type II, Class C, Style 2 of MIL-DTL-117. Closure shall be by heat-sealing when this alternate method is used. In addition to markings required elsewhere in the contract, unit identification and caution labels shall be in accordance with MIL-STD-129."],
+    ["GX","Preserve by Method 41 using an approved ESD control program (see 5.2.4.1.1) as follows: Items subject to damage by electromagnetic and electrostatic field forces shall be initially wrapped in material conforming to MIL-PRF-81705, Type III, or bags conforming to MIL-DTL-117, Type II, Class H, Style 2, and sufficiently cushioned in material conforming to A-A-3129, Type I, Grade B or PPP-C-795, Class 2 or MIL-DTL-81997, Type II or PPP-C-1797, Type II or A-A-59136, Class 1, Grade B or MIL-PRF-26514, Type III, Class 2, to protect item and to prevent bag puncture, and unit packed in a heat-sealed bag conforming to MIL-DTL-117, Type I, Class F, Style 1. Alternately if applicable, reclosable cushioned pouches conforming to MIL-DTL-81997, Type I may be used in lieu of initial wrap and cushioning. Lead or terminal configurations for all items shall be maintained as manufactured without causing loads or stresses capable of causing damage to the item. Materials used to maintain item position and lead or terminal configuration shall permit item removal without damage to the item. Electrostatic discharge (ESD) sensitive caution labels shall be applied in accordance with MIL-STD-129."],
+    ["HM","Packaging and marking for hazardous materials shall comply with applicable requirements for Performance Oriented Packaging contained in the International Air Transport Association (IATA) Dangerous Goods Regulations or the International Maritime Dangerous Goods Code (IMDG) and with Code of Federal Regulations (CFR) Title 29, Title 40 and Title 49. All performance test requirements shall be supported by certificates and reports attesting to the date and the results obtained from performance oriented packaging testing. The contractor, if not a self-certifier, shall be responsible for assuring that third party sources providing performance testing services are, in fact, registered with the Department of Transportation. The contractor’s signed certification that the packaged configuration meets IATA or IMDG requirements shall be incorporated on the DD Form 250, Material Inspection and Receiving Report, and other related acceptance document if the DD Form 250 is not used. All certificates and reports shall be available for inspection by authorized Government representatives for a period of three years."],
+    ["JF","Preserve by Method 10 — Items shall be preserved in a vacuum formed skin pack, formed from either cellulose acetate, cellulose butyrate or cellulose propionate. The material shall be 10 to 15 mils minimum thickness prior to draw and 2 to 4 mils thickness after draw. Class domestic fiberboard meeting the requirements of ASTM D4727/D4727M shall be used as a stiffener."]
+  ]},
+
+  "J-II": {
+    title:"Table J-II — Cleaning procedure codes",
+    rows:[
+    ["1","Any suitable process that is not injurious to the item."],
+    ["Z","Special requirements — see specific instructions or drawings provided."],
+    ["0","No requirement."]
+  ]},
+
+  "J-III": {
+    title:"Table J-III — Contact preservative material codes",
+    rows:[
+    ["01","MIL-PRF-16173, Grade 1, corrosion preventive, solvent cutback, cold application, hard film"],
+    ["02","MIL-PRF-16173, Grade 2, corrosion preventive, solvent cutback, cold application, soft film"],
+    ["03","MIL-PRF-16173, Grade 3, corrosion preventive, solvent cutback, cold application, water displacing soft film"],
+    ["06","MIL-C-11796, Class 3, light preservative compound, soft film, hot application"],
+    ["07","MIL-PRF-3150, medium preservative oil, cold application"],
+    ["09","MIL-PRF-32033, lubricating oil, general purpose preservative (water displacing, low temperature)"],
+    ["10","MIL-PRF-21260, preservative and break-in lubricating oil, internal combustion engine, Grade 10, 30 or 50"],
+    ["11","MIL-PRF-23827, grease, aircraft and instrument, gear and actuator screw"],
+    ["12","MIL-PRF-81322, grease, aircraft, general purpose"],
+    ["13","MIL-PRF-10924, grease, automotive and artillery"],
+    ["15","MIL-PRF-46170, hydraulic fluid, synthetic, rust inhibited, fire resistant"],
+    ["17","MIL-PRF-6085, lubricating oil, instrument, aircraft, low volatility"],
+    ["19","MIL-PRF-16173, Grade 4, corrosion preventive, solvent cutback, cold application, transparent, non-tacky"],
+    ["20","MIL-PRF-46002, preservative oil, contact and volatile corrosion inhibited"],
+    ["21","MIL-PRF-16173, Grade 5, corrosion preventive, solvent cutback, water displacing soft film, low pressure steam removable"],
+    ["30","MIL-PRF-46010, corrosion inhibiting lubricant, solid film, heat cured"],
+    ["31","MIL-C-6529, Type II, corrosion preventive, ready mixed, for reciprocating aircraft engines"],
+    ["32","MIL-C-6529, Type III, corrosion preventive, ready mixed, for turbojet aircraft engines"],
+    ["33","MIL-PRF-7808, lubricating oil, synthetic base, for aircraft turbine engines"],
+    ["49","Vendor’s protective grease or oil coating"],
+    ["50","MIL-PRF-7870, lubricating oil, low temperature"],
+    ["51","MIL-PRF-6081, lubricating oil, jet engine, Grade 1010"],
+    ["52","MIL-PRF-8188, corrosion preventive oil, synthetic base, for aircraft gas turbine engines"],
+    ["56","MIL-PRF-23699, lubricating oil, synthetic base, for aircraft turbine engines"],
+    ["57","MIL-PRF-21260, Grade 10, light viscosity preservative and break-in lubricating oil, internal combustion engine"],
+    ["65","MIL-PRF-83282, hydraulic fluid, synthetic, fire retardant"],
+    ["80","MIL-DTL-53030, primer coating, epoxy, water reducible"],
+    ["89","Preserve with normal operating lubricant"],
+    ["ZZ","Special requirement — see specific instructions or drawings provided"],
+    ["00","No requirement"]
+  ]},
+
+  "J-IV": {
+    title:"Table J-IV — Wrapping material codes",
+    rows:[
+    ["BA","QQ-A-1876, aluminum foil"],
+    ["CA","A-A-203, kraft wrapping paper"],
+    ["DA","A-A-1249, paper, tissue"],
+    ["EA","MIL-DTL-17667, neutral wrapping paper"],
+    ["EB","MIL-DTL-17667, Type I, neutral wrapping paper, flat"],
+    ["EC","MIL-DTL-17667, Type II, neutral wrapping paper, creped"],
+    ["FA","MIL-P-130, laminated and creped wrapping paper"],
+    ["GB","MIL-PRF-121, greaseproof, waterproof barrier"],
+    ["GC","MIL-PRF-121, Type I, medium duty, greaseproof, waterproof barrier"],
+    ["GH","MIL-PRF-121, Type II, light duty, greaseproof, waterproof barrier"],
+    ["JA","A-A-3174, plastic sheet, polyolefin, 2 mil"],
+    ["JL","MIL-PRF-22019, transparent volatile corrosion inhibitor treated barrier material"],
+    ["JT","MIL-PRF-22191, Type II, transparent, waterproof, greaseproof barrier material"],
+    ["JV","MIL-PRF-22191, Type III, transparent, waterproof barrier material"],
+    ["K3","MIL-PRF-81705, Type III, Class 1, transparent, electrostatic protective, static shielding, barrier material or MIL-DTL-117, Type II, Class H, Style 2 bag"],
+    ["LA","A-A-50177, lens paper"],
+    ["MB","MIL-PRF-3420, volatile corrosion inhibitor treated material"],
+    ["ZZ","Special requirements — see specific instructions or drawings provided"],
+    ["00","No requirement"]
+  ]},
+
+  "J-V": {
+    title:"Table J-V — Cushioning and dunnage material codes",
+    rows:[
+    ["AD","Cushion, anchor, block or brace as required."],
+    ["BG","A-A-1898, Grade II, water resistant cellulosic cushioning"],
+    ["BN","PPP-C-850, polystyrene cushioning"],
+    ["DA","A-A-1051, paperboard cushioning"],
+    ["FA","PPP-C-1120, Class A, water resistant bound fiber"],
+    ["FE","PPP-C-1120, Type II, Class A, medium soft density, water resistant bound fiber"],
+    ["FH","PPP-C-1120, Type III, Class A, medium firm density, water resistant bound fiber"],
+    ["FL","PPP-C-1120, Type IV, Class A, firm density, water resistant bound fiber"],
+    ["GA","A-A-59136, cushioning material, closed cell, foam plank"],
+    ["GD","MIL-PRF-26514, Type I, Class 1, rigid polyurethane foam"],
+    ["GE","MIL-PRF-26514, Type I, Class 2, Grade A, flexible polyurethane foam, light load range"],
+    ["GF","MIL-PRF-26514, Type I, Class 2, Grade B, flexible polyurethane foam, medium load range"],
+    ["GH","MIL-PRF-26514, Type I, Class 2, Grade C, flexible polyurethane foam, heavy load range"],
+    ["GK","MIL-PRF-26514, Type III, Class 2, Grade A, anti-static, flexible polyurethane foam, light load range"],
+    ["GL","MIL-PRF-26514, Type III, Class 2, Grade B, anti-static, flexible polyurethane foam, medium load range"],
+    ["GM","A-A-59136, Type I, Class 1, Grade A, standard polyethylene, closed cell foam plank cushioning material"],
+    ["GN","A-A-59136, Type I, Class 1, Grade B, static dissipative, polyethylene, closed cell plank cushioning material"],
+    ["GT","PPP-C-1797, polypropylene foam cushioning"],
+    ["HA","A-A-1507, chipboard sheet used as a stiffener on one side of item"],
+    ["HB","A-A-1507, chipboard sheet used as a stiffener on both sides of item"],
+    ["HD","A-A-1507, chipboard sheet used as pads, cells, die cuts or sleeves"],
+    ["JA","ASTM D4727/D4727M, domestic fiberboard used as a stiffener on one side of item"],
+    ["JB","ASTM D4727/D4727M, domestic fiberboard used as a stiffener on both sides of item"],
+    ["JC","ASTM D4727/D4727M, domestic fiberboard used as pads, cells, die cuts or sleeves"],
+    ["LC","PPP-C-795, Class 1, cellular plastic film cushioning"],
+    ["LK","Wood blocking and bracing, fasteners, or steel strapping, for tie-down purposes. If the item has rubber tired wheels, the wheels shall be blocked clear of the floor of the crate or skid and shall not be load bearing."],
+    ["LN","Plastic containers (vials, boxes, etc.) shall be constructed of rigid, transparent material that, if applicable, is resistant to any lubricant or preservative being used."],
+    ["LT","PPP-C-795, Class 2, antistatic closed cell plastic film cushioning"],
+    ["MA","MIL-PRF-83671, Class 2, Grade A, flexible foam-in-place polyurethane"],
+    ["MB","MIL-PRF-83671, Class 1, rigid foam-in-place polyurethane"],
+    ["MD","MIL-PRF-83671, Class 2, Grade B, flexible foam-in-place polyurethane"],
+    ["NA","PPP-C-795, closed cell plastic cushioning; or A-A-3129, open cell plastic cushioning; or PPP-C-1797, polypropylene foam cushioning."],
+    ["NB","A-A-3129, Type I, Grade B, static dissipative open cell plastic cushioning."],
+    ["NC","PPP-C-1797, Type II, electrostatic protective, polypropylene foam, resilient, low density"],
+    ["NG","A-A-3129, Type I, Grade A, open cell plastic cushioning"],
+    ["NS","Weather resistant fiberboard meeting the requirements of ASTM D4727/D4727M used as pads, cells, die cuts or sleeves; or polyurethane foam conforming to MIL-PRF-26514"],
+    ["P4","MIL-DTL-81997, Type I, cushioned pouch, electrostatic protective, transparent"],
+    ["P5","ASTM D5168, triple wall fiberboard used as pads, cells, sleeves, or die-cuts"],
+    ["P6","A-A-59135, packaging material, sheet"],
+    ["ZZ","Special requirements. See specific instructions or drawings provided."],
+    ["00","No requirement"]
+  ]},
+
+  "J-VI": {
+    title:"Table J-VI — Thickness of cushioning or dunnage codes",
+    note:"Minimum thicknesses. Additional cushioning may be used as dunnage if required to fill voids resulting from use of oversized unit containers.",
+    rows:[
+    ["A","1/4 inch thick"],   ["B","1/2 inch thick"],   ["C","3/4 inch thick"],
+    ["D","1 inch thick"],     ["E","1-1/4 inches thick"],["F","1-1/2 inches thick"],
+    ["G","1-3/4 inches thick"],["H","2 inches thick"],   ["J","2-1/4 inches thick"],
+    ["K","2-1/2 inches thick"],["L","2-3/4 inches thick"],["M","3 inches thick"],
+    ["N","3-1/4 inches thick"],["P","3-1/2 inches thick"],["Q","3-3/4 inches thick"],
+    ["R","4 inches thick"],   ["S","4-1/4 inches thick"],["T","4-1/2 inches thick"],
+    ["U","4-3/4 inches thick"],["V","5 inches thick"],   ["W","5-1/4 inches thick"],
+    ["Z","Special requirements — see specific instructions or drawings provided"],
+    ["0","Not applicable"]
+  ]},
+
+  "J-VII": {
+    title:"Table J-VII — Unit and intermediate container codes",
+    note:"The same codes are used for the unit container and the intermediate container. When the selected code allows an option, the weight and size limitations of the container specification apply.",
+    rows:[
+    ["10","Any suitable container included in this table may be used (see J.4.9.1)."],
+    ["A1","Bags made of material conforming to MIL-P-130, or any bag authorized by MIL-DTL-117. Closure may be by staples or tape."],
+    ["A2","Any bag or sack used by the vendor."],
+    ["AN","UU-B-36, bags, paper grocers"],
+    ["B2","MIL-DTL-117, Type II, Class C, Style 3, medium duty, waterproof, greaseproof, one side opaque and other side transparent bag"],
+    ["B3","MIL-DTL-117, Type I, Class E, Style 3, heavy duty, watervaporproof, greaseproof, one side opaque and other side transparent bag."],
+    ["B9","MIL-DTL-117, Type I, Class F, Style 1, heavy duty, watervaporproof, electrostatic protective, opaque bag."],
+    ["BD","MIL-DTL-117, bag."],
+    ["BE","MIL-DTL-117, Type II, Class C, Style 1, medium duty, waterproof, greaseproof, opaque bag."],
+    ["BL","MIL-DTL-117, Type III, Class B, Style 2, light duty, waterproof, transparent bag."],
+    ["BS","MIL-DTL-117, Type I, Class E, Style 1, heavy duty, watervaporproof, greaseproof, opaque bag."],
+    ["BT","MIL-DTL-22020, bag, transparent, heat sealable, VCI treated."],
+    ["BV","MIL-DTL-117, Type III, Class C, Style 1, light duty, waterproof, greaseproof, opaque bag."],
+    ["D1","PPP-B-566 or PPP-B-676, folding or setup box."],
+    ["D3","PPP-B-566, PPP-B-676, or ASTM D5118/D5118M, folding, setup or fiberboard box."],
+    ["D4","Vendor’s setup or folding box."],
+    ["DA","PPP-B-566, folding paperboard box."],
+    ["DE","PPP-B-676, setup box."],
+    ["DO","Any suitable fiber box included in this table may be used (see J.4.9.1)."],
+    ["DP","ASTM D5168, box, triple wall, fiberboard."],
+    ["DQ","ASTM D5168, Class 1, non-weather resistant triple wall fiberboard box."],
+    ["DR","ASTM D5168, Class 2, weather resistant triple wall fiberboard box."],
+    ["E5","ASTM D5118/D5118M, fiberboard box."],
+    ["E6","Vendor’s fiberboard box."],
+    ["E7","ASTM D5118/D5118M, Type CF, Class domestic, single wall, corrugated fiberboard box."],
+    ["E8","ASTM D5118/D5118M, Type CF, Class domestic, double wall, corrugated fiberboard box."],
+    ["E9","ASTM D5118/D5118M, Class weather resistant fiberboard box; or PPP-B-566, water resistant folding box; or PPP-B-676, water resistant setup box."],
+    ["EC","ASTM D5118/D5118M, Type CF, Class domestic, corrugated fiberboard box."],
+    ["ED","ASTM D5118/D5118M, Type CF, Class weather resistant, corrugated fiberboard box."],
+    ["EE","ASTM D5118/D5118M, Type CF, Class weather resistant, single wall, corrugated fiberboard box."],
+    ["EF","ASTM D5118/D5118M, Type CF, Class weather resistant, single wall, full telescoping container."],
+    ["EG","ASTM D5118/D5118M, Type CF, Class weather resistant, double wall, full telescoping container."],
+    ["EN","ASTM D5118/D5118M, Type SF, Class domestic, solid fiberboard box."],
+    ["EP","ASTM D5118/D5118M, Type SF, Class weather resistant, solid fiberboard box."],
+    ["F2","ASTM D6251, Type III, Class 2, overseas cleated plywood box or ASTM D6880, Class 2, heavy duty nailed wood box."],
+    ["F3","ASTM D6251, Type III, Class 1, domestic cleated plywood box or ASTM D6880, Class 1, light duty nailed wood box."],
+    ["F5","Vendor’s wood box."],
+    ["F6","ASTM D6251, Type III, Treatment B, Style I or J, cleated plywood box, surface treated in accordance with the requirements of the specification."],
+    ["F7","ASTM D6251, Type III, or ASTM D6880, heavy or light duty, determined by shipment destination. Provided with nominal 2″ x 4″ skid. Box provided with an inspection door, located for clear reading of the humidity indicator, for Method 54 only. Inspection door shall be hinged, cleated or sealed. Wood and plywood boxes shall have top panels secured with wood screws and boxes banded. The top, one side, and one end of the box shall be marked “REUSABLE CONTAINER AND CUSHIONING - USE FOR RETURN OF NRFI ASSEMBLY” with black letters, minimum 2″ high. In addition, mark box “TO OPEN - USE SCREWDRIVER” with one inch minimum high letters."],
+    ["F9","Shallow box, constructed of plywood and wood as follows: Sides and ends of one piece of lumber, 3/4 inch minimum thickness. Top and bottom of one piece standard grade 3/8 inch plywood with exterior weather-resistant glue. End cleats shall run across the grain of the ends and shall extend within 1/8 inch of the outside surface of the top and bottom. Sides shall extend over the cleats. Battens shall be applied in accordance with ASTM D6880 except exterior battens or cleats shall not be used on the top."],
+    ["FA","ASTM D6880, wood box."],
+    ["FB","ASTM D6880, Class 1, light duty wood box."],
+    ["FC","ASTM D6880, Class 2, heavy duty wood box."],
+    ["FD","ASTM D6251, Type III, wood cleated plywood box"],
+    ["FF","ASTM D6251, Type III, Class 2, wood cleated plywood box, overseas"],
+    ["FG","ASTM D6251, Type III, Class 1, wood cleated plywood box, domestic"],
+    ["FL","ASTM D6251, Type II, Class 1, domestic, wood-cleated panelboard box."],
+    ["FO","Any suitable wood box included in this table may be used (see J.4.9.1)."],
+    ["FU","ASTM D6256/D6256M, wood-cleated skidded box, load bearing base."],
+    ["FV","ASTM D6256/D6256M, Class 1, domestic, wood-cleated skidded box."],
+    ["FW","ASTM D6256/D6256M, Class 2, overseas, wood-cleated skidded box."],
+    ["GB","ASTM D6256/D6256M, Class 1 or 2. Provide box with inspection door located for clear reading of the humidity indicator for Method 54 packages only. The inspection door shall be hinged, cleated and sealed. The top, one side and one end of the shipping container shall be marked “REUSABLE CONTAINER – USE FOR RETURN OF NRFI ASSEMBLY” in black letters, minimum 2″ high."],
+    ["HA","PPP-C-96, metal can."],
+    ["K1","MIL-DTL-6054 or MIL-D-6055, metal reusable drum, depending upon size or capacity limits of container."],
+    ["KE","MIL-DTL-6054, reusable metal drum."],
+    ["KF","MIL-D-6055, reusable metal drum (capacity from 88 to 510 cu. in.)."],
+    ["MA","ASTM D7478/D7478M, wood crate, lumber or plywood sheathed, nailed or bolted."],
+    ["MB","ASTM D7478/D7478M, Type I, Class 1, nailed wood crate, lumber sheathed."],
+    ["MC","ASTM D7478/D7478M, Type II, Class 1, bolted wood crate, lumber sheathed."],
+    ["MF","ASTM D7478/D7478M, Type I, Class 2, nailed wood crate, plywood sheathed."],
+    ["MG","ASTM D7478/D7478M, Type II, Class 2, bolted wood crate, plywood sheathed."],
+    ["MH","ASTM D7478/D7478M, Type II, Class 1 or 2, bolted wood crate, provided with lifting attachments and an inspection port (Method 54 packages only). The top, one side and one end of the crate shall be marked “REUSABLE CONTAINER – USE FOR RETURN OR NRFI ASSEMBLY” with black letters a minimum of two inches high."],
+    ["MO","Any suitable wood crate included in this table may be used (see J.4.9.1)."],
+    ["MV","ASTM D6039/D6039M, open and covered wood crate."],
+    ["MY","NAVICP Drawing No. 15024, for shipping and storage of gyroscopic instruments."],
+    ["NO","ASTM D5118/D5118M, Type CF, Class weather resistant, double wall, corrugated fiberboard box."],
+    ["NR","PPP-B-1672, Type I, vertical star cushioning in reusable box."],
+    ["NS","PPP-B-1672, Type II, folding convoluted cushioning in reusable box."],
+    ["NV","PPP-B-1672, Type III, telescoping encapsulated cushioning in reusable box."],
+    ["NW","PPP-B-1672, Type IV, horizontal star cushioning in reusable box."],
+    ["NY","NAVICP Drawing No. P069, molded reusable container for circuit cards and modules."],
+    ["NZ","NAVICP Drawing No. 13414, modular reusable container for packaging major repairables."],
+    ["P4","MIL-DTL-81997, cushioned pouch, electrostatic protective, transparent"],
+    ["RC","NAVICP Drawing No. 15450, modular reusable container for packaging depot level repairables."],
+    ["RD","PPP-B-585, wirebound wood box."],
+    ["RH","MIL-DTL-2427, ammunition box, nailed wood."],
+    ["RJ","MIL-DTL-46506, ammunition box, wirebound wood."],
+    ["RK","MIL-PRF-11264, reusable wood containers, heavy duty."],
+    ["SD","MIL-DTL-117, Type II, Class C, Style 2, medium duty, waterproof, greaseproof, transparent bag."],
+    ["SE","MIL-DTL-117, Type I, Class E, Style 2, heavy duty, watervaporproof, greaseproof, transparent bag."],
+    ["SF","MIL-DTL-117, Type II, Class E, Style 1, medium duty, watervaporproof, greaseproof, opaque bag."],
+    ["SH","MIL-DTL-6060, complex, heat sealable, watervaporproof bags"],
+    ["SJ","MIL-B-43666, Type III, box, consolidation"],
+    ["SK","MIL-DTL-117, Type IV, Class E, Style 1, extra heavy duty, watervaporproof, greaseproof, opaque bag."],
+    ["WD","Plastic containers constructed of rigid transparent material that, if applicable, is resistant to lubricant or preservative being used. Containers too small for adequate marking shall be overpackaged in envelopes for identification marking purposes."],
+    ["WM","PPP-T-495, mailing tube."],
+    ["WY","Warner-Robins Air Logistics Center Drawing Nos. 11214-5002-100, 11214-5002-200, 11214-5002-300, or 11214-50020-400 for shipping and storage of avionics instruments."],
+    ["ZZ","Special requirement — see specific instructions or drawings provided."],
+    ["00","No requirement."]
+  ]},
+
+  "J-VIII": {
+    title:"Table J-VIII — Unit container level codes",
+    rows:[
+    ["O","Unit container is not an acceptable shipping container."],
+    ["A","Unit container provides level A packing protection."],
+    ["B","Unit container provides level B packing protection."],
+    ["Z","Unit container requires special consideration (air only, inside storage only, etc.)"]
+  ]},
+
+  "J-VIIIa": {
+    title:"Table J-VIIIa — Optional procedure indicator codes",
+    rows:[
+    ["A","Packaging is in accordance with a procedural specification or an SPI. The appropriate specification number will be shown in-the-clear in the supplemental data area."],
+    ["E","Certain options can be exercised as to specific method of preservation or DoD approved packaging materials, but only as indicated in supplemental data. However, basic preservation method shall be retained and unit package dimensions shall not be increased by more than one inch. Equal or better protection shall be given the item and there shall be no increase in the package cost."],
+    ["M","All packaging data is mandatory for compliance and no substitutions are permitted. Fast packs should be included in this category."],
+    ["O","Options can be exercised as to specific method of preservation or DoD approved packaging materials to be used. However, basic preservation method shall be retained, supplemental data shall be complied with, and unit package dimensions shall not be increased by more than one inch. Equal or better protection shall be given the item and there shall be no increase in the package cost."],
+    ["P","For SPI items, polyurethane foam-in-place is permitted as specified on the SPI only when the SPI pack is not available."]
+  ]},
+
+  "J-IX": {
+    title:"Table J-IX — Level A military packing requirement codes",
+    rows:[
+    ["B","Packing shall be accomplished using ASTM D6251, Type III, Class 2, overseas cleated plywood boxes or wirebound wood boxes conforming to PPP-B-585, Class 3 (military overseas)."],
+    ["C","Packing shall be accomplished using cleated-plywood wood boxes conforming to ASTM D6251, Type III, Class 2 or nailed wood boxes conforming to ASTM D6880, Class 2, heavy duty, or covered wood crates conforming to ASTM D6039/D6039M, Type V, Style B, or lumber and plywood sheathed wood crates conforming to ASTM D7478/D7478M, or load-bearing base skidded wood-cleated boxes conforming to ASTM D6256/D6256M, Type II (overseas), or steel or aluminum slotted angle crates conforming to ASTM D6255/D6255M, Type I, or open wood crates conforming to ASTM D7478/D7478M."],
+    ["E","Packing shall be accomplished to meet the performance test requirements of ASTM D4169, Distribution Cycle 18, Assurance Level 1."],
+    ["F","Packing is not required: the unit container shall also serve as the shipping container. Closure, sealing and reinforcement shall be in accordance with applicable specification for shipping container."],
+    ["Q","Packing shall be accomplished in accordance with table C-II for the packing level specified. Closure, sealing and reinforcement shall be in accordance with applicable specification for shipping container."],
+    ["Z","Special requirement. See specific instructions or drawings provided."],
+    ["2","Packing shall be accomplished using cleated-plywood boxes, overseas type, conforming to ASTM D6251, Type III, Class 2, or nailed wood boxes conforming to ASTM D6880, Class 2, heavy duty."]
+  ]},
+
+  "J-IXa": {
+    title:"Table J-IXa — Level B military packing requirement codes",
+    rows:[
+    ["A","Packing shall be accomplished using fiberboard boxes, weather resistant class, fabricated in accordance with ASTM D5118/D5118M, or triplewall fiberboard boxes conforming to ASTM D5168, class weather resistant."],
+    ["F","Packing is not required: the unit container shall also serve as the shipping container. Closure, sealing and reinforcement shall be in accordance with applicable specification for shipping container."],
+    ["H","Packing shall be accomplished using boxes fabricated in accordance with ASTM D5118/D5118M, class weather-resistant."],
+    ["P","Packing shall be accomplished using open wood crates conforming to ASTM D6039/D6039M, Type V, Style B, or open wood crates conforming to ASTM D7478/D7478M, or open steel or aluminum slotted angle crates conforming to ASTM D6255/D6255M, Type I."],
+    ["Q","Packing shall be accomplished in accordance with table C-II for the packing level specified. Closure, sealing and reinforcement shall be in accordance with the appropriate shipping container specification."],
+    ["R","Packing shall be accomplished to meet the performance test requirements of ASTM D4169, Distribution Cycle 18, Assurance Level 2."],
+    ["T","Packing shall be accomplished by use of fiberboard containers fabricated in accordance with ASTM D5118/D5118M, weather-resistant class, or triple wall fiberboard boxes conforming to ASTM D5168, class weather resistant; or whenever practicable, by means of shrink-film conforming to A-A-3174."],
+    ["Z","Special requirement. See specific instructions or drawings provided."],
+    ["0","Packing not authorized, see next higher level of packing for requirement."],
+    ["7","Packing shall be accomplished using cleated-plywood boxes conforming to ASTM D6251, Type III, Class 1 (domestic), or nailed wood boxes conforming to PPP-B-621, Class 1, or wirebound boxes conforming to PPP-B-585, Class 1."],
+    ["8","Packing shall be accomplished in accordance with the Level A packing requirements as specified for the item."]
+  ]},
+
+  "J-IXb": {
+    title:"Table J-IXb — Minimal packing requirement codes",
+    rows:[
+    ["F","Packing is not required; the unit container shall also serve as the shipping container. Closure, sealing and reinforcement shall be in accordance with applicable specification for shipping container."],
+    ["L","Packing shall be accomplished using fiberboard boxes fabricated in accordance with ASTM D5118/D5118M, Class domestic or ASTM D5168, class non-weather resistant."],
+    ["U","Items or packages that require packing for acceptance by the carrier shall be packed in exterior type shipping containers in a manner that will ensure safe transportation at the lowest rate to the point of delivery and shall meet, as a minimum, the requirements of the applicable rules and regulations: Postal Regulations; Department of Transportation Regulations; Civil Air Regulations; Uniform Freight Classification Rules; National Motor Freight Classification Rules; American Truckers’ Association Rules; other applicable carriers’ rules; and Military Air Regulations for dangerous materials. Consolidation of shipments: all exterior packs of 1.5 cubic feet or less having no single dimension exceeding 40 inches (and when the total number of such containers in any individual shipment exceeds 25) shall be consolidated, using flat pallets, box pallets, or containers as the consolidating media. Dangerous goods shall be prepared for shipment according to applicable DOT and international regulations in effect at time of shipment. Shipments by parcel post must comply with Postal Regulations."],
+    ["6","Packing shall be accomplished to meet the performance test requirements of ASTM D4169, Distribution Cycle 18, Assurance Level 3."],
+    ["8","Packing shall be accomplished in accordance with the Level A packing requirements as specified for the item."],
+    ["9","Packing shall be accomplished in accordance with the Level B packing requirements as specified for the item."],
+    ["Z","Special requirement — see specific instructions or drawings provided."],
+    ["0","Packing not authorized, see next higher level of packing for requirement."]
+  ]},
+
+  "J-X": {
+    title:"Table J-X — Special marking codes",
+    note:"Special markings are an integral part of the total pack and shall be applied to containers in accordance with MIL-STD-129.",
+    rows:[
+    ["01","Fragile"],
+    ["02","Arrow up"],
+    ["03","Method 50"],
+    ["04","Fragile, arrow up and Method 50"],
+    ["05","Delicate instrument"],
+    ["06","Delicate instrument and arrow up"],
+    ["07","Glass — do not drop"],
+    ["12","Fragile, Method 50"],
+    ["14","Center of balance"],
+    ["17","Reusable container"],
+    ["19","Method 50 reusable container"],
+    ["20","Do not bend"],
+    ["24","Open for inspection or use only"],
+    ["32","Type I, shelf life"],
+    ["33","Type II, shelf life"],
+    ["36","Fragile, arrow up, and glass"],
+    ["37","Fragile, arrow up"],
+    ["39","ESD sensitive electronic device — apply requirements of MIL-STD-129"],
+    ["40","Markings shall be omitted for sensitive, controlled or pilferable items per MIL-STD-129"],
+    ["60","Asbestos warning label"],
+    ["ZZ","Special requirements"],
+    ["00","No special marking"]
+  ]}
+
+  }};
+
+  /* == HELPERS ============================================================= */
+
+  var ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ESC[c]; }); }
+
+  // Longest-first so "MIL-PRF-121" never shadows "MIL-PRF-1218"-style keys.
+  var SPEC_KEYS = Object.keys(MS2073.specLinks).sort(function (a, b) { return b.length - a.length; });
+  var SPEC_RE = new RegExp(
+    "(" + SPEC_KEYS.map(function (k) {
+      return k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/[\s-]/g, "[\\s\\u2010-\\u2015-]");
+    }).join("|") + ")",
+    "gi"
+  );
+
+  /* A handle prefixed "product:" resolves against the product root;
+     everything else against the collection root. An empty handle means
+     Royco has no page for that spec yet \u2014 render plain text, never a
+     link that 404s.                                                      */
+  function resolveUrl(roots, handle) {
+    if (!handle) return "";
+    if (handle.indexOf("product:") === 0) {
+      return roots.product.replace(/\/+$/, "") + "/" + handle.slice(8);
+    }
+    return roots.collection.replace(/\/+$/, "") + "/" + handle;
+  }
+
+  /* Escape the text, then hyperlink any specification designator Royco
+     stocks. Operates on escaped output so no markup can be injected.       */
+  function linkify(text, roots) {
+    var out = esc(text);
+    return out.replace(SPEC_RE, function (match) {
+      var norm = match.replace(/[\u2010-\u2015]/g, "-").replace(/\s+/g, " ").toUpperCase();
+      var handle = null;
+      for (var i = 0; i < SPEC_KEYS.length; i++) {
+        if (SPEC_KEYS[i].toUpperCase() === norm) { handle = MS2073.specLinks[SPEC_KEYS[i]]; break; }
+      }
+      var url = resolveUrl(roots, handle);
+      if (!url) return match;
+      return '<a href="' + esc(url) + '" data-royco-spec="' + esc(norm) + '">' + match + "</a>";
+    });
+  }
+
+  function linkLabel(handle) {
+    if (MS2073.linkLabels && MS2073.linkLabels[handle]) return MS2073.linkLabels[handle];
+    return handle.replace(/^product:/, "").split("-").map(function (w) {
+      if (/^(mil|astm|ppp|std|dtl|prf|esd|vci|aa)$/i.test(w)) return w.toUpperCase();
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    }).join(" ");
+  }
+
+  /* Extra Royco links for codes whose text names no stocked specification,
+     or where a specific Royco product matches the code exactly.           */
+  function stockLine(tableKey, code, roots) {
+    var byTable = MS2073.extraLinks[tableKey];
+    if (!byTable || !byTable[code]) return "";
+    var links = byTable[code].map(function (h) {
+      var url = resolveUrl(roots, h);
+      return url ? '<a href="' + esc(url) + '">' + esc(linkLabel(h)) + "</a>" : "";
+    }).filter(Boolean).join("");
+    if (!links) return "";
+    return '<span class="royco-2073__stock"><strong>Royco supplies:</strong> ' + links + "</span>";
+  }
+
+  /* Threshold sits in the gap between the two kinds of entry. The numbered
+     methods of preservation run 185-600 characters and always show in full,
+     because the Type/Class/Style detail is the whole point of looking one
+     up. The specialized J-Ia procedures and J-IXb code U run 875-1250 and
+     collapse. The text is never truncated — it is clamped in CSS, so links
+     inside stay intact and Ctrl+F still finds everything.                 */
+  var LONG_AT = 650;
+
+  function collapsible(innerHtml, plainLength) {
+    if (plainLength <= LONG_AT) return innerHtml;
+    return '<div class="royco-2073__long">' +
+             '<div class="royco-2073__longinner">' + innerHtml + "</div>" +
+             '<button type="button" class="royco-2073__more" aria-expanded="false">Read full text</button>' +
+           "</div>";
+  }
+
+  /* == CODE NORMALISATION ==================================================
+     The printed standard writes numeric zero as "0/" and double zero as
+     "0/0/" to distinguish them from the letters O and OO. Customers type
+     plain 0. Accept both, plus spaces, dashes and lower case.              */
+  function normalize(raw) {
+    return String(raw || "")
+      .toUpperCase()
+      .replace(/0\/0\//g, "00")
+      .replace(/0\//g, "0")
+      .replace(/[^A-Z0-9]/g, "");
+  }
+
+  function lookup(tableKey, code) {
+    var table = MS2073.tables[tableKey];
+    if (!table) return null;
+    var want = normalize(code);
+    if (!want) return null;
+    var rows = table.rows, i;
+    for (i = 0; i < rows.length; i++) if (rows[i][0] === want) return rows[i];
+    // "0" typed into a two-character field, and vice versa.
+    for (i = 0; i < rows.length; i++) {
+      var have = rows[i][0];
+      if (have.replace(/^0+/, "") === want.replace(/^0+/, "") && /^[0Z]+$/.test(have)) return rows[i];
+    }
+    for (i = 0; i < rows.length; i++) if (rows[i][0] === want.padStart(2, "0")) return rows[i];
+    return null;
+  }
+
+  /* Method of preservation draws on two tables. */
+  function lookupField(field, code) {
+    var hit = lookup(field.table, code);
+    if (hit) return { row: hit, table: field.table };
+    if (field.also) {
+      hit = lookup(field.also, code);
+      if (hit) return { row: hit, table: field.also };
+    }
+    return null;
+  }
+
+  function renderResult(field, code, roots) {
+    var found = lookupField(field, code);
+    if (!found) {
+      return '<span class="royco-2073__cardres--err">No <b>' + esc(normalize(code)) +
+             "</b> in " + esc(field.table) + ". Check the code, or browse the table below.</span>";
+    }
+    var lead   = found.row[1];
+    var detail = found.row[2] || "";
+    var plain  = lead + (detail ? " " + detail : "");
+
+    var html = '<span class="royco-2073__lead">' + linkify(lead, roots) + "</span>";
+    if (detail) {
+      html += '<span class="royco-2073__detail">' + linkify(detail, roots) + "</span>";
+    }
+    return collapsible(html, plain.length) +
+           stockLine(found.table, found.row[0], roots);
+  }
+
+  /* == FIELD CARDS ========================================================= */
+
+  function buildCard(field, roots) {
+    var card = document.createElement("div");
+    card.className = "royco-2073__card";
+    card.setAttribute("data-field", field.key);
+    var uid = "rc-" + field.key.toLowerCase().replace(/[^a-z0-9]/g, "") + "-" + Math.random().toString(36).slice(2, 7);
+    var tableLabel = field.table + (field.also ? " / " + field.also : "");
+
+    card.innerHTML =
+      '<div class="royco-2073__cardhead">' +
+        '<label class="royco-2073__cardtitle" for="' + uid + '">' + field.label + "</label>" +
+        '<span class="royco-2073__tablabel">' + esc(tableLabel) + "</span>" +
+      "</div>" +
+      '<input class="royco-2073__input" id="' + uid + '" type="text" autocomplete="off" spellcheck="false" ' +
+        'maxlength="4" placeholder="' + (field.len === 1 ? "1 character" : "2 characters") + '">' +
+      '<div class="royco-2073__cardres royco-2073__cardres--idle">Enter a code to decode it.</div>' +
+      '<button type="button" class="royco-2073__browse">Browse all ' + esc(tableLabel) + " codes</button>" +
+      '<div class="royco-2073__list" hidden></div>';
+
+    var input  = card.querySelector("input");
+    var result = card.querySelector(".royco-2073__cardres");
+    var browse = card.querySelector(".royco-2073__browse");
+    var list   = card.querySelector(".royco-2073__list");
+
+    function decode() {
+      var v = input.value.trim();
+      if (!v) {
+        result.className = "royco-2073__cardres royco-2073__cardres--idle";
+        result.textContent = "Enter a code to decode it.";
+        return;
+      }
+      result.className = "royco-2073__cardres";
+      result.innerHTML = renderResult(field, v, roots);
+    }
+    input.addEventListener("input", decode);
+
+    var built = false;
+    browse.addEventListener("click", function () {
+      if (!built) {
+        var keys = [field.table].concat(field.also ? [field.also] : []);
+        var html = "";
+        keys.forEach(function (k) {
+          MS2073.tables[k].rows.forEach(function (r) {
+            var short = r[1].length > 140 ? r[1].slice(0, 140).replace(/\s+\S*$/, "") + "…" : r[1];
+            html += '<button type="button" class="royco-2073__listitem" data-code="' + esc(r[0]) + '">' +
+                      "<code>" + esc(r[0]) + "</code><span>" + esc(short) + "</span></button>";
+          });
+        });
+        list.innerHTML = html;
+        list.addEventListener("click", function (e) {
+          var b = e.target.closest(".royco-2073__listitem");
+          if (!b) return;
+          input.value = b.getAttribute("data-code");
+          decode();
+          list.hidden = true;
+          browse.textContent = "Browse all " + tableLabel + " codes";
+          input.focus();
+        });
+        built = true;
+      }
+      list.hidden = !list.hidden;
+      browse.textContent = (list.hidden ? "Browse all " : "Hide ") + tableLabel + " codes";
+    });
+
+    return card;
+  }
+
+  /* == BOOT ================================================================ */
+
+  function init(rootEl) {
+    if (rootEl.dataset.roycoReady === "1") return;
+    rootEl.dataset.roycoReady = "1";
+
+    var roots = {
+      collection: rootEl.getAttribute("data-collection-root") || "/collections",
+      product:    rootEl.getAttribute("data-product-root") || "/products"
+    };
+
+    // One delegated listener covers every expander, including ones that do
+    // not exist yet because the customer has not typed that code.
+    rootEl.addEventListener("click", function (e) {
+      var btn = e.target.closest(".royco-2073__more");
+      if (!btn || !rootEl.contains(btn)) return;
+      var wrap = btn.parentNode;
+      var open = wrap.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.textContent = open ? "Show less" : "Read full text";
+    });
+
+    var grid = rootEl.querySelector('[data-role="field-grid"]');
+    if (!grid) return;
+    var frag = document.createDocumentFragment();
+    MS2073.fields.concat(MS2073.extraFields).forEach(function (f) {
+      frag.appendChild(buildCard(f, roots));
+    });
+    grid.appendChild(frag);
+  }
+
+  function boot() {
+    document.querySelectorAll(".royco-2073").forEach(init);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+  // Theme Editor re-renders the section without a page reload.
+  document.addEventListener("shopify:section:load", function (e) {
+    var el = e.target.querySelector(".royco-2073");
+    if (el) init(el);
+  });
+})();
+</script>
+{% endraw %}
+
+{% schema %}
+{
+  "name": "MIL-STD-2073 Code Lookup",
+  "tag": "section",
+  "class": "section-royco-2073",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MIL-STD-2073 Code Lookup"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>Decode any MIL-STD-2073 Appendix J packaging code. Enter a code in the matching box below and you will get the full requirement from the standard, plus the Royco materials that meet it.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Product links"
+    },
+    {
+      "type": "text",
+      "id": "collection_root",
+      "label": "Collection URL root",
+      "info": "Every specification mentioned in a result links to this path plus the handle mapped in the specLinks object inside the section file.",
+      "default": "/collections"
+    },
+    {
+      "type": "text",
+      "id": "product_root",
+      "label": "Product URL root",
+      "info": "Used for the handful of codes that map to one specific Royco product rather than a collection.",
+      "default": "/products"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Base text size",
+      "info": "Everything in the section scales from this. Raise it if the tool reads small on your theme.",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Page background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_panel",
+      "label": "Panel background",
+      "default": "#f6f7f9"
+    },
+    {
+      "type": "color",
+      "id": "color_ink",
+      "label": "Text",
+      "default": "#14181f"
+    },
+    {
+      "type": "color",
+      "id": "color_muted",
+      "label": "Muted text",
+      "default": "#5c6673"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent and links",
+      "default": "#1f4e79"
+    },
+    {
+      "type": "color",
+      "id": "color_line",
+      "label": "Borders",
+      "default": "#d9dee5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Legal"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>Code tables are reproduced from MIL-STD-2073-1E w/CHANGE 4, Appendix J, Tables J-I through J-X. Method of preservation detail is from section 5.2.3. This tool is provided for reference only. Always verify against the current revision of the standard at the DLA ASSIST database and against the requirements of your specific contract or drawing.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MIL-STD-2073 Code Lookup"
+    }
+  ]
+}
+{% endschema %}
+
+
+{% comment %} WebApplication Schema {% endcomment %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://www.roycopackaging.com/pages/packaging-decoder#webapp",
+  "name": "MIL-STD-2073 Packaging Decoder",
+  "url": "https://www.roycopackaging.com/pages/packaging-decoder",
+  "description": "Enter the packaging requirement code from your contract, drawing, or DD Form 2326 for quick translation into plain English, with links to the Royco materials that can help. Decoded text is reproduced from MIL-STD-2073-1E w/CHANGE 4, Appendix J, Tables J-I through J-X.",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Packaging Specification Reference Tool",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "image": "https://www.roycopackaging.com/cdn/shop/files/RoycoLogo_2.png?height=628&pad_color=fff&v=1660327313&width=1200",
+  "featureList": [
+    "Decode MIL-STD-2073 packaging requirement codes into plain English",
+    "Translate codes from contracts, drawings, and DD Form 2326",
+    "Links to matching Royco packaging materials",
+    "Reference data from MIL-STD-2073-1E w/CHANGE 4, Appendix J, Tables J-I through J-X"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "isBasedOn": {
+    "@type": "CreativeWork",
+    "name": "MIL-STD-2073-1E w/CHANGE 4",
+    "url": "https://cdn.shopify.com/s/files/1/0659/3059/2478/files/MIL-STD-2073-1E.pdf?v=1787891611"
+  },
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://www.roycopackaging.com/#organization",
+    "name": "Royco Packaging",
+    "url": "https://www.roycopackaging.com/",
+    "logo": "https://www.roycopackaging.com/cdn/shop/files/RoycoLogo_2.png?v=1660327313&width=160",
+    "email": "sales@roycopackaging.com",
+    "telephone": "+1-800-677-6926",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3979 Mann Road",
+      "addressLocality": "Huntingdon Valley",
+      "addressRegion": "PA",
+      "postalCode": "19006",
+      "addressCountry": "US"
+    }
+  },
+  "mainEntityOfPage": "https://www.roycopackaging.com/pages/packaging-decoder"
+}
+</script>

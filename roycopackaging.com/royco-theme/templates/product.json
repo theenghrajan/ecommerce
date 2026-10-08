@@ -1,0 +1,191 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_vendor": false,
+            "show_stock": true,
+            "show_sku": true,
+            "show_barcode": false,
+            "barcode_label": "Barcode",
+            "show_rating": false
+          }
+        },
+        "judge_me_reviews_preview_badge_AFLjTj": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "color_scheme": "none"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variants": {
+          "type": "variants",
+          "settings": {
+            "picker_type": "button",
+            "hide_single_variant": false,
+            "out_of_stock_variants": "show"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "show_add_to_cart": true,
+            "show_buy_now": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": "Description"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "judge_me_reviews_preview_badge_AFLjTj",
+        "subtitle",
+        "price",
+        "variants",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "hide_variants": false
+      }
+    },
+    "17793407783d216f48": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_cards_carousel_NgbCmK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {
+            "show_sample_reviews": true,
+            "reviews_selection": "current_product",
+            "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "review_text_only",
+            "max_reviews": 20,
+            "review_length": "medium",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 4,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1100,
+            "corner_styling": "soft",
+            "header_text_color": "#000000",
+            "text_color": "#000000",
+            "card_color": "#f9f9f9",
+            "stars_color": "",
+            "arrows_color": "#000000",
+            "transition_speed": 5,
+            "header_text": "Customers are saying",
+            "show_average_rating": true,
+            "rating_display": "default"
+          }
+        },
+        "judge_me_reviews_review_widget_AFwDdn": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_cards_carousel_NgbCmK",
+        "judge_me_reviews_review_widget_AFwDdn"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show": true,
+        "title": "Related products",
+        "count": "4",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_rating": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "rich_text_PJyaAp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cDmC4q": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact a Packaging Specialist"
+          }
+        },
+        "text_4YcUUd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our experienced packaging specialists are available to assist with your project, provide recommendations, or help place an order.</p><p><strong>Call 1-800-67-ROYCO or email our team at </strong><a href=\"mailto:sales@roycopackaging.com\" title=\"Email Royco Packaging\"><strong>sales@roycopackaging.com</strong></a></p>"
+          }
+        },
+        "button_PBDRzm": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cDmC4q",
+        "text_4YcUUd",
+        "button_PBDRzm"
+      ],
+      "name": "t:sections.rich_text.presets.name",
+      "settings": {
+        "narrow": true,
+        "color_scheme": "accent-1",
+        "spacing_top": 26,
+        "spacing_bottom": 26
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17793407783d216f48",
+    "rich_text_PJyaAp",
+    "recommendations"
+  ]
+}

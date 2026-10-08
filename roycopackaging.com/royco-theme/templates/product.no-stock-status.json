@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_vendor": false,
+            "show_stock": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "barcode_label": "Barcode",
+            "show_rating": false
+          }
+        },
+        "2e7358ba-7f18-4795-9d1e-584f49e40f23": {
+          "type": "text",
+          "settings": {
+            "text": "Product ships within {{ product.metafields.custom.lead_time.value }} business days after order placement.",
+            "color_scheme": "none"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_quantity": true,
+            "show_add_to_cart": true,
+            "show_buy_now": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": "Description"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "2e7358ba-7f18-4795-9d1e-584f49e40f23",
+        "price",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "hide_variants": false
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show": true,
+        "title": "Related products",
+        "count": "4",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_rating": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recommendations"
+  ]
+}

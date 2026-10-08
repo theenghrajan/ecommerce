@@ -1,0 +1,1440 @@
+{% comment %}
+  ============================================================================
+  MIL-DTL-117 FLAT BAG SIZE CALCULATOR
+  Royco Packaging, Inc.  —  sections/mil-dtl-117-flat-bag-calculator.liquid
+
+  WHAT THIS IS
+    A self-contained Shopify theme section that sizes a flat heat-sealable bag
+    to fit a customer's item. The customer states the item's shape and
+    dimensions in inches or millimetres; the tool returns the minimum inside
+    width and length, the whole-inch size to specify, and the MIL-DTL-117J
+    tolerance, seam width, size and weight limitations that apply to that
+    size and that type, class and style.
+
+    Dimensions are reported as INSIDE dimensions, which is how MIL-DTL-117J
+    3.4.1 defines a bag's width and length and how a purchase order must
+    state them. Side seams sit outside the stated width.
+
+  INSTALL
+    1. Shopify admin > Online Store > Themes > ... > Edit code
+    2. Sections > Add a new section > name it  mil-dtl-117-flat-bag-calculator
+    3. Replace the generated contents with this entire file, Save
+    4. Open the page you want it on in the Theme Editor > Add section >
+       "MIL-DTL-117 Bag Size"
+
+    Shopify caps a section's schema name at 25 characters, so the Theme
+    Editor label is the short form. The heading customers actually see is
+    the "Heading" setting, which reads "Flat Bag Size Calculator" and can be
+    changed without touching this file.
+
+  TEXT SIZE
+    Theme Editor > Appearance > "Base text size". Everything in the section
+    scales from that one number, the same way the code lookup and desiccant
+    sections do.
+
+  MAINTAINING THE PRODUCT LINKS
+    Search this file for  MATERIALS:  (near the top of the <script> block).
+    That array maps each MIL-DTL-117 type, class and style to its barrier
+    material specification and the matching Royco collection handle. A blank
+    handle renders as plain text rather than a link that 404s.
+
+  MAINTAINING THE SIZE LIMITS
+    Royco's flat-bag construction limits are Theme Editor settings, not code:
+    "Maximum short dimension" (49 in) and "Maximum long dimension" (100 in).
+    A size outside them is flagged for complex construction to MIL-DTL-6060E.
+
+  THE QUOTE REQUEST
+    Every result carries a "Request a quote for this bag" button. It sends the
+    customer to the page set in "Quote request page" with the whole
+    calculation in a "comment" query parameter. For the Comment box on that
+    page to fill itself, the contact page also needs the companion snippet
+    royco-calculator-prefill. Without the snippet the link still works and
+    the customer types their own message, so it degrades safely.
+
+  SOURCE
+    MIL-DTL-117J, 26 June 2026, which supersedes MIL-DTL-117H w/AMENDMENT 2.
+    Classification from 1.2, materials from table I, construction from 3.3,
+    notched bags from 3.3.1, inside dimensions and tolerances from 3.4.1 and
+    table II, seam widths from 3.4.2 and table III, intended use from 6.1.1
+    through 6.1.5, size limitations from 6.3, stock sizes from table IV,
+    weight limitations from 6.5. Reseal allowance from MIL-STD-2073-1E
+    w/CHANGE 4, 5.2.3.7. Complex construction from MIL-DTL-6060E,
+    12 August 2004.
+
+  WHAT CHANGED FROM 117H
+    Type II, class E, style 1 is no longer a listed combination, and
+    MIL-PRF-131 class 2 no longer appears in table I. The 6.3 recommendation
+    that limited that combination to 42 inches of summed inside dimensions is
+    gone with it, leaving one recommendation in 6.3. Type III, class B,
+    style 2 is now A-A-3174 only, so the 5 pound limit in 6.5.a applies to
+    every bag of that combination. Stock sizes moved from table V to table IV
+    with the same contents. Tables II and III are unchanged.
+  ============================================================================
+{% endcomment %}
+
+<div
+  class="royco-fbag"
+  id="royco-fbag-{{ section.id }}"
+  data-collection-root="{{ section.settings.collection_root | escape }}"
+  data-bag-collection="{{ section.settings.bag_collection | escape }}"
+  data-quote-url="{{ section.settings.quote_url | escape }}"
+  data-desiccant-url="{{ section.settings.desiccant_url | escape }}"
+  data-max-short="{{ section.settings.max_short }}"
+  data-max-long="{{ section.settings.max_long }}"
+>
+  <div class="royco-fbag__inner">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="royco-fbag__heading">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    {% if section.settings.intro != blank %}
+      <div class="royco-fbag__intro rte">{{ section.settings.intro }}</div>
+    {% endif %}
+
+    <div class="royco-fbag__layout">
+
+      <form class="royco-fbag__panel" data-role="form" novalidate autocomplete="off">
+
+        <!-- 1 — the item ------------------------------------------------- -->
+        <fieldset class="royco-fbag__fs">
+          <legend class="royco-fbag__legend"><span>1</span> The item</legend>
+
+          <div class="royco-fbag__seg" role="radiogroup" aria-label="Item shape">
+            <label class="royco-fbag__segopt">
+              <input type="radio" name="royco-fbag-shape-{{ section.id }}" value="rect" data-role="shape" checked>
+              <span>Square or rectangular</span>
+            </label>
+            <label class="royco-fbag__segopt">
+              <input type="radio" name="royco-fbag-shape-{{ section.id }}" value="round" data-role="shape">
+              <span>Round or cylindrical</span>
+            </label>
+            <label class="royco-fbag__segopt">
+              <input type="radio" name="royco-fbag-shape-{{ section.id }}" value="irreg" data-role="shape">
+              <span>Irregular</span>
+            </label>
+          </div>
+
+          <div class="royco-fbag__seg royco-fbag__seg--sm" role="radiogroup" aria-label="Units">
+            <label class="royco-fbag__segopt">
+              <input type="radio" name="royco-fbag-unit-{{ section.id }}" value="in" data-role="unit" checked>
+              <span>Inches</span>
+            </label>
+            <label class="royco-fbag__segopt">
+              <input type="radio" name="royco-fbag-unit-{{ section.id }}" value="mm" data-role="unit">
+              <span>Millimetres</span>
+            </label>
+          </div>
+
+          <!-- rectangular / irregular bounding dimensions -->
+          <div data-role="dims-rect">
+            <div class="royco-fbag__row">
+              <label class="royco-fbag__field">
+                <span class="royco-fbag__lbl"><em data-role="lbl-a">Length</em> <em data-role="u1">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="dimA" class="royco-fbag__num">
+              </label>
+              <label class="royco-fbag__field">
+                <span class="royco-fbag__lbl"><em data-role="lbl-b">Width</em> <em data-role="u2">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="dimB" class="royco-fbag__num">
+              </label>
+              <label class="royco-fbag__field">
+                <span class="royco-fbag__lbl"><em data-role="lbl-c">Height</em> <em data-role="u3">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="dimC" class="royco-fbag__num">
+              </label>
+            </div>
+            <p class="royco-fbag__help" data-role="rect-help"></p>
+          </div>
+
+          <!-- cylinder -->
+          <div data-role="dims-round" hidden>
+            <div class="royco-fbag__row">
+              <label class="royco-fbag__field">
+                <span class="royco-fbag__lbl">Diameter <em data-role="u4">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="dia" class="royco-fbag__num">
+              </label>
+              <label class="royco-fbag__field">
+                <span class="royco-fbag__lbl">Length <em data-role="u5">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="cylL" class="royco-fbag__num">
+              </label>
+            </div>
+            <p class="royco-fbag__help">
+              A cylinder lying in a flat bag needs half its circumference across the face,
+              not its diameter. The tool uses &pi;D &divide; 2, so a 4 in tube wants at least
+              6.28 in of bag width before any ease is added.
+            </p>
+          </div>
+
+          <!-- irregular girth override -->
+          <div data-role="girth-wrap" hidden>
+            <div class="royco-fbag__row">
+              <label class="royco-fbag__field">
+                <span class="royco-fbag__lbl">Girth at the thickest point <em data-role="u6">in</em> <small>optional</small></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="girth" class="royco-fbag__num">
+              </label>
+            </div>
+            <p class="royco-fbag__help">
+              Run a tape all the way around the item at its fullest point. Given a girth, the
+              tool uses half of it for the bag width instead of the bounding box, which is
+              more accurate for a casting or an assembly than a box measurement is.
+            </p>
+          </div>
+
+          <div class="royco-fbag__row royco-fbag__row--spaced">
+            <label class="royco-fbag__field">
+              <span class="royco-fbag__lbl">Wrap or cushioning <em data-role="u7">in</em> <small>optional</small></span>
+              <input type="number" min="0" step="any" inputmode="decimal" data-role="cushion" class="royco-fbag__num">
+            </label>
+            <label class="royco-fbag__field">
+              <span class="royco-fbag__lbl">Item weight lb <small>optional</small></span>
+              <input type="number" min="0" step="any" inputmode="decimal" data-role="weight" class="royco-fbag__num">
+            </label>
+          </div>
+          <p class="royco-fbag__help">
+            Cushioning is the thickness on one face &mdash; foam, bubble, VCI wrap or barrier
+            wrap &mdash; and is added to every dimension twice, once for each side. Weight is
+            used only to check the limitations in 6.5.
+          </p>
+        </fieldset>
+
+        <!-- 2 — the bag -------------------------------------------------- -->
+        <fieldset class="royco-fbag__fs">
+          <legend class="royco-fbag__legend"><span>2</span> The bag</legend>
+
+          <label class="royco-fbag__field royco-fbag__field--wide">
+            <span class="royco-fbag__lbl">MIL-DTL-117J type, class and style</span>
+            <select class="royco-fbag__sel" data-role="material"></select>
+          </label>
+          <p class="royco-fbag__help" data-role="mat-help"></p>
+
+          <div class="royco-fbag__row royco-fbag__row--spaced">
+            <label class="royco-fbag__field">
+              <span class="royco-fbag__lbl">Closure allowance <em data-role="u8">in</em></span>
+              <input type="number" min="0" step="any" inputmode="decimal" data-role="closure" class="royco-fbag__num">
+            </label>
+            <label class="royco-fbag__field">
+              <span class="royco-fbag__lbl">Fit ease <em data-role="u9">in</em></span>
+              <input type="number" min="0" step="any" inputmode="decimal" data-role="ease" class="royco-fbag__num">
+            </label>
+          </div>
+          <p class="royco-fbag__help">
+            Closure allowance is the length above the item for the final heat seal plus
+            clearance for the sealer jaws. Two inches suits most jaw and impulse sealers;
+            raise it for vacuum or gas-flush equipment that has to grip more material.
+            Fit ease is set from the type and class above and can be overridden.
+          </p>
+
+          <label class="royco-fbag__check">
+            <input type="checkbox" data-role="reseal">
+            <span>Desiccated pack, Method 51 or 52 &mdash; add length for <em>two subsequent
+            reseals</em> after inspection, as MIL-STD-2073-1E 5.2.3.7 requires</span>
+          </label>
+
+          <label class="royco-fbag__check">
+            <input type="checkbox" data-role="outer">
+            <span>The filled bag will be packed in an outer supporting container</span>
+          </label>
+        </fieldset>
+
+        <button type="button" class="royco-fbag__reset" data-role="reset">Clear all fields</button>
+      </form>
+
+      <div class="royco-fbag__panel royco-fbag__result" data-role="out" aria-live="polite"></div>
+
+    </div>
+
+    {% if section.settings.disclaimer != blank %}
+      <div class="royco-fbag__disclaimer rte">{{ section.settings.disclaimer }}</div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% style %}
+  #royco-fbag-{{ section.id }} {
+    --rc-ink:    {{ section.settings.color_ink }};
+    --rc-muted:  {{ section.settings.color_muted }};
+    --rc-accent: {{ section.settings.color_accent }};
+    --rc-bg:     {{ section.settings.color_bg }};
+    --rc-panel:  {{ section.settings.color_panel }};
+    --rc-line:   {{ section.settings.color_line }};
+    --rc-radius: 10px;
+    /* Every size in the section is derived from this one number, set in
+       Theme Editor > Appearance > Base text size. */
+    --rc-fs:     {{ section.settings.text_size }}px;
+  }
+  #royco-fbag-{{ section.id }} {
+    background: var(--rc-bg);
+    color: var(--rc-ink);
+    padding: {{ section.settings.padding_top }}px 1.25rem {{ section.settings.padding_bottom }}px;
+    font-size: var(--rc-fs);
+  }
+{% endstyle %}
+
+<style>
+  .royco-fbag *, .royco-fbag *::before, .royco-fbag *::after { box-sizing: border-box; }
+  .royco-fbag__inner { max-width: 1180px; margin: 0 auto; }
+  /* Several elements the script toggles carry a display rule of their own,
+     and an author rule always beats the browser's [hidden] default. */
+  .royco-fbag [hidden] { display: none !important; }
+
+  .royco-fbag__heading {
+    margin: 0 0 .5em;
+    font-size: calc(var(--rc-fs) * 2);
+    line-height: 1.15;
+  }
+  .royco-fbag__intro {
+    margin: 0 0 2em;
+    max-width: 62ch;
+    font-size: calc(var(--rc-fs) * 1.06);
+    line-height: 1.6;
+    color: var(--rc-muted);
+  }
+  .royco-fbag__intro p:last-child { margin-bottom: 0; }
+
+  /* ---- two-panel layout ---- */
+  .royco-fbag__layout {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  .royco-fbag__panel {
+    min-width: 0;
+    border: 1px solid var(--rc-line);
+    border-radius: var(--rc-radius);
+    background: var(--rc-panel);
+    padding: 1.15rem 1.2rem 1.2rem;
+  }
+  .royco-fbag__result { position: sticky; top: 1rem; }
+
+  /* ---- form ---- */
+  .royco-fbag__fs { border: 0; margin: 0 0 1.5em; padding: 0; min-width: 0; }
+  .royco-fbag__fs:last-of-type { margin-bottom: 1em; }
+  .royco-fbag__legend {
+    display: flex; align-items: center; gap: .5em;
+    padding: 0; margin-bottom: .7em;
+    font-weight: 650; line-height: 1.25;
+    font-size: calc(var(--rc-fs) * 1.12);
+  }
+  .royco-fbag__legend span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.6em; height: 1.6em; border-radius: 50%;
+    background: var(--rc-accent); color: #fff;
+    font-size: calc(var(--rc-fs) * .8); font-weight: 650;
+  }
+
+  .royco-fbag__seg { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .7em; }
+  .royco-fbag__segopt { position: relative; }
+  .royco-fbag__segopt input {
+    position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer;
+  }
+  .royco-fbag__segopt span {
+    display: block;
+    border: 1.5px solid var(--rc-line); border-radius: 8px;
+    background: var(--rc-bg); color: var(--rc-muted);
+    padding: .45em .8em; line-height: 1.35;
+    font-size: calc(var(--rc-fs) * .92);
+  }
+  .royco-fbag__segopt input:checked + span {
+    border-color: var(--rc-accent); color: var(--rc-ink); font-weight: 650;
+    box-shadow: inset 0 0 0 1px var(--rc-accent);
+  }
+  .royco-fbag__segopt input:focus-visible + span {
+    outline: 2px solid var(--rc-accent); outline-offset: 2px;
+  }
+  .royco-fbag__seg--sm .royco-fbag__segopt span { font-size: calc(var(--rc-fs) * .84); padding: .3em .7em; }
+
+  .royco-fbag__row { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: .5em; }
+  /* A row that follows a block of help text needs its own separation, since
+     the help paragraph above it belongs to the fields before it. */
+  .royco-fbag__row--spaced { margin-top: 1.1em; }
+  .royco-fbag [data-role="girth-wrap"] { margin-top: 1.1em; }
+  .royco-fbag__field { flex: 1 1 7.5rem; min-width: 0; display: block; }
+  .royco-fbag__field--wide { flex-basis: 100%; }
+  .royco-fbag__lbl {
+    display: block; margin-bottom: .3em;
+    font-size: calc(var(--rc-fs) * .84); color: var(--rc-muted); line-height: 1.35;
+  }
+  .royco-fbag__lbl em { font-style: normal; }
+  .royco-fbag__lbl small { font-size: .92em; opacity: .8; }
+  .royco-fbag__num, .royco-fbag__sel {
+    display: block; width: 100%;
+    color: var(--rc-ink); background: var(--rc-bg);
+    border: 1.5px solid var(--rc-line); border-radius: 8px;
+    padding: .45em .55em;
+  }
+  .royco-fbag__num {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * 1.1);
+  }
+  .royco-fbag__sel {
+    font-family: inherit;
+    font-size: calc(var(--rc-fs) * .94);
+    line-height: 1.4;
+  }
+  .royco-fbag__num:focus-visible, .royco-fbag__sel:focus-visible {
+    outline: 2px solid var(--rc-accent); outline-offset: 1px; border-color: var(--rc-accent);
+  }
+
+  .royco-fbag__check {
+    display: flex; gap: .55em; align-items: flex-start;
+    margin: .6em 0 .2em; cursor: pointer;
+    font-size: calc(var(--rc-fs) * .84); line-height: 1.5; color: var(--rc-muted);
+  }
+  .royco-fbag__check input { margin-top: .25em; flex: none; accent-color: var(--rc-accent); }
+  .royco-fbag__check em { font-style: normal; font-weight: 650; color: var(--rc-ink); }
+
+  .royco-fbag__help {
+    margin: .4em 0 0;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.55; color: var(--rc-muted);
+  }
+
+  .royco-fbag__reset {
+    font-family: inherit; font-size: calc(var(--rc-fs) * .86);
+    color: var(--rc-muted); background: none; border: 0; padding: 0;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  }
+  .royco-fbag__reset:hover { color: var(--rc-ink); }
+
+  /* ---- result ---- */
+  .royco-fbag__idle {
+    color: var(--rc-muted); font-size: calc(var(--rc-fs) * .92); line-height: 1.6;
+  }
+  .royco-fbag__formula {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * .92); line-height: 1.7;
+    background: var(--rc-bg); border: 1px solid var(--rc-line); border-radius: 8px;
+    padding: .7em .8em; margin: 0 0 1em;
+    overflow-x: auto; white-space: nowrap;
+  }
+  .royco-fbag__formula b { color: var(--rc-accent); font-weight: 650; }
+  .royco-fbag__formula i {
+    display: block; white-space: normal; font-style: normal;
+    margin-top: .4em; font-family: inherit;
+    font-size: calc(var(--rc-fs) * .8); color: var(--rc-muted);
+  }
+
+  .royco-fbag__terms {
+    width: 100%; table-layout: fixed; border-collapse: collapse; margin-bottom: 1em;
+  }
+  .royco-fbag__terms th, .royco-fbag__terms td {
+    text-align: left; padding: .45em .3em; overflow-wrap: anywhere;
+    border-bottom: 1px solid var(--rc-line);
+    font-size: calc(var(--rc-fs) * .88); line-height: 1.45;
+  }
+  .royco-fbag__terms th { color: var(--rc-muted); font-weight: 500; letter-spacing: .04em;
+    text-transform: uppercase; font-size: calc(var(--rc-fs) * .74); }
+  .royco-fbag__terms td:last-child, .royco-fbag__terms th:last-child {
+    width: 6rem; text-align: right; white-space: nowrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  /* The group heading spans both columns, which would otherwise pick up the
+     right-aligned numeric rule below from being the row's last child. */
+  .royco-fbag__terms tr[data-group] td {
+    border-bottom: 1px solid var(--rc-line);
+    padding-top: .9em;
+    width: auto; text-align: left; white-space: normal;
+    font-family: inherit;
+    font-size: calc(var(--rc-fs) * .74); letter-spacing: .07em;
+    text-transform: uppercase; color: var(--rc-muted);
+  }
+  .royco-fbag__terms tr[data-total] td {
+    border-bottom: 0; border-top: 2px solid var(--rc-line);
+    font-weight: 650; padding-top: .6em;
+  }
+
+  .royco-fbag__answer {
+    display: flex; flex-wrap: wrap; gap: .8rem 1.6rem;
+    align-items: baseline; margin-bottom: 1em;
+  }
+  .royco-fbag__answerbox span {
+    display: block; font-size: calc(var(--rc-fs) * .74);
+    letter-spacing: .07em; text-transform: uppercase; color: var(--rc-muted);
+    margin-bottom: .15em;
+  }
+  .royco-fbag__answerbox strong {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * 1.35); font-weight: 650; line-height: 1.1;
+  }
+  .royco-fbag__answerbox--spec strong {
+    font-size: calc(var(--rc-fs) * 2); color: var(--rc-accent);
+  }
+  .royco-fbag__answerbox i {
+    display: block; font-style: normal; margin-top: .25em;
+    font-size: calc(var(--rc-fs) * .78); color: var(--rc-muted);
+  }
+
+  .royco-fbag__spec {
+    margin-bottom: 1em; padding-top: .8em;
+    border-top: 1px dashed var(--rc-line);
+  }
+  .royco-fbag__spectitle {
+    font-size: calc(var(--rc-fs) * .74); letter-spacing: .07em;
+    text-transform: uppercase; color: var(--rc-muted); margin-bottom: .5em;
+  }
+  .royco-fbag__line {
+    display: flex; align-items: baseline; gap: .5em; justify-content: space-between;
+    padding: .4em 0; border-bottom: 1px solid var(--rc-line);
+    font-size: calc(var(--rc-fs) * .94); line-height: 1.5;
+  }
+  .royco-fbag__line:last-child { border-bottom: 0; }
+  .royco-fbag__line b {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 650; flex: none; text-align: right;
+  }
+  .royco-fbag__note {
+    margin: .8em 0 0;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.6; color: var(--rc-muted);
+  }
+  .royco-fbag__note--flag {
+    padding: .7em .8em; border-radius: 8px;
+    background: var(--rc-bg); border: 1px solid var(--rc-line);
+  }
+  .royco-fbag__note--stop {
+    padding: .7em .8em; border-radius: 8px;
+    background: var(--rc-bg); border: 1.5px solid #b3352a;
+  }
+  .royco-fbag__note--stop strong { color: #b3352a; }
+
+  /* ---- quote request ---- */
+  .royco-fbag__cta {
+    margin: 1.2em 0 .4em; padding-top: 1em;
+    border-top: 1px dashed var(--rc-line);
+  }
+  .royco-fbag__btn {
+    display: inline-block;
+    background: var(--rc-accent); color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 8px; border: 1.5px solid var(--rc-accent);
+    padding: .6em 1.1em; line-height: 1.3;
+    font-weight: 650; font-size: calc(var(--rc-fs) * .96);
+  }
+  .royco-fbag__btn:hover { filter: brightness(1.12); }
+  .royco-fbag__btn:focus-visible { outline: 2px solid var(--rc-ink); outline-offset: 2px; }
+  .royco-fbag__cta .royco-fbag__note { margin-top: .6em; }
+  .royco-fbag__note strong { color: var(--rc-ink); font-weight: 650; }
+  .royco-fbag__err { color: #b3352a; font-size: calc(var(--rc-fs) * .92); line-height: 1.6; }
+
+  .royco-fbag a {
+    color: var(--rc-accent); text-decoration: underline; text-underline-offset: 2px;
+  }
+
+  .royco-fbag__disclaimer {
+    margin-top: 2em; max-width: 78ch;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.6; color: var(--rc-muted);
+  }
+  .royco-fbag__disclaimer p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 860px) {
+    .royco-fbag__layout { grid-template-columns: minmax(0, 1fr); }
+    .royco-fbag__formula { white-space: normal; }
+    .royco-fbag__result { position: static; }
+  }
+</style>
+
+{% raw %}
+<script>
+(function () {
+  "use strict";
+
+  /* == DATA ================================================================
+     MIL-DTL-117J, table I. Every type, class and style
+     combination the specification lists, with the barrier material it must
+     be fabricated from and the Royco collection that carries it.
+
+     Collection handles VERIFIED against roycopackaging.com/collections.json.
+
+     ease   fit ease in inches, added once to the width and once to the
+            length. A heavier, stiffer laminate will not conform to the item
+            as closely as a light polyolefin, so the heavier types carry more.
+     limit  the size recommendation from 6.3, which in this revision applies
+            to one combination only: 'area50' is type III class C style 1,
+            whose inside area should not exceed 50 square inches. The
+            sum-of-dimensions recommendation that 117H carried for type II
+            class E style 1 is gone, because that combination is gone.
+     weight the limitation from 6.5. 10 pounds is the general case, 5 pounds
+            applies to type III class B style 2 (6.5.a), and 'none' is
+            type I class E any style and type I class F style 1 (6.5.b).
+     fold   class F and H bags are formed from one folded sheet and sealed
+            along the sides only, per 3.3, so they have no bottom seam.
+     use    the intended methods of preservation for that class, from 6.1.1
+            through 6.1.5. New in this revision.
+
+     CHANGED IN 117J. Type II, class E, style 1 is no longer a listed
+     combination, and MIL-PRF-131 class 2 no longer appears anywhere in
+     table I. Type III, class B, style 2 is now A-A-3174 only; the
+     MIL-PRF-22191 type III option is gone, so the 5 pound restriction in
+     6.5.a now applies to every bag of that combination rather than only to
+     the A-A-3174 version of it.
+
+     A blank handle renders as plain text rather than a link that 404s.
+     Royco lists no A-A-3174 polyolefin sheet collection, so type III class B
+     style 2 is deliberately left unlinked.
+     ======================================================================== */
+  var MATERIALS = [
+    { key: "I-E-1",   label: "Type I, Class E, Style 1 — heavy duty, watervaporproof and greaseproof, opaque",
+      mat: "MIL-PRF-131, class 1", handle: "mil-prf-131",   ease: 0.75,  limit: "", weight: "none", fold: false,
+      use: "Methods 41, 42, 51 and 52" },
+    { key: "I-E-2",   label: "Type I, Class E, Style 2 — heavy duty, watervaporproof and greaseproof, transparent",
+      mat: "MIL-PRF-22191, type I, class 1 or 2", handle: "mil-prf-22191", ease: 0.625, limit: "", weight: "none", fold: false,
+      use: "Methods 41, 42, 51 and 52" },
+    { key: "I-E-3",   label: "Type I, Class E, Style 3 — heavy duty, one side opaque, one side transparent",
+      mat: "MIL-PRF-131, class 1 with MIL-PRF-22191, type I", handle: "mil-prf-131", ease: 0.75, limit: "", weight: "none", fold: false,
+      use: "Methods 41, 42, 51 and 52" },
+    { key: "I-F-1",   label: "Type I, Class F, Style 1 — heavy duty, watervaporproof, electrostatic protective and shielding, opaque",
+      mat: "MIL-PRF-81705, type I, class 1 or 2", handle: "mil-prf-81705", ease: 0.625, limit: "", weight: "none", fold: true,
+      use: "Methods 41 and 51, and electrostatic discharge sensitive items" },
+    { key: "II-C-1",  label: "Type II, Class C, Style 1 — medium duty, waterproof and greaseproof, opaque",
+      mat: "MIL-PRF-121, type I", handle: "mil-prf-121", ease: 0.5, limit: "", weight: "10", fold: false,
+      use: "Method 33" },
+    { key: "II-C-2",  label: "Type II, Class C, Style 2 — medium duty, waterproof and greaseproof, transparent",
+      mat: "MIL-PRF-22191, type II, class 1 or 2", handle: "mil-prf-22191", ease: 0.5, limit: "", weight: "10", fold: false,
+      use: "Method 33" },
+    { key: "II-C-3",  label: "Type II, Class C, Style 3 — medium duty, one side opaque, one side transparent",
+      mat: "MIL-PRF-121, type I with MIL-PRF-22191, type II", handle: "mil-prf-121", ease: 0.5, limit: "", weight: "10", fold: false,
+      use: "Method 33" },
+    { key: "II-H-2",  label: "Type II, Class H, Style 2 — medium duty, waterproof, electrostatic protective and shielding, transparent",
+      mat: "MIL-PRF-81705, type III, class 1 or 2", handle: "mil-prf-81705", ease: 0.5, limit: "", weight: "10", fold: true,
+      use: "electrostatic discharge sensitive items" },
+    { key: "III-B-2", label: "Type III, Class B, Style 2 — light duty, waterproof, transparent",
+      mat: "A-A-3174, type I or II, class 1, finish No. 2 treated", handle: "", ease: 0.375, limit: "", weight: "5", fold: false,
+      use: "Methods 31 and 32" },
+    { key: "III-C-1", label: "Type III, Class C, Style 1 — light duty, waterproof and greaseproof, opaque",
+      mat: "MIL-PRF-121, type II", handle: "mil-prf-121", ease: 0.375, limit: "area50", weight: "10", fold: false,
+      use: "Method 33" },
+    { key: "IV-E-1",  label: "Type IV, Class E, Style 1 — extra-heavy duty, watervaporproof and greaseproof, opaque",
+      mat: "MIL-PRF-131, class 3", handle: "mil-prf-131", ease: 1.0, limit: "", weight: "10", fold: false,
+      use: "Methods 41, 42, 51 and 52" }
+  ];
+
+  /* Table II. Length and width tolerances, by the area of one side of the
+     bag in square inches. */
+  var TOL = [
+    { max: 25,       text: "-1/16, +1/8" },
+    { max: 200,      text: "-1/8, +1/4"  },
+    { max: 500,      text: "-1/4, +3/8"  },
+    { max: Infinity, text: "-1/4, +1/2"  }
+  ];
+
+  /* Table III. Seam widths, by the area of one side of the bag in square
+     inches. Seams made by the dielectric, impulse or ultrasonic process have
+     a 1/32 inch minimum heat-seal instead; unsupported plastic sheet has no
+     minimum seal width and is judged on seam strength per 3.7. */
+  var SEAM = [
+    { max: 25,       width: 0.375, text: "3/8",  tol: "-1/16, +1/8" },
+    { max: 200,      width: 0.5,   text: "1/2",  tol: "-1/16, +1/4" },
+    { max: 500,      width: 0.625, text: "5/8",  tol: "-1/16, +3/8" },
+    { max: Infinity, width: 0.625, text: "5/8",  tol: "-1/16, +3/8" }
+  ];
+
+  /* Table IV. Commonly stocked bag sizes, width by length in inches, with the
+     specification's own size designation. This was table V in 117H; the
+     contents are unchanged. The two 2-1/2 inch widths can never be matched
+     by this tool because the recommended size is rounded up to whole inches;
+     they are listed for completeness. */
+  var STOCK = [
+    { d: 1,  w: 2.5, l: 3  }, { d: 2,  w: 2.5, l: 6  }, { d: 3,  w: 3,  l: 5  },
+    { d: 4,  w: 4,   l: 6  }, { d: 5,  w: 4,   l: 8  }, { d: 6,  w: 4,  l: 12 },
+    { d: 7,  w: 6,   l: 6  }, { d: 8,  w: 6,   l: 8  }, { d: 9,  w: 8,  l: 12 },
+    { d: 10, w: 10,  l: 10 }, { d: 11, w: 10,  l: 13 }, { d: 12, w: 10, l: 12 },
+    { d: 13, w: 12,  l: 12 }
+  ];
+
+  var MM_PER_IN = 25.4;
+
+  /* Trim above a previous seal before the bag can be resealed. Each reseal
+     consumes one seam width plus this much material. */
+  var TRIM_IN = 0.5;
+
+  /* == HELPERS ============================================================= */
+
+  var ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ESC[c]; }); }
+
+  function resolveUrl(root, handle) {
+    if (!handle) return "";
+    return String(root).replace(/\/+$/, "") + "/" + handle;
+  }
+
+  /* Trim trailing zeros so 8 reads as 8 and 6.283 keeps its precision. */
+  function num(n, dp) {
+    if (!isFinite(n)) return "0";
+    var s = n.toFixed(dp === undefined ? 3 : dp);
+    if (s.indexOf(".") > -1) s = s.replace(/0+$/, "").replace(/\.$/, "");
+    return s;
+  }
+
+  function val(el) {
+    if (!el) return 0;
+    var v = parseFloat(el.value);
+    return (isFinite(v) && v > 0) ? v : 0;
+  }
+
+  /* Inches in, the customer's unit out. */
+  function disp(inches, unit) {
+    return unit === "mm" ? inches * MM_PER_IN : inches;
+  }
+  /* The customer's unit in, inches out. */
+  function toIn(v, unit) {
+    return unit === "mm" ? v / MM_PER_IN : v;
+  }
+  /* A measurement for display, at the precision that unit deserves. */
+  function d(inches, unit) {
+    return num(disp(inches, unit), unit === "mm" ? 1 : 3);
+  }
+
+  function bracket(table, area) {
+    for (var i = 0; i < table.length; i++) {
+      if (area <= table[i].max) return table[i];
+    }
+    return table[table.length - 1];
+  }
+
+  function materialByKey(k) {
+    for (var i = 0; i < MATERIALS.length; i++) {
+      if (MATERIALS[i].key === k) return MATERIALS[i];
+    }
+    return MATERIALS[0];
+  }
+
+  var SHAPE_WORD = {
+    rect:  "square or rectangular",
+    round: "round or cylindrical",
+    irreg: "irregular"
+  };
+
+  /* == THE QUOTE REQUEST ===================================================
+     Everything the calculator worked out, as plain text, for the Comment box
+     on the contact form. Royco receives the whole calculation rather than
+     "I need a bag about this big", and the customer does not retype it.
+
+     It ends with the three things a quote needs and the calculator cannot
+     know, left blank as prompts.
+
+     The contact page needs the companion snippet, royco-calculator-prefill,
+     for the Comment box to fill itself. Without it the link still works and
+     the customer simply types their own message, so this degrades safely.
+     ======================================================================== */
+  function quoteComment(s, r, mat, specText, flagLines) {
+    var u = s.unit === "mm" ? "mm" : "in";
+    var tcs = mat.label.split(" — ")[0];
+    var L = [];
+
+    L.push("Flat bag quote request, prepared by the Royco flat bag size calculator.");
+    L.push("");
+    L.push("BAG");
+    /* plain ASCII in the comment box, since it lands in an email */
+    L.push("  Size needed, inside dimensions: " + specText.replace(/×/g, "x"));
+    if (s.unit === "mm") {
+      L.push("  Metric equivalent: " + num(r.wSpec * MM_PER_IN, 1) + " x " +
+             num(r.lSpec * MM_PER_IN, 1) + " mm");
+    }
+    L.push("  MIL-DTL-117J: " + tcs);
+    L.push("  Material: " + mat.mat);
+    L.push("  Bag area, one side: " + num(r.area, 0) + " sq in");
+    L.push("  Length and width tolerance, table II: " + r.tol.text + " in");
+    L.push("  Seam width, table III: " + r.seam.text + " in");
+    L.push("");
+    L.push("ITEM");
+    L.push("  Shape: " + SHAPE_WORD[s.shape]);
+    if (s.shape === "round") {
+      L.push("  Diameter: " + d(s.dia, s.unit) + " " + u);
+      L.push("  Length: " + d(s.cylL, s.unit) + " " + u);
+    } else {
+      L.push("  Dimensions: " + d(s.dimA, s.unit) + " x " + d(s.dimB, s.unit) + " x " +
+             d(s.dimC, s.unit) + " " + u);
+      if (s.shape === "irreg" && s.girth > 0) {
+        L.push("  Girth at the thickest point: " + d(s.girth, s.unit) + " " + u);
+      }
+    }
+    if (s.cushion > 0) L.push("  Wrap or cushioning, per face: " + d(s.cushion, s.unit) + " " + u);
+    if (s.weight > 0) L.push("  Weight: " + num(s.weight, 2) + " lb");
+    L.push("  Packed in an outer supporting container: " + (s.outer ? "yes" : "no"));
+    L.push("");
+    L.push("ALLOWANCES USED");
+    L.push("  Closure allowance: " + d(s.closure, s.unit) + " " + u);
+    L.push("  Fit ease: " + d(s.ease, s.unit) + " " + u);
+    L.push("  Length for two reseals after inspection: " +
+           (s.reseal ? "yes, " + d(r.resealAdd, s.unit) + " " + u : "no"));
+    L.push("  Calculated minimum before rounding: " + d(r.wMin, s.unit) + " x " +
+           d(r.lMin, s.unit) + " " + u);
+
+    if (flagLines.length) {
+      L.push("");
+      L.push("FLAGGED BY THE CALCULATOR");
+      flagLines.forEach(function (f) { L.push("  - " + f); });
+    }
+
+    L.push("");
+    L.push("TO QUOTE, PLEASE ADD");
+    L.push("  Quantity:");
+    L.push("  Required delivery date:");
+    L.push("  Drawing or part number, if any:");
+
+    return L.join("\n");
+  }
+
+  function quoteHref(base, comment) {
+    if (!base) return "";
+    return base + (base.indexOf("?") > -1 ? "&" : "?") +
+           "comment=" + encodeURIComponent(comment) +
+           "&source=flat-bag-calculator";
+  }
+
+  /* == SECTION ============================================================= */
+
+  function init(root) {
+    if (root.getAttribute("data-royco-fbag-ready")) return;
+    root.setAttribute("data-royco-fbag-ready", "1");
+
+    var collectionRoot = root.getAttribute("data-collection-root") || "/collections";
+    var bagCollection  = (root.getAttribute("data-bag-collection") || "").trim();
+    var quoteUrl       = (root.getAttribute("data-quote-url") || "").trim();
+    var desiccantUrl   = (root.getAttribute("data-desiccant-url") || "").trim();
+    var maxShort       = parseFloat(root.getAttribute("data-max-short")) || 49;
+    var maxLong        = parseFloat(root.getAttribute("data-max-long"))  || 100;
+
+    var q  = function (sel) { return root.querySelector(sel); };
+    var qa = function (sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
+    var byRole = function (r) { return q('[data-role="' + r + '"]'); };
+
+    var out = byRole("out");
+
+    /* ---- build the type, class and style menu ---- */
+    byRole("material").innerHTML = MATERIALS.map(function (m) {
+      return '<option value="' + esc(m.key) + '">' + esc(m.label) + "</option>";
+    }).join("");
+
+    /* The ease field is prefilled from the chosen type and class until the
+       customer types in it, after which their number is left alone. */
+    var easeDirty = false;
+    var lastUnit = "in";
+
+    byRole("ease").addEventListener("input", function () { easeDirty = true; });
+
+    function currentUnit() {
+      var u = "in";
+      qa('[data-role="unit"]').forEach(function (r) { if (r.checked) u = r.value; });
+      return u;
+    }
+
+    function prefill() {
+      var u = currentUnit();
+      var mat = materialByKey(byRole("material").value);
+      if (!easeDirty) byRole("ease").value = d(mat.ease, u);
+      if (byRole("closure").value === "") byRole("closure").value = d(2, u);
+    }
+
+    /* Switching the unit of measure converts what is already entered rather
+       than silently reinterpreting 12 inches as 12 millimetres. */
+    function convertFields(from, to) {
+      if (from === to) return;
+      var f = (from === "in" && to === "mm") ? MM_PER_IN : 1 / MM_PER_IN;
+      ["dimA", "dimB", "dimC", "dia", "cylL", "girth", "cushion", "closure", "ease"].forEach(function (r) {
+        var el = byRole(r);
+        if (!el || el.value === "") return;
+        var v = parseFloat(el.value);
+        if (!isFinite(v)) return;
+        el.value = num(v * f, to === "mm" ? 1 : 3);
+      });
+    }
+
+    /* ---- read the form ---- */
+    function state() {
+      var shape = "rect";
+      qa('[data-role="shape"]').forEach(function (r) { if (r.checked) shape = r.value; });
+
+      var unit = currentUnit();
+
+      return {
+        shape: shape,
+        unit: unit,
+        mat: materialByKey(byRole("material").value),
+        /* every measurement is held in inches from here on */
+        dimA: toIn(val(byRole("dimA")), unit),
+        dimB: toIn(val(byRole("dimB")), unit),
+        dimC: toIn(val(byRole("dimC")), unit),
+        dia:  toIn(val(byRole("dia")),  unit),
+        cylL: toIn(val(byRole("cylL")), unit),
+        girth: toIn(val(byRole("girth")), unit),
+        cushion: toIn(val(byRole("cushion")), unit),
+        closure: toIn(val(byRole("closure")), unit),
+        ease: toIn(val(byRole("ease")), unit),
+        weight: val(byRole("weight")),
+        reseal: byRole("reseal").checked,
+        outer: byRole("outer").checked
+      };
+    }
+
+    /* ---- geometry ==========================================================
+       A flat bag is two panels sealed along both sides and, unless it is a
+       class F or H bag folded from one sheet, along the bottom.
+
+       WIDTH. Each panel has to reach across the face of the item and around
+       both of its sides, so the inside width is half the item's girth at its
+       fullest cross-section. For a box that is the sum of the two smaller
+       dimensions; for a cylinder it is half the circumference.
+
+       LENGTH. Measured from the inside edge of the bottom seam or fold to
+       the opening, per 3.4.1. A panel has to travel the height of the item
+       and then across half of the item's bottom face before it meets the
+       bottom seal, which is why half the thickness is added and not none.
+       On top of that sits the closure allowance, and where two reseals are
+       required, the material each of those consumes.
+
+       ORIENTATION. The item is laid in with its longest dimension along the
+       bag length and its smallest across the thickness, which is the
+       orientation that produces the smallest bag.
+       ====================================================================== */
+    function geometry(s) {
+      var g = { ok: false, halfGirth: 0, along: 0, thick: 0, wTerms: [], lTerms: [], how: "" };
+      var c2 = 2 * s.cushion;
+
+      if (s.shape === "round") {
+        var dia = s.dia > 0 ? s.dia + c2 : 0;
+        var len = s.cylL > 0 ? s.cylL + c2 : 0;
+        if (dia <= 0 || len <= 0) return g;
+        g.ok = true;
+        g.halfGirth = Math.PI * dia / 2;
+        g.along = len;
+        g.thick = dia;
+        g.wTerms.push({ label: "Half the circumference, π × " + num(dia, 3) + " ÷ 2", v: g.halfGirth });
+        g.lTerms.push({ label: "Cylinder length", v: len });
+        g.lTerms.push({ label: "Bottom take-up, half the " + num(dia, 3) + " diameter", v: dia / 2 });
+        g.how = "πD ÷ 2 by L + D ÷ 2";
+        return g;
+      }
+
+      /* rectangular and irregular both start from a bounding box */
+      var dims = [s.dimA, s.dimB, s.dimC].filter(function (v) { return v > 0; });
+      if (dims.length < 3) return g;
+      dims = dims.map(function (v) { return v + c2; }).sort(function (a, b) { return b - a; });
+      var along = dims[0], mid = dims[1], thick = dims[2];
+
+      var halfGirth, wLabel;
+      if (s.shape === "irreg" && s.girth > 0) {
+        halfGirth = (s.girth + 4 * s.cushion) / 2;
+        wLabel = "Half the measured girth";
+      } else {
+        halfGirth = mid + thick;
+        wLabel = "Across the face " + num(mid, 3) + " and around both sides " + num(thick, 3);
+      }
+
+      /* An irregular item does not lie flat against the film the way a box
+         does. The item-derived part of both dimensions carries 10 per cent
+         more, which is not in the specification; it is ordinary shop
+         practice for castings, weldments and assemblies. */
+      var slack = (s.shape === "irreg") ? 0.10 : 0;
+
+      g.ok = true;
+      g.halfGirth = halfGirth * (1 + slack);
+      g.along = along;
+      g.thick = thick;
+      g.wTerms.push({ label: wLabel, v: halfGirth });
+      if (slack) g.wTerms.push({ label: "Irregular shape allowance, 10%", v: halfGirth * slack });
+      g.lTerms.push({ label: "Longest dimension, along the bag length", v: along });
+      g.lTerms.push({ label: "Bottom take-up, half the " + num(thick, 3) + " thickness", v: thick / 2 });
+      if (slack) g.lTerms.push({ label: "Irregular shape allowance, 10%", v: (along + thick / 2) * slack });
+      g.how = "(W + T) by (L + T ÷ 2)";
+      return g;
+    }
+
+    /* ---- the sizing pass ===================================================
+       The reseal allowance depends on the seam width, the seam width depends
+       on the area of one side of the bag, and the area depends on the reseal
+       allowance. Three passes settle it. Each pass can only grow the bag, so
+       the result is never undersized.
+       ====================================================================== */
+    function compute(s, g) {
+      var seam = SEAM[1], wMin = 0, lMin = 0, wSpec = 0, lSpec = 0, resealAdd = 0;
+
+      /* The width and length are the sums of exactly the line items the
+         result table prints, so the arithmetic on screen is the arithmetic
+         that produced the answer. */
+      var sum = function (terms) {
+        return terms.reduce(function (a, t) { return a + t.v; }, 0);
+      };
+
+      for (var pass = 0; pass < 3; pass++) {
+        resealAdd = s.reseal ? 2 * (seam.width + TRIM_IN) : 0;
+
+        wMin = sum(g.wTerms) + s.ease;
+        lMin = sum(g.lTerms) + s.ease + s.closure + resealAdd;
+
+        wSpec = Math.ceil(wMin - 1e-9);
+        lSpec = Math.ceil(lMin - 1e-9);
+        seam = bracket(SEAM, wSpec * lSpec);
+      }
+
+      return {
+        wMin: wMin, lMin: lMin, wSpec: wSpec, lSpec: lSpec,
+        area: wSpec * lSpec, seam: seam, tol: bracket(TOL, wSpec * lSpec),
+        resealAdd: resealAdd
+      };
+    }
+
+    /* ---- labels that follow the shape and unit of measure ---- */
+    function relabel(s) {
+      var u = s.unit === "mm" ? "mm" : "in";
+      ["u1", "u2", "u3", "u4", "u5", "u6", "u7", "u8", "u9"].forEach(function (r) {
+        var el = byRole(r); if (el) el.textContent = u;
+      });
+
+      byRole("dims-rect").hidden  = (s.shape === "round");
+      byRole("dims-round").hidden = (s.shape !== "round");
+      byRole("girth-wrap").hidden = (s.shape !== "irreg");
+
+      var irreg = (s.shape === "irreg");
+      byRole("lbl-a").textContent = irreg ? "Max length"    : "Length";
+      byRole("lbl-b").textContent = irreg ? "Max width"     : "Width";
+      byRole("lbl-c").textContent = irreg ? "Max thickness" : "Height";
+
+      byRole("rect-help").textContent = irreg
+        ? "The bounding box of the item at its extremes. Order does not matter; the tool lays the item in the orientation that gives the smallest bag."
+        : "Order does not matter. The tool lays the item in with its longest dimension along the bag length, which is the orientation that gives the smallest bag.";
+
+      var mat = s.mat;
+      byRole("mat-help").innerHTML =
+        "Fabricated from " + esc(mat.mat) + ", per table I. Intended for " +
+        esc(mat.use) + ". " +
+        (mat.fold
+          ? "A class " + (mat.key.indexOf("-F-") > -1 ? "F" : "H") +
+            " bag is formed from one folded sheet and heat sealed along both sides only, so it has no bottom seam and the length is measured from the bottom fold."
+          : "Formed from two sheets or one folded sheet, heat sealed along both sides and the bottom edge as required.");
+    }
+
+    /* ---- render ---- */
+    function render() {
+      var s = state();
+      relabel(s);
+
+      var g = geometry(s);
+
+      if (!g.ok) {
+        out.innerHTML =
+          '<p class="royco-fbag__idle">Enter the item’s dimensions. The minimum inside ' +
+          "width and length of the flat bag that will hold it appears here, together with the " +
+          "whole-inch size to specify and the MIL-DTL-117 tolerance, seam width and size and " +
+          "weight limitations that apply to it.</p>";
+        return;
+      }
+
+      var r = compute(s, g);
+      var u = s.unit === "mm" ? "mm" : "in";
+      var mat = s.mat;
+
+      var html = "";
+
+      /* the geometry, with the customer's numbers substituted */
+      html +=
+        '<p class="royco-fbag__formula">' +
+          "Inside width&nbsp; = <b>" + esc(d(r.wMin, s.unit)) + "</b> " + u + "<br>" +
+          "Inside length = <b>" + esc(d(r.lMin, s.unit)) + "</b> " + u +
+          "<i>Width is half the item’s girth at its fullest cross-section plus ease. " +
+          "Length is the item’s longest dimension, plus half its thickness for the " +
+          "material that has to wrap the bottom, plus ease and the closure allowance." +
+          (s.reseal ? " Two reseals add " + esc(d(r.resealAdd, s.unit)) + " " + u + "." : "") +
+          "</i>" +
+        "</p>";
+
+      /* term-by-term table */
+      html += '<table class="royco-fbag__terms"><thead><tr><th>Term</th><th>' + u + "</th></tr></thead><tbody>";
+
+      html += '<tr data-group="1"><td colspan="2">Width</td></tr>';
+      g.wTerms.forEach(function (t) {
+        html += "<tr><td>" + esc(t.label) + "</td><td>" + esc(d(t.v, s.unit)) + "</td></tr>";
+      });
+      html += "<tr><td>Fit ease</td><td>" + esc(d(s.ease, s.unit)) + "</td></tr>";
+      html += '<tr data-total="1"><td>Minimum inside width</td><td>' + esc(d(r.wMin, s.unit)) + "</td></tr>";
+
+      html += '<tr data-group="1"><td colspan="2">Length</td></tr>';
+      g.lTerms.forEach(function (t) {
+        html += "<tr><td>" + esc(t.label) + "</td><td>" + esc(d(t.v, s.unit)) + "</td></tr>";
+      });
+      html += "<tr><td>Fit ease</td><td>" + esc(d(s.ease, s.unit)) + "</td></tr>";
+      html += "<tr><td>Closure allowance</td><td>" + esc(d(s.closure, s.unit)) + "</td></tr>";
+      if (s.reseal) {
+        html +=
+          "<tr><td>Two reseals, 2 × (" + esc(r.seam.text) + " seam + " +
+          esc(d(TRIM_IN, s.unit)) + " trim)</td><td>" + esc(d(r.resealAdd, s.unit)) + "</td></tr>";
+      }
+      html += '<tr data-total="1"><td>Minimum inside length</td><td>' + esc(d(r.lMin, s.unit)) + "</td></tr>";
+      html += "</tbody></table>";
+
+      /* the two numbers */
+      var specText = num(r.wSpec, 0) + " × " + num(r.lSpec, 0) + " in";
+      html +=
+        '<div class="royco-fbag__answer">' +
+          '<div class="royco-fbag__answerbox">' +
+            "<span>Minimum inside size</span>" +
+            "<strong data-role='exact'>" + esc(d(r.wMin, s.unit)) + " × " +
+              esc(d(r.lMin, s.unit)) + " " + u + "</strong>" +
+          "</div>" +
+          '<div class="royco-fbag__answerbox royco-fbag__answerbox--spec">' +
+            "<span>Specify</span>" +
+            "<strong data-role='specified'>" + esc(specText) + "</strong>" +
+            "<i>width × length, inside dimensions" +
+            (s.unit === "mm"
+              ? " &mdash; " + esc(num(r.wSpec * MM_PER_IN, 1)) + " × " +
+                esc(num(r.lSpec * MM_PER_IN, 1)) + " mm"
+              : "") +
+            "</i>" +
+          "</div>" +
+        "</div>";
+
+      /* what that size carries with it */
+      html += '<div class="royco-fbag__spec">';
+      html += '<p class="royco-fbag__spectitle">On the purchase order</p>';
+      html +=
+        '<div class="royco-fbag__line"><span>Bag area, one side</span><b>' +
+        esc(num(r.area, 0)) + " sq in</b></div>";
+      html +=
+        '<div class="royco-fbag__line"><span>Length and width tolerance, table II</span><b>' +
+        esc(r.tol.text) + " in</b></div>";
+      html +=
+        '<div class="royco-fbag__line"><span>Seam width, table III</span><b>' +
+        esc(r.seam.text) + " in</b></div>";
+      html +=
+        '<div class="royco-fbag__line"><span>Maximum heat-seal width tolerance</span><b>' +
+        esc(r.seam.tol) + " in</b></div>";
+      html += "</div>";
+
+      /* ---- flags ------------------------------------------------------------
+         Each flag also contributes a plain-text line to the quote request, so
+         whoever picks up the enquiry sees the same warnings the customer did.
+         ---------------------------------------------------------------------- */
+      var flagLines = [];
+      var lo = Math.min(r.wSpec, r.lSpec), hi = Math.max(r.wSpec, r.lSpec);
+
+      if (lo > maxShort || hi > maxLong) {
+        html +=
+          '<p class="royco-fbag__note royco-fbag__note--stop"><strong>Beyond flat-bag ' +
+          "construction.</strong> A flat bag runs to " + esc(num(maxShort, 0)) + " in in one " +
+          "dimension and " + esc(num(maxLong, 0)) + " in in the other. At " + esc(specText) +
+          " this item needs a bag of complex construction to MIL-DTL-6060E — fabricated " +
+          "from more than one width of barrier material, with double-seam heat seals, and " +
+          "optionally inspection windows and gasketed hold-down holes. Tolerances there are " +
+          "± 1/4 in and all seams are at least 1/2 in. Send it over with the quote " +
+          "request below and we will size the construction.</p>";
+        flagLines.push("Exceeds flat bag construction (" + num(maxShort, 0) + " in short / " +
+          num(maxLong, 0) + " in long). Needs complex construction to MIL-DTL-6060E.");
+      } else if (hi > maxShort) {
+        html +=
+          '<p class="royco-fbag__note">This is an oversize flat bag. The ' + esc(num(hi, 0)) +
+          " in dimension is past the " + esc(num(maxShort, 0)) + " in a flat bag normally runs, " +
+          "which is workable because the other dimension is " + esc(num(lo, 0)) +
+          " in. Expect it to be made to order rather than pulled from stock.</p>";
+        flagLines.push("Oversize flat bag, made to order (" + num(hi, 0) + " in long dimension).");
+      }
+
+      if (mat.limit === "area50" && r.area > 50) {
+        html +=
+          '<p class="royco-fbag__note royco-fbag__note--flag"><strong>Past the 6.3 ' +
+          "recommendation for this class.</strong> For type III, class C, style 1 the maximum " +
+          "inside area is 50 sq in. This size is " + esc(num(r.area, 0)) + " sq in. Type II, " +
+          "class C, style 1 on MIL-PRF-121 type I is the heavier equivalent.</p>";
+        flagLines.push("Past the 6.3 recommendation: type III class C style 1 maximum area is " +
+          "50 sq in, this size is " + num(r.area, 0) + " sq in.");
+      }
+
+      if (s.weight > 0 && !s.outer) {
+        if (mat.weight === "none") {
+          html +=
+            '<p class="royco-fbag__note">6.5 imposes no weight restriction on this type and ' +
+            "class, so " + esc(num(s.weight, 2)) + " lb unsupported is acceptable.</p>";
+        } else if (mat.weight === "5") {
+          /* 117J makes A-A-3174 the only material for this combination, so
+             the 6.5.a restriction is no longer conditional on the material
+             choice the way it was under 117H. */
+          html +=
+            '<p class="royco-fbag__note' + (s.weight > 5 ? " royco-fbag__note--flag" : "") +
+            '"><strong>Weight, 6.5.a.</strong> Type III, class B, style 2 is fabricated from ' +
+            "A-A-3174, so contents should not exceed 5 lb without an outer supporting container. " +
+            "This item is " + esc(num(s.weight, 2)) + " lb." +
+            (s.weight > 5 ? " Specify a heavier type and class, or pack the filled bag in a supporting container." : "") +
+            "</p>";
+          if (s.weight > 5) {
+            flagLines.push("Over the 6.5.a 5 lb limit for type III class B style 2 (" +
+              num(s.weight, 2) + " lb, no outer container).");
+          }
+        } else if (s.weight > 10) {
+          html +=
+            '<p class="royco-fbag__note royco-fbag__note--flag"><strong>Weight, 6.5.</strong> ' +
+            "Without an outer supporting container the net weight of contents should not exceed " +
+            "10 lb. This item is " + esc(num(s.weight, 2)) + " lb. Type I, class E or class F " +
+            "carries no weight restriction, or pack the filled bag in a supporting container.</p>";
+          flagLines.push("Over the 6.5 10 lb limit (" + num(s.weight, 2) +
+            " lb, no outer container).");
+        }
+      }
+
+      /* stock size match, table IV */
+      var match = null;
+      for (var i = 0; i < STOCK.length; i++) {
+        if (STOCK[i].w === r.wSpec && STOCK[i].l === r.lSpec) { match = STOCK[i]; break; }
+      }
+      if (match) {
+        html +=
+          '<p class="royco-fbag__note">' + esc(specText) + " is size designation " +
+          esc(String(match.d)) + " in table IV, one of the commonly stocked sizes.</p>";
+      }
+
+      /* ---- the quote request, on every result ---- */
+      if (quoteUrl) {
+        var comment = quoteComment(s, r, mat, specText, flagLines);
+        html +=
+          '<div class="royco-fbag__cta">' +
+            '<a class="royco-fbag__btn" href="' + esc(quoteHref(quoteUrl, comment)) +
+              '" data-royco-quote="1">Request a quote for this bag</a>' +
+            '<p class="royco-fbag__note">Opens our contact form with this size, type, class ' +
+            "and every allowance above already written into the Comment box. Add your quantity " +
+            "and delivery date and send it.</p>" +
+          "</div>";
+      }
+
+      /* material and where to buy */
+      var matUrl = resolveUrl(collectionRoot, mat.handle);
+      var bagUrl = resolveUrl(collectionRoot, bagCollection);
+      html +=
+        '<p class="royco-fbag__note">Material for this type, class and style is ' +
+        (matUrl ? '<a href="' + esc(matUrl) + '" data-royco-material="1">' + esc(mat.mat) + "</a>" : esc(mat.mat)) +
+        ". " +
+        (bagUrl ? 'Royco fabricates this size to order and stocks common sizes in <a href="' +
+          esc(bagUrl) + '" data-royco-bags="1">heat-seal barrier bags</a>.' : "") +
+        "</p>";
+
+      /* desiccated pack reminder. 117J 6.1.3 names methods 41, 42, 51 and 52
+         for class E bags; 51 and 52 are the desiccated ones. */
+      if (!s.reseal) {
+        html +=
+          '<p class="royco-fbag__note">For a desiccated pack, Method 51 or 52, ' +
+          "MIL-STD-2073-1E 5.2.3.7 requires the bag to be long enough to permit two subsequent " +
+          "reseals after inspection. Tick that box above and the length grows to allow for " +
+          "them.</p>";
+      } else if (desiccantUrl) {
+        html +=
+          '<p class="royco-fbag__note">A desiccated pack also takes activated desiccant and a ' +
+          'humidity indicator. <a href="' + esc(desiccantUrl) + '" data-royco-desiccant="1">' +
+          "Size the desiccant for this bag</a>.</p>";
+      }
+
+      html +=
+        '<p class="royco-fbag__note">Width and length are inside dimensions, measured per ' +
+        "3.4.1 from the inside edges of the side seams and from the inside edge of the bottom " +
+        "seam or fold to the edge of the opening. State them that way on the order; the side " +
+        "seams sit outside the width you specify.</p>";
+
+      out.innerHTML = html;
+    }
+
+    /* ---- wiring ---- */
+    qa('[data-role="unit"]').forEach(function (radio) {
+      radio.addEventListener("change", function () {
+        var to = currentUnit();
+        convertFields(lastUnit, to);
+        lastUnit = to;
+        prefill();
+        render();
+      });
+    });
+
+    byRole("material").addEventListener("change", function () { prefill(); render(); });
+
+    root.addEventListener("input", render);
+    root.addEventListener("change", render);
+
+    byRole("reset").addEventListener("click", function () {
+      qa("input[type=number]").forEach(function (i) { i.value = ""; });
+      byRole("reseal").checked = false;
+      byRole("outer").checked = false;
+      byRole("material").value = MATERIALS[0].key;
+      qa('[data-role="shape"]').forEach(function (r, i) { r.checked = (i === 0); });
+      qa('[data-role="unit"]').forEach(function (r, i) { r.checked = (i === 0); });
+      easeDirty = false;
+      lastUnit = "in";
+      prefill();
+      render();
+    });
+
+    prefill();
+    render();
+  }
+
+  function boot() {
+    Array.prototype.slice.call(document.querySelectorAll(".royco-fbag")).forEach(init);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+  document.addEventListener("shopify:section:load", boot);
+})();
+</script>
+{% endraw %}
+
+{% schema %}
+{
+  "name": "MIL-DTL-117 Bag Size",
+  "tag": "section",
+  "class": "section-royco-flat-bag",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Flat Bag Size Calculator"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>A flat bag has to reach around the item, not just across it, and it has to carry enough length for the closure seal. Enter what you are packing and this tool returns the minimum inside width and length, the whole-inch size to put on the order, and the MIL-DTL-117J tolerance, seam width and size and weight limitations that come with it.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Construction limits"
+    },
+    {
+      "type": "range",
+      "id": "max_short",
+      "label": "Maximum short dimension",
+      "info": "The largest a flat bag runs in its smaller dimension. Past this, the tool calls for complex construction to MIL-DTL-6060E.",
+      "min": 12,
+      "max": 72,
+      "step": 1,
+      "unit": "in",
+      "default": 49
+    },
+    {
+      "type": "range",
+      "id": "max_long",
+      "label": "Maximum long dimension",
+      "info": "The largest a flat bag runs in its other dimension, where the short dimension is within the limit above.",
+      "min": 24,
+      "max": 120,
+      "step": 1,
+      "unit": "in",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Links"
+    },
+    {
+      "type": "text",
+      "id": "collection_root",
+      "label": "Collection URL root",
+      "default": "/collections"
+    },
+    {
+      "type": "text",
+      "id": "bag_collection",
+      "label": "Bag collection handle",
+      "info": "Where the result sends a customer to buy. Leave blank and the sentence renders without a link.",
+      "default": "in-stock-heat-seal-barrier-bags"
+    },
+    {
+      "type": "text",
+      "id": "quote_url",
+      "label": "Quote request page",
+      "info": "The Request a quote button appears on every result and carries the whole calculation in a comment parameter. The Comment box fills itself only if the royco-calculator-prefill snippet is on this page. Leave blank and no button is shown.",
+      "default": "https://www.roycopackaging.com/pages/contact"
+    },
+    {
+      "type": "text",
+      "id": "desiccant_url",
+      "label": "Desiccant calculator page",
+      "info": "Cross-linked from the result when the customer is sizing a desiccated pack. Leave blank and no cross-link is shown.",
+      "default": "https://www.roycopackaging.com/pages/mil-std-2073-desiccant-calculator"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Base text size",
+      "info": "Everything in the section scales from this. Raise it if the tool reads small on your theme.",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Page background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_panel",
+      "label": "Panel background",
+      "default": "#f6f7f9"
+    },
+    {
+      "type": "color",
+      "id": "color_ink",
+      "label": "Text",
+      "default": "#14181f"
+    },
+    {
+      "type": "color",
+      "id": "color_muted",
+      "label": "Muted text",
+      "default": "#5c6673"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent and links",
+      "default": "#1f4e79"
+    },
+    {
+      "type": "color",
+      "id": "color_line",
+      "label": "Borders",
+      "default": "#d9dee5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Legal"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>Classification, materials, intended use, inside dimensions, tolerances, seam widths, size limitations and weight limitations are reproduced from MIL-DTL-117J, 26 June 2026, which supersedes MIL-DTL-117H w/AMENDMENT 2. The reseal allowance follows MIL-STD-2073-1E w/CHANGE 4, 5.2.3.7. Complex construction is MIL-DTL-6060E. Fit ease and the irregular-shape allowance are shop practice, not specification requirements, and are shown as separate line items so they can be adjusted or removed. This tool is provided for reference only; it does not replace the packaging engineer's judgment on bag type, material or method of preservation. Always verify against the current revision of each document at the DLA ASSIST database and against the requirements of your specific contract or drawing.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MIL-DTL-117 Bag Size"
+    }
+  ]
+}
+{% endschema %}

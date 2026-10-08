@@ -1,0 +1,101 @@
+{% comment %}
+===========================================================
+ DISCOVER BY PRODUCT TYPE SECTION
+ Author: Foremost Media
+===========================================================
+{% endcomment %}
+
+{{ 'component-discover-product-type.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'discover-product-type.js' | asset_url }}" defer="defer"></script>
+
+<section class="discover-product-type">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <h2 class="discover-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="product-type-grid">
+      {% for block in section.blocks %}
+        {% assign is_first = forloop.first %}
+        <div 
+          class="product-type-card{% if is_first %} is-open{% endif %}" 
+          style="background-image: url({{ block.settings.bg_image | image_url: width: 800 }});"
+        >
+          <div class="overlay">
+            <h3 class="overlay-title">{{ block.settings.card_title }}</h3>
+          </div>
+          <div class="card-inner">
+            <div class="card-content">
+              <h3 class="card-title">{{ block.settings.card_title }}</h3>
+              {% if block.settings.card_text != blank %}
+                <p class="card-text">{{ block.settings.card_text }}</p>
+              {% endif %}
+              {% if block.settings.button_label != blank and block.settings.button_link != blank %}
+                <a href="{{ block.settings.button_link }}" class="card-button">
+                  {{ block.settings.button_label }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Discover by Product Type",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "DISCOVER BY PRODUCT TYPE"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Product Type Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "ROLL STOCK"
+        },
+        {
+          "type": "textarea",
+          "id": "card_text",
+          "label": "Card Description"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Discover by Product Type",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

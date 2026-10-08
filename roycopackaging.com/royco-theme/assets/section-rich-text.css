@@ -1,0 +1,9 @@
+/* Section - Rich text
+=================================== */
+.section-rich-text {
+  text-align: center;
+}
+
+.section-rich-text .button {
+  margin-top: var(--spacing-base-1);
+}

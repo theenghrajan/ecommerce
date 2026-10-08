@@ -1,0 +1,348 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_d7eRBJ": {
+      "type": "hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "background_image": "shopify://shop_images/home-hero-background.webp",
+        "title": "Smart Packaging Solutions. | 50 Years and Counting.",
+        "text": "Royco Packaging manufactures and supplies military, industrial, and specialty packaging that protects what matters most—backed by award-winning service and quality.",
+        "button_label": "Shop Now",
+        "button_link": "/products"
+      }
+    },
+    "logo_banner_DDTFUm": {
+      "type": "logo-banner",
+      "blocks": {
+        "logo_TpzYY3": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Navy.webp",
+            "logo_alt": "United States Navy"
+          }
+        },
+        "logo_GDUXbP": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/DLA.webp",
+            "logo_alt": "Defense Logistics Agency"
+          }
+        },
+        "logo_jHfaay": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Army.webp",
+            "logo_alt": "United States Army"
+          }
+        },
+        "logo_jryibR": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Valor.webp",
+            "logo_alt": "Valor logo"
+          }
+        },
+        "logo_7wkQDD": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/ASRC.webp",
+            "logo_alt": "ASRC Federal logo"
+          }
+        },
+        "logo_qz7Mwd": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Supply_one.webp",
+            "logo_alt": "Supply One logo"
+          }
+        },
+        "logo_6cneqj": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Veritiv.webp",
+            "logo_alt": "Veritiv logo"
+          }
+        }
+      },
+      "block_order": [
+        "logo_TpzYY3",
+        "logo_GDUXbP",
+        "logo_jHfaay",
+        "logo_jryibR",
+        "logo_7wkQDD",
+        "logo_qz7Mwd",
+        "logo_6cneqj"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "Logo Banner",
+      "settings": {
+        "heading": "Trusted by Industry Leaders"
+      }
+    },
+    "banner_list_yTFkgK": {
+      "type": "banner-list",
+      "blocks": {
+        "banner_YYhC9a": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/aerospace-card.webp",
+            "title": "Aerospace",
+            "description": "",
+            "button_text": "",
+            "button_link": "shopify://pages/aerospace"
+          }
+        },
+        "banner_CHJ7ph": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/image_e1126bc2.webp",
+            "title": "Military",
+            "description": "",
+            "button_text": "",
+            "button_link": "shopify://pages/military-packaging-solutions"
+          }
+        },
+        "banner_jKCcyz": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/energy-card.webp",
+            "title": "Healthcare",
+            "description": "",
+            "button_text": "",
+            "button_link": "shopify://pages/healthcare-packaging-solutions"
+          }
+        },
+        "banner_QKjnTr": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/electronics-card.webp",
+            "title": "Industrial",
+            "description": "",
+            "button_text": "",
+            "button_link": "shopify://pages/industrial-packaging-solutions"
+          }
+        }
+      },
+      "block_order": [
+        "banner_YYhC9a",
+        "banner_CHJ7ph",
+        "banner_jKCcyz",
+        "banner_QKjnTr"
+      ],
+      "custom_css": [
+        ".block-block-section-title-wrapper {margin-bottom: 1.75rem;}",
+        "h2 {font-size: 2.8rem; font-weight: 900; text-transform: uppercase;}",
+        "h3 {font-size: 3.6rem; font-weight: 800; text-transform: uppercase;}"
+      ],
+      "name": "t:sections.banner_list.presets.name",
+      "settings": {
+        "heading": "Industries We Serve",
+        "link_title": "",
+        "link_url": "",
+        "card_ratio": "auto",
+        "show_title": true,
+        "show_description": true,
+        "show_button": true,
+        "overlay_opacity": 80,
+        "layout": "grid",
+        "columns": 2,
+        "stack_on_mobile": true,
+        "color_scheme": "background-1",
+        "spacing_top": 40,
+        "spacing_bottom": 76
+      }
+    },
+    "discover_by_product_type_YfQrQM": {
+      "type": "discover-by-product-type",
+      "blocks": {
+        "card_MKcqJt": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify://shop_images/roll-stock-card.webp",
+            "card_title": "Roll Stock",
+            "card_text": "Barrier material by the roll for wrapping parts and building your own packs. Stock and custom configurations available. In-stock rolls ship same day.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/grease-water-vapor-proof-barrier-materials"
+          }
+        },
+        "card_fW6fMb": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify://shop_images/barrier-bags-card.webp",
+            "card_title": "Barrier Bags",
+            "card_text": "Heat-sealable bags made in-house in Huntingdon Valley, PA. Stock SpecPack™ sizes and custom dimensions. Every order ships with a Certificate of Conformance.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://pages/barrier-bags"
+          }
+        },
+        "card_fAUHHY": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify://shop_images/desiccants-cards.webp",
+            "card_title": "Desiccants",
+            "card_text": "Clay, silica, and specialty desiccants that keep sealed containers dry through long-term storage. Humidity indicators to ensure items remain preserved.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/desiccants"
+          }
+        },
+        "card_btJQfx": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify://shop_images/volatile-corrosion-inhibitors-card.webp",
+            "card_title": "Volatile Corrosion Inhibitors",
+            "card_text": "VCI papers, films, and emitters that protect metal parts from rust in storage and shipment, with no preservative oil to clean off.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/corrosion-protection"
+          }
+        },
+        "card_wwETVd": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify://shop_images/wax-wraps-card.webp",
+            "card_title": "Wax Wraps",
+            "card_text": "Waxed wrapping papers that hold preservative oils on coated parts and shed moisture, including double-side waxed Versil-Pak rolls.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/wax-wraps"
+          }
+        },
+        "card_YHMMYC": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify://shop_images/packaging-tapes-card.webp",
+            "card_title": "Packaging Tapes",
+            "card_text": "ASTM D5486 tapes for MIL-STD-2073 packaging, plus waterproof tape for sealing barrier wraps.",
+            "button_label": "Shop Now",
+            "button_link": "/collections/tapes"
+          }
+        }
+      },
+      "block_order": [
+        "card_MKcqJt",
+        "card_fW6fMb",
+        "card_fAUHHY",
+        "card_btJQfx",
+        "card_wwETVd",
+        "card_YHMMYC"
+      ],
+      "name": "Discover by Product Type",
+      "settings": {
+        "title": "DISCOVER BY PRODUCT TYPE"
+      }
+    },
+    "media_with_text_AWrp39": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_jcDpFW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Packaging Solutions Built Around Your Needs"
+          }
+        },
+        "text_FHPT3n": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For more than 40 years, Royco Packaging has helped businesses, government agencies, and industrial leaders protect their products and streamline operations. From military-grade materials to custom industrial and specialty packaging, our team delivers solutions tailored to your exact requirements—backed by expert guidance and award-winning service.</p>"
+          }
+        },
+        "button_bMnpRB": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "heading_jcDpFW",
+        "text_FHPT3n",
+        "button_bMnpRB"
+      ],
+      "custom_css": [],
+      "name": "t:sections.media_with_text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/fragile-package.webp",
+        "video_url": "",
+        "layout": "media_first",
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-1",
+        "spacing_top": 40,
+        "spacing_bottom": 60
+      }
+    },
+    "collection_tabs_JHt3Xp": {
+      "type": "collection-tabs",
+      "blocks": {
+        "collection_rggwN9": {
+          "type": "collection",
+          "settings": {
+            "collection": "popular-products"
+          }
+        }
+      },
+      "block_order": [
+        "collection_rggwN9"
+      ],
+      "custom_css": [
+        "h2 {font-size: 2.8rem; font-weight: 700; text-transform: uppercase;}",
+        ".pill-nav {display: none;}"
+      ],
+      "name": "t:sections.collection_tabs.preset.name",
+      "settings": {
+        "heading": "Popular products",
+        "products_to_show": 4,
+        "show_vendor": false,
+        "show_stock": true,
+        "show_rating": false,
+        "layout": "slider",
+        "columns": "4",
+        "stack_on_mobile": true,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 130
+      }
+    },
+    "ss_faq_j4GDGR": {
+      "type": "ss-faq",
+      "custom_css": [
+        ".ss-faq {max-width: 1460px; margin: 0 auto; padding: 60px 20px;}",
+        ".ss-faq h2 {font-size: 24px; font-weight: 500; color: #232323; margin: 0 0 20px;}",
+        ".ss-faq__item {padding: 10px;}",
+        ".ss-faq__item summary {font-size: 18px; line-height: 1.6; color: #676767; padding-bottom: 10px; border-bottom: 1px solid #000; cursor: pointer;}",
+        ".ss-faq__item .rte {margin-top: 10px;}"
+      ],
+      "name": "SS FAQs",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "faqs": [
+          "what-types-of-packaging-does-royco-packaging-manufacture",
+          "does-royco-packaging-offer-mil-spec-compliant-packaging-materials",
+          "is-royco-packaging-iso-9001-2015-certified",
+          "can-i-order-packaging-materials-for-same-day-shipment",
+          "does-royco-packaging-ship-internationally",
+          "what-industries-does-royco-packaging-serve",
+          "how-do-i-request-a-custom-packaging-quote",
+          "are-royco-packaging-products-made-in-the-usa"
+        ]
+      }
+    }
+  },
+  "order": [
+    "hero_banner_d7eRBJ",
+    "logo_banner_DDTFUm",
+    "discover_by_product_type_YfQrQM",
+    "banner_list_yTFkgK",
+    "media_with_text_AWrp39",
+    "collection_tabs_JHt3Xp",
+    "ss_faq_j4GDGR"
+  ]
+}

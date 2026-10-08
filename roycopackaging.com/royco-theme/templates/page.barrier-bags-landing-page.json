@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "48fb4c05-94bb-4da1-91c0-334b538d549b": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16738569093342__48fb4c05-94bb-4da1-91c0-334b538d549b-1681415823006ea3a2-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/PXL_20230414_121807951.MP_1.jpg",
+            "image_width": 330,
+            "title": "Mil Spec Bags",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16738569093342__48fb4c05-94bb-4da1-91c0-334b538d549b-1681415823006ea3a2-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/static-shield-bag.jpg",
+            "image_width": 250,
+            "title": "Static & ESD Bags",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16738569093342__48fb4c05-94bb-4da1-91c0-334b538d549b-1681415823006ea3a2-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/VCI-film-bags.jpg",
+            "image_width": 250,
+            "title": "VCI Bags",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16738569093342__48fb4c05-94bb-4da1-91c0-334b538d549b-1681415823006ea3a2-0",
+        "template--16738569093342__48fb4c05-94bb-4da1-91c0-334b538d549b-1681415823006ea3a2-1",
+        "template--16738569093342__48fb4c05-94bb-4da1-91c0-334b538d549b-1681415823006ea3a2-2"
+      ],
+      "settings": {
+        "title": "Stock & Custom Barrier Bags",
+        "columns": 3,
+        "column_alignment": "center",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    },
+    "edc9e9ad-b7a9-4491-8e89-2fc3ff0c3bb6": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16738569093342__edc9e9ad-b7a9-4491-8e89-2fc3ff0c3bb6-1681473993108ca4ae-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact a Packaging Specialist"
+          }
+        },
+        "template--16738569093342__edc9e9ad-b7a9-4491-8e89-2fc3ff0c3bb6-1681473993108ca4ae-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our experienced packaging specialists are available to assist with your project, provide recommendations, or help place an order. </p><p><strong>Call 1-800-67-ROYCO or email our team at </strong><a href=\"mailto:sales@roycopackaging.com\" title=\"Email Royco Packaging\"><strong>sales@roycopackaging.com</strong></a></p>"
+          }
+        },
+        "86844af3-6923-4595-a486-3ea6f5baa624": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "template--16738569093342__edc9e9ad-b7a9-4491-8e89-2fc3ff0c3bb6-1681473993108ca4ae-0",
+        "template--16738569093342__edc9e9ad-b7a9-4491-8e89-2fc3ff0c3bb6-1681473993108ca4ae-1",
+        "86844af3-6923-4595-a486-3ea6f5baa624"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "accent-1",
+        "spacing_top": 10,
+        "spacing_bottom": 10
+      }
+    },
+    "ss_faq_V9KNH7": {
+      "type": "ss-faq",
+      "custom_css": [
+        ".ss-faq{max-width:1460px;margin:0 auto;padding:60px 20px}",
+        " .ss-faq h2{font-size:24px;font-weight:500;color:#232323;margin:0 0 20px}",
+        " .ss-faq__item{padding:10px}",
+        " .ss-faq__item summary{font-size:18px;line-height:1.6;color:#676767;padding-bottom:10px;border-bottom:1px solid #000;cursor:pointer}",
+        " .ss-faq__item .rte{margin-top:10px}"
+      ],
+      "name": "SS FAQs",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "faqs": "{{ page.metafields.custom.ss_faqs.value }}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "48fb4c05-94bb-4da1-91c0-334b538d549b",
+    "edc9e9ad-b7a9-4491-8e89-2fc3ff0c3bb6",
+    "ss_faq_V9KNH7"
+  ]
+}
