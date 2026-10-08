@@ -1,0 +1,522 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_McQK8X": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_JYdeMM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why You Should be Utilizing Tamper-Evident Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_wp8DU8": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JYdeMM",
+        "text_wp8DU8"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_8wjCEH": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_cKntEe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NADCO University"
+          }
+        },
+        "heading_b7aqpR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why You Should be Utilizing Tamper-Evident Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_TegDMV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tamper-evident labels show signs when someone has tried to open or tamper with a product. These labels or seals contain features that make it impossible to remove or peel up the material without damaging it in an obvious way. Effective tamper-evident labels must not separate easily from the product’s container and are often designed to split or separate after any attempt to remove them. </p><p>The FDA requires these labels to have a distinctive design and composition so that consumers know that the label they see is real and not a duplicate replacement. “Distinctive” may refer to what’s printed on the label, the material the label is made of (something that can’t be copied easily by whoever is trying to alter the product), and the features that leave visible evidence that the label has been breached.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "subheading_cKntEe",
+        "heading_b7aqpR",
+        "text_TegDMV"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/tamper-031220-1-1024x1024.gif",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "custom_content_hzRNTw": {
+      "type": "custom-content",
+      "blocks": {
+        "video_dwxaPB": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://youtu.be/yhWNdihJrIU",
+            "cover_image": "shopify://shop_images/thumbnail.jpg",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "text_88MEpY": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "<strong>Use Tamper-Evident Labels for Security and Safety</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "description": "<p>The need for tamper-evident labels arose for a variety of reasons, but most importantly to ensure the safety and security of products when they reach the end user. Whether the product is food, medication, or a piece of equipment, buyers want to be sure that what’s in the box is what was packed in the box.</p><p>Tamper-evident labels can’t be opened and then replaced. They leave visual evidence for the end user to see. Tamper-evident labels may use a variety of methods, such as:</p><ul><li>A printed message that sticks to the product when the label is removed, such as “void”</li><li>A pre-cut slit in the label that tears when attempting to remove the label</li><li>Fragile films that are guaranteed to tear because they can’t be removed in one piece</li></ul><p>When it is impossible to alter the label without a clear sign, it becomes exceedingly difficult to tamper with the products inside of a package. An intact tamper-evident label shows the customer that your product is safe to use or consume, while any damage immediately tells the customer not to use the product and report the damaged label to the store or manufacturer.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_dwxaPB",
+        "text_88MEpY"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_qqiKWm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_M8hWHe": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Tamper-Evident Labels Maintain Brand Integrity</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_9k6zrc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tamper-evident labels ultimately help companies to preserve the integrity of their brands. Given that tamper-evident labels are difficult to manufacture and custom brand designs are even more difficult to reproduce, these labels ensure that counterfeiters or other brands cannot duplicate your label. Your brand will eventually become known for its strong, tamper-evident labeling and repeat customers will come to appreciate this verification of the integrity of the products they purchase from you.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_M8hWHe",
+        "text_9k6zrc"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_VN6XYz": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zURmQf": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Common Uses for Tamper-Evident Seals</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_xrhEEH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Some of the most common uses for tamper-evident labels are in the food, beverage, and pharmaceutical industries. Tampering with these products leads to food safety violations and potential danger, not to mention an economic loss if the customer doesn’t receive all of what they paid for. </p><p>Potential use cases include:</p><ul><li><strong>Pharmacy/pharmaceutical. </strong>With an increase in the popularity of pharmacy deliveries and online pharmacies, tamper-evident medication labels help to verify product integrity and patient safety.</li><li><strong>Restaurant delivery. </strong>With the rise of food delivery apps, food delivered from restaurants to customers has more touch points than ever before. A tamper-evident label ensures that food remains fresh and tamper-free in the hands of third-party deliverers.</li><li><strong>Grocery delivery. </strong>Online grocery delivery is exploding in popularity. Tamper-evident labels on bags and cartons helps to ensure the integrity of items from packing to final delivery.</li><li><strong>Critical shipments</strong>. Tamper-evident labels provide a simple, yet effective means of ensuring the integrity of high-value parcel shipments as they move through the various steps of the supply chain.  </li><li><strong>Laundry soap. </strong>Many laundry soap manufacturers are turning to tamper-evident labels to make sure distributors or retailers don’t water down or otherwise alter their products.</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zURmQf",
+        "text_xrhEEH"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_iMDWfm": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_dJyjfz": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom-digital-printing_tapes_labels_800_600.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_CgiaeE": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": ""
+          }
+        },
+        "collapsible_item_WCztkm": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aerospace Industry",
+            "content": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. To withstand the operational challenges posed by aerospace equipment, tapes must meet stringent standards and requirements for temperature resistance, flammability, low weight, and adhesion.</p><p><a href=\"/pages/aerospace\" title=\"Aerospace\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_R47Ri4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automotive Industry",
+            "content": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p><p><a href=\"/pages/automotive\" title=\"Automotive\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_3DkG4h": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Contruction Industry",
+            "content": "<p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry.</p><p><a href=\"/pages/construction-municipal\" title=\"Construction Municipal\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_jqAWMf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electronics Industry",
+            "content": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p><p><a href=\"/pages/electronics\" title=\"Electronics\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_tpNzW3": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Medical Industry",
+            "content": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization. The tapes used in medical applications have the potential of being exposed to varying conditions, so they must have biocompatibility and be able to withstand intense environments.</p><p><a href=\"/pages/adhesive-tapes-medical-industry\" title=\"Adhesive Tapes Medical Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_ieTifq": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Nuclear Industry",
+            "content": "<p>At NADCO, we understand that each application is different, which is why we provide a wide range of nuclear tape and label designs, features, and customization options. We aim to enhance the safety of nuclear applications with quality adhesive solutions for every situation, from nuclear warning labels and RAD wipes to hazard tape and radioactivity indicator signage.</p><p><a href=\"/pages/nuclear-industry\" title=\"Nuclear Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_CkzV4F": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Personal Protective Equipment Industry",
+            "content": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions. Different types of PPE are required across various industries, depending upon the unique risks posed on the job site. These include face and eye protection as well as hard hats for the construction industry.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_rgC86j": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Industry",
+            "content": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk. In order to establish safe facilities, many companies incorporate safety tapes.</p><p><a href=\"/pages/safety-industry\" title=\"Safety Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_dJyjfz",
+        "heading_CgiaeE",
+        "collapsible_item_WCztkm",
+        "collapsible_item_R47Ri4",
+        "collapsible_item_3DkG4h",
+        "collapsible_item_jqAWMf",
+        "collapsible_item_tpNzW3",
+        "collapsible_item_ieTifq",
+        "collapsible_item_CkzV4F",
+        "collapsible_item_rgC86j"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_7BQnCj": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_DaWJn8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_GTphMX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DaWJn8",
+        "button_GTphMX"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_McQK8X",
+    "image_with_text_8wjCEH",
+    "custom_content_hzRNTw",
+    "rich_text_qqiKWm",
+    "rich_text_VN6XYz",
+    "collapsible_tabs_iMDWfm",
+    "image_with_text_overlay_7BQnCj"
+  ]
+}

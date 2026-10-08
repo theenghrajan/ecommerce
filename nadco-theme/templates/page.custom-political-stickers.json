@@ -1,0 +1,596 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_KTJJaR": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_tcq6EM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Custom Political Stickers, Banners, and Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_36ijAF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Stickers can be powerful political messaging tools, offering a visual focal point that naturally draws attention. At NADCO Tapes & Labels, we provide a wide range of custom political stickers, including bumper stickers, “I voted” stickers, and other promotional items including political banners, enabling you to effectively enhance the impact of your political message. Read on for the full breakdown.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tcq6EM",
+        "text_36ijAF"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collapsible_tabs_kHfjAb": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_pKdBjA": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/Election_Participation_Badge.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_frEHhj": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Custom Political Stickers",
+            "content": "<p>Custom political stickers are printed adhesive materials featuring political messages, symbols, and slogans tailored to a specific campaign, or for general purposes. You can affix them to various surfaces, such as cars, laptops, water bottles, clothing, etc. </p><p>The benefits of using custom political stickers for campaigns include the following: </p><ul><li>Customization allows campaigns to personalize their message and make it resonate more with target groups.</li><li>They’re cheaper to make and easy to distribute as you can place them on various surfaces.</li><li>They are a constant reminder of a political message, as people are likely to interact with them multiple times.</li></ul><p>We can customize various shapes, sizes, and eye-catching designs, allowing you to customize your political stickers for packaging your message.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_ahEQnY": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Custom Political Bumper Stickers",
+            "content": "<p>Political bumper stickers can be affixed to the rear windshields or bumpers of vehicles. They’ve been a popular political messaging tool for years, and for good reason. They’re easy to distribute, apply during campaigns, and peel off after the campaign period. You can also change them easily when there’s a need to update the political message. They’re inexpensive compared to other mediums, such as billboards and digital advertising. You can print them at a lower price and incur zero maintenance costs afterward. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_pKdBjA",
+        "collapsible_item_frEHhj",
+        "collapsible_item_ahEQnY"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_3h6reP": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_V4h6rb": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-10",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/political.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_D9WWkk": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Additional Political Promotional Items",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "rich_text_cstm": "<p>NADCO also supports civic duties and helps local campaigns personalize and reinforce their messaging with different customizable items. These include: </p>"
+          }
+        },
+        "collapsible_item_dz7Vt8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Custom “I Voted” Stickers",
+            "content": "<p>“I Voted” stickers are a classic in helping maximize voter turnout in polling locations and reminding the audience of the importance of voting. NADCO can create beautiful custom “I Voted” stickers with various designs, colors, and imagery to inspire and encourage voters to exercise their right to vote and show off that they have done so. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_wmRNwi": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Political Campaign Banners",
+            "content": "<p>Political campaign banners provide a high-visibility platform to promote a candidate or cause. We have a wide selection of various materials, such as vinyl, and sizes to customize the design, colors, and logos on political campaign banners to ensure they stand out and that your message is communicated effectively.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_XeWNDm": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Our Customization Process",
+            "content": "<p>NADCO has a streamlined customization process to help our clients get their desired political products. Here’s a step-by-step guide on how to order products from us: </p><ol><li><strong>Conceptual Design</strong>: Think about a design that aligns with your campaign’s message. We have an extensive selection of templates that can be personalized for you. We can also work with original ideas.</li><li><strong>Material Specs/Recommendations</strong>: Get NADCO’s recommendations for the appropriate materials and finishes for your stickers, bumper stickers, or banners.</li><li><strong>Receive Quote:</strong> We will present you with a formal quote for your customized political items. We offer competitive prices and ensure you get value for money.</li><li><strong>Proofing:</strong> Review digital proofs of your designs to ensure they meet your expectations before bulk production begins.</li><li><strong>First Article Inspection (FAI):</strong> Upon request, we produce and inspect the first item with you to ensure it meets your specifications.</li><li><strong>Production Run:</strong> We will begin production.</li></ol>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_7QYpdB": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Industries Served",
+            "content": "<p>Our capabilities also extend to the following applications. <a href=\"/pages/industries\" target=\"_blank\" title=\"Industries\">These industries</a> include but aren’t limited to:</p><ul><li><strong>PPE:</strong> We provide adhesive tapes to seal and insulate packages of personal protective equipment, ensuring safety compliance.</li><li><strong>Medical:</strong> We design stickers for medical devices, pharmaceuticals, and healthcare facilities.</li><li><strong>Safety:</strong> We create custom safety labels and tags for various safety applications.</li><li><strong>Construction:</strong> We produce durable and visible tapes suitable for construction sites and equipment.</li><li><strong>Retail:</strong>  We customize labels and branding solutions for retail businesses.</li><li><strong>And many more.</strong></li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_V4h6rb",
+        "heading_D9WWkk",
+        "collapsible_item_dz7Vt8",
+        "collapsible_item_wmRNwi",
+        "collapsible_item_XeWNDm",
+        "collapsible_item_7QYpdB"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_pPmHji": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_fXRjCz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact Our Experts for Custom Political Stickers & Banners",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_Hq3eEL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO offers the best design and branding solutions for custom political stickers and bumper stickers for your upcoming campaigns. We listen to your needs and find creative ways to personalize every aspect of your project. Our products are also locally made, allowing us to provide better quality and faster lead and response times. </p><p><a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Contact us</a> to learn how we can help you deliver powerful and visual political messaging.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_fXRjCz",
+        "text_Hq3eEL"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Election_Participation_Badge.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "collapsible_tabs_8m387f": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_8rhcEg": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom-digital-printing_tapes_labels_800_600.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_7WhLhP": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": ""
+          }
+        },
+        "collapsible_item_e7gydV": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aerospace Industry",
+            "content": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. To withstand the operational challenges posed by aerospace equipment, tapes must meet stringent standards and requirements for temperature resistance, flammability, low weight, and adhesion.</p><p><a href=\"/pages/aerospace\" title=\"Aerospace\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_eKWU9n": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automotive Industry",
+            "content": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p><p><a href=\"/pages/automotive\" title=\"Automotive\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_UV3tn4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Contruction Industry",
+            "content": "<p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry.</p><p><a href=\"/pages/construction-municipal\" title=\"Construction Municipal\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_ALDpkf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electronics Industry",
+            "content": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p><p><a href=\"/pages/electronics\" title=\"Electronics\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_DyYc6h": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Medical Industry",
+            "content": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization. The tapes used in medical applications have the potential of being exposed to varying conditions, so they must have biocompatibility and be able to withstand intense environments.</p><p><a href=\"/pages/adhesive-tapes-medical-industry\" title=\"Adhesive Tapes Medical Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_crzYNa": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Nuclear Industry",
+            "content": "<p>At NADCO, we understand that each application is different, which is why we provide a wide range of nuclear tape and label designs, features, and customization options. We aim to enhance the safety of nuclear applications with quality adhesive solutions for every situation, from nuclear warning labels and RAD wipes to hazard tape and radioactivity indicator signage.</p><p><a href=\"/pages/nuclear-industry\" title=\"Nuclear Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_m8mH97": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Personal Protective Equipment Industry",
+            "content": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions. Different types of PPE are required across various industries, depending upon the unique risks posed on the job site. These include face and eye protection as well as hard hats for the construction industry.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_iQE6Rc": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Industry",
+            "content": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk. In order to establish safe facilities, many companies incorporate safety tapes.</p><p><a href=\"/pages/safety-industry\" title=\"Safety Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_8rhcEg",
+        "heading_7WhLhP",
+        "collapsible_item_e7gydV",
+        "collapsible_item_eKWU9n",
+        "collapsible_item_UV3tn4",
+        "collapsible_item_ALDpkf",
+        "collapsible_item_DyYc6h",
+        "collapsible_item_crzYNa",
+        "collapsible_item_m8mH97",
+        "collapsible_item_iQE6Rc"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_4HUJx9": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_3Qh79b": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_k9CXxU": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3Qh79b",
+        "button_k9CXxU"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_KTJJaR",
+    "collapsible_tabs_kHfjAb",
+    "collapsible_tabs_3h6reP",
+    "image_with_text_pPmHji",
+    "collapsible_tabs_8m387f",
+    "image_with_text_overlay_4HUJx9"
+  ]
+}

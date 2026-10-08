@@ -1,0 +1,593 @@
+{% style %}
+.faq-blog-section {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.bg_color }};
+}
+
+.faq-blog-inner {
+  margin: 0 auto;
+  display: grid;
+  {% if section.settings.show_blog or section.settings.alt_image != blank %}
+    grid-template-columns: 1.2fr 0.8fr;
+  {% else %}
+    grid-template-columns: 1fr;
+  {% endif %}
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.faq-box {
+  background: {{ section.settings.card_bg }};
+  border-radius: {{ section.settings.card_radius }}px;
+  padding: 30px;
+}
+
+.faq-title {
+  font-size: {{ section.settings.heading_size }}px;
+  color: {{ section.settings.heading_color }};
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.faq-item {
+  background: {{ section.settings.item_bg }};
+  border-radius: {{ section.settings.item_radius }}px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: {{ section.settings.question_size }}px;
+  color: {{ section.settings.question_color }};
+  gap: 40px;
+  font-weight: bold;
+}
+
+.faq-icon {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.faq-icon:before,
+.faq-icon:after {
+  content: '';
+  position: absolute;
+  background: {{ section.settings.question_color }};
+  transition: transform 0.3s ease;
+}
+
+.faq-icon:before {
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.faq-icon:after {
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.faq-item.active .faq-icon:after {
+  transform: scaleY(0);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  font-size: {{ section.settings.answer_size }}px;
+  color: {{ section.settings.answer_color }};
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.blog-box, .image-box {
+  background: {{ section.settings.card_bg }};
+  border-radius: {{ section.settings.card_radius }}px;
+  padding: 30px;
+}
+
+.blog-title {
+  font-size: {{ section.settings.heading_size }}px;
+  color: {{ section.settings.heading_color }};
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.blog-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  background: {{ section.settings.item_bg }};
+  border-radius: {{ section.settings.item_radius }}px;
+  padding: 14px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.blog-item img, .image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.blog-date {
+  font-size: 12px;
+  color: {{ section.settings.meta_color }};
+}
+
+.blog-heading {
+  font-size: 14px;
+  color: {{ section.settings.blog_title_color }};
+  margin: 4px 0;
+}
+
+.blog-link {
+  font-size: 13px;
+  color: {{ section.settings.link_color }};
+  text-decoration: none;
+}
+
+.blog-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 22px;
+  background: {{ section.settings.btn_bg }};
+  color: {{ section.settings.btn_color }};
+  border-radius: {{ section.settings.btn_radius }}px;
+  text-decoration: none;
+  font-size: {{ section.settings.btn_text_size }}px;
+}
+
+@media (max-width: 900px) {
+  .faq-blog-inner {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+    padding: 0 0px;
+  }
+  .faq-box,
+  .blog-box,
+  .image-box {
+    padding: 20px;
+  }
+  .blog-item {
+    grid-template-columns: 90px 1fr;
+  }
+  .faq-blog-section {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  .faq-title,
+  .blog-title {
+    font-size: {{ section.settings.heading_size_mobile }}px;
+  }
+  .faq-question {
+    font-size: {{ section.settings.question_size_mobile }}px;
+  }
+  .faq-answer {
+    font-size: {{ section.settings.answer_size_mobile }}px;
+  }
+  .blog-btn {
+    font-size: {{ section.settings.btn_text_size_mobile }}px;
+  }
+}
+{% endstyle %}
+
+<section class="faq-blog-section page-width page-width--fixed">
+  <div class="faq-blog-inner">
+    <div class="faq-box">
+      <div class="faq-title">{{ section.settings.faq_title }}</div>
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>{{ block.settings.question }}</span>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">{{ block.settings.answer }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_blog and section.settings.blog != blank %}
+      <div class="blog-box">
+        <div class="blog-title">{{ section.settings.blog_title }}</div>
+        {% for article in blogs[section.settings.blog].articles limit: section.settings.post_limit %}
+          <div class="blog-item">
+            {% if article.image %}
+              <img src="{{ article.image | image_url: width: 300 }}" alt="{{ article.title }}">
+            {% endif %}
+            <div>
+              <div class="blog-date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+              <div class="blog-heading">{{ article.title }}</div>
+              <a class="blog-link" href="{{ article.url }}">{{ section.settings.read_more_text }}</a>
+            </div>
+          </div>
+        {% endfor %}
+        {% if section.settings.btn_text != blank %}
+          <a class="blog-btn" href="{{ section.settings.btn_link }}">{{ section.settings.btn_text }}</a>
+        {% endif %}
+      </div>
+    {% elsif section.settings.alt_image != blank %}
+      <div class="image-box">
+        <img src="{{ section.settings.alt_image | image_url: width: 800 }}" alt="{{ section.settings.alt_image.alt }}">
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active')
+  })
+})
+</script>
+
+{% schema %}
+{
+  "name": "FAQ + Blog Section",
+  "settings": [
+    { "type": "checkbox", "id": "show_blog", "label": "Show blog column", "default": true },
+    { "type": "image_picker", "id": "alt_image", "label": "Alternative Image", "info": "Shows if blog is disabled or empty" },
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#ffffff" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#f6f6f6" },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 0, "max": 30, "step": 2, "default": 16 },
+    { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "Frequently Asked Question" },
+    { "type": "text", "id": "blog_title", "label": "Blog title", "default": "Latest from the Blog" },
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 18, "max": 40, "step": 2, "default": 24 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 16, "max": 32, "step": 2, "default": 20 },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#000000" },
+    { "type": "range", "id": "question_size", "label": "Question size desktop", "min": 12, "max": 20, "step": 1, "default": 14 },
+    { "type": "range", "id": "question_size_mobile", "label": "Question size mobile", "min": 12, "max": 18, "step": 1, "default": 13 },
+    { "type": "color", "id": "question_color", "label": "Question color", "default": "#000000" },
+    { "type": "range", "id": "answer_size", "label": "Answer size desktop", "min": 12, "max": 20, "step": 1, "default": 14 },
+    { "type": "range", "id": "answer_size_mobile", "label": "Answer size mobile", "min": 12, "max": 18, "step": 1, "default": 13 },
+    { "type": "color", "id": "answer_color", "label": "Answer color", "default": "#555555" },
+    { "type": "color", "id": "item_bg", "label": "Item background", "default": "#ffffff" },
+    { "type": "range", "id": "item_radius", "label": "Item radius", "min": 0, "max": 20, "step": 2, "default": 10 },
+    { "type": "color", "id": "meta_color", "label": "Meta text color", "default": "#888888" },
+    { "type": "color", "id": "blog_title_color", "label": "Blog title color", "default": "#000000" },
+    { "type": "color", "id": "link_color", "label": "Read more color", "default": "#1f6fd2" },
+    { "type": "blog", "id": "blog", "label": "Select blog" },
+    { "type": "range", "id": "post_limit", "label": "Posts limit", "min": 1, "max": 6, "step": 1, "default": 2 },
+    { "type": "text", "id": "read_more_text", "label": "Read more text", "default": "Learn More ›" },
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "View All Products" },
+    { "type": "url", "id": "btn_link", "label": "Button link" },
+    { "type": "color", "id": "btn_bg", "label": "Button background", "default": "#1f6fd2" },
+    { "type": "color", "id": "btn_color", "label": "Button text color", "default": "#ffffff" },
+    { "type": "range", "id": "btn_radius", "label": "Button radius", "min": 0, "max": 30, "step": 2, "default": 8 },
+    { "type": "range", "id": "btn_text_size", "label": "Button text size desktop", "min": 12, "max": 22, "step": 1, "default": 14 },
+    { "type": "range", "id": "btn_text_size_mobile", "label": "Button text size mobile", "min": 12, "max": 20, "step": 1, "default": 13 },
+    { "type": "range", "id": "padding_top", "label": "Padding top desktop", "min": 20, "max": 150, "step": 5, "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom desktop", "min": 20, "max": 150, "step": 5, "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 10, "max": 120, "step": 5, "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 10, "max": 120, "step": 5, "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "FAQ with Blog" }
+  ]
+}
+{% endschema %}
+{% comment %} {% style %}
+.faq-blog-section {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  background: {{ section.settings.bg_color }};
+}
+
+/* @media (max-width: 767px) {
+
+} */
+
+.faq-blog-inner {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.faq-box {
+  background: {{ section.settings.card_bg }};
+  border-radius: {{ section.settings.card_radius }}px;
+  padding: 30px;
+}
+
+.faq-title {
+  font-size: {{ section.settings.heading_size }}px;
+  color: {{ section.settings.heading_color }};
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.faq-item {
+  background: {{ section.settings.item_bg }};
+  border-radius: {{ section.settings.item_radius }}px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: {{ section.settings.question_size }}px;
+  color: {{ section.settings.question_color }};
+  gap: 40px;
+  font-weight: bold;
+}
+
+.faq-icon {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.faq-icon:before,
+.faq-icon:after {
+  content: '';
+  position: absolute;
+  background: {{ section.settings.question_color }};
+  transition: transform 0.3s ease;
+}
+
+.faq-icon:before {
+  top: 6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.faq-icon:after {
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.faq-item.active .faq-icon:after {
+  transform: scaleY(0);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  font-size: {{ section.settings.answer_size }}px;
+  color: {{ section.settings.answer_color }};
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.blog-box {
+  background: {{ section.settings.card_bg }};
+  border-radius: {{ section.settings.card_radius }}px;
+  padding: 30px;
+}
+
+.blog-title {
+  font-size: {{ section.settings.heading_size }}px;
+  color: {{ section.settings.heading_color }};
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.blog-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  background: {{ section.settings.item_bg }};
+  border-radius: {{ section.settings.item_radius }}px;
+  padding: 14px;
+  margin-bottom: 16px;
+  align-items: center;
+}
+
+.blog-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.blog-date {
+  font-size: 12px;
+  color: {{ section.settings.meta_color }};
+}
+
+.blog-heading {
+  font-size: 14px;
+  color: {{ section.settings.blog_title_color }};
+  margin: 4px 0;
+}
+
+.blog-link {
+  font-size: 13px;
+  color: {{ section.settings.link_color }};
+  text-decoration: none;
+}
+
+.blog-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 22px;
+  background: {{ section.settings.btn_bg }};
+  color: {{ section.settings.btn_color }};
+  border-radius: {{ section.settings.btn_radius }}px;
+  text-decoration: none;
+  font-size: {{ section.settings.btn_text_size }}px;
+}
+
+@media (max-width: 900px) {
+  .faq-blog-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 0px;
+  }
+  .faq-box,
+  .blog-box {
+    padding: 20px;
+  }
+  .blog-item {
+    grid-template-columns: 90px 1fr;
+  }
+    .faq-blog-section {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  .faq-title,
+  .blog-title {
+    font-size: {{ section.settings.heading_size_mobile }}px;
+  }
+  .faq-question {
+    font-size: {{ section.settings.question_size_mobile }}px;
+  }
+  .faq-answer {
+    font-size: {{ section.settings.answer_size_mobile }}px;
+  }
+  .blog-btn {
+    font-size: {{ section.settings.btn_text_size_mobile }}px;
+  }
+}
+{% endstyle %}
+
+<section class="faq-blog-section page-width page-width--fixed">
+  <div class="faq-blog-inner">
+    <div class="faq-box">
+      <div class="faq-title">{{ section.settings.faq_title }}</div>
+
+      {% for block in section.blocks %}
+        {% if block.type == 'faq' %}
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>{{ block.settings.question }}</span>
+              <span class="faq-icon"></span>
+            </div>
+            <div class="faq-answer">{{ block.settings.answer }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="blog-box">
+      <div class="blog-title">{{ section.settings.blog_title }}</div>
+
+      {% if section.settings.blog != blank %}
+        {% for article in blogs[section.settings.blog].articles limit: section.settings.post_limit %}
+          <div class="blog-item">
+            {% if article.image %}
+              <img src="{{ article.image | image_url: width: 300 }}" alt="">
+            {% endif %}
+            <div>
+              <div class="blog-date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+              <div class="blog-heading">{{ article.title }}</div>
+              <a class="blog-link" href="{{ article.url }}">{{ section.settings.read_more_text }}</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      {% if section.settings.btn_text != blank %}
+        <a class="blog-btn" href="{{ section.settings.btn_link }}">{{ section.settings.btn_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active')
+  })
+})
+</script>
+
+{% schema %}
+{
+  "name": "FAQ + Blog Section",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#ffffff" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#f6f6f6" },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 0, "max": 30, "step": 2, "default": 16 },
+
+    { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "Frequently Asked Question" },
+    { "type": "text", "id": "blog_title", "label": "Blog title", "default": "Latest from the Blog" },
+
+    { "type": "range", "id": "heading_size", "label": "Heading size desktop", "min": 18, "max": 40, "step": 2, "default": 24 },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size mobile", "min": 16, "max": 32, "step": 2, "default": 20 },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#000000" },
+
+    { "type": "range", "id": "question_size", "label": "Question size desktop", "min": 12, "max": 20, "step": 1, "default": 14 },
+    { "type": "range", "id": "question_size_mobile", "label": "Question size mobile", "min": 12, "max": 18, "step": 1, "default": 13 },
+    { "type": "color", "id": "question_color", "label": "Question color", "default": "#000000" },
+
+    { "type": "range", "id": "answer_size", "label": "Answer size desktop", "min": 12, "max": 20, "step": 1, "default": 14 },
+    { "type": "range", "id": "answer_size_mobile", "label": "Answer size mobile", "min": 12, "max": 18, "step": 1, "default": 13 },
+    { "type": "color", "id": "answer_color", "label": "Answer color", "default": "#555555" },
+
+    { "type": "color", "id": "item_bg", "label": "Item background", "default": "#ffffff" },
+    { "type": "range", "id": "item_radius", "label": "Item radius", "min": 0, "max": 20, "step": 2, "default": 10 },
+
+    { "type": "color", "id": "meta_color", "label": "Meta text color", "default": "#888888" },
+    { "type": "color", "id": "blog_title_color", "label": "Blog title color", "default": "#000000" },
+    { "type": "color", "id": "link_color", "label": "Read more color", "default": "#1f6fd2" },
+
+    { "type": "blog", "id": "blog", "label": "Select blog" },
+    { "type": "range", "id": "post_limit", "label": "Posts limit", "min": 1, "max": 6, "step": 1, "default": 2 },
+    { "type": "text", "id": "read_more_text", "label": "Read more text", "default": "Learn More ›" },
+
+    { "type": "text", "id": "btn_text", "label": "Button text", "default": "View All Products" },
+    { "type": "url", "id": "btn_link", "label": "Button link" },
+    { "type": "color", "id": "btn_bg", "label": "Button background", "default": "#1f6fd2" },
+    { "type": "color", "id": "btn_color", "label": "Button text color", "default": "#ffffff" },
+    { "type": "range", "id": "btn_radius", "label": "Button radius", "min": 0, "max": 30, "step": 2, "default": 8 },
+    { "type": "range", "id": "btn_text_size", "label": "Button text size desktop", "min": 12, "max": 22, "step": 1, "default": 14 },
+    { "type": "range", "id": "btn_text_size_mobile", "label": "Button text size mobile", "min": 12, "max": 20, "step": 1, "default": 13 },
+
+    { "type": "range", "id": "padding_top", "label": "Padding top desktop", "min": 20, "max": 150, "step": 5, "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom desktop", "min": 20, "max": 150, "step": 5, "default": 80 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top mobile", "min": 10, "max": 120, "step": 5, "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom mobile", "min": 10, "max": 120, "step": 5, "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "FAQ with Blog" }
+  ]
+}
+{% endschema %} {% endcomment %}

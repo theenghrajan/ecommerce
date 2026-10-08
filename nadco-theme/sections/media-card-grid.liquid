@@ -1,0 +1,225 @@
+{% comment %}
+Section: Media Card Grid (Image / Video)
+{% endcomment %}
+
+<section
+  id="media-card-grid-{{ section.id }}"
+  style="
+    background: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  "
+>
+  <div class="media-card-grid">
+    {% for block in section.blocks %}
+      <div class="media-card">
+        <div
+          class="media-wrapper"
+          style="
+            height: {{ block.settings.media_height_desktop }}px;
+            border-radius: {{ section.settings.card_radius }}px;
+          "
+        >
+          {% assign has_video = false %}
+
+          {% assign input = block.settings.youtube_id | strip %}
+          {% assign youtube_id = '' %}
+
+          {% if input != blank %}
+            {% if input contains 'youtu.be/' %}
+              {% assign youtube_id = input | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first %}
+            {% elsif input contains 'watch?v=' %}
+              {% assign youtube_id = input | split: 'watch?v=' | last | split: '&' | first | split: '?' | first %}
+            {% elsif input contains '/embed/' %}
+              {% assign youtube_id = input | split: '/embed/' | last | split: '?' | first | split: '&' | first %}
+            {% elsif input.size == 11 %}
+              {% assign youtube_id = input %}
+            {% endif %}
+          {% endif %}
+
+          {% if youtube_id != blank %}
+            {% assign has_video = true %}
+            <iframe
+              src="https://www.youtube.com/embed/{{ youtube_id }}?autoplay={{ block.settings.autoplay | default: 0 }}&mute={{ block.settings.mute | default: 1 }}&loop={{ block.settings.loop | default: 0 }}&playlist={{ youtube_id }}"
+              frameborder="0"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+
+          {% elsif block.settings.vimeo_id != blank %}
+            {% assign has_video = true %}
+            <iframe
+              src="https://player.vimeo.com/video/{{ block.settings.vimeo_id }}?autoplay={{ block.settings.autoplay | default: 0 }}&muted={{ block.settings.mute | default: 1 }}&loop={{ block.settings.loop | default: 0 }}"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+
+          {% elsif block.settings.video != blank %}
+            {% assign has_video = true %}
+            {{ block.settings.video | video_tag:
+              autoplay: block.settings.autoplay,
+              loop: block.settings.loop,
+              muted: block.settings.mute,
+              controls: true,
+              poster: block.settings.poster
+            }}
+          {% endif %}
+
+          {% if has_video == false and block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 1200 }}"
+              alt="{{ block.settings.heading | escape }}"
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+
+        <div class="media-content">
+          {% if block.settings.heading != blank %}
+            <h3>{{ block.settings.heading }}</h3>
+          {% endif %}
+
+          {% if block.settings.text != blank %}
+            <div class="rte">{{ block.settings.text }}</div>
+          {% endif %}
+
+          {% if block.settings.button_text != blank %}
+            <a href="{{ block.settings.button_link }}" class="media-btn">
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+#media-card-grid-{{ section.id }} .media-card-grid {
+  display: grid;
+  grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+  gap: {{ section.settings.grid_gap }}px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#media-card-grid-{{ section.id }} .media-card {
+  background: {{ section.settings.card_bg }};
+  padding: 12px;
+    border-radius: 10px;
+  box-shadow: {% if section.settings.card_shadow %}0 10px 30px rgba(0,0,0,0.08){% else %}none{% endif %};
+  overflow: hidden;
+}
+
+#media-card-grid-{{ section.id }} .media-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+#media-card-grid-{{ section.id }} iframe,
+#media-card-grid-{{ section.id }} video,
+#media-card-grid-{{ section.id }} img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#media-card-grid-{{ section.id }} .media-content {
+  padding: 20px;
+  text-align: {{ section.settings.text_align_desktop }};
+}
+
+#media-card-grid-{{ section.id }} .media-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 18px;
+  background: #2872be;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  #media-card-grid-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #media-card-grid-{{ section.id }} .media-card-grid {
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+  }
+
+  #media-card-grid-{{ section.id }} .media-wrapper {
+    height: auto;
+    min-height: {{ section.settings.media_height_mobile }}px;
+  }
+
+  #media-card-grid-{{ section.id }} .media-content {
+    text-align: {{ section.settings.text_align_mobile }};
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Media Card Grid",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "range", "id": "columns_desktop", "label": "Columns (Desktop)", "min": 2, "max": 5, "default": 3 },
+    { "type": "range", "id": "columns_mobile", "label": "Columns (Mobile)", "min": 1, "max": 3, "default": 1 },
+    { "type": "range", "id": "grid_gap", "label": "Grid gap", "min": 10, "max": 40, "default": 24 },
+    { "type": "range", "id": "card_radius", "label": "Card border radius", "min": 0, "max": 30, "default": 12 },
+    { "type": "checkbox", "id": "card_shadow", "label": "Enable shadow", "default": true },
+    {
+      "type": "select",
+      "id": "text_align_desktop",
+      "label": "Text align (Desktop)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "label": "Text align (Mobile)",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    { "type": "range", "id": "padding_top_desktop", "label": "Padding top (Desktop)", "min": 0, "max": 100, "default": 60 },
+    { "type": "range", "id": "padding_bottom_desktop", "label": "Padding bottom (Desktop)", "min": 0, "max": 100, "default": 60 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Padding top (Mobile)", "min": 0, "max": 80, "default": 40 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Padding bottom (Mobile)", "min": 0, "max": 80, "default": 40 },
+    { "type": "range", "id": "media_height_mobile", "label": "Media min height (Mobile)", "min": 180, "max": 600, "step": 5, "default": 260 }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Media Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "youtube_id", "label": "YouTube Video ID or URL" },
+        { "type": "text", "id": "vimeo_id", "label": "Vimeo Video ID" },
+        { "type": "video", "id": "video", "label": "Uploaded video" },
+        { "type": "image_picker", "id": "poster", "label": "Video poster" },
+        { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+        { "type": "checkbox", "id": "loop", "label": "Loop", "default": false },
+        { "type": "checkbox", "id": "mute", "label": "Mute", "default": true },
+        { "type": "range", "id": "media_height_desktop", "label": "Media height (Desktop)", "min": 180, "max": 600, "step": 5, "default": 260 },
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "richtext", "id": "text", "label": "Text" },
+        { "type": "text", "id": "button_text", "label": "Button text" },
+        { "type": "url", "id": "button_link", "label": "Button link" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Media Card Grid" }
+  ]
+}
+{% endschema %}

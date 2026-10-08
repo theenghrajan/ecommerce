@@ -1,0 +1,994 @@
+{% comment %}
+  Section: Vinyl Material (2-column cards) — customizable like screenshot
+  - 2 columns (left + right), each has optional header + optional pill button text + pill desc
+  - Cards are blocks; each block can go in Left/Right column and can span 1 or 2 columns (desktop)
+  - If block icon empty => icon hides. If text empty => text hides. If both empty => block hides.
+  - Additional blocks:
+      - Product Panel (Tape/Labels style)
+      - CTA Banner (Contact / website style)
+{% endcomment %}
+
+{%- liquid
+  assign left_title = section.settings.left_heading
+  assign right_title = section.settings.right_heading
+
+  assign left_pill = section.settings.left_pill_text
+  assign right_pill = section.settings.right_pill_text
+
+  assign left_pill_desc = section.settings.left_pill_desc
+  assign right_pill_desc = section.settings.right_pill_desc
+-%}
+
+<section
+  class="vinyl-two-col-{{ section.id }}"
+  style="
+    --wrap-bg: {{ section.settings.section_bg }};
+    --wrap-pad-y: {{ section.settings.section_padding_y }}px;
+    --wrap-pad-x: {{ section.settings.section_padding_x }}px;
+
+    --mainbar-bg: {{ section.settings.mainbar_bg }};
+    --mainbar-text: {{ section.settings.mainbar_text }};
+    --mainbar-pad-y: {{ section.settings.mainbar_padding_y }}px;
+    --mainbar-pad-x: {{ section.settings.mainbar_padding_x }}px;
+    --mainbar-radius: {{ section.settings.mainbar_radius }}px;
+
+    --desc-text: {{ section.settings.description_text_color }};
+
+    --colhead-bg: {{ section.settings.col_header_bg }};
+    --colhead-text: {{ section.settings.col_header_text }};
+    --colhead-radius: {{ section.settings.col_header_radius }}px;
+    --colhead-pad-y: {{ section.settings.col_header_padding_y }}px;
+    --colhead-pad-x: {{ section.settings.col_header_padding_x }}px;
+
+    --pill-bg: {{ section.settings.pill_bg }};
+    --pill-text: {{ section.settings.pill_text }};
+    --pill-border: {{ section.settings.pill_border }};
+    --pill-radius: {{ section.settings.pill_radius }}px;
+
+    --left-colhead-text: {{ section.settings.left_heading_text_color }};
+    --colhead-subtext: {{ section.settings.colhead_subtext_color }};
+
+    --card-bg: {{ section.settings.card_bg }};
+    --card-text: {{ section.settings.card_text }};
+    --card-border: {{ section.settings.card_border_color }};
+    --card-border-w: {{ section.settings.card_border_width }}px;
+    --card-radius: {{ section.settings.card_radius }}px;
+    --card-pad-y: {{ section.settings.card_padding_y }}px;
+    --card-pad-x: {{ section.settings.card_padding_x }}px;
+
+    --icon-circle-bg: {{ section.settings.icon_circle_bg }};
+    --icon-circle-size: {{ section.settings.icon_circle_size }}px;
+    --icon-size: {{ section.settings.icon_size }}px;
+
+    --gap: {{ section.settings.gap }}px;
+  "
+>
+  <div class="page-width vinyl-wrap {% if section.settings.full_width %}page-width--full{% else %}page-width--fixed{% endif %}">
+    <div class="vinyl-container">
+
+      {% if section.settings.main_heading != blank %}
+        <div class="vinyl-mainbar">
+          <div class="vinyl-mainbar-inner">
+            <h2 class="vinyl-mainbar-title">{{ section.settings.main_heading }}</h2>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.main_description != blank %}
+        <div class="vinyl-desc rte">
+          {{ section.settings.main_description }}
+        </div>
+      {% endif %}
+
+      <div class="vinyl-columns">
+
+        {%- comment -%} LEFT COLUMN {%- endcomment -%}
+        <div class="vinyl-col">
+
+          {%- if left_title != blank or left_pill != blank or left_pill_desc != blank -%}
+            <div class="vinyl-colhead vinyl-colhead--left">
+              {%- if left_title != blank -%}
+                <div class="vinyl-colhead-row">
+                  <h3 class="vinyl-colhead-title">{{ left_title }}</h3>
+                </div>
+              {%- endif -%}
+
+             
+            </div>
+             {%- if left_pill != blank -%}
+                <div class="vinyl-colhead-actions">
+                  <span class="vinyl-pill">{{ left_pill }}</span>
+                </div>
+              {%- endif -%}
+
+              {%- if left_pill_desc != blank -%}
+                <div class="vinyl-colhead-subtext rte">{{ left_pill_desc }}</div>
+              {%- endif -%}
+          {%- endif -%}
+
+          <div class="vinyl-grid" data-col="left">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.column == 'left' -%}
+
+                {%- case block.type -%}
+
+                  {%- when 'card' -%}
+                    {%- liquid
+                      assign has_icon = block.settings.icon 
+                      assign has_text = block.settings.text
+
+                      if has_icon == false and has_text == false
+                        continue
+                      endif
+
+                      assign span = block.settings.span | default: 1
+                    -%}
+
+                    <div class="vinyl-card span-{{ span }}" {{ block.shopify_attributes }}>
+                      {%- if has_icon != blank -%}
+                        <div class="vinyl-icon">
+                          <div class="vinyl-icon-circle">
+                            {{ block.settings.icon | image_url: width: 120 | image_tag: loading: 'lazy', class: 'vinyl-icon-img', alt: '' }}
+                          </div>
+                        </div>
+                      {%- endif -%}
+
+                      {%- if has_text != blank -%}
+                        <div class="vinyl-card-text">{{ block.settings.text }}</div>
+                      {%- endif -%}
+
+                      {%- if block.settings.csr_btn_url != blank and block.settings.csr_btn_text != blank -%}
+                        <a {%- if block.settings.csr_btn_url != blank %} href="{{ block.settings.csr_btn_url }}" {% endif %} class="csr-btn">{{ block.settings.csr_btn_text }}</a>
+                      {%- endif -%}
+                    </div>
+
+                  {%- when 'product_panel' -%}
+                    {%- assign span = block.settings.span | default: '2' -%}
+
+                    {%- assign p_title = block.settings.title -%}
+                    {%- assign p_img = block.settings.image -%}
+                    {%- assign p_desc = block.settings.description -%}
+
+                    {%- if p_title == blank and p_img == blank and p_desc == blank
+                      and block.settings.btn1_text == blank and block.settings.btn2_text == blank and block.settings.btn3_text == blank
+                      and block.settings.btn4_text == blank and block.settings.btn5_text == blank and block.settings.btn6_text == blank
+                    -%}
+                      {%- continue -%}
+                    {%- endif -%}
+
+                    <div class="vinyl-panel span-{{ span }}" {{ block.shopify_attributes }}
+                      style="
+                        --panel-bg: {{ block.settings.panel_bg }};
+                        --panel-radius: {{ block.settings.panel_radius }}px;
+                        --panel-pad: {{ block.settings.panel_padding }}px;
+                        --panel-title: {{ block.settings.title_color }};
+                        --panel-text: {{ block.settings.text_color }};
+                        --circle-border: {{ block.settings.circle_border_color }};
+                        --circle-border-w: {{ block.settings.circle_border_width }}px;
+                        --circle-bg: {{ block.settings.circle_bg }};
+                        --btn-bg: {{ block.settings.button_bg }};
+                        --btn-text: {{ block.settings.button_text_color }};
+                        --btn-radius: {{ block.settings.button_radius }}px;
+                        --btn-pad-y: {{ block.settings.button_pad_y }}px;
+                        --btn-pad-x: {{ block.settings.button_pad_x }}px;
+                        --btn-gap: {{ block.settings.buttons_gap }}px;
+                      "
+                    >
+                      {%- if block.settings.top_tab_text != blank -%}
+                        <div class="vinyl-panel-tab">{{ block.settings.top_tab_text }}</div>
+                      {%- endif -%}
+
+                      {%- if p_img != blank -%}
+                        <div class="vinyl-panel-circle">
+                          {{ p_img | image_url: width: 500 | image_tag: loading: 'lazy', class: 'vinyl-panel-img', alt: '' }}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if p_title != blank -%}
+                        <div class="vinyl-panel-title">{{ p_title }}</div>
+                      {%- endif -%}
+
+                      {%- if p_desc != blank -%}
+                        <div class="vinyl-panel-desc rte">{{ p_desc }}</div>
+                      {%- endif -%}
+
+                      <div class="vinyl-panel-buttons">
+                        {%- if block.settings.btn1_text != blank -%}<a class="vinyl-panel-btn" {% if block.settings.btn1_link != blank %} href="{{ block.settings.btn1_link | default: '#' }}" {% endif %}>{{ block.settings.btn1_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn2_text != blank -%}<a class="vinyl-panel-btn" {% if block.settings.btn2_link != blank %} href="{{ block.settings.btn2_link | default: '#' }}" {% endif %}>{{ block.settings.btn2_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn3_text != blank -%}<a class="vinyl-panel-btn" {% if block.settings.btn3_link != blank %} href="{{ block.settings.btn3_link | default: '#' }}" {% endif %}>{{ block.settings.btn3_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn4_text != blank -%}<a class="vinyl-panel-btn" {% if block.settings.btn4_link != blank %} href="{{ block.settings.btn4_link | default: '#' }}" {% endif %}>{{ block.settings.btn4_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn5_text != blank -%}<a class="vinyl-panel-btn" {% if block.settings.btn5_link != blank %} href="{{ block.settings.btn5_link | default: '#' }}" {% endif %}>{{ block.settings.btn5_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn6_text != blank -%}<a class="vinyl-panel-btn" {% if block.settings.btn6_link != blank %} href="{{ block.settings.btn6_link | default: '#' }}" {% endif %}>{{ block.settings.btn6_text }}</a>{%- endif -%}
+                      </div>
+                    </div>
+
+                  {%- when 'cta_banner' -%}
+                    {%- assign span = block.settings.span | default: '2' -%}
+
+                    {%- if block.settings.heading == blank and block.settings.body == blank and block.settings.logo == blank and block.settings.pill_text == blank -%}
+                      {%- continue -%}
+                    {%- endif -%}
+
+                    <div class="vinyl-cta span-{{ span }}" {{ block.shopify_attributes }}
+                      style="
+                        --cta-bg: {{ block.settings.bg }};
+                        --cta-text: {{ block.settings.text_color }};
+                        --cta-radius: {{ block.settings.radius }}px;
+                        --cta-pad-y: {{ block.settings.pad_y }}px;
+                        --cta-pad-x: {{ block.settings.pad_x }}px;
+
+                        --cta-bottom-bg: {{ block.settings.bottom_bg }};
+                        --cta-pill-bg: {{ block.settings.pill_bg }};
+                        --cta-pill-text: {{ block.settings.pill_text_color }};
+                        --cta-pill-radius: {{ block.settings.pill_radius }}px;
+                      "
+                    >
+                      <div class="vinyl-cta-top">
+                        {%- if block.settings.heading != blank -%}
+                          <div class="vinyl-cta-heading">{{ block.settings.heading }}</div>
+                        {%- endif -%}
+                        {%- if block.settings.body != blank -%}
+                          <div class="vinyl-cta-body rte">{{ block.settings.body }}</div>
+                        {%- endif -%}
+                      </div>
+
+                      <div class="vinyl-cta-bottom">
+                        {%- if block.settings.logo != blank -%}
+                          <div class="vinyl-cta-logo">
+                            {{ block.settings.logo | image_url: width: 300 | image_tag: loading: 'lazy', class: 'vinyl-cta-logo-img', alt: '' }}
+                          </div>
+                        {%- endif -%}
+
+                        {%- if block.settings.pill_text != blank -%}
+                          <a class="vinyl-cta-pill" {% if block.settings.pill_link != blank %} href="{{ block.settings.pill_link | default: '#' }}" {% endif %}>{{ block.settings.pill_text }}</a>
+                        {%- endif -%}
+                      </div>
+                    </div>
+
+                {%- endcase -%}
+
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+        {%- comment -%} RIGHT COLUMN {%- endcomment -%}
+        <div class="vinyl-col">
+
+          {%- if right_title != blank or right_pill != blank or right_pill_desc != blank -%}
+            <div class="vinyl-colhead vinyl-colhead--right">
+              {%- if right_title != blank -%}
+                <div class="vinyl-colhead-row">
+                  <h3 class="vinyl-colhead-title">{{ right_title }}</h3>
+                </div>
+              {%- endif -%}
+
+             
+            </div>
+             {%- if right_pill != blank -%}
+                <div class="vinyl-colhead-actions">
+                  <span class="vinyl-pill">{{ right_pill }}</span>
+                </div>
+              {%- endif -%}
+
+              {%- if right_pill_desc != blank -%}
+                <div class="vinyl-colhead-subtext rte">{{ right_pill_desc }}</div>
+              {%- endif -%}
+          {%- endif -%}
+
+          <div class="vinyl-grid" data-col="right">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.column == 'right' -%}
+
+                {%- case block.type -%}
+
+                  {%- when 'card' -%}
+                    {%- liquid
+                      assign has_icon = block.settings.icon
+                      assign has_text = block.settings.text
+
+                      if has_icon == false and has_text == false
+                        continue
+                      endif
+
+                      assign span = block.settings.span | default: 1
+                    -%}
+
+                    <div class="vinyl-card span-{{ span }}" {{ block.shopify_attributes }}>
+                      {%- if has_icon  != blank -%}
+                        <div class="vinyl-icon">
+                          <div class="vinyl-icon-circle">
+                            {{ block.settings.icon | image_url: width: 120 | image_tag: loading: 'lazy', class: 'vinyl-icon-img', alt: '' }}
+                          </div>
+                        </div>
+                      {%- endif -%}
+
+                      {%- if has_text  != blank -%}
+                        <div class="vinyl-card-text">{{ block.settings.text }}</div>
+                      {%- endif -%}
+
+                      {%- if block.settings.csr_btn_url != blank and block.settings.csr_btn_text != blank -%}
+                        <a href="{{ block.settings.csr_btn_url }}" class="csr-btn">{{ block.settings.csr_btn_text }}</a>
+                      {%- endif -%}
+                    </div>
+
+                  {%- when 'product_panel' -%}
+                    {%- assign span = block.settings.span | default: '2' -%}
+
+                    {%- assign p_title = block.settings.title -%}
+                    {%- assign p_img = block.settings.image -%}
+                    {%- assign p_desc = block.settings.description -%}
+
+                    {%- if p_title == blank and p_img == blank and p_desc == blank
+                      and block.settings.btn1_text == blank and block.settings.btn2_text == blank and block.settings.btn3_text == blank
+                      and block.settings.btn4_text == blank and block.settings.btn5_text == blank and block.settings.btn6_text == blank
+                    -%}
+                      {%- continue -%}
+                    {%- endif -%}
+
+                    <div class="vinyl-panel span-{{ span }}" {{ block.shopify_attributes }}
+                      style="
+                        --panel-bg: {{ block.settings.panel_bg }};
+                        --panel-radius: {{ block.settings.panel_radius }}px;
+                        --panel-pad: {{ block.settings.panel_padding }}px;
+                        --panel-title: {{ block.settings.title_color }};
+                        --panel-text: {{ block.settings.text_color }};
+                        --circle-border: {{ block.settings.circle_border_color }};
+                        --circle-border-w: {{ block.settings.circle_border_width }}px;
+                        --circle-bg: {{ block.settings.circle_bg }};
+                        --btn-bg: {{ block.settings.button_bg }};
+                        --btn-text: {{ block.settings.button_text_color }};
+                        --btn-radius: {{ block.settings.button_radius }}px;
+                        --btn-pad-y: {{ block.settings.button_pad_y }}px;
+                        --btn-pad-x: {{ block.settings.button_pad_x }}px;
+                        --btn-gap: {{ block.settings.buttons_gap }}px;
+                      "
+                    >
+                      {%- if block.settings.top_tab_text != blank -%}
+                        <div class="vinyl-panel-tab">{{ block.settings.top_tab_text }}</div>
+                      {%- endif -%}
+
+                      {%- if p_img != blank -%}
+                        <div class="vinyl-panel-circle">
+                          {{ p_img | image_url: width: 500 | image_tag: loading: 'lazy', class: 'vinyl-panel-img', alt: '' }}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if p_title != blank -%}
+                        <div class="vinyl-panel-title">{{ p_title }}</div>
+                      {%- endif -%}
+
+                      {%- if p_desc != blank -%}
+                        <div class="vinyl-panel-desc rte">{{ p_desc }}</div>
+                      {%- endif -%}
+
+                      <div class="vinyl-panel-buttons">
+                        {%- if block.settings.btn1_text != blank -%}<a class="vinyl-panel-btn" href="{{ block.settings.btn1_link | default: '#' }}">{{ block.settings.btn1_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn2_text != blank -%}<a class="vinyl-panel-btn" href="{{ block.settings.btn2_link | default: '#' }}">{{ block.settings.btn2_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn3_text != blank -%}<a class="vinyl-panel-btn" href="{{ block.settings.btn3_link | default: '#' }}">{{ block.settings.btn3_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn4_text != blank -%}<a class="vinyl-panel-btn" href="{{ block.settings.btn4_link | default: '#' }}">{{ block.settings.btn4_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn5_text != blank -%}<a class="vinyl-panel-btn" href="{{ block.settings.btn5_link | default: '#' }}">{{ block.settings.btn5_text }}</a>{%- endif -%}
+                        {%- if block.settings.btn6_text != blank -%}<a class="vinyl-panel-btn" href="{{ block.settings.btn6_link | default: '#' }}">{{ block.settings.btn6_text }}</a>{%- endif -%}
+                      </div>
+                    </div>
+
+                  {%- when 'cta_banner' -%}
+                    {%- assign span = block.settings.span | default: '2' -%}
+
+                    {%- if block.settings.heading == blank and block.settings.body == blank and block.settings.logo == blank and block.settings.pill_text == blank -%}
+                      {%- continue -%}
+                    {%- endif -%}
+
+                    <div class="vinyl-cta span-{{ span }}" {{ block.shopify_attributes }}
+                      style="
+                        --cta-bg: {{ block.settings.bg }};
+                        --cta-text: {{ block.settings.text_color }};
+                        --cta-radius: {{ block.settings.radius }}px;
+                        --cta-pad-y: {{ block.settings.pad_y }}px;
+                        --cta-pad-x: {{ block.settings.pad_x }}px;
+
+                        --cta-bottom-bg: {{ block.settings.bottom_bg }};
+                        --cta-pill-bg: {{ block.settings.pill_bg }};
+                        --cta-pill-text: {{ block.settings.pill_text_color }};
+                        --cta-pill-radius: {{ block.settings.pill_radius }}px;
+                      "
+                    >
+                      <div class="vinyl-cta-top">
+                        {%- if block.settings.heading != blank -%}
+                          <div class="vinyl-cta-heading">{{ block.settings.heading }}</div>
+                        {%- endif -%}
+                        {%- if block.settings.body != blank -%}
+                          <div class="vinyl-cta-body rte">{{ block.settings.body }}</div>
+                        {%- endif -%}
+                      </div>
+
+                      <div class="vinyl-cta-bottom">
+                        {%- if block.settings.logo != blank -%}
+                          <div class="vinyl-cta-logo">
+                            {{ block.settings.logo | image_url: width: 300 | image_tag: loading: 'lazy', class: 'vinyl-cta-logo-img', alt: '' }}
+                          </div>
+                        {%- endif -%}
+
+                        {%- if block.settings.pill_text != blank -%}
+                          <a class="vinyl-cta-pill" href="{{ block.settings.pill_link | default: '#' }}">{{ block.settings.pill_text }}</a>
+                        {%- endif -%}
+                      </div>
+                    </div>
+
+                {%- endcase -%}
+
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .csr-btn{
+    text-align:center;
+    margin:auto;
+    background:white;
+    color:black;
+    padding:5px 10px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:600;
+  }
+
+  .vinyl-two-col-{{ section.id }}{
+    background: var(--wrap-bg);
+    padding: var(--wrap-pad-y) var(--wrap-pad-x);
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-mainbar{
+    display:flex;
+    justify-content:center;
+    margin-bottom:14px;
+    background: {{ section.settings.main_head_bg_color }};
+    border-radius:6px;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-mainbar-inner{
+    margin:15px;
+    border-radius: calc(var(--mainbar-radius) + 6px);
+    border: 1px solid #ffffff70;
+    width:100%;
+    max-width:1000px;
+    overflow:hidden;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-mainbar-title{
+    margin:0;
+    background: var(--mainbar-bg);
+    color: var(--mainbar-text);
+    padding: var(--mainbar-pad-y) var(--mainbar-pad-x);
+    border-radius: var(--mainbar-radius);
+    font-weight:700;
+    text-align:center;
+    line-height:1.2;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-desc{
+    color: var(--desc-text);
+    text-align:center;
+    max-width:980px;
+    margin:0 auto 18px auto;
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-columns{
+    display:grid;
+    {%if section.settings.two_col == true %}
+    grid-template-columns:1fr 1fr;
+  {% else %}
+    grid-template-columns:1fr;
+    {%endif %}
+    gap: calc(var(--gap) * 1.2);
+    align-items:start;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead{
+    background: var(--colhead-bg);
+    border-radius: var(--colhead-radius);
+    padding: var(--colhead-pad-y) var(--colhead-pad-x);
+    margin-bottom: var(--gap);
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead-title{
+    margin:0;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.2;
+    color: var(--left-colhead-text);
+    font-family: 'Inter';
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead--left{ color: var(--left-colhead-text); }
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead--right{ color: var(--colhead-text); }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead-actions{
+    text-align:center;
+       margin: 15px 0;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-colhead-subtext{
+        margin-bottom: 15px;
+    {% comment %} font-size:12px; {% endcomment %}
+    line-height:1.4;
+    color: var(--colhead-subtext);
+    text-align:center;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-pill{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px 12px;
+    border-radius: var(--pill-radius);
+    background: var(--pill-bg);
+    color: var(--pill-text);
+    border: 1px solid var(--pill-border);
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gap);
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background: var(--card-bg);
+    color: var(--card-text);
+    border: var(--card-border-w) solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: var(--card-pad-y) var(--card-pad-x);
+    min-height:56px;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-card.span-2{ grid-column: span 2; }
+  .vinyl-two-col-{{ section.id }} .vinyl-card.span-1{ grid-column: span 1; }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-icon-circle{
+    width: var(--icon-circle-size);
+    height: var(--icon-circle-size);
+    border-radius:999px;
+    background: var(--icon-circle-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 auto;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-icon-img{
+    width: var(--icon-size);
+    height: var(--icon-size);
+    object-fit:contain;
+    display:block;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-card-text{
+    font-size:13px;
+    line-height:1.35;
+    font-weight:600;
+  }
+
+  /* ===== Product Panel ===== */
+  .vinyl-two-col-{{ section.id }} .vinyl-panel{
+    background: var(--panel-bg);
+    border-radius: var(--panel-radius);
+    padding: var(--panel-pad);
+    text-align:center;
+        grid-column: span {{span }};
+  }
+  .vinyl-two-col-{{ section.id }} .vinyl-panel.span-1{
+
+        grid-column: span 1;
+  }
+  .vinyl-two-col-{{ section.id }} .vinyl-panel.span-2{
+
+        grid-column: span 2;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-tab{
+    background:#1e1e1e;
+    color:#fff;
+    border-radius:999px;
+    padding:10px 14px;
+    font-weight:700;
+    font-size:13px;
+    margin:0 auto 14px auto;
+    max-width:520px;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-circle{
+    width:180px;
+    height:180px;
+    border-radius:999px;
+    margin:0 auto 12px auto;
+    background: var(--circle-bg);
+    border: var(--circle-border-w) solid var(--circle-border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-title{
+    font-weight:800;
+    font-size:16px;
+    color: var(--panel-title);
+    margin-top:6px;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-desc{
+    color: var(--panel-text);
+    font-size:12px;
+    line-height:1.55;
+    margin:10px auto 14px auto;
+    max-width:520px;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-buttons{
+    display:grid;
+    gap: var(--btn-gap);
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-panel-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: var(--btn-radius);
+    padding: var(--btn-pad-y) var(--btn-pad-x);
+    font-weight:700;
+    font-size:13px;
+  }
+
+  /* ===== CTA Banner ===== */
+  .vinyl-two-col-{{ section.id }} .vinyl-cta{
+    border-radius: var(--cta-radius);
+    overflow:hidden;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta.span-1{
+    grid-column: span 1;
+  }
+  .vinyl-two-col-{{ section.id }} .vinyl-cta.span-2{
+    grid-column: span 2;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-top{
+    background: var(--cta-bg);
+    color: var(--cta-text);
+    padding: var(--cta-pad-y) var(--cta-pad-x);
+    text-align:center;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-heading{
+    {% comment %} font-weight:800; {% endcomment %}
+    font-size:18px;
+    max-width: 300px;
+    margin: 0 auto 10px;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-body{
+    {% comment %} font-size:12px; {% endcomment %}
+    line-height:1.6;
+    max-width:700px;
+    margin:0 auto;
+
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-bottom{
+    background: var(--cta-bottom-bg);
+    padding: 18px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-logo{
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-logo-img{
+    max-width:180px;
+    height:auto;
+    display:block;
+  }
+
+  .vinyl-two-col-{{ section.id }} .vinyl-cta-pill{
+    background: var(--cta-pill-bg);
+    color: var(--cta-pill-text);
+    border-radius: var(--cta-pill-radius);
+    padding:10px 18px;
+    font-weight:800;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:200px;
+  }
+
+  /* Responsive */
+  @media (max-width: 990px){
+    .vinyl-two-col-{{ section.id }} .vinyl-columns{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width: 640px){
+    .vinyl-two-col-{{ section.id }} .vinyl-grid{ grid-template-columns:1fr; }
+    .vinyl-two-col-{{ section.id }} .vinyl-card.span-2,
+    .vinyl-two-col-{{ section.id }} .vinyl-card.span-1{ grid-column: span 2; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Vinyl Material",
+  "settings": [
+    {
+      "type":"checkbox",
+      "id":"two_col",
+      "label": "2 column",
+      "default":true
+    },
+    { "type": "checkbox", "id": "full_width", "label": "Full width section", "default": true },
+
+    { "type": "color", "id": "section_bg", "label": "Section background", "default": "#3a89b8" },
+    { "type": "color", "id": "main_head_bg_color", "label": "Section Heading Main background", "default": "#3a89b8" },
+
+    { "type": "range", "id": "section_padding_y", "label": "Section padding (top/bottom)", "min": 0, "max": 120, "step": 2, "default": 28 },
+    { "type": "range", "id": "section_padding_x", "label": "Section padding (left/right)", "min": 0, "max": 80, "step": 2, "default": 18 },
+
+    { "type": "text", "id": "main_heading", "label": "Main heading (top)", "default": "Vinyl Material For Tapes & Labels" },
+    { "type": "color", "id": "mainbar_bg", "label": "Main heading background", "default": "#0b5f8f" },
+    { "type": "color", "id": "mainbar_text", "label": "Main heading text color", "default": "#ffffff" },
+    { "type": "range", "id": "mainbar_padding_y", "label": "Main heading padding (Y)", "min": 6, "max": 40, "step": 1, "default": 14 },
+    { "type": "range", "id": "mainbar_padding_x", "label": "Main heading padding (X)", "min": 10, "max": 80, "step": 2, "default": 30 },
+    { "type": "range", "id": "mainbar_radius", "label": "Main heading radius", "min": 0, "max": 30, "step": 1, "default": 3 },
+
+    { "type": "richtext", "id": "main_description", "label": "Description text (below main heading)", "default": "<p>Vinyl material features unique properties that make it well-suited to many applications...</p>" },
+    { "type": "color", "id": "description_text_color", "label": "Description text color", "default": "#eaf6ff" },
+
+    { "type": "header", "content": "Column headers" },
+
+    { "type": "color", "id": "left_heading_text_color", "label": "Left column heading text color", "default": "#ffffff" },
+    { "type": "color", "id": "colhead_subtext_color", "label": "Pill description text color", "default": "#eaf6ff" },
+
+    { "type": "text", "id": "left_heading", "label": "Left column heading", "default": "Vinyl Material Properties & Benefits" },
+    { "type": "text", "id": "left_pill_text", "label": "Left pill text (optional)", "default": "Key Characteristics" },
+    { "type": "richtext", "id": "left_pill_desc", "label": "Left pill description (under button)",},
+
+    { "type": "text", "id": "right_heading", "label": "Right column heading", "default": "Key Characteristics" },
+    { "type": "text", "id": "right_pill_text", "label": "Right pill text (optional)",},
+    { "type": "richtext", "id": "right_pill_desc", "label": "Right pill description (under button)",},
+
+    { "type": "color", "id": "col_header_bg", "label": "Column header background", "default": "#1b74b4" },
+    { "type": "color", "id": "col_header_text", "label": "Column header text color", "default": "#ffffff" },
+    { "type": "range", "id": "col_header_padding_y", "label": "Column header padding (Y)", "min": 6, "max": 30, "step": 1, "default": 10 },
+    { "type": "range", "id": "col_header_padding_x", "label": "Column header padding (X)", "min": 8, "max": 40, "step": 1, "default": 14 },
+    { "type": "range", "id": "col_header_radius", "label": "Column header radius", "min": 0, "max": 30, "step": 1, "default": 4 },
+
+    { "type": "color", "id": "pill_bg", "label": "Pill background", "default": "#ffffff" },
+    { "type": "color", "id": "pill_text", "label": "Pill text color", "default": "#1b74b4" },
+    { "type": "color", "id": "pill_border", "label": "Pill border color", "default": "#bfe3ff" },
+    { "type": "range", "id": "pill_radius", "label": "Pill radius", "min": 0, "max": 30, "step": 1, "default": 18 },
+
+    { "type": "header", "content": "Cards" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#1b74b4" },
+    { "type": "color", "id": "card_text", "label": "Card text color", "default": "#ffffff" },
+    { "type": "color", "id": "card_border_color", "label": "Card border color", "default": "#ff2b2b" },
+    { "type": "range", "id": "card_border_width", "label": "Card border width", "min": 0, "max": 8, "step": 1, "default": 3 },
+    { "type": "range", "id": "card_radius", "label": "Card border radius", "min": 0, "max": 30, "step": 1, "default": 6 },
+    { "type": "range", "id": "card_padding_y", "label": "Card padding (Y)", "min": 6, "max": 40, "step": 1, "default": 14 },
+    { "type": "range", "id": "card_padding_x", "label": "Card padding (X)", "min": 8, "max": 50, "step": 1, "default": 14 },
+
+    { "type": "header", "content": "Icon styling" },
+    { "type": "color", "id": "icon_circle_bg", "label": "Icon circle background", "default": "#2b2b2b" },
+    { "type": "range", "id": "icon_circle_size", "label": "Icon circle size (px)", "min": 28, "max": 70, "step": 1, "default": 40 },
+    { "type": "range", "id": "icon_size", "label": "Icon size (px)", "min": 14, "max": 50, "step": 1, "default": 22 },
+
+    { "type": "range", "id": "gap", "label": "Grid gap (px)", "min": 6, "max": 40, "step": 1, "default": 14 }
+  ],
+
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        { "type": "image_picker", "id": "icon", "label": "Icon image (optional)" },
+        { "type": "text", "id": "text", "label": "Text (optional)", "default": "Excellent strength and durability" },
+
+        { "type": "text", "id": "csr_btn_text", "label": "Optional inline button label",},
+        { "type": "url", "id": "csr_btn_url", "label": "Optional inline button URL" },
+
+        {
+          "type": "select",
+          "id": "span",
+          "label": "Span (desktop)",
+          "default": "1",
+          "options": [
+            { "value": "1", "label": "Span 1 (half row)" },
+            { "value": "2", "label": "Span 2 (full row)" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "product_panel",
+      "name": "Product Panel ",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "span",
+          "label": "Span (desktop)",
+          "default": "2",
+          "options": [
+            { "value": "1", "label": "Span 1" },
+            { "value": "2", "label": "Span 2" }
+          ]
+        },
+
+        { "type": "text", "id": "top_tab_text", "label": "Top tab text (optional)",},
+
+        { "type": "text", "id": "title", "label": "Title", "default": "Vinyl Tape" },
+        { "type": "image_picker", "id": "image", "label": "Circle image" },
+        { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Short description...</p>" },
+
+        { "type": "header", "content": "Buttons (up to 6)" },
+        { "type": "text", "id": "btn1_text", "label": "Button 1 text",},
+        { "type": "url", "id": "btn1_link", "label": "Button 1 link" },
+        { "type": "text", "id": "btn2_text", "label": "Button 2 text",},
+        { "type": "url", "id": "btn2_link", "label": "Button 2 link" },
+        { "type": "text", "id": "btn3_text", "label": "Button 3 text",},
+        { "type": "url", "id": "btn3_link", "label": "Button 3 link" },
+        { "type": "text", "id": "btn4_text", "label": "Button 4 text",},
+        { "type": "url", "id": "btn4_link", "label": "Button 4 link" },
+        { "type": "text", "id": "btn5_text", "label": "Button 5 text",},
+        { "type": "url", "id": "btn5_link", "label": "Button 5 link" },
+        { "type": "text", "id": "btn6_text", "label": "Button 6 text",},
+        { "type": "url", "id": "btn6_link", "label": "Button 6 link" },
+
+        { "type": "header", "content": "Styling" },
+        { "type": "color", "id": "panel_bg", "label": "Panel background", "default": "#d8d8d8" },
+        { "type": "range", "id": "panel_radius", "label": "Panel radius", "min": 0, "max": 30, "step": 1, "default": 14 },
+        { "type": "range", "id": "panel_padding", "label": "Panel padding", "min": 0, "max": 50, "step": 1, "default": 18 },
+
+        { "type": "color", "id": "title_color", "label": "Title color", "default": "#ffffff" },
+        { "type": "color", "id": "text_color", "label": "Text color", "default": "#2a2a2a" },
+
+        { "type": "color", "id": "circle_bg", "label": "Circle background", "default": "#ffffff" },
+        { "type": "color", "id": "circle_border_color", "label": "Circle border color", "default": "#0a6aa2" },
+        { "type": "range", "id": "circle_border_width", "label": "Circle border width", "min": 0, "max": 10, "step": 1, "default": 4 },
+
+        { "type": "color", "id": "button_bg", "label": "Button background", "default": "#0a6aa2" },
+        { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#ffffff" },
+        { "type": "range", "id": "button_radius", "label": "Button radius", "min": 0, "max": 20, "step": 1, "default": 6 },
+        { "type": "range", "id": "button_pad_y", "label": "Button padding Y", "min": 6, "max": 30, "step": 1, "default": 12 },
+        { "type": "range", "id": "button_pad_x", "label": "Button padding X", "min": 10, "max": 40, "step": 1, "default": 16 },
+        { "type": "range", "id": "buttons_gap", "label": "Buttons gap", "min": 6, "max": 26, "step": 1, "default": 12 }
+      ]
+    },
+
+    {
+      "type": "cta_banner",
+      "name": "CTA Banner",
+      "settings": [
+        {
+          "type": "select",
+          "id": "column",
+          "label": "Column",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "span",
+          "label": "Span (desktop)",
+          "default": "2",
+          "options": [
+            { "value": "1", "label": "Span 1" },
+            { "value": "2", "label": "Span 2" }
+          ]
+        },
+
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Contact Our Experts For Premium Vinyl Tape & Label Solutions" },
+        { "type": "richtext", "id": "body", "label": "Body text", "default": "<p>Write your description here...</p>" },
+
+        { "type": "image_picker", "id": "logo", "label": "Logo image" },
+
+        { "type": "text", "id": "pill_text", "label": "Website/CTA text", "default": "www.example.com" },
+        { "type": "url", "id": "pill_link", "label": "Website/CTA link" },
+
+        { "type": "header", "content": "Styling" },
+        { "type": "color", "id": "bg", "label": "Top background", "default": "#1f1f1f" },
+        { "type": "color", "id": "text_color", "label": "Top text color", "default": "#ffffff" },
+
+        { "type": "color", "id": "bottom_bg", "label": "Bottom bar background", "default": "#0a6aa2" },
+
+        { "type": "range", "id": "radius", "label": "Radius", "min": 0, "max": 30, "step": 1, "default": 14 },
+        { "type": "range", "id": "pad_y", "label": "Padding Y", "min": 0, "max": 60, "step": 1, "default": 22 },
+        { "type": "range", "id": "pad_x", "label": "Padding X", "min": 0, "max": 60, "step": 1, "default": 22 },
+
+        { "type": "color", "id": "pill_bg", "label": "Website pill bg", "default": "#d60000" },
+        { "type": "color", "id": "pill_text_color", "label": "Website pill text", "default": "#ffffff" },
+        { "type": "range", "id": "pill_radius", "label": "Website pill radius", "min": 0, "max": 50, "step": 1, "default": 4 }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Vinyl Material",
+      "blocks": [
+        { "type": "card", "settings": { "column": "left", "text": "Excellent strength and durability", "span": "1" } },
+        { "type": "card", "settings": { "column": "left", "text": "Printable", "span": "1" } },
+        { "type": "card", "settings": { "column": "left", "text": "Moisture resistant", "span": "1" } },
+        { "type": "card", "settings": { "column": "left", "text": "Chemical resistant", "span": "1" } },
+
+        { "type": "card", "settings": { "column": "right", "text": "High-performing in many environments", "span": "1" } },
+        { "type": "card", "settings": { "column": "right", "text": "Does not degrade over time", "span": "1" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

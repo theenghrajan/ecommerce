@@ -1,0 +1,591 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_cawwgL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_8p7LaD": {
+          "type": "heading",
+          "settings": {
+            "heading": "Artwork Guidelines",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_yQQa9g": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Nadco Tapes & Labels, we are committed to delivering work of the highest quality. The guidelines below are designed to help ensure optimal results while avoiding additional prepress fees and preventing delays in the production schedule.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8p7LaD",
+        "text_yQQa9g"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/f35698cfbee70ff87a68911d1f65ac6360506671.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_qVTA6z": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_aw8wGE": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Artwork Guidelines"
+          }
+        },
+        "heading_8Aei9k": {
+          "type": "heading",
+          "settings": {
+            "heading": "Acceptable Software & File Formats",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_ixMEXr": {
+          "type": "text",
+          "settings": {
+            "text": "<p>While many software options exist for creating graphics, brochures, and similar materials, we directly support only professional applications capable of producing the high-quality output required for commercial printing.</p><p>If your project was created with software not listed below, we may still be able to use it. Most programs can produce PostScript output, which can be distilled into a PDF. Many also allow you to export your work in other usable formats, such as EPS or high-resolution TIFF files.</p><p>However, we cannot guarantee the output quality from unsupported programs. You may need to contact the software vendor for help exporting your project in a format suitable for commercial printing. This list is not exhaustive—it simply reflects the formats we work with most often. If you’re unsure whether we can use your files or have any questions, please contact a Customer Service Representative.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_aw8wGE",
+        "heading_8Aei9k",
+        "text_ixMEXr"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_28.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_icon_EgGPWA": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_PKAk3x": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/20260124-110822.jpg",
+            "max_width": 40,
+            "max_width_mb": 40,
+            "title": "Adobe Illustrator",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>The Industry standard vector design application.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_GdjzxW": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/20260124-110822.jpg",
+            "max_width": 40,
+            "max_width_mb": 40,
+            "title": "Adobe Photoshop",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>Powerful image editor.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_bRjfD8": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/20260124-110822.jpg",
+            "max_width": 40,
+            "max_width_mb": 40,
+            "title": "Adobe InDesign",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>Design interactive layouts.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_PKAk3x",
+        "column_GdjzxW",
+        "column_bRjfD8"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "MAC & PC Formats",
+        "heading": "We Support These Applications",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>At Nadco Tapes & Labels, we are committed to delivering work of the highest quality. The guidelines below are designed to help ensure optimal results while avoiding additional prepress fees and preventing delays in the production schedule.</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "",
+        "content_alignment": "left",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_icon_PaBMzj": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_3NVTRU": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/20260124-110822.jpg",
+            "max_width": 40,
+            "max_width_mb": 40,
+            "title": "Vector File Formats",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>.EPS, .AI, .PDF are the preferred file format for press printing.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_cW4hHk": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/20260124-110822.jpg",
+            "max_width": 40,
+            "max_width_mb": 40,
+            "title": ".jpeg | .TIFF | .PS",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_gnFADk": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/20260124-110822.jpg",
+            "max_width": 40,
+            "max_width_mb": 40,
+            "title": ".Indd",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_3NVTRU",
+        "column_cW4hHk",
+        "column_gnFADk"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "MAC & PC Formats",
+        "heading": "Acceptable File Formats",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "",
+        "content_alignment": "left",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_JxD8cG": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_yqepxf": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Artwork Guidelines"
+          }
+        },
+        "heading_rjTURj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Not Recommended",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_6WDxKK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We do not directly support many low-end, shareware, or freeware programs that come pre-installed on personal computers, such as Multi-Ad Creator, Print Shop Deluxe, or Greeting Card Factory Deluxe. We also do not support programs like Microsoft Publisher, Word, Excel, PowerPoint, Corel, or FreeHand. Because these applications are not designed for commercial printing, we cannot guarantee color accuracy or output quality when they are used.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_yqepxf",
+        "heading_rjTURj",
+        "text_6WDxKK"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/704304bf1f7116dbb118f4ab2d2d10f5afed6ee5_1.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "collapsible_tabs_XQVQW3": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "heading_Dqrd9W": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "FAQ",
+            "heading": "General Information",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p><strong>Submitting art via e-mail, disks or CDs:</strong> Be certain to include all fonts unless outlined, all linked or embedded high resolution images. Please make certain all elements are contained in the file provided. Low resolution images (less than 150dpi) are not acceptable for output. Please provide images with resolution no less than 150dpi, preferably 300dpi. Do Not submit images downloaded from the web! Do Not submit art that is copyrighted unless you have permission from the creator. Files requiring bleeds should be prepared with at least 1/8” bleed on all sides. If your files are large, we can have you upload them, call or email us for instructions.</p><p><strong>*Additional fees may be added for file re-creation, manipulation, revision and modifications, etc.</strong></p>"
+          }
+        },
+        "collapsible_item_6jc8iL": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Acceptable Colors",
+            "content": "<p>Files should be saved with PMS Spot Color(s), or as 4 color process (CMYK). RGB, iRGB and Index colors are not acceptable for output. RGB colors produce unexpected changes when converted to CMYK. If your art is submitted as RGB or CMYK and a specific PMS color is called out, you may be asked to submit a new file using spot colors. Keep in mind that digital printing cannot reproduce exact PMS colors. The nearest color values will be substituted. Please request Press Proof for approval if color is crucial on any Digital Output.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_6NeQhE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Graphics Files With Text",
+            "content": "<p>All files submitted that contain text should be converted to outlines, unless you send along the font files.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_zKwLMi": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Preferred File Format",
+            "content": "<p>Vector files (.EPS .AI or .PDF) are preferred for press printing.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_JhNNeh": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Copyrighted Material",
+            "content": "<p>Do Not submit art that is copyrighted unless you have permission from the creator.</p><p>NADCO® Tapes & Labels is not responsible for collecting copyrighted material permission.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_d8efGm": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Large File Size Artwork",
+            "content": "<p>For large file sizes we recommend you submit your artwork using popular cloud-based services including:</p><ul><li><a href=\"https://workspace.google.com/products/drive/\" target=\"_blank\">Google Drive</a></li><li><a href=\"https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage\" target=\"_blank\">OneDrive</a></li><li><a href=\"https://www.dropbox.com/\" target=\"_blank\">Dropbox</a></li><li>Or similar.</li></ul><p>If you need additional guidance, feel free to give us a call at (800) 839-9018 or email us at sales@nadcoinc.com.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_GFFDx8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Support",
+            "content": "<p>We are here to help. If you are unsure of what you have or what file format works best for your project, give us a call at (800) 839-9018 or email us at sales@nadcoinc.com and one of our team members would be happy to assist.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Dqrd9W",
+        "collapsible_item_6jc8iL",
+        "collapsible_item_6NeQhE",
+        "collapsible_item_zKwLMi",
+        "collapsible_item_JhNNeh",
+        "collapsible_item_d8efGm",
+        "collapsible_item_GFFDx8"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "17692346830db1fcac": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_KR93kU": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_T3xzNQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_fQyUgp": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_T3xzNQ",
+        "button_fQyUgp"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_cawwgL",
+    "image_with_text_qVTA6z",
+    "multicolumn_icon_EgGPWA",
+    "multicolumn_icon_PaBMzj",
+    "image_with_text_JxD8cG",
+    "collapsible_tabs_XQVQW3",
+    "17692346830db1fcac",
+    "image_with_text_overlay_KR93kU"
+  ]
+}

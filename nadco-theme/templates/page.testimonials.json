@@ -1,0 +1,317 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_PD4Gem": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_BwxrQV": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>We Appreciate Your Feedback</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_J9UDLz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Nadco Tapes & Labels, we strive to produce the highest quality work. The following guidelines are to help ensure the best possible output without incurring additional prepress charges, or any delay in the production schedule.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BwxrQV",
+        "text_J9UDLz"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_tKjrwp": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_BbiRRb": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Feedback"
+          }
+        },
+        "heading_gx7WdE": {
+          "type": "heading",
+          "settings": {
+            "heading": "We Value Your Feedback",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_Rc94At": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>NADCO® Tapes & Labels, LLC’s</strong> capabilities are only limited to our customers’ imagination. Not only have we been recognized as an excellent company for our tapes and labels, but we are the best kept secret in the label industry today.</p><p>Please fill out the form below and leave us your feedback!</p><p>The NADCO Team.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "subheading_BbiRRb",
+        "heading_gx7WdE",
+        "text_Rc94At"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "image": "shopify://shop_images/die-cut-tapes-labels_800_959_d2b84076-1060-4560-8026-6df5d7ba062f.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "testimonials_Ry6FBn": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_JRqMcp": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "Testimonials",
+            "text": "<p>What an incredible company! They were able to take my idea and make it a reality. Kind, professional staff that went out of their way to help my company. Five stars.</p>",
+            "avatar": "shopify://shop_images/Custom_Digital_Printing_Tapes_Labels-150x150.png",
+            "author": "Nick N. ~",
+            "bio": "Retail Product Engineer",
+            "product": ""
+          }
+        },
+        "testimonial_NFrjaK": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "Testimonials",
+            "text": "<p>My experience with NADCO was excellent! Looking forward to doing more business with NADCO.</p>",
+            "avatar": "shopify://shop_images/custom-digital-printing_tapes_labels_2_1000_1000-150x150_1.jpg",
+            "author": "Cecilia ~",
+            "bio": "Manufacturing/Lighting Equipment",
+            "product": ""
+          }
+        },
+        "testimonial_pqURKM": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "Testimonials",
+            "text": "<p>I choose to make my labels with you because the turnaround time was great with any questions I had. This was my first time making these labels with very little to no knowledge of how to make. I had enough guidance to feel confident in the purchase I was making. Once I run out of these labels, I will be back for more!</p>",
+            "avatar": "shopify://shop_images/Custom_Digital_Printing_Tapes_Labels_2-150x150.png",
+            "author": "Edward ~",
+            "bio": "Manufacturing/Retail Outlet Fixtures",
+            "product": ""
+          }
+        },
+        "testimonial_HLzinJ": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "Testimonials",
+            "text": "<p>You have been the most efficient representative that I have talked to in years. I appreciate very much your quick response and helpfulness.</p>",
+            "avatar": "shopify://shop_images/custom-digital-printing_tapes_labels_1920_1440_2-150x150.jpg",
+            "author": "Alan ~",
+            "bio": "Tape Distributor",
+            "product": ""
+          }
+        },
+        "testimonial_eCBFkp": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "Testimonials",
+            "text": "<p>We have received and tested the sample rolls- everyone is extremely happy with the quality of the print. We have never had such clear printing on the labels!!!</p>",
+            "avatar": "shopify://shop_images/Graphic_Design_Tapes_Label_Services_800_2_GE1A2645-150x150.jpg",
+            "author": "Ray~",
+            "bio": "Pharmaceutical Industry",
+            "product": ""
+          }
+        },
+        "testimonial_YbyrKM": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "heading": "Testimonials",
+            "text": "<p>Thank you and your team for making this first order of tape a ‘painless’ transaction. The product is perfect and exactly what I wanted.</p>",
+            "avatar": "shopify://shop_images/Graphic_Design_Tapes_Label_Services_800_2_GE1A2645-150x150.jpg",
+            "author": "Ray~",
+            "bio": "Food & Beverage Industry",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_JRqMcp",
+        "testimonial_NFrjaK",
+        "testimonial_pqURKM",
+        "testimonial_HLzinJ",
+        "testimonial_eCBFkp",
+        "testimonial_YbyrKM"
+      ],
+      "name": "t:sections.testimonials.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Testimonials",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "layout": "standard",
+        "card_color_scheme": "scheme-10",
+        "card_content_color_scheme": "",
+        "card_image_ratio": "adapt",
+        "card_heading_size": "h4",
+        "card_text_size": "text-inherit",
+        "author_info_layout": "vertical",
+        "card_trigger_behavior": "click",
+        "show_image": false,
+        "show_author_image": true,
+        "columns_desktop": 3,
+        "column_gap": "medium",
+        "row_gap": "medium",
+        "enable_slider": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_progress_bar": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "1768991531177a2af4": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_jzPpEM": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4NDgx\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_jzPpEM"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_CEwayX": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VXKf4U": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_NTw9wF": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VXKf4U",
+        "button_NTw9wF"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_PD4Gem",
+    "image_with_text_tKjrwp",
+    "testimonials_Ry6FBn",
+    "1768991531177a2af4",
+    "image_with_text_overlay_CEwayX"
+  ]
+}

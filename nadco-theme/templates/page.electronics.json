@@ -1,0 +1,682 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Electronics Adhesive Tape & Label Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/electronix_industry.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collection_list_rdADDy": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_JxExtW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-tapes",
+            "title": ""
+          }
+        },
+        "featured_collection_3iQNGG": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-labels",
+            "image": "shopify://shop_images/DVP_PURPLEPARENT_dd8bd681-3149-4b0b-8ca1-6307438e32d0.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_Rt6Gqh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "4-shipping-logistics-inventory-control-labels",
+            "title": ""
+          }
+        },
+        "featured_collection_M9p4bq": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "5-masking-paper-temporary-marking",
+            "image": "shopify://shop_images/UNPRINTED_PAPER_TAPE_CATEGORY_IMAGE_1f1a54ad-77b0-43f1-b28c-2a46c7605445.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_eXgHzh": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "7-metal-foil-shielding-products-tapes",
+            "image": "shopify://shop_images/1650-3.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_HMAbhH": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "double-coated-foam-tape",
+            "image": "shopify://shop_images/MEDICAL_GRADE_DOUBLE_COATED_FOAM_TAPE-7432M-3_9b569c8a-5384-4402-aa9d-4a4229603393.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_JxExtW",
+        "featured_collection_3iQNGG",
+        "featured_collection_Rt6Gqh",
+        "featured_collection_M9p4bq",
+        "featured_collection_eXgHzh",
+        "featured_collection_HMAbhH"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_RRxGx3": {
+      "type": "rich-text",
+      "blocks": {
+        "text_TkADFi": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_TkADFi"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_4N8WC9": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_WCN4cr": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/Rectangle_52_4_4f97e5e4-588f-4fb3-b0e7-a72285766be6.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_xDm8Bh": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "What Are the Common Adhesive Tapes Used in the Electronics Industry?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "rich_text_cstm": "<p>There are a number of types of adhesive tapes used in the electronics industry, and each has its advantages for specific applications. Even within each category, there are a variety of options and customization choices that can help you create a tape that’s perfectly suited to your needs.</p>"
+          }
+        },
+        "collapsible_item_TRUiRK": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Foil Tapes",
+            "content": "<p>Durable, flame retardant, and chemical resistant,<a href=\"/pages/foil-tape\" title=\"Foil Tape\">foil tapes </a>are useful in a variety of industries; in the electronics industry, they’re typically used to seal cables in outdoor environments and to provide grounding and static charge release. They’re available in aluminum, copper, lead, and stainless steel; copper foil tapes, for example, can be conductive or non-conductive, and they offer chemical resistance ideal for cable wrapping and electrostatic shielding. Meanwhile, aluminum foil tapes protect against vapors and are commonly used for shielding and covering thermal insulation, and stainless steel foil tapes offer good thermal conductivity and UV resistance while sticking well to curvy or uneven surfaces. Talk to a professional to determine which foil tape is best for your application.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_UVPp4V": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Paper Tapes",
+            "content": "<p>Also known as masking tapes, <a href=\"/pages/paper-tapes\" title=\"Paper Tapes\">paper tapes </a>are available in varying thicknesses, grades, and levels of adhesion, making it easy to customize your tape. Change the color, transparency, and level of water resistance, print information on the tape, or ensure it can be easily torn by hand to simplify daily use. These tapes are often used for mounting electronics or color coding, and they offer good adhesive and tensile strength, abrasion resistance, and temperature tolerance.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_iBgtGE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Polyimide Film",
+            "content": "<p>Resistant to both heat and cold, polyimide film tapes are abrasion resistant with high dielectric strength. Durable and reliable, this is an ideal choice for harsh environments, especially because it can be customized to meet specific electrical, mechanical, and chemical needs.</p><p>The tape you choose will depend on the level and type of protection you need, required adhesive strength, your budget, and more.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_WCN4cr",
+        "heading_xDm8Bh",
+        "collapsible_item_TRUiRK",
+        "collapsible_item_UVPp4V",
+        "collapsible_item_iBgtGE"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_VxyfqJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_F6LiMQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are Some Key Electronics Applications for Adhesive Tapes?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_jcVXrE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesives tapes are commonly used in the electronics industry for mounting and attachment as well as protection against friction, static, overheating, and more. Tape is accessible, cost-effective, easy to use, and reliable, and electronics industry workers everywhere turn to this simple, customizable solution for a variety of purposes. You’ll find our tapes at work in applications like these:</p><ul><li>EMI Shielding</li><li>Mounting (gaskets, glass, touch panels, lenses, and more)</li><li>Film Lamination</li><li>Masking</li><li>Permanent Chip Attachment</li><li>Heat Management</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_F6LiMQ",
+        "text_jcVXrE"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_4Qir3K": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_mXwWyb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choosing NADCO Adhesive Tapes for Your Electronic Component Needs",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_MiGKtJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO is proud to provide high-quality foil tapes, vinyl tapes, and other adhesive solutions for our customers in a number of industries, including electronics, medical, construction, safety, and retail. Our 35,000-square-foot facility features state-of-the-art equipment and a team dedicated to upholding strict standards for safety and quality while meeting or exceeding customer expectations. With decades of experience creating <a href=\"https://shopnadco.com/collections/tapes\" title=\"https://shopnadco.com/collections/tapes\">custom tapes</a> and labels, including vinyl electrical tapes, high heat electrical tapes, and more, we can work with you to determine which adhesive is right to meet the requirements of your specific electronics application.</p><p>Our full range of services go beyond high-quality adhesives to include die cutting and converting services, digital printing, graphic design, and label prototyping. <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Contact us</a> to learn more about our custom tapes and services for the electronics industry. If you can imagine it, NADCO will make it stick.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_mXwWyb",
+        "text_MiGKtJ"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "multicolumn_QY9YVC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Weat8R": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Charlie_jpg.webp",
+            "title": "Charlie",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_GQERB6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Stella-square_png.webp",
+            "title": "Stella",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_Weat8R",
+        "column_GQERB6"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "center",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 4,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "1768922310c25f8571": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_kiYGKd": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_kiYGKd"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_ieVjFF": {
+      "type": "image-with-text",
+      "blocks": {
+        "button_K9ztq3": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us for Details",
+            "button_link": "shopify://pages/contact-us",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        },
+        "heading_NiAKCT": {
+          "type": "heading",
+          "settings": {
+            "heading": "PTFE Coated Fiberglass Tape for high-heat resistance",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_zHKWAW": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>High-performance PTFE coated fiberglass tape designed for extreme heat and non-stick release applications. PTFE coated fiberglass tape offers outstanding abrasion resistance, dimensional stability, and clean release performance up to 500°F — ideal for heat sealers, packaging equipment, composites, guide rails, and industrial processing environments.<br/><br/></p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_K9ztq3",
+        "heading_NiAKCT",
+        "text_zHKWAW"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/PTFE_Coated_Fiberglass_Tape_roll.jpg",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_overlay_W8fBLA": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_Qtzym6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_tf748p": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Qtzym6",
+        "button_tf748p"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_XYgq7X": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_K8xggH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_4xUn7y": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_K8xggH",
+        "button_4xUn7y"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "collection_list_rdADDy",
+    "rich_text_RRxGx3",
+    "collapsible_tabs_4N8WC9",
+    "rich_text_VxyfqJ",
+    "rich_text_4Qir3K",
+    "multicolumn_QY9YVC",
+    "1768922310c25f8571",
+    "image_with_text_ieVjFF",
+    "image_with_text_overlay_W8fBLA",
+    "image_with_text_overlay_XYgq7X"
+  ]
+}

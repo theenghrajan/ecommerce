@@ -1,0 +1,875 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Education Adhesive Tape & Label Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>Smarter, Safer Schools Start with NADCO’s Precision‑Engineered Labels and Tapes<br/><br/></p>",
+            "text_size": "text-lg"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/education_main_hero_1_AI.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collection_list_rEm7Fj": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_ikxxFi": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "swt",
+            "image": "shopify://shop_images/ANTI-SLIP_CAUTION--WATCH-YOUR-STEP._2-x-60_ASV-2CWS.png",
+            "title": ""
+          }
+        },
+        "featured_collection_fAn9yb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "glow-tape",
+            "title": ""
+          }
+        },
+        "featured_collection_8GFNx6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-labels",
+            "title": ""
+          }
+        },
+        "featured_collection_UVjBeA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "5-masking-paper-temporary-marking",
+            "image": "shopify://shop_images/UNPRINTED_PAPER_TAPE_CATEGORY_IMAGE_1f1a54ad-77b0-43f1-b28c-2a46c7605445.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_6gj63U": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "duct-tape",
+            "image": "shopify://shop_images/non-printed_duct_tape_Silver.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_VVfNGV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "hazard-stripe-tape",
+            "image": "shopify://shop_images/2X10YD_REFLECTIVE-WHITE_BLACK_HAZ_STRIPE-R400W-B-2.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_ikxxFi",
+        "featured_collection_fAn9yb",
+        "featured_collection_8GFNx6",
+        "featured_collection_UVjBeA",
+        "featured_collection_6gj63U",
+        "featured_collection_VVfNGV"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_bg6399": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_KU9FAJ": {
+          "type": "subheading",
+          "settings": {
+            "subheading": ""
+          }
+        },
+        "heading_kkBkUk": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>School Safety Signs</strong> <strong>And Warning Labels</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_riW9iz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Safety signs and warning labels are crucial elements in any building, especially educational institutions. Every institution should ensure that all structures with elements that may pose risks to students, instructors, and staff are properly labeled. Health and safety hazards may not only cause physical harm but also disrupt learning and have a negative effect on the entire school.</p><p>There are different types of safety signage in schools and research labs, including multi-purpose lab tape. They are sold in various colors and can be used as part of a color coding system or for makeshift labels containing storage requirements, expiration dates, and other important information.</p><p>NADCO is a leading manufacturer of tape and label products used across different industries, including college research labs and other educational institutions. Learn more about school safety signs, warning labels, and other tape and label products used in the education industry. </p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_KU9FAJ",
+        "heading_kkBkUk",
+        "text_riW9iz"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_RJxq6c": {
+      "type": "custom-content",
+      "blocks": {
+        "image_kcTLPq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/3h3F00a_png.webp",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "text_gjt66r": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "<strong>Role of Safety Labels</strong> <strong>And Warning Signs</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "description": "<p>According to International Organization for Standardization (ISO) standards on safety colors and signs, it’s crucial to use a standardized system to convey safety information using as few words as possible, so that people understand the intended information as quickly and clearly as possible. Safety labels and warning signs are important visual reminders and alerts that are used to prevent injuries or accidents, often in emergency scenarios. </p><p>You can use these labels to identify potential hazards, provide instructions for safe behaviors, or mark certain areas as off-limits. Their primary objective is to draw attention clearly and quickly to objects and situations that may pose specific hazards. In schools, safety signs provide crucial information about emergency procedures, health, or safety with a combination of different symbols, colors, and shapes. </p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_kcTLPq",
+        "text_gjt66r"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 24,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_wqaYfJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YHDAim": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>NADCO’s Safety Labeling Solutions</strong> <strong>For the Education Industry</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_rtjMBW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO offers various safety labeling solutions for the education industry, depending on the need. Our labeling and tape solutions include but aren’t limited to: </p><ul><li><strong>Caution Tapes</strong>: Caution tape is used to mark off areas that are temporarily closed, under construction, or a safety risk to staff and students. </li><li><strong>Do Not Enter Labels</strong>: These labels can be placed on gates, doors, and other access points to block unauthorized entry to those who might not know the risks of entering a certain area. </li><li><strong>Hazard Warnings</strong>: These signages can be used in different locations, notifying individuals of nearby hazardous materials, slippery floors, or electrical hazards. </li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YHDAim",
+        "text_rtjMBW"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_bLq8mL": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_eV9aWn": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Industries We Support"
+          }
+        },
+        "heading_9XJydM": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Education Departments</strong> <strong>Which Use Safety Tapes & Labels</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_D8mmze": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In the education industry, various buildings and departments use safety tapes and labels to protect occupants from potential hazards.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_eV9aWn",
+        "heading_9XJydM",
+        "text_D8mmze"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_eDA4cW": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_kjKtYa": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Maintenance Departments</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_33wBT7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The maintenance department uses hazard labels that warn of slippery floors, caution tape to bar entry to areas being cleaned, and other signage to ensure the safety of students and staff. NADCO offers anti-slip tapes that offer extra traction on surfaces that may be slippery. Our glow tapes are visible in the dark and offer non-skid protection on potentially hazardous surfaces. We also offer barricade tapes (aka caution tape) that resist most solvents, oil, water, UV light, acid, fungi, and other forms of corrosion. </p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_kjKtYa",
+        "text_33wBT7"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/6-x-24-VNYL-ANTISLIP-YB-25_Pack_188YB-6X24.jpg",
+        "image_position": "left",
+        "image_width": 40,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_tnifdJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_r39pqt": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>University Laboratories</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_GW39Fx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>University labs use tapes and labels to mark samples, specimens, and equipment or areas that may pose health or safety risks. Multi-purpose lab tape is often used for color coding purposes and listing important information like storage instructions and expiration dates. Labs also use antimicrobial film which prevents the growth of bacteria and other fungi on surfaces to help keep a sanitized environment.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_r39pqt",
+        "text_GW39Fx"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/biotech_main_hero_AI.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_hmLLAh": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_WN3bYy": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Autoclaves</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_UEDdJg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Autoclaves use steam to sterilize surfaces and other contaminated loads. Laboratory autoclaves require safety tapes that can withstand these intense sterilization measures. Safety tapes containing temperature warnings are also common.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_WN3bYy",
+        "text_UEDdJg"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Close-up_of_filament_reinforced_tape.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_gY3cmz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aCLiFx": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Classrooms</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_eKYdCa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Classrooms require tapes and labels to mark hazards in the learning environment. Floor marking tapes, or directional flow tapes, are a common type of tape for school administrators because they help with traffic flow, social distancing, designate emergency exits, indicate classroom entrances, and provide safety warnings.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_aCLiFx",
+        "text_eKYdCa"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/social_distance_collage-horiz.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_P3iyp4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wpzj4J": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Customization Options</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_jWVU9c": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO offers an unlimited range of customization options so that our safety labeling products meet the unique needs of educational institutions. Our products come in different materials, sizes, and colors to ensure that they are highly visible and effective. We can also work directly with you to design and develop the tapes or labels you need for your specific application.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wpzj4J",
+        "text_jWVU9c"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_hPTaQR": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GxUYBw": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Benefits of Safety Labels</strong> <strong>And Warning Signs</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_3QzNbU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Here are some of the benefits of safety labels and warning signs in an educational institution. </p><ul><li><strong>Increased Safety for Students and Staff</strong>: Safety signages in schools reduce the risk of injuries and accidents by alerting students and staff about potential dangers and providing clear instructions for how to conduct themselves safely. </li><li><strong>Compliance with OSHA/ANSI, ISO, and Other Regulations</strong>: Educational institutions must follow various safety regulations, including OSHA and ANSI standards. NADCO’s products comply with these regulations and help your institution meet the necessary safety standards. </li><li><strong>Variety of Size and Material Options</strong>: NADCO’s customization options allow schools to choose materials and sizes that best suit their needs. This is crucial for places that need labels with specific material and size requirements, such as laboratories. </li><li><strong>Support for Maintenance and Janitorial Staff</strong>: Safety labels and warning signs can help maintenance and janitorial staff to identify and warn of potential hazards. At NADCO, we help janitorial and maintenance staff keep everyone safe and healthy in educational environments. </li><li><strong>Quality and Durability</strong>: High-quality safety and warning labels are essential to withstand everyday use. NADCO’s durable, quality materials can withstand this wear and tear so that your labels and signs last as long as possible. </li><li><strong>Ease of Use and Installation</strong>: Effective products should also be designed for ease of use and installation. Our tape and label products have clear guidelines to instruct users on proper application. Proper installation ensures that the safety and warning notifications are effective.</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GxUYBw",
+        "text_3QzNbU"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_UX6NUf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fMzmYD": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>NADCO: Your Partner for Safety Signs and Warning</strong> <strong>Labels for Educational Institutions</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_MgmBa9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Educational institutions must ensure the safety of their students, staff, and visitors. NADCO’s safety and warning labeling solutions allow schools and research centers to achieve this goal. We use high-quality, highly customizable safety tapes and labels that can enhance the safety of learning environments and comply with all applicable safety regulations.</p><p>For more information about our products and capabilities, <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">contact us</a> today or <a href=\"/pages/request-a-quote\" target=\"_blank\" title=\"Request a Quote\">request a quote</a> for your next project.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fMzmYD",
+        "text_MgmBa9"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_RzAhB7": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "heading_L9qtBw": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "Industries We Support",
+            "heading": "<strong>Education Departments</strong> <strong>Which Use Safety Tapes & Labels</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p>In the education industry, various buildings and departments use safety tapes and labels to protect occupants from potential hazards.</p>"
+          }
+        },
+        "collapsible_item_h6bNd6": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Maintenance Departments",
+            "content": "<p>The maintenance department uses hazard labels that warn of slippery floors, caution tape to bar entry to areas being cleaned, and other signage to ensure the safety of students and staff. NADCO offers anti-slip tapes that offer extra traction on surfaces that may be slippery. Our glow tapes are visible in the dark and offer non-skid protection on potentially hazardous surfaces. We also offer barricade tapes (aka caution tape) that resist most solvents, oil, water, UV light, acid, fungi, and other forms of corrosion. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_b9xNVd": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "University Laboratories",
+            "content": "<p>University labs use tapes and labels to mark samples, specimens, and equipment or areas that may pose health or safety risks. Multi-purpose lab tape is often used for color coding purposes and listing important information like storage instructions and expiration dates. Labs also use antimicrobial film which prevents the growth of bacteria and other fungi on surfaces to help keep a sanitized environment.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_dAji8f": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Autoclaves",
+            "content": "<p>Autoclaves use steam to sterilize surfaces and other contaminated loads. Laboratory autoclaves require safety tapes that can withstand these intense sterilization measures. Safety tapes containing temperature warnings are also common.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_9z6Rim": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Classrooms",
+            "content": "<p>Classrooms require tapes and labels to mark hazards in the learning environment. Floor marking tapes, or directional flow tapes, are a common type of tape for school administrators because they help with traffic flow, designate emergency exits, indicate classroom entrances, and provide safety warnings.</p><p>At NADCO, we also offer antimicrobial films for classrooms that can adhere to nearly any substrate. These films can be added to tapes and labels, giving them bacteria-resistant properties. This is especially important for high-contact areas and surfaces throughout educational institutions.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_8ngV6f": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Customization Options",
+            "content": "<p>NADCO offers an unlimited range of customization options so that our safety labeling products meet the unique needs of educational institutions. Our products come in different materials, sizes, and colors to ensure that they are highly visible and effective. We can also work directly with you to design and develop the tapes or labels you need for your specific application.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_L9qtBw",
+        "collapsible_item_h6bNd6",
+        "collapsible_item_b9xNVd",
+        "collapsible_item_dAji8f",
+        "collapsible_item_9z6Rim",
+        "collapsible_item_8ngV6f"
+      ],
+      "disabled": true,
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Collapsible tabs",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_jkjAcp": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_ihUd8i": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_ihUd8i"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_m9H8R6": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_wAJxNE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_g3J4Ca": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wAJxNE",
+        "button_g3J4Ca"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "collection_list_rEm7Fj",
+    "rich_text_bg6399",
+    "custom_content_RJxq6c",
+    "rich_text_wqaYfJ",
+    "rich_text_bLq8mL",
+    "image_with_text_eDA4cW",
+    "image_with_text_tnifdJ",
+    "image_with_text_hmLLAh",
+    "image_with_text_gY3cmz",
+    "rich_text_P3iyp4",
+    "rich_text_hPTaQR",
+    "rich_text_UX6NUf",
+    "collapsible_tabs_RzAhB7",
+    "apps_jkjAcp",
+    "image_with_text_overlay_m9H8R6"
+  ]
+}

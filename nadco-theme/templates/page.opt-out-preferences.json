@@ -1,0 +1,808 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ww3wqL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_CY6hUd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Opt-Out Preferences",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_wUBUUw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This page was last changed on May 20, 2025, last checked on May 20, 2025 and applies to citizens and legal permanent residents of the United States.</p>",
+            "text_size": "text-base"
+          }
+        },
+        "button_n8UpQM": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Contact Us Today",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CY6hUd",
+        "text_wUBUUw",
+        "button_n8UpQM"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/Custom_Tapes_and_Labels_1988_GE1A2611.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 0,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_hBYe4x": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_NUKWTH": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Nadco tapes & labels"
+          }
+        },
+        "heading_UecfhN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Introduction",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_3NnAP9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our website, <a href=\"https://www.nadco-inc.com\" target=\"_blank\" title=\"https://www.nadco-inc.com\">https://shopnadco.com/</a> (hereinafter: “the website”) uses cookies and other related technologies (for convenience all technologies are referred to as “cookies”). Cookies are also placed by third parties we have engaged. In the document below we inform you about the use of cookies on our website.</p><p>We do not sell or share personal information to third parties for monetary consideration; however, we may disclose certain personal information to third parties under circumstances that might be deemed a “sale” or ”Sharing” for residents of California (CPRA), Colorado (CPA), Connecticut (CTDPA), Montana (MCDPA), Nevada (NRS 603A), Oregon (OCPA), Texas (TDPSA), Utah (UCPA), Virginia (CDPA), Delaware (PDPA), Iowa (CDPA), Nebraska (DPA), New Hampshire (DPA) and New Jersey (DPL). We respect and understand that you may want to be sure that your personal information is not being sold or shared. You may request that we exclude your personal information from such arrangements, or direct us to limit the use and disclosure of possible sensitive personal information, by entering your name and email address below. You may need to provide additional identifying information before we can process your request.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_NUKWTH",
+        "heading_UecfhN",
+        "text_3NnAP9"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "tight",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "contact_form_ik8Vy8": {
+      "type": "contact-form",
+      "blocks": {
+        "custom_field_Gphzxa": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information.",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_HDBJQA": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Do not sell my personal information for cross-context behavioral advertising",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_gYPELp": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Limit the use of my sensitive personal information",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_HgFfAM": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Request for access",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_azeizQ": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Right to be Forgotten",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_CbyNbP": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Right to Data Portability",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_hmw9m9": {
+          "type": "custom_field",
+          "disabled": true,
+          "settings": {
+            "field_type": "checkbox",
+            "heading": "Phone",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_field_Gphzxa",
+        "custom_field_HDBJQA",
+        "custom_field_gYPELp",
+        "custom_field_HgFfAM",
+        "custom_field_azeizQ",
+        "custom_field_CbyNbP",
+        "custom_field_hmw9m9"
+      ],
+      "name": "t:sections.contact-form.name",
+      "settings": {
+        "container": "fixed",
+        "section_color_scheme": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_ChX6YK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4YjpTT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cookies",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_9EEnDz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When you visit our website it can be necessary to store and/or read certain data from your device by using technologies such as cookies.</p><p><strong>Technical or functional cookies</strong><br/>Some cookies ensure that certain parts of the website work properly and that your user preferences remain known. By placing functional cookies, we make it easier for you to visit our website. This way, you do not need to repeatedly enter the same information when visiting our website and, for example, the items remain in your shopping cart until you have paid. We may place these cookies without your consent.</p><p><strong>Social media</strong></p><p>On our website, we have included content to promote web pages (e.g. “like”, “pin”) or share (e.g. “tweet”) on social networks. This content is embedded with code derived from third parties and places cookies. This content might store and process certain information for personalized advertising.</p><p>Please read the privacy statement of these social networks (which can change regularly) to read what they do with your (personal) data which they process using these cookies. The data that is retrieved is anonymized as much as possible.</p><p><strong>Statistics cookies</strong><br/>We use statistics cookies to optimize the website experience for our users. With these statistics cookies we get insights in the usage of our website.</p><p><strong>Marketing/Tracking cookies</strong><br/>Marketing/Tracking cookies are cookies or any other form of local storage, used to create user profiles to display advertising or to track the user on this website or across several websites for similar marketing purposes.</p>",
+            "text_size": "text-inherit",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4YjpTT",
+        "text_9EEnDz"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_F3WxWz": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "collapsible_item_PUYxyE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Bing Ads",
+            "content": "<p><strong>Usage</strong></p><p>We use Bing Ads for advertising. <a href=\"https://cookiedatabase.org/service/bing-ads/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://www.microsoft.com/privacy/privacystatement\" target=\"_blank\" title=\"https://www.microsoft.com/en-us/privacy/privacystatement\">Bing Ads Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_eXRwUr": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Google reCAPTCHA",
+            "content": "<p><strong>Usage</strong></p><p>We use Google reCAPTCHA for spam prevention. <a href=\"https://cookiedatabase.org/service/google-recaptcha/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://policies.google.com/privacy\" target=\"_blank\">Google reCAPTCHA Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_yhH6yP": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Elementor",
+            "content": "<p><strong>Usage</strong></p><p>We use Elementor for content creation. <a href=\"https://cookiedatabase.org/service/elementor/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>This data is not shared with third parties.</p><p>Statistics (anonymous)</p><p><strong>Name</strong></p><p><a href=\"https://cookiedatabase.org/cookie/elementor/elementor/\" target=\"_blank\">elementor</a></p><p><strong>Expiration</strong></p><p>persistent</p><p><strong>Function</strong></p><p>Store performed actions on the website</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_Ec6jJM": {
+          "type": "collapsible_item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "heading": "WordPress",
+            "content": "<p><strong>Usage</strong></p><p>We use WordPress for website development. <a href=\"https://cookiedatabase.org/service/wordpress/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>This data is not shared with third parties.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_PpHckU": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Microsoft Clarity",
+            "content": "<p><strong>Usage</strong></p><p>We use Microsoft Clarity for heat maps and screen recordings. <a href=\"https://cookiedatabase.org/service/microsoft/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://www.microsoft.com/en-us/privacy/privacystatement\" target=\"_blank\">Microsoft Clarity Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_cdB6DM": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "HubSpot",
+            "content": "<p><strong>Usage</strong></p><p>We use HubSpot for marketing automation (automated email marketing). <a href=\"https://cookiedatabase.org/service/hubspot/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://legal.hubspot.com/privacy-policy?__hstc=60351282.f3f32fb716dcd2f4f68d03c8f51f2bab.1749472253932.1752695560749.1752757221491.117&__hssc=60351282.2.1752757221491&__hsfp=1657203148\" target=\"_blank\">HubSpot Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_DmqMmz": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Visual Website Optimizer",
+            "content": "<p><strong>Usage</strong></p><p>We use HubSpot for marketing automation (automated email marketing). <a href=\"https://cookiedatabase.org/service/hubspot/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://legal.hubspot.com/privacy-policy?__hstc=60351282.f3f32fb716dcd2f4f68d03c8f51f2bab.1749472253932.1752695560749.1752757221491.117&__hssc=60351282.2.1752757221491&__hsfp=1657203148\" target=\"_blank\">HubSpot Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_t6MJV7": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Stripe",
+            "content": "<p><strong>Usage</strong></p><p>We use Stripe for payment processing. <a href=\"https://cookiedatabase.org/service/stripe/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://stripe.com/privacy\" target=\"_blank\" title=\"https://stripe.com/privacy\">Stripe Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_7FwNkE": {
+          "type": "collapsible_item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "heading": "AutomateWoo",
+            "content": "<p><strong>Usage</strong></p><p>We use AutomateWoo for marketing automation (automated email marketing). <a href=\"https://cookiedatabase.org/service/automatewoo/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>This data is not shared with third parties.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_i3iH46": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Google Adsense",
+            "content": "<p><strong>Usage</strong></p><p>We use Google Adsense for showing advertisements. <a href=\"https://cookiedatabase.org/service/google-adsense/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://business.safety.google/privacy/\" target=\"_blank\">Google Adsense Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_RPxJ3p": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Google Analytics",
+            "content": "<p><strong>Usage</strong></p><p>We use Google Analytics for website statistics. <a href=\"https://cookiedatabase.org/service/google-analytics/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://business.safety.google/privacy/\" target=\"_blank\">Google Analytics Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_4YFQkp": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Sourcebuster JS",
+            "content": "<p><strong>Usage</strong></p><p>We use Sourcebuster JS for visitor tracking. <a href=\"https://cookiedatabase.org/service/sourcebuster-js/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>This data is not shared with third parties.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_c3PkaD": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automattic",
+            "content": "<p><strong>Usage</strong></p><p>We use Automattic for website development. <a href=\"https://cookiedatabase.org/service/automattic/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://automattic.com/cookies/\" target=\"_blank\">Automattic Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_Batgj8": {
+          "type": "collapsible_item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "heading": "WooCommerce",
+            "content": "<p><strong>Usage</strong></p><p>We use WooCommerce for webshop management. <a href=\"https://cookiedatabase.org/service/woocommerce/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>This data is not shared with third parties.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_pVTerz": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "iThemes Security",
+            "content": "<p><strong>Usage</strong></p><p>We use iThemes Security for security and fraud prevention. <a href=\"https://cookiedatabase.org/service/ithemes-security/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://solidwp.com/privacy-policy/\" target=\"_blank\" title=\"https://solidwp.com/privacy-policy/\">iThemes Security Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_RiTtaf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Google Fonts",
+            "content": "<p><strong>Usage</strong></p><p>We use Google Fonts for display of webfonts. <a href=\"https://cookiedatabase.org/service/google-fonts/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://policies.google.com/privacy\" target=\"_blank\">Google Fonts Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_yFAEX9": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Vimeo",
+            "content": "<p><strong>Usage</strong></p><p>We use Vimeo for video display. <a href=\"https://cookiedatabase.org/service/vimeo/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://vimeo.com/legal/privacy\" target=\"_blank\" title=\"https://vimeo.com/legal/privacy\">Vimeo Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_mhtdDx": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "YouTube",
+            "content": "<p><strong>Usage</strong></p><p>We use YouTube for video display. <a href=\"https://cookiedatabase.org/service/youtube/\" target=\"_blank\">Read more</a></p><p><strong>Sharing data</strong></p><p>For more information, please read the <a href=\"https://policies.google.com/privacy\" target=\"_blank\">YouTube Privacy Statement</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_kAEizL": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Complianz",
+            "content": "<p><strong>Sharing data</strong></p><p>This data is not shared with third parties. For more information, please read the <a href=\"https://complianz.io/legal/privacy-statement/\" target=\"_blank\">Complianz Privacy Statement</a>.</p><h4>Functional</h4><h5>Name</h5><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/cmplz_functional/\" target=\"_blank\">cmplz_functional</a></p><h5>Expiration</h5><p>365 days</p><h5>Function</h5><p>Store cookie consent preferences</p><h5>Name</h5><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/cmplz_statistics/\" target=\"_blank\">cmplz_statistics</a></p><h5>Expiration</h5><p>365 days</p><h5>Function</h5><p>Store cookie consent preferences</p><h5>Name</h5><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/cmplz_preferences/\" target=\"_blank\">cmplz_preferences</a></p><h5>Expiration</h5><p>365 days</p><h5>Function</h5><p>Store cookie consent preferences</p><h5>Name</h5><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/cmplz_marketing/\" target=\"_blank\">cmplz_marketing</a></p><h5>Expiration</h5><p>365 days</p><h5>Function</h5><p>Store cookie consent preferences</p><h5>Name</h5><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/cmplz_banner-status/\" target=\"_blank\">cmplz_banner-status</a></p><h5>Expiration</h5><p>365 days</p><h5>Function</h5><p>Store if the cookie banner has been dismissed<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_UcXfgT": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Wistia",
+            "content": "<p><strong>Sharing data</strong></p><p>This data is not shared with third parties.</p><h4>Statistics</h4><h5>Name</h5><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/wistia-video-progress/\" target=\"_blank\">wistia-video-progress-*</a></p><h5>Expiration</h5><p>persistent</p><h5>Function</h5><p>Store if the user has seen embedded content</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_98PU7W": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Statistics",
+            "content": "<p>Name</p><p><a href=\"https://cookiedatabase.org/cookie/unknown-service/sbjs_current_add/\" target=\"_blank\">sbjs_current_add</a></p><h5>Expiration</h5><p>6 months</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_item_PUYxyE",
+        "collapsible_item_eXRwUr",
+        "collapsible_item_yhH6yP",
+        "collapsible_item_Ec6jJM",
+        "collapsible_item_PpHckU",
+        "collapsible_item_cdB6DM",
+        "collapsible_item_DmqMmz",
+        "collapsible_item_t6MJV7",
+        "collapsible_item_7FwNkE",
+        "collapsible_item_i3iH46",
+        "collapsible_item_RPxJ3p",
+        "collapsible_item_4YFQkp",
+        "collapsible_item_c3PkaD",
+        "collapsible_item_Batgj8",
+        "collapsible_item_pVTerz",
+        "collapsible_item_RiTtaf",
+        "collapsible_item_yFAEX9",
+        "collapsible_item_mhtdDx",
+        "collapsible_item_kAEizL",
+        "collapsible_item_UcXfgT",
+        "collapsible_item_98PU7W"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Placed cookies",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p>Most of these technologies have a function, a purpose, and an expiration period.</p><ol><li>A function is a particular task a technology has. So a function can be to “store certain data.”</li><li>Purpose is “the Why” behind the function. Maybe the data is stored because it is needed for statistics.</li><li>The expiration period shows the length of the period the used technology can “store or read certain data.”</li></ol>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_H3fY3W": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "collapsible_item_VbMWEM": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Functional",
+            "content": "<p>The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_TGjyPw": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Statistics",
+            "content": "<p>The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_czwtwF": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Marketing",
+            "content": "<p>The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_item_VbMWEM",
+        "collapsible_item_TGjyPw",
+        "collapsible_item_czwtwF"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Browser and Device based Consent",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>When you visit our website for the first time, we will show you a pop-up with an explanation about cookies. You do have the right to opt-out and to object against the further use of non-functional cookies.</p><p><strong>Manage your opt-out preferences</strong></p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_Hwgm8X": {
+      "type": "rich-text",
+      "blocks": {
+        "text_BgztYU": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Enabling/disabling and deleting cookies</h2><p>You can use your internet browser to automatically or manually delete cookies. You can also specify that certain cookies may not be placed. Another option is to change the settings of your internet browser so that you receive a message each time a cookie is placed. For more information about these options, please refer to the instructions in the Help section of your browser.</p><p>Please note that our website may not work properly if all cookies are disabled. If you do delete the cookies in your browser, they will be placed again after your consent when you visit our website again.</p><h2>Your rights with respect to personal data</h2><p>You have the following rights with respect to your personal data:</p><ul><li>you may submit a request for access to the data we process about you;</li><li>you may object to the processing;</li><li>you may request an overview, in a commonly used format, of the data we process about you;</li><li>you may request correction or deletion of the data if it is incorrect or not or no longer relevant, or to ask to restrict the processing of the data.</li></ul><p>To exercise these rights, please contact us. Please refer to the contact details at the bottom of this Cookie Policy. If you have a complaint about how we handle your data, we would like to hear from you.</p><p>For more information about your rights with respect to personal data, please refer to our Privacy Statement</p><h2>Contact details</h2><p>For questions and/or comments about our Cookie Policy and this statement, please contact us by using the following contact details:</p><p>Nadco Tapes & Labels, LLC<br/>2240 72nd Terrace East<br/>Sarasota, FL 34243<br/>United States<br/>Website: <a href=\"https://shopnadco.com/\" target=\"_blank\" title=\"https://shopnadco.com/\">https://www.nadco-inc.com</a><br/>Email: renad@nadcoinc.com<br/>Phone number: 9417516693</p><p>This Cookie Policy was synchronized with <a href=\"https://cookiedatabase.org/\" target=\"_blank\">cookiedatabase.org</a></p>",
+            "text_size": "text-inherit",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_BgztYU"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_9xcWPN": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_KYxzrJ": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_KYxzrJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_iyWr7c": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_g7wPpb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_xmGzAz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_g7wPpb",
+        "button_xmGzAz"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ww3wqL",
+    "rich_text_hBYe4x",
+    "contact_form_ik8Vy8",
+    "rich_text_ChX6YK",
+    "collapsible_tabs_F3WxWz",
+    "collapsible_tabs_H3fY3W",
+    "rich_text_Hwgm8X",
+    "apps_9xcWPN",
+    "image_with_text_overlay_iyWr7c"
+  ]
+}

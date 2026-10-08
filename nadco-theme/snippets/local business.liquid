@@ -1,0 +1,31 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "NADCO",
+  "image": {{ settings.logo | image_url: width: 100 | prepend: "https:" | json }},
+  "@id": {{ settings.logo | image_url: width: 100 | prepend: "https:" | append: "#logo" | json }},
+  "url": "https://shopnadco.com/",
+  "telephone": "941-751-6693",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2240 72nd Terrace E",
+    "addressLocality": "Sarasota",
+    "addressRegion": "FL",
+    "postalCode": "34243",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.4093525,
+    "longitude": -82.53819709999999
+  } ,
+  "sameAs": [
+    "https://www.facebook.com/nadcotapes/",
+    "https://x.com/NADCOtapeslabel",
+    "https://www.instagram.com/NADCO_inc/",
+    "https://www.youtube.com/@nadcotapeslabelsinc.5013"
+  ] 
+}
+</script>

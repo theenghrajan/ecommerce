@@ -1,0 +1,639 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ww3wqL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_CY6hUd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Consumer Terms and Conditions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_wUBUUw": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>This page was last changed on May 20, 2025, last checked on May 20, 2025 and applies to citizens and legal permanent residents of the United States.</p>",
+            "text_size": "text-base"
+          }
+        },
+        "button_n8UpQM": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Contact Us Today",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CY6hUd",
+        "text_wUBUUw",
+        "button_n8UpQM"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/Pipe_Markers_Tape_145-12-AIR_5ee11fba-a60e-45cd-8d66-88a913a3708c.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collapsible_tabs_PWRRd6": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_6FHgpY": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom_tapes_and_labels_1000_400-1.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_MCBy8L": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Freight",
+            "content": "<p>Transportation charges are established at the time of online purchase. Freight charges for custom or made-to-order projects may also be calculated and applied at the time of shipment based on final packaging, dimensions, and delivery requirements.<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_kGFb6Y": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Deliveries",
+            "content": "<p>Shipments will be made as close to promise date as indicated at the time of order. Unfortunately, we have no control of certain factors that may occur to change date of shipment.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_RDm3Ct": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Payment Terms",
+            "content": "<p>Credit Card at time of purchase</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_djUk9R": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Returns & Claims",
+            "content": "<p>All merchandise (including tooling and plates) delivered is non-returnable, except as authorized in writing by NADCO®. Unauthorized returns will be refused. Authorized returns may be subject to a re-stocking fee.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_6FHgpY",
+        "collapsible_item_MCBy8L",
+        "collapsible_item_kGFb6Y",
+        "collapsible_item_RDm3Ct",
+        "collapsible_item_djUk9R"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "Nadco tapes & labels",
+        "heading": "Terms & Conditions of Sale",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "card",
+        "item_color_scheme": "scheme-10",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_g8xr37": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_6maRqn": {
+          "type": "image_card",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom_tapes_and_labels_1000_400-1.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_9AD3EC": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Lost Goods",
+            "content": "<p>DO NOT SIGN DELIVERY RECEIPT until you count all pieces. Sign only for what you have received. If you signed short, contact NADCO® immediately, and NADCO® will proceed to file a loss claim. If replacement is needed, a new purchase order number will be required.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_qrwWrH": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Damaged Goods",
+            "content": "<p>UPON DELIVERY, inspect all goods CAREFULLY for damage. If goods are damaged, sign delivery receipt for damage and contact NADCO® immediately for further instructions. If replacement is needed, a new purchase order number will be required.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_6maRqn",
+        "collapsible_item_9AD3EC",
+        "collapsible_item_qrwWrH"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "nadco tapes & labels",
+        "heading": "Lost & Damaged Shipments",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "card",
+        "item_color_scheme": "scheme-1",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_hBYe4x": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_NUKWTH": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Nadco tapes & labels"
+          }
+        },
+        "heading_UecfhN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Introduction",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_3NnAP9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our website, <a href=\"https://www.nadco-inc.com/\" target=\"_blank\">https://www.nadco-inc.com</a> (hereinafter: “the website”) uses cookies and other related technologies (for convenience all technologies are referred to as “cookies”). Cookies are also placed by third parties we have engaged. In the document below we inform you about the use of cookies on our website.</p><p>We do not sell or share personal information to third parties for monetary consideration; however, we may disclose certain personal information to third parties under circumstances that might be deemed a “sale” or ”Sharing” for residents of California (CPRA), Colorado (CPA), Connecticut (CTDPA), Montana (MCDPA), Nevada (NRS 603A), Oregon (OCPA), Texas (TDPSA), Utah (UCPA), Virginia (CDPA), Delaware (PDPA), Iowa (CDPA), Nebraska (DPA), New Hampshire (DPA) and New Jersey (DPL). We respect and understand that you may want to be sure that your personal information is not being sold or shared. You may request that we exclude your personal information from such arrangements, or direct us to limit the use and disclosure of possible sensitive personal information, by entering your name and email address below. You may need to provide additional identifying information before we can process your request.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_NUKWTH",
+        "heading_UecfhN",
+        "text_3NnAP9"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "tight",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "contact_form_ik8Vy8": {
+      "type": "contact-form",
+      "blocks": {
+        "custom_field_Gphzxa": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information.",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_HDBJQA": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Do not sell my personal information for cross-context behavioral advertising",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_gYPELp": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Limit the use of my sensitive personal information",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_HgFfAM": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Request for access",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_azeizQ": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Right to be Forgotten",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_CbyNbP": {
+          "type": "custom_field",
+          "settings": {
+            "field_type": "checkbox",
+            "heading": " Right to Data Portability",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "Global opt-out from selling and sharing my personal information and limiting the use or disclosure of sensitive personal information., Do not sell my personal information for cross-context behavioral advertising, Limit the use of my sensitive personal information, Request for access, Right to be Forgotten, Right to Data Portability",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        },
+        "custom_field_hmw9m9": {
+          "type": "custom_field",
+          "disabled": true,
+          "settings": {
+            "field_type": "checkbox",
+            "heading": "Phone",
+            "placeholder": "",
+            "required": false,
+            "full_width": true,
+            "select_options": "",
+            "checkbox_checked_value": "Yes",
+            "checkbox_uncheck_value": "No",
+            "radio_options": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_field_Gphzxa",
+        "custom_field_HDBJQA",
+        "custom_field_gYPELp",
+        "custom_field_HgFfAM",
+        "custom_field_azeizQ",
+        "custom_field_CbyNbP",
+        "custom_field_hmw9m9"
+      ],
+      "disabled": true,
+      "name": "t:sections.contact-form.name",
+      "settings": {
+        "container": "fixed",
+        "section_color_scheme": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_ChX6YK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4YjpTT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Warrant & Limitation of Liability",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_9EEnDz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO® warrants its products to be free from defects in material and workmanship at the time of shipment. Should any product fail to conform to this warranty, and upon verification that the product has been properly stored, handled, and applied in accordance with NADCO recommendations, NADCO will, at its discretion, replace the defective product or issue a credit not exceeding the original purchase price.</p><p>Product suitability for a specific application is the responsibility of the purchaser. Technical data, specifications, and application recommendations are based on testing believed to be reliable but do not constitute a guarantee of performance in all environments.</p><p>This warranty is exclusive and in lieu of all other warranties, express or implied, including warranties of merchantability or fitness for a particular purpose.</p><p>In no event shall NADCO be liable for incidental, indirect, or consequential damages, including but not limited to loss of profit, production downtime, or loss of capital. NADCO’s total liability arising from the sale, delivery, or use of its products shall not exceed the purchase price of the product giving rise to the claim.</p>",
+            "text_size": "text-inherit",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "button_VkAkpk": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4YjpTT",
+        "text_9EEnDz",
+        "button_VkAkpk"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_tjLYwd": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Rw9Qzp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>All Consumers purchasing from NADCO Tapes And Labels, LLC online or through our customer service department agree to the terms and conditions stated above.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_Rw9Qzp"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_9xcWPN": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_wpXJz6": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_GTHLcL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_JfdgUM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GTHLcL",
+        "button_JfdgUM"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ww3wqL",
+    "collapsible_tabs_PWRRd6",
+    "collapsible_tabs_g8xr37",
+    "rich_text_hBYe4x",
+    "contact_form_ik8Vy8",
+    "rich_text_ChX6YK",
+    "rich_text_tjLYwd",
+    "apps_9xcWPN",
+    "image_with_text_overlay_wpXJz6"
+  ]
+}

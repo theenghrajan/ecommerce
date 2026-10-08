@@ -1,0 +1,346 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ww3wqL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_wUBUUw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Home / The NADCO Team</p>",
+            "text_size": "text-base"
+          }
+        },
+        "heading_CY6hUd": {
+          "type": "heading",
+          "settings": {
+            "heading": "The NADCO Team",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_wUBUUw",
+        "heading_CY6hUd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "multicolumn_QVeGMy": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_HYcbFn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_11.png",
+            "title": "Rená Doniger",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>President</strong><br/><br/>Rená Doniger, President of NADCO Tapes & Labels, grew up in a family business, where her parents owned and operated a tree and crane service company in New Hampshire.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-rena-doniger",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_CGahRW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_12.png",
+            "title": "Neil Doniger",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Vice President</strong><br/><br/>Neil Doniger, as Vice President of NADCO Tapes and Labels, brings a deep-rooted legacy to the company, being a third-generation tape and label manufacturer.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-neil-doniger",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_yD6jHP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_13.png",
+            "title": "Vicky Edgerly",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Prepress/Graphic Supervisor</strong><br/><br/>Vicky’s journey with NADCO began in 2000, after meeting Rena while managing a party supply store in New Hampshire.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-vicky-edgerly",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_7zCrR6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_14.png",
+            "title": "Shelby Johnson",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Production Manager</strong><br/><br/>Shelby Johnson began her career with NADCO in 2005, starting as a pre-flighter in New Hampshire.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-shelby-johnson",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_Y9zXCn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_17.png",
+            "title": "Tobie Daniels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Account Representative/Office Manager</strong><br/><br/>Tobie’s journey with NADCO began in 2016 when she joined the team as a receptionist. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-tobie-daniels",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_BA9GB6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_15.png",
+            "title": "Erika Estrada",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Production Manager</strong><br/><br/>Erika Estrada began her journey with NADCO in the finishing department, where she quickly developed a strong understanding of the company’s operations. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-erika-estrada",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_tJ86dz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "Stacie Jones",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Account Representative / ISO Document Coordinator</strong><br/><br/></p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-stacie-jones",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_tNWGti": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_16.png",
+            "title": "Jared Doniger",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Account Representative</strong><br/><br/>Jared Doniger joined NADCO over a year ago, bringing his analytical skills to the role of Job Cost Analyst. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/about-jared-doniger",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_HYcbFn",
+        "column_CGahRW",
+        "column_yD6jHP",
+        "column_7zCrR6",
+        "column_Y9zXCn",
+        "column_BA9GB6",
+        "column_tJ86dz",
+        "column_tNWGti"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#f5f5f5",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "The NADCO Team",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "17689923610945d3cb": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_NVbjJy": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_NVbjJy"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_ahRnjT": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_DLNfXL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_QALDeh": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DLNfXL",
+        "button_QALDeh"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ww3wqL",
+    "multicolumn_QVeGMy",
+    "17689923610945d3cb",
+    "image_with_text_overlay_ahRnjT"
+  ]
+}

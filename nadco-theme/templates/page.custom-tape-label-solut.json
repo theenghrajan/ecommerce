@@ -1,0 +1,824 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_Wt7yW9": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_44tKCt": {
+          "type": "heading",
+          "settings": {
+            "heading": "CustomTape & Label Solutions For Engineers",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_44tKCt"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 30,
+        "padding_bottom": 30,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_img_text_cXzm6q": {
+      "type": "custom-img-text",
+      "blocks": {
+        "text_xNaTcW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO is a leading provider of tape and label products, providing customized solutions for a wide range of industries and applications. Whether engineers require assistance determining the best materials for their projects or need help solving complex adhesive challenges, the experts at NADCO can deliver a tailored solution to meet their needs.<br/><br/>With years of industry experience and extensive manufacturing capabilities, we can work with our clients from start to finish to create quality tape and label products that meet your requirements for adhesion performance, safety, advertisement, and more. At NADCO, “If you can imagine it, we will make it stick!”</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "text_xNaTcW"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "cst_bg_color": "#dae9f2",
+        "sec_padd": 30,
+        "inner_radius": 10,
+        "spin_animation": false,
+        "rotationg_speed": 0,
+        "image": "shopify://shop_images/20260124_1904_Image_Generation_remix_01kfr51714ea99qv8cswmnz19k.webp",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_VjNhXV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_bCrE78": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Custom-Made Tape and Label Process",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tmWr9e": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From conceptual design to completion of full production runs, NADCO is by your side each step of the way. When you partner with us to create your custom tape or label solution, we’ll follow these steps:</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bCrE78",
+        "text_tmWr9e"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "multicolumn_icon_3MtP9Y": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_R3BqdR": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "image": "shopify://shop_images/Vector_13.png",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "ConceptualDesign",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>Through effective communication with our clients, we’ll gain a better understanding of their ideas and intended applications. During this stage, we may ask for technical drawings, mock-ups, or material samples.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_brK9mV": {
+          "type": "column",
+          "settings": {
+            "icon": "phone",
+            "image": "shopify://shop_images/Vector_14.png",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Material Specs / Recommendations",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>With info from the first step, we will recommend certain adhesives, materials, manufacturing steps, etc. required to achieve the client’s goal. If needed, NADCO can send material samples for the client’s review and approval before proceeding.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_wfaKNr": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "image": "shopify://shop_images/fi_18001399.png",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Receive a Quote",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>After finalizing all specs and materials, we present formal quotes for tooling, plates, etc.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_JBij3n": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "image": "shopify://shop_images/Group_1.png",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Proofing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>Customers receive an electronic proof showing all colors, graphics, text, dimensions, and other applicable parameters for approval. NADCO doesn’t order any tooling or plates until the proof is approved.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_bi3UQF": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "image": "shopify://shop_images/fi_5439174.png",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "First Article Inspection (FAI)",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>If required, FAI is performed. This allows engineers to inspect, test, and approve finished product samples before larger production runs.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_e6YVgw": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "image": "shopify://shop_images/Group_2.png",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Production Run",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>After FAI (if applicable) approval, we’ll complete the full production run.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_R3BqdR",
+        "column_brK9mV",
+        "column_wfaKNr",
+        "column_JBij3n",
+        "column_bi3UQF",
+        "column_e6YVgw"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Our Custom-Made Tape and Label Process",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p>From conceptual design to completion of full production runs, NADCO is by your side each step of the way. When you partner with us to create your <a href=\"https://shopnadco.com/collections/tapes\" title=\"https://shopnadco.com/collections/tapes\">custom tape</a> or label solution, we’ll follow these steps:</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "scheme-10",
+        "content_alignment": "center",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 3,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "show_divider_col": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_icon_gwnmad": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_kVjkgF": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "<a href=\"/pages/vinyl-material-for-tapes-labels\" title=\"Vinyl Material for Tapes & Labels\">Vinyl</a>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_font": "heading",
+            "text": "<p>This long-lasting material performs optimally in several application environments and won’t deteriorate over time, ensuring a longer shelf life. Vinyl tapes and labels instantly stick on contact and can even outlast paint.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_Yai96K": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "<a href=\"/pages/foam-tape\" title=\"Foam Tape\">Foam</a>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_font": "heading",
+            "text": "<p>Foam adhesive tape is reinforced with numerous foam materials and is available in various sizes, backings, thicknesses, and adhesive options to meet your particular application requirements. They are commonly used for sealing, cushioning, insulation, gasketing, and sound-dampening purposes.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_PGabQh": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "<a href=\"/pages/foil-tape\" title=\"Foil Tape\">Foil</a>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_font": "heading",
+            "text": "<p>Foil tapes are very durable and often used in outdoor applications exposed to temperature extremes, moisture, UV rays, and other harsh conditions.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_3iceky": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "<a href=\"/pages/tyvek\" title=\"TYVEK\">Tyvek</a>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_font": "heading",
+            "text": "<p>This strong, lightweight, and flexible material is resistant to aging, chemical abrasion, and water. This makes it an ideal choice for various printing and converting applications that require a high degree of durability.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_ENNMcp": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Mylar",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_font": "heading",
+            "text": "<p>With a silver polyester surface, our Mylar tapes have a long-lasting attractive appearance and can adhere to a diverse range of surfaces.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_WGhmMz": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "<a href=\"/pages/paper-tapes\" title=\"Paper Tapes\">Paper</a>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "heading_font": "heading",
+            "text": "<p>Often referred to as masking tape, paper tapes offer varying levels of removability, temperature resistance, and holding power. They are commonly used for mounting, color coding, packaging, and splicing applications.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_kVjkgF",
+        "column_Yai96K",
+        "column_PGabQh",
+        "column_3iceky",
+        "column_ENNMcp",
+        "column_WGhmMz"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Custom Tape & Label Materials",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p>Depending on your particular needs, our custom tape and label solutions can be constructed using the following materials:</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "scheme-1",
+        "content_alignment": "center",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 3,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "show_divider_col": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "custom_content_YdjPhW": {
+      "type": "custom-content",
+      "blocks": {
+        "image_M9h9HG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/book.png",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "image_y6UCTD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/tropical.png",
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_M9h9HG",
+        "image_y6UCTD"
+      ],
+      "custom_css": [
+        "img {object-fit: cover; height: 100%;}",
+        ".custom__block,.custom__block div {height: 100%;}",
+        ".f-flex {justify-content: center;}"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_img_text_jzaybc": {
+      "type": "custom-img-text",
+      "blocks": {
+        "head_img_hHXiJt": {
+          "type": "head-img",
+          "settings": {
+            "left_head_img": "shopify://shop_images/sheet.png",
+            "right_head_img": "shopify://shop_images/people.png"
+          }
+        },
+        "heading_DbAjP8": {
+          "type": "heading",
+          "settings": {
+            "heading": "Digital Printing & Digital Die - Cutting",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_qKRkC8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With NADCO® Tapes & Labels, LLC’s graphic design and prototyping services, we can help bring your innovation and entrepreneurial drive to reality.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_HaRRCy": {
+          "type": "button",
+          "settings": {
+            "button_label": "View graphic design services",
+            "button_link": "shopify://pages/graphic-design-label-prototyping",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "head_img_hHXiJt",
+        "heading_DbAjP8",
+        "text_qKRkC8",
+        "button_HaRRCy"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "cst_bg_color": "#ffffff",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": true,
+        "rotationg_speed": 0,
+        "image": "shopify://shop_images/tape-removebg-preview.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_text_yMbjra": {
+      "type": "image-with-text",
+      "blocks": {
+        "badge_rTMetq": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-3",
+            "text": "garace - where design meet function -",
+            "position_mobile": "right"
+          }
+        },
+        "cstm_badge_RUAqXy": {
+          "type": "cstm-badge",
+          "settings": {
+            "bg_color": "#15679b",
+            "text_color": "#ffffff",
+            "top_position": 76,
+            "left_position": 0,
+            "mobile_top_position": 1,
+            "mobile_left_position": 1,
+            "border_width": 3,
+            "border_color": "#ffffff",
+            "padding": 20,
+            "brder_radius": 14,
+            "cst_main_head": "1.2k+",
+            "description": "Happy Customers",
+            "first_img": "shopify://shop_images/8e734298e6b2960cc2ce4c1b59be7a4ae2210c6c.png",
+            "second_img": "shopify://shop_images/e8a75070c4b9d12d7b998ff7698e5a06bd4e8d9e.png",
+            "third_img": "shopify://shop_images/040afc1039e73f507f019be533711f77e67ed55f.png",
+            "fourth_img": "shopify://shop_images/a7adab70cea3b99779ca5eab3bf50be053a4d004.png",
+            "fifth_img": "shopify://shop_images/58c588dad2794161fbe84e8eb292d32968fef88d.png",
+            "sixth_img": "shopify://shop_images/8276e6349829ef6f4ef96fdfa6273b0c36367f63.png"
+          }
+        },
+        "subheading_aJHdW9": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "<strong>About Us</strong>"
+          }
+        },
+        "heading_brVgWK": {
+          "type": "heading",
+          "settings": {
+            "heading": "NADCO Tapes & Labels, LLC",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_YYjgFV": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>NADCO® Tapes & Labels, LLC’s  </strong>capabilities are only limited to our customers’ imagination. Not only have we been recognized as an excellent company for our tapes and labels, but we are the best kept secret in the label industry today. We offer custom labeling to include company logos with customized text.<br/><br/>After 12 years headquartered in New Hampshire, NADCO® relocated to larger facilities in Sarasota, Florida, in 2005. The warehouse offers 35,000 square feet to stock a large supply of quality inventory. We can manufacture tapes and label products up to 20″ wide and print 4-color process or up to 7 spot colors. Customization is our specialty! We carry items such as vinyl, film, cloth and duct tapes, metal foil, paper tapes and labels, high performance products, double-coated products, pipe markers, dots / arrows and safety products. We’re also an UL-authorized label supplier and the first Florida <a href=\"/blogs/news/what-it-means-to-be-florida-s-first-usgbc-leed-silver-certified-manufacturer\" title=\"What it Means to be Florida’s First USGBC LEED Silver–Certified Manufacturer\">LEED Silver Certified manufacturer!</a></p>",
+            "subtext_color": true
+          }
+        },
+        "icon_with_text_E74T9x": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "map-pin",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "Product locally in New York",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "icon_with_text_4PL4Ln": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "smiley",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "4,8 Review Score",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "icon_with_text_krjzV3": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "stool",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "Over 50 Products",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "button_w9eWEE": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/about-us",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "badge_rTMetq",
+        "cstm_badge_RUAqXy",
+        "subheading_aJHdW9",
+        "heading_brVgWK",
+        "text_YYjgFV",
+        "icon_with_text_E74T9x",
+        "icon_with_text_4PL4Ln",
+        "icon_with_text_krjzV3",
+        "button_w9eWEE"
+      ],
+      "custom_css": [
+        ".image-with-text__content {/* max-width: 45rem; */ /* --text-margin-top: 2rem; */}",
+        "@media (min-width: 1280px) {.image-with-text__media {padding-inline-start: 5rem; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 120
+      }
+    },
+    "apps_4D3P8g": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_9Tm8LN": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_hNjRfN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_cDw9fk": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hNjRfN",
+        "button_cDw9fk"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_Wt7yW9",
+    "custom_img_text_cXzm6q",
+    "rich_text_VjNhXV",
+    "multicolumn_icon_3MtP9Y",
+    "multicolumn_icon_gwnmad",
+    "custom_content_YdjPhW",
+    "custom_img_text_jzaybc",
+    "image_with_text_yMbjra",
+    "apps_4D3P8g",
+    "image_with_text_overlay_9Tm8LN"
+  ]
+}
