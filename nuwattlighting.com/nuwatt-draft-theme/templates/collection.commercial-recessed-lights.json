@@ -1,0 +1,178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_A844qe": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Commercial Recessed Lights Collection",
+        "collection_seo_description": "Commercial recessed lighting is designed for functionality and modern aesthetics. These fixtures provide a streamlined look in any professional environment. Go with commercial downlights to optimize lighting in every corner."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "faq_KMcPgR": {
+      "type": "faq",
+      "blocks": {
+        "question_BRHTtr": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_FNkAVU": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_qPtzxr": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_BRHTtr",
+        "question_FNkAVU",
+        "question_qPtzxr"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_UEMMjw": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_93ibWQ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_kjrbii": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_dqhbrc": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_VKP4FM": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_n8RQGU": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_PAFmkm": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_93ibWQ",
+        "question_kjrbii",
+        "question_dqhbrc",
+        "question_VKP4FM",
+        "question_n8RQGU",
+        "question_PAFmkm"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_nbrCVW": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Commercial Recessed Lights Collection",
+        "collection_seo_description": "Commercial recessed lighting is designed for functionality and modern aesthetics. These fixtures provide a streamlined look in any professional environment. Go with commercial downlights to optimize lighting in every corner."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_A844qe",
+    "main-collection",
+    "faq_KMcPgR",
+    "collection_metafield_faq_UEMMjw",
+    "recently-viewed",
+    "expandable_description_nbrCVW"
+  ]
+}

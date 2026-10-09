@@ -1,0 +1,52 @@
+{% if block.settings.link != blank %}
+  <a href="{{ block.settings.link }}">
+{% endif %}
+  {%- if block.settings.use_theme_logo -%}
+    {%- comment -%}
+      The shop's own logo file (NW_LOGO_2024-01.svg) has its wordmark
+      filled a light grey (#cbcac9), not white — matches Figma's screenshot
+      only by accident of low-contrast rendering; the actual Figma file
+      has it white. Rather than re-uploading a corrected asset to the
+      shop's file library, a copy with just that one fill value changed
+      lives locally as a theme asset (assets/figma-footer-logo-white.svg,
+      bolt color left untouched).
+    {%- endcomment -%}
+    <div class="footer__image footer__image--logo">
+      <img
+        src="{{ 'figma-footer-logo-white.svg' | asset_url }}"
+        alt="{{ shop.name }}"
+        loading="lazy"
+        width="253"
+        height="53"
+      >
+    </div>
+  {%- else -%}
+    <div class="image-wrap {% if block.settings.image_mask != 'none' %}svg-mask svg-mask--{{ block.settings.image_mask }}{% endif %}" {% if block.settings.image != blank %}style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;"{% endif %}>
+      {% if block.settings.image != blank %}
+        {%- render 'image-element',
+          img: block.settings.image,
+          sizeVariable: '210px',
+          widths: '360, 540, 720, 1020',
+          classes: 'footer__image',
+        -%}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  {%- endif -%}
+{% if block.settings.link != blank %}
+  </a>
+{% endif %}
+
+{%- if block.settings.description != blank -%}
+  <div class="footer__logo-description rte rte--nomargin">
+    {{ block.settings.description }}
+  </div>
+{%- endif -%}
+
+{%- if block.settings.show_social -%}
+  <div class="footer__block--mobile">
+    <h2 class="footer__title">{{ 'layout.footer.social_title' | t }}</h2>
+    {% render 'social-icons', additional_classes: 'footer__social footer__social--circular' %}
+  </div>
+{%- endif -%}

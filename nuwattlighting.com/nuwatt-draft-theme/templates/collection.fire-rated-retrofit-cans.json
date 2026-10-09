@@ -1,0 +1,178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_JDxRka": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Fire Rated LED Retrofit Light Collection",
+        "collection_seo_description": "Our 2 hour fire rated LED retrofit lights offers peace of mind with top tier safety features. These retrofit solutions are designed to maintain fire resistance while delivering the energy efficiency of LED lighting. Perfect for upgrading existing fixtures in fire rated ceilings, these cans combine safety, performance, and easy installation."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "faq_RA9hEU": {
+      "type": "faq",
+      "blocks": {
+        "question_4xqP4C": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_Ugebqm": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_Q3RGi9": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_4xqP4C",
+        "question_Ugebqm",
+        "question_Q3RGi9"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_eQg7kD": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_BcN9yR": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_pEQVf6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_heTYf6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_A4wYGY": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_J3KBPP": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_YMhD4y": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_BcN9yR",
+        "question_pEQVf6",
+        "question_heTYf6",
+        "question_A4wYGY",
+        "question_J3KBPP",
+        "question_YMhD4y"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_nbrCVW": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Fire Rated LED Retrofit Light Collection",
+        "collection_seo_description": "Our 2 hour fire rated LED retrofit lights offers peace of mind with top tier safety features. These retrofit solutions are designed to maintain fire resistance while delivering the energy efficiency of LED lighting. Perfect for upgrading existing fixtures in fire rated ceilings, these cans combine safety, performance, and easy installation."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_JDxRka",
+    "main-collection",
+    "faq_RA9hEU",
+    "collection_metafield_faq_eQg7kD",
+    "recently-viewed",
+    "expandable_description_nbrCVW"
+  ]
+}

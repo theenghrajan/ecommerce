@@ -1,0 +1,674 @@
+
+ {% comment %} {% if collection and collection.handle == 'commercial-lighting' %}
+
+  {% assign application_groups =
+    'Office|Panel Lights,Tube Lights~Garage & Shop|Wraparound Lights,Shop Lights,Panel Lights~Warehouse|UFO High Bay Lights,Linear High Bay Lights~Gym & Fitness|High Bay Lights,Panel Lights~Hospitality|Recessed Lights~Lobbies & Waiting Areas|Recessed Lights,Panel Lights~Outdoor|Flood Lights,Bullet Lights,Wall Packs,Canopy Lights'
+    | split: '~'
+  %}
+
+  <div class="application-filter" data-application-filter>
+    {% comment %} <div class="application-filter__header">
+      <h2 class="application-filter__title">Applications</h2>
+    </div> {% endcomment %}
+
+    {% for group_string in application_groups %}
+      {% assign group_parts = group_string | split: '|' %}
+      {% assign group_name = group_parts[0] %}
+      {% assign group_types = group_parts[1] | split: ',' %}
+
+      <fieldset class="application-filter__group">
+        <legend class="application-filter__group-title">{{ group_name }}</legend>
+
+        <div class="application-filter__options">
+          {% for product_type in group_types %}
+            <label class="application-filter__option">
+              <input
+                type="checkbox"
+                class="custom-app-filter"
+                value="{{ product_type | strip | escape }}"
+              >
+              <span>{{ product_type | strip }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+    {% endfor %}
+  </div>
+
+  <style>
+    .application-filter { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .application-filter__title { font-size: 16px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+    .application-filter__group { margin: 0 0 1.5rem; padding: 0; border: 0; }
+    .application-filter__group-title { margin: 0 0 0.75rem; padding: 0; font-weight: 600; line-height: 1.35; }
+    .application-filter__options { display: grid; gap: 0.6rem; padding-left: 0.25rem; }
+    .application-filter__option { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; line-height: 1.35; }
+    .application-filter__option input { flex: 0 0 auto; width: 1rem; height: 1rem; margin-top: 0.15rem; }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const customCheckboxes = document.querySelectorAll('.custom-app-filter');
+      if (customCheckboxes.length === 0) return;
+
+      // The exact URL parameter for your Commercial Application metafield
+      const paramName = 'filter.p.m.custom.commercial_application';
+
+      // 1. Sync UI state on page load based on the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const activeValues = urlParams.getAll(paramName);
+      
+      customCheckboxes.forEach(cb => {
+        if (activeValues.includes(cb.value)) {
+          cb.checked = true;
+        }
+      });
+
+      // 2. Handle checkbox changes
+      customCheckboxes.forEach(cb => {
+        cb.addEventListener('change', function() {
+          updateURLAndFetch();
+        });
+      });
+
+      function updateURLAndFetch() {
+        const url = new URL(window.location);
+        url.searchParams.delete(paramName); // Clear existing custom filters
+        
+        // Append all currently checked boxes (Creates OR logic)
+        document.querySelectorAll('.custom-app-filter:checked').forEach(checkedCb => {
+          url.searchParams.append(paramName, checkedCb.value);
+        });
+        
+        window.history.pushState({}, '', url); // Update the URL bar
+        
+        // Fetch the filtered product grid from Shopify (AJAX)
+        fetch(url)
+          .then(res => res.text())
+          .then(text => {
+            const html = new DOMParser().parseFromString(text, 'text/html');
+            
+            // Locate the product grid in the new HTML
+            const newGrid = html.querySelector('#ProductGridContainer') || html.querySelector('#product-grid') || html.querySelector('.collection-grid');
+            const currentGrid = document.querySelector('#ProductGridContainer') || document.querySelector('#product-grid') || document.querySelector('.collection-grid');
+            
+            if (newGrid && currentGrid) {
+              currentGrid.innerHTML = newGrid.innerHTML;
+            }
+          })
+          .catch(error => console.error('Error fetching filtered products:', error));
+      }
+    });
+  </script>
+
+{% endif %} {% endcomment %}
+{% comment %} 
+{% if collection and collection.handle == 'commercial-lighting' %}
+
+  {% assign application_groups =
+    'Office|Panel Lights,Tube Lights~Garage & Shop|Wraparound Lights,Shop Lights,Panel Lights~Warehouse|UFO High Bay Lights,Linear High Bay Lights~Gym & Fitness|High Bay Lights,Panel Lights~Hospitality|Recessed Lights~Lobbies & Waiting Areas|Recessed Lights,Panel Lights~Outdoor|Flood Lights,Bullet Lights,Wall Packs,Canopy Lights'
+    | split: '~'
+  %}
+
+  {% comment %} Read active filters from URL to keep checkboxes checked during AJAX {% endcomment %}
+  {% assign active_apps_string = request.params['filter.p.m.custom.commercial_application'] | default: '' %}
+  {% assign active_apps_array = active_apps_string | split: ',' %}
+
+  <div class="application-filter" data-application-filter>
+    {% comment %} <div class="application-filter__header">
+      <h2 class="application-filter__title">Applications</h2>
+    </div> {% endcomment %}
+
+    {% for group_string in application_groups %}
+      {% assign group_parts = group_string | split: '|' %}
+      {% assign group_name = group_parts[0] %}
+      {% assign group_types = group_parts[1] | split: ',' %}
+
+      <fieldset class="application-filter__group">
+        <legend class="application-filter__group-title">{{ group_name }}</legend>
+
+        <div class="application-filter__options">
+          {% for product_type in group_types %}
+            {% assign product_type_clean = product_type | strip %}
+            {% assign is_checked = false %}
+            
+            {% for active_app in active_apps_array %}
+              {% assign active_app_clean = active_app | strip %}
+              {% if active_app_clean == product_type_clean %}
+                {% assign is_checked = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+
+            <label class="application-filter__option">
+              <input
+                type="checkbox"
+                class="custom-app-filter"
+                value="{{ product_type_clean | escape }}"
+                {% if is_checked %}checked{% endif %}
+              >
+              <span>{{ product_type_clean }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+    {% endfor %}
+  </div>
+
+  <style>
+    .application-filter { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(0,0,0,0.1); }
+    .application-filter__title { font-size: 16px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+    .application-filter__group { margin: 0 0 1.5rem; padding: 0; border: 0; }
+    .application-filter__group-title { margin: 0 0 0.75rem; padding: 0; font-weight: 600; line-height: 1.35; }
+    .application-filter__options { display: grid; gap: 0.6rem; padding-left: 0.25rem; }
+    .application-filter__option { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; line-height: 1.35; }
+    .application-filter__option input { flex: 0 0 auto; width: 1rem; height: 1rem; margin-top: 0.15rem; }
+  </style>
+
+  <script>
+    (function() {
+      const paramName = 'filter.p.m.custom.commercial_application';
+      let isFetching = false;
+
+      // 1. Force checkboxes to match the URL 
+      function syncCheckboxes() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const activeValues = urlParams.getAll(paramName);
+        document.querySelectorAll('.custom-app-filter').forEach(cb => {
+          cb.checked = activeValues.includes(cb.value);
+        });
+      }
+
+      // 2. Fetch and update products
+      function updateURLAndFetch() {
+        if (isFetching) return;
+        isFetching = true;
+
+        const url = new URL(window.location);
+        url.searchParams.delete(paramName);
+        
+        document.querySelectorAll('.custom-app-filter:checked').forEach(checkedCb => {
+          url.searchParams.append(paramName, checkedCb.value);
+        });
+        
+        window.history.pushState({}, '', url);
+        
+        fetch(url)
+          .then(res => res.text())
+          .then(text => {
+            const html = new DOMParser().parseFromString(text, 'text/html');
+            const newGrid = html.querySelector('#ProductGridContainer') || html.querySelector('#product-grid') || html.querySelector('.collection-grid');
+            const currentGrid = document.querySelector('#ProductGridContainer') || document.querySelector('#product-grid') || document.querySelector('.collection-grid');
+            
+            if (newGrid && currentGrid) {
+              currentGrid.innerHTML = newGrid.innerHTML;
+            }
+            // Re-sync checkboxes after fetch in case the theme wiped their state
+            syncCheckboxes();
+          })
+          .catch(error => console.error('Error fetching filtered products:', error))
+          .finally(() => {
+            isFetching = false;
+          });
+      }
+
+      // 3. Use Event Delegation (survives theme AJAX DOM replacements)
+      document.addEventListener('change', function(event) {
+        if (event.target.classList.contains('custom-app-filter')) {
+          updateURLAndFetch();
+        }
+      });
+
+      // 4. Sync on initial page load
+      document.addEventListener('DOMContentLoaded', syncCheckboxes);
+      
+      // 5. Sync on browser back/forward
+      window.addEventListener('popstate', syncCheckboxes);
+    })();
+  </script>
+
+{% endif %} {% endcomment %}
+
+
+
+{% comment %} 
+ Below code is added 25-09-2026 
+{% endcomment %}
+
+<div class="nuwatt-application-filter">
+  {% assign application_pairs = '' %}
+
+  {% for product in collection.products %}
+    {% assign applications = product.metafields.custom.application.value %}
+    {% assign application_type = product.metafields.custom.application_type.value %}
+
+    {% if applications != blank and application_type != blank %}
+      {% for application in applications %}
+        {% assign application_name = application | strip %}
+        {% assign type_name = application_type | strip %}
+
+        {% if application_name != blank and type_name != blank %}
+          {% capture pair %}
+            {{ application_name }}|||{{ type_name }}
+          {% endcapture %}
+
+          {% assign application_pairs =
+            application_pairs
+            | append: pair
+            | append: '###'
+          %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign application_pairs =
+    application_pairs
+    | split: '###'
+    | uniq
+  %}
+
+  {% assign application_names = '' %}
+
+  {% for pair in application_pairs %}
+    {% assign pair_parts = pair | split: '|||' %}
+    {% assign application_name = pair_parts[0] | strip %}
+
+    {% if application_name != blank %}
+      {% unless application_names contains application_name %}
+        {% assign application_names =
+          application_names
+          | append: application_name
+          | append: '###'
+        %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign application_names =
+    application_names
+    | split: '###'
+    | uniq
+  %}
+
+  {% for application in application_names %}
+    {% if application != blank %}
+      <div class="nuwatt-application-group">
+        <h4>{{ application }}</h4>
+
+        {% for pair in application_pairs %}
+          {% assign pair_parts = pair | split: '|||' %}
+          {% assign pair_application = pair_parts[0] | strip %}
+          {% assign pair_type = pair_parts[1] | strip %}
+
+          {% if pair_application == application %}
+            <label class="nuwatt-application-option">
+              <input
+                type="checkbox"
+                class="nuwatt-application-checkbox"
+                data-application="{{ pair_application | escape }}"
+                data-type="{{ pair_type | escape }}"
+              >
+
+              <span>{{ pair_type }}</span>
+            </label>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<script>
+(function () {
+  function initializeNuwattApplicationFilter() {
+    const filterContainer = document.querySelector(
+      '.nuwatt-application-filter'
+    );
+
+    if (!filterContainer) {
+      return;
+    }
+
+    const checkboxes = Array.from(
+      filterContainer.querySelectorAll(
+        '.nuwatt-application-checkbox'
+      )
+    );
+
+    if (!checkboxes.length) {
+      return;
+    }
+
+    function getSelectedFilters() {
+      return checkboxes
+        .filter(function (checkbox) {
+          return checkbox.checked;
+        })
+        .map(function (checkbox) {
+          return {
+            application: checkbox.dataset.application,
+            type: checkbox.dataset.type
+          };
+        });
+    }
+
+    function restoreCheckboxes() {
+      const url = new URL(window.location.href);
+
+      const applicationParam = url.searchParams.get(
+        'filter.p.m.custom.application'
+      );
+
+      const typeParam = url.searchParams.get(
+        'filter.p.m.custom.application_type'
+      );
+
+      const applications = applicationParam
+        ? applicationParam
+            .split(',')
+            .map(function (value) {
+              return value.trim();
+            })
+        : [];
+
+      const types = typeParam
+        ? typeParam
+            .split(',')
+            .map(function (value) {
+              return value.trim();
+            })
+        : [];
+
+      checkboxes.forEach(function (checkbox) {
+        const application =
+          checkbox.dataset.application;
+
+        const type =
+          checkbox.dataset.type;
+
+        checkbox.checked =
+          applications.includes(application) &&
+          types.includes(type);
+      });
+    }
+
+    function createFilterURL() {
+      const url = new URL(window.location.href);
+      const selected = getSelectedFilters();
+
+      url.searchParams.delete(
+        'filter.p.m.custom.application'
+      );
+
+      url.searchParams.delete(
+        'filter.p.m.custom.application_type'
+      );
+
+      url.searchParams.delete('page');
+
+      if (!selected.length) {
+        return url;
+      }
+
+      /*
+       * Shopify treats values inside one metafield as OR.
+       *
+       * Therefore:
+       *
+       * application = Office,Garage & Shop
+       * type        = Panel Lights
+       *
+       * means:
+       *
+       * application contains Office OR Garage & Shop
+       * AND type equals Panel Lights
+       */
+
+      const applications = [
+        ...new Set(
+          selected.map(function (item) {
+            return item.application;
+          })
+        )
+      ];
+
+      const types = [
+        ...new Set(
+          selected.map(function (item) {
+            return item.type;
+          })
+        )
+      ];
+
+      url.searchParams.set(
+        'filter.p.m.custom.application',
+        applications.join(',')
+      );
+
+      url.searchParams.set(
+        'filter.p.m.custom.application_type',
+        types.join(',')
+      );
+
+      return url;
+    }
+
+    async function loadProducts(url) {
+      const currentProductGrid =
+        document.querySelector('#product-grid');
+
+      if (!currentProductGrid) {
+        console.error(
+          'Nuwatt filter: #product-grid was not found.'
+        );
+        return;
+      }
+
+      filterContainer.classList.add(
+        'nuwatt-filter-loading'
+      );
+
+      try {
+        const ajaxURL = new URL(url.toString());
+
+        ajaxURL.searchParams.set(
+          'section_id',
+          'main-collection-product-grid'
+        );
+
+        const response = await fetch(
+          ajaxURL.toString(),
+          {
+            method: 'GET',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest'
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            'Shopify request failed: ' +
+            response.status
+          );
+        }
+
+        const html = await response.text();
+
+        if (!html.trim()) {
+          throw new Error(
+            'Shopify returned empty HTML.'
+          );
+        }
+
+        const parser = new DOMParser();
+
+        const newDocument = parser.parseFromString(
+          html,
+          'text/html'
+        );
+
+        const newProductGrid =
+          newDocument.querySelector('#product-grid');
+
+        if (!newProductGrid) {
+          throw new Error(
+            '#product-grid was not found in AJAX response.'
+          );
+        }
+
+        currentProductGrid.innerHTML =
+          newProductGrid.innerHTML;
+
+        const currentCount =
+          document.querySelector('.product-count');
+
+        const newCount =
+          newDocument.querySelector('.product-count');
+
+        if (currentCount && newCount) {
+          currentCount.innerHTML =
+            newCount.innerHTML;
+        }
+
+        window.history.pushState(
+          {},
+          '',
+          url.pathname + url.search + url.hash
+        );
+
+        document.dispatchEvent(
+          new CustomEvent(
+            'nuwatt:filter-updated'
+          )
+        );
+
+      } catch (error) {
+        console.error(
+          'Nuwatt Application Filter:',
+          error
+        );
+      } finally {
+        filterContainer.classList.remove(
+          'nuwatt-filter-loading'
+        );
+      }
+    }
+
+    checkboxes.forEach(function (checkbox) {
+      checkbox.addEventListener(
+        'change',
+        function () {
+          const url = createFilterURL();
+
+          loadProducts(url);
+        }
+      );
+    });
+
+    window.addEventListener(
+      'popstate',
+      function () {
+        restoreCheckboxes();
+
+        const url = new URL(window.location.href);
+
+        loadProducts(url);
+      }
+    );
+
+    restoreCheckboxes();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initializeNuwattApplicationFilter
+    );
+  } else {
+    initializeNuwattApplicationFilter();
+  }
+})();
+</script>
+
+
+<style>
+.nuwatt-application-filter {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 24px;
+  position: relative;
+}
+
+.nuwatt-application-group {
+  margin-bottom: 28px;
+}
+
+.nuwatt-application-group h4 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: #111;
+}
+
+.nuwatt-application-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #111;
+}
+
+.nuwatt-application-option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  flex: 0 0 16px;
+  border: 1px solid #888;
+  border-radius: 2px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.nuwatt-application-option input[type="checkbox"]:checked {
+  background: #111;
+  border-color: #111;
+}
+
+.nuwatt-application-option input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.nuwatt-application-option span {
+  flex: 1;
+}
+
+.nuwatt-filter-loading {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.nuwatt-filter-loading::after {
+  content: "Loading...";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+</style>

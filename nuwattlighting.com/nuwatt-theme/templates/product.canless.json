@@ -1,0 +1,277 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_TFifKB": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">    {{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>\n                <li><span>Warranty:&nbsp;</span><span class=\"mini-spec-meta\">5 Year</span></li>\n              </ul>\n\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>\n\n<div class=\"product-info__image\">\n\n{% if product.metafields.custom.damp_wet_rating contains \"Wet\"%}\n\n    <img alt=\"Wet Rated Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/NW_Icons_Wet_Rated__BLK.png?v=1723836191\">\n\n{% elsif product.metafields.custom.damp_wet_rating contains \"Damp\" %}\n    <img alt=\"ic rated recessed lights icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/ic-rated-recessed-lights-icon.png?v=1733946980\">\n\n{% else %}\n\n{% endif %}\n\n\n    <img alt=\"5CCT Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/5CCT_BLK.png?v=1723836191\">\n    <img alt=\"Triac Dimmable Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmable_blk.png?v=1723836192\">\n    <img alt=\"Canless Lights Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Canless_BLK.png?v=1723836192\">\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": true
+          }
+        },
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false
+          }
+        },
+        "4ec7592e-abc8-486b-a58c-5a9933c52c3e": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "price",
+        "custom_TFifKB",
+        "variant_picker",
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84",
+        "buy_buttons",
+        "4ec7592e-abc8-486b-a58c-5a9933c52c3e"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_container_size": "medium",
+        "product_image_size": "square",
+        "product_zoom_enable": true,
+        "product_zoom_with_thumbnail": false,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "product_specifications_FFpEhx": {
+      "type": "product-specifications",
+      "settings": {}
+    },
+    "product_page_specification_table_Pw4AmM": {
+      "type": "product-page-specification-table",
+      "settings": {}
+    },
+    "pdp_video_ENGXUn": {
+      "type": "pdp-video",
+      "settings": {
+        "full_width": false,
+        "title": "",
+        "title_size": 70,
+        "subheading": "",
+        "link_text": "Watch Video",
+        "link": "",
+        "color_accent": "#ffffff",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "overlay_opacity": 0,
+        "height": 450,
+        "height_mobile": 300
+      }
+    },
+    "product_specs_accordion_9FxdDx": {
+      "type": "product-specs-accordion",
+      "disabled": true,
+      "settings": {
+        "specs-accordion-enable": true
+      }
+    },
+    "premium_product_content_rhimG4": {
+      "type": "premium-product-content",
+      "settings": {}
+    },
+    "accordion_product_description_VLFiYY": {
+      "type": "accordion-product-description",
+      "disabled": true,
+      "settings": {
+        "accordion-enable": true
+      }
+    },
+    "product_downloads_YqxxwM": {
+      "type": "product-downloads",
+      "disabled": true,
+      "settings": {
+        "product-downloads-enable": true
+      }
+    },
+    "1743440535627eb513": {
+      "type": "apps",
+      "blocks": {
+        "powr_form_builder_app_block_MG4VxM": {
+          "type": "shopify://apps/powr-form-builder/blocks/app-block/1412fe37-d89c-4706-a797-6e2b53cb4a69",
+          "settings": {
+            "app_id": "6dbe9b9a_1738869130"
+          }
+        }
+      },
+      "block_order": [
+        "powr_form_builder_app_block_MG4VxM"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "16769676867018dca5": {
+      "type": "apps",
+      "blocks": {
+        "stamped_reviews_main_widget_eMt8Ch": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
+          }
+        },
+        "junip_product_reviews_ugc_junip_product_review_MWWUca": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "stamped_reviews_main_widget_eMt8Ch",
+        "junip_product_reviews_ugc_junip_product_review_MWWUca"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": true
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "page": ""
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Ask a question",
+            "phone": true
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab",
+        "contact"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "more-products-collection": {
+      "type": "more-products-collection",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5
+      }
+    },
+    "more-products-vendor": {
+      "type": "more-products-vendor",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {
+        "color_scheme": "2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_specifications_FFpEhx",
+    "product_page_specification_table_Pw4AmM",
+    "pdp_video_ENGXUn",
+    "product_specs_accordion_9FxdDx",
+    "premium_product_content_rhimG4",
+    "accordion_product_description_VLFiYY",
+    "product_downloads_YqxxwM",
+    "1743440535627eb513",
+    "16769676867018dca5",
+    "sub",
+    "more-products-collection",
+    "recommendations",
+    "more-products-vendor",
+    "recently-viewed",
+    "collection-return"
+  ]
+}

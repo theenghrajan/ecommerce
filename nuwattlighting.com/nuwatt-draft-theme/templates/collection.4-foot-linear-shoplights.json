@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_KkUf9k": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our 4 FT Linear Shop Lights Collection",
+        "collection_seo_description": "Discover our 4 foot linear shop lights collection. Designed for larger workspaces, these lights provide excellent illumination and energy savings for professional and DIY environments alike."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_b9EAza": {
+      "type": "jump-to",
+      "blocks": {
+        "question_iATAgz": {
+          "type": "question",
+          "settings": {
+            "button": "With Motion Sensor",
+            "link": "https://www.nuwattlighting.com/collections/4-foot-linear-shoplights?filter.p.m.custom.special_feature=Motion+Sensor",
+            "image": "shopify://shop_images/shoplight_with_motion_sensor_installed.png",
+            "alt-text": "led shop lights 4 ft with motion sensor"
+          }
+        },
+        "question_q78hDK": {
+          "type": "question",
+          "settings": {
+            "button": "2 Foot",
+            "link": "shopify://collections/2-foot-led-shop-lights",
+            "image": "shopify://shop_images/2_foot_shoplight_led.png",
+            "alt-text": "Go to the 2 foot shop lights collection page"
+          }
+        },
+        "question_hgekwG": {
+          "type": "question",
+          "settings": {
+            "button": "All Commercial Lights",
+            "link": "shopify://collections/commercial-lighting",
+            "image": "shopify://shop_images/view-all-commercial-lighting-products.jpg",
+            "alt-text": "Go to the commercial lighting collection page"
+          }
+        },
+        "question_q94dRm": {
+          "type": "question",
+          "settings": {
+            "button": "High Bays",
+            "link": "shopify://collections/high-bay-led-lights",
+            "image": "shopify://shop_images/high-bay-lighting.webp",
+            "alt-text": "jump to our high bay lighting collection page"
+          }
+        },
+        "question_cKFJPK": {
+          "type": "question",
+          "settings": {
+            "button": "Tubes",
+            "link": "shopify://collections/led-tube-lights",
+            "image": "shopify://shop_images/NW-T8F-4-18W-50K-30P-MAIN-464841.jpg",
+            "alt-text": "Jump to our LED Tube Lights collection page"
+          }
+        },
+        "question_cK8Vai": {
+          "type": "question",
+          "settings": {
+            "button": "Canopy Lights",
+            "link": "shopify://collections/canopy-lights",
+            "image": "shopify://shop_images/led-canopy-lights-outdoor-150w-waterproof-led-gas-station-light-2cct-selectable-4000k5000k-21250lm-dimmable-120-277v-ip67-rated-led-parking-garage-lights-or-lig-413822.jpg",
+            "alt-text": "Jump to our canopy light collection page"
+          }
+        },
+        "question_WcPNX6": {
+          "type": "question",
+          "settings": {
+            "button": "Panels",
+            "link": "shopify://collections/led-panel-light",
+            "image": "shopify://shop_images/nuwatt-2x4-led-panel-for-drop-in-ceiling-50w40w30w-selectable-5-color-select-3000k3500k4000k5000k6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fixture-e-274470.jpg",
+            "alt-text": "Jump to our panels collection page"
+          }
+        }
+      },
+      "block_order": [
+        "question_iATAgz",
+        "question_q78hDK",
+        "question_hgekwG",
+        "question_q94dRm",
+        "question_cKFJPK",
+        "question_cK8Vai",
+        "question_WcPNX6"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_c4G4RD": {
+      "type": "faq",
+      "blocks": {
+        "question_cBq4ct": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_THzy4C": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_4CtUwT": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_cBq4ct",
+        "question_THzy4C",
+        "question_4CtUwT"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_pLJNyy": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_XYQrGX": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_TXKf6P": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_Kbf8bc": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_njreJm": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_KT7GET": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_n4VMAm": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_XYQrGX",
+        "question_TXKf6P",
+        "question_Kbf8bc",
+        "question_njreJm",
+        "question_KT7GET",
+        "question_n4VMAm"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_WePwgw": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our 4 FT Linear Shop Lights Collection",
+        "collection_seo_description": "Discover our 4 foot linear shop lights collection. Designed for larger workspaces, these lights provide excellent illumination and energy savings for professional and DIY environments alike."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_KkUf9k",
+    "main-collection",
+    "jump_to_b9EAza",
+    "faq_c4G4RD",
+    "collection_metafield_faq_pLJNyy",
+    "recently-viewed",
+    "expandable_description_WePwgw"
+  ]
+}

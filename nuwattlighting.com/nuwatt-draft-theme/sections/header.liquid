@@ -1,0 +1,583 @@
+{% style %}  
+    nav.breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .site-nav__item .site-nav__link {
+      color: #000;
+      font-weight: 600;
+    }
+    .site-nav__details {
+      color: #000
+    }
+    a.site-nav__dropdown-link.site-nav__dropdown-link--top-level {
+      color: #000;
+      font-weight: 400;
+    }
+    a.site-nav__dropdown-link.site-nav__dropdown-link--top-level, .site-nav__dropdown-link {
+      color: #000;
+      font-weight: 400;
+    }
+    .site-nav__dropdown-link:hover{
+      color: #000;
+    }
+{% endstyle %}
+{%- liquid
+  assign main_menu = linklists[section.settings.main_menu_link_list]
+
+  assign logo_alignment = 'left'
+  assign nav_position = 'below'
+
+  if section.settings.main_menu_alignment == 'left' or section.settings.main_menu_alignment == 'left-center'
+    assign nav_position = 'beside'
+  endif
+
+  if section.settings.main_menu_alignment == 'center'
+    assign logo_alignment = 'center'
+  endif
+
+  assign template_name = template | replace: '.', ' ' | truncatewords: 2, '' | handle
+
+  assign overlay_header = false
+  if template_name == 'index' and section.settings.sticky_index
+    assign overlay_header = true
+  endif
+  if template_name contains 'collection' and collection.image and section.settings.sticky_collection
+    assign overlay_header = true
+  endif
+-%}
+
+<style>
+  .site-nav__link {
+    font-size: {{ settings.type_navigation_size }}px;
+  }
+  {% if settings.type_navigation_capitalize %}
+    .site-nav__link {
+      /* text-transform: uppercase; */
+      letter-spacing: 0.2em;
+    }
+  {% endif %}
+
+  {% if mainmenu.length > 6 %}
+    .site-nav__link {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  {% endif %}
+
+  {%- if settings.color_header == settings.color_body_bg or settings.color_body_bg contains settings.color_header -%}
+    .site-header,
+    .site-header__element--sub {
+      box-shadow: 0 0 25px rgb(0 0 0 / 10%);
+    }
+
+    .is-light .site-header,
+    .is-light .site-header__element--sub {
+      box-shadow: none;
+    }
+  {%- endif -%}
+
+  {%- if settings.color_header == settings.color_header_search -%}
+    .site-header__search-form {
+      border: 1px solid {{ settings.color_borders }}
+    }
+  {%- endif -%}
+</style>
+
+<style>
+  /* Figma "128 Audit Fixes": persistent search box (not a toggle icon), left-aligned nav row below.
+     Desktop-only — `.header-item--search` also carries the theme's own
+     `small--hide` utility class (meant to hide it on mobile, where the
+     separate `.site-header__element--sub[data-type="search"]` full-width
+     row is the mobile search instead), but this rule's `display:flex
+     !important` has higher selector specificity than `small--hide`'s
+     single-class `!important`, so it was winning at every viewport and
+     showing this desktop-styled search box on mobile too. Scoping to
+     desktop restores `small--hide`'s mobile behavior. */
+  @media only screen and (min-width: 769px) {
+    .site-header .header-item--search {
+      display: flex !important;
+      align-items: center;
+    }
+  }
+  .site-header .header-item--search .site-nav__compress-menu {
+    display: none !important;
+  }
+  .site-header .header-item--search predictive-search {
+    width: 100%;
+    max-width: 371px;
+    margin: 0;
+  }
+  .site-header .header-item--search predictive-search form {
+    display: block;
+  }
+  /* .header-item--search still inherits the theme's default centered-logo
+     layout (justify-content:center), which centers the 371px search box
+     inside its own (much wider) flex slot instead of pinning it to the
+     container's left edge like Figma. */
+  .site-header .header-item--search {
+    justify-content: flex-start !important;
+  }
+  .site-header .header-item--search .search__input-wrap {
+    display: flex !important;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    background: rgba(202, 202, 201, 0.3);
+    border: none;
+    border-radius: 6px;
+    padding: 0 16px;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+  }
+  .site-header .header-item--search .search__input {
+    border: none;
+    background: transparent;
+    height: 44px;
+    padding: 0;
+    flex: 1 1 auto;
+    font-size: 14px;
+  }
+  .site-header .header-item--search .search__input::placeholder {
+    color: rgba(32, 32, 32, 0.5);
+  }
+  /* type="search" gets a browser-native focus ring/decoration (a rounded
+     highlight box) that isn't reachable via a plain `outline` reset alone —
+     suppress it explicitly on every focus state, plus the native
+     clear/decoration buttons some browsers render inside the field. */
+  .site-header .header-item--search .search__input,
+  .site-header .header-item--search .search__input:focus,
+  .site-header .header-item--search .search__input:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .site-header .header-item--search .search__input::-webkit-search-decoration,
+  .site-header .header-item--search .search__input::-webkit-search-cancel-button,
+  .site-header .header-item--search .search__input::-webkit-search-results-button,
+  .site-header .header-item--search .search__input::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+  }
+  .site-header .header-item--search .search__input-wrap:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  .site-header .header-item--search .btn--close-search {
+    display: none !important;
+  }
+  /* Figma shows the search icon on the LEFT of the field, but the theme's
+     .btn--search is absolutely positioned on the right as a submit button.
+     Re-flow it to the front of the flex row instead of moving DOM markup. */
+  .site-header .header-item--search .btn--search {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    order: -1;
+    flex: 0 0 auto;
+    display: flex !important;
+    align-items: center;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .site-header .header-item--search .btn--search .icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  /* Header/toolbar page-width didn't share the 1900px convention every other
+     homepage section already uses. */
+  .site-header .page-width,
+  .site-header__search-container .page-width {
+    max-width: 1900px;
+  }
+  /* Figma's own nav list (node 9229:73 "List") is itself
+     `justify-content:center` within the content width — centered is
+     correct, matching the "Meteor" nav app's own default behavior. Do NOT
+     force flex-start here (tried previously, was wrong). */
+  /* `.site-nav__link` is the THEME's own markup class and doesn't exist on
+     the "Meteor" app's actual rendered links (`.Meteor-Navigation__Link__desktop`
+     / `.m-link`) — every rule below scoped to `.site-nav__link` was dead
+     (confirmed via getComputedStyle: textTransform:none, fontWeight:400,
+     fontSize:16px, none of which matched what was written here). Retargeted
+     to the real class. `!important` is required: an inaccessible cross-origin
+     Meteor stylesheet (same pattern as the earlier justify-content fight)
+     also declares text-transform/font-weight on this element with equal
+     specificity, and without `!important` here it wins the cascade tie. */
+  .site-header__element--sub[data-type="nav"] .Meteor-Navigation__Link__desktop {
+    text-transform: uppercase !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.4px !important;
+    color: #202020 !important;
+  }
+  /* Figma's own link items carry 16px horizontal padding on top of a 12px
+     list gap (~44px effective spacing); the live Meteor markup has no
+     per-link padding, so the raw 16px flex gap alone reads much tighter.
+     Widened on large screens only, where there's room to breathe without
+     forcing a wrap. */
+  @media screen and (min-width: 1600px) {
+    .site-header__element--sub[data-type="nav"] .Meteor-DesktopNavigation {
+      gap: 36px !important;
+    }
+  }
+  /* Figma's nav row (divider line to hero video, node 9229:73's own
+     background) is plain white with no fill and no shadow — confirmed by
+     pixel-sampling a native-resolution Figma screenshot in that exact band
+     (pure rgb(255,255,255), no rect layer in the node tree). The theme
+     defaults (rgb(240,239,239) background, plus a 0/0/25px box-shadow glow
+     from `.site-header, .site-header__element--sub`) do not match and are
+     removed here — both !important, since these are the same properties
+     that were fought over and reverted in rounds 3-5.
+     One correction on top of that "final" state: `.header-section` is
+     `position: sticky; top: 0` UNCONDITIONALLY in the base theme (independent
+     of the `header_sticky` setting), so this header is always pinned at the
+     top once you scroll past it — a `transparent` nav row let whatever page
+     content is scrolling underneath show straight through it, unreadable.
+     White achieves the same "plain, no fill" look Figma shows at the top of
+     the page (where the page background is white anyway) while staying
+     opaque once the header is stuck over scrolled content. */
+  .site-header,
+  .site-header__element--sub {
+    box-shadow: none !important;
+  }
+  .site-header__element--sub[data-type="nav"] {
+    background-color: #fff !important;
+  }
+  /* Figma DOES have a real divider here (node 9229:65 "Line 1": a crisp 1px
+     line, `stroke="black" stroke-opacity="0.2"`, spanning the content width)
+     — separate from the theme's blurred box-shadow glow removed above.
+     Adds ~18px of breathing room below the line before the nav links start,
+     matching Figma's line-to-nav-links gap. */
+  .site-header__element--sub[data-type="nav"] {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    padding-top: 18px;
+  }
+  /* Figma: "Account"/"Cart" labels are Roboto SemiBold 14px, not the
+     theme's default (900 weight, 16px). */
+  .site-header .site-nav__icon-label {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.52px;
+    margin-left: 8px;
+  }
+  /* Figma keeps the cart count badge visible at all times (shows "0"), as a
+     solid yellow pill sitting inline AFTER the "Cart" label — not the
+     theme's default (hidden-at-zero, red dot absolutely pinned to the
+     icon's corner). `.cart-link` is unwrapped via display:contents so its
+     children (icon svg + bubble) become flex siblings of the label, then
+     reordered with `order` to match Figma's icon → label → badge layout. */
+  .site-header #HeaderCartTrigger {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+  .site-header #HeaderCartTrigger .cart-link {
+    display: contents;
+  }
+  .site-header #HeaderCartTrigger .site-nav__icon-label {
+    order: 1;
+    margin-left: 0;
+  }
+  .site-header #HeaderCartTrigger .cart-link__bubble {
+    order: 2;
+    display: inline-flex !important;
+    position: static !important;
+    top: auto;
+    right: auto;
+    align-items: center;
+    justify-content: center;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 5px;
+    border-radius: 99px;
+    background: #fcc833;
+  }
+  .site-header #HeaderCartTrigger .cart-link__bubble:before {
+    content: none;
+  }
+  .site-header #HeaderCartTrigger .cart-link__bubble-num {
+    position: static;
+    font-family: ui-monospace, 'SF Mono', 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    color: #202020;
+  }
+  /* The theme's global --iconWeight (3px) overrides any inline stroke-width on these
+     icon paths, since a stylesheet rule always beats a plain SVG presentation attribute. */
+  .site-header .icon-search path,
+  .site-header .icon-search circle {
+    stroke-width: 1.5px !important;
+  }
+  .site-header .icon-user path,
+  .site-header .icon-cart path,
+  .site-header .icon-bag path,
+  .site-header .icon-bag-minimal path {
+    stroke-width: 1.425px !important;
+  }
+  @media screen and (max-width: 1024px) {
+    .site-header .header-item--search predictive-search {
+      max-width: none;
+    }
+  }
+  /* Figma leaves ~34px of breathing room between the toolbar and the
+     logo/search row below it; the theme default (padding:5px 0) makes the
+     logo look stuck to the yellow bar above it. */
+  @media screen and (min-width: 769px) {
+    .site-header .site-header__element--top {
+      padding-top: 30px;
+      padding-bottom: 22px;
+    }
+  }
+  /* Figma leaves ~18px between the nav row and the hero below it, but the
+     theme reserves 42px via --header-padding-bottom (a sticky-header
+     placeholder var) plus a 20px margin-bottom hack in header-group.json's
+     custom_css — 62px combined, way more than Figma's gap. */
+  .header-section {
+    --header-padding-bottom: 18px;
+  }
+</style>
+
+<div data-section-id="{{ section.id }}" data-section-type="header">
+  <div id="HeaderWrapper" class="header-wrapper{% if overlay_header %} header-wrapper--overlay is-light{% endif %}">
+    <header
+      id="SiteHeader"
+      class="site-header{% if settings.type_navigation_style == 'heading' %} site-header--heading-style{% endif %}"
+      data-sticky="{{ section.settings.header_sticky }}"
+      data-overlay="{{ overlay_header }}">
+
+      <div class="site-header__element site-header__element--top">
+        <div class="page-width">
+          <div class="header-layout" data-layout="{{ section.settings.main_menu_alignment }}" data-nav="{{ nav_position }}" data-logo-align="{{ logo_alignment }}">
+
+            {%- if nav_position == 'below' and logo_alignment == 'left' -%}
+              <div class="header-item header-item--compress-nav small--hide">
+                <button type="button" class="site-nav__link site-nav__link--icon site-nav__compress-menu">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path class="cls-1" d="M7 15h51">.</path><path class="cls-1" d="M7 32h43">.</path><path class="cls-1" d="M7 49h51">.</path></svg>
+                  <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+                </button>
+              </div>
+            {%- endif -%}
+
+            {%- if logo_alignment == 'left' -%}
+              <div class="header-item header-item--logo">
+                {%- render 'header-logo-block', section: section -%}
+              </div>
+            {%- endif -%}
+
+            {%- if nav_position == 'below' -%}
+              <div class="header-item header-item--search small--hide">
+                {%- if logo_alignment == 'center' -%}
+                  <button type="button" class="site-nav__link site-nav__link--icon site-nav__compress-menu">
+                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path class="cls-1" d="M7 15h51">.</path><path class="cls-1" d="M7 32h43">.</path><path class="cls-1" d="M7 49h51">.</path></svg>
+                    <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+                  </button>
+                {%- endif -%}
+
+                {%- render 'predictive-search', context: 'header' -%}
+              </div>
+            {%- endif -%}
+
+            {%- if nav_position == 'beside' -%}
+              <div class="header-item header-item--navigation{% if section.settings.main_menu_alignment == 'left-center' %} text-center{% endif %}" {% unless disable_aria %}role="navigation" aria-label="Primary"{% endunless %}>
+                {%- render 'header-desktop-nav', main_menu: main_menu, nav_position: nav_position, show_mega_products: section.settings.mega_products -%}
+              </div>
+            {%- endif -%}
+
+            {%- if logo_alignment == 'center' -%}
+              <div class="header-item header-item--logo">
+                {%- render 'header-logo-block', section: section -%}
+              </div>
+            {%- endif -%}
+
+            <div class="header-item header-item--icons">
+              {%- render 'header-icons', section: section, nav_position: nav_position -%}
+            </div>
+          </div>
+        </div>
+
+        <div class="site-header__search-container">
+          <div class="page-width">
+            <div class="site-header__search">
+              {%- render 'predictive-search', context: 'header' -%}
+              <button type="button" class="text-link site-header__search-btn site-header__search-btn--cancel">
+                <span class="medium-up--hide"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"/></svg></span>
+                <span class="small--hide">{{ 'general.search.cancel' | t }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {%- if nav_position == 'below' -%}
+        <div class="site-header__element site-header__element--sub" data-type="nav">
+          <div class="page-width{% if logo_alignment == 'center' %} text-center{% endif %}" {% unless disable_aria %}role="navigation" aria-label="Primary"{% endunless %}>
+            {%- render 'header-desktop-nav', main_menu: main_menu, nav_position: nav_position, show_mega_products: section.settings.mega_products -%}
+          </div>
+        </div>
+
+        <div class="site-header__element site-header__element--sub" data-type="search">
+          <div class="page-width medium-up--hide">
+            {%- render 'predictive-search', context: 'header' -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="page-width site-header__drawers">
+        <div class="site-header__drawers-container">
+          <div class="site-header__drawer site-header__cart" id="HeaderCart">
+            <div class="site-header__drawer-animate">
+               <button type="button" class="btn btn--circle btn--icon custom_cart_close">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"/></svg>
+                <span class="icon__fallback-text">{{ 'general.accessibility.close_modal' | t | json }}</span>
+              </button>
+              {%- render 'header-cart-drawer' -%}
+            </div>
+          </div>
+
+          <div class="site-header__drawer site-header__mobile-nav medium-up--hide" id="MobileNav">
+            <div class="site-header__drawer-animate">
+              {%- render 'header-mobile-nav', main_menu: main_menu -%}
+              {%- if section.settings.header_footer_menu -%}
+                <div id="MobileNavFooter"></div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_menu_link_list",
+      "label": "t:sections.header.settings.main_menu_link_list.label",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "main_menu_alignment",
+      "label": "t:sections.header.settings.main_menu_alignment.label",
+      "default": "below",
+      "options": [
+        {
+          "value": "below",
+          "label": "t:sections.header.settings.main_menu_alignment.options.below.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.header.settings.main_menu_alignment.options.left.label"
+        },
+        {
+          "value": "left-center",
+          "label": "t:sections.header.settings.main_menu_alignment.options.left-center.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.header.settings.main_menu_alignment.options.center.label"
+        }
+      ]
+    },
+    {
+      "type":"color",
+      "id":"megamenu_bg",
+      "label":"Megamenu Background Color"
+    },
+    {
+      "type":"color",
+      "id":"link_color",
+      "label":"Link Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "mega_products",
+      "label": "t:sections.header.settings.mega_products.label",
+      "info": "t:sections.header.settings.mega_products.info",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "header_sticky",
+      "label": "t:sections.header.settings.header_sticky.label",
+      "default": true,
+      "info": "t:sections.header.settings.header_sticky.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_footer_menu",
+      "label": "t:sections.header.settings.header_footer_menu.label",
+      "default": true,
+      "info": "t:sections.header.settings.header_footer_menu.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_index",
+      "label": "t:sections.header.settings.sticky_index.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_collection",
+      "label": "t:sections.header.settings.sticky_collection.label",
+      "info": "t:sections.header.settings.sticky_collection.info",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "t:sections.header.blocks.logo.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "t:sections.header.blocks.logo.settings.logo.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo-inverted",
+          "label": "t:sections.header.blocks.logo.settings.logo-inverted.label",
+          "info": "t:sections.header.blocks.logo.settings.logo-inverted.info"
+        },
+        {
+          "type": "range",
+          "id": "desktop_logo_width",
+          "label": "t:sections.header.blocks.logo.settings.desktop_logo_width.label",
+          "default": 200,
+          "min": 100,
+          "max": 400,
+          "step": 10,
+          "unit": "px"
+        },
+        {
+          "type": "range",
+          "id": "mobile_logo_width",
+          "label": "t:sections.header.blocks.logo.settings.mobile_logo_width.label",
+          "default": 140,
+          "min": 60,
+          "max": 200,
+          "step": 10,
+          "unit": "px",
+          "info": "t:sections.header.blocks.logo.settings.mobile_logo_width.info"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {}
+  },
+  "disabled_on": {
+    "groups": ["footer", "custom.popups"]
+  }
+}
+{% endschema %}

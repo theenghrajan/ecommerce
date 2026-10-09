@@ -1,0 +1,158 @@
+<div class="page-width a-plus-content">
+
+{%- for variant in product.variants -%}
+
+  {% if product.metafields.custom.item_model_number == section.settings.item_model_number %}
+    
+    <!-- Desktop Images -->
+    <div class="desktop-images">
+      {% if section.settings.image_1_desktop != blank %}
+        <img src="{{ section.settings.image_1_desktop | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_1_desktop }}">
+      {% endif %}
+      {% if section.settings.image_2_desktop != blank %}
+        <img src="{{ section.settings.image_2_desktop | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_2_desktop }}">
+      {% endif %}
+      {% if section.settings.image_3_desktop != blank %}
+        <img src="{{ section.settings.image_3_desktop | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_3_desktop }}">
+      {% endif %}
+      {% if section.settings.image_4_desktop != blank %}
+        <img src="{{ section.settings.image_4_desktop | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_4_desktop }}">
+      {% endif %}
+    </div>
+    
+    <!-- Mobile Images -->
+    <div class="mobile-images">
+      {% if section.settings.image_1_mobile != blank %}
+        <img src="{{ section.settings.image_1_mobile | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_1_mobile }}">
+      {% endif %}
+      {% if section.settings.image_2_mobile != blank %}
+        <img src="{{ section.settings.image_2_mobile | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_2_mobile }}">
+      {% endif %}
+      {% if section.settings.image_3_mobile != blank %}
+        <img src="{{ section.settings.image_3_mobile | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_3_mobile }}">
+      {% endif %}
+      {% if section.settings.image_4_mobile != blank %}
+        <img src="{{ section.settings.image_4_mobile | remove: 'files/' | prepend: 'https://cdn.shopify.com/s/files/1/0293/5858/7978/files/' }}" alt="{{ section.settings.alt_text_4_mobile }}">
+      {% endif %}
+    </div>
+    
+    {% break %}
+    
+  {% endif %}
+
+{%- endfor -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "A+ Content",
+  "settings": [
+    {
+      "type": "text",
+      "id": "item_model_number",
+      "label": "Item Model Number",
+      "default": "Enter Model Number"
+    },
+    
+    /* Desktop Images */
+    {
+      "type": "image_picker",
+      "id": "image_1_desktop",
+      "label": "Desktop Image 1"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_1_desktop",
+      "label": "Alt Text for Desktop Image 1",
+      "default": "Desktop Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2_desktop",
+      "label": "Desktop Image 2"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_2_desktop",
+      "label": "Alt Text for Desktop Image 2",
+      "default": "Desktop Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3_desktop",
+      "label": "Desktop Image 3"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_3_desktop",
+      "label": "Alt Text for Desktop Image 3",
+      "default": "Desktop Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4_desktop",
+      "label": "Desktop Image 4"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_4_desktop",
+      "label": "Alt Text for Desktop Image 4",
+      "default": "Desktop Image 4"
+    },
+    
+    /* Mobile Images */
+    {
+      "type": "image_picker",
+      "id": "image_1_mobile",
+      "label": "Mobile Image 1"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_1_mobile",
+      "label": "Alt Text for Mobile Image 1",
+      "default": "Mobile Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2_mobile",
+      "label": "Mobile Image 2"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_2_mobile",
+      "label": "Alt Text for Mobile Image 2",
+      "default": "Mobile Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3_mobile",
+      "label": "Mobile Image 3"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_3_mobile",
+      "label": "Alt Text for Mobile Image 3",
+      "default": "Mobile Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4_mobile",
+      "label": "Mobile Image 4"
+    },
+    {
+      "type": "text",
+      "id": "alt_text_4_mobile",
+      "label": "Alt Text for Mobile Image 4",
+      "default": "Mobile Image 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "A+ Content",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+

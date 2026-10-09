@@ -1,0 +1,225 @@
+<div class="page-width mobile-hak">
+<div id="scroll-to-specs" class="alt-accordion">
+    <div class="alt-accordion-section">
+        <button class="alt-accordion-toggle">
+<h3>Specifications</h3>
+<!-- <svg id="specs-arrow-product" class="sui-inline-block sui-align-baseline sui-fill-inherit sui-w-4 sui-h-4" viewBox="0 0 24 24" focusable="false" aria-hidden="true" data-testid="ArrowDownIcon" style="
+    height: 1em;
+    width: 1em;
+"><path d="M23.979 6.862 12 18.841.021 6.863l1.591-1.591L12 15.659 22.387 5.271l1.591 1.591Z"></path></svg> -->
+</button>        <div class="alt-accordion-body">
+ <!-- table -->
+          
+<table class="product-specs-table">
+   <tbody class="tbody-table">
+
+
+
+{% if product.metafields.custom.base_type contains 'FPO' or product.metafields.custom.base_type == blank or product.metafields.custom.base_type == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Base Type</td>
+         <td class="text-left">{{ product.metafields.custom.base_type }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.dimmable contains 'FPO' or product.metafields.custom.dimmable == blank or product.metafields.custom.dimmable == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Dimmability</td>
+         <td class="text-left">{{ product.metafields.custom.dimmable }}</td>
+      </tr>
+{% endif %}
+{% if product.metafields.custom.size contains 'FPO' or product.metafields.custom.size == blank or product.metafields.custom.size == 'a' or product.metafields.custom.item_model_number contains 'NW-SFL' or product.metafields.custom.item_model_number contains 'NW-BLT' or product.metafields.custom.item_model_number contains 'NW-CP' or product.metafields.custom.item_model_number contains 'NW-WP' or product.metafields.custom.item_model_number contains 'NW-MFL'%}
+{% else %}
+      <tr>
+         <td class="text-left">Size</td>
+         <td class="text-left fgtm">{{ product.metafields.custom.size }}</td>
+      </tr>
+{% endif %}
+
+
+{% if product.metafields.custom.light_color contains 'FPO' or product.metafields.custom.light_color == blank or product.metafields.custom.light_color == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Color Temperature</td>
+         <td class="text-left">{{ product.metafields.custom.light_color }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.color_rendering_index_cri contains 'FPO' or product.metafields.custom.color_rendering_index_cri == blank or product.metafields.custom.color_rendering_index_cri == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">CRI</td>
+         <td class="text-left">{{ product.metafields.custom.color_rendering_index_cri }}</td>
+      </tr>
+{% endif %}
+
+
+{% if product.metafields.custom.specification_met contains 'FPO' or product.metafields.custom.specification_met == blank or product.metafields.custom.specification_met == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Certifications</td>
+         <td class="text-left">{{ product.metafields.custom.specification_met }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.indoor_outdoor_usage contains 'FPO' or product.metafields.custom.indoor_outdoor_usage == blank or product.metafields.custom.indoor_outdoor_usage == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Indoor/Outdoor Usage</td>
+         <td class="text-left">{{ product.metafields.custom.indoor_outdoor_usage }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.material contains 'FPO' or product.metafields.custom.material == blank or product.metafields.custom.material == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Product Materials</td>
+         <td class="text-left">{{ product.metafields.custom.material }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.color contains 'FPO' or product.metafields.custom.color == blank or product.metafields.custom.color == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Color</td>
+         <td class="text-left">{{ product.metafields.custom.color }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.mounting_type contains 'FPO' or product.metafields.custom.mounting_type == blank or product.metafields.custom.mounting_type == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Mounting Type</td>
+         <td class="text-left">{{ product.metafields.custom.mounting_type }}</td>
+      </tr>
+{% endif %}
+
+
+{% if product.metafields.custom.warranty_type contains 'FPO' or product.metafields.custom.warranty_type == blank or product.metafields.custom.warranty_type == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Warranty</td>
+         <td class="text-left">{{ product.metafields.custom.warranty_type }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.item_model_number contains 'FPO' or product.metafields.custom.item_model_number == blank or product.metafields.custom.item_model_number == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Model Number</td>
+         <td class="text-left">{{ product.metafields.custom.item_model_number }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.brand contains 'FPO' or product.metafields.custom.brand == blank or product.metafields.custom.brand == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Brand</td>
+         <td class="text-left">{{ product.metafields.custom.brand }}</td>
+      </tr>
+{% endif %}
+
+   </tbody>
+</table>
+          <!-- end table -->
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+
+{% stylesheet %}
+.alt-accordion {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  border: 0.125rem solid #999ea4;
+    border-radius: 0.50rem;
+  margin-top: 15px;
+}
+
+.alt-accordion-section {
+    
+    margin: 0;
+}
+
+.alt-accordion-toggle {
+    background-color: #fafbfb;
+    color: #222;
+    padding: 12px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+      border-radius: 0.50rem;
+
+}
+
+.alt-accordion-toggle:hover {
+    background-color: #efefef;
+}
+
+.alt-accordion-body {
+    padding: 0 22px;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background-color: #fff;
+        border-radius: 0.50rem;
+
+}
+
+/* Initially open the first section */
+.alt-accordion .alt-accordion-section:first-child .alt-accordion-body {
+    max-height: 500px; /* Adjust based on your content size */
+    padding: 12px 22px;
+}
+
+    .alt-accordion-toggle h3{
+    font-family: 'nw-medium';
+    font-weight: 500;
+        text-transform: unset;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+
+
+
+
+{% endstylesheet %}
+
+
+
+
+{% schema %}
+  {
+    "name": "Product Specs Accordion",
+    "settings": [
+      {
+
+            "type": "checkbox",
+      "id": "specs-accordion-enable",
+      "label": "Product Specs Accordion Enabled",
+      "default": true
+        
+      }
+    ],
+
+        "presets": [
+      {
+        "name": "Product Specs Accordion",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

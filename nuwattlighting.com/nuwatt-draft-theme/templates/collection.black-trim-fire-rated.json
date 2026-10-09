@@ -1,0 +1,245 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_geQcbL": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Fire Rated Black Recessed Lighting Collection",
+        "collection_seo_description": "Fire-rated recessed lights in black provide a sleek, modern solution while meeting fire safety standards. These fixtures with fire-rated black trims can add a touch of elegance to any space."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_JLBACW": {
+      "type": "jump-to",
+      "blocks": {
+        "question_3KRNyU": {
+          "type": "question",
+          "settings": {
+            "button": "All Fire Rated",
+            "link": "shopify://collections/fire-rated-recessed-light",
+            "image": "shopify://shop_images/view-main-fire-rated-lights-collection.jpg",
+            "alt-text": "View All Fire Rated Products"
+          }
+        },
+        "question_QyG4Yg": {
+          "type": "question",
+          "settings": {
+            "button": "Square Trim",
+            "link": "https://www.nuwattlighting.com/collections/square-fire-rated-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-SQDL-6-15W-5CT-FR-BLK_LISTING_1P-834929.jpg",
+            "alt-text": "Square Fire Rated Downlights"
+          }
+        },
+        "question_yBVNfE": {
+          "type": "question",
+          "settings": {
+            "button": "All Black Trims",
+            "link": "shopify://collections/black-recessed-lighting",
+            "image": "shopify://shop_images/NW-GMB-C6-16.5W-5CCT-BLK_1P.jpg",
+            "alt-text": "View All our Black Trim Recessed Lighting"
+          }
+        },
+        "question_363jpE": {
+          "type": "question",
+          "settings": {
+            "button": "Baffle Trim",
+            "link": "shopify://collections/baffle-trim-recessed-lighting",
+            "image": "shopify://shop_images/NW-PB-DL-4-12W-5CT-FR-WH_LISTING_MAIN_1P_20fd31cf-20b9-4225-8d4a-2514853a5adf-828261.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_rf6hfq": {
+          "type": "question",
+          "settings": {
+            "button": "View Canless",
+            "link": "shopify://collections/canless-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-DL-6-15W-5CT-WH-667527_f9681c57-6e46-48b7-8e27-ec81404fcd84-911146.jpg",
+            "alt-text": "Go to all our canless recessed lights"
+          }
+        }
+      },
+      "block_order": [
+        "question_3KRNyU",
+        "question_QyG4Yg",
+        "question_yBVNfE",
+        "question_363jpE",
+        "question_rf6hfq"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_yndG7r": {
+      "type": "faq",
+      "blocks": {
+        "question_mbFHcp": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_NTLDUi": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_iPiKQ9": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_mbFHcp",
+        "question_NTLDUi",
+        "question_iPiKQ9"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_EpxxFw": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_RWH7Xh": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_cfyb7b": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_CcmBdz": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_pnUeUM": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_hcyXhq": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_iJtwyd": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_RWH7Xh",
+        "question_cfyb7b",
+        "question_CcmBdz",
+        "question_pnUeUM",
+        "question_hcyXhq",
+        "question_iJtwyd"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_kwLKVr": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Fire Rated Black Recessed Lighting Collection",
+        "collection_seo_description": "Fire-rated recessed lights in black provide a sleek, modern solution while meeting fire safety standards. These fixtures with fire-rated black trims can add a touch of elegance to any space."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_geQcbL",
+    "main-collection",
+    "jump_to_JLBACW",
+    "faq_yndG7r",
+    "collection_metafield_faq_EpxxFw",
+    "recently-viewed",
+    "expandable_description_kwLKVr"
+  ]
+}

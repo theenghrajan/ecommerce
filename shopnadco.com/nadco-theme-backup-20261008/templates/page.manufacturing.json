@@ -1,0 +1,332 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Manufacturing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Original equipment manufacturers (OEMs) play an essential role in the global economy because they manufacture, assemble, and package products for companies that sell those final products under their brand name. OEMs can get a contract to either manufacture the entire product or part of the product, and they can choose to manufacture or subcontract part or all of it. They often use specialized equipment to produce products that require a particular type of environment. Due to these conditions, many OEMs use industrial tapes and labels to help create and categorize specialized products fit for certain industrial conditions.</p><p>During manufacturing, shipping, and storage, manufactured parts or products are prone to damage or disorganization, which is why OEMs turn to NADCO for protective industrial tapes and high-quality labels. Read on to find out more about the benefits and applications of industrial tapes as well as the products NADCO provides to the OEM market.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/image_327665f0-ee26-45e7-aaed-3474d4a01510.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 26,
+        "enable_preload_image": false
+      }
+    },
+    "custom_content_RJxq6c": {
+      "type": "custom-content",
+      "blocks": {
+        "video_WHdrMc": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://youtu.be/Za7gTDFkWsk",
+            "cover_image": "shopify://shop_images/sddefault_a3680d08-7917-4f97-b50f-1e4f4ce93be1.jpg",
+            "video_ratio": "9/16",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "50%",
+            "alignment": "start",
+            "block_custom_class": ""
+          }
+        },
+        "text_gjt66r": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "What Are the Benefits and Applications of NADCO’s Tapes for OEMs?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "description": "<p>Repeated joint flexing and vibration can deteriorate traditional mechanical fasteners. Industrial tape products are viscoelastic, which means they have exceptional fatigue resistance and can recover from shock and vibration. NADCO’s industrial tapes are used across many industries, including automotive, aerospace, electronics, medical, and construction.</p><p>Here are some of the most common applications of our tapes in manufacturing.</p><ul><li><strong>Joint bonding and assembly</strong>: Industrial tapes are used in magnet bonding, lens assembly, furniture joints, and metal and plastic housing assemblies to create durable, weight-bearing joints. They help ensure proper joint bonding and assembly.</li><li><strong>Trim and nameplate attachment</strong>: These industrial tapes are designed to attach trim parts and nameplates securely without additional fixturing.</li><li><strong>Self-adhesive gaskets</strong>: Self-adhesive gaskets are crucial in environments where gaskets might slip. Adhesive tapes create airtight self-adhesive gaskets that help keep the gasket in place until the flange bolts are tight enough.</li><li><strong>Panel to frame bonding</strong>: Panel-to-frame bonding tapes can provide reliable connections that replace traditional bonding methods like welding, riveting, and metal bonding adhesives. These traditional options often require additional surface cleaning and finishing processes that can add time, labor, and cost.</li></ul><p>With industrial tapes from NADCO, OEMs can enjoy the following benefits:</p><ul><li><strong>Lower production costs</strong>: Tapes are a cost-effective way to improve production efficiency because they eliminate operator error, reduce assembly time, and improve workflow.</li><li><strong>Continuous bond lines</strong>: Tapes consistently bond two surfaces together, eliminating gaps and forming a seal against moisture, dust, and other impurities. They also help reduce stress and friction on moving parts.</li><li><strong>Enhanced product aesthetics</strong>: Industrial tapes can enhance the appearance of products by providing a smooth surface finish without the distortion associated with mechanical fasteners. They also protect the products from damage and prolong their lifespan.</li></ul>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_WHdrMc",
+        "text_gjt66r"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_mrcDMp": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_7nTdGX": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are the Various Tapes and Labels Used in Manufacturing for OEMs?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_9ETVct": {
+          "type": "text",
+          "settings": {
+            "text": "<p>These are the most common examples of tapes used in the manufacturing industry:</p><ul><li><strong>Performance masking tape</strong>: Performance masking tapes are manufactured to adhere to a variety of industrial surfaces, such as metal, plastics, rubber, and fiberglass. They can withstand high-temperature cure cycles, UV exposure, water, and solvents. Automotive, marine, and transportation environments that rely on industrial coatings use performance masking tapes to achieve smooth, clean lines.</li><li><strong>Duct tape</strong>: Duct tape has one side made of polyethylene resin and the other made of a rubber-based adhesive layer. It is suitable for quick repairs and for sticking temporary poly sheeting to rough surfaces like brick.</li><li><strong>Masking tape</strong>: Masking tapes are sticky adhesive tapes used to cover surfaces when painting, labeling items, or attaching masking papers. Performance-quality masking tapes are the best option for intense industrial coating applications because they can withstand high temperatures, UV exposure, and moisture.</li><li><strong>Electrical tape</strong>: Electrical tapes are pressure-sensitive tapes that provide tight seals and protect electrical wires against corrosion. They can be color-coded for quick identification.</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_7nTdGX",
+        "text_9ETVct"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/20260127_1819_Image_Generation_remix_01kfzsnjgxewfarm88b6venk8g.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 26
+      }
+    },
+    "image_with_text_XNGRbX": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_6gywbq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO produces labels from durable materials, such as vinyl, paper, foil, and foam. We primarily produce pressure-sensitive, tamper-evident, and food and beverage labels, but we can customize a specialized label solution to meet your needs. We custom-print industrial labels such as: </p><ul><li><strong>Identification labels</strong>: Identification labels help manufacturers identify individual components as well as finished production orders. These labels give products a unique, traceable digital identity throughout the supply chain, enhancing efficiency, accuracy, and customer satisfaction.</li><li><strong>Assembly instruction labels</strong>: Assembly instructions are crucial to informing end users how to assemble your product. These labels require high-quality printing technologies to produce accurate images and legible, easy-to-follow information.</li><li><strong>Finished product labels</strong>: These labels identify finished products so that they can move on to the next stage of the supply chain, whether it’s distribution to customers or transport to warehouses.</li><li><strong>Shipping/carton labels</strong>: Shipping labels identify and describe the contents of a package, containing information like product names, tracking numbers, weight, and addresses. Handlers need this information to know how to handle the carton, as it may be heavy or contain fragile items.</li><li><strong>Product serial numbers and other labels printed with variable data</strong>: With product serial numbers, manufacturers can quickly identify defective parts in case of customer complaints or product recalls. With variable data printing, manufacturers can group labels for multiple products into one larger order, lowering their per-label cost and benefiting from considerable cost savings.</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "text_6gywbq"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_27.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_WkPfkr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Gwdkcq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why OEMs Should Choose an Optimal Tape and Label Supplier in NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_qAQbwt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As an industry leader in designing and manufacturing custom adhesive tapes and labels for different industries, NADCO offers OEMs a comprehensive range of industrial tapes and labels that are tailor-made to their specific needs. Our industrial adhesives are manufactured using the latest technology and comply with stringent quality standards. We serve customers in the automotive, medical, aerospace, and other sectors. Our products are 100% made in the U.S.A. and can be shipped across all international waters.</p><p>As a custom tape and label manufacturer, NADCO understands manufacturers’ need to protect and organize parts during manufacturing, assembly, storage, and transportation. Our products are high-quality and designed to provide long-lasting protection. We make foam, safety, reflective, vinyl, tamper-evident, antimicrobial, and pressure-sensitive tapes and labels.</p><p><a href=\"https://info.nadco-inc.com/contact-us\" target=\"_blank\">Contact us</a> today to learn more about NADCO’s industrial tapes and labels.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Gwdkcq",
+        "text_qAQbwt"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_dHNEdh": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_CYzcQ3": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_CYzcQ3"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "custom_content_RJxq6c",
+    "image_with_text_mrcDMp",
+    "image_with_text_XNGRbX",
+    "rich_text_WkPfkr",
+    "apps_dHNEdh",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

@@ -1,0 +1,213 @@
+{%- liquid
+  assign mf_namespace = 'custom'
+  assign parent_key = 'parent_collection'
+  assign primary_collection_key = 'primary_collection'
+  assign max_depth = 6
+  assign delimiter = '::'
+
+  assign trail_titles = ''
+  assign trail_urls = ''
+  assign visited = ''
+
+  assign anchor_collection = blank
+  assign start_node = blank
+  assign current_title = ''
+-%}
+
+
+
+{%- if template.name == 'product' -%}
+  {%- assign current_title = product.title -%}
+  {%- if product.metafields[mf_namespace][primary_collection_key].value != blank -%}
+    {%- assign anchor_collection = product.metafields[mf_namespace][primary_collection_key].value -%}
+  {%- elsif product.collections.first != blank -%}
+    {%- assign anchor_collection = product.collections.first -%}
+  {%- endif -%}
+  {%- assign start_node = anchor_collection -%}
+
+{%- elsif template.name == 'collection' and collection != blank and collection.handle != blank -%}
+  {%- assign current_title = collection.title | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&apos;', "'" | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&amp;', '&' -%}
+  {%- assign start_node = collection.metafields[mf_namespace][parent_key].value -%}
+{%- endif -%}
+
+{%- if start_node != blank -%}
+  {%- liquid
+    assign current = start_node
+    for i in (1..max_depth)
+      if current == blank
+        break
+      endif
+      if visited contains current.handle
+        break
+      endif
+      assign visited = visited | append: current.handle | append: ','
+      assign clean_node_title = current.title | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&apos;', "'" | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&amp;', '&'
+
+      if trail_titles == ''
+        assign trail_titles = clean_node_title
+        assign trail_urls = current.url
+      else
+        assign trail_titles = clean_node_title | append: delimiter | append: trail_titles
+        assign trail_urls = current.url | append: delimiter | append: trail_urls
+      endif
+
+      assign current = current.metafields[mf_namespace][parent_key].value
+    endfor
+  -%}
+{%- endif -%}
+
+{%- assign crumb_titles = trail_titles | split: delimiter -%}
+{%- assign crumb_urls = trail_urls | split: delimiter -%}
+{%- assign crumb_count = 0 -%}
+{%- if trail_titles != '' -%}
+  {%- assign crumb_count = crumb_titles.size -%}
+{%- endif -%}
+
+
+
+{%- unless template.name == 'index' or template.name == 'cart' or template.name == 'password' -%}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {%- if template.name == 'product' or template.name == 'collection' -%}      
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        },              
+          {%- if trail_titles != '' -%}
+            {%- for title in crumb_titles -%}
+              {
+                "@type": "ListItem",
+                "position": {{ forloop.index | plus: 1 }},
+                "name": {{ title | json }},
+                "item": {{ shop.url | append: crumb_urls[forloop.index0] | json }}
+              },
+            {%- endfor -%}
+          {%- endif -%}
+          {
+            "@type": "ListItem",
+            "position": {{ crumb_count | plus: 2 }},
+            "name": {{ current_title | json }}
+          }
+          {% comment %} {%- if collection -%}
+            ,{
+              "@type": "ListItem",
+              "position": 2,
+              "name": {{ collection.title | json }},
+              "item": "{{ shop.url }}/collections/{{ collection.handle }}"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": {{ product.title | json }},
+              "item": "{{ shop.url }}{{ product.url }}"
+            }
+          {%- else -%}
+            ,{
+              "@type": "ListItem",
+              "position": 2,
+              "name": {{ product.title | json }},
+              "item": "{{ shop.url }}{{ product.url }}"
+            }
+          {%- endif -%} {% endcomment %}
+    
+        {% comment %} {%- elsif template.name == 'collection' and collection.handle -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Collections",
+            "item": "{{ shop.url }}/collections"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": {{ collection.title | json }},
+            "item": "{{ shop.url }}/collections/{{ collection.handle }}"
+          }
+          {%- if current_tags -%}
+            ,{
+              "@type": "ListItem",
+              "position": 4,
+              "name": {{ current_tags | join: ' + ' | json }},
+              "item": "{{ shop.url }}/collections/{{ collection.handle }}/{{ current_tags | join: '+' }}"
+            }
+          {%- endif -%} {% endcomment %}
+
+      {% else %}          
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ shop.url }}"
+        }
+        {%- if template.name == 'blog' -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ blog.title | json }},
+            "item": "{{ shop.url }}{{ blog.url }}"
+          }
+          {%- if current_tags -%}
+            ,{
+              "@type": "ListItem",
+              "position": 3,
+              "name": {{ current_tags | join: ' + ' | json }},
+              "item": "{{ shop.url }}{{ blog.url }}/tagged/{{ current_tags | join: '+' }}"
+            }
+          {%- endif -%}
+    
+        {%- elsif template.name == 'article' -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ blog.title | json }},
+            "item": "{{ shop.url }}{{ blog.url }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": {{ article.title | json }},
+            "item": "{{ shop.url }}{{ article.url }}"
+          }
+    
+        {%- elsif template.name == 'page' -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ page.title | json }},
+            "item": "{{ shop.url }}{{ page.url }}"
+          }
+    
+        {%- elsif template.name == 'search' -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Search Results",
+            "item": "{{ shop.url }}/search"
+          }
+    
+        {%- elsif template.name == 'list-collections' -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Collections",
+            "item": "{{ shop.url }}/collections"
+          }
+    
+        {%- else -%}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ page_title | json }},
+            "item": "{{ shop.url }}{{ request.path }}"
+          }
+        {%- endif -%}
+      {% endif %}
+      ]
+    }
+    </script>
+    {%- endunless -%}

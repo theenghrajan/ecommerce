@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "newsletter_gNMaaW": {
+      "type": "newsletter",
+      "blocks": {
+        "title_XQBMJF": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h0"
+          }
+        },
+        "text_WgbkV8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_mMGV9Y": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_XQBMJF",
+        "text_WgbkV8",
+        "form_mMGV9Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "none",
+        "align_text": "center",
+        "image": "shopify://shop_images/image_fx__81.png",
+        "image_width": "66",
+        "image_mask": "landscape",
+        "image_position": "left",
+        "divider": false,
+        "top_padding": false,
+        "bottom_padding": false
+      }
+    },
+    "commercial_sales_6YcVWJ": {
+      "type": "commercial-sales",
+      "blocks": {
+        "text_gY3wKk": {
+          "type": "text",
+          "name": "FAQ",
+          "settings": {
+            "tab_box": false,
+            "tab_heading": "FAQ",
+            "url": "shopify://pages/customer-help-center",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        },
+        "text_QTb3QB": {
+          "type": "text",
+          "name": "Volume Quote Request",
+          "settings": {
+            "tab_box": false,
+            "tab_heading": "Volume Quote Request",
+            "url": "shopify://pages/volume-quote-request",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        },
+        "text_UYb7wp": {
+          "type": "text",
+          "name": "Warranty Registration",
+          "settings": {
+            "tab_box": false,
+            "tab_heading": "Warranty Registration",
+            "url": "shopify://pages/warranty-registration",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        },
+        "text_UM3ywq": {
+          "type": "text",
+          "name": "About Us",
+          "settings": {
+            "tab_box": true,
+            "tab_heading": "About Us",
+            "url": "shopify://pages/about-us",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        },
+        "text_mMCJPQ": {
+          "type": "text",
+          "name": "Contact Us",
+          "settings": {
+            "tab_box": false,
+            "tab_heading": "Contact Us",
+            "url": "shopify://pages/contact-us",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        },
+        "text_JaFkNw": {
+          "type": "text",
+          "name": "Returns",
+          "settings": {
+            "tab_box": false,
+            "tab_heading": "Returns",
+            "url": "shopify://pages/returns-form",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_gY3wKk",
+        "text_QTb3QB",
+        "text_UYb7wp",
+        "text_UM3ywq",
+        "text_mMCJPQ",
+        "text_JaFkNw"
+      ],
+      "name": "Custom tab Section",
+      "settings": {
+        "heading": ""
+      }
+    },
+    "1755169449742fd398": {
+      "type": "apps",
+      "blocks": {
+        "powr_form_builder_app_block_eGyxfR": {
+          "type": "shopify://apps/powr-form-builder/blocks/app-block/1412fe37-d89c-4706-a797-6e2b53cb4a69",
+          "settings": {
+            "app_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "powr_form_builder_app_block_eGyxfR"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "newsletter_gNMaaW",
+    "commercial_sales_6YcVWJ",
+    "1755169449742fd398"
+  ]
+}

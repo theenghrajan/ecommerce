@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "custom_top_bar_Qxmyph": {
+      "type": "custom-top-bar",
+      "blocks": {
+        "left_item_yrwVzt": {
+          "type": "left_item",
+          "settings": {
+            "icon": "shopify://shop_images/Vector.png",
+            "text": "Store Locator",
+            "link": "https://maps.app.goo.gl/DCf9ALVNsQrz8ea36"
+          }
+        },
+        "left_item_bcbypT": {
+          "type": "left_item",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_3.png",
+            "text": "Directory",
+            "link": "shopify://pages/about-us"
+          }
+        },
+        "right_item_UWifHw": {
+          "type": "right_item",
+          "settings": {
+            "icon": "shopify://shop_images/Vector_2.png",
+            "text": "Track Your Order",
+            "link": "/apps/track123"
+          }
+        }
+      },
+      "block_order": [
+        "left_item_yrwVzt",
+        "left_item_bcbypT",
+        "right_item_UWifHw"
+      ],
+      "name": "Custom Header Section",
+      "settings": {
+        "bg_color": "#000000",
+        "text_color": "#ffffff",
+        "link_color": "#ffffff",
+        "link_hover_color": "#cccccc",
+        "padding_top": 12,
+        "padding_bottom": 12,
+        "font_size": 12,
+        "max_width": 1600,
+        "promo_text": "$50 MINIMUM ORDER  •  FREE DOMESTIC SHIPPING ON ORDERS OVER $300",
+        "promo_link_text": "SHOP NOW",
+        "promo_link": "shopify://collections/all",
+        "center_font_weight": 600,
+        "shop_now_weight": 700,
+        "mobile_slide_time": 5000
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "promotion_banner_V6C7DX": {
+          "type": "promotion_banner",
+          "settings": {
+            "menu_title": "Tapes",
+            "menu_columns": 3,
+            "enable_hl_link": false,
+            "hl_link_style": "text_color",
+            "hl_link_color": "",
+            "promotions_width": 38,
+            "promotion_columns": 1,
+            "promotion_position": "right",
+            "color_scheme_1": "",
+            "content_position_1": "top-left",
+            "content_alignment_1": "left",
+            "content_gap_1": "fitted",
+            "image_overlay_opacity_1": 0,
+            "promotion_link_1": "",
+            "subheading_1": "",
+            "subheading_style_1": "",
+            "heading_1": "",
+            "heading_size_1": "h5",
+            "description_1": "",
+            "button_label_1": "",
+            "button_style_1": "btn--primary",
+            "button_icon_1": "none",
+            "color_scheme_2": "",
+            "content_position_2": "top-left",
+            "content_alignment_2": "left",
+            "content_gap_2": "fitted",
+            "image_overlay_opacity_2": 0,
+            "promotion_link_2": "",
+            "subheading_2": "",
+            "subheading_style_2": "",
+            "heading_2": "",
+            "heading_size_2": "h5",
+            "description_2": "",
+            "button_label_2": "",
+            "button_style_2": "btn--primary",
+            "button_icon_2": "none",
+            "color_scheme_3": "",
+            "content_position_3": "top-left",
+            "content_alignment_3": "left",
+            "content_gap_3": "fitted",
+            "image_overlay_opacity_3": 0,
+            "promotion_link_3": "",
+            "subheading_3": "",
+            "subheading_style_3": "",
+            "heading_3": "",
+            "heading_size_3": "h5",
+            "description_3": "",
+            "button_label_3": "",
+            "button_style_3": "btn--primary",
+            "button_icon_3": "none",
+            "color_scheme_4": "",
+            "content_position_4": "top-left",
+            "content_alignment_4": "left",
+            "content_gap_4": "fitted",
+            "image_overlay_opacity_4": 0,
+            "promotion_link_4": "",
+            "subheading_4": "",
+            "subheading_style_4": "",
+            "heading_4": "",
+            "heading_size_4": "h5",
+            "description_4": "",
+            "button_label_4": "",
+            "button_style_4": "btn--primary",
+            "button_icon_4": "none",
+            "color_scheme_5": "",
+            "content_position_5": "top-left",
+            "content_alignment_5": "left",
+            "content_gap_5": "fitted",
+            "image_overlay_opacity_5": 0,
+            "promotion_link_5": "",
+            "subheading_5": "",
+            "subheading_style_5": "",
+            "heading_5": "",
+            "heading_size_5": "h5",
+            "description_5": "",
+            "button_label_5": "",
+            "button_style_5": "btn--primary",
+            "button_icon_5": "none"
+          }
+        }
+      },
+      "block_order": [
+        "promotion_banner_V6C7DX"
+      ],
+      "settings": {
+        "call_btn_title": "Request a Quote",
+        "call_btn_link": "https://shopnadco.com/pages/request-a-quote",
+        "call_btn_bg_color": "#0077c0",
+        "call_btn_text_color": "#ffffff",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "menu": "ss-main-menu-copy",
+        "menu_mobile": "",
+        "header_layout": "logo-left-search-center",
+        "menu_trigger": "hover",
+        "sticky_header": "none",
+        "enable_collapse_on_scroll": false,
+        "show_sperator_line": false,
+        "customer_account_style": "icon-only",
+        "show_social_media_icons": true,
+        "enable_language_selector": false,
+        "enable_country_selector": true,
+        "header_top_padding_top": 20,
+        "header_top_padding_bottom": 20,
+        "navigation_color_scheme": "scheme-1",
+        "navigation_content_alignment": "center",
+        "navigation_padding_top": 0,
+        "navigation_padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "custom_top_bar_Qxmyph",
+    "header"
+  ]
+}

@@ -1,0 +1,344 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_rgeGKR": {
+      "type": "slideshow",
+      "blocks": {
+        "hero_hTt8U9": {
+          "type": "hero",
+          "settings": {
+            "top_subheading": "",
+            "title": "<p>Help Center</p>",
+            "top_space": -20,
+            "bottom_space": 0,
+            "title_size": 50,
+            "subheading": "",
+            "text_font_size": 16,
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#ffffff",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/2x2-ft-back-lit-led-panel-4-pack-3-wattages-20w-30w-40w-3-kelvin-temperatures-3cct-120-277v-0-10v-dimmable-emergency-battery-back-up-installed-nw-bl-2x2-203040w-774520.jpg",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_hTt8U9"
+      ],
+      "settings": {
+        "full_width": true,
+        "slide_width": 100,
+        "desktop_size": -90,
+        "mobile_size": -90,
+        "style": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "mini_nav_VaXX7z": {
+      "type": "mini-nav",
+      "disabled": true,
+      "settings": {
+        "menufirst_title": "Warranty Registration",
+        "menusecond_title": "Help Center",
+        "menuthird_title": "Resources",
+        "menuforuth_title": "Request Quote"
+      }
+    },
+    "learning_lounge_Mx7MLc": {
+      "type": "learning-lounge",
+      "blocks": {
+        "faq_header_zh6L3M": {
+          "type": "faq_header",
+          "settings": {
+            "heading_text": "Resources"
+          }
+        },
+        "faq_item_RqVUBP": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are Lumens?",
+            "answer": "<p>Lumens are a unit of measurement that tells you how much visible light a light emits. In simpler terms, the higher the lumens, the brighter the light. This is especially helpful when comparing different types of lighting, because it gives you a consistent way to gauge brightness regardless of the light fixtures energy consumption.<br/><br/>So next time you're shopping for lights, pay attention to the lumens to ensure you get the right brightness for your space!<br/><br/></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_z8AEte": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is Wattage?",
+            "answer": "<p>Wattage refers to the amount of electrical power a light fixture consumes to produce light, measured in watts (W). While many people used to equate higher wattage with brighter light, that's not necessarily the case with modern lighting like LEDs. Today, wattage is more about energy consumption than brightness. For example, an LED light might use only 10 watts but produce the same brightness (in lumens) as a traditional 60 watt incandescent bulb. So, when you're looking at wattage, you're essentially seeing how much electricity the light will use, which impacts your energy bill. It's a useful figure for understanding energy efficiency!<br/><br/></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_QW6i9M": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's Color Rendering Index (CRI)?",
+            "answer": "<p>Color Rendering Index, or CRI for short, is a measure of how accurately a light source reveals the true colors of objects compared to natural sunlight. Think of it as the quality of light in terms of color fidelity. CRI is rated on a scale from 0 to 100, with 100 being perfect color rendering, just like natural daylight. A higher CRI means colors will appear more vibrant and true to life under that light source. This is particularly important in settings like art studios, retail stores, or anywhere color accuracy is crucial. So, when choosing lighting, considering the CRI can help ensure that the colors in your environment look their best!</p><p><a href=\"https://www.nuwattlighting.com/blogs/news/the-importance-of-cri-in-led-lighting\">Read more</a></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_BFPcA4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's Kelvin and Color Temperature?",
+            "answer": "<p>Kelvin is the unit of measurement used to describe the color temperature of a light source. Color temperature tells you whether a light appears more yellow (warm) or blue (cool). The scale ranges from around<br/><br/>2700K Soft White<br/>3000K Warm White<br/>3500K Neutral White<br/>4000K Cool White<br/>5000K Daylight<br/><br/>Lower Kelvin numbers like 2,700K produce a warm, cozy light similar to traditional incandescent bulbs, great for living rooms and bedrooms. Higher Kelvin numbers like 5,000K offer a cool, daylight-like brightness, ideal for task lighting or workspaces. Understanding Kelvin can help you choose lighting that sets the right mood and function for your space. So, next time you're picking out LED lights, consider the Kelvin rating to get the ambiance just right!<br/><br/></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_9dpAVk": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's Ingress Protection (IP) Rating?",
+            "answer": "<p>Ingress Protection, or IP Rating, is a standardized measure that indicates how well a light fixture or electrical device is protected against solids and liquids.<br/><br/>It's usually represented by two numbers, like IP65. The first digit indicates protection against solids like dust (on a scale from 0 to 6), and the second digit indicates protection against liquids like water (on a scale from 0 to 8).<br/><br/>For example, an IP65 rating means the device is dust tight and can withstand water jets. Knowing the IP Rating is crucial when installing lighting in environments where moisture or dust is a concern, such as bathrooms, outdoors, or industrial settings.<br/><br/></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_LmpDde": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Wattage Equivalent?",
+            "answer": "<p>Wattage Equivalent is a term used to compare the brightness of new energy-efficient LEDs to traditional incandescent bulbs.<br/><br/>Since LEDs use less power to produce the same amount of light, the wattage equivalent helps you understand how bright an LED light will be compared to what you're used to. For instance, a 10 watt LED might be labeled as having a \"60W equivalent\" because it produces the same brightness as a 60 watt incandescent bulb. This makes it easier for you to choose the right LED light without getting confused by the lower wattage numbers.<br/><br/></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_8KFHEN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Beam Angles?",
+            "answer": "<p>Beam angle refers to the spread of light emitted from a light source, measured in degrees.<br/><br/>It determines how wide or narrow the light disperses. A narrow beam angle, like 15 degrees, produces a focused, spotlight effect—great for highlighting artwork or architectural features. A wider beam angle, like 60 degrees, offers more general, dispersed lighting suitable for illuminating larger areas like living rooms or offices. Understanding beam angles helps you choose the right lighting for your needs, whether you want to spotlight something special or provide broad, general illumination in a space.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_header_LCY4cF": {
+          "type": "faq_header",
+          "settings": {
+            "heading_text": "Orders"
+          }
+        },
+        "faq_item_hz4JYH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I purchased the wrong product, what now?",
+            "answer": "<p>All Sales are final after 30 days of purchase. If a customer would like to return the goods within the 30 day return window, the shipping is paid for by the customer. If the product is no longer needed, returns are subject to a 15% restocking fee unless otherwise stated by a NuWatt employee.<br/><br/>Just get in touch with our Customer Service team by email at cs@nuwattlighting.com or by phone at (862) 801-2006. They'll help you kick off the return process. Don't forget to check out our <a href=\"https://www.nuwattlighting.com/pages/refund-policy\" title=\"/pages/refund-policy\">Return Policy</a> for all the details.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_pppRcf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I received damaged, or missing items, what's next?",
+            "answer": "<p>Sorry to hear you're experiencing problems with your order. We're here to help you get it sorted out!<br/><br/>We apologize for shipping you the wrong item on your order.<br/><br/>Please return the incorrect item after speaking with our helpful Customer Service Team by email at cs@nuwattlighting.com or by phone at (862) 801-2006<br/><br/>Once your returned item is received and inspected, we will send you the replacement item.<br/><br/>Refer to our <a href=\"https://www.nuwattlighting.com/pages/refund-policy\" title=\"/pages/refund-policy\">Return Policy</a> for complete details.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_mkKA7n": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I ordered from another site and have questions about my order?",
+            "answer": "<p>No worries! If you bought a NuWatt product somewhere other than our website—like Amazon, Home Depot, etc.—and have questions about your order, we're here to help.<br/><br/>If you ordered on Amazon: Please contact Amazon Customer Service at 888-280-4331.<br/><br/>If you ordered on our website, or other online marketplaces: Reach out to our Customer Service Team, and they'll gladly review your order and answer any questions you have.<br/><br/>email cs@nuwattlighting.com or by phone at (862) 801-2006</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_cRbTHm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "I need to change my delivery or shipping address?",
+            "answer": "<ul><li><strong>If you ordered a NuWatt product on Amazon:</strong><br/>Please contact Amazon Customer Service at 888-280-4331.<br/></li><li><strong>If you ordered on our website, or other online marketplaces:</strong><br/>Reach out to our Customer Service Team by email cs@nuwattlighting.com or by phone at (862) 801-2006<br/><br/>Feel free to get in touch—we're here to make sure your order gets to the right place!</li></ul>",
+            "related_link": ""
+          }
+        },
+        "faq_item_jXD3Je": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Buy in bulk discounts?",
+            "answer": "<p>Great news! We offer bulk buying options for customers who qualify. To learn more read our article about <a href=\"https://www.nuwattlighting.com/blogs/news/discounted-led-lighting-on-large-quantity-orders\" title=\"https://www.nuwattlighting.com/blogs/news/discounted-led-lighting-on-large-quantity-orders\">NuWatt Large Quantity Order Discounts</a><br/><br/>Or <a href=\"/pages/contact-us\" title=\"/pages/contact-us\">contact us</a> directly.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_ejN49n": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I change the order I just placed?",
+            "answer": "<p>We're here to help you adjust your order.<br/><br/>Contact our Customer Service Team to cancel your current order:<br/><strong>cs@nuwattlighting.com or by phone at (862) 801-2006</strong><br/></p><p>Then, you can reorder the product(s) you want.<br/><br/><strong>Have your order number handy so our team can assist you promptly.</strong></p>",
+            "related_link": ""
+          }
+        },
+        "faq_header_LnQx76": {
+          "type": "faq_header",
+          "settings": {
+            "heading_text": "Returns"
+          }
+        },
+        "faq_item_wMCkHe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is NuWatt's refund policy?",
+            "answer": "<p><strong>Here's what you need to know:</strong></p><p><strong>RETURN OF DEFECTIVE PRODUCT</strong><br/>After obtaining a return authorization number (RMA), product should be shipped freight pre-paid to the address provided with your RMA. Failure to follow this procedure shall void this warranty. NUWATT reserves the right to (i) examine all failed LED fixtures to determine the cause of failure and patterns of usage and (ii) be the sole judge as to whether an LED fixture is defective and covered under warranty.<br/><br/><strong>RETURN POLICY</strong><br/>All Sales are final after 30 days of purchase. If a customer would like to return the goods within the 30 day return window, the shipping is paid for by the customer. If the product is no longer needed, returns are subject to a 15% restocking fee unless otherwise stated by a NuWatt employee. </p><p>Feel free to reach out to our Customer Service Team either by email at cs@nuwattlighting.com or by phone at (862) 801-2006—we're here to help!</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_yUXFm8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long it takes to get a refund from a return?",
+            "answer": "<p>Once your return is approved, we'll process your refund and apply the credit to your credit card or original method of payment. This usually takes about 3-5 business days.<br/><br/>If you've already been approved but don't see the refund on your statement yet, keep in mind that banks and credit card companies often take some time before the refund officially posts to your account. It might help to contact your financial institution or credit card company to check if there's a delay on their end.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_header_pqmgqR": {
+          "type": "faq_header",
+          "settings": {
+            "heading_text": "Warranty"
+          }
+        },
+        "faq_item_cniYFN": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where is NuWatt's full warranty policy?",
+            "answer": "<p>For detailed information, please visit our <a href=\"/pages/refund-policy\" title=\"/pages/refund-policy\">policy page</a>.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_RaRYQB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Need to activate your warranty or make a service claim?",
+            "answer": "<p><strong>Need to activate your warranty or make a service claim?<br/><br/></strong>Visit our <a href=\"/pages/warranty-registration\" title=\"/pages/warranty-registration\">Warranty Registration Page</a></p><p>Get in touch with us:</p><ul><li><strong>Email:</strong> cs@nuwattlighting.com</li><li><strong>Phone:</strong> (862) 801-2006</li></ul><p>Feel free to reach out—we're ready to assist you with any warranty activation or service claims!</p>",
+            "related_link": ""
+          }
+        },
+        "faq_header_KW7LfV": {
+          "type": "faq_header",
+          "settings": {
+            "heading_text": "Shipping"
+          }
+        },
+        "faq_item_7H4Tqw": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does NuWatt offer free shipping?",
+            "answer": "<p>Yes! <strong>GET FREE SHIPPING ON ALL ORDERS</strong></p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_gr69bE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I track my order?",
+            "answer": "<p><strong>If you ordered a NuWatt product on Amazon:</strong></p><ul><li>Please contact <strong>Amazon Customer Service</strong> at <strong>888-280-4331</strong>.</li></ul><p><strong>If you ordered on our website:</strong></p><ul><li>You should have received a tracking email with all the details about your shipment.</li><li><strong>Need further assistance?</strong> Please reach out to our Customer Service team either by email at cs@nuwattlighting.com or by phone at (862) 801-2006</li></ul>",
+            "related_link": ""
+          }
+        },
+        "faq_item_JixBxF": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I ship to a P.O. Box?",
+            "answer": "<p>Yes, you can ship to a P.O. Box</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_g6ezgE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does NuWatt Ship Internationally?",
+            "answer": "<p>NuWatt can ship orders to Canada if a freight forwarder and shipping carrier is provided.</p>",
+            "related_link": ""
+          }
+        },
+        "sidebar_link_RbKEjA": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Learning Lounge",
+            "link_url": "https://www.nuwattlighting.com/pages/resources"
+          }
+        },
+        "sidebar_link_TrtKrY": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Help Center",
+            "link_url": "https://www.nuwattlighting.com/pages/customer-help-center"
+          }
+        },
+        "sidebar_link_rhcmH9": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Blog",
+            "link_url": "/blogs/news"
+          }
+        },
+        "sidebar_link_QDgt69": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Contact Us",
+            "link_url": "/pages/contact-us"
+          }
+        },
+        "sidebar_link_jbLHDN": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Terms of Service",
+            "link_url": "/policies/terms-of-service"
+          }
+        }
+      },
+      "block_order": [
+        "faq_header_zh6L3M",
+        "faq_item_RqVUBP",
+        "faq_item_z8AEte",
+        "faq_item_QW6i9M",
+        "faq_item_BFPcA4",
+        "faq_item_9dpAVk",
+        "faq_item_LmpDde",
+        "faq_item_8KFHEN",
+        "faq_header_LCY4cF",
+        "faq_item_hz4JYH",
+        "faq_item_pppRcf",
+        "faq_item_mkKA7n",
+        "faq_item_cRbTHm",
+        "faq_item_jXD3Je",
+        "faq_item_ejN49n",
+        "faq_header_LnQx76",
+        "faq_item_wMCkHe",
+        "faq_item_yUXFm8",
+        "faq_header_pqmgqR",
+        "faq_item_cniYFN",
+        "faq_item_RaRYQB",
+        "faq_header_KW7LfV",
+        "faq_item_7H4Tqw",
+        "faq_item_gr69bE",
+        "faq_item_JixBxF",
+        "faq_item_g6ezgE",
+        "sidebar_link_RbKEjA",
+        "sidebar_link_TrtKrY",
+        "sidebar_link_rhcmH9",
+        "sidebar_link_QDgt69",
+        "sidebar_link_jbLHDN"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_rgeGKR",
+    "mini_nav_VaXX7z",
+    "learning_lounge_Mx7MLc"
+  ]
+}

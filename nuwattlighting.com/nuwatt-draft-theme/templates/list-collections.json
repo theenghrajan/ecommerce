@@ -1,0 +1,155 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "list-collections-template",
+      "blocks": {
+        "616d71db-11d2-401f-b7d2-b86bf0578c97": {
+          "type": "collection",
+          "settings": {
+            "collection": "retrofit-recessed-lighting"
+          }
+        },
+        "a14a50e1-3a56-4c89-bfd6-62f4e5c6588a": {
+          "type": "collection",
+          "settings": {
+            "collection": "canless-recessed-lighting"
+          }
+        },
+        "26470f04-81e4-4bfc-b440-07788e5ad6e8": {
+          "type": "collection",
+          "settings": {
+            "collection": "fire-rated-recessed-light"
+          }
+        },
+        "bbea79cf-8dd6-468a-84f3-c4784baf7e60": {
+          "type": "collection",
+          "settings": {
+            "collection": "smart-recessed-lighting"
+          }
+        },
+        "30038044-d9ff-407c-bd45-600f4c44f10e": {
+          "type": "collection",
+          "settings": {
+            "collection": "led-flood-lights"
+          }
+        },
+        "b5e8d60a-7ecf-49cc-b603-ba6595a23b40": {
+          "type": "collection",
+          "settings": {
+            "collection": "led-tube-lights"
+          }
+        },
+        "555560f2-6ddc-4e7e-ad62-195fd5c1a2c8": {
+          "type": "collection",
+          "settings": {
+            "collection": "led-flat-panel-surface-mount"
+          }
+        },
+        "a8c58981-cc91-4ade-bac8-2a6a72441366": {
+          "type": "collection",
+          "settings": {
+            "collection": "high-bay-led-lights"
+          }
+        },
+        "abe5ea85-295d-4d7f-9bb5-0db9318f9e57": {
+          "type": "collection",
+          "settings": {
+            "collection": "led-wall-packs"
+          }
+        },
+        "2344eb2d-2124-4296-928e-3bb08bf95830": {
+          "type": "collection",
+          "settings": {
+            "collection": "landscape-lighting"
+          }
+        }
+      },
+      "block_order": [
+        "616d71db-11d2-401f-b7d2-b86bf0578c97",
+        "a14a50e1-3a56-4c89-bfd6-62f4e5c6588a",
+        "26470f04-81e4-4bfc-b440-07788e5ad6e8",
+        "bbea79cf-8dd6-468a-84f3-c4784baf7e60",
+        "30038044-d9ff-407c-bd45-600f4c44f10e",
+        "b5e8d60a-7ecf-49cc-b603-ba6595a23b40",
+        "555560f2-6ddc-4e7e-ad62-195fd5c1a2c8",
+        "a8c58981-cc91-4ade-bac8-2a6a72441366",
+        "abe5ea85-295d-4d7f-9bb5-0db9318f9e57",
+        "2344eb2d-2124-4296-928e-3bb08bf95830"
+      ],
+      "settings": {
+        "title_enable": false,
+        "display_type": "selected",
+        "sort": "products_high"
+      }
+    },
+    "logo-list": {
+      "type": "logo-list",
+      "blocks": {
+        "logo1": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo2": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo3": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo4": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo5": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo6": {
+          "type": "logo_image",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo1",
+        "logo2",
+        "logo3",
+        "logo4",
+        "logo5",
+        "logo6"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Our brands -- DELETE THIS",
+        "heading_size": "h2",
+        "heading_position": "left",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "logo-list"
+  ]
+}

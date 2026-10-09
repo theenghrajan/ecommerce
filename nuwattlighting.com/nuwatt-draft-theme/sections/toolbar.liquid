@@ -1,0 +1,201 @@
+{%- liquid
+  assign show_selectors = false
+  assign currency_selector = false
+  assign locale_selector = false
+
+  if section.settings.show_currency_selector and shop.enabled_currencies.size > 1
+    assign currency_selector = true
+  endif
+
+  if section.settings.show_locale_selector and shop.enabled_locales.size > 1
+    assign locale_selector = true
+  endif
+
+  if currency_selector or locale_selector
+    assign show_selectors = true
+  endif
+-%}
+
+{% style %}
+  /* Figma: toolbar bg is solid yellow, text sits at the left page margin,
+     social icons are solid #202020 circles pinned to the right margin. */
+  .toolbar {
+    background: #fcc833 !important;
+    /* Figma's toolbar (node 9229:62) is 40px tall; with no explicit height
+       here the row was only as tall as its content (33px, from the 24px
+       icon circles + text line-height), leaving too little top/bottom
+       breathing room around the social icons vs. Figma's 8px each side. */
+    padding: 3.5px 0;
+  }
+  .toolbar .page-width {
+    max-width: 1900px;
+  }
+  .toolbar__content {
+    justify-content: space-between !important;
+  }
+  .toolbar .announcement-slider__content p,
+  .toolbar .announcement-slider__content strong {
+    font-weight: 500 !important;
+    letter-spacing: 0.55px;
+  }
+  .toolbar .toolbar__social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+  .toolbar .toolbar__social li {
+    margin: 0;
+  }
+  .toolbar .toolbar__social a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0 !important;
+    border-radius: 50%;
+    background: #202020;
+    transition: background-color 0.15s ease;
+  }
+  .toolbar .toolbar__social .icon {
+    position: static;
+    /* Figma: 9.6px glyph in a 24px circle (7.2px padding each side). */
+    width: 10px;
+    height: 10px;
+    transition: fill 0.15s ease;
+  }
+  .toolbar .toolbar__social .icon,
+  .toolbar .toolbar__social .icon path {
+    fill: #fff !important;
+  }
+  /* Same hover treatment already established for the footer's circular
+     social icons (`.footer__social--circular`): dark circle inverts to the
+     brand yellow with a dark glyph on hover/focus. */
+  .toolbar .toolbar__social a:hover,
+  .toolbar .toolbar__social a:focus-visible {
+    /* A darker gold than the topbar's own #fcc833, so the hovered circle
+       still stands out against the yellow bar instead of blending into it. */
+    background: #c99a1f;
+  }
+  .toolbar .toolbar__social a:hover .icon,
+  .toolbar .toolbar__social a:hover .icon path,
+  .toolbar .toolbar__social a:focus-visible .icon,
+  .toolbar .toolbar__social a:focus-visible .icon path {
+    fill: #202020 !important;
+  }
+{% endstyle %}
+
+<div data-section-id="{{ section.id }}" data-section-type="toolbar">
+  <div class="toolbar">
+    <div class="page-width">
+      <div class="toolbar__content">
+        {%- render 'announcement-bar', section: section -%}
+
+        {%- if section.settings.toolbar_social -%}
+          <div class="toolbar__item small--hide">
+            {% render 'social-icons', additional_classes: 'inline-list toolbar__social' %}
+          </div>
+        {%- endif -%}
+
+        {%- if show_selectors -%}
+          <div class="toolbar__item small--hide">
+            {%- render 'multi-selectors',
+              locale_selector: locale_selector,
+              currency_selector: currency_selector,
+              location: 'toolbar',
+              show_currency_flags: section.settings.show_currency_flags
+            -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.toolbar.name",
+  "class": "toolbar-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "announcement_center",
+      "label": "t:sections.toolbar.settings.announcement_center.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "toolbar_social",
+      "label": "t:sections.toolbar.settings.toolbar_social.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.toolbar.settings.header_language_selector",
+      "info": "t:sections.toolbar.settings.header_language_selector"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_locale_selector",
+      "label": "t:sections.toolbar.settings.show_locale_selector.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.toolbar.settings.header_currency_selector",
+      "info": "t:sections.toolbar.settings.header_currency_selector"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_currency_selector",
+      "label": "t:sections.toolbar.settings.show_currency_selector.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_currency_flags",
+      "label": "t:sections.toolbar.settings.show_currency_flags.label",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.toolbar.blocks.announcement.name",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "t:sections.toolbar.blocks.announcement.settings.richtext.label",
+          "default": "<p>Hassle-free returns. 30-day postage paid returns</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext_mobile",
+          "label": "t:sections.toolbar.blocks.announcement.settings.richtext_mobile.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement",
+        "settings": {
+          "richtext": "<p>Free shipping on all orders over $100</p>"
+        }
+      },
+      {
+        "type": "announcement",
+        "settings": {
+          "richtext": "<p>Hassle-free returns. 30-day postage paid returns</p>"
+        }
+      }
+    ]
+  },
+  "disabled_on": {
+    "groups": ["footer", "custom.popups"]
+  }
+}
+{% endschema %}

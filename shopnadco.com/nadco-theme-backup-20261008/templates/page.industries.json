@@ -1,0 +1,707 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_n8d8de": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_tD4ppd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3"
+          }
+        },
+        "text_jEnAKF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are both a <a href=\"https://shopnadco.com/collections/labels\" title=\"https://shopnadco.com/collections/labels\">custom label</a> company AND a <a href=\"https://shopnadco.com/collections/tapes\" title=\"https://shopnadco.com/collections/tapes\">custom tape</a> company that always finds a way to get the job done.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tD4ppd",
+        "text_jEnAKF"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/industries-main_hero_AI.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 0,
+        "enable_preload_image": false
+      }
+    },
+    "multicolumn_GfjHQg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_PBUYje": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20260124_1528_Jet_Engine_Blade_remix_01kfqrqtb6fk9r0kqrcwbyfv9n.png",
+            "title": "Aerospace Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Aerospace adhesives are highly versatile and available from a variety of materials to meet particular needs.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/aerospace",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_rakd3J": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/task_01kfqdcbk6f6rsz6br266tkjeb_1769238617_img_1.jpg",
+            "title": "Automotive Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Adhesive tapes used in automotive production are distinctly different from other industrial adhesives, and they must be able to withstand a variety of stresses to meet specialized needs.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/automotive",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_hH8CTW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/biotech_industry.png",
+            "title": "Biotech Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Biotechnology involves using living organisms, biological systems, or derivatives to develop or modify products for commercial use. The industry aims to produce more eco-friendly, efficient solutions for current and future problems.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/adhesive-tapes-labels-biotech-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_dDkq4p": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/chemical_industry.png",
+            "title": "Chemical Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>As essential components in the chemical industry, adhesive tapes are used to label and seal packaging and containers for a wide variety of chemical substances.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/chemical-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_UHkjLi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/task_01kfqsqmwxfs9awsjsjzg9985r_1769251566_img_1.webp",
+            "title": "Construction Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Over the past few years, adhesive tapes have become increasingly popular in the construction industry.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/construction-municipal",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_hQj98f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/education_industry.png",
+            "title": "Education Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Safety signs and warning labels are crucial elements in any building, especially educational institutions. Every institution should ensure that all structures with elements that may pose risks to students, instructors, and staff are properly labeled.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/education-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_hVCmjm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/electronix_industry.png",
+            "title": "Electronics Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/electronics",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_DFYU3G": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/foods_beverages_55675de2-80bb-40bc-abdc-2982cf2fa80a.png",
+            "title": "Food & Beverage Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>The pandemic and ensuing economic challenges have affected nearly every industry, and the food and beverage industry is no exception.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/food-beverage-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_PBUYje",
+        "column_rakd3J",
+        "column_hH8CTW",
+        "column_dDkq4p",
+        "column_UHkjLi",
+        "column_hQj98f",
+        "column_hVCmjm",
+        "column_DFYU3G"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#f5f5f5",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "NADCO® Tapes & Labels, Inc.’s capabilities are only limited to our customers’ imagination.",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>Not only have we been recognized as an excellent company for our tapes and labels, but we are the best kept secret in the label industry today!</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 4,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_Rp4gtW": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_L8pnjG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/manufacturing_industry.png",
+            "title": "Manufacturing Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Original equipment manufacturers (OEMs) play an essential role in the global economy because they manufacture, assemble, and package products for companies that sell those final products under their brand name.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/oem-manufacturing-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_NVK8Ra": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20260124_1610_Enhanced_Tape_Therapy_remix_01kfqv44k9f08bmya7kana51qd.png",
+            "title": "Medical Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/adhesive-tapes-medical-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_NNKe7j": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/task_01kfqy91vjf65v6bv84ws9emzp_1769256326_img_1.webp",
+            "title": "Nuclear Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Aerospace adhesives are highly versatile and available from a variety of materials to meet particular needs.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/nuclear-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_MHLnRg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/osha_industry.png",
+            "title": "OSHA Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Aerospace adhesives are highly versatile and available from a variety of materials to meet particular needs.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/osha-compliance",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_Cbixd9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/PPE_Industry.png",
+            "title": "PPE Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/personal-protective-equipment",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_BrPfHF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/retail_industry.png",
+            "title": "Retail Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Strong adhesive tapes are used throughout the retail industry, from product displays to signs and price tags. Retailers rely on both standard and custom adhesive solutions to attract customers, share information, secure bags, and even direct foot traffic through a store, while manufacturers require creative packaging and labeling for the product itself and shipping purposes.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/retail",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_HmQthW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20260124_1723_Image_Generation_remix_01kfqza6cqevjt587zbs98jrse.png",
+            "title": "Safety Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Safety tapes encompass a wide range of adhesive and non-adhesive solutions for a variety of different environments and uses</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/safety-industry",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_L8pnjG",
+        "column_NVK8Ra",
+        "column_NNKe7j",
+        "column_MHLnRg",
+        "column_Cbixd9",
+        "column_BrPfHF",
+        "column_HmQthW"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#f5f5f5",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Other Industries We Support",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 4,
+        "column_gap": "2xs",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_icon_trLaKx": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_m3FMqA": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "image": "shopify://shop_images/20260127_1201_Image_Generation_remix_01kfz42cxgfgjb9a40ytjqaxtm_deb83a7b-0e23-4c38-ad98-668cc55a95f8.png",
+            "max_width": 48,
+            "max_width_mb": 48,
+            "title": "Partner with NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><strong>Partner</strong><br/>Choosing a reliable tape supplier that has experience ensures that you have the perfect adhesive tapes for your applications while meeting the industry’s extremely stringent regulatory standards!</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_rq8GiM": {
+          "type": "column",
+          "settings": {
+            "icon": "phone",
+            "image": "shopify://shop_images/20260127_1202_Image_Generation_remix_01kfz44egmffgaq4sz70zp68w4_17de2f21-18ba-4570-bbe6-9f9e64085a7e.png",
+            "max_width": 48,
+            "max_width_mb": 48,
+            "title": "Flexo Printing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><strong>Analog<br/></strong>We can manufacture tape and label products up to 20\" wide and print 4-color process or up to 7 spot colors.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_LA8Qm9": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "image": "shopify://shop_images/20260127_1203_Image_Generation_remix_01kfz463k7fr2ry3mg0w93gzme_e751b07a-c97f-4c72-8a2e-5916fd6b18a5.png",
+            "max_width": 48,
+            "max_width_mb": 48,
+            "title": "30+ Years In The Printing Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><strong>Experience</strong><br/>Since 1988!</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_WqAMUc": {
+          "type": "column",
+          "settings": {
+            "icon": "map-pin",
+            "image": "shopify://shop_images/20260127_1159_Image_Generation_remix_01kfz3zskyfy680n2ms4sp4kxm_f299d8c7-03ac-4c9f-be96-c6f0b8be2fc2.png",
+            "max_width": 48,
+            "max_width_mb": 48,
+            "title": "Digital Printing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p><strong>Digital<br/></strong>NADCO® implemented digital printing in 2010 expanding productivity and flexibility to our customers</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_m3FMqA",
+        "column_rq8GiM",
+        "column_LA8Qm9",
+        "column_WqAMUc"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "WHY CHOOSE US",
+        "heading": "Customization is our specialty!",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p>we are the best kept secret in the label industry today!</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "",
+        "content_alignment": "left",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 4,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "rich_text_nCxGAA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_37KPpJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Learn More About NADCO®",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_W9Janc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We are the best kept secret in the label industry today!</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_37KPpJ",
+        "text_W9Janc"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "video_UPNUXg": {
+      "type": "video",
+      "name": "t:sections.video.name",
+      "settings": {
+        "container": "fixed",
+        "video_url": "https://youtu.be/pmbNE2mvXLQ",
+        "cover_image": "shopify://shop_images/20260127_1216_Image_Generation_remix_01kfz4wcx6f0tb7npdjvc01gkm.png",
+        "video_ratio": "adapt",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "padding_top": 30,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_RyaXzU": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_RPbg8H": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_n4CbWq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RPbg8H",
+        "button_n4CbWq"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_n8d8de",
+    "multicolumn_GfjHQg",
+    "multicolumn_Rp4gtW",
+    "multicolumn_icon_trLaKx",
+    "rich_text_nCxGAA",
+    "video_UPNUXg",
+    "image_with_text_overlay_RyaXzU"
+  ]
+}

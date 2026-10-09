@@ -1,0 +1,131 @@
+{% comment %}
+  Records the exact path clicked through the Meteor Mega Menu, for
+  snippets/breadcrumbs.liquid to replay on the collection/product page that
+  follows. Rendered UNCONDITIONALLY from layout/theme.liquid on every page -
+  breadcrumbs.liquid itself is only ever rendered on specific page types
+  (product, collection, search, cart, article), so a click starting from any
+  other page (e.g. the homepage) would never be recorded if this lived there
+  instead. Kept deliberately separate from breadcrumbs.liquid's own script so
+  the two never both attach a click listener on the same page.
+{% endcomment %}
+<script>
+  (function () {
+    'use strict';
+
+    var CLICKED_CHAIN_KEY = 'bc_clicked_chain';
+    var LAST_COLLECTION_TRAIL_KEY = 'bc_last_collection_trail';
+
+    function getSessionStorage() {
+      try {
+        var testKey = '__bc_test__';
+        window.sessionStorage.setItem(testKey, '1');
+        window.sessionStorage.removeItem(testKey);
+        return window.sessionStorage;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function writeJSON(storage, key, value) {
+      if (!storage) return;
+      try {
+        storage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        // Ignore quota / access errors.
+      }
+    }
+
+    function computeClickedChain(anchorEl) {
+      var levelAttr = anchorEl.getAttribute('data-nest-level');
+
+      if (!levelAttr) {
+        return [{ title: anchorEl.textContent.trim(), url: anchorEl.getAttribute('href') }];
+      }
+
+      var level = parseInt(levelAttr, 10);
+      var currentLink = anchorEl;
+      var currentLevel = level;
+      var chain = [];
+      var scope = anchorEl.closest('[class*="Meteor"]') || document;
+
+      while (currentLevel >= 1) {
+        chain.unshift({ title: currentLink.textContent.trim(), url: currentLink.getAttribute('href') });
+        if (currentLevel === 1) break;
+
+        var bucket = currentLink.closest('.m-nav');
+        if (!bucket || !bucket.parentElement) break;
+
+        var buckets = Array.prototype.filter.call(bucket.parentElement.children, function (el) {
+          return el.classList && el.classList.contains('m-nav');
+        });
+        var bucketIndex = buckets.indexOf(bucket);
+        if (bucketIndex === -1) break;
+
+        var parentLevelLinks = Array.prototype.slice.call(
+          scope.querySelectorAll('[data-nest-level="' + (currentLevel - 1) + '"]')
+        );
+        var parentLink = parentLevelLinks[bucketIndex];
+        if (!parentLink) break;
+
+        currentLink = parentLink;
+        currentLevel -= 1;
+      }
+
+      var topLink =
+        document.querySelector('li[data-active-with-content="true"] > a.Meteor-Navigation__Link__desktop') ||
+        document.querySelector('a.Meteor-Navigation__Link__desktop[aria-expanded="true"]');
+      if (topLink) {
+        chain.unshift({ title: topLink.textContent.trim(), url: topLink.getAttribute('href') });
+      }
+
+      return chain;
+    }
+
+    function attachMenuClickTracking(storage) {
+      document.addEventListener(
+        'click',
+        function (e) {
+          var anchor = e.target.closest(
+            'a[data-nest-level], a.Meteor-Navigation__Link__desktop, a.Meteor-Navigation__Link__mobile'
+          );
+          if (!anchor || !anchor.getAttribute('href')) return;
+
+          var chain = computeClickedChain(anchor);
+          if (chain && chain.length) {
+            writeJSON(storage, CLICKED_CHAIN_KEY, chain);
+          }
+        },
+        true
+      );
+    }
+
+    function init() {
+      var storage = getSessionStorage();
+
+      // Landing on the homepage is a reset point: with no collection page
+      // visited since, a product reached from here should show Home >
+      // Product only, not replay whatever collection trail was resolved
+      // earlier this session (that trail only "stays constant" across
+      // direct product-to-product navigation, per handleProductPage in
+      // breadcrumbs.liquid - it never implied surviving a homepage visit).
+      {% if request.page_type == 'index' %}
+      if (storage) {
+        try {
+          storage.removeItem(LAST_COLLECTION_TRAIL_KEY);
+          storage.removeItem(CLICKED_CHAIN_KEY);
+        } catch (e) {
+          // Ignore.
+        }
+      }
+      {% endif %}
+
+      attachMenuClickTracking(storage);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>

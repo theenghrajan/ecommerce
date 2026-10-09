@@ -1,0 +1,52 @@
+{% comment %}
+  This section retrieves the premium product content (images and alt texts)
+  from the custom.premium_product_content metafield and displays them.
+  If the metafield is missing or invalid, nothing will be displayed.
+{% endcomment %}
+
+<!-- Access the metafield value (JSON string) -->
+{% assign premium_content_json = product.metafields.custom.premium_product_content.value %}
+
+<!-- Check if the metafield has a value -->
+{% if premium_content_json %}
+  <!-- Parse the JSON string into a Liquid object -->
+  {% assign premium_content = premium_content_json | json_parse %}
+
+  <!-- Check if the parsed object contains the expected data -->
+  {% if premium_content.desktop_images and premium_content.mobile_images %}
+    <div class="premium-product-content">
+
+      <!-- Desktop Images -->
+      <div class="desktop-images">
+        {% for desktop_image in premium_content.desktop_images %}
+          {% if desktop_image.url and desktop_image.alt %}
+            <img src="{{ desktop_image.url }}" alt="{{ desktop_image.alt }}" class="desktop-image" />
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Mobile Images -->
+      <div class="mobile-images">
+        {% for mobile_image in premium_content.mobile_images %}
+          {% if mobile_image.url and mobile_image.alt %}
+            <img src="{{ mobile_image.url }}" alt="{{ mobile_image.alt }}" class="mobile-image" />
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Product Plus Content",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Plus Content",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

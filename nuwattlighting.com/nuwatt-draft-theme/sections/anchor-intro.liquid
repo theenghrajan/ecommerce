@@ -1,0 +1,73 @@
+{% comment %}
+  Anchor page — intro paragraph
+  Figma: "128 Audit Fixes" / Anchor page — Intro Text (node 9172:215)
+
+  Falls back to the page body content when the section text is left empty, so
+  the copy can be maintained either in the theme editor or in the page admin.
+{% endcomment %}
+
+{%- render 'anchor-head' -%}
+
+{%- liquid
+  assign intro = section.settings.text
+  if intro == blank and page.content != blank
+    assign intro = page.content
+  endif
+-%}
+
+{%- if intro != blank -%}
+  <div
+    class="anchor-section anchor-intro"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    <div class="anchor-inner">
+      <div class="anchor-intro__text rte">{{ intro }}</div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Anchor: Intro text",
+  "tag": "section",
+  "class": "anchor-section-wrapper",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "info": "Leave empty to use the page content instead. Bold the key phrase to match the design.",
+      "default": "<p>Discover our <strong>premium selection of bedroom lighting</strong> solutions designed to create the perfect ambiance. From canless recessed lights to ceiling fixtures, find energy-efficient options that combine style, performance, and long-lasting quality.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anchor: Intro text"
+    }
+  ]
+}
+{% endschema %}

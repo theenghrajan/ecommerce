@@ -1,0 +1,184 @@
+{% stylesheet %}
+        .pdp-blts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .pdp-blts-main-title {
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 0;
+            color: #000;
+        }
+
+        .pdp-blts-subtitle {
+            font-size: 1.8rem;
+            color: #9e9e9e;
+            margin-top: 5px;
+            margin-bottom: 40px;
+        }
+
+        .pdp-blts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pdp-blts-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdp-blts-title-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .pdp-blts-card-title {
+            font-size: 1.2rem;
+            color: #000;
+            margin: 0;
+        }
+
+        .pdp-blts-image-placeholder {
+            width: 24px;
+            height: 24px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+
+        .pdp-blts-card-text {
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Media Query for Tablets */
+        @media screen and (max-width: 900px) {
+            .pdp-blts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .pdp-blts-main-title {
+                font-size: 2rem;
+            }
+            
+            .pdp-blts-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Media Query for Mobile Phones */
+        @media screen and (max-width: 600px) {
+            .pdp-blts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pdp-blts-main-title {
+                font-size: 1.8rem;
+            }
+            
+            .pdp-blts-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .pdp-blts-container {
+                padding: 15px;
+            }
+        }
+
+        /* Media Query for Large Screens */
+        @media screen and (min-width: 1400px) {
+            .pdp-blts-container {
+                max-width: 1400px;
+            }
+            
+            .pdp-blts-grid {
+                gap: 40px;
+            }
+        }
+{% endstylesheet %}
+
+<div class="pdp-blts-container">
+        
+        
+        
+        <div class="pdp-blts-grid">
+            <!-- Repeated 6 times for each card -->
+            <div class="pdp-blts-card">
+                <div class="pdp-blts-title-container">
+                    <img src="/api/placeholder/24/24" alt="Section title icon" class="pdp-blts-image-placeholder">
+                    <h3 class="pdp-blts-card-title">Title of section</h3>
+                </div>
+                <p class="pdp-blts-card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            
+            <div class="pdp-blts-card">
+                <div class="pdp-blts-title-container">
+                    <img src="/api/placeholder/24/24" alt="Section title icon" class="pdp-blts-image-placeholder">
+                    <h3 class="pdp-blts-card-title">Title of section</h3>
+                </div>
+                <p class="pdp-blts-card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            
+            <div class="pdp-blts-card">
+                <div class="pdp-blts-title-container">
+                    <img src="/api/placeholder/24/24" alt="Section title icon" class="pdp-blts-image-placeholder">
+                    <h3 class="pdp-blts-card-title">Title of section</h3>
+                </div>
+                <p class="pdp-blts-card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            
+            <div class="pdp-blts-card">
+                <div class="pdp-blts-title-container">
+                    <img src="/api/placeholder/24/24" alt="Section title icon" class="pdp-blts-image-placeholder">
+                    <h3 class="pdp-blts-card-title">Title of section</h3>
+                </div>
+                <p class="pdp-blts-card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            
+            <div class="pdp-blts-card">
+                <div class="pdp-blts-title-container">
+                    <img src="/api/placeholder/24/24" alt="Section title icon" class="pdp-blts-image-placeholder">
+                    <h3 class="pdp-blts-card-title">Title of section</h3>
+                </div>
+                <p class="pdp-blts-card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+            
+            <div class="pdp-blts-card">
+                <div class="pdp-blts-title-container">
+                    <img src="/api/placeholder/24/24" alt="Section title icon" class="pdp-blts-image-placeholder">
+                    <h3 class="pdp-blts-card-title">Title of section</h3>
+                </div>
+                <p class="pdp-blts-card-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+{% schema %}
+  {
+    "name": "PDP BLTS",
+    "settings": [],
+    "presets": [
+    {
+      "name": "PDP BLTS"
+    }
+  ]
+  }
+{% endschema %}

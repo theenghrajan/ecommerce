@@ -1,0 +1,212 @@
+
+
+#jump-to-span{
+      position: absolute;
+  
+}
+
+
+
+.flex-container-parent{
+  display:flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+
+#little-hand {
+  transition: opacity 1s;
+  opacity: 1; /* Start fully visible */
+}
+
+#little-hand.hide {
+  opacity: 0; /* End fully transparent */
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin:auto;
+  overflow-y: hidden;
+  
+  gap: 30px;
+  padding: 10px 10px 10px 0;
+    scroll-behavior: smooth;
+
+}
+
+.flex-container::-webkit-scrollbar { 
+}
+
+
+
+.flex-items {
+  flex-shrink: 0;
+  
+}
+
+.flex-items a{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.flex-items a:hover{
+    color: #fcc833
+    outline: none;
+    text-decoration: none;
+  
+}
+
+.flex-items .jump-to-image{
+  flex-shrink: 0;
+  height: 170px;
+  padding: 8px;
+}
+
+
+
+.flex-items a span{
+  color: #565959;
+    border: 1px solid #d5d5d5;
+  margin-top: 15px;
+    border-radius: 40px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: "nw-medium";
+  font-size: 14px;
+  text-align: center;
+      letter-spacing: 1px;
+}
+
+
+
+
+        .flex-items:hover .jump-to-span {
+                background: #fcc833;
+    color: black;
+        }
+
+
+
+
+
+
+/* desktop view styles */
+@media only screen and (min-width: 768px) {
+
+  .jump-to-arrows{
+  display: none;
+}
+
+
+}
+
+
+/* Mobile view styles */
+@media only screen and (max-width: 768px) {
+
+  .flex-container{
+    gap: 12px;
+  }
+
+
+.jump-to-arrows svg{
+  height:8%;
+}
+
+
+
+.jump-to-arrows{
+  display: block;
+  padding: 0 5px 0 0;
+  width:20px;
+  
+}
+
+  
+.flex-container {
+
+  flex-wrap: nowrap;
+    justify-content: flex-start;
+
+}
+
+  .jump-to-image{
+
+    height: 130px !important;
+  }
+
+  
+
+.swipe{
+  position: absolute;
+      left: 15%;
+
+}
+
+.path {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: rgba(149, 147, 241, 0.5);
+  border-radius: 40px;
+  top: 28px;
+  left: 78px;
+  animation: expand 2s infinite;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes expand {
+  0% {
+    width: 20px;
+  }
+  50% {
+    width: 78px;
+    left: 20px;
+  }
+  100% {
+    width: 20px;
+  }
+}
+
+.hand-icon {
+  position: relative;
+  background-image: url('https://cdn.shopify.com/s/files/1/0293/5858/7978/files/nw-hand.png?v=1726095613');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s infinite;
+  transform-origin: 52% 62%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(30deg);
+    margin-left: 20px;
+  }
+  50% {
+    transform: rotate(-15deg);
+    margin-left: -20px;
+  }
+  100% {
+    transform: rotate(0deg);
+    margin-left: 20px;
+  }
+}
+
+
+  
+}
+
+
+
+

@@ -1,0 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header-group.name",
+  "sections": {
+    "toolbar": {
+      "type": "toolbar",
+      "blocks": {
+        "toolbar-1": {
+          "type": "announcement",
+          "settings": {
+            "richtext": "<p><strong>Free Shipping on All Orders</strong></p>",
+            "richtext_mobile": "<p><strong>Free Shipping on All Orders</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "toolbar-1"
+      ],
+      "custom_css": [],
+      "settings": {
+        "announcement_center": false,
+        "toolbar_social": true,
+        "show_locale_selector": false,
+        "show_currency_selector": false,
+        "show_currency_flags": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "03d301fb-7922-4bae-9ec8-67ee9b1b3cae": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/NW_LOGO_2024_CHARCOAL.png",
+            "logo-inverted": "shopify://shop_images/NW_LOGO_2024_CHARCOAL.png",
+            "desktop_logo_width": 400,
+            "mobile_logo_width": 200
+          }
+        }
+      },
+      "block_order": [
+        "03d301fb-7922-4bae-9ec8-67ee9b1b3cae"
+      ],
+      "custom_css": [],
+      "settings": {
+        "main_menu_link_list": "ss-main-menu",
+        "main_menu_alignment": "center",
+        "megamenu_bg": "#ffffff",
+        "link_color": "#202020",
+        "mega_products": false,
+        "header_sticky": false,
+        "header_footer_menu": true,
+        "sticky_index": false,
+        "sticky_collection": false
+      }
+    }
+  },
+  "order": [
+    "toolbar",
+    "header"
+  ]
+}

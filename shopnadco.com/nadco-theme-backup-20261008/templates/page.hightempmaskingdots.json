@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_NrNyUf": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VxkxVN": {
+          "type": "heading",
+          "settings": {
+            "heading": "High Performance Masking Tape",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VxkxVN"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_AYhQJT": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_7Jfhfz": {
+          "type": "heading",
+          "settings": {
+            "heading": "High Performance Masking Tape",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_MJBAD4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Masking Tape232 Masking Tape(PDF – 607KB)",
+            "button_link": "https://cdn.shopify.com/s/files/1/0961/4517/8946/files/232-high-performance-masking-tape_0ed48a11-46a9-4e8b-9233-4805675b6800.pdf?v=1773727444",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7Jfhfz",
+        "button_MJBAD4"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/high-performance-masking-tape-thumb_jpg.webp",
+        "image_position": "left",
+        "image_width": 40,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "custom_liquid_t9rywL": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<style>\n.nadco-tech-table-wrapper {\n  margin: 24px 0;\n  overflow-x: auto;\n}\n\n.nadco-tech-table {\n  width: 100%;\n  border-collapse: collapse;\n  font-size: 14px;\n  min-width: 650px;\n}\n\n.nadco-tech-table td {\n  border: 1px solid #e5e5e5;\n  padding: 10px;\n  vertical-align: top;\n}\n\n.nadco-tech-header {\n  background: #f7f7f7;\n  font-size: 16px;\n  font-weight: 600;\n}\n\n.nadco-tech-section {\n  background: #fafafa;\n  font-weight: 600;\n  width: 180px;\n}\n\n.nadco-tech-table ul {\n  margin: 0;\n  padding-left: 18px;\n}\n\n.nadco-tech-table li {\n  margin-bottom: 6px;\n}\n\n/* Mobile */\n@media (max-width: 768px) {\n  .nadco-tech-table,\n  .nadco-tech-table tbody,\n  .nadco-tech-table tr,\n  .nadco-tech-table td {\n    display: block;\n    width: 100%;\n  }\n\n  .nadco-tech-table {\n    min-width: 100%;\n  }\n\n  .nadco-tech-table tr {\n    margin-bottom: 14px;\n    border: 1px solid #e5e5e5;\n  }\n\n  .nadco-tech-table td {\n    border: none;\n    border-bottom: 1px solid #eee;\n  }\n\n  .nadco-tech-table td:first-child {\n    background: #f7f7f7;\n    font-weight: 600;\n  }\n}\n</style>\n\n<div class=\"nadco-tech-table-wrapper\">\n  <table class=\"nadco-tech-table\">\n    <tbody>\n\n      <tr class=\"nadco-tech-header\">\n        <td colspan=\"5\">Technical Data</td>\n      </tr>\n\n      <tr>\n        <td class=\"nadco-tech-section\">Product Description</td>\n        <td colspan=\"4\">\n          232 High Performance Masking Tape is designed for medium temperature paint bake operations.\n        </td>\n      </tr>\n\n      <tr>\n        <td rowspan=\"3\" class=\"nadco-tech-section\">Product Construction</td>\n        <td><strong>Backing</strong></td>\n        <td><strong>Adhesive</strong></td>\n        <td><strong>Color</strong></td>\n        <td><strong>Roll Length</strong></td>\n      </tr>\n\n      <tr>\n        <td>Smooth crepe paper with solvent resistant saturant</td>\n        <td>Rubber</td>\n        <td>Tan</td>\n        <td>55 m (60.17 yds.)</td>\n      </tr>\n\n      <tr>\n        <td colspan=\"4\">*Available in metric widths (e.g., 24 mm ≈ 1 inch)</td>\n      </tr>\n\n      <tr>\n        <td rowspan=\"7\" class=\"nadco-tech-section\">Typical Physical Properties</td>\n        <td colspan=\"4\">Values are representative only and not for specification purposes.</td>\n      </tr>\n\n      <tr>\n        <td colspan=\"4\"><strong>ASTM Test Method</strong></td>\n      </tr>\n\n      <tr>\n        <td colspan=\"2\">Adhesion to Steel</td>\n        <td>37 oz./in. (41 N/100 mm)</td>\n        <td>D-3330</td>\n      </tr>\n\n      <tr>\n        <td colspan=\"2\">Tensile Strength</td>\n        <td>27 lbs./in. (472 N/100 mm)</td>\n        <td>D-3759</td>\n      </tr>\n\n      <tr>\n        <td colspan=\"2\">Elongation</td>\n        <td>8%</td>\n        <td>D-3759</td>\n      </tr>\n\n      <tr>\n        <td colspan=\"2\">Tape Thickness</td>\n        <td>6.3 mils (0.16 mm)</td>\n        <td>D-3652</td>\n      </tr>\n\n      <tr>\n        <td colspan=\"2\">Temperature Range</td>\n        <td colspan=\"2\">Up to 250°F (121°C) for 30 minutes</td>\n      </tr>\n\n      <tr>\n        <td class=\"nadco-tech-section\">Features</td>\n        <td colspan=\"4\">\n          <ul>\n            <li>Clean removal up to 250°F (121°C) for 30 minutes</li>\n            <li>Excellent resistance on difficult surfaces</li>\n            <li>Better sunlight resistance than standard tapes</li>\n            <li>Can meet PPP-T-42C Type I standards</li>\n          </ul>\n        </td>\n      </tr>\n\n      <tr>\n        <td class=\"nadco-tech-section\">Application Ideas</td>\n        <td colspan=\"4\">\n          <ul>\n            <li>Paint masking</li>\n            <li>Holding, bundling, protection</li>\n          </ul>\n        </td>\n      </tr>\n\n      <tr>\n        <td class=\"nadco-tech-section\">Storage</td>\n        <td colspan=\"4\">Store at 70°F (21°C) and 50% RH in original carton.</td>\n      </tr>\n\n      <tr>\n        <td class=\"nadco-tech-section\">Shelf Life</td>\n        <td colspan=\"4\">Use within one year from manufacture date.</td>\n      </tr>\n\n    </tbody>\n  </table>\n</div>",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_overlay_KTfTqJ": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_y7G3Xk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_qXbWXy": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_y7G3Xk",
+        "button_qXbWXy"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_NrNyUf",
+    "image_with_text_AYhQJT",
+    "custom_liquid_t9rywL",
+    "image_with_text_overlay_KTfTqJ"
+  ]
+}

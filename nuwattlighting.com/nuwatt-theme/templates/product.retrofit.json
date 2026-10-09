@@ -1,0 +1,273 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_UxChxD": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">    {{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>\n                <li><span>Warranty:&nbsp;</span><span class=\"mini-spec-meta\">5 Year</span></li>\n              </ul>\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>\n\n<div class=\"product-info__image\">\n\n    <img alt=\"retrofit base icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/retrofit-adapter-graphic.png?v=1723847271\">\n    <img alt=\"CCT Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/5CCT_BLK.png?v=1723836191\">\n    <img alt=\"Triac Dimmable Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmable_blk.png?v=1723836192\">\n    <img alt=\"Quality Materials Icon for Recessed Lighting\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Quality_Materials_BLK.png?v=1723846632\">\n\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": true
+          }
+        },
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "price",
+        "custom_UxChxD",
+        "variant_picker",
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84",
+        "buy_buttons"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_container_size": "medium",
+        "product_image_size": "square",
+        "product_zoom_enable": true,
+        "product_zoom_with_thumbnail": false,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "product_specifications_eRgVUw": {
+      "type": "product-specifications",
+      "settings": {}
+    },
+    "pdp_video_JA8QPB": {
+      "type": "pdp-video",
+      "settings": {
+        "full_width": false,
+        "title": "",
+        "title_size": 70,
+        "subheading": "",
+        "link_text": "Watch Video",
+        "link": "https://www.youtube.com/watch?v=dVqLdvs4sok",
+        "color_accent": "#fff",
+        "text_align": "vertical-center horizontal-center",
+        "video_url": "",
+        "overlay_opacity": 0,
+        "height": 450,
+        "height_mobile": 300
+      }
+    },
+    "product_page_specification_table_6kq9mf": {
+      "type": "product-page-specification-table",
+      "settings": {}
+    },
+    "product_specs_accordion_g9PWAz": {
+      "type": "product-specs-accordion",
+      "disabled": true,
+      "settings": {
+        "specs-accordion-enable": true
+      }
+    },
+    "premium_product_content_qB3aim": {
+      "type": "premium-product-content",
+      "disabled": true,
+      "settings": {}
+    },
+    "accordion_product_description_ypTWFH": {
+      "type": "accordion-product-description",
+      "disabled": true,
+      "settings": {
+        "accordion-enable": true
+      }
+    },
+    "product_downloads_kq8Bwq": {
+      "type": "product-downloads",
+      "disabled": true,
+      "settings": {
+        "product-downloads-enable": true
+      }
+    },
+    "a_plus_content_rAHpeX": {
+      "type": "a-plus-content",
+      "disabled": true,
+      "settings": {
+        "item_model_number": "NW-GMB-C6-16.5W-5CCT-WH",
+        "image_1_desktop": "shopify://shop_images/NW-GMB-C6-15.5-5CCT-WH_A__MAIN.jpg",
+        "alt_text_1_desktop": "sloped ceiling can lights product showcase desktop image",
+        "image_2_desktop": "shopify://shop_images/CRI_Main.jpg",
+        "alt_text_2_desktop": "recessed adjustable downlight CRI 90 showcase image for desktop",
+        "image_3_desktop": "shopify://shop_images/NW-GMB-C6-15.5-5CCT-WH_A__ADV_MAIN.jpg",
+        "alt_text_3_desktop": "nuwatt lighting advantages desktop image",
+        "alt_text_4_desktop": "Desktop Image 4",
+        "image_1_mobile": "shopify://shop_images/NW-GMB-C6-15.5-5CCT-WH_A__Main_Mobile.jpg",
+        "alt_text_1_mobile": "sloped ceiling can lights product showcase mobile image",
+        "image_2_mobile": "shopify://shop_images/CRI_Mobile.jpg",
+        "alt_text_2_mobile": "recessed adjustable downlight CRI 90 mobile image",
+        "image_3_mobile": "shopify://shop_images/NW-GMB-C6-15.5-5CCT-WH_A__ADV_Mobile.jpg",
+        "alt_text_3_mobile": "nuwatt lighting advantages mobile size",
+        "alt_text_4_mobile": "Mobile Image 4"
+      }
+    },
+    "16769676867018dca5": {
+      "type": "apps",
+      "blocks": {
+        "stamped_reviews_main_widget_kX6qke": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
+          }
+        },
+        "junip_product_reviews_ugc_junip_product_review_MWWUca": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "stamped_reviews_main_widget_kX6qke",
+        "junip_product_reviews_ugc_junip_product_review_MWWUca"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": true
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "page": ""
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Ask a question",
+            "phone": true
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab",
+        "contact"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "more-products-collection": {
+      "type": "more-products-collection",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5
+      }
+    },
+    "more-products-vendor": {
+      "type": "more-products-vendor",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {
+        "color_scheme": "2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_specifications_eRgVUw",
+    "pdp_video_JA8QPB",
+    "product_page_specification_table_6kq9mf",
+    "product_specs_accordion_g9PWAz",
+    "premium_product_content_qB3aim",
+    "accordion_product_description_ypTWFH",
+    "product_downloads_kq8Bwq",
+    "a_plus_content_rAHpeX",
+    "16769676867018dca5",
+    "sub",
+    "more-products-collection",
+    "recommendations",
+    "more-products-vendor",
+    "recently-viewed",
+    "collection-return"
+  ]
+}

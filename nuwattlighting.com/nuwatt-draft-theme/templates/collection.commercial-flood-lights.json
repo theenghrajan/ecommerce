@@ -1,0 +1,178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_UWEtbi": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Commercial Exterior LED Flood Lights Collection",
+        "collection_seo_description": "Our commercial LED flood lights are built for durability and outdoor performance. They are ideal for ensuring visibility and safety in large areas. Pair them with additional commercial flood lights for expanded coverage."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "faq_8yycRg": {
+      "type": "faq",
+      "blocks": {
+        "question_PLUy8t": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_qT3WzY": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_k4VPPf": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_PLUy8t",
+        "question_qT3WzY",
+        "question_k4VPPf"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_jj6GAz": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_pcGEry": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_4aQVzp": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_XKxzDT": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_98JfGW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_brgHyA": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_ptLqMD": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_pcGEry",
+        "question_4aQVzp",
+        "question_XKxzDT",
+        "question_98JfGW",
+        "question_brgHyA",
+        "question_ptLqMD"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_nbrCVW": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Commercial Exterior LED Flood Lights Collection",
+        "collection_seo_description": "Our commercial LED flood lights are built for durability and outdoor performance. They are ideal for ensuring visibility and safety in large areas. Pair them with additional commercial flood lights for expanded coverage."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_UWEtbi",
+    "main-collection",
+    "faq_8yycRg",
+    "collection_metafield_faq_jj6GAz",
+    "recently-viewed",
+    "expandable_description_nbrCVW"
+  ]
+}

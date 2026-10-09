@@ -1,0 +1,352 @@
+{%- comment -%}
+  Section: Collection Description Block
+  Purpose : Renders a collapsible "Category Description" block below the product grid.
+            Content is pulled from the native collection.description field so it is
+            editable by Content / PM in Shopify Admin without a code deploy.
+
+  Schema settings exposed in the theme editor:
+    • enable_description  – master on/off toggle (defaults to true)
+    • read_more_label     – CTA label when collapsed  (default "Read More")
+    • read_less_label     – CTA label when expanded   (default "Read Less")
+    • collapsed_lines     – number of lines shown before truncation (2–8)
+    • color_scheme        – inherits theme color-scheme picker
+    • padding_top/bottom  – standard section padding controls
+{%- endcomment -%}
+
+{%- if section.settings.enable_description and collection.description != blank -%}
+
+  {%- assign section_id = 'CollDescBlock-' | append: section.id -%}
+
+  {%- comment -%} ─── Scoped CSS ─────────────────────────────────────────── {%- endcomment -%}
+  <style>
+    /* Wrapper — reuses theme page-width + color scheme utilities */
+    #{{ section_id }} {
+      padding-top:    {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    /* Inner constrained container */
+    #{{ section_id }} .cdb__inner {
+      /*  max-width: 76rem;          ~760px — comfortable reading width */
+    }
+
+    /* The collapsible text area */
+    #{{ section_id }} .cdb__body {
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      /* Default collapsed state is set via inline style in Liquid below,
+         calculated from collapsed_lines × approx line-height (1.7em × 16px ≈ 27px/line) */
+    }
+
+    /* Ensure rich-text children (p, ul, ol, h1–h6) use theme typography */
+    #{{ section_id }} .cdb__body > * {
+      font-family:    var(--font-body-family, inherit);
+      font-size:      var(--font-body-size, 1.6rem);
+      line-height:    var(--font-body-line-height, 1.7);
+      color:          rgb(var(--color-foreground));
+      margin-top:     0;
+      margin-bottom:  1.6rem;
+    }
+    #{{ section_id }} .cdb__body > *:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Fade overlay that signals more content beneath */
+    #{{ section_id }} .cdb__fade {
+      position:   relative;
+      margin-top: -3.2rem;    /* overlap the last line */
+      height:     3.2rem;
+      background: linear-gradient(to bottom, transparent, rgb(var(--color-background, 255 255 255)));
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #{{ section_id }}.is-expanded .cdb__fade {
+      opacity: 0;
+      height:  0;
+      margin:  0;
+    }
+
+    /* Toggle button — uses theme btn--underline pattern */
+    #{{ section_id }} .cdb__toggle {
+      display:         inline-flex;
+      align-items:     center;
+      gap:             0.4rem;
+      margin-top:      1.2rem;
+      background:      none;
+      border:          none;
+      padding:         0;
+      cursor:          pointer;
+      font-family:     var(--font-body-family, inherit);
+      font-size:       var(--font-body-size, 1.6rem);
+      font-weight:     var(--font-body-weight-bolder, 600);
+      color:           rgb(var(--color-foreground));
+      text-decoration: underline;
+      text-underline-offset: 0.3em;
+      transition:      opacity 0.2s ease;
+    }
+    #{{ section_id }} .cdb__toggle:hover {
+      opacity: 0.7;
+    }
+
+    /* Chevron icon — rotates on expand */
+    #{{ section_id }} .cdb__toggle-icon {
+      display:          inline-block;
+      width:            0.5em;
+      height:           0.5em;
+      margin-left: 5px;
+      flex-shrink:      0;
+      transition:       transform 0.3s ease;
+      /* Simple CSS chevron via borders, no SVG dependency */
+      border-right:     0.15em solid currentColor;
+      border-bottom:    0.15em solid currentColor;
+      transform:        rotate(45deg);   /* ↓ collapsed */
+    }
+    #{{ section_id }}.is-expanded .cdb__toggle-icon {
+      transform: rotate(-135deg);        /* ↑ expanded */
+    }
+
+    /* ── Mobile tweaks ─────────────────────────────────────────────────── */
+    @media (max-width: 767px) {
+      #{{ section_id }} .cdb__inner {
+        max-width: 100%;
+      }
+      #{{ section_id }} .cdb__toggle {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+  {%- comment -%}
+    Collapsed max-height: collapsed_lines × (font-size × line-height).
+    We use 2.72rem per line (1.6rem × 1.7) as a safe approximation.
+    This drives the CSS without JS touching layout on page load.
+  {%- endcomment -%}
+  {%- assign line_height_rem  = 2.72 -%}
+  {%- assign collapsed_height = section.settings.collapsed_lines | times: line_height_rem -%}
+
+  <div
+    id="{{ section_id }}"
+    class="section--padding page-width page-width--{{ section.settings.container }} color-{{ section.settings.color_scheme }}"
+    data-read-more-label="{{ section.settings.read_more_label | escape }}"
+    data-read-less-label="{{ section.settings.read_less_label | escape }}"
+    data-collapsed-height="{{ collapsed_height }}rem"
+  >
+    <div class="cdb__inner">
+
+      {%- comment -%} Body — inline max-height keeps the collapsed state correct before JS runs {%- endcomment -%}
+      <div
+        class="cdb__body"
+        id="{{ section_id }}-body"
+        style="max-height: {{ collapsed_height }}rem;"
+        aria-expanded="false"
+      >
+        {{ collection.description }}
+      </div>
+
+      {%- comment -%} Fade overlay — hidden via CSS once expanded {%- endcomment -%}
+      <div class="cdb__fade" aria-hidden="true"></div>
+
+      <button
+        type="button"
+        class="cdb__toggle"
+        id="{{ section_id }}-toggle"
+        aria-controls="{{ section_id }}-body"
+        aria-expanded="false"
+      >
+        {{ section.settings.read_more_label | escape }}
+        <span class="cdb__toggle-icon" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </div>
+
+  {%- comment -%} ─── Scoped JS (no global leakage, idempotent) ──────────── {%- endcomment -%}
+  <script>
+  (function () {
+    'use strict';
+
+    function initCollDescBlock(sectionEl) {
+      var body       = sectionEl.querySelector('.cdb__body');
+      var btn        = sectionEl.querySelector('.cdb__toggle');
+      var readMore   = sectionEl.dataset.readMoreLabel || 'Read More';
+      var readLess   = sectionEl.dataset.readLessLabel || 'Read Less';
+      var collapsedH = sectionEl.dataset.collapsedHeight || '8rem';
+
+      if (!body || !btn) return;
+
+      // Detect whether all content already fits within the collapsed height —
+      // if so, hide the toggle entirely (nothing to expand).
+      function checkNeedsToggle() {
+        // Temporarily uncap to measure real scrollHeight
+        body.style.maxHeight = 'none';
+        var fullHeight = body.scrollHeight;
+        body.style.maxHeight = collapsedH;
+
+        var collapsedPx = parseFloat(collapsedH) *
+          parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+        if (fullHeight <= collapsedPx + 4) {
+          // Content fits; remove fade + toggle button
+          btn.style.display = 'none';
+          var fade = sectionEl.querySelector('.cdb__fade');
+          if (fade) fade.style.display = 'none';
+          body.style.maxHeight = 'none';
+          body.setAttribute('aria-expanded', 'true');
+        }
+      }
+
+      function expand() {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-expanded', 'true');
+        // Update label — the icon flips via CSS .is-expanded
+        btn.childNodes[0].nodeValue = readLess + ' ';
+        sectionEl.classList.add('is-expanded');
+      }
+
+      function collapse() {
+        body.style.maxHeight = collapsedH;
+        body.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.childNodes[0].nodeValue = readMore + ' ';
+        sectionEl.classList.remove('is-expanded');
+      }
+
+      btn.addEventListener('click', function () {
+        if (sectionEl.classList.contains('is-expanded')) {
+          collapse();
+          // Smooth-scroll to section top so user isn't lost after collapse
+          sectionEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          expand();
+        }
+      });
+
+      // Set initial button text (with trailing space before the icon span)
+      btn.childNodes[0].nodeValue = readMore + ' ';
+
+      // Run overflow check after fonts / images have settled
+      if (document.readyState === 'complete') {
+        checkNeedsToggle();
+      } else {
+        window.addEventListener('load', checkNeedsToggle);
+      }
+    }
+
+    // Standard DOM-ready init
+    function onReady() {
+      var el = document.getElementById('{{ section_id }}');
+      if (el) initCollDescBlock(el);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', onReady);
+    } else {
+      onReady();
+    }
+
+    // Theme editor live-reload support
+    document.addEventListener('shopify:section:load', function (e) {
+      if (e.detail && e.detail.sectionId === '{{ section.id }}') {
+        onReady();
+      }
+    });
+
+  }());
+  </script>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection Description",
+  "tag": "div",
+  "class": "collection-description-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Category Description Block"
+    },
+    {
+      "type": "paragraph",
+      "content": "Displays the collection's native description field with a collapsible Read More / Read Less toggle. Enable or disable per collection from this panel — no code deploy needed."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_description",
+      "label": "Show category description",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "collapsed_lines",
+      "min": 2,
+      "max": 8,
+      "step": 1,
+      "default": 3,
+      "label": "Visible lines before Read More"
+    },
+    {
+      "type": "text",
+      "id": "read_more_label",
+      "label": "\"Read More\" button label",
+      "default": "Read More"
+    },
+    {
+      "type": "text",
+      "id": "read_less_label",
+      "label": "\"Read Less\" button label",
+      "default": "Read Less"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Container width",
+      "options": [
+        { "value": "fixed", "label": "Fixed" },
+        { "value": "full",  "label": "Full width" }
+      ],
+      "default": "fixed"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Description"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,461 @@
+{% comment %}
+  Two Image Row — a standalone reimplementation of the "two side promo tiles"
+  half of sections/banr-grid-o2.liquid, rebuilt because that section's tiles
+  disappear on mobile.
+
+  Root cause in banr-grid-o2.liquid: `.headr-gallery__side-link` carries an
+  unconditional `flex: 1 1 0` (flex-basis: 0), sized correctly for the
+  desktop row layout (it splits available WIDTH evenly). At the two
+  stacked-column breakpoints (max-width: 1024px and max-width: 767px),
+  `.headr-gallery__side-container` switches to `flex-direction: column`,
+  which flips the flex main axis to HEIGHT — so that same `flex-basis: 0`
+  now means "start at 0 height", and since the parent's own height is
+  `auto` (sized by its children, not a fixed value), flex-grow has no
+  defined extra space to distribute into. The tiles collapse to 0px tall
+  and effectively vanish, even though they're still in the DOM.
+
+  Fix here: at the two column-direction breakpoints, the tile's `flex`
+  shorthand resets to `flex: 0 0 auto` (auto flex-basis) instead of
+  carrying the row layout's `1 1 0` forward — so height is governed purely
+  by `aspect-ratio` + `height: auto`, which works with any parent height
+  because it doesn't depend on flex-grow distributing space at all.
+
+  Every other CSS value below (colors, fonts, spacing, gradient, radii,
+  breakpoint sizing) is copied verbatim from banr-grid-o2.liquid's
+  `.headr-gallery__side-*` rules — only the flex mechanics changed. Classes
+  are renamed (two-image-row__*) so this section can't collide with or be
+  affected by banr-grid-o2.liquid if both ever appear on the same page.
+{% endcomment %}
+
+{% style %}
+  #shopify-section-{{ section.id }} .two-image-row {
+    margin: 0 auto;
+  }
+
+  /* The section immediately above this one (banr-grid-o2.liquid) renders
+     wider than the theme's normal page-width because of a leftover
+     `.headr-gallery-container.page-width{max-width:1900px}` rule (2-class
+     specificity, unconditional) that overrides the theme's own responsive
+     page-width cap (`.page-width{max-width:1265.62px}` at >=1200px,
+     assets/responsives.css). Matching that exact mechanism here so this
+     section lines up with the one above it instead of following the
+     theme's normal (narrower) page-width at this viewport. */
+  #shopify-section-{{ section.id }} .two-image-row.page-width {
+    max-width: 1900px !important;
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  /* The tile is a flex column with the overlay as its only (normal-flow)
+     child, pushed to the bottom via justify-content — NOT the more common
+     "overlay: position:absolute, height:100%" pattern. That matters for
+     one specific reason: with an absolutely-positioned overlay, the tile's
+     own height is set purely by CSS (aspect-ratio, or the height slider
+     below) with nothing tying it to the overlay's actual content size — so
+     if a merchant picks a short height, or the text is long enough to wrap
+     more lines than expected, the text has no way to make the box taller;
+     it just silently overflows past the rounded corners. Keeping the
+     overlay in normal flow means its real content height genuinely
+     contributes to the tile's height, so `min-height` (rather than a hard
+     `height`) can act as a floor that the box is still free to grow past
+     if the content needs more room — image included, since it's an
+     absolutely-positioned layer that stretches to match whatever height
+     the tile ends up at either way. */
+  #shopify-section-{{ section.id }} .two-image-row__tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative;
+    flex: 1 1 0;
+    min-height: 380px;
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    z-index: 0;
+    opacity: 0;
+    animation: two-image-row-fade-in 1.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  }
+
+  @keyframes two-image-row-fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* The gradient scrim lives on its own full-coverage layer (this
+     pseudo-element) rather than on .two-image-row__overlay directly.
+     .two-image-row__overlay is deliberately sized to its own text content
+     (see the comment on .two-image-row__tile above) so it can grow the
+     tile taller when text needs more room — but that means its own box no
+     longer spans the tile's full height, so a background painted on it
+     would only cover the bottom portion where the text sits, leaving the
+     rest of the image with no scrim at all. This layer always matches the
+     tile's full rendered height (position:absolute; inset:0, same as the
+     image), independent of how tall the text content is. */
+  #shopify-section-{{ section.id }} .two-image-row__tile::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 20px;
+    pointer-events: none;
+    /* Same diagonal scrim on both tiles — banr-grid-o2.liquid's equivalent
+       ("grdnt" class) only applied a flat left-to-right fade, and only to
+       the first tile, leaving the second with no scrim at all. */
+    background: linear-gradient(
+      217.7deg,
+      rgba(0, 0, 0, 0) 9.3%,
+      rgba(0, 0, 0, 0.513) 44.5%,
+      rgba(0, 0, 0, 0.639) 64.4%,
+      rgba(0, 0, 0, 0.9) 95%
+    );
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__overlay {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  /* Font sizes below are fixed (no responsive escalation) rather than
+     scaling per breakpoint, matching Figma "128 Audit Fixes" node 9229:59
+     exactly (title 24px/900, description 14px/500, button 14px/600 — one
+     size each, not a range). This also matches what banr-grid-o2.liquid's
+     equivalent tiles actually render at every breakpoint in practice: its
+     title carries the same fixed-24px rule at #shopify-section-scoped
+     specificity, which silently wins over that file's own per-breakpoint
+     font-size escalation (plain-class, lower specificity) — so that
+     escalation never actually applies despite being present in the file.
+     Copying the escalation here (as the first version of this section did)
+     reproduced dead code as if it were live, producing 40px+ titles instead
+     of the intended fixed 24px. */
+  #shopify-section-{{ section.id }} .two-image-row__eyebrow {
+    color: #fcc833;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: none;
+    margin: 0 0 4px;
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__title {
+    font-family: sans-serif;
+    margin: 0;
+    max-width: 100%;
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: none;
+    color: white;
+    font-size: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__description {
+    font-family: sans-serif;
+    color: white;
+    margin: 0;
+    max-width: 100%;
+    line-height: 1.5;
+    text-shadow: none;
+    opacity: .85;
+    font-size: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__button {
+    display: inline-block;
+    background-color: #fcc934;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-family: 'nw-medium';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    max-width: fit-content;
+  }
+
+  #shopify-section-{{ section.id }} .two-image-row__button:hover {
+    background-color: #ffa600;
+  }
+
+  /* Laptop and Mobile (<=1024px): the container stacks to a column. The
+     tile's row-sized `flex: 1 1 0` needs to reset to `flex: 0 0 auto` here
+     — flex-basis: 0 means "start at 0" on whichever axis is the flex main
+     axis, which flips from width to height once the container switches to
+     column direction, and with no flex-grow space to distribute into
+     (the container's own height is auto, not fixed), the tile would
+     otherwise collapse to 0px tall and disappear even with min-height set
+     (flex-basis still wins the initial layout pass over min-height in some
+     browsers when both are in play) — auto flex-basis avoids the ambiguity
+     entirely. */
+  @media screen and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .two-image-row__container {
+      flex-direction: column;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__tile {
+      flex: 0 0 auto;
+      min-height: 220px;
+    }
+  }
+
+  /* Laptop (768px - 1024px) */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .two-image-row__container {
+      gap: 18px;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__overlay {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Mobile (<768px) */
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .two-image-row__container {
+      gap: 15px;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__overlay {
+      padding: 1rem;
+    }
+  }
+
+  /* Desktop-only (>=1025px, same tier banr-grid-o2.liquid's height slider
+     uses) height controls for each tile. min-height (not height) is the
+     point: the slider sets a baseline, but if a tile's own text content
+     needs more room than that at a given width, the tile is free to grow
+     taller instead of clipping it — see the comment on .two-image-row__tile
+     above. The container itself needs no explicit height: with
+     align-items:stretch (default, set explicitly above) and both tiles
+     min-height-only, the container naturally sizes to the taller tile and
+     stretches the shorter one to match, so the two stay visually level
+     even when only one of them actually needed to grow. */
+  {%- if section.settings.image_1_height != blank -%}
+    @media screen and (min-width: 1025px) {
+      #shopify-section-{{ section.id }} .two-image-row__tile--1 {
+        min-height: {{ section.settings.image_1_height }}px;
+      }
+    }
+  {%- endif -%}
+  {%- if section.settings.image_2_height != blank -%}
+    @media screen and (min-width: 1025px) {
+      #shopify-section-{{ section.id }} .two-image-row__tile--2 {
+        min-height: {{ section.settings.image_2_height }}px;
+      }
+    }
+  {%- endif -%}
+{% endstyle %}
+
+<div class="two-image-row page-width">
+  <div class="two-image-row__container">
+    {%- liquid
+      assign tile_1_blank = true
+      if section.settings.image_1_src != blank or section.settings.eyebrow_1 != blank or section.settings.header_title_1 != blank or section.settings.sub_header_text_1 != blank or section.settings.button_text_1 != blank
+        assign tile_1_blank = false
+      endif
+    -%}
+    {%- unless tile_1_blank -%}
+    <a
+      href="{% if section.settings.image_1_link %}{{ section.settings.image_1_link }}{% else %}https://www.nuwattlighting.com{% endif %}"
+      class="two-image-row__tile two-image-row__tile--1"
+    >
+      <div class="two-image-row__overlay">
+        {% if section.settings.eyebrow_1 != blank %}
+          <p class="two-image-row__eyebrow">{{ section.settings.eyebrow_1 }}</p>
+        {% endif %}
+        {% if section.settings.header_title_1 != blank %}
+          <h2 class="two-image-row__title">{{ section.settings.header_title_1 }}</h2>
+        {% endif %}
+        {% if section.settings.sub_header_text_1 != blank %}
+          <p class="two-image-row__description">{{ section.settings.sub_header_text_1 }}</p>
+        {% endif %}
+        {% if section.settings.button_text_1 != blank %}
+          <button class="two-image-row__button">{{ section.settings.button_text_1 }}</button>
+        {% endif %}
+      </div>
+
+      <img
+        src="{% if section.settings.image_1_src %}{{ section.settings.image_1_src | remove_first: 'files/' | file_url }}{% else %}https://cdn.shopify.com/s/files/1/0293/5858/7978/files/iStock-853258138_15a105a5-758f-42a3-9a0c-b41cc88b8999.jpg{% endif %}"
+        alt="{{ section.settings.image_1_alt }}"
+        class="two-image-row__image"
+        width="620"
+        height="380"
+        loading="lazy"
+      >
+    </a>
+    {%- endunless -%}
+    {%- liquid
+      assign tile_2_blank = true
+      if section.settings.image_2_src != blank or section.settings.eyebrow_2 != blank or section.settings.header_title_2 != blank or section.settings.sub_header_text_2 != blank or section.settings.button_text_2 != blank
+        assign tile_2_blank = false
+      endif
+    -%}
+    {%- unless tile_2_blank -%}
+    <a
+      href="{% if section.settings.image_2_link %}{{ section.settings.image_2_link }}{% else %}https://www.nuwattlighting.com{% endif %}"
+      class="two-image-row__tile two-image-row__tile--2"
+    >
+      <div class="two-image-row__overlay">
+        {% if section.settings.eyebrow_2 != blank %}
+          <p class="two-image-row__eyebrow">{{ section.settings.eyebrow_2 }}</p>
+        {% endif %}
+        {% if section.settings.header_title_2 != blank %}
+          <h2 class="two-image-row__title">{{ section.settings.header_title_2 }}</h2>
+        {% endif %}
+        {% if section.settings.sub_header_text_2 != blank %}
+          <p class="two-image-row__description">{{ section.settings.sub_header_text_2 }}</p>
+        {% endif %}
+        {% if section.settings.button_text_2 != blank %}
+          <button class="two-image-row__button">{{ section.settings.button_text_2 }}</button>
+        {% endif %}
+      </div>
+
+      <img
+        src="{% if section.settings.image_2_src %}{{ section.settings.image_2_src | remove_first: 'files/' | file_url }}{% else %}https://cdn.shopify.com/s/files/1/0293/5858/7978/files/iStock-853258138_15a105a5-758f-42a3-9a0c-b41cc88b8999.jpg{% endif %}"
+        alt="{{ section.settings.image_2_alt }}"
+        class="two-image-row__image"
+        width="620"
+        height="380"
+        loading="lazy"
+      >
+    </a>
+    {%- endunless -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Two Image Row",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1_src",
+      "label": "Image 1"
+    },
+    {
+      "type": "text",
+      "id": "image_1_alt",
+      "label": "Image 1 alt text",
+      "default": "Image 1"
+    },
+    {
+      "type": "url",
+      "id": "image_1_link",
+      "label": "Image 1 link"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_1",
+      "label": "Eyebrow 1"
+    },
+    {
+      "type": "text",
+      "id": "header_title_1",
+      "label": "Header title 1",
+      "default": "Header Title 1"
+    },
+    {
+      "type": "text",
+      "id": "sub_header_text_1",
+      "label": "Sub header text 1",
+      "default": "Sub Header Title 1"
+    },
+    {
+      "type": "text",
+      "id": "button_text_1",
+      "label": "Button text 1",
+      "default": "Button Text 1"
+    },
+    {
+      "type": "range",
+      "id": "image_1_height",
+      "label": "Image 1 height",
+      "info": "Desktop only (1025px and up)",
+      "min": 100,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 380
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2_src",
+      "label": "Image 2"
+    },
+    {
+      "type": "text",
+      "id": "image_2_alt",
+      "label": "Image 2 alt text",
+      "default": "Image 2"
+    },
+    {
+      "type": "url",
+      "id": "image_2_link",
+      "label": "Image 2 link"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_2",
+      "label": "Eyebrow 2"
+    },
+    {
+      "type": "text",
+      "id": "header_title_2",
+      "label": "Header title 2",
+      "default": "Header Title 2"
+    },
+    {
+      "type": "text",
+      "id": "sub_header_text_2",
+      "label": "Sub header text 2",
+      "default": "Sub Header Title 2"
+    },
+    {
+      "type": "text",
+      "id": "button_text_2",
+      "label": "Button text 2",
+      "default": "Button Text 2"
+    },
+    {
+      "type": "range",
+      "id": "image_2_height",
+      "label": "Image 2 height",
+      "info": "Desktop only (1025px and up)",
+      "min": 100,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 380
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Image Row"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,486 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_n8d8de": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_jEnAKF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Home / {{ page.title }}</p>",
+            "text_size": "text-base"
+          }
+        },
+        "heading_tD4ppd": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_jEnAKF",
+        "heading_tD4ppd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "full",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "enable_preload_image": false
+      }
+    },
+    "multicolumn_GfjHQg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_PBUYje": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/46a0dff41486a476c9a4ecaaae8e02fdc0f754de.png",
+            "title": "Personal Protective Equipment",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_mwmPDw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/25d53d9e6528f0fc8b98a6b513f74eafcfbc772f.png",
+            "title": "Medical",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_KxCW7f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/2273febaed88abd2f9e7b661628e66cdbf20e0fd.png",
+            "title": "Safety",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_rWwfE6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/2cb8d74c38f3c522d546b69c898fd315046d3285.png",
+            "title": "Construction/Municipal",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Over the past few years, adhesive tapes have become increasingly popular in the construction industry. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_ECtie7": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/d49a4207241b09dcf733e5ccc5d12fbf5492568f.png",
+            "title": "Retail",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Strong adhesive tapes are used throughout the retail industry, from product displays to signs and price tags.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_P9hdqz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/51813194df9ed287924f7a344f35e9aeb2c0b9fe.png",
+            "title": "Aerospace",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_PggyJn": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/8431d2535302112dff39e59a48f15abdb7454258.png",
+            "title": "Electronics",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_9NYKQk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ece6218f06e3ceafec5a2fd287f4c5885976ceef_79332d92-5a8a-41cc-9abe-ec9db409ad3d.png",
+            "title": "Food and Beverage Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Custom labels are essential to food and beverage companies, carrying fundamental information about their products while showcasing their branding.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_rakd3J": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/df6af0c189cfb4826ebdb31a5268fef598d82981.png",
+            "title": "Nuclear",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>As the world continues to move away from fossil fuel energy sources, nuclear power is making a resurgence. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_hH8CTW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/afa20600f9324abc40ea5a0025ce46c7723ed1bf_1_17b42c64-93c5-45ec-b958-bca3157394c8.png",
+            "title": "OSHA Compliance",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>The Occupational Safety and Health Administration (OSHA) is a federal government agency that works to establish guidelines to protect employees and demonstrate workplace safety.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_UHkjLi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/e4d34c3a7f108e1d3f8ce50293ed005e7935e5d8_1_8106f7b5-52a3-47c1-9caf-8925b38cc596.png",
+            "title": "Energy and Utilities",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>A leading manufacturer and distributor since 1988, NADCO, Inc. supplies industries with custom tape, film, and label products. Believing that our capabilities are limited only by our customer’s imaginations, we design, manufacture, and deliver fully-customized products per client specifications.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_hQj98f": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/273225720e7cab033ea25904afc57b1d6bbf60c9.png",
+            "title": "Automotive",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_hVCmjm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/a8a69c4d61426b17dfccbe538a7af449d05a953c.png",
+            "title": "Biotech",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Biotechnology involves using living organisms, biological systems, or derivatives to develop or modify products for commercial use. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_DFYU3G": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/64d51cf2be28c092e0b613118d4f5c4b733d6a0a.png",
+            "title": "Manufacturing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Original equipment manufacturers (OEMs) play an essential role in the global economy because they manufacture, assemble, and package products for companies that sell those final products under their brand name.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_dDkq4p": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/d3bdad412670eb069e83d33cbff8b15e72e1b461.png",
+            "title": "School Safety Signs and Warning Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>Safety signs and warning labels are crucial elements in any building, especially educational institutions.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_jffQJy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/781af381b124513e23f31ecbda36ce24e505ea91_1.png",
+            "title": "Chemical",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p>As essential components in the chemical industry, adhesive tapes are used to label and seal packaging and containers for a wide variety of chemical substances. Common applications include labeling for hazardous drums, storage containers, barrels, bags, and more.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "#",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_PBUYje",
+        "column_mwmPDw",
+        "column_KxCW7f",
+        "column_rWwfE6",
+        "column_ECtie7",
+        "column_P9hdqz",
+        "column_PggyJn",
+        "column_9NYKQk",
+        "column_rakd3J",
+        "column_hH8CTW",
+        "column_UHkjLi",
+        "column_hQj98f",
+        "column_hVCmjm",
+        "column_DFYU3G",
+        "column_dDkq4p",
+        "column_jffQJy"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#f5f5f5",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Industries Served",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_overlay_RyaXzU": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_RPbg8H": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_n4CbWq": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "#",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RPbg8H",
+        "button_n4CbWq"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 26,
+        "padding_bottom": 26,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_n8d8de",
+    "multicolumn_GfjHQg",
+    "image_with_text_overlay_RyaXzU"
+  ]
+}

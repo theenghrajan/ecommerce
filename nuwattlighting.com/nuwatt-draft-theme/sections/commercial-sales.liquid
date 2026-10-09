@@ -1,0 +1,460 @@
+{% comment %} <div class="tabs_section">
+    <div class="page-width">
+  <div class="tab_section">
+    {% if section.settings.heading != blank %}
+    <h2 class="h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="tab_section_content">
+      <ul class="tab_section_unordered_list">
+        {% for block in section.blocks %}
+          {% if block.settings.url != blank %} 
+  {% if block.settings.tab_box %}
+  <li class="tab-btn tab_section_list {% if block.settings.tab_box %}has_checked {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box %} data-index="tab-{{ forloop.index }}" {% endif %}>
+    <a href="{{ block.settings.url }}">
+      <span class="tab_link_text">{{ block.settings.tab_heading }}</span>
+      <span class="m-arrow-right"></span>
+    </a>
+  </li>
+{% else %}
+
+    <li class="tab-btn tab_section_list {% if block.settings.tab_box %}has_checked {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box %} data-index="tab-{{ forloop.index }}" {% endif %} data-handle="{{ block.settings.url }}">
+    <a>
+      <span class="tab_link_text">{{ block.settings.tab_heading }}</span>
+      <span class="m-arrow-right"></span>
+    </a>
+  </li>
+{% endif %}
+
+          {% endif %}
+        {% endfor %}
+      </ul>
+      
+      <div class="tabs_main_content" id="tab-content-box">
+
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom tab Section",
+    "settings": [
+      {
+        "type": "text",
+        "id":"heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "tab_box",
+            "label": "Redirect to Page",
+            "info": "If you check the checkbox, the tab will be redirected to the page."
+          },
+          {
+            "type": "text",
+            "id": "tab_heading",
+            "label": "Heading"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "richtext",
+            "id": "block_content",
+            "label": "Content"
+          },
+          {
+            "type": "liquid",
+            "id": "block_liquid_content",
+            "label": "Liquid Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom tab Section"
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+// Function to load content based on handle
+function loadTabContent(handle, contentBox) {
+  contentBox.innerHTML = '<span class="loader"></span>';
+
+  fetch(`${handle}`)
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      const mainContent = doc.querySelector('.main-content');
+
+      if (mainContent) {
+        contentBox.innerHTML = mainContent.innerHTML;
+      } else {
+        contentBox.innerHTML = '<p>Content not found.</p>';
+      }
+    })
+    .catch(error => {
+      contentBox.innerHTML = '<p>Error loading content.</p>';
+      console.error(error);
+    });
+}
+
+// DOM Ready
+document.addEventListener('DOMContentLoaded', function () {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const contentBox = document.getElementById('tab-content-box');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const handle = this.getAttribute('data-handle');
+
+      // Optional: active class toggle
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      loadTabContent(handle, contentBox);
+    });
+  });
+
+  // 👇 Load first tab content on page load
+  if (tabButtons.length > 0) {
+    const firstTab = tabButtons[0];
+    firstTab.classList.add('active'); // Optional: mark as active
+    const firstHandle = firstTab.getAttribute('data-handle');
+    loadTabContent(firstHandle, contentBox);
+  }
+});
+
+</script>
+<style>
+   .tabs_main_content{
+    padding-bottom:30px;
+} 
+</style> {% endcomment %}
+
+
+<div class="tabs_section">
+    <div class="page-width">
+  <div class="tab_section">
+    {% if section.settings.heading != blank %}
+    <h2 class="h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="tab_section_content">
+      <ul class="tab_section_unordered_list">
+        {% for block in section.blocks %}
+          {% if block.settings.url != blank %} 
+  {% if block.settings.tab_box %}
+  <li class="tab-btn tab_section_list {% if block.settings.tab_box %}has_checked {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box %} data-index="tab-{{ forloop.index }}" {% endif %}>
+    <a href="{{ block.settings.url }}">
+      <span class="tab_link_text">{{ block.settings.tab_heading }}</span>
+      <span class="m-arrow-right"></span>
+    </a>
+  </li>
+{% else %}
+
+    <li class="tab-btn tab_section_list {% if block.settings.tab_box %}has_checked {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box %} data-index="tab-{{ forloop.index }}" {% endif %} data-handle="{{ block.settings.url }}">
+    <a>
+      <span class="tab_link_text">{{ block.settings.tab_heading }}</span>
+      <span class="m-arrow-right"></span>
+    </a>
+  </li>
+{% endif %}
+
+          {% endif %}
+        {% endfor %}
+      </ul>
+      
+      <div class="tabs_main_content" id="tab-content-box">
+
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Custom tab Section",
+    "settings": [
+      {
+        "type": "text",
+        "id":"heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "tab_box",
+            "label": "Redirect to Page",
+            "info": "If you check the checkbox, the tab will be redirected to the page."
+          },
+          {
+            "type": "text",
+            "id": "tab_heading",
+            "label": "Heading"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "richtext",
+            "id": "block_content",
+            "label": "Content"
+          },
+          {
+            "type": "liquid",
+            "id": "block_liquid_content",
+            "label": "Liquid Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom tab Section"
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+// Function to load content based on handle
+{% comment %} function loadTabContent(handle, contentBox) {
+  contentBox.innerHTML = '<span class="loader"></span>';
+
+  fetch(`${handle}`)
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      const mainContent = doc.querySelector('.main-content');
+
+      if (mainContent) {
+        contentBox.innerHTML = mainContent.innerHTML;
+      } else {
+        contentBox.innerHTML = '<p>Content not found.</p>';
+      }
+    })
+    .catch(error => {
+      contentBox.innerHTML = '<p>Error loading content.</p>';
+      console.error(error);
+    });
+}
+
+// DOM Ready
+document.addEventListener('DOMContentLoaded', function () {
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const contentBox = document.getElementById('tab-content-box');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const handle = this.getAttribute('data-handle');
+
+      // Optional: active class toggle
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      loadTabContent(handle, contentBox);
+    });
+  });
+
+  // 👇 Load first tab content on page load
+  if (tabButtons.length > 0) {
+    const firstTab = tabButtons[0];
+    firstTab.classList.add('active'); // Optional: mark as active
+    const firstHandle = firstTab.getAttribute('data-handle');
+    loadTabContent(firstHandle, contentBox);
+  }
+
+  {% comment %} search url  {% endcomment %}
+     const params = new URLSearchParams(window.location.search);
+  const search = params.get("page"); // e.g., ?search=about
+  if (search) {
+    const tabs = document.querySelectorAll(".tab_section_unordered_list .tab_section_list");
+
+    tabs.forEach(tab => {
+      const handle = tab.getAttribute("data-handle") || "";
+
+      if (handle.toLowerCase().includes(search.toLowerCase())) {
+        tab.classList.add("active");
+        tab.click();
+      } else {
+        tab.classList.remove("active");
+      }
+    });
+  }
+}); {% endcomment %}
+
+
+
+
+
+
+{% comment %} function loadTabContent(handle, contentBox) {
+  contentBox.innerHTML = '<span class="loader"></span>';
+
+  fetch(`${handle}`)
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      const mainContent = doc.querySelector('.main-content');
+
+      if (mainContent) {
+        contentBox.innerHTML = mainContent.innerHTML;
+      } else {
+        contentBox.innerHTML = '<p>Content not found.</p>';
+      }
+    })
+    .catch(error => {
+      contentBox.innerHTML = '<p>Error loading content.</p>';
+      console.error(error);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const contentBox = document.getElementById("tab-content-box");
+
+  // Add click listeners
+  tabButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const handle = this.getAttribute("data-handle");
+
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      loadTabContent(handle, contentBox);
+    });
+  });
+
+  // ✅ URL parameter check FIRST
+  const params = new URLSearchParams(window.location.search);
+  const search = params.get("page"); // e.g. ?page=about
+
+  if (search) {
+    const matchedTab = Array.from(tabButtons).find(tab =>
+      (tab.getAttribute("data-handle") || "")
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    );
+
+    if (matchedTab) {
+      matchedTab.classList.add("active");
+      matchedTab.click();  // ✅ Loads correct content on refresh
+      return; // ✅ Prevent loading first tab
+    }
+  }
+
+  // ✅ Load first tab ONLY if no URL param match found
+  if (tabButtons.length > 0) {
+    const firstTab = tabButtons[0];
+    firstTab.classList.add("active");
+    loadTabContent(firstTab.getAttribute("data-handle"), contentBox);
+  }
+}); {% endcomment %}
+
+
+
+
+
+
+
+
+
+function loadTabContent(handle, contentBox) {
+  contentBox.innerHTML = '<span class="loader"></span>';
+
+  fetch(`${handle}`)
+    .then(response => response.text())
+    .then(data => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, 'text/html');
+      const mainContent = doc.querySelector('.main-content');
+
+      if (mainContent) {
+        contentBox.innerHTML = mainContent.innerHTML;
+      } else {
+        contentBox.innerHTML = '<p>Content not found.</p>';
+      }
+    })
+    .catch(error => {
+      contentBox.innerHTML = '<p>Error loading content.</p>';
+      console.error(error);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const contentBox = document.getElementById("tab-content-box");
+
+  // Click listener
+  tabButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const handle = this.getAttribute("data-handle");
+
+      // active class
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      // ✅ Update URL parameter without reload
+      const url = new URL(window.location);
+      url.searchParams.set("page", handle);
+      window.history.pushState({}, "", url);
+
+      loadTabContent(handle, contentBox);
+    });
+  });
+
+  // ✅ Load based on URL param first
+  const params = new URLSearchParams(window.location.search);
+  const search = params.get("page");
+
+  if (search) {
+    const matchedTab = Array.from(tabButtons).find(tab =>
+      (tab.getAttribute("data-handle") || "")
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    );
+
+    if (matchedTab) {
+      matchedTab.classList.add("active");
+      matchedTab.click();
+      return;
+    }
+  }
+
+  // ✅ Load first tab if no param
+  if (tabButtons.length > 0) {
+    const firstTab = tabButtons[0];
+    firstTab.classList.add("active");
+    loadTabContent(firstTab.getAttribute("data-handle"), contentBox);
+  }
+});
+
+
+</script>
+<style>
+   .tabs_main_content{
+    padding-bottom:30px;
+} 
+</style>

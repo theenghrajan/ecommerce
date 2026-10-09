@@ -1,0 +1,216 @@
+
+
+{% stylesheet %}
+.faq-header-blocks{
+    font-family: nw-medium;
+    letter-spacing: 2.8px;
+    font-size: 18px;
+  margin: 25px 0 0 0;
+  
+}
+
+  
+{% endstylesheet %}
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function() {
+            const topics = document.querySelectorAll('.lighting101-topic');
+
+            topics.forEach(topic => {
+                const header = topic.querySelector('.lighting101-topic-header');
+                const content = topic.querySelector('.lighting101-topic-content');
+
+                header.addEventListener('click', () => {
+                    const isActive = topic.classList.contains('active');
+                    
+                    // Close all topics
+                    topics.forEach(t => {
+                        t.classList.remove('active');
+                        t.querySelector('.lighting101-topic-content').style.maxHeight = '0';
+                        t.querySelector('.lighting101-topic-content').style.paddingBottom = '0';
+                    });
+
+                    // If the clicked topic wasn't active, open it
+                    if (!isActive) {
+                        topic.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.paddingBottom = '15px';
+                    }
+                });
+            });
+        });
+  
+  {% endjavascript %}
+
+<div class="lighting101-container">
+  <aside class="lighting101-sidebar">
+    <h2>Quick Links</h2>
+    <nav>
+      <ul>
+        {% for block in section.blocks %}
+          {% if block.type == 'sidebar_link' %}
+            <li>
+              <a href="{{ block.settings.link_url }}" {% if forloop.first %}class="active"{% endif %}>
+                {{ block.settings.link_text }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+  <main class="lighting101-main-content">
+    <div class="page-width page-width--narrow nw-faq-section nw-faq-section-">
+      {% assign faq_blocks = section.blocks | where: 'type', 'faq_item' %}
+      {% if faq_blocks.size > 0 %}
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {% for block in faq_blocks %}
+                {
+                  "@type": "Question",
+                  "name": {{ block.settings.question | json }},
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": {{ block.settings.answer | json }}
+                  }
+                }{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ]
+          }
+        </script>
+      {% endif %}
+
+      {% for block in section.blocks %}
+        {% if block.type == 'faq_item' %}
+          <collapsible-elements>
+            <div>
+              <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-{{ block.id }}" aria-expanded="false">
+                <span class="collapsible-trigger__layout">
+                  <span>
+                    <span class="nw-faq-title">{{ block.settings.question }}</span>
+                  </span>
+                  <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                  </span>
+                </span>
+              </button>
+              <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all">
+                <div class="collapsible-content__inner rte">
+                  {{ block.settings.answer }}
+                  {% if block.settings.related_link != blank %}
+                    <p><a href="{{ block.settings.related_link }}">Read more</a></p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </collapsible-elements>
+        {% elsif block.type == 'faq_header' %}
+          <h2 class="faq-header-blocks block_{{ forloop.index }}">{{ block.settings.heading_text }}</h2>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </main>
+</div>
+
+{% schema %}
+  {
+    "name": "Learning Lounge",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "faq_item",
+        "name": "FAQ Item",
+        "limit": 50,
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question",
+            "default": "Enter your question here"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer",
+            "default": "<p>Enter your answer here.</p>"
+          },
+          {
+            "type": "url",
+            "id": "related_link",
+            "label": "Related Link (Optional)"
+          }
+        ]
+      },
+      {
+        "type": "sidebar_link",
+        "name": "Sidebar Link",
+        "limit": 10,
+        "settings": [
+          {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text",
+            "default": "Default Link Text"
+          },
+          {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link URL"
+          }
+        ]
+      },
+      {
+        "type": "faq_header",
+        "name": "FAQ Header",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading_text",
+            "label": "Heading Text",
+            "default": "Enter heading here"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Learning Lounge",
+        "category": "Custom",
+        "blocks": [
+          {
+            "type": "faq_header",
+            "settings": {
+              "heading_text": "General Questions"
+            }
+          },
+          {
+            "type": "faq_item",
+            "settings": {
+              "question": "What are Lumens?",
+              "answer": "<p>Your answer here.</p>",
+              "related_link": ""
+            }
+          },
+          {
+            "type": "faq_header",
+            "settings": {
+              "heading_text": "Technical Details"
+            }
+          },
+          {
+            "type": "faq_item",
+            "settings": {
+              "question": "What's Color Rendering Index (CRI)?",
+              "answer": "<p>Your answer here.</p>",
+              "related_link": ""
+            }
+          }
+          // Add more blocks as needed
+        ]
+      }
+    ]
+  }
+{% endschema %}

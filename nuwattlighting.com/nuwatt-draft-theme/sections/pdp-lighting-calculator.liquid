@@ -1,0 +1,1118 @@
+{% comment %}
+  PDP Lighting Layout Calculator — ported from the standalone page template
+  (which used page.title/page.content) into a section so it can sit directly
+  below the Image Rows section on the product page.
+
+  Changes from the original page-template code, kept minimal:
+  - page.title / page.content -> section.settings.heading / section.settings.content,
+    so it's still optionally editable per-instance via the Theme Editor instead of
+    being tied to a specific page's content.
+  - The "Brightness (Lumens)" input now defaults to this product's own Lumens
+    metafield (product.metafields.custom.brightness — the same field used in the
+    mini-specs bullet list) instead of starting blank, stripping the "LM" suffix
+    (e.g. "1050LM" -> "1050") since the input is type="number".
+  - Everything else (markup, styles, calculation engine, SVG rendering) is
+    reproduced as-is/unmodified.
+{% endcomment %}
+
+{%- assign default_fixture_lumens = product.metafields.custom.brightness | remove: 'LM' | remove: 'Lm' | remove: 'lm' | strip -%}
+
+<div id="lighting-layout-tool">
+
+  {% if section.settings.heading != blank %}
+    <h1 style="text-align: center; margin-bottom: 20px;">{{ section.settings.heading }}</h1>
+  {% endif %}
+
+  {% if section.settings.content != blank %}
+    <div style="max-width: 1200px; margin: 0 auto 20px auto;">
+      {{ section.settings.content }}
+    </div>
+  {% endif %}
+
+  <style>
+    /* Scoped CSS to prevent interference with your Shopify theme's global styles */
+    #lighting-layout-tool {
+      font-family: system-ui, sans-serif;
+      background: #f4f5f7;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    #lighting-layout-tool .layout-container {
+      display: flex;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #lighting-layout-tool .sidebar {
+      width: 340px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      height: fit-content;
+    }
+
+    #lighting-layout-tool .main-content {
+      flex: 1;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    #lighting-layout-tool label {
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    #lighting-layout-tool .inline-checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #lighting-layout-tool input,
+    #lighting-layout-tool select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      color: #333;
+    }
+
+    #lighting-layout-tool .area-section {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    #lighting-layout-tool .area-section h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    #lighting-layout-tool .area-a {
+      background: #e8f0fe;
+      border: 1px solid #1a73e8;
+    }
+
+    #lighting-layout-tool .area-b {
+      background: #fff4e5;
+      border: 1px solid #ff9800;
+    }
+
+    #lighting-layout-tool #outputHeader {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #1a73e8;
+      margin-bottom: 20px;
+    }
+
+    #lighting-layout-tool #lumensOutput {
+      font-size: 18px;
+      font-weight: bold;
+      color: #202124;
+      display: none; /* Hidden until button click */
+    }
+
+    #lighting-layout-tool .next-step-btn {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background: #FCC800; /* NuWatt Yellow */
+      color: #000000; /* Black Text */
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    #lighting-layout-tool .next-step-btn:hover {
+      background: #e5b400; /* Slightly darker yellow for hover effect */
+    }
+
+    #lighting-layout-tool #visualisationStep {
+      display: block; /* Shown by default now to display empty room */
+      margin-top: 10px;
+      position: relative;
+    }
+
+    #lighting-layout-tool #fixturesCountOutput {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a73e8;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    #lighting-layout-tool .spacing-card-container {
+      display: none; /* Changed to none initially */
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    #lighting-layout-tool .spacing-card {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #3c4043;
+      line-height: 1.6;
+    }
+
+    #lighting-layout-tool .spacing-card > strong {
+      color: #202124;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 6px;
+    }
+
+    /* SPACING TABLE LAYOUT STYLES */
+    #lighting-layout-tool .spacing-table-wrapper {
+      display: flex;
+      gap: 40px;
+    }
+
+    #lighting-layout-tool .spacing-table-col {
+      flex: 1;
+    }
+
+    #lighting-layout-tool .spacing-table-title {
+      font-weight: 600;
+      color: #202124;
+      margin-bottom: 6px;
+    }
+
+    #lighting-layout-tool .spacing-table-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    #lighting-layout-tool .map-legend-hud {
+      display: none; /* Changed to none initially */
+      gap: 15px;
+      background: #f8f9fa;
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 15px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    #lighting-layout-tool .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #lighting-layout-tool .legend-color-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+
+    #lighting-layout-tool svg {
+      width: 100%;
+      height: 450px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      border-radius: 6px;
+    }
+
+    #lighting-layout-tool .validation-warning {
+      color: #d93025;
+      font-size: 12px;
+      margin-top: 4px;
+      font-weight: 500;
+      display: none;
+    }
+
+    #lighting-layout-tool .input-error {
+      border: 1px solid #d93025 !important;
+      background-color: #fce8e6 !important;
+    }
+
+    #lighting-layout-tool #errorFallbackCard {
+      display: none;
+      width: 100%;
+      height: 450px;
+      background: #fdf5f5;
+      border: 2px dashed #d93025;
+      border-radius: 6px;
+      align-items: center;
+      justify-content: center;
+      color: #d93025;
+      font-size: 16px;
+      font-weight: bold;
+      box-sizing: border-box;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #lighting-layout-tool .advisory-tip-box {
+      background: #feeff0;
+      border: 1px solid #d93025;
+      color: #b06000;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    #lighting-layout-tool .advisory-tip-box.expert-note {
+      background: #e8f0fe;
+      border: 1px solid #1a73e8;
+      color: #165fc7;
+    }
+
+    #lighting-layout-tool #ambientTargetDisplay {
+      font-size: 12px;
+      color: #5f6368;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    #lighting-layout-tool pre#outputJSON {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #lighting-layout-tool .layout-container {
+        flex-direction: column;
+      }
+      #lighting-layout-tool .sidebar {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #lighting-layout-tool .spacing-table-wrapper {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+
+  <div class="layout-container">
+
+    <div class="sidebar">
+
+      <label>Lighting Goal</label>
+      <select id="lightingGoal">
+          <option value="" disabled selected>Select Lighting Goal</option>
+          <option value="task">Task / Bright Lighting</option>
+          <option value="ambient">Standard / Ambient Lighting</option>
+          <option value="accent">Accent Lighting</option>
+      </select>
+
+      <label>Room Type</label>
+      <select id="roomType">
+          <option value="" disabled selected>Select Room Type</option>
+          <option value="office">Office</option>
+          <option value="kitchen">Kitchen</option>
+          <option value="living_room">Living / Dining Room</option>
+          <option value="bedroom">Bedroom</option>
+          <option value="bathroom">Bathroom</option>
+          <option value="hallway">Hallway</option>
+      </select>
+      <div id="ambientTargetDisplay"></div>
+
+      <label>Room Shape</label>
+      <select id="shape">
+          <option value="" disabled selected>Select Room Shape</option>
+          <option value="rectangle">Rectangle</option>
+          <option value="l-shape">L-Shape</option>
+      </select>
+
+      <div style="margin-top: 10px;">
+          <label id="ceilingHeightLabel" style="margin-top: 0;">Ceiling Height (ft)</label>
+          <input id="ceilingHeight" type="number" placeholder="select ceiling height" min="8" max="16">
+          <div id="heightWarning" class="validation-warning"></div>
+
+          <label class="inline-checkbox-label">
+              <input type="checkbox" id="isVaulted"> Vaulted Ceiling
+          </label>
+      </div>
+
+      <label>Brightness (Lumens)</label>
+      <input id="fixtureLumens" type="number" placeholder="fixture brightness" min="500" max="2100" step="50" value="{{ default_fixture_lumens }}">
+      <div id="lumensWarning" class="validation-warning"></div>
+
+      <label>Color</label>
+      <select id="finish">
+          <option value="light">Light</option>
+          <option value="medium" selected>Medium</option>
+          <option value="dark">Dark</option>
+      </select>
+
+      <div class="area-section area-a">
+
+        <h3 id="areaATitle">Area A</h3>
+
+        <label id="lengthALabel">Length A (ft)</label>
+        <input id="lengthA" type="number" value="25" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <div id="lengthAWarning" class="validation-warning"></div>
+
+        <label id="widthALabel">Width A (ft)</label>
+        <input id="widthA" type="number" value="20" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <div id="widthAWarning" class="validation-warning"></div>
+
+      </div>
+
+      <div id="lShapeInputs" class="area-section area-b" style="display: none;">
+
+        <h3>Area B</h3>
+
+        <label>Length B (ft)</label>
+        <input id="lengthB" type="number" value="20" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <div id="lengthBWarning" class="validation-warning"></div>
+
+        <label>Width B (ft)</label>
+        <input id="widthB" type="number" value="15" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <div id="widthBWarning" class="validation-warning"></div>
+
+        <label>Orientation</label>
+        <select id="orientation">
+            <option value="top-left" selected>Top Left</option>
+            <option value="top-right">Top Right</option>
+            <option value="bottom-right">Bottom Right</option>
+            <option value="bottom-left">Bottom Left</option>
+        </select>
+
+      </div>
+
+    </div>
+
+    <div class="main-content">
+
+      <div id="outputHeader">
+          <div id="lumensOutput">Your room needs: Calculating...</div>
+          <button class="next-step-btn" id="nextStepBtn">View My Layout</button>
+      </div>
+
+      <div id="visualisationStep">
+          <div id="advisoryContainer"></div>
+          <div id="fixturesCountOutput">Lights Needed: -</div>
+          <div id="spacingOutput" class="spacing-card-container"></div>
+
+          <div id="mapLegendHUD" class="map-legend-hud"></div>
+          <div id="errorFallbackCard">Please input correct dimensions.</div>
+
+          <svg id="blueprintSvg"></svg>
+      </div>
+
+      <pre id="outputJSON"></pre>
+
+    </div>
+
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      let hasClickedViewLayout = false;
+
+      const roomFCTable = {
+          office: { task: { min: 35, max: 45 }, ambient: { min: 25, max: 35 }, accent: { min: 15, max: 20 } },
+          kitchen: { task: { min: 35, max: 45 }, ambient: { min: 25, max: 35 }, accent: { min: 15, max: 20 } },
+          living_room: { task: { min: 30, max: 40 }, ambient: { min: 20, max: 30 }, accent: { min: 10, max: 15 } },
+          hallway: { task: { min: 30, max: 40 }, ambient: { min: 20, max: 30 }, accent: { min: 10, max: 15 } },
+          bedroom: { task: { min: 30, max: 40 }, ambient: { min: 20, max: 30 }, accent: { min: 10, max: 15 } },
+          bathroom: { task: { min: 30, max: 35 }, ambient: { min: 20, max: 30 }, accent: { min: 10, max: 15 } }
+      };
+
+      function formatFeetInches(decimalFeet) {
+          if (isNaN(decimalFeet) || decimalFeet <= 0) return "0' 0\"";
+          const feet = Math.floor(decimalFeet);
+          const inches = Math.round((decimalFeet - feet) * 12);
+          if (inches === 12) {
+              return `${feet + 1}' 0"`;
+          }
+          return `${feet}' ${inches}"`;
+      }
+
+      function computeLumensRange(area, roomType, lightingGoal, ceilingHeight, isVaulted, finish) {
+          const fc = roomFCTable[roomType][lightingGoal];
+          const baseLumensMin = area * fc.min;
+          const baseLumensMax = area * fc.max;
+
+          let totalMultiplier = 1.0;
+          if (isVaulted) totalMultiplier += 0.10;
+
+          if (ceilingHeight > 9) {
+              totalMultiplier += ((ceilingHeight - 9) * 0.025);
+          } else if (ceilingHeight < 9) {
+              totalMultiplier -= ((9 - ceilingHeight) * 0.025);
+          }
+
+          if (finish === "dark") totalMultiplier += 0.25;
+          else if (finish === "light") totalMultiplier -= 0.10;
+
+          if (totalMultiplier > 1.30) totalMultiplier = 1.30;
+          else if (totalMultiplier < 0.85) totalMultiplier = 0.85;
+
+          return {
+              min: Math.round(baseLumensMin * totalMultiplier),
+              max: Math.round(baseLumensMax * totalMultiplier)
+          };
+      }
+
+      function updateShapeUI(){
+          const shape = document.getElementById("shape").value;
+          const isLShape = (shape === "l-shape");
+
+          // Toggle Area B visibility
+          document.getElementById("lShapeInputs").style.display = isLShape ? "block" : "none";
+
+          // Toggle Area A header visibility
+          const areaATitle = document.getElementById("areaATitle");
+          if(areaATitle) {
+              areaATitle.style.display = isLShape ? "block" : "none";
+          }
+
+          // Adjust Length and Width labels for Area A so they don't say "A" if it's a rectangle
+          const lengthALabel = document.getElementById("lengthALabel");
+          const widthALabel = document.getElementById("widthALabel");
+          if(lengthALabel) {
+              lengthALabel.innerText = isLShape ? "Length A (ft)" : "Length (ft)";
+          }
+          if(widthALabel) {
+              widthALabel.innerText = isLShape ? "Width A (ft)" : "Width (ft)";
+          }
+      }
+
+      function getRoomPolygon(lenA, widA, lenB, widB, orientation) {
+          switch(orientation) {
+              case "bottom-left": return [[0, 0], [lenA, 0], [lenA, widA], [lenB, widA], [lenB, widA + widB], [0, widA + widB]];
+              case "bottom-right":
+                  if (lenB >= lenA) return [[lenB - lenA, 0], [lenB, 0], [lenB, widA + widB], [0, widA + widB], [0, widA], [lenB - lenA, widA]];
+                  else return [[0, 0], [lenA, 0], [lenA, widA], [lenA, widA + widB], [lenA - lenB, widA + widB], [lenA - lenB, widA], [0, widA]];
+              case "top-left":
+                  if (lenB >= lenA) return [[0, 0], [lenB, 0], [lenB, widB], [lenB, widB + widA], [lenB - lenA, widB + widA], [lenB - lenA, widB], [0, widB]];
+                  else return [[0, 0], [lenB, 0], [lenB, widB], [lenA, widB], [lenA, widB + widA], [0, widB + widA]];
+              case "top-right":
+                  if (lenA >= lenB) return [[lenA - lenB, 0], [lenA, 0], [lenA, widB + widA], [0, widB + widA], [0, widB], [lenA - lenB, widB]];
+                  else return [[0, 0], [lenB, 0], [lenB, widB + widA], [lenB - lenA, widB + widA], [lenB - lenA, widB], [0, widB]];
+          }
+      }
+
+      function drawLabel(svg,x,y,text,color="#000",anchor="middle"){
+          const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          label.setAttribute("x",x);
+          label.setAttribute("y",y);
+          label.setAttribute("fill",color);
+          label.setAttribute("font-size", "14");
+          label.setAttribute("font-weight","700");
+          label.setAttribute("text-anchor",anchor);
+          label.setAttribute("dominant-baseline","middle");
+          label.setAttribute("stroke", "#ffffff");
+          label.setAttribute("stroke-width", "4px");
+          label.setAttribute("paint-order", "stroke fill");
+          label.textContent=text;
+          svg.appendChild(label);
+      }
+
+      function createSvgPolygon(points, fillColor, strokeColor, strokeWidth = "3") {
+          const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+          polygon.setAttribute("points", points.map(p => `${p[0]},${p[1]}`).join(" "));
+          polygon.setAttribute("fill", fillColor);
+          polygon.setAttribute("stroke", strokeColor);
+          polygon.setAttribute("stroke-width", strokeWidth);
+          return polygon;
+      }
+
+      // Render dots inside room svg
+      function drawFixtureCircle(svg, cx, cy, radius, color) {
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          circle.setAttribute("cx", cx);
+          circle.setAttribute("cy", cy);
+          circle.setAttribute("r", radius);
+          circle.setAttribute("fill", "#fff");
+          circle.setAttribute("stroke", color);
+          circle.setAttribute("stroke-width", "1.2");
+          svg.appendChild(circle);
+
+          const core = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          core.setAttribute("cx", cx);
+          core.setAttribute("cy", cy);
+          core.setAttribute("r", radius * 0.4);
+          core.setAttribute("fill", color);
+          svg.appendChild(core);
+      }
+
+      function drawEmptyRoom() {
+          const svg = document.getElementById("blueprintSvg");
+          svg.innerHTML = "";
+          const svgWidth = 800;
+          const svgHeight = 450;
+          svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+
+          const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+          rect.setAttribute("x", "150");
+          rect.setAttribute("y", "75");
+          rect.setAttribute("width", "500");
+          rect.setAttribute("height", "300");
+          rect.setAttribute("fill", "#fafafa");
+          rect.setAttribute("stroke", "#ccc");
+          rect.setAttribute("stroke-width", "3");
+          rect.setAttribute("stroke-dasharray", "8,4");
+          svg.appendChild(rect);
+
+          const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+          text.setAttribute("x", svgWidth / 2);
+          text.setAttribute("y", svgHeight / 2);
+          text.setAttribute("fill", "#999");
+          text.setAttribute("font-size", "24");
+          text.setAttribute("font-weight", "600");
+          text.setAttribute("text-anchor", "middle");
+          text.setAttribute("dominant-baseline", "middle");
+          text.textContent = "My Room";
+          svg.appendChild(text);
+      }
+
+      function computeSingleGrid(length, width, targetLumens, fixtureLumens) {
+          if (length <= 0 || width <= 0 || targetLumens <= 0) {
+              return { rows: 0, columns: 0, totalFixtures: 0, spacingX: 0, spacingY: 0, anchorX: 0, anchorY: 0 };
+          }
+
+          let targetCount = Math.ceil(targetLumens / fixtureLumens);
+
+          if (length > 8.5 && width > 8.5 && targetCount % 2 !== 0) {
+              targetCount += 1;
+          }
+
+          const aspectRatio = length / width;
+          let rows = Math.round(Math.sqrt(targetCount / aspectRatio));
+          if (rows < 1) rows = 1;
+
+          let columns = Math.ceil(targetCount / rows);
+
+          if (width <= 8.5) {
+              rows = 1;
+              columns = targetCount;
+          }
+          if (length <= 8.5) {
+              columns = 1;
+              rows = targetCount;
+          }
+
+          let lengthSpacingStep = length / columns;
+          let widthSpacingStep = width / rows;
+
+          return {
+              rows: rows,
+              columns: columns,
+              totalFixtures: rows * columns,
+              spacingX: lengthSpacingStep,
+              spacingY: widthSpacingStep,
+              anchorX: 0.5 * lengthSpacingStep,
+              anchorY: 0.5 * widthSpacingStep
+          };
+      }
+
+      function calculateLightingLayout(room, lumensMax, fixtureLumens) {
+          let layoutData = {};
+
+          if (room.type === 'L-shaped') {
+              const areaA = room.length * room.width;
+              const areaB = room.lengthB * room.widthB;
+              const totalArea = areaA + areaB;
+
+              const lumensA = totalArea > 0 ? lumensMax * (areaA / totalArea) : 0;
+              const lumensB = totalArea > 0 ? lumensMax * (areaB / totalArea) : 0;
+
+              layoutData.areaA = computeSingleGrid(room.length, room.width, lumensA, fixtureLumens);
+              layoutData.areaB = computeSingleGrid(room.lengthB, room.widthB, lumensB, fixtureLumens);
+              layoutData.isLShaped = true;
+          } else {
+              layoutData = computeSingleGrid(room.length, room.width, lumensMax, fixtureLumens);
+              layoutData.isLShaped = false;
+          }
+
+          const totalFinalFixtures = layoutData.isLShaped
+              ? (layoutData.areaA.totalFixtures + layoutData.areaB.totalFixtures)
+              : layoutData.totalFixtures;
+
+          const minSpacing = room.lightingGoal === 'task' ? 3.0 : 4.5;
+          let isCrowded = false;
+
+          if (layoutData.isLShaped) {
+              const crowdedA = (layoutData.areaA.columns > 1 && layoutData.areaA.spacingX < minSpacing) ||
+                               (layoutData.areaA.rows > 1 && layoutData.areaA.spacingY < minSpacing);
+              const crowdedB = (layoutData.areaB.columns > 1 && layoutData.areaB.spacingX < minSpacing) ||
+                               (layoutData.areaB.rows > 1 && layoutData.areaB.spacingY < minSpacing);
+              if (crowdedA || crowdedB) {
+                  isCrowded = true;
+              }
+          } else {
+              if ((layoutData.columns > 1 && layoutData.spacingX < minSpacing) ||
+                  (layoutData.rows > 1 && layoutData.spacingY < minSpacing)) {
+                  isCrowded = true;
+              }
+          }
+
+          return {
+              layout: layoutData,
+              advisories: {
+                  showCrowdedNote: isCrowded && totalFinalFixtures > 0,
+                  targetCansText: totalFinalFixtures
+              }
+          };
+      }
+
+      function findOptimalLumens(room, lumensMax) {
+          for (let testLumens = 500; testLumens <= 2100; testLumens += 50) {
+              let res = calculateLightingLayout(room, lumensMax, testLumens);
+              if (!res.advisories.showCrowdedNote) {
+                  return testLumens;
+              }
+          }
+          return 2100;
+      }
+
+      function generateSpatialPoints(grid, xOffsetFeet, yOffsetFeet, scale, length, width) {
+          if (grid.columns <= 0 || grid.rows <= 0 || length <= 0 || width <= 0) return [];
+          const points = [];
+          let renderCols = grid.columns;
+          let renderRows = grid.rows;
+          while (renderCols > 1 && (length / renderCols) * scale < 20) renderCols--;
+          while (renderRows > 1 && (width / renderRows) * scale < 20) renderRows--;
+          const stepX = length / renderCols;
+          const stepY = width / renderRows;
+          const anchorX = 0.5 * stepX;
+          const anchorY = 0.5 * stepY;
+
+          for (let r = 0; r < renderRows; r++) {
+              for (let c = 0; c < renderCols; c++) {
+                  let localX = anchorX + (c * stepX);
+                  let localY = anchorY + (r * stepY);
+                  points.push([localX + xOffsetFeet, localY + yOffsetFeet]);
+              }
+          }
+          return points;
+      }
+
+      function applyValidation(inputEl, warningEl, min, max, typeLabel) {
+          let rawVal = parseFloat(inputEl.value);
+          inputEl.classList.remove("input-error");
+          warningEl.style.display = "none";
+          warningEl.innerText = "";
+
+          if (isNaN(rawVal)) {
+              inputEl.classList.add("input-error");
+              warningEl.innerText = "Please enter a valid number.";
+              warningEl.style.display = "block";
+              return { valid: false, value: NaN };
+          }
+
+          if (rawVal < 0) {
+              rawVal = 0;
+              inputEl.value = 0;
+          }
+
+          if (rawVal > max || rawVal < min) {
+              inputEl.classList.add("input-error");
+              warningEl.innerText = `${rawVal} falls outside valid ${typeLabel} range (${min}-${max}). Calculations halted.`;
+              warningEl.style.display = "block";
+              return { valid: false, value: NaN };
+          }
+          return { valid: true, value: rawVal };
+      }
+
+      function runEngine(){
+          const lightingGoal = document.getElementById("lightingGoal").value;
+          const roomType = document.getElementById("roomType").value;
+          const shape = document.getElementById("shape").value;
+          const isVaulted = document.getElementById("isVaulted").checked;
+          const finish = document.getElementById("finish").value;
+
+          const labelCeiling = document.getElementById("ceilingHeightLabel");
+          labelCeiling.innerHTML = isVaulted ? "Average Ceiling Height (ft)" : "Ceiling Height (ft)";
+
+          if (lightingGoal && roomType) {
+              const currentFC = roomFCTable[roomType][lightingGoal];
+              let modeLabel = "Standard / Ambient";
+              if (lightingGoal === "task") modeLabel = "Task / Bright";
+              else if (lightingGoal === "accent") modeLabel = "Accent";
+              document.getElementById("ambientTargetDisplay").innerText = `Target illuminance (${modeLabel}): ${currentFC.min} – ${currentFC.max} fc`;
+          } else {
+              document.getElementById("ambientTargetDisplay").innerText = "";
+          }
+
+          // Halt engine execution if the user has not confirmed to View Layout or missing required fields
+          if (!hasClickedViewLayout || !lightingGoal || !roomType || !shape) {
+              return;
+          }
+
+          const roomTypeLabel = document.getElementById("roomType").options[document.getElementById("roomType").selectedIndex].text;
+
+          const hValid = applyValidation(document.getElementById("ceilingHeight"), document.getElementById("heightWarning"), 8, 16, "ceiling height");
+          const laValid = applyValidation(document.getElementById("lengthA"), document.getElementById("lengthAWarning"), 0, 40, "dimension");
+          const waValid = applyValidation(document.getElementById("widthA"), document.getElementById("widthAWarning"), 0, 40, "dimension");
+          const lumValid = applyValidation(document.getElementById("fixtureLumens"), document.getElementById("lumensWarning"), 500, 2100, "lumens");
+
+          const svg = document.getElementById("blueprintSvg");
+          const legendHUD = document.getElementById("mapLegendHUD");
+          const fallbackBox = document.getElementById("errorFallbackCard");
+
+          if (!hValid.valid || !laValid.valid || !waValid.valid || !lumValid.valid) {
+              svg.style.display = "none";
+              legendHUD.style.display = "none";
+              fallbackBox.style.display = "flex";
+              return;
+          }
+
+          let lenB = 0, widB = 0, orientation = null;
+
+          if (shape === "l-shape") {
+              const lbValid = applyValidation(document.getElementById("lengthB"), document.getElementById("lengthBWarning"), 0, 40, "dimension");
+              const wbValid = applyValidation(document.getElementById("widthB"), document.getElementById("widthBWarning"), 0, 40, "dimension");
+              if (!lbValid.valid || !wbValid.valid) {
+                  svg.style.display = "none";
+                  legendHUD.style.display = "none";
+                  fallbackBox.style.display = "flex";
+                  return;
+              }
+              lenB = lbValid.value;
+              widB = wbValid.value;
+              orientation = document.getElementById("orientation").value;
+          }
+
+          svg.style.display = "block";
+          legendHUD.style.display = "flex";
+          document.getElementById("spacingOutput").style.display = "flex";
+          document.getElementById("fixturesCountOutput").style.display = "block";
+          fallbackBox.style.display = "none";
+
+          const ceilingHeight = hValid.value;
+          const lenA = laValid.value;
+          const widA = waValid.value;
+          const userLumens = lumValid.value;
+          let totalArea = lenA * widA;
+
+          let lumensA = computeLumensRange(lenA * widA, roomType, lightingGoal, ceilingHeight, isVaulted, finish);
+          let lumensTotalMax = lumensA.max;
+          let lumensTotalMin = lumensA.min;
+
+          if (shape === "l-shape") {
+              totalArea += (lenB * widB);
+              let lumensB = computeLumensRange(lenB * widB, roomType, lightingGoal, ceilingHeight, isVaulted, finish);
+              lumensTotalMax = lumensA.max + lumensB.max;
+              lumensTotalMin = lumensA.min + lumensB.min;
+          }
+
+          document.getElementById("lumensOutput").innerText =
+              `Your ${roomTypeLabel.toLowerCase()} needs ${lumensTotalMin.toLocaleString()} – ${lumensTotalMax.toLocaleString()} Lumens`;
+
+          const roomGeoObj = {
+              type: shape === 'rectangle' ? 'rectangular' : 'L-shaped',
+              length: lenA, width: widA, lengthB: lenB, widthB: widB,
+              lightingGoal: lightingGoal
+          };
+
+          const layoutEngineResult = calculateLightingLayout(roomGeoObj, lumensTotalMax, userLumens);
+          const layoutData = layoutEngineResult.layout;
+          const advisories = layoutEngineResult.advisories;
+
+          const advContainer = document.getElementById("advisoryContainer");
+          advContainer.innerHTML = "";
+
+          if (advisories.showCrowdedNote) {
+              advContainer.innerHTML = `
+                  <div class="advisory-tip-box expert-note">
+                      <strong>Expert Tip:</strong> Choosing low-lumen fixtures for a high lumen will overcrowd your ceiling and violate safe spacing rules. We recommend using higher output lights.<br><br>
+                      <a href="#" id="optimizeLink" style="color: #1a73e8; font-weight: bold; text-decoration: underline;">View Your Room's Optimal Layout</a>
+                  </div>`;
+
+              document.getElementById("optimizeLink").addEventListener("click", function(e) {
+                  e.preventDefault();
+                  advContainer.innerHTML = "";
+                  const optimalLumens = findOptimalLumens(roomGeoObj, lumensTotalMax);
+                  document.getElementById("fixtureLumens").value = optimalLumens;
+                  runEngine();
+              });
+          }
+
+          document.getElementById("fixturesCountOutput").innerText = `Lights Needed: ${advisories.targetCansText}`;
+
+          let spacingHTML = "";
+          if (!layoutData.isLShaped) {
+              spacingHTML = `
+                  <div class="spacing-card">
+                      <strong>Fixture Spacing</strong>
+                      <div class="spacing-table-wrapper">
+                        <div class="spacing-table-col">
+                            <div class="spacing-table-title">Horizontal</div>
+                            <div class="spacing-table-row">
+                                <span>Light to Light</span>
+                                <span>${formatFeetInches(layoutData.spacingX)}</span>
+                            </div>
+                            <div class="spacing-table-row">
+                                <span>Away from Walls</span>
+                                <span>${formatFeetInches(layoutData.anchorX)}</span>
+                            </div>
+                        </div>
+                        <div class="spacing-table-col">
+                            <div class="spacing-table-title">Vertical</div>
+                            <div class="spacing-table-row">
+                                <span>Light to Light</span>
+                                <span>${formatFeetInches(layoutData.spacingY)}</span>
+                            </div>
+                            <div class="spacing-table-row">
+                                <span>Away from Walls</span>
+                                <span>${formatFeetInches(layoutData.anchorY)}</span>
+                            </div>
+                        </div>
+                      </div>
+                  </div>`;
+          } else {
+              spacingHTML = `
+                  <div class="spacing-card">
+                      <strong>Area A Spacing</strong>
+                      <div class="spacing-table-wrapper">
+                        <div class="spacing-table-col">
+                            <div class="spacing-table-title">Horizontal</div>
+                            <div class="spacing-table-row">
+                                <span>Light to Light</span>
+                                <span>${formatFeetInches(layoutData.areaA.spacingX)}</span>
+                            </div>
+                            <div class="spacing-table-row">
+                                <span>Away from Walls</span>
+                                <span>${formatFeetInches(layoutData.areaA.anchorX)}</span>
+                            </div>
+                        </div>
+                        <div class="spacing-table-col">
+                            <div class="spacing-table-title">Vertical</div>
+                            <div class="spacing-table-row">
+                                <span>Light to Light</span>
+                                <span>${formatFeetInches(layoutData.areaA.spacingY)}</span>
+                            </div>
+                            <div class="spacing-table-row">
+                                <span>Away from Walls</span>
+                                <span>${formatFeetInches(layoutData.areaA.anchorY)}</span>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="spacing-card">
+                      <strong>Area B Spacing</strong>
+                      <div class="spacing-table-wrapper">
+                        <div class="spacing-table-col">
+                            <div class="spacing-table-title">Horizontal</div>
+                            <div class="spacing-table-row">
+                                <span>Light to Light</span>
+                                <span>${formatFeetInches(layoutData.areaB.spacingX)}</span>
+                            </div>
+                            <div class="spacing-table-row">
+                                <span>Away from Walls</span>
+                                <span>${formatFeetInches(layoutData.areaB.anchorX)}</span>
+                            </div>
+                        </div>
+                        <div class="spacing-table-col">
+                            <div class="spacing-table-title">Vertical</div>
+                            <div class="spacing-table-row">
+                                <span>Light to Light</span>
+                                <span>${formatFeetInches(layoutData.areaB.spacingY)}</span>
+                            </div>
+                            <div class="spacing-table-row">
+                                <span>Away from Walls</span>
+                                <span>${formatFeetInches(layoutData.areaB.anchorY)}</span>
+                            </div>
+                        </div>
+                      </div>
+                  </div>`;
+          }
+          document.getElementById("spacingOutput").innerHTML = spacingHTML;
+
+          svg.innerHTML = "";
+          const svgWidth = 800;
+          const svgHeight = 450;
+          svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+
+          if (!layoutData.isLShaped) {
+              legendHUD.innerHTML = `
+                  <div class="legend-item">
+                      <div class="legend-color-swatch" style="background: #e8f0fe; border: 1px solid #1a73e8;"></div>
+                      <span>Room (${lenA}' x ${widA}') &mdash; lights needed: <strong>${layoutData.totalFixtures}</strong></span>
+                  </div>`;
+
+              const scale = Math.min((svgWidth - 240) / Math.max(lenA, 1), (svgHeight - 160) / Math.max(widA, 1));
+              const offsetX = 140;
+              const offsetY = 80;
+
+              const points = [[0, 0], [lenA, 0], [lenA, widA], [0, widA]].map(p => [p[0] * scale + offsetX, p[1] * scale + offsetY]);
+              svg.appendChild(createSvgPolygon(points, "#e8f0fe", "#1a73e8"));
+
+              drawLabel(svg, (lenA * scale / 2) + offsetX, offsetY - 20, `L = ${lenA}'`, "#1a73e8");
+              drawLabel(svg, offsetX - 25, (widA * scale / 2) + offsetY, `W = ${widA}'`, "#1a73e8", "end");
+
+              const fixPoints = generateSpatialPoints(layoutData, 0, 0, scale, lenA, widA);
+              fixPoints.forEach(p => drawFixtureCircle(svg, p[0] * scale + offsetX, p[1] * scale + offsetY, 3, "#1a73e8"));
+          } else {
+              legendHUD.innerHTML = `
+                  <div class="legend-item">
+                      <div class="legend-color-swatch" style="background: #e8f0fe; border: 1px solid #1a73e8;"></div>
+                      <span>Area A (${lenA}' x ${widA}') &mdash; lights needed: <strong>${layoutData.areaA.totalFixtures}</strong></span>
+                  </div>
+                  <div class="legend-item">
+                      <div class="legend-color-swatch" style="background: #fff4e5; border: 1px solid #ff9800;"></div>
+                      <span>Area B (${lenB}' x ${widB}') &mdash; lights needed: <strong>${layoutData.areaB.totalFixtures}</strong></span>
+                  </div>`;
+
+              const poly = getRoomPolygon(lenA, widA, lenB, widB, orientation);
+              const xs = poly.map(p => p[0]);
+              const ys = poly.map(p => p[1]);
+              const maxX = Math.max(...xs, 1);
+              const maxY = Math.max(...ys, 1);
+
+              const scale = Math.min((svgWidth - 280) / maxX, (svgHeight - 160) / maxY);
+              const offsetX = 140;
+              const offsetY = 80;
+
+              let polyA = [], polyB = [], bXOff = 0, bYOff = 0, aXOff = 0, aYOff = 0;
+
+              switch(orientation){
+                  case "bottom-left":
+                      polyA = [[0, 0], [lenA, 0], [lenA, widA], [0, widA]];
+                      polyB = [[0, 0], [lenB, 0], [lenB, widB], [0, widB]];
+                      aXOff = 0; aYOff = 0; bXOff = 0; bYOff = widA;
+                      break;
+                  case "bottom-right":
+                      aXOff = (lenB > lenA) ? lenB - lenA : 0; aYOff = 0;
+                      bXOff = (lenA > lenB) ? lenA - lenB : 0; bYOff = widA;
+                      polyA = [[0, 0], [lenA, 0], [lenA, widA], [0, widA]];
+                      polyB = [[0, 0], [lenB, 0], [lenB, widB], [0, widB]];
+                      break;
+                  case "top-right":
+                      aXOff = (lenB > lenA) ? lenB - lenA : 0; aYOff = widB;
+                      bXOff = (lenA > lenB) ? lenA - lenB : 0; bYOff = 0;
+                      polyA = [[0, 0], [lenA, 0], [lenA, widA], [0, widA]];
+                      polyB = [[0, 0], [lenB, 0], [lenB, widB], [0, widB]];
+                      break;
+                  case "top-left":
+                      polyA = [[0, 0], [lenA, 0], [lenA, widA], [0, widA]];
+                      polyB = [[0, 0], [lenB, 0], [lenB, widB], [0, widB]];
+                      aXOff = (lenB > lenA) ? lenB - lenA : 0; aYOff = widB;
+                      bXOff = 0; bYOff = 0;
+                      break;
+              }
+
+              const scaledA = polyA.map(p => [ (p[0] + aXOff) * scale + offsetX, (p[1] + aYOff) * scale + offsetY ]);
+              const scaledB = polyB.map(p => [ (p[0] + bXOff) * scale + offsetX, (p[1] + bYOff) * scale + offsetY ]);
+              const scaledOutline = poly.map(p => [ p[0] * scale + offsetX, p[1] * scale + offsetY ]);
+
+              svg.appendChild(createSvgPolygon(scaledA, "#e8f0fe", "none", "0"));
+              svg.appendChild(createSvgPolygon(scaledB, "#fff4e5", "none", "0"));
+              svg.appendChild(createSvgPolygon(scaledOutline, "none", "#1a73e8", "3"));
+
+              let labelALY = (orientation.startsWith("top")) ? ((widA + widB) * scale + offsetY + 25) : (offsetY - 25);
+              drawLabel(svg, (lenA * scale / 2) + offsetX + aXOff * scale, labelALY, `L = ${lenA}'`, "#1a73e8");
+
+              let labelAWX = offsetX - 25 + aXOff * scale;
+              let labelAWY = (widA * scale / 2) + offsetY + aYOff * scale;
+              drawLabel(svg, labelAWX, labelAWY, `W = ${widA}'`, "#1a73e8", "end");
+
+              let labelBLX = ((lenB * scale / 2) + bXOff * scale) + offsetX;
+              let labelBLY = (orientation.startsWith("bottom")) ? ((widA + widB) * scale + offsetY + 25) : (offsetY - 25);
+              drawLabel(svg, labelBLX, labelBLY, `L = ${lenB}'`, "#ff9800");
+
+              let labelBWX = (bXOff + lenB) * scale + offsetX + 25;
+              let labelAnchor = "start";
+              if (orientation === "bottom-left" || orientation === "top-left") {
+                  labelBWX = offsetX - 25;
+                  labelAnchor = "end";
+              }
+              let labelBWY = (widB * scale / 2) + offsetY + bYOff * scale;
+              drawLabel(svg, labelBWX, labelBWY, `W = ${widB}'`, "#ff9800", labelAnchor);
+
+              const fixPointsA = generateSpatialPoints(layoutData.areaA, aXOff, aYOff, scale, lenA, widA);
+              fixPointsA.forEach(p => drawFixtureCircle(svg, p[0] * scale + offsetX, p[1] * scale + offsetY, 3, "#1a73e8"));
+
+              const fixPointsB = generateSpatialPoints(layoutData.areaB, bXOff, bYOff, scale, lenB, widB);
+              fixPointsB.forEach(p => drawFixtureCircle(svg, p[0] * scale + offsetX, p[1] * scale + offsetY, 3, "#ff9800"));
+          }
+
+          document.getElementById("outputJSON").innerText = JSON.stringify({ shape, totalArea, lumensTotalMin, lumensTotalMax, layoutData }, null, 2);
+      }
+
+      document.querySelectorAll("#lighting-layout-tool input, #lighting-layout-tool select").forEach(el => {
+          el.addEventListener("input", runEngine);
+          el.addEventListener("change", runEngine);
+      });
+
+      document.getElementById("shape").addEventListener("change", () => {
+          updateShapeUI();
+          runEngine();
+      });
+
+      document.getElementById("nextStepBtn").addEventListener("click", function() {
+          const lightingGoal = document.getElementById("lightingGoal").value;
+          const roomType = document.getElementById("roomType").value;
+          const shape = document.getElementById("shape").value;
+
+          if (!lightingGoal || !roomType || !shape) {
+              alert("Please complete the required dropdown fields before viewing your layout.");
+              return;
+          }
+
+          hasClickedViewLayout = true;
+          document.getElementById("lumensOutput").style.display = "block";
+
+          runEngine();
+
+          const vizSection = document.getElementById("visualisationStep");
+          vizSection.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      updateShapeUI();
+      drawEmptyRoom();
+  });
+  </script>
+</div>
+
+{% schema %}
+{
+  "name": "PDP Lighting Calculator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (optional)"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Intro content (optional)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Lighting Calculator"
+    }
+  ]
+}
+{% endschema %}

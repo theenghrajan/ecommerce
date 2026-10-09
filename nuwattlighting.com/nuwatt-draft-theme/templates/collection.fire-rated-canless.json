@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_CiWncB": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Fire Rated Wafer Lights",
+        "collection_seo_description": "Fire rated recessed lighting fixtures are specifically engineered to go into fire rated assemblies in homes, such as ceilings separating apartment units or spaces dividing garages from sleeping rooms. Required by national and local building codes, fire rated recessed lights are a vital component of wall and ceiling barriers that contain the spread of fires. Unlike regular pot lights, which are typically not airtight or fire resistant, fire rated recessed can lights have covers made of fire-resistant metal and intumescent material that expands when exposed to extreme heat, thereby effectively cutting off any openings for the spread of fire. The NuWatt line of 2 hour fire rated recessed pot lights is certified to contain the spread of fire for at least two hours, allowing more time for safe evacuation. "
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/cct-color-temperature-recessed-lighting-icon.png?v=1724086946\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_7ABefn": {
+      "type": "jump-to",
+      "blocks": {
+        "question_FwhqxB": {
+          "type": "question",
+          "settings": {
+            "button": "Square Trim",
+            "link": "shopify://collections/fire-rated-square-recessed-lights",
+            "image": "shopify://shop_images/NW-P-SQDL-6-15W-5CT-FR-WH_LISTING_1P-236206.jpg",
+            "alt-text": "Square Trim Fire Rated Wafer Lights"
+          }
+        },
+        "question_9ytfcw": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "shopify://collections/fire-rated-recessed-lights-black",
+            "image": "shopify://shop_images/NW-P-DL-6-15W-5CT-FR-BLK-LISTING_1P-617926.jpg",
+            "alt-text": "Fire Rated Wafer Lights Black"
+          }
+        },
+        "question_XrgqCw": {
+          "type": "question",
+          "settings": {
+            "button": "Baffle Trim",
+            "link": "shopify://collections/baffle-trim-recessed-lighting",
+            "image": "shopify://shop_images/NW-PB-DL-4-12W-5CT-FR-WH_LISTING_MAIN_1P_20fd31cf-20b9-4225-8d4a-2514853a5adf-828261.jpg",
+            "alt-text": "Baffle Fire Rated Downlights"
+          }
+        },
+        "question_nH8y37": {
+          "type": "question",
+          "settings": {
+            "button": "4 Inch",
+            "link": "https://www.nuwattlighting.com/collections/2-hour-fire-rated-canless-recessed-downlights?filter.p.m.custom.size=4+Inch",
+            "image": "shopify://shop_images/NW-P-DL-4-12W-5CT-FR-WH_LISTING_1P-946333.jpg",
+            "alt-text": "4 Inch Fire Rated Wafer Lights"
+          }
+        },
+        "question_VNVWfJ": {
+          "type": "question",
+          "settings": {
+            "button": "6 Inch",
+            "link": "https://www.nuwattlighting.com/collections/2-hour-fire-rated-canless-recessed-downlights?filter.p.m.custom.size=6+Inch",
+            "image": "shopify://shop_images/NW-PB-DL-6-15W-5CT-FR-WH_LISTING_MAIN_1P-123523.jpg",
+            "alt-text": "6 Inch Fire Rated Wafer Lights"
+          }
+        },
+        "question_eTnbpC": {
+          "type": "question",
+          "settings": {
+            "button": "3 Inch",
+            "link": "https://www.nuwattlighting.com/collections/2-hour-fire-rated-canless-recessed-downlights?filter.p.m.custom.size=3+Inch",
+            "image": "shopify://shop_images/NW-P-DL-3-8W-5CT-FR-WH_LISTING_MAIN_1P-752625.jpg",
+            "alt-text": "3 Inch Fire Rated Wafer Lights"
+          }
+        },
+        "question_yDezzE": {
+          "type": "question",
+          "settings": {
+            "button": "View All",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting",
+            "image": "shopify://shop_images/view-all-recessed-lighting-products.png",
+            "alt-text": "Go to All Our Recessed Lighting Products"
+          }
+        }
+      },
+      "block_order": [
+        "question_FwhqxB",
+        "question_9ytfcw",
+        "question_XrgqCw",
+        "question_nH8y37",
+        "question_VNVWfJ",
+        "question_eTnbpC",
+        "question_yDezzE"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_FEwd7B": {
+      "type": "faq",
+      "blocks": {
+        "question_9T3ne6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_rUE4AL": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_UR7Ekh": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_9T3ne6",
+        "question_rUE4AL",
+        "question_UR7Ekh"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_9dmJtT": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_cmWxn9": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_4R87WA": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_FLKCpA": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_mUaGmb": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_EixnLV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_cYmpmW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_cmWxn9",
+        "question_4R87WA",
+        "question_FLKCpA",
+        "question_mUaGmb",
+        "question_EixnLV",
+        "question_cYmpmW"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_WJU8b6": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Fire Rated Wafer Lights",
+        "collection_seo_description": "Fire rated recessed lighting fixtures are specifically engineered to go into fire rated assemblies in homes, such as ceilings separating apartment units or spaces dividing garages from sleeping rooms. Required by national and local building codes, fire rated recessed lights are a vital component of wall and ceiling barriers that contain the spread of fires. Unlike regular pot lights, which are typically not airtight or fire resistant, fire rated recessed can lights have covers made of fire-resistant metal and intumescent material that expands when exposed to extreme heat, thereby effectively cutting off any openings for the spread of fire. The NuWatt line of 2 hour fire rated recessed pot lights is certified to contain the spread of fire for at least two hours, allowing more time for safe evacuation. "
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_CiWncB",
+    "main-collection",
+    "jump_to_7ABefn",
+    "faq_FEwd7B",
+    "collection_metafield_faq_9dmJtT",
+    "recently-viewed",
+    "expandable_description_WJU8b6"
+  ]
+}

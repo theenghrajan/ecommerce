@@ -1,0 +1,156 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "advanced_content_BdVMkU": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_G3rMp3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/orthotic2_small_a1adab0e-2cff-4377-9997-63b3b8ec604f.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_G3rMp3"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false,
+        "lazyload_images": false
+      }
+    },
+    "rich_text_AaVwmJ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_NxXefr": {
+          "type": "heading",
+          "settings": {
+            "title": "What are Orthotics?"
+          }
+        },
+        "text_pJFrPm": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>In layman’s terms, you may think of them simply as arch supports or shoe inserts. However, they are actually much more than that. Orthotics are orthopedic devices made to: treat or adjust abnormal foot motion; provide support, stability and control; increase balance; absorb shock; and relieve pressure on uncomfortable or sore spots. They should be custom made to address an individual’s specific needs. It is important to remember that your feet are the foundation of your body. How your feet perform can affect how your skeletal body feels and performs. The stability and efficiency of the foot and ankle promote better foot health and overall body function.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_NxXefr",
+        "text_pJFrPm"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "rich_text_7Md4NQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_9G3A99": {
+          "type": "heading",
+          "settings": {
+            "title": "What can Orthotics do for me?"
+          }
+        },
+        "text_tkWcgf": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Orthotics can be very helpful in correcting biomechanical imbalances of the foot and ankle, such as excessive pronation or excessive supination. Over time, abnormal foot motions cause stresses that can lead to conditions such as Achilles tendinitis, bunions, heel spurs, metatarsalgia, Morton’s neuroma, plantar fasciitis (heel and arch pain), post-tib tendinitis, shin splints, as well as knee pain, hip pain and lower back pain. They are also useful for people: who are very overweight; required to be on their feet for extended periods of time. Athletes use them to optimize performance, and people with arthritic or diabetic foot conditions use them for protection.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9G3A99",
+        "text_tkWcgf"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "featured_collection_ceLUwM": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Available Orthotic Products",
+        "home_featured_products": "custom-fit-orthotics",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": false,
+        "view_all": false,
+        "divider": false
+      }
+    },
+    "rich_text_Hq69ND": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QtkVUT": {
+          "type": "heading",
+          "settings": {
+            "title": "Platinum Series Orthotic Adjustments"
+          }
+        },
+        "text_fFxK7T": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Before sending in your orthotics for an adjustment, please check the following list:</p>"
+          }
+        },
+        "text_JapRex": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>&gt; Are your shoes worn or stretched?</strong><br/>Replace your shoes and test. Remove any arch support in insoles (see below).</p><p><strong>&gt; Do you feel like you are coming out of the shoe?</strong><br/>Wear the orthotic between the hosiery or sock and foot to keep orthotic in proper position.</p><p><strong>&gt; Have your feet suddenly started bothering you in certain shoes?</strong><br/>Remove the shoe’s insoles and cut out the parts that may be interfering in the proper positioning of the orthotic or replace insole with flat cushioning insole.</p><p><strong>&gt; Do you have the orthotics in the correct shoe?</strong><br/>Little dimple always goes to the outside.</p>"
+          }
+        },
+        "text_rb6Bfc": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Finally, complete the <a href=\"https://cdn.shopify.com/s/files/1/0055/5768/2240/files/PlatinumSeriesAdjustment.pdf?10381413937699183055\" target=\"_blank\">ORTHOTIC ADJUSTMENT FORM</a> and mail with your orthotics to our lab at:<br/><em><strong>Custom Orthotics Inc. 5035 Florence Street, Oakwood, GA 30566</strong></em></p><p>We have found the US Postal Service Priority Mail with delivery confirmation to be the least expensive method of shipping.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QtkVUT",
+        "text_fFxK7T",
+        "text_JapRex",
+        "text_rb6Bfc"
+      ],
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "advanced_content_BdVMkU",
+    "rich_text_AaVwmJ",
+    "rich_text_7Md4NQ",
+    "featured_collection_ceLUwM",
+    "rich_text_Hq69ND"
+  ]
+}

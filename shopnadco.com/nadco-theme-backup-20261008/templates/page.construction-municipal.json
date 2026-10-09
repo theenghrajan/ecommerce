@@ -1,0 +1,800 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Construction Municipal Adhesive Tape & Label Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Over the past few years, adhesive tapes have become increasingly popular in the construction industry. Building professionals have begun to turn to innovative products that save time and money on the construction site. Adhesive tapes reduce installation and drying times and deliver other benefits as well. For example, they can save money on installation costs, provide improved air sealing, energy efficiency, and more.</p><p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry. Builders and contractors should be well informed on the different types of tapes that exist, so their construction projects can be performed most efficiently.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/construction_main_hero_AI.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collection_list_TD69rn": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_mxERtq": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "barricade-tape",
+            "title": ""
+          }
+        },
+        "featured_collection_Mti6yn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "custom-masking-tape-copy",
+            "image": "shopify://shop_images/UNPRINTED_PAPER_TAPE_CATEGORY_IMAGE_1f1a54ad-77b0-43f1-b28c-2a46c7605445.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_feQtKW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "3-pipe-marking-facility-identification-labels",
+            "title": ""
+          }
+        },
+        "featured_collection_9jNVxX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "3-pipe-marking-facility-identification-tapes",
+            "image": "shopify://shop_images/NAD145-12-FIREPW_jpg.webp",
+            "title": ""
+          }
+        },
+        "featured_collection_N9VjXm": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "7-metal-foil-shielding-products-tapes",
+            "image": "shopify://shop_images/1650-3.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_VDtghn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "duct-tape",
+            "image": "shopify://shop_images/non-printed_duct_tape_Silver.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_mxERtq",
+        "featured_collection_Mti6yn",
+        "featured_collection_feQtKW",
+        "featured_collection_9jNVxX",
+        "featured_collection_N9VjXm",
+        "featured_collection_VDtghn"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_QwYNcx": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_FQ7aUX": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Industries We Support"
+          }
+        },
+        "heading_4wb3Dr": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Common Adhesive Tapes Used In The</strong> <strong>Construction Industry</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_ceCjyt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Over the past few years, adhesive tapes have become increasingly popular in the construction industry. Building professionals have begun to turn to innovative products that save time and money on the construction site. Adhesive tapes reduce installation and drying times and deliver other benefits as well. For example, they can save money on installation costs, provide improved air sealing, energy efficiency, and more.</p><p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry. Builders and contractors should be well informed on the different types of tapes that exist, so their construction projects can be performed most efficiently.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_FQ7aUX",
+        "heading_4wb3Dr",
+        "text_ceCjyt"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/task_01kfqsqmwxfs9awsjsjzg9985r_1769251566_img_1.webp",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "rich_text_KckTAy": {
+      "type": "rich-text",
+      "blocks": {
+        "text_i3qdf3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There is currently an increased need for PPE, including masks, face shields, and goggles. These products cover the mouth, nose, and eyes in order to limit exposure to germs, chemicals, and more. To meet demands and keep up with technological advancements, many manufacturers have started experimenting with smart and connected PPE, as well as taking into consideration cost, comfort, and weight.</p><p>With many frontline workers and first responders lacking the necessary protection, NADCO’s specialty tapes and adhesives help supply the desperate need for PPE, while preventing contamination of the equipment and improving comfort.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_i3qdf3"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_XcMBAm": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_MKnQ7m": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "start",
+            "image": "shopify://shop_images/TAPE_ROLLS-CONSTRUCTION_INDUSTRY.jpg",
+            "image_ratio": "1/1",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_wPhVgD": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "Tapes For Construction/Municipal",
+            "heading": "Most Common Adhesive Tapes Used In The Construction Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "rich_text_cstm": "<p> </p>"
+          }
+        },
+        "collapsible_item_w8RiKT": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Acrylic Adhesive Tapes",
+            "content": "<p>Acrylic tapes provide a long-term durable solution that makes them ideally suited for the construction industry. Some of their key properties include performing well in extreme temperatures, becoming stronger over time, and being used to create an airtight seal in a home. They also have the advantage of producing no off-gassing as well as not polluting landfills.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_tVVp8w": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Masking Tape",
+            "content": "<p>Masking tape is frequently used to protect surfaces such as walls and floors when painting; however, it can also be used in conjunction with other construction site activities such as sanding. Masking tapes remove cleaning and improve efficiency by protecting surfaces from paint or damage well, which usually eliminates the need for rework. They can be used in indoor and outdoor applications and are quick and simple to install.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_c4a4p8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Duct Tape",
+            "content": "<p>Duct tape is a highly durable and waterproof tape comprised of a cloth backing layer that has been coated in polyethylene. The construction industry often uses duct tape for strapping or bundling materials at a job site. It is also used for making both temporary and permanent repairs and is available in a variety of colors to suit different surfaces and applications.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_JgUQL4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Barricade Tape",
+            "content": "<p>In certain instances, non-adhesive tapes are required, such as for warning workers of a hazardous area. Barricade tapes are used for this purpose. They have messages written on them with high voltage warnings, wet paint warnings, and more, and are strung up around the dangerous area. Floor marking tapes are another similar type of safety tape that can be used to make workers aware of dangerous areas.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_et7KBw": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Foil Tapes",
+            "content": "<p><a href=\"/pages/foil-tape\" title=\"Foil Tape\">Foil tapes</a> are made with a metal-foil backing which has been specially engineered to be malleable and conductive. The types of tapes are often quite durable and come in several varieties to meet the needs of differing applications. Aluminum foil tape is one type, which is the most commonly used throughout the construction industry. These types of tapes are used for purposes such as light or heat reflection, HVAC systems, and splice detection.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_RRV3AF": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Double-Sided Tape",
+            "content": "<p>Double-sided tape has adhesive on both sides and is designed to bond two surfaces together by adhering to them both, which spreads the stress load. Double-sided tapes can be used to bond a wide variety of materials such as glass, wood, steel, concrete, foam, and plastic. It can be used to attach insulation to walls, hold down protective carpeting during the construction process, overlap house wrap seams, and more.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_kw9UHA": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electrical Tapes",
+            "content": "<p>Electrical tapes are usually made from a type of vinyl due to its durability and are used to insulate electrical splices or bundle wire and cable. Black electrical tapes are commonly used within the construction industry, however colorful electrical tapes also exist and are used in phasing tasks where it’s essential to have wire voltage strength or function labeled.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_MKnQ7m",
+        "heading_wPhVgD",
+        "collapsible_item_w8RiKT",
+        "collapsible_item_tVVp8w",
+        "collapsible_item_c4a4p8",
+        "collapsible_item_JgUQL4",
+        "collapsible_item_et7KBw",
+        "collapsible_item_RRV3AF",
+        "collapsible_item_kw9UHA"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "card",
+        "item_color_scheme": "scheme-10",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_cNaBn3": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_BBAYfA": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Tapes For Construction/Municipal"
+          }
+        },
+        "heading_ybFD3Y": {
+          "type": "heading",
+          "settings": {
+            "heading": "Some Key Construction Applications for Adhesive Tapes?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3"
+          }
+        },
+        "text_FM3hVa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesive tape products are widely used throughout the construction and building industries in both interior and exterior applications. All types of building professionals, from contractors to engineers and architects, choose NADCO for their adhesive solutions. The adhesive tapes that we provide are suitable for numerous construction applications, such as:</p><ul><li>Bonding and mounting window and door parts</li><li>Bonding and mounting decorative trims</li><li>Bonding elevator or escalator components</li><li>Bonding frames to panels</li><li>Bonding decorative wall coverings and attractive facades</li><li>Bonding solar modules</li><li>Mirror mounting</li><li>Window glazing</li><li>Glass mounting</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "subheading_BBAYfA",
+        "heading_ybFD3Y",
+        "text_FM3hVa"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/task_01kfqtfm74e2ps5hqe1fx2f2vr_1769252352_img_1.webp",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_VMrqUK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LQHxqN": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are Some Key Construction Applications for Adhesive Tapes?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_RmfAAG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesive tape products are widely used throughout the construction and building industries in both interior and exterior applications. All types of building professionals, from contractors to engineers and architects, choose NADCO for their adhesive solutions. The adhesive tapes that we provide are suitable for numerous construction applications, such as:</p><ul><li>Bonding and mounting window and door parts</li><li>Bonding and mounting decorative trims</li><li>Bonding elevator or escalator components</li><li>Bonding frames to panels</li><li>Bonding decorative wall coverings and attractive facades</li><li>Bonding solar modules</li><li>Mirror mounting</li><li>Window glazing</li><li>Glass mounting</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LQHxqN",
+        "text_RmfAAG"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_t6epDz": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_M3QjVC": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Over 30 Years In The Industry"
+          }
+        },
+        "heading_7Pi4TA": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choosing an Optimal Supplier With NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3"
+          }
+        },
+        "text_fLdEcn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO delivers exceptional quality on a wide selection of adhesive tapes that benefit the construction industry. Our 35,000 sq. ft. warehouse and state-of-the-art equipment allow us to directly manufacture the tapes our customers need, including any desired customization. We meet all industry standards and regulations, which ensure that our tapes meet the continually evolving needs of the construction industry.</p><p>Many types of tape are utilized by the construction industry due to their highly durable nature and versatility. These tapes not only perform well in long-term applications but also are quick to install and cost-effective.</p><p>NADCO offers fully customizable solutions for adhesive tape products with reduced lead times and consistent product quality. To learn more about how we can serve you, contact us today.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_M3QjVC",
+        "heading_7Pi4TA",
+        "text_fLdEcn"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/704304bf1f7116dbb118f4ab2d2d10f5afed6ee5_1.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_BBr47R": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dpmmMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choosing an Optimal Supplier With NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_aHMH7i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO delivers exceptional quality on a wide selection of adhesive tapes that benefit the construction industry. Our 35,000 sq. ft. warehouse and state-of-the-art equipment allow us to directly manufacture the tapes our customers need, including any desired customization. We meet all industry standards and regulations, which ensure that our tapes meet the continually evolving needs of the construction industry.</p><p>Many types of tape are utilized by the construction industry due to their highly durable nature and versatility. These tapes not only perform well in long-term applications but also are quick to install and cost-effective. NADCO offers fully customizable solutions for adhesive tape products with reduced lead times and consistent product quality. To learn more about how we can serve you, <a href=\"https://info.nadco-inc.com/contact-us\" target=\"_blank\" title=\"https://info.nadco-inc.com/contact-us\">contact us</a> today.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dpmmMR",
+        "text_aHMH7i"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_mLTb8r": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_wXVLV9": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_wXVLV9"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_QAeDnx": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_WPcgfq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_DkmQR9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_WPcgfq",
+        "button_DkmQR9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_dNaPrV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_cEhD3k": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_qM9i9N": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cEhD3k",
+        "button_qM9i9N"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "collection_list_TD69rn",
+    "image_with_text_QwYNcx",
+    "rich_text_KckTAy",
+    "collapsible_tabs_XcMBAm",
+    "image_with_text_cNaBn3",
+    "rich_text_VMrqUK",
+    "image_with_text_t6epDz",
+    "rich_text_BBr47R",
+    "apps_mLTb8r",
+    "image_with_text_overlay_zjphJC",
+    "image_with_text_overlay_QAeDnx",
+    "image_with_text_overlay_dNaPrV"
+  ]
+}

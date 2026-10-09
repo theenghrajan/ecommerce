@@ -1,0 +1,111 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer-group.name",
+  "sections": {
+    "1705677708e099ab09": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "1705677473a54e1a68": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "footer-promotions": {
+      "type": "footer-promotions",
+      "settings": {
+        "hide_homepage": false,
+        "image_size": "wide"
+      }
+    },
+    "1729866546f04b8f93": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "logo_social",
+          "settings": {
+            "logo": "shopify://shop_images/logo_2.png",
+            "desktop_logo_height": 40,
+            "container_width": 20
+          }
+        },
+        "footer-1": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "footer",
+            "container_width": 18
+          }
+        },
+        "8ecc3b0e-4228-4ddb-ab81-91473812c8d8": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "collections",
+            "container_width": 18
+          }
+        },
+        "d7b7cf55-33a8-463e-9cc8-f2ceb4a12744": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "useful-links",
+            "container_width": 18
+          }
+        },
+        "footer2": {
+          "type": "newsletter",
+          "settings": {
+            "show_footer_title": true,
+            "title": "Sign up and save",
+            "text": "<p>Subscribe to get special offers, free giveaways, and deals.</p>",
+            "container_width": 26
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "8ecc3b0e-4228-4ddb-ab81-91473812c8d8",
+        "d7b7cf55-33a8-463e-9cc8-f2ceb4a12744",
+        "footer2"
+      ],
+      "settings": {
+        "show_locale_selector": true,
+        "show_currency_selector": false,
+        "show_currency_flags": false,
+        "show_payment_icons": true,
+        "show_copyright": true,
+        "copyright_text": ""
+      }
+    }
+  },
+  "order": [
+    "1705677708e099ab09",
+    "1705677473a54e1a68",
+    "footer-promotions",
+    "1729866546f04b8f93",
+    "footer"
+  ]
+}

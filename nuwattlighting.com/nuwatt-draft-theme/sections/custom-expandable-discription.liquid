@@ -1,0 +1,131 @@
+{% style %}
+.collection-page-expandable-description .collection-description {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    width: 100%;
+    max-width: unset;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-size:16px;
+}
+.collection-page-expandable-description .nw-faq-title{
+  /* margin-bottom: 0; */
+  margin-bottom: 10px;
+  /* font-size: 15px; */
+  font-size: 16px;
+  /* font-family: nw-regular; */
+  /* letter-spacing: 2.5px; */
+  letter-spacing: 1px;
+  font-family: inherit;
+  text-transform: capitalize;
+}
+.custom-expandale-content {
+    padding-left: 20px;
+}
+.collection-page-expandable-description span.read-more-btn, .collection-page-expandable-description span.read-less-btn {
+    font-size: 13px;
+    letter-spacing: normal;
+    line-height: normal;
+}
+@media only screen and (max-width:767px){
+    .custom-section-expand .page-width.collection-page-expandable-description__container{
+        min-height: 100%;
+        max-height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
+{% endstyle %}
+
+<section class="collection-page-expandable-description custom-section-expand page-width">
+<div class=" collection-page-expandable-description__container">
+    <div class="custom-expandable-discription-wrapper">
+        {%- liquid
+          assign resolved_title = section.settings.collection_h2
+          if collection.metafields.custom.collection_h2_heading != blank
+            assign resolved_title = collection.metafields.custom.collection_h2_heading
+          endif
+
+          assign resolved_desc = section.settings.collection_seo_description
+          if collection.metafields.custom.collection_descriptions != blank
+            assign resolved_desc = collection.metafields.custom.collection_descriptions
+          endif
+        -%}
+
+        {%- if resolved_title != blank -%}
+          <h2 class="nw-faq-title">{{ resolved_title | escape }}</h2>
+        {%- endif -%}
+
+        {%- if resolved_desc != blank -%}
+          {%- assign full_desc = resolved_desc | strip_html -%}
+          {%- assign short_desc = full_desc | truncate: 150, "" -%}
+          <div class="custom-expandale-content">
+            <div class="collection-description">
+              <div class="short-description">{{ short_desc }}...<span class="read-more-btn" style="color: blue; cursor: pointer;">Read More</span></div>
+              <div class="full-description" style="display: none;">{{ full_desc }} <span class="read-less-btn" style="color: blue; cursor: pointer;">Read Less</span></div>
+            </div>
+          </div>
+        {%- endif -%}
+    </div>
+</div>
+{%- render 'breadcrumbs' -%}
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".collection-description");
+
+    sections.forEach(function (section) {
+      const shortDesc = section.querySelector(".short-description");
+      const fullDesc = section.querySelector(".full-description");
+      const readMoreBtn = section.querySelector(".read-more-btn");
+      const readLessBtn = section.querySelector(".read-less-btn");
+
+      if (shortDesc && fullDesc && readMoreBtn && readLessBtn) {
+        // Read More click
+        readMoreBtn.addEventListener("click", function () {
+          shortDesc.style.display = "none";
+          fullDesc.style.display = "block";
+        });
+
+        // Read Less click
+        readLessBtn.addEventListener("click", function () {
+          fullDesc.style.display = "none";
+          shortDesc.style.display = "block";
+        });
+      }
+    });
+  });
+</script>
+
+
+
+ 
+{% schema %}
+  {
+    "name": "Collection content new",
+    "settings": [
+    {
+      "type": "text",
+      "id": "collection_h2",
+      "label": "Collection H2",
+      "default": "Enter Collection H2"
+    },
+    {
+      "type": "text",
+      "id": "collection_seo_description",
+      "label": "Collection SEO Description",
+      "default": "Enter Collection Description"
+    }
+
+      
+    ],
+
+  "presets": [
+      {
+        "name": "Collection content new",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

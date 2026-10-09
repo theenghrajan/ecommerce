@@ -1,0 +1,280 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_UHFbUK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_c6czTG": {
+          "type": "heading",
+          "settings": {
+            "title": "Rich text",
+            "heading_size": "h2"
+          }
+        },
+        "text_4jcYtB": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_c6czTG",
+        "text_4jcYtB"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "color_scheme": "none",
+        "divider": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "newsletter_gNMaaW": {
+      "type": "newsletter",
+      "blocks": {
+        "title_XQBMJF": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h2"
+          }
+        },
+        "text_WgbkV8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_mMGV9Y": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_XQBMJF",
+        "text_WgbkV8",
+        "form_mMGV9Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "2",
+        "align_text": "center",
+        "image_width": "33",
+        "image_mask": "none",
+        "image_position": "right",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true
+      }
+    },
+    "slideshow_iJtMxY": {
+      "type": "slideshow",
+      "blocks": {
+        "hero_kPkJam": {
+          "type": "hero",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "top_space": 0,
+            "bottom_space": 0,
+            "title_size": 60,
+            "subheading": "Established in 2010 & headquartered in Los Angeles, CA. We proudly serve residential, commercial, & industrial customers with high-quality products that meet rigorous industry standards backed by outstanding customer service.",
+            "text_font_size": 26,
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#ffffff",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/nw-hq.jpg",
+            "overlay_opacity": 40
+          }
+        }
+      },
+      "block_order": [
+        "hero_kPkJam"
+      ],
+      "settings": {
+        "full_width": false,
+        "slide_width": 100,
+        "desktop_size": -20,
+        "mobile_size": 0,
+        "style": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "text_and_image_QEtz7E": {
+      "type": "text-and-image",
+      "disabled": true,
+      "settings": {
+        "slide_width": 100,
+        "image": "shopify://shop_images/unnamed_20.jpg",
+        "image_mask": "none",
+        "image2": "shopify://shop_images/nuwatt-4-pack-2x4-led-panel-for-drop-in-ceiling-50w40w30w-selectable-5-color-select-3000k3500k4000k5000k6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fi-326790.jpg",
+        "image2_mask": "none",
+        "subtitle": "",
+        "title": "Image with text",
+        "heading_size": "h2",
+        "text": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>",
+        "text_font_size": 16,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "image_width": "50",
+        "layout": "right",
+        "color_scheme": "1",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "slideshow_split_HBXTgq": {
+      "type": "slideshow-split",
+      "blocks": {
+        "slide_diDAAW": {
+          "type": "slide",
+          "settings": {
+            "top_subheading": "",
+            "title": "Quality & Service",
+            "title_size": 60,
+            "subheading": "Same Day Processing. Fast & Free Shipping. Superior Service.",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "text_position": "right",
+            "image": "shopify://shop_images/outdoor_lighting.png",
+            "indent_image": false,
+            "color_scheme": "none"
+          }
+        }
+      },
+      "block_order": [
+        "slide_diDAAW"
+      ],
+      "custom_css": [
+        ".hero__image--slide_diDAAW {border-radius: 9px;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "slide_width": 100,
+        "height": 650,
+        "height_mobile": 450,
+        "style": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "slideshow_split_qFKpb3": {
+      "type": "slideshow-split",
+      "blocks": {
+        "slide_6bDrKQ": {
+          "type": "slide",
+          "settings": {
+            "top_subheading": "",
+            "title": "Trusted by Professionals",
+            "title_size": 60,
+            "subheading": "Our products come with a 5 year warranty & certifications like UL, ETL, JA8, FCC, and Energy Star.",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "text_position": "left",
+            "image": "shopify://shop_images/nw-commerical-about-us-image.png",
+            "indent_image": false,
+            "color_scheme": "none"
+          }
+        }
+      },
+      "block_order": [
+        "slide_6bDrKQ"
+      ],
+      "custom_css": [
+        ".hero__image--slide_6bDrKQ {border-radius: 9px;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "slide_width": 100,
+        "height": 650,
+        "height_mobile": 450,
+        "style": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "text_and_image_caWaKt": {
+      "type": "text-and-image",
+      "disabled": true,
+      "settings": {
+        "slide_width": 100,
+        "image": "shopify://shop_images/2x2-black-led-drop-ceiling-lights-backlit-panel-3cct-3000k-5000k-4400lm-4-pack-nw-bl-2x2-203040w-3cct-blk-4p-418159.jpg",
+        "image_mask": "none",
+        "image2_mask": "none",
+        "subtitle": "",
+        "title": "Quality Control",
+        "heading_size": "h0",
+        "text": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>",
+        "text_font_size": 23,
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "image_width": "50",
+        "layout": "left",
+        "color_scheme": "none",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "background_image_text_MVE8Ay": {
+      "type": "background-image-text",
+      "settings": {
+        "subtitle": "",
+        "title": "The NuWatt Advantage",
+        "text": "<p>We strive to provide superior LED lighting using innovative techniques & quality components. Our USA team of lighting professionals strive to manufacture a diverse line of products with high efficiency LEDs for a brighter future.</p>",
+        "button_label": "",
+        "button_link": "",
+        "image": "shopify://shop_images/image_fx__80.png",
+        "layout": "left",
+        "height": 650,
+        "parallax": true,
+        "parallax_direction": "top",
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "rich_text_UHFbUK",
+    "main",
+    "newsletter_gNMaaW",
+    "slideshow_iJtMxY",
+    "text_and_image_QEtz7E",
+    "slideshow_split_HBXTgq",
+    "slideshow_split_qFKpb3",
+    "text_and_image_caWaKt",
+    "background_image_text_MVE8Ay"
+  ]
+}

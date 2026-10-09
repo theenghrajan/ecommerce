@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "blog-template",
+      "settings": {
+        "blog_show_rss": false,
+        "blog_show_tags": false,
+        "blog_show_date": true,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "blog_image_size": "natural"
+      }
+    },
+    "sidebar": {
+      "type": "blog-sidebar",
+      "blocks": {
+        "tags": {
+          "type": "tags",
+          "disabled": true,
+          "settings": {}
+        },
+        "article_mXBznx": {
+          "type": "article",
+          "settings": {
+            "title": "Popular posts",
+            "article": "news/retrofit-can-vs-canless-recessed-lighting-which-is-best-for-your-diy",
+            "blog_show_tags": false,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "blog_image_size": "square"
+          }
+        },
+        "article_ja9Xbe": {
+          "type": "article",
+          "settings": {
+            "title": "",
+            "article": "news/understanding-recessed-lighting-options-square-vs-round",
+            "blog_show_tags": false,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "blog_image_size": "square"
+          }
+        },
+        "article_73AXcR": {
+          "type": "article",
+          "settings": {
+            "title": "",
+            "article": "news/how-to-install-recessed-lighting",
+            "blog_show_tags": false,
+            "blog_show_date": true,
+            "blog_show_comments": false,
+            "blog_show_author": false,
+            "blog_image_size": "square"
+          }
+        }
+      },
+      "block_order": [
+        "tags",
+        "article_mXBznx",
+        "article_ja9Xbe",
+        "article_73AXcR"
+      ],
+      "settings": {}
+    },
+    "featured-collections": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection3": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection_aDR6kU": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection4": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection5": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        },
+        "collection6": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection1",
+        "collection2",
+        "collection3",
+        "collection_aDR6kU",
+        "collection4",
+        "collection5",
+        "collection6"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "You may also like",
+        "heading_size": "h2",
+        "heading_position": "left",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sidebar",
+    "featured-collections"
+  ],
+  "wrapper": "div.page-width.page-content.blog-layout"
+}

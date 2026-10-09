@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_nJdt89": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our round high bay led lights Collection",
+        "collection_seo_description": "Our UFO High Bay Light collection offers high performance lighting solutions for large industrial and commercial spaces. With their unique, compact design, these fixtures provide powerful, energy efficient illumination suitable for warehouses, gyms, and manufacturing facilities. Designed for high ceilings, they deliver consistent, bright lighting."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        },
+        "collection_description_WWppxQ": {
+          "type": "collection_description",
+          "settings": {}
+        },
+        "faq_zar6QQ": {
+          "type": "faq",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid",
+        "collection_description_WWppxQ",
+        "faq_zar6QQ"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_ep3KM9": {
+      "type": "jump-to",
+      "blocks": {
+        "question_7ieD9K": {
+          "type": "question",
+          "settings": {
+            "button": "All Commercial Lights",
+            "link": "shopify://collections/commercial-lighting",
+            "image": "shopify://shop_images/view-all-commercial-lighting-products.jpg",
+            "alt-text": "go to all our commercial lighting products"
+          }
+        },
+        "question_Dy8yLn": {
+          "type": "question",
+          "settings": {
+            "button": "Linear High Bays",
+            "link": "shopify://collections/linear-high-bay-led-lights",
+            "image": "shopify://shop_images/linear_high_bay_light.png",
+            "alt-text": "Go to Linear High Bay Collection"
+          }
+        },
+        "question_BGakJQ": {
+          "type": "question",
+          "settings": {
+            "button": "Shop Lights",
+            "link": "shopify://collections/led-shop-lights",
+            "image": "shopify://shop_images/shop-lights-wraparounds-collection.png",
+            "alt-text": ""
+          }
+        },
+        "question_K3TQPy": {
+          "type": "question",
+          "settings": {
+            "button": "Canopy Lights",
+            "link": "shopify://collections/canopy-lights",
+            "image": "shopify://shop_images/led-canopy-lights-outdoor-150w-waterproof-led-gas-station-light-2cct-selectable-4000k5000k-21250lm-dimmable-120-277v-ip67-rated-led-parking-garage-lights-or-lig-413822.jpg",
+            "alt-text": "go to Canopy Lights collection"
+          }
+        },
+        "question_aMf3BR": {
+          "type": "question",
+          "settings": {
+            "button": "Tubes",
+            "link": "shopify://collections/led-tube-lights",
+            "image": "shopify://shop_images/NW-T8F-4-18W-50K-30P-MAIN-464841.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_pJihAA": {
+          "type": "question",
+          "settings": {
+            "button": "Panels",
+            "link": "shopify://collections/led-panel-light",
+            "image": "shopify://shop_images/nuwatt-4-pack-2x4-led-panel-for-drop-in-ceiling-50w40w30w-selectable-5-color-select-3000k3500k4000k5000k6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fi-639226.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_7ieD9K",
+        "question_Dy8yLn",
+        "question_BGakJQ",
+        "question_K3TQPy",
+        "question_aMf3BR",
+        "question_pJihAA"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_eDKHce": {
+      "type": "faq",
+      "blocks": {
+        "question_6RdAk6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_namj8W": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_wKb6nH": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_6RdAk6",
+        "question_namj8W",
+        "question_wKb6nH"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_ckwB8z": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_6H8xnn": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_6NUtXt": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_YRJhD4": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_64F8fA": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_MbB8tP": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_MhDN94": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_6H8xnn",
+        "question_6NUtXt",
+        "question_YRJhD4",
+        "question_64F8fA",
+        "question_MbB8tP",
+        "question_MhDN94"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_tyCtka": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our round high bay led lights Collection",
+        "collection_seo_description": "Our UFO High Bay Light collection offers high performance lighting solutions for large industrial and commercial spaces. With their unique, compact design, these fixtures provide powerful, energy efficient illumination suitable for warehouses, gyms, and manufacturing facilities. Designed for high ceilings, they deliver consistent, bright lighting."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_nJdt89",
+    "main-collection",
+    "jump_to_ep3KM9",
+    "faq_eDKHce",
+    "collection_metafield_faq_ckwB8z",
+    "recently-viewed",
+    "expandable_description_tyCtka"
+  ]
+}

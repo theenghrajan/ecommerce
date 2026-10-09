@@ -1,0 +1,995 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ settings.text_direction }}">
+<head>
+<meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-55S4RNNQ');</script>
+<!-- End Google Tag Manager -->
+
+  {% comment %} {% if template contains 'collection' and collection.handle == 'ballast-compatible-led-tube-lights' %}
+  <meta name="robots" content="noindex,follow">
+{% endif %} {% endcomment %}
+<meta name="msvalidate.01" content="D86ECCF7C1CB72E514E9A64CF7321BDE" />
+<script type="text/javascript">
+
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+
+})(window, document, "clarity", "script", "x0o8u3eg14");
+
+</script>
+
+{% comment %} <script>
+
+          (function() {
+    function updateCanonicalTag() {
+      try {
+        var URL = window.location.href;
+        var htmlTag = URL;
+
+        // Check for unwanted query parameters and clean the URL
+        if (
+          URL.includes("?page=") || 
+          URL.includes("&page=") || 
+          URL.includes("?sort") || 
+          URL.includes("?srsltid=") || 
+          URL.includes("?filter") || 
+          URL.includes("?_pos") || 
+          URL.includes("?pr_prod_strat")
+        ) {
+          htmlTag = URL.split("?")[0];
+        } else if (URL.includes("&currency=USD")) {
+          htmlTag = URL.split("&")[0];
+        }
+
+        // Find or create the canonical link
+        var canonical = document.querySelector('link[rel="canonical"]');
+        if (canonical) {
+          canonical.href = htmlTag; // Update the href if it exists
+        } else {
+          canonical = document.createElement("link");
+          canonical.rel = "canonical";
+          canonical.href = htmlTag;
+          document.head.appendChild(canonical); // Append to <head>
+        }
+      } catch (error) {
+        //console.error("Error updating canonical tag:", error);
+      }
+    }
+
+    // Run immediately and retry if the canonical tag might not yet exist
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", updateCanonicalTag);
+    } else {
+      updateCanonicalTag();
+    }
+  })();  
+</script> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<script>
+
+
+
+
+  
+document.addEventListener("DOMContentLoaded", (event) => {
+  // READ MORE
+  if(document.querySelector(".rte--collection-desc button")){
+  document.querySelector(".rte--collection-desc button").addEventListener("click", function() {
+    var textElement = this.previousElementSibling; // Selects the paragraph before the button
+    let readMoreLessButton = document.getElementById('btn-ting');
+    
+
+    if (textElement.classList.contains('expanded')) {
+        textElement.classList.remove('expanded');
+        this.textContent = "Read More";
+        readMoreLessButton.classList.remove('opened')
+    } else {
+        textElement.classList.add('expanded');
+        this.textContent = "Read Less";
+              readMoreLessButton.classList.add('opened');
+
+    }
+});
+  }
+});
+</script>
+
+
+  <script>
+
+
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+
+
+
+    document.querySelectorAll('.accordion-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordionContent = button.nextElementSibling;
+
+      let classLength = button.lastElementChild.classList;
+      
+
+        
+        button.classList.toggle('active');
+        
+        if (button.classList.contains('active')) {
+            accordionContent.style.maxHeight = "max-content";
+            accordionContent.style.padding = '10px 20px';
+
+          //get arrow
+let theArrow = document.getElementById('desc-arrow-product');
+          theArrow.style.transform = 'rotate(-180deg)';
+
+
+          
+        } else {
+            accordionContent.style.maxHeight = '0';
+            accordionContent.style.padding = '0 20px';
+
+          //get arrow
+let theArrow = document.getElementById('desc-arrow-product');
+          theArrow.style.transform = 'rotate(0deg)';
+
+
+          
+        }
+    });
+
+
+      
+
+
+      
+});
+  
+
+
+});
+
+
+
+
+
+
+
+  </script>
+
+
+    <script>
+
+      
+
+document.addEventListener("DOMContentLoaded", (event) => {
+
+
+document.querySelectorAll('.alt-accordion-toggle').forEach((header, index) => {
+    const accordionBody = header.nextElementSibling;
+
+    // Automatically open the first accordion section
+    if (index === 0) {
+        header.classList.add('alt-active');
+        accordionBody.style.maxHeight = "max-content";
+        accordionBody.style.padding = '12px 22px';
+    }
+
+    header.addEventListener('click', () => {
+        const isAltActive = header.classList.contains('alt-active');
+
+        // Close any open accordion section before opening the new one
+        document.querySelectorAll('.alt-accordion-toggle').forEach((h, i) => {
+            if (i !== index && h.classList.contains('alt-active')) {
+                h.classList.remove('alt-active');
+                h.nextElementSibling.style.maxHeight = '0';
+                h.nextElementSibling.style.padding = '0 22px';
+            }
+        });
+
+        // Toggle the current accordion section
+        if (isAltActive) {
+            header.classList.remove('alt-active');
+            accordionBody.style.maxHeight = '0';
+            accordionBody.style.padding = '0 22px';
+        } else {
+            header.classList.add('alt-active');
+            accordionBody.style.maxHeight = "max-content";
+            accordionBody.style.padding = '12px 22px';
+        }
+    });
+});
+    
+});
+
+    </script>
+  
+
+  
+
+
+
+
+
+  
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+
+
+  
+  
+
+
+{% if request.path == '/pages/blog' 
+  or request.path == '/pages/warranty-registration' 
+  or request.path == '/pages/product-catalog-2023' 
+  or request.path == '/blogs/news/nuwatt-attending-the-national-hardware-show'
+  or request.path == '/collections/dpa-led-panels'
+%}
+  <meta name="robots" content="noindex, follow" >
+{% endif %}  
+
+{% if request.path == '/pages/volume-quote-request' %}
+  <link rel="canonical" href="https://www.nuwattlighting.com/pages/contact-us" >
+{% endif %}
+
+{%- if request.page_type == 'blog' and current_tags != blank -%}
+  <link rel="canonical" href="{{ shop.url }}{{ blog.url }}">
+{%- else -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+{%- endif -%}
+
+{% comment %} {% if template contains 'blog' and current_tags %}
+    <link rel="canonical" href="{{ shop.url }}{% if article.url %}{{ article.url }}{% else %}{{ blog.url }}{% endif %}" >
+{% elsif template contains 'collection' %}
+  <link rel="canonical" href="{{ shop.url }}{{ collection.url }}" />
+{% else %}
+  <link rel="canonical" href="{{ shop.url }}{{ request.path }}">  
+{% endif %} {% endcomment %}
+
+  
+{% if current_tags  %}
+
+  <meta name="robots" content="noindex">
+<meta name="googlebot" content="noindex">
+
+
+  
+{% endif %}
+
+
+
+
+  
+  <link rel="preload" as="script" href="{{ 'theme.js' | asset_url }}" crossorigin="anonymous">
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
+  <link rel="dns-prefetch" href="https://maps.gstatic.com">
+  
+ 
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png" />
+  {%- endif -%}
+
+{% if template == 'index' %}
+
+{% endif %}
+
+
+
+  {%- render 'seo-title' -%}
+
+
+
+  {%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  {%- render 'social-meta-tags' -%}
+
+  {%- if shop.enabled_currencies.size > 1 -%}
+    <link rel="stylesheet" href="{{ 'country-flags.css' | asset_url | split: '?' | first }}">
+  {%- endif -%}
+
+  {%- render 'font-face' -%}
+  {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+  {%- render 'css-variables' -%}
+
+  {%- liquid
+    assign enableSuperScript = false
+    unless shop.money_format contains 'money' or shop.money_format contains '.'
+      if settings.superscript_decimals
+        if shop.money_format contains '{{amount}}' or shop.money_format contains '{{ amount }}'
+          assign enableSuperScript = true
+        elsif shop.money_format contains '{{amount_with_comma_separator}}' or shop.money_format contains '{{ amount_with_comma_separator }}'
+          assign enableSuperScript = true
+        endif
+      endif
+    endunless
+  -%}
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = window.theme || {};
+    theme.routes = {
+      home: "{{ routes.root_url }}",
+      collections: "{{ routes.collections_url }}",
+      cart: "{{ routes.cart_url | append: '.js' }}",
+      cartPage: "{{ routes.cart_url }}",
+      cartAdd: "{{ routes.cart_add_url | append: '.js' }}",
+      cartChange: "{{ routes.cart_change_url | append: '.js' }}",
+      search: "{{ routes.search_url }}"
+    };
+
+    theme.strings = {
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      inStockLabel: {{ 'products.product.in_stock_label' | t | json }},
+      oneStockLabel: {{ 'products.product.stock_label.one' | t: count: '[count]' | json }},
+      otherStockLabel: {{ 'products.product.stock_label.other' | t: count: '[count]' | json }},
+      willNotShipUntil: {{ 'products.product.will_not_ship_until' | t: date: '[date]' | json }},
+      willBeInStockAfter: {{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
+      waitingForStock: {{ 'products.product.waiting_for_stock' | t | json }},
+      savePrice: {{ 'products.general.save_html' | t: saved_amount: '[saved_amount]' | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }},
+      searchCollections: {{ 'general.search.collections' | t | json }},
+      searchPages: {{ 'general.search.pages' | t | json }},
+      searchArticles: {{ 'general.search.articles' | t | json }},
+      maxQuantity: {{ 'cart.general.max_quantity' | t: quantity: '[quantity]', title: '[title]' | json }}
+    };
+    theme.settings = {
+      cartType: {{ settings.cart_type | json }},
+      isCustomerTemplate: {% if request.page_type contains 'customers/' %}true{% else %}false{% endif %},
+      moneyFormat: {{ shop.money_format | json }},
+      saveType: {{ settings.product_save_type | json }},
+      productImageSize: {{ settings.product_grid_image_size | json }},
+      productImageCover: {{ settings.product_grid_image_fill }},
+      predictiveSearch: {{ settings.predictive_search_enabled }},
+      predictiveSearchType: {{ settings.search_type | json }},
+      superScriptSetting: {{ settings.superscript_decimals }},
+      superScriptPrice: {{ enableSuperScript }},
+      quickView: {{ settings.quick_shop_enable }},
+      quickAdd: {{ settings.quick_add_enable }},
+      themeName: 'Expanse',
+      themeVersion: "4.3.1"
+    };
+  </script>
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"187181835", tm:"shpfy_ui", enableAutoSpaTracking: true};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+  {{ content_for_header }}
+
+   
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="{{ 'vendor-scripts-v2.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+  <script  type="module" src="{{ 'theme.js' | asset_url }}" ></script>
+  <script src="{{ 'next.js' | asset_url }}" defer="defer"></script>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer="defer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"/>
+  {%- if request.page_type contains 'customers/' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {% if request.design_mode %}
+    <script src="https://api.archetypethemes.co/design-mode.js" defer="defer"></script>
+  {% endif %}
+
+  <link type="text/css" href="{{ 'next.css' | asset_url }}" rel="stylesheet">
+  <link type="text/css" href="{{ 'chico.css' | asset_url }}" rel="stylesheet">
+  <link type="text/css" href="{{ 'clctrcss.css' | asset_url }}" rel="stylesheet">
+  <link type="text/css" href="{{ 'custom.css' | asset_url }}" rel="stylesheet">
+{% comment %}
+{% endcomment %}
+  {{ 'responsives.css' | asset_url | stylesheet_tag }}
+
+  <script>
+
+
+    window.addEventListener("DOMContentLoaded", function() {
+      var collectionDes_button = document.querySelector(".rte--collection-desc button");
+      if(collectionDes_button){
+       document.querySelector(".rte--collection-desc button").addEventListener("click", function() {
+    var textElement = this.previousElementSibling; // Selects the paragraph before the button
+
+    if (textElement.classList.contains('expanded')) {
+        textElement.classList.remove('expanded');
+        this.textContent = "Read More";
+    } else {
+        textElement.classList.add('expanded');
+        this.textContent = "Read Less";
+    }
+});   
+      }
+     }, false);
+</script>
+
+
+  
+
+
+
+
+
+    <script>
+      //hello chicoagama
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantitySelect = document.getElementById('nwl-quantity-select');
+            const hiddenInput = document.getElementById('product-select');
+
+            // ONLY run this if the elements actually exist on the page
+            if (quantitySelect && hiddenInput) {
+                quantitySelect.addEventListener('change', function() {
+                    hiddenInput.value = this.value;
+                    console.log('Product ID updated to:', hiddenInput.value);
+                });
+            }
+
+            // document.getElementById('product-form-6608068804682').addEventListener('submit', function(event) {
+                
+            //     const productId = hiddenInput.value;
+            //     const quantity = quantitySelect.options[quantitySelect.selectedIndex].text;
+                
+            // });
+        });
+    </script>
+
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Select the fieldset by its ID
+  const fieldset = document.querySelector('#ProductSelect-template--16466481348682__main-6915617161290-option-0');
+
+  // ONLY run the rest of the code if the fieldset actually exists on the page
+  if (fieldset) {
+    // Get all `.variant-input` elements within the selected fieldset
+    const variantInputs = fieldset.querySelectorAll('.variant-input');
+
+    // Get the current URL's query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const variantId = urlParams.get('variant');
+
+    // Define the variant-to-data-value mapping
+    const variantMapping = {
+      "15W": ["39922145787978", "39922145820746"],
+      "30W": ["39922145853514", "39922145886282"],
+      "50W": ["39922145919050", "39922145951818"],
+      "90W": ["40593280729162", "40624111747146"]
+    };
+
+    // Find the data-value corresponding to the variant ID
+    let dataValueToSelect = null;
+    for (const [dataValue, variantIds] of Object.entries(variantMapping)) {
+      if (variantIds.includes(variantId)) {
+        dataValueToSelect = dataValue;
+        break;
+      }
+    }
+
+    // Function to remove 'selected-pdp-option' from all variant inputs within the fieldset
+    function clearSelectedClass() {
+      variantInputs.forEach(input => input.classList.remove('selected-pdp-option'));
+    }
+
+    // Initialize the selected option based on the URL parameter
+    if (dataValueToSelect) {
+      // Remove the class from all elements to reset the state
+      clearSelectedClass();
+
+      // Find the div with the matching data-value and add the class
+      const targetDiv = fieldset.querySelector(`.variant-input[data-value="${dataValueToSelect}"]`);
+      if (targetDiv) {
+        targetDiv.classList.add('selected-pdp-option');
+        // Also check the corresponding input
+        const inputElement = targetDiv.querySelector('input[type="radio"]');
+        if (inputElement) {
+          inputElement.checked = true;
+        }
+      }
+    }
+
+    // Add click event listener to each variant input
+    variantInputs.forEach(variantInput => {
+      variantInput.addEventListener('click', () => {
+        // Remove 'selected-pdp-option' from all variant inputs within the fieldset
+        clearSelectedClass();
+
+        // Add 'selected-pdp-option' to the clicked variant input
+        variantInput.classList.add('selected-pdp-option');
+
+        // Also check the corresponding input
+        const inputElement = variantInput.querySelector('input[type="radio"]');
+        if (inputElement) {
+          inputElement.checked = true;
+        }
+      });
+    });
+  } // <-- End of the IF statement
+});
+</script>
+
+
+
+{% style %}
+  html.with-fancybox body.hide-scrollbar{
+    overflow: unset !important;
+    overscroll-behavior-y: unset;
+  }
+  html.with-fancybox body {
+    touch-action: unset !important;
+}
+{% endstyle %}
+  
+<style>
+
+  div#CollectionSidebar span.tag__checkbox, .collection-mobile-filters span.tag__checkbox{
+  border: 1px solid #000;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+}
+div#CollectionSidebar .tag__checkbox:after, .collection-mobile-filters .tag__checkbox:after{
+    height: 10px;
+    width: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.collapsible-trigger__layout--inline>span {
+    font-weight: 600 !important;
+}
+{% comment %} .grid-product__title{
+  line-height:22px !important;
+} {% endcomment %}
+  {% comment %} .collection-grid__wrapper .product-grid.collection-grid[data-view="list"] .grid-item.grid-product .grid-product__title  {
+    line-height:normal !important;
+  } {% endcomment %}
+@media screen and (min-width: 4500px) {
+  .grid-product__title {
+    font-size: 25px !important;
+    line-height: normal !important;
+  }
+}
+
+</style>
+<style>
+  .site-nav__link {
+    font-size: {{ settings.type_navigation_size }}px;
+  }
+  {% if settings.type_navigation_capitalize %}
+    .site-nav__link {
+      /* text-transform: uppercase; */
+      letter-spacing: 0.2em;
+    }
+  {% endif %}
+
+  {% if mainmenu.length > 6 %}
+    .site-nav__link {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  {% endif %}
+
+  {%- if settings.color_header == settings.color_body_bg or settings.color_body_bg contains settings.color_header -%}
+    .site-header,
+    .site-header__element--sub {
+      box-shadow: 0 0 25px rgb(0 0 0 / 10%);
+    }
+
+    .is-light .site-header,
+    .is-light .site-header__element--sub {
+      box-shadow: none;
+    }
+  {%- endif -%}
+
+  {%- if settings.color_header == settings.color_header_search -%}
+    .site-header__search-form {
+      border: 1px solid {{ settings.color_borders }}
+    }
+  {%- endif -%}
+
+</style>
+{% comment %} Me added this file 20-08-26  {% endcomment %}
+{{ 'application-filter.css' | asset_url | stylesheet_tag }}
+</head>
+
+<body class="product-img-lenght-{{ product.media.size }}    {{ page.handle }} nuwatt-lighting template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}" data-transitions="{{ settings.animate_page_transitions }}" data-button_style="{{ settings.button_style }}" data-edges="{{ settings.roundness }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" data-grid-style="{{ settings.product_grid_style }}">
+  <div class="overly_fancybox"></div>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55S4RNNQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  
+  {% if settings.animate_page_transitions %}
+    <script type="text/javascript">window.setTimeout(function() { document.body.className += " loaded"; }, 25);</script>
+  {% endif %}
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  <div id="PageContainer" class="page-container">
+    <div class="transition-body">
+      {%- sections 'header-group' -%}
+      {%- sections 'popup-group' -%}
+
+      <main class="main-content" id="MainContent">
+        {% comment %} {% if template == 'index' %}
+    <div class="site-header__cart-empty custom_empty_box">{{ 'cart.general.empty' | t }}</div>
+        {% endif %} {% endcomment %}
+        {{ content_for_layout }}
+      </main>
+
+      {%- sections 'footer-group' -%}
+    </div>
+  </div>
+
+  {%- liquid
+    render 'video-modal'
+    render 'photoswipe-template'
+    if settings.quick_add_enable
+      render 'quick-add-modal'
+    endif
+    render 'tool-tip'
+  -%}
+  <div id="ProductModals"></div>
+
+  {% comment %} Image markup used when building product grid item via JS {% endcomment %}
+  <template id="naturalImageMarkup">
+    <div class="image-wrap" style="height: 0;">
+      <image-element>
+        <img class="grid-product__image lazyload" width height src srcset loading="lazy" alt>
+      </image-element>
+    </div>
+  </template>
+  <template id="fixedRatioImageMarkup">
+    <div class="grid__image-ratio">
+      <image-element>
+        <img class="lazyload" width height src srcset loading="lazy" alt>
+      </image-element>
+    </div>
+  </template>
+  <template id="articleImageMarkup">
+    <image-element>
+      <img class="lazyload" width height src loading="lazy">
+    </image-element>
+  </template>
+  
+ <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+
+    <script>
+      $(document).on('click', '.filter-wrapper .filter-form input', function(){
+        var valuee = $(this).val();
+       var drawer_filter = $(`.filter_drawer input[value='${valuee}']`);
+        if (drawer_filter) {
+            drawer_filter.trigger('click');
+            $('body').css('pointer-events', 'none');
+            
+            setTimeout(function() {
+              $('body').css('pointer-events', 'auto');
+            }, 2000);
+          }
+      })
+      $(document).on('click', '.tag.tag--remove a', function(){
+        var valuee = $(this).text();
+       var drawer_filter = $(`.filter_drawer input[value='${valuee.trim()}']`);
+        if(drawer_filter){
+          drawer_filter.trigger('click');
+          drawer_filter.parents('.tag').removeClass('tag--active');
+          $('body').css('pointer-events', 'none');
+            
+            setTimeout(function() {
+              $('body').css('pointer-events', 'auto');
+            }, 2000);
+        }
+      })
+
+      $(document).on('change', '.filter_drawer .filter-form.filter_drawer_main input', function() { 
+        setTimeout(function(){
+          $('.filter-form.desktop_filter .collapsible-content, .filter-form.desktop_filter .collapsible-trigger').removeClass('is-open');
+
+        }, 2000); 
+        $('body').css('pointer-events', 'none');
+            
+            setTimeout(function() {
+              $('body').css('pointer-events', 'auto');
+            }, 2000);
+      });
+     {% comment %} $(window).on('load', function() {
+    $('.filter-form.desktop_filter .collapsible-content, .filter-form.desktop_filter .collapsible-trigger').removeClass('is-open');
+
+    {% comment %} $('.filter_drawer.filter_drawer_mobile .collapsible-content, .filter_drawer.filter_drawer_mobile  .collapsible-trigger').removeClass('is-open'); {% endcomment %}
+});  {% endcomment %}
+
+    
+    </script>
+  <script>
+function scrollLeftBy() {
+  document.getElementById('scrollBox').scrollLeft -= 100;
+}
+
+function scrollRightBy() {
+  document.getElementById('scrollBox').scrollLeft += 100;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const observer = new MutationObserver(function (mutationsList) {
+    for (const mutation of mutationsList) {
+      if (mutation.attributeName === 'class') {
+        const body = mutation.target;
+        const isFancyboxOpen = body.classList.contains('fancybox-active');
+        const fancybox_thumbs = document.querySelector('.fancybox-thumbs-y');
+
+        if (isFancyboxOpen) {
+          // Fancybox just opened
+          const productTitleMain = document.querySelector('.product-single__title');
+          if (productTitleMain && fancybox_thumbs) {
+            // Prevent adding multiple titles
+            if (!fancybox_thumbs.querySelector('.custom-title')) {
+              const titleText = document.createElement('div');
+              titleText.classList.add('h2', 'product-single__title');
+              titleText.textContent = productTitleMain.innerText;
+              titleText.classList.add('custom-title'); // Mark it for later removal
+              fancybox_thumbs.insertBefore(titleText, fancybox_thumbs.firstChild);
+            }
+          }
+        } else {
+          // Fancybox just closed → Remove the title if exists
+          if (fancybox_thumbs) {
+            const oldTitle = fancybox_thumbs.querySelector('.custom-title');
+            if (oldTitle) {
+              oldTitle.remove();
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // Start observing the <body> for class changes
+  observer.observe(document.body, { attributes: true });
+});
+
+</script>
+
+
+
+<script>
+{% comment %} function updateSelectedPackEachPrice() {
+  const selectedPack = document.querySelector('input[name="Pack Size"]:checked');
+  const variantSelect =
+    document.querySelector('select[name="id"][data-product-select]') ||
+    document.querySelector('select[name="id"]');
+
+  if (!selectedPack || !variantSelect) return;
+
+  const selectedOption = variantSelect.options[variantSelect.selectedIndex];
+  if (!selectedOption) return;
+
+  const mainPrice = parseFloat(
+    selectedOption.getAttribute('data-price') ||
+    selectedOption.textContent.match(/(\d+\.\d{2})/)?.[1] ||
+    0
+  );
+
+  if (!mainPrice) return;
+
+  const packText = selectedPack.value;
+  const qtyMatch = packText.match(/(\d+)/);
+  const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : 1;
+
+  // round nahi, truncate karo
+  const eachPrice = (Math.floor((mainPrice / qty) * 100) / 100).toFixed(2);
+  const [whole, decimal] = eachPrice.split('.');
+
+  const selectedPackWrapper = selectedPack.closest('.variant-input');
+  if (!selectedPackWrapper) return;
+
+  const lastVariantEl = selectedPackWrapper.querySelector('.lastvariant');
+  if (!lastVariantEl) return;
+
+  lastVariantEl.innerHTML = `$${whole}<span class="ctm-dot">.</span>${decimal} ea<span class="ctm-dot">.</span>`;
+}
+
+document.addEventListener('change', function (e) {
+  if (
+    e.target.matches('input[name="Pack Size"]') ||
+    e.target.matches('input[name="Beam Angle"]')
+  ) {
+    setTimeout(updateSelectedPackEachPrice, 150);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(updateSelectedPackEachPrice, 150);
+}); {% endcomment %}
+
+
+function getSelectedBeamAngle() {
+  const selectedBeam = document.querySelector('input[name="Beam Angle"]:checked');
+  return selectedBeam ? selectedBeam.value.trim() : '';
+}
+
+function normalizeText(text) {
+  return (text || '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function getVariantPriceForPackAndBeam(packValue, beamValue, variantSelect) {
+  if (!variantSelect) return 0;
+
+  const packText = normalizeText(packValue);
+  const beamText = normalizeText(beamValue);
+
+  for (let option of variantSelect.options) {
+    const optionText = normalizeText(option.textContent);
+
+    // yeh maan ke chal raha hai ki variant option text me
+    // Beam Angle aur Pack Size dono present hain
+    if (optionText.includes(packText) && optionText.includes(beamText)) {
+      const price = parseFloat(
+        option.getAttribute('data-price') ||
+        option.textContent.match(/(\d+\.\d{2})/)?.[1] ||
+        0
+      );
+
+      return price || 0;
+    }
+  }
+
+  return 0;
+}
+
+function updateAllPackEachPrices() {
+  const beamAngle = getSelectedBeamAngle();
+
+  const variantSelect =
+    document.querySelector('select[name="id"][data-product-select]') ||
+    document.querySelector('select[name="id"]');
+
+  if (!beamAngle || !variantSelect) return;
+
+  const packInputs = document.querySelectorAll('input[name="Pack Size"]');
+  if (!packInputs.length) return;
+
+  packInputs.forEach(function (packInput) {
+    const packText = packInput.value;
+    const mainPrice = getVariantPriceForPackAndBeam(packText, beamAngle, variantSelect);
+
+    if (!mainPrice) return;
+
+    const qtyMatch = packText.match(/(\d+)/);
+    const qty = qtyMatch ? parseInt(qtyMatch[1], 10) : 1;
+
+    // truncate to 2 decimal
+    const eachPrice = (Math.floor((mainPrice / qty) * 100) / 100).toFixed(2);
+    const [whole, decimal] = eachPrice.split('.');
+
+    const packWrapper = packInput.closest('.variant-input');
+    if (!packWrapper) return;
+
+    const lastVariantEl = packWrapper.querySelector('.lastvariant');
+    if (!lastVariantEl) return;
+
+    lastVariantEl.innerHTML = `$${whole}<span class="ctm-dot">.</span>${decimal} ea<span class="ctm-dot">.</span>`;
+  });
+}
+
+document.addEventListener('change', function (e) {
+  if (
+    e.target.matches('input[name="Pack Size"]') ||
+    e.target.matches('input[name="Beam Angle"]') ||
+    e.target.matches('select[name="id"]') ||
+    e.target.matches('select[name="id"][data-product-select]')
+  ) {
+    setTimeout(updateAllPackEachPrices, 150);
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(updateAllPackEachPrices, 150);
+});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["Organization", "Corporation", "Brand"],
+  "@id": "https://nuwattlighting.com/#organization",
+  "name": "NuWatt",
+  "alternateName": "NuWatt Lighting",
+  "url": "https://nuwattlighting.com",
+  "slogan": "Lighting Your World",
+  "description": "NuWatt is an electric lighting equipment manufacturer providing premium LED lighting solutions for commercial, residential, and outdoor applications. Our catalog includes canless recessed lighting, retrofit can lights, LED tube lights, and LED highbays with nationwide free shipping.",
+  
+  "logo": {
+    "@type": "ImageObject",
+    "@id": "https://nuwattlighting.com/#logo",
+    "inLanguage": "en-US",
+    "url": "https://cdn.shopify.com/s/files/1/0293/5858/7978/files/NW_LOGO_2024_CHARCOAL.png?v=1723064239",
+    "width": "150",
+    "caption": "NuWatt Lighting Logo"
+  },
+  "image": {
+    "@id": "https://nuwattlighting.com/#logo"
+  },
+  
+  "telephone": "+1-862-801-2006",
+  "email": "cs@nuwattlighting.com",
+  "foundingDate": "2020",
+  "numberOfEmployees": {
+    "@type": "QuantitativeValue",
+    "minValue": 11,
+    "maxValue": 50
+  },
+
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Los Angeles",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-862-801-2006",
+    "contactType": "Customer Support",
+    "email": "cs@nuwattlighting.com",
+    "areaServed": "US",
+    "availableLanguage": ["English", "en-US"]
+  },
+
+  "sameAs": [
+    "https://www.facebook.com/nuwattlighting",
+    "https://www.instagram.com/nuwattlighting",
+    "https://www.youtube.com/channel/UCnuwattlighting",
+    "https://www.pinterest.com/nuwattlighting/",
+    "https://www.linkedin.com/company/nuwattlighting"
+  ]
+}
+</script>
+{% comment %} Me added this file 20-08-26 {% endcomment %}
+<script
+  src="{{ 'application-filter.js' | asset_url }}"
+  defer
+></script>
+<script>function myInit(){ StampedFn.init({ apiKey: '31f05899-3dc3-476c-91b8-375386ad6cfc', storeUrl: '363503' }); }</script>
+<script async onload="myInit()" type="text/javascript" src="https://cdn1.stamped.io/files/widget.min.js"></script>
+{% if request.page_type == 'page' and page.handle == 'nps-survey' %}
+  <meta name="robots" content="noindex, nofollow">
+{% endif %}
+{%- render 'breadcrumb-click-tracker' -%}
+</body>
+</html>
+

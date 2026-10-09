@@ -1,0 +1,296 @@
+
+        .rlc-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rlc-calculator,
+        .rlc-visualization,
+        .rlc-result {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: transparent;
+        }
+
+        /* Default styles (Desktop view) */
+        .rlc-calculator {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .rlc-input-group {
+            flex: 1 1 200px;
+            margin: 5px;
+        }
+
+        .rlc-input-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 3px;
+            color: #5f6368;
+        }
+
+        .rlc-input-group input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1px solid #dadce0;
+            background-color: #ffffff;
+            color: #202124;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .rlc-input-group input[type="number"]:focus {
+            border-color: #000000;
+        }
+
+        .rlc-pill-container {
+            flex: 1 1 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .rlc-pill-container label {
+            margin-bottom: 3px;
+            font-size: 14px;
+            color: #5f6368;
+        }
+
+        .rlc-pill-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .rlc-calculator button {
+            width: 100%;
+            padding: 8px 10px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .rlc-calculator button:hover {
+            background-color: #333333;
+        }
+
+        .rlc-visualization-and-result {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .rlc-visualization {
+            flex: 3 5 0%;
+            margin-right: 5px;
+        }
+
+        .rlc-result {
+            flex: 2 5 0%;
+            margin-left: 5px;
+            opacity: 0;
+        }
+
+        .rlc-result.visible {
+            opacity: 1;
+            animation: rlc-fadeInEffect 0.7s ease-in-out forwards;
+        }
+
+        @keyframes rlc-fadeInEffect {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .rlc-result h2 {
+            color: #202124;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .rlc-result-item {
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.2s;
+        }
+
+        .rlc-result-item:hover {
+            background-color: #f1f3f4;
+        }
+
+        #rlc-canvasContainer {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #rlc-roomCanvas {
+            border: 1px solid #dadce0;
+            margin-top: 5px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .rlc-selected-result {
+            background-color: #e8f0fe;
+        }
+
+        /* Styles for the pill-shaped buttons */
+        .rlc-pill-button {
+            padding: 6px 12px;
+            margin: 0 3px;
+            border: 1px solid #dadce0;
+            background-color: #ffffff;
+            color: #202124;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            font-size: 14px;
+            user-select: none;
+        }
+
+        .rlc-pill-button:hover {
+            background-color: #f1f3f4;
+        }
+
+        .rlc-pill-button.selected {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        /* Toast styles */
+        #rlc-toast {
+            visibility: hidden;
+            min-width: 250px;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #323232;
+            color: #fff;
+            text-align: center;
+            border-radius: 0;
+            padding: 10px;
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+        }
+
+        #rlc-toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 30px;
+        }
+
+        /* Content styles */
+        .rlc-content {
+            max-width: 1200px;
+            margin: 20px 0 10px 0;
+            padding: 10px;
+            background-color: transparent;
+            line-height: 1.6;
+        }
+
+        .rlc-content h2 {
+            color: #202124;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .rlc-content h3 {
+            color: #202124;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .rlc-content p {
+            margin-bottom: 10px;
+            color: #202124;
+            font-size: 16px;
+        }
+
+        .rlc-content ul {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        .rlc-content li {
+            margin-bottom: 8px;
+            font-size: 16px;
+            color: #202124;
+        }
+
+        .rlc-content strong {
+            color: #202124;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+
+            .rlc-input-group label {
+                font-size: 12px !important;
+            }
+
+            .rlc-calculator,
+            .rlc-visualization,
+            .rlc-result {
+                padding: 5px;
+            }
+
+            .rlc-visualization-and-result {
+                flex-direction: column;
+            }
+
+            .rlc-visualization,
+            .rlc-result {
+                flex: 1 1 100%;
+                margin: 0;
+            }
+
+            .rlc-calculator {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-end;
+            }
+
+            .rlc-input-group {
+                flex: 1 1 calc(33.333% - 20px);
+                margin: 4px;
+            }
+
+            .rlc-input-group input[type="number"] {
+                width: 100%;
+            }
+
+            .rlc-pill-container {
+                flex: 1 1 100%;
+                margin: 10px 0;
+            }
+
+            .rlc-calculator button {
+                margin-top: 10px;
+            }
+        }

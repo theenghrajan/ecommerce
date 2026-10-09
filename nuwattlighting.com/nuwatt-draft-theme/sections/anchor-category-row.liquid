@@ -1,0 +1,316 @@
+{% comment %}
+  Anchor page — category row
+  Figma: "128 Audit Fixes" / Anchor page — Section - <name> Category
+         (nodes 9172:217, 9172:309, 9172:406)
+
+  One reusable section, added once per category. The Figma page shows three
+  (Canless Recessed / Retrofit / Ceiling) built from the same unit: a heading
+  block with a VIEW ALL link, a feature promo tile, then four product cards.
+{% endcomment %}
+
+{%- render 'anchor-head' -%}
+
+{%- liquid
+  assign collection = section.settings.collection
+  assign view_all_url = section.settings.view_all_link
+  if view_all_url == blank and collection != blank
+    assign view_all_url = collection.url
+  endif
+
+  assign feature_overlay = section.settings.feature_overlay | divided_by: 100.0
+
+  # Column count follows the setting, NOT the number of products found. The
+  # card proportions in the design depend on a fixed ~195px column: letting a
+  # short collection widen the tracks stretches the square product image and
+  # balloons the whole row. A thin collection leaves empty (invisible) tracks
+  # instead, which keeps every card at its designed size.
+  assign product_cols = section.settings.products_to_show
+  if product_cols < 1
+    assign product_cols = 1
+  endif
+-%}
+
+<div
+  id="AnchorCategory-{{ section.id }}"
+  class="anchor-section anchor-category"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="anchor-inner">
+    <div class="anchor-category__head">
+      <div>
+        {%- if section.settings.heading != blank -%}
+          <h2 class="anchor-heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="anchor-subheading">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.view_all_label != blank and view_all_url != blank -%}
+        <a class="anchor-link" href="{{ view_all_url }}">
+          {{ section.settings.view_all_label | escape }}
+          {%- render 'anchor-icon', icon: 'arrow', classes: 'anchor-link__icon' -%}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div
+      class="anchor-category__grid"
+      style="--anchor-cols: {{ product_cols }}; --anchor-title-lines: {{ section.settings.title_lines }};"
+    >
+      {%- comment -%} Feature promo tile {%- endcomment -%}
+      {%- if section.settings.feature_title != blank or section.settings.feature_image != blank -%}
+        <a
+          class="anchor-feature"
+          {% if section.settings.feature_link != blank %}href="{{ section.settings.feature_link }}"{% endif %}
+        >
+          {%- if section.settings.feature_image != blank -%}
+            <div class="anchor-feature__media">
+              {%- render 'image-element',
+                img: section.settings.feature_image,
+                alt: '',
+                widths: '300, 450, 600',
+                sizes: '(min-width: 1025px) 277px, 100vw',
+                ariaHidden: true
+              -%}
+            </div>
+          {%- endif -%}
+
+          <div
+            class="anchor-feature__overlay"
+            style="background-color: rgba(0, 0, 0, {{ feature_overlay }});"
+          ></div>
+
+          <div class="anchor-feature__body">
+            {%- if section.settings.feature_title != blank -%}
+              <h3 class="anchor-feature__title">{{ section.settings.feature_title | escape }}</h3>
+            {%- endif -%}
+            {%- if section.settings.feature_text != blank -%}
+              <p class="anchor-feature__text">{{ section.settings.feature_text | escape }}</p>
+            {%- endif -%}
+            {%- if section.settings.feature_link_label != blank -%}
+              <span class="anchor-link anchor-link--accent">
+                {{ section.settings.feature_link_label | escape }}
+                {%- render 'anchor-icon', icon: 'arrow', classes: 'anchor-link__icon' -%}
+              </span>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endif -%}
+
+      {%- comment -%} Product cards {%- endcomment -%}
+      {%- if collection != blank -%}
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          {%- render 'anchor-product-card',
+            product: product,
+            price_label: section.settings.price_label,
+            show_save: section.settings.show_save,
+            loading: 'lazy'
+          -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- comment -%} Onboarding: no collection picked yet {%- endcomment -%}
+        {%- for i in (1..section.settings.products_to_show) -%}
+          <div class="anchor-product">
+            <span class="anchor-product__image">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+            </span>
+            {%- comment -%}
+              Not home_page.onboarding.product_title — the theme references
+              that key but locales/en.default.json does not define it, so it
+              would render as "Translation missing" in the editor preview.
+            {%- endcomment -%}
+            <h4 class="anchor-product__title">Example product</h4>
+            <div class="anchor-product__foot">
+              <p class="anchor-product__price">
+                <span class="anchor-product__price-symbol">$</span>
+                <span class="anchor-product__price-amount">19</span>
+                <span class="anchor-product__price-cents">99</span>
+              </p>
+              <span class="anchor-product__cta">{{ 'products.product.add_to_cart' | t }}</span>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var sectionId = {{ section.id | json }};
+
+    // theme.QuickAdd is bound per container, and theme.js only auto-registers
+    // its own section types — so wire this section up by hand. It no-ops
+    // internally when settings.quick_add_enable is off.
+    function init() {
+      var root = document.getElementById('AnchorCategory-' + sectionId);
+      if (!root || root.getAttribute('data-quick-add-ready') === 'true') return;
+      if (!window.theme || typeof window.theme.QuickAdd !== 'function') return;
+
+      new window.theme.QuickAdd(root);
+      root.setAttribute('data-quick-add-ready', 'true');
+    }
+
+    // 'page:loaded' is the theme documented "assets are ready" event.
+    document.addEventListener('page:loaded', init);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    // Re-bind after a theme editor re-render replaces the section markup.
+    document.addEventListener('shopify:section:load', function (evt) {
+      if (evt.detail && evt.detail.sectionId === sectionId) init();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Anchor: Category row",
+  "tag": "section",
+  "class": "anchor-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Canless Recessed Lights"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Sleek, modern and easy to install. Perfect for any bedroom."
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "Link label",
+      "default": "View all"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Link",
+      "info": "Defaults to the selected collection."
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "title_lines",
+      "label": "Product title lines",
+      "info": "Titles are trimmed to this many lines so every card keeps the same height. The design uses 2.",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "text",
+      "id": "price_label",
+      "label": "Price prefix",
+      "info": "Shown before the price, e.g. \"From $22.99\". Leave empty to hide.",
+      "default": "From"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_save",
+      "label": "Show save icon on cards",
+      "info": "Visual only — connect it to your wishlist app if you use one.",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Feature tile"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "feature_title",
+      "label": "Title",
+      "default": "Canless Recessed Lights"
+    },
+    {
+      "type": "text",
+      "id": "feature_text",
+      "label": "Text",
+      "default": "Sleek, modern and easy to install. Perfect for any bedroom."
+    },
+    {
+      "type": "text",
+      "id": "feature_link_label",
+      "label": "Link label",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "feature_link",
+      "label": "Link"
+    },
+    {
+      "type": "range",
+      "id": "feature_overlay",
+      "label": "Image overlay",
+      "min": 0,
+      "max": 90,
+      "step": 2,
+      "unit": "%",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anchor: Category row"
+    }
+  ]
+}
+{% endschema %}

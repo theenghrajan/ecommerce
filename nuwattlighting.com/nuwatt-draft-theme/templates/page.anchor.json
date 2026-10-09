@@ -1,0 +1,505 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "ss_hero": {
+      "type": "ss-anchor-hero",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "image": "shopify://shop_images/Bedroom_Hero.jpg",
+        "min_height": 500,
+        "overlay_opacity": 80,
+        "gradient_direction": "right",
+        "heading": "Bedroom Lights",
+        "heading_tag": "h1",
+        "text_case": "sentence",
+        "text": "<p>Create a relaxing retreat with premium LED lighting designed for comfort, style and efficiency.</p>",
+        "button_label": "",
+        "button_link": "/collections/recessed-lighting",
+        "button_radius": 2
+      }
+    },
+    "ss_trust": {
+      "type": "ss-anchor-trust-bar",
+      "blocks": {
+        "warranty": {
+          "type": "text_block",
+          "settings": {
+            "icon": "shield",
+            "icon_image": "shopify://shop_images/image_5.png",
+            "title": "Best Warranty",
+            "btnlink": "",
+            "text": "5 Year Warranty"
+          }
+        },
+        "returns": {
+          "type": "text_block",
+          "settings": {
+            "icon": "recycle",
+            "icon_image": "shopify://shop_images/image_4.png",
+            "title": "Easy Returns",
+            "btnlink": "",
+            "text": "30-Day Hassle Free"
+          }
+        },
+        "discount": {
+          "type": "text_block",
+          "settings": {
+            "icon": "sales-tag",
+            "icon_image": "shopify://shop_images/image_3.png",
+            "title": "Volume Discount",
+            "btnlink": "",
+            "text": "Save More on Bulk"
+          }
+        },
+        "secure": {
+          "type": "text_block",
+          "settings": {
+            "icon": "wallet",
+            "icon_image": "shopify://shop_images/image_2.png",
+            "title": "Secure Shopping",
+            "btnlink": "",
+            "text": "Safe & Protected"
+          }
+        }
+      },
+      "block_order": [
+        "warranty",
+        "returns",
+        "discount",
+        "secure"
+      ],
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "title": "",
+        "align_text": "left",
+        "text_case": "uppercase",
+        "show_dividers": false,
+        "desktop_columns_per_row": 4,
+        "icon_color": "#000000",
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    },
+    "ss_intro": {
+      "type": "ss-anchor-intro",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Discover our <strong>premium selection of bedroom lighting</strong> solutions designed to create the perfect ambiance. From canless recessed lights to ceiling fixtures, find energy-efficient options that combine style, performance, and long-lasting quality.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text"
+      ],
+      "settings": {
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "text_case": "sentence",
+        "align_text": "center",
+        "narrow_column": true,
+        "color_scheme": "none",
+        "divider": false
+      }
+    },
+    "ss_categories": {
+      "type": "ss-anchor-category-rows",
+      "blocks": {
+        "canless": {
+          "type": "category",
+          "settings": {
+            "heading": "Canless Recessed Lights",
+            "subheading": "Sleek, modern and easy to install. Perfect for any bedroom.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/canless-recessed-lighting",
+            "products": [
+              "4-inch-mr16-led-retrofit-12v-recessed-downlights-wet-rated-5cct-2700k-5000k-600lm-gu5-3-base",
+              "4-inch-canless-black-recessed-lighting-led-wafer-lights-wet-rated-5cct-2700k-5000k-630lm",
+              "5-6-inch-adjustable-can-lights-sloped-ceiling-recessed-lighting-damp-rated-5cct-2700k-5000k-1200lm",
+              "6-inch-canless-black-recessed-lighting-slim-led-wafer-lights-with-emergency-battery-back-up-wet-rated-5cct-2700k-5000k-1050lm"
+            ],
+            "feature_image": "shopify://shop_images/Bedroom_Canless.jpg",
+            "feature_title": "Canless Recessed Lights",
+            "feature_text": "Sleek, modern and easy to install. Perfect for any bedroom.",
+            "feature_link_label": "Shop Canless",
+            "feature_link": "shopify://collections/canless-recessed-lighting",
+            "feature_overlay": 60
+          }
+        },
+        "retrofit": {
+          "type": "category",
+          "settings": {
+            "heading": "Retrofit Recessed Lights",
+            "subheading": "Easy upgrade for existing housings. Save time and money.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/retrofit-recessed-lighting",
+            "products": [
+              "4-inch-mr16-led-retrofit-12v-black-recessed-lighting-5cct-gu5-3-base",
+              "4-inch-canless-black-recessed-lighting-led-wafer-lights-wet-rated-5cct-2700k-5000k-630lm",
+              "6-inch-wafer-gimbal-recessed-lighting-white",
+              "6-inch-canless-black-recessed-lighting-slim-led-wafer-lights-wet-rated-5cct-2700k-5000k-1050lm"
+            ],
+            "feature_image": "shopify://shop_images/Bedroom_Retrofit.jpg",
+            "feature_title": "Retrofit Recessed Lights",
+            "feature_text": "Easy upgrade for existing housings. Save time and money.",
+            "feature_link_label": "Shop Retrofit",
+            "feature_link": "shopify://collections/retrofit-recessed-lighting",
+            "feature_overlay": 60
+          }
+        },
+        "ceiling": {
+          "type": "category",
+          "settings": {
+            "heading": "Ceiling Lights",
+            "subheading": "Stylish ceiling solutions to brighten up your space.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/ceiling-disk-led-lights",
+            "products": [
+              "4-inch-square-mr16-led-retrofit-12v-recessed-downlights-5cct-2700k-5000k-660lm-gu5-3-base",
+              "4-inch-mr16-led-retrofit-12v-black-recessed-lighting-5cct-gu5-3-base",
+              "5-6-inch-adjustable-black-recessed-lighting-retrofit-can-lights-sloped-ceilings-5cct",
+              "6-inch-brushed-nickel-canless-led-recessed-lighting-slim-wafer-lights-120-277v"
+            ],
+            "feature_image": "shopify://shop_images/Bedroom_Ceiling.jpg",
+            "feature_title": "Ceiling Lights",
+            "feature_text": "Stylish ceiling solutions to brighten up your space.",
+            "feature_link_label": "Shop Ceiling",
+            "feature_link": "shopify://collections/ceiling-disk-led-lights",
+            "feature_overlay": 60
+          }
+        },
+        "smart": {
+          "type": "category",
+          "settings": {
+            "heading": "Smart Recessed Lights",
+            "subheading": "Set the perfect mood with customizable smart lighting.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/smart-recessed-lighting",
+            "products": [
+              "4-inch-retrofit-led-recessed-can-lights-smart-color-changing-rgbw-wet-rated-800lm",
+              "4-inch-smart-downlights-rgb-color-changing-recessed-lights-canless-led-wet-rated",
+              "6-inch-smart-downlights-rgb-color-changing-recessed-lights-canless-led-wet-rated",
+              "6-inch-black-smart-downlights-rgb-color-changing-recessed-lights-canless-led-wet-rated"
+            ],
+            "feature_image": "shopify://shop_images/Bedroom_Smart.jpg",
+            "feature_title": "Smart Recessed Lights",
+            "feature_text": "Set the perfect mood with customizable smart lighting.",
+            "feature_link_label": "Shop Smart",
+            "feature_link": "shopify://collections/smart-recessed-lighting",
+            "feature_overlay": 60
+          }
+        }
+      },
+      "block_order": [
+        "canless",
+        "retrofit",
+        "ceiling",
+        "smart"
+      ],
+      "settings": {
+        "text_case": "sentence",
+        "card_radius": 8,
+        "row_gap": 48,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "ss_related": {
+      "type": "ss-anchor-related",
+      "settings": {
+        "heading": "Learn About Lighting",
+        "text_case": "sentence",
+        "card_border_color": "#e5e7eb",
+        "card_radius": 8,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "ss_shop_more": {
+      "type": "ss-anchor-shop-more",
+      "blocks": {
+        "card_1": {
+          "type": "item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Recessed_Lights.png",
+            "title": "Recessed Lights",
+            "text": "Clean, modern and perfect for any bedroom.",
+            "link_label": "Shop now",
+            "link": "shopify://collections/recessed-lighting",
+            "overlay": 50
+          }
+        },
+        "card_2": {
+          "type": "item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Ceiling_Lights.png",
+            "title": "Ceiling Lights",
+            "text": "Stylish flush mounts and low-profile fixtures.",
+            "link_label": "Shop now",
+            "link": "shopify://collections/ceiling-disk-led-lights",
+            "overlay": 50
+          }
+        },
+        "card_3": {
+          "type": "item",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/Wall_Lights.png",
+            "title": "Wall Lights",
+            "text": "Add ambiance and accent with stylish wall fixtures.",
+            "link_label": "Shop now",
+            "link": "shopify://collections/led-wall-packs",
+            "overlay": 50
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {
+        "heading": "Shop More Lighting",
+        "text_case": "sentence",
+        "card_radius": 8,
+        "padding_top": 48,
+        "padding_bottom": 100
+      },
+      "disabled": true
+    },
+    "ss_reviews": {
+      "type": "ss-anchor-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>\"Top quality lights and amazing customer service!\"</p>",
+            "author": "David R.",
+            "author_info": "Verified Buyer"
+          }
+        },
+        "review_2": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>\"Easy to install and the brightness is perfect.\"</p>",
+            "author": "Emily T.",
+            "author_info": "Verified Buyer"
+          }
+        },
+        "review_3": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>\"Fast shipping and excellent products.\"</p>",
+            "author": "James L.",
+            "author_info": "Verified Buyer"
+          }
+        },
+        "review_4": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>\"Great value and the finish looks premium.\"</p>",
+            "author": "Sarah M.",
+            "author_info": "Verified Buyer"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ],
+      "disabled": true,
+      "settings": {
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "text_case": "sentence",
+        "title": "What Customers are Saying",
+        "align_text": "left",
+        "round_images": true,
+        "color_scheme": "1"
+      }
+    },
+    "1788233592cc5a915d": {
+      "type": "apps",
+      "blocks": {
+        "junip_junip_reviews_FJP6yb": {
+          "type": "shopify://apps/junip/blocks/junip-reviews/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "layout": "grid",
+            "reviewsType": "product_reviews",
+            "showSummary": false,
+            "showMediaGallery": false,
+            "reviewsCount": 6,
+            "containerClass": ""
+          }
+        },
+        "junip_junip_review_carousel_P8GdJy": {
+          "type": "shopify://apps/junip/blocks/junip-review-carousel/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "reviewsType": "store_reviews",
+            "sortOrder": "highestRated",
+            "product": "",
+            "reviewTag": "",
+            "showSummary": true,
+            "title": "Reviews",
+            "paddingTop": 0,
+            "paddingBottom": 48,
+            "containerClass": ""
+          }
+        }
+      },
+      "block_order": [
+        "junip_junip_reviews_FJP6yb",
+        "junip_junip_review_carousel_P8GdJy"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false
+      }
+    },
+    "ss_browse": {
+      "type": "text-with-icons",
+      "blocks": {
+        "text_block_gVCpUe": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Pathway_Lights_-_120px_x_120px_FM.svg",
+            "title": "Pathway Lights",
+            "btnlink": "shopify://collections/pathway-lights",
+            "featured": false
+          }
+        },
+        "text_block_eqaCBG": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Canless_Recessed_-_120px_x_120px_FM.svg",
+            "title": "Canless Recessed",
+            "btnlink": "shopify://collections/canless-recessed-lighting",
+            "featured": false
+          }
+        },
+        "text_block_TMe9Hi": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Retrofit_Recessed_-_120px_x_120px_FM.svg",
+            "title": "Retrofit Recessed",
+            "btnlink": "shopify://collections/retrofit-recessed-lighting",
+            "featured": false
+          }
+        },
+        "text_block_hyrNxA": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Bullet_Lights_-_120px_x_120px_FM.svg",
+            "title": "Bullet Lights",
+            "btnlink": "shopify://collections/bullet-lights",
+            "featured": false
+          }
+        },
+        "text_block_gFp9Qc": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Flood_Lights_-_120px_x_120px_FM.svg",
+            "title": "Flood Lights",
+            "btnlink": "shopify://collections/led-flood-lights",
+            "featured": false
+          }
+        },
+        "text_block_iEjC7D": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Tubes_-_120px_x_120px_FM.svg",
+            "title": "LED Tubes",
+            "btnlink": "shopify://collections/led-tube-lights",
+            "featured": false
+          }
+        },
+        "text_block_CcfKnJ": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Panel_Lights_-_120px_x_120px_FM.svg",
+            "title": "Panel Lights",
+            "btnlink": "shopify://collections/led-panel-light",
+            "featured": false
+          }
+        },
+        "text_block_rqkhbm": {
+          "type": "text_block",
+          "settings": {
+            "icon": "none",
+            "icon_image": "shopify://shop_images/Highbay_Lights_-_120px_x_120px_FM.svg",
+            "title": "Highbay Lights",
+            "btnlink": "shopify://collections/high-bay-led-lights",
+            "featured": false
+          }
+        }
+      },
+      "block_order": [
+        "text_block_gVCpUe",
+        "text_block_eqaCBG",
+        "text_block_TMe9Hi",
+        "text_block_hyrNxA",
+        "text_block_gFp9Qc",
+        "text_block_iEjC7D",
+        "text_block_CcfKnJ",
+        "text_block_rqkhbm"
+      ],
+      "name": "Text columns with icons",
+      "settings": {
+        "eyebrow": "",
+        "title": "Browse by Category",
+        "align_text": "center",
+        "desktop_columns_per_row": 8,
+        "icon_color": "#000000",
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ss_hero",
+    "ss_trust",
+    "ss_intro",
+    "ss_categories",
+    "ss_related",
+    "ss_browse",
+    "ss_shop_more",
+    "ss_reviews",
+    "1788233592cc5a915d"
+  ]
+}

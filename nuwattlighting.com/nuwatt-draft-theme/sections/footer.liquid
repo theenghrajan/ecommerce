@@ -1,0 +1,718 @@
+{% style %}
+  /* Figma's footer (node 9229:555) is a single dark 4-column band — logo +
+     description + social on the left, then Company / Help Center menus,
+     then Get In Touch (phone/email + the newsletter form stacked directly
+     beneath it, not as a separate full-width row below everything).
+     Also updated the theme's global color_footer / color_footer_text /
+     color_footer_border in config/settings_data.json (footer is shared
+     across every page, not just this section) — but two things fight
+     that: (1) that file doesn't hot-reload the same way sections do in
+     `shopify theme dev`, and (2) `assets/chico.css` — a separate,
+     later-loaded stylesheet — has its own hardcoded
+     `.site-footer { background-color: rgb(247 247 247) }` and
+     `.footer__title { color: #374151 }`, unrelated to Figma or the theme
+     settings, silently overriding them site-wide. `!important` here
+     guarantees this renders correctly regardless of either. */
+  .site-footer {
+    background-color: #202020 !important;
+    color: #ffffff !important;
+  }
+  .site-footer a {
+    color: #ffffff !important;
+  }
+  /* `assets/chico.css` also swaps in a totally different typeface
+     ('nw-DiatypeRegular') for every footer link and title, rather than
+     the theme's actual base font — which is already Roboto (confirmed via
+     `getComputedStyle(document.body).fontFamily`), matching Figma's own
+     spec (`font-['Roboto:Regular']` / `Roboto:SemiBold`) with zero extra
+     font-loading needed. */
+  .site-footer a,
+  .site-footer .footer__title {
+    font-family: 'Roboto', sans-serif !important;
+  }
+  /* `assets/chico.css` sets `.site-footer .footer__section { border:
+     none }` outright — the earlier `border-top-color` override here had
+     no visible effect, since color alone can't draw a border without a
+     style/width, both of which that rule zeroes out (confirmed via
+     getComputedStyle: borderTopWidth 0px, borderTopStyle none, despite
+     the color being set correctly). Setting the full shorthand this time,
+     not just the color. */
+  .site-footer .footer__section {
+    border-top: 1px solid #3a3a3a !important;
+  }
+  /* `assets/responsives.css` (same file responsible for most of the
+     other footer sizing bugs) sets `.footer__section--menus{padding-top:
+     42.19px}` — Figma's gap from the dark panel's top edge to the
+     logo/content row is 80px (node 9229:556 top=6952 vs 9229:557
+     top=7032), confirmed via getBoundingClientRect (measured 42.1875px
+     live, matching the legacy value almost exactly). */
+  .site-footer .footer__section--menus {
+    padding-top: 80px !important;
+  }
+  /* Every homepage section widens .page-width to 1900px (confirmed live
+     via getComputedStyle: Top Categories, Shop by Space, Best Sellers,
+     Why NuWatt, and now About NuWatt all match) — the footer was still on
+     the theme's unmodified default (1500px), making it visibly narrower
+     than the content above it on every page, not just the homepage. */
+  .site-footer .page-width {
+    max-width: 1900px;
+  }
+  /* The theme's generic `.footer__block { flex: 0 1 25%; max-width: 210px }`
+     (theme.css.liquid) already squeezed 4 columns into a narrow strip, but
+     `assets/responsives.css` — a separate, unrelated legacy stylesheet —
+     makes it much worse at normal desktop widths (≥1200px): a hardcoded
+     `.footer__block { max-width: 177.26px; flex: 0 1 210.96px }`, an oddly
+     specific pixel value with no connection to this 4-column content.
+     Switching to a real grid with proportional columns (image+description
+     and "Get In Touch" wider than the two plain menu columns, matching
+     Figma's rough proportions) instead of fighting that flex/max-width
+     chain column by column. */
+  .site-footer .footer__blocks {
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr 1fr 1.6fr;
+    gap: 40px;
+    width: 100%;
+  }
+  .site-footer .footer__block {
+    max-width: none !important;
+    flex: none !important;
+    width: auto !important;
+  }
+  /* The grid above (and the `flex:none` reset on `.footer__block`) is
+     unconditional, with no breakpoint — it silently overrode the theme's
+     own mobile-responsive footer rules in `assets/theme.css.liquid`
+     (`@media (max-width:768px){ .footer__block{flex:1 1 50%} ... }`),
+     which used to stack these 4 columns into 2 on tablet and a single
+     column on mobile. Confirmed live at a 500px-wide viewport: the fixed
+     4-column grid didn't reflow at all, forcing a horizontal scrollbar
+     and clipping "Get In Touch"/the logo column off both edges. Restoring
+     explicit tablet/mobile breakpoints here instead of relying on the
+     theme defaults, since `flex:none !important` above permanently
+     disables the flex-based ones. */
+  @media only screen and (max-width: 1024px) {
+    .site-footer .footer__blocks {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 24px;
+    }
+    .site-footer .footer__block[data-type="image"],
+    .site-footer .footer__block[data-type="contact"] {
+      grid-column: 1 / -1;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .site-footer .footer__blocks {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .site-footer .footer__image--logo {
+      width: 180px;
+    }
+  }
+  /* Figma spec (via get_design_context on 9229:555): headings are
+     Roboto SemiBold 20px, uppercase, tracking -0.6px, leading 24px —
+     previous pass guessed 14px/600/0.5px without the exact numbers.
+     Also: Figma's own wrapper around each heading + its content uses
+     `gap-[24px]` between them (nodes 9229:562/570) — the theme's actual
+     margin-bottom here was 12.67px, from yet another `assets/
+     responsives.css` legacy override (`.footer__title{margin-
+     bottom:12.67px}`), confirmed via getComputedStyle. Vertical alignment
+     of the headings themselves (Company/Help Center/Get In Touch all
+     starting at the same top) was already correct — just the gap
+     *beneath* each one needed fixing. */
+  .site-footer .footer__title {
+    color: #ffffff !important;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px !important;
+    line-height: 24px;
+    letter-spacing: -0.6px;
+    margin-bottom: 24px !important;
+  }
+  .site-footer .footer__image--logo {
+    width: 253px;
+  }
+  .site-footer .footer__image--logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  /* theme.css.liquid zeroes `.footer__menu li { margin: 0 }` outright,
+     leaving no vertical spacing between list items at all (confirmed via
+     getBoundingClientRect: consecutive <li> elements' top/bottom edges
+     landed exactly flush, 0px apart). Figma specs a 16px gap between
+     Company/Help Center links (`gap-[16px]` on nodes 9229:564/9229:572),
+     and a wider ~24px gap between the Get In Touch icon rows (Email Us /
+     phone, ~64px between row tops minus each row's own 40px icon height).
+     Switching `.footer__menu` to flex+gap (matching Figma's own technique
+     directly) rather than trying to reintroduce per-item margins the
+     theme explicitly stripped out. */
+  .site-footer .footer__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .site-footer .footer__block[data-type="contact"] .footer__menu {
+    gap: 24px;
+  }
+  /* Same `assets/responsives.css` legacy stylesheet that squeezed the
+     column widths also force-shrinks every footer link to 8.5px at
+     desktop widths (`.site-footer a, .site-footer a * { font-size: 8.5px }`)
+     — unreadable body copy, unrelated to anything Figma-driven.
+     `assets/chico.css` (already blamed above for colors) *also* forces
+     every `.site-footer a` uppercase — Figma's link list items ("About
+     Us", "Reviews", etc.) are plain sentence case, only the column
+     headings are uppercase, so that needs undoing specifically for the
+     menu links (not the headings, which legitimately are uppercase). */
+  .site-footer .footer__menu a,
+  .site-footer .footer__menu a * {
+    text-transform: none !important;
+  }
+  /* The "My account" link's label comes from the shared
+     `customer.account.title` locale string, also used as the page
+     heading on the actual account/orders/addresses pages — editing that
+     string would fix the footer but also affect those pages, so it's
+     capitalized here instead, scoped to just the Company/Help Center
+     menu columns (not the Get In Touch phone/email text, where this
+     would do nothing useful and isn't needed). */
+  .site-footer .footer__blocks > .footer__block[data-type="menu"] .footer__menu a {
+    text-transform: capitalize !important;
+  }
+  /* Figma spec differs by column: Company links are 16px, Help Center
+     links are 14px (get_design_context, nodes 9229:564 / 9229:572) — the
+     previous pass applied one flat 15px guess to both. Targeting by grid
+     position since both are the generic "menu" block type/markup;
+     block order (image, Company, Help Center, contact) is fixed by
+     `footer-group.json`'s `block_order`. */
+  .site-footer .footer__blocks > .footer__block:nth-child(2) .footer__menu a,
+  .site-footer .footer__blocks > .footer__block:nth-child(2) .footer__menu a * {
+    font-size: 16px !important;
+  }
+  .site-footer .footer__blocks > .footer__block:nth-child(3) .footer__menu a,
+  .site-footer .footer__blocks > .footer__block:nth-child(3) .footer__menu a * {
+    font-size: 14px !important;
+  }
+  /* Same legacy 8.5px shrink also hits the "Get In Touch" column's
+     Email Us/phone row — missed when the previous pass split the flat
+     15px rule into just the two menu columns above. Figma spec for this
+     text (node 9229:587/9229:594) is 14px too. */
+  .site-footer .footer__block[data-type="contact"] .footer__menu a,
+  .site-footer .footer__block[data-type="contact"] .footer__menu a * {
+    font-size: 14px !important;
+  }
+  /* Figma's Email Us/phone row text has no underline — the theme's
+     `.footer__menu--underline` modifier class forced one (removed from
+     the markup in footer-contact.liquid; this is a fallback in case
+     anything else still applies it). */
+  .site-footer .footer__block[data-type="contact"] .footer__menu a {
+    text-decoration: none;
+  }
+  /* Figma's phone/email rows in "Get In Touch" use dedicated pre-composed
+     icon assets (circle + glyph baked into one 40x40 SVG, exported
+     directly from node 9229:581/9229:589 as assets/figma-footer-icon-
+     phone.svg / -email.svg) rather than a hand-drawn circle wrapped
+     around a generic line icon — the previous pass tried to reconstruct
+     that with a CSS border + padding, which was never going to match
+     Figma's exact glyph weight/proportions. */
+  .site-footer .footer__block[data-type="contact"] .icon-and-text {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .site-footer .footer__block[data-type="contact"] .icon-and-text .icon {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+  /* `.image-wrap`'s generic theme-wide style gives every image a white
+     placeholder background (fine for product thumbnails on a light page,
+     wrong for a logo sitting on this now-dark footer). */
+  .site-footer .footer__block[data-type="image"] .image-wrap {
+    background: transparent !important;
+  }
+  /* Newsletter block spec (get_design_context, node 9229:625-633):
+     "5% OFF..." label 16px SemiBold uppercase tracking -0.6px, helper
+     text 12px regular; input+button both 52.297px tall, radius 8px.
+     Input: bg rgba(255,255,255,.07), border rgba(255,255,255,.18),
+     placeholder rgba(255,255,255,.5). Button: solid #fcc833, text
+     #202020 14px SemiBold uppercase. Previous pass only fixed the
+     input's border/background enough to be visible, without matching
+     these exact values, and never touched the button or overall label
+     sizing. */
+  .site-footer .footer__block[data-type="contact"] .footer__newsletter {
+    display: block;
+    padding: 0;
+    margin-top: 24px;
+  }
+  .site-footer .footer__block[data-type="contact"] .footer__newsletter > * {
+    padding: 0;
+  }
+  /* Yet another `assets/responsives.css` legacy rule: `.newsletter__input-
+     group { margin: 0 auto ...; max-width: 337.68px }` — the `auto`
+     horizontal margins center the (narrower, max-width-capped) input+
+     button row within its column instead of left-aligning it. That was
+     invisible back when this column was cramped to ~177px (narrower than
+     the 337px cap, so centering had no room to do anything) — widening
+     the footer's columns surfaced it as a real rightward offset versus
+     the icon/label/text above, which all stayed flush left.
+     Correction 2026-09-04: the earlier fix here kept a ~350px cap,
+     reasoning it should match Figma's literal 343px measurement — but
+     that 343px in Figma turns out to be the *column's own width* (column
+     right edge minus its left edge, computed from node positions), not a
+     deliberately compact size within a wider column. Figma's newsletter
+     row fills its column edge-to-edge; ours should too, at whatever width
+     this column actually renders — so the cap needed to go, not shrink
+     further. Now `width: 100%` instead, reaching the same right edge as
+     the icon/label content above it, matching Figma's actual proportions
+     rather than a hardcoded px value lifted from a narrower Figma frame. */
+  .site-footer .footer__block[data-type="contact"] .newsletter__input-group {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100%;
+  }
+  /* `.footer__subscribe` wraps the whole `newsletter_richtext` setting —
+     Figma has TWO lines here, a bold uppercase label and a lighter 12px
+     helper sentence below it ("One email when there's something worth
+     knowing..."), which the content previously didn't even include (just
+     the label, one `<p>`). Styling by position (`:first-child` bold/
+     uppercase, later paragraphs 12px/translucent) instead of a fixed
+     single style, so both lines in the now-2-paragraph richtext render
+     correctly. */
+  .site-footer .footer__block[data-type="contact"] .footer__subscribe p {
+    margin: 0;
+  }
+  .site-footer .footer__block[data-type="contact"] .footer__subscribe p:first-child {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.6px;
+    margin-bottom: 8px;
+  }
+  .site-footer .footer__block[data-type="contact"] .footer__subscribe p:not(:first-child) {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+  }
+  .site-footer .footer__block[data-type="contact"] .footer__newsletter form {
+    margin-top: 12px;
+  }
+  /* The theme's `.input-group` joins the field and button into one
+     seamless pill (button's near corners squared off flush against the
+     field, no gap) — Figma's version is two fully independent 8px-radius
+     elements with a visible gap between them. */
+  .site-footer .footer__newsletter .input-group {
+    gap: 14px;
+  }
+  .site-footer .footer__newsletter input[type="email"] {
+    height: 52px;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-radius: 8px !important;
+    padding: 0 15px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .site-footer .footer__newsletter input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .site-footer .footer__newsletter .btn {
+    height: 52px;
+    border-radius: 8px !important;
+    background: #fcc833;
+    color: #202020;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.075px;
+    padding: 0 25px;
+  }
+  /* Circular social buttons. The solid-yellow icon in Figma's static mock
+     is a hover/active state caught mid-interaction, not a permanently
+     highlighted "first" icon — so it's applied here as a real :hover (and
+     :focus-visible, for keyboard users), on whichever icon the pointer is
+     over, not hardcoded to any particular platform. */
+  .site-footer .footer__social--circular {
+    display: flex;
+    gap: 12px;
+  }
+  .site-footer .footer__social--circular li {
+    margin: 0;
+  }
+  .site-footer .footer__social--circular a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .site-footer .footer__social--circular a:hover,
+  .site-footer .footer__social--circular a:focus-visible {
+    background: #fcc833;
+    border-color: #fff;
+  }
+  .site-footer .footer__social--circular .icon {
+    width: 16px;
+    height: 16px;
+    fill: #fff;
+    transition: fill 0.15s ease;
+  }
+  .site-footer .footer__social--circular a:hover .icon,
+  .site-footer .footer__social--circular a:focus-visible .icon {
+    fill: #202020;
+  }
+  .site-footer .footer__logo-description {
+    margin: 16px 0 24px;
+    max-width: 480px;
+    opacity: 0.8;
+  }
+  .site-footer .footer__base-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .site-footer .footer__base-links > span:first-child {
+    padding-right: 0;
+  }
+  /* Figma spec: 14px (both `.footer__base-links` itself, theme.css.liquid,
+     at 13px, and chico.css's blanket `.site-footer a { font-size: 10px }`
+     undershoot it — the latter needs !important to beat). */
+  .site-footer .footer__base-links,
+  .site-footer .footer__base-links a {
+    font-size: 14px !important;
+    text-transform: none !important;
+  }
+{% endstyle %}
+
+{% comment %}
+  Main navigation is copied here with JS for mobile users
+{% endcomment %}
+{%- if section.settings.footer_main_menu -%}
+  <div id="FooterMobileNavWrap" class="footer__section footer__section--border medium-up--hide hide">
+    <div id="FooterMobileNav" class="page-width"></div>
+  </div>
+{%- endif -%}
+
+<footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
+  <div id="FooterMenus" class="footer__section footer__section--menus">
+    <div class="page-width">
+      <div class="footer__blocks">
+        {%- for block in section.blocks -%}
+          <div {{ block.shopify_attributes }} class="footer__block" data-type="{{ block.type }}">
+            {%- liquid
+              case block.type
+                when 'menu'
+                  render 'footer-menu', block: block
+                when 'payment'
+                  assign show_currency_flags = block.settings.show_currency_flags
+                  render 'footer-payments', block: block, show_currency_flags: show_currency_flags
+                when 'contact'
+                  render 'footer-contact', block: block
+                  if section.settings.show_newsletter
+                    echo '<div class="footer__newsletter">'
+                    if section.settings.newsletter_richtext != blank
+                      echo '<div class="footer__subscribe rte rte--nomargin">'
+                      echo section.settings.newsletter_richtext
+                      echo '</div>'
+                    endif
+                    render 'newsletter-form', section_id: section.id, snippet_context: 'footer'
+                    echo '</div>'
+                  endif
+                when 'image'
+                  render 'footer-image', block: block
+              endcase
+            -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__section">
+    <div class="page-width text-center small--text-left">
+      <div class="footer__base-links">
+        {%- if section.settings.show_copyright -%}
+          <span>
+            &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+            {%- if section.settings.copyright_text != blank -%}
+              {{ section.settings.copyright_text }}
+            {%- endif -%}
+          </span>
+        {%- endif -%}
+        <span>
+          {%- if linklists[section.settings.policies_menu].links.size > 0 -%}
+            {%- for link in linklists[section.settings.policies_menu].links -%}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- endfor -%}
+          {%- endif -%}
+
+          {{ powered_by_link }}
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "t:sections.footer.settings.show_newsletter.label",
+      "info": "t:sections.footer.settings.show_newsletter.info",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "newsletter_richtext",
+      "label": "t:sections.footer.settings.newsletter_richtext.label",
+      "default": "<p>Subscribe today to hear first about our sales</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.footer.settings.header_additional_footer_content"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_main_menu",
+      "label": "t:sections.footer.settings.footer_main_menu.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_copyright",
+      "label": "t:sections.footer.settings.show_copyright.label"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "t:sections.footer.settings.copyright_text.label"
+    },
+    {
+      "type": "link_list",
+      "id": "policies_menu",
+      "label": "t:sections.footer.settings.policies_menu.label",
+      "info": "t:sections.footer.settings.policies_menu.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "payment",
+      "name": "t:sections.footer.blocks.payments_and_localization.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_payment_icons",
+          "label": "t:sections.footer.blocks.payments_and_localization.settings.show_payment_icons.label",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_locale_selector",
+          "label": "t:sections.footer.blocks.payments_and_localization.settings.show_locale_selector.label",
+          "info": "t:sections.footer.blocks.payments_and_localization.settings.show_locale_selector.info",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_currency_selector",
+          "label": "t:sections.footer.blocks.payments_and_localization.settings.show_currency_selector.label",
+          "info": "t:sections.footer.blocks.payments_and_localization.settings.show_currency_selector.info",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_currency_flags",
+          "label": "t:sections.footer.blocks.payments_and_localization.settings.show_currency_flags.label",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "t:sections.footer.blocks.navigation.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.footer.blocks.navigation.settings.title.label",
+          "info": "t:sections.footer.blocks.navigation.settings.title.info"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:sections.footer.blocks.navigation.settings.menu.label",
+          "default": "footer",
+          "info": "t:sections.footer.blocks.navigation.settings.menu.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_account_link",
+          "label": "t:sections.footer.blocks.navigation.settings.enable_account_link.label"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "t:sections.footer.blocks.contact_and_social.name",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:sections.footer.blocks.contact_and_social.settings.header_contact"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "t:sections.footer.blocks.contact_and_social.settings.phone.label"
+        },
+        {
+          "type": "text",
+          "id": "contact_title",
+          "label": "Contact title"
+        },
+        {
+          "type": "page",
+          "id": "contact",
+          "label": "t:sections.footer.blocks.contact_and_social.settings.contact.label"
+        },
+        {
+          "type": "page",
+          "id": "chat",
+          "label": "t:sections.footer.blocks.contact_and_social.settings.chat.label"
+        },
+        {
+          "type": "header",
+          "content": "t:sections.footer.blocks.contact_and_social.settings.header_social"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_social",
+          "label": "t:sections.footer.blocks.contact_and_social.settings.enable_social.label",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.footer.blocks.logo.settings.image.label",
+          "info": "t:sections.footer.blocks.logo.settings.image.info"
+        },
+        {
+          "type": "select",
+          "id": "image_mask",
+          "label": "t:common.image_mask.label",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:common.image_mask.options.none.label"
+            },
+            {
+              "value": "portrait",
+              "label": "t:common.image_mask.options.portrait.label"
+            },
+            {
+              "value": "landscape",
+              "label": "t:common.image_mask.options.landscape.label"
+            },
+            {
+              "value": "square",
+              "label": "t:common.image_mask.options.square.label"
+            },
+            {
+              "value": "rounded",
+              "label": "t:common.image_mask.options.rounded.label"
+            },
+            {
+              "value": "rounded-wave",
+              "label": "t:common.image_mask.options.rounded-wave.label"
+            },
+            {
+              "value": "rounded-top",
+              "label": "t:common.image_mask.options.rounded-top.label"
+            },
+            {
+              "value": "star",
+              "label": "t:common.image_mask.options.star.label"
+            },
+            {
+              "value": "splat-1",
+              "label": "t:common.image_mask.options.splat-1.label"
+            },
+            {
+              "value": "splat-2",
+              "label": "t:common.image_mask.options.splat-2.label"
+            },
+            {
+              "value": "splat-3",
+              "label": "t:common.image_mask.options.splat-3.label"
+            },
+            {
+              "value": "splat-4",
+              "label": "t:common.image_mask.options.splat-4.label"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.footer.blocks.logo.settings.link.label",
+          "info": "t:sections.footer.blocks.logo.settings.link.info"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "info": "Shown below the logo."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_social",
+          "label": "Show \"Follow us\" + social icons below the description",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "use_theme_logo",
+          "label": "Use bundled white-wordmark logo",
+          "info": "Overrides Image with the theme-bundled assets/figma-footer-logo-white.svg — the shop's own logo file has its wordmark filled light grey instead of white.",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "menu",
+        "settings": {}
+      },
+      {
+        "type": "payment",
+        "settings": {}
+      }
+    ]
+  },
+  "disabled_on": {
+    "groups": ["header", "custom.popups"]
+  }
+}
+{% endschema %}

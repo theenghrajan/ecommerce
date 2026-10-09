@@ -1,0 +1,203 @@
+{% stylesheet %}
+.collection-page-expandable-description {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    width: 100%;
+    max-width: unset;
+    margin: 0 auto;
+    padding: 0 30px 20px 30px;
+    box-sizing: border-box;
+}
+.collection-page-expandable-description__container {
+    position: relative;
+    overflow: hidden;
+}
+.collection-page-expandable-description__text {
+    margin: 0;
+    font-family: 'nw-regular';
+    font-weight: 400 !important;
+    letter-spacing: .7px;
+    line-height: 19px;
+    font-size: 15px;
+}
+.collection-page-expandable-description__fade-out {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.8) 80%, rgba(255,255,255,1));
+    pointer-events: none;
+}
+.collection-page-expandable-description__toggle {
+    display: none;
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+    font-size: 13px;
+    color: black;
+}
+.collection-page-expandable-description__toggle:hover {
+    color: #004080;
+}
+.collection-page-expandable-description__toggle::after {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    content: "";
+    display: inline-block;
+    background: url(/cdn/shop/files/read-more-down-arrow.svg?v=1723045131) 0 0 no-repeat;
+    vertical-align: middle;
+    width: 13px;
+    height: 13px;
+    position: relative;
+    top: 2px;
+    left: 10px;
+}
+.collection-page-expandable-description__toggle--expanded::after {
+    transform: rotate(180deg);
+}
+
+.collection-h2-top{
+  margin-bottom: 0;
+  font-size: 15px;
+  font-family: nw-regular;
+  letter-spacing: 2.5px;
+}
+.collection-page-expandable-description .collapsible-content__inner {
+  font-size: 16px;
+}
+@media (max-width: 767px) {
+  .collection-page-expandable-description__container {
+      max-height: 100px;
+      transition: max-height 0.5s ease;
+  }
+  .collection-page-expandable-description__fade-out {
+      display: block;
+  }
+  .collection-page-expandable-description__toggle {
+      display: inline-block;
+  }
+  .collection-h2-top{
+    font-size: 11px;
+  }
+}
+.collection-page-expandable-description span.collapsible-trigger__icon {
+    position: unset;
+    margin-top: 15px;
+}
+.collection-page-expandable-description span.collapsible-trigger__layout {
+    justify-content: unset;
+    gap: 20px;
+}
+{% endstylesheet %}
+
+{% javascript %}
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.collection-page-expandable-description__container');
+            const readMore = document.querySelector('.collection-page-expandable-description__toggle');
+            const fadeOut = document.querySelector('.collection-page-expandable-description__fade-out');
+            let expanded = false;
+
+            function setExpandableState() {
+                if (window.innerWidth <= 767) {
+                    container.style.maxHeight = expanded ? `${container.scrollHeight}px` : '100px';
+                    fadeOut.style.display = expanded ? 'none' : 'block';
+                    readMore.style.display = 'inline-block';
+                } else {
+                    container.style.maxHeight = 'none';
+                    fadeOut.style.display = 'none';
+                    readMore.style.display = 'none';
+                }
+            }
+
+            readMore.addEventListener('click', function(e) {
+                e.preventDefault();
+                expanded = !expanded;
+                if (expanded) {
+                    readMore.classList.add('collection-page-expandable-description__toggle--expanded');
+                    readMore.textContent = 'Read Less';
+                } else {
+                    readMore.classList.remove('collection-page-expandable-description__toggle--expanded');
+                    readMore.textContent = 'Read More';
+                }
+                setExpandableState();
+            });
+
+            window.addEventListener('resize', setExpandableState);
+            setExpandableState();
+        });
+{% endjavascript %}
+
+
+
+
+     <section class="collection-page-expandable-description">
+        <div class="page-width collection-page-expandable-description__container">
+          {% comment %}
+            <details>
+              <summary>
+                 <h2 class="collection-h2-top">{{ section.settings.collection_h2 }}</h2>
+              </summary>
+              <p class="collection-page-expandable-description__text">{{ section.settings.collection_seo_description }}</p>
+            </details>
+            <div class="collection-page-expandable-description__fade-out"></div>
+          {% endcomment %}
+
+                <collapsible-elements>
+                  <div>
+                    <button type="button"
+                      class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height"
+                      aria-controls="FAQ-content-1">
+                      <span class="collapsible-trigger__layout">
+                        <span>
+                          <span class="nw-faq-title">{{ section.settings.collection_h2 }}</span>
+                        </span>
+                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"/></svg>
+                        </span>
+                      </span>
+                    </button>
+                    <div id="FAQ-content-1" class="collapsible-content collapsible-content--all">
+                      <div class="collapsible-content__inner rte">
+                        {{ section.settings.collection_seo_description }}
+                      </div>
+                    </div>
+                  </div>
+                </collapsible-elements>
+        </div>
+        <a href="#" class="collection-page-expandable-description__toggle">Read More</a>
+    </section>
+
+
+{% schema %}
+  {
+    "name": "Collection Description",
+    "settings": [
+    {
+      "type": "text",
+      "id": "collection_h2",
+      "label": "Collection H2",
+      "default": "Enter Collection H2"
+    },
+    {
+      "type": "text",
+      "id": "collection_seo_description",
+      "label": "Collection SEO Description",
+      "default": "Enter Collection Description"
+    }
+
+      
+    ],
+
+  "presets": [
+      {
+        "name": "Collection Description",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [],
+      "settings": {}
+    },
+    "text_columns_AtgEHf": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_DA4m6h": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/com_2503_black-patent_30.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Comfort Balmoral",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/comfort-mens-balmoral"
+          }
+        },
+        "text_block_FQBnBU": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/com_2508_bklea_low_30_75954b67-ef63-4e65-8cf1-5356115a5e89.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Comfort Blutcher",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/comfort-mens-blucher"
+          }
+        },
+        "text_block_XaKrbi": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/com_mens_2309_wingtip_low__30_8b968e4a-c71c-4818-b0dc-5229eee98327.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Comfort Wingtip Spat",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/comfort-wingtip"
+          }
+        },
+        "text_block_MeFPAp": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/com_tuxedo_bk-lea_bk-pat_low_30.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Comfort Tuxedo Spat",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/comfort-tuxedo"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_DA4m6h",
+        "text_block_FQBnBU",
+        "text_block_XaKrbi",
+        "text_block_MeFPAp"
+      ],
+      "custom_css": [
+        "@media only screen and (min-width: 768px) {.grid--flush-bottom {overflow: auto; max-width: 75%; margin: 0 auto; }}"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "text_columns_AtgEHf"
+  ]
+}

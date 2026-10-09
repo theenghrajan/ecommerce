@@ -1,0 +1,267 @@
+<div class="quote-request color-scheme-{{ section.settings.color_scheme }}">
+  <div class="page-width page-width--narrow">
+    {%- if section.settings.eyebrow != blank or section.settings.title != blank -%}
+      <div class="section-header text-center quote-request__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="quote-request__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="section-header__title h1">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="form-vertical quote-request__form-wrap">
+      {%- assign form_id = 'quote-request-' | append: section.id -%}
+      {%- form 'contact', id: form_id, class: 'quote-request__form' -%}
+        {%- if form.posted_successfully? -%}
+          <p class="note note--success">{{ 'contact.form.post_success' | t }}</p>
+        {%- endif -%}
+
+        {{ form.errors | default_errors }}
+
+        <input type="hidden" name="contact[tags]" value="quote-request">
+
+        <div class="quote-request__row">
+          <div class="quote-request__field">
+            <label for="QuoteFirstName-{{ section.id }}" class="hidden-label">{{ 'contact.form.first_name' | t }}</label>
+            <input
+              type="text"
+              id="QuoteFirstName-{{ section.id }}"
+              class="input-full"
+              name="contact[First name]"
+              placeholder="{{ 'contact.form.first_name' | t }}"
+              autocapitalize="words"
+              required
+            >
+          </div>
+          <div class="quote-request__field">
+            <label for="QuoteLastName-{{ section.id }}" class="hidden-label">{{ 'contact.form.last_name' | t }}</label>
+            <input
+              type="text"
+              id="QuoteLastName-{{ section.id }}"
+              class="input-full"
+              name="contact[Last name]"
+              placeholder="{{ 'contact.form.last_name' | t }}"
+              autocapitalize="words"
+            >
+          </div>
+        </div>
+
+        <div class="quote-request__row">
+          <div class="quote-request__field">
+            <label for="QuoteEmail-{{ section.id }}" class="hidden-label">{{ 'contact.form.email' | t }}</label>
+            <input
+              type="email"
+              id="QuoteEmail-{{ section.id }}"
+              class="input-full"
+              name="contact[email]"
+              placeholder="{{ 'contact.form.email' | t }}"
+              autocorrect="off"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              required
+            >
+          </div>
+          <div class="quote-request__field">
+            <label for="QuotePhone-{{ section.id }}" class="hidden-label">{{ 'contact.form.phone' | t }}</label>
+            <input
+              type="tel"
+              id="QuotePhone-{{ section.id }}"
+              class="input-full"
+              name="contact[phone]"
+              placeholder="{{ 'contact.form.phone' | t }}"
+              pattern="[0-9\-]*"
+              value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+            >
+          </div>
+        </div>
+
+        <div class="quote-request__row">
+          <div class="quote-request__field">
+            <label for="QuoteAddress-{{ section.id }}" class="hidden-label">{{ 'contact.form.address' | t }}</label>
+            <input
+              type="text"
+              id="QuoteAddress-{{ section.id }}"
+              class="input-full"
+              name="contact[Address]"
+              placeholder="{{ 'contact.form.address' | t }}"
+              autocapitalize="words"
+            >
+          </div>
+          <div class="quote-request__field">
+            <label for="QuoteInquiry-{{ section.id }}" class="hidden-label">{{ 'contact.form.inquiry' | t }}</label>
+            <input
+              type="text"
+              id="QuoteInquiry-{{ section.id }}"
+              class="input-full"
+              name="contact[Inquiry]"
+              placeholder="{{ 'contact.form.inquiry' | t }}"
+            >
+          </div>
+        </div>
+
+        <div class="quote-request__row quote-request__row--full">
+          <div class="quote-request__field">
+            <label for="QuoteMessage-{{ section.id }}" class="hidden-label">{{ 'contact.form.message' | t }}</label>
+            <textarea
+              rows="5"
+              id="QuoteMessage-{{ section.id }}"
+              class="input-full"
+              name="contact[body]"
+              placeholder="{{ 'contact.form.message' | t }}"
+              required
+            >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn quote-request__submit">
+          {%- if section.settings.button_label != blank -%}
+            {{ section.settings.button_label }}
+          {%- else -%}
+            {{ 'contact.form.send' | t }}
+          {%- endif -%}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% style %}
+  #shopify-section-{{ section.id }} .quote-request {
+    background: {{ section.settings.background_color }};
+    padding: 64px 0;
+  }
+  #shopify-section-{{ section.id }} .quote-request__header {
+    margin-bottom: 32px;
+  }
+  #shopify-section-{{ section.id }} .quote-request__eyebrow {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #202020;
+    margin: 0 0 8px;
+  }
+  #shopify-section-{{ section.id }} .quote-request__header .section-header__title {
+    text-transform: none !important;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+  }
+  #shopify-section-{{ section.id }} .quote-request__form-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .quote-request__row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  #shopify-section-{{ section.id }} .quote-request__field {
+    flex: 1 1 0;
+  }
+  #shopify-section-{{ section.id }} .quote-request__form input.input-full,
+  #shopify-section-{{ section.id }} .quote-request__form textarea.input-full {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,15,28,0.1);
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 16px;
+    background: #fff;
+  }
+  #shopify-section-{{ section.id }} .quote-request__submit {
+    display: block;
+    width: 100%;
+    background: #fcc833;
+    color: #202020;
+    border: none;
+    border-radius: 8px;
+    padding: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  #shopify-section-{{ section.id }} .quote-request__submit:hover {
+    background: #ffdb66;
+  }
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .quote-request__row {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Quote request form",
+  "tag": "section",
+  "class": "quote-request-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Get in touch"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Let's Start Building Something Great."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Request a Quote"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#FEF9F0"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.contact-form.settings.color_scheme.label",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "t:sections.contact-form.settings.color_scheme.options.none.label" },
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quote request form"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  },
+  "locales": {
+    "en": {
+      "contact": {
+        "form": {
+          "first_name": "First Name",
+          "last_name": "Last Name",
+          "email": "Email",
+          "phone": "Phone Number",
+          "address": "Address",
+          "inquiry": "Inquiry",
+          "message": "What can we help you with? *",
+          "send": "Request a Quote",
+          "post_success": "Thanks for reaching out. We'll get back to you as soon as possible."
+        }
+      }
+    }
+  }
+}
+{% endschema %}

@@ -1,0 +1,246 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_4BpFqN": {
+      "type": "custom-expandable-discription",
+      "disabled": true,
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "Enter Collection H2",
+        "collection_seo_description": "Enter Collection Description"
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_ArKkgt": {
+      "type": "jump-to",
+      "blocks": {
+        "question_Mpw6XX": {
+          "type": "question",
+          "settings": {
+            "button": "View All Retrofits",
+            "link": "https://www.nuwattlighting.com/collections/retrofit-recessed-lighting",
+            "image": "shopify://shop_images/6-inch-white-square-retrofit-led-recessed-downlight-5-kelvin-temperatures-5cct-14-watt-1100-lumens-dimmable-nw-sq-c6-14w-5cct-wh-656093.jpg",
+            "alt-text": "square can lights"
+          }
+        },
+        "question_ctgWBw": {
+          "type": "question",
+          "settings": {
+            "button": "Square MR16",
+            "link": "shopify://collections/mr16-retrofit-recessed-lights",
+            "image": "shopify://shop_images/4-inch-square-12v-mr16-led-recessed-lighting-2700k3000k3500k4000k5000k-selectable-10w-660lm-dimmable-retrofit-light-low-voltage-can-lights-for-ceiling-gu53-2-pr-884669.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_Xgg4Er": {
+          "type": "question",
+          "settings": {
+            "button": "Retrofit Gimbals",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-retrofit-recessed-lights",
+            "image": "shopify://shop_images/NW-GMB-C6-16.5W-5CCT-WH_Main_1P.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_R76grT": {
+          "type": "question",
+          "settings": {
+            "button": "Disk Downlights",
+            "link": "shopify://collections/ceiling-disk-led-lights",
+            "image": "shopify://shop_images/NW-R-DSK-6-15W-5CT_WH_LISTING_B_MAIN_1P-414840.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_im9nQh": {
+          "type": "question",
+          "settings": {
+            "button": "Round",
+            "link": "https://www.nuwattlighting.com/collections/retrofit-recessed-lighting?filter.p.m.custom.shape=Round",
+            "image": "shopify://shop_images/NW-DL-R-6-18WC-5CCT-WH-01-195580_bfe29982-9888-4176-9cb4-07859d0100dd.jpg",
+            "alt-text": "Go to Round Retrofit Collection Page"
+          }
+        }
+      },
+      "block_order": [
+        "question_Mpw6XX",
+        "question_ctgWBw",
+        "question_Xgg4Er",
+        "question_R76grT",
+        "question_im9nQh"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_M6BBiz": {
+      "type": "faq",
+      "blocks": {
+        "question_icLXxJ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_zwnhCy": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_D3nEVm": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_icLXxJ",
+        "question_zwnhCy",
+        "question_D3nEVm"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_tBVMjn": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_tRVdWy": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_HxxWyW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_tmCrUk": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_XiFVtQ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_mDe7ax": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_6Yr6qe": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_tRVdWy",
+        "question_HxxWyW",
+        "question_tmCrUk",
+        "question_XiFVtQ",
+        "question_mDe7ax",
+        "question_6Yr6qe"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_n7ntjW": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "Enter Collection H2",
+        "collection_seo_description": "Enter Collection Description"
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_4BpFqN",
+    "main-collection",
+    "jump_to_ArKkgt",
+    "faq_M6BBiz",
+    "collection_metafield_faq_tBVMjn",
+    "recently-viewed",
+    "expandable_description_n7ntjW"
+  ]
+}

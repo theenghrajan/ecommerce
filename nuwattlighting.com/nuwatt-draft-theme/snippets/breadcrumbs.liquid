@@ -1,0 +1,648 @@
+{% comment %} {{ 'breadcrumbs-nav.js' | asset_url | script_tag }} {% endcomment %}
+
+
+{% if settings.show_breadcrumbs %}
+  {% style %}
+  .breadcrumbs {
+    font-size: 1.05rem;
+    margin: 1.5rem 0;
+    padding-left: 20px;
+    /* No-op outside a grid container (e.g. the collection-page wrapper);
+       inside .product-grid__container--3col it makes the breadcrumb span
+       every column instead of sitting in just the first grid track. */
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .breadcrumbs__list {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* Never scroll - the current-page crumb truncates instead (below). */
+    overflow: hidden;
+  }
+
+  .breadcrumbs__item {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .breadcrumbs__item {
+    color: rgba(var(--color-foreground, 0, 0, 0), 0.7);
+  }
+
+  .breadcrumbs__item:not(:last-child)::after {
+    content: '/';
+    margin: 0 0.3em;
+    color: rgba(var(--color-foreground, 0, 0, 0), 0.35);
+  }
+
+  .breadcrumbs__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .breadcrumbs__link:hover {
+    text-decoration: underline;
+  }
+
+  /* The "..." trigger expands inline in place (see addEllipsisCrumb) rather
+     than opening a dropdown, so this is just a plain inline button - no
+     positioning context needed. */
+  .breadcrumbs__ellipsis-btn {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 0.2em;
+    line-height: 1;
+  }
+
+  .breadcrumbs__ellipsis-btn:hover {
+    color: rgba(var(--color-foreground, 0, 0, 0), 0.9);
+  }
+
+  .breadcrumbs__item[aria-current='page'] {
+    color: rgba(var(--color-foreground, 0, 0, 0), 0.9);
+    font-weight: 500;
+    /* The current-page crumb (often a long product title) is the one most
+       likely to overflow the line - shrink and ellipsis just this item
+       instead of the whole trail wrapping or needing to scroll. Ancestor
+       crumbs (collection names) stay their natural, usually-short width. */
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  {% endstyle %}
+  
+  {%- render 'schema-breadcrumbs' -%}
+
+{% unless template.name == 'index' or template.name == 'cart' %}
+  {% comment %} <nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+    <a href="{{ routes.root_url }}" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+
+    {% if template.name == 'high-bays' %}
+
+      {% comment %} {% if collection %}
+        {% if settings.show_breadcrumbs_collection_link %}
+          <span class="breadcrumb__divider" aria-hidden="true">/</span>
+          <a href="{{ routes.collections_url }}">{{ 'general.search.collections' | t | replace: ':', ''}}</a>
+        {% endif %}
+
+        <span class="breadcrumb__divider" aria-hidden="true">/</span>
+
+        {% if collection.handle %}
+          {% capture url %}{{ routes.collections_url }}/{{ collection.handle }}{% endcapture %}
+          {{ collection.title | link_to: url }}
+        {% endif %}
+      {% endif %}
+
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+
+    {% elsif template.name == 'collection' and collection.handle %}
+      {% if settings.show_breadcrumbs_collection_link %}
+        <span class="breadcrumb__divider" aria-hidden="true">/</span>
+        <a href="{{ routes.collections_url }}">{{ 'general.search.collections' | t | replace: ':', ''}}</a>
+      {% endif %}
+
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+
+      <span >{{ collection.title }}</span>
+
+      {% if current_tags %}
+        {% comment %} {% capture url %}{{ routes.collections_url }}/{{ collection.handle }}{% endcapture %}
+        {{ collection.title | link_to: url }} {% endcomment %}
+
+        <span class="breadcrumb__divider" aria-hidden="true">/</span>
+
+        {% for tag in current_tags %}
+          {% if tag contains "_" %}{%- assign tag_starts_with = tag | slice: 0 -%}{% if tag_starts_with == "_" %}{% if tag_count %}{%- assign tag_count = tag_count | minus: 1 | at_least: 0 -%}{% endif %}{% continue %}{% endif %}{% endif %}
+          {% assign tag_name = tag | strip %}
+          {% assign tag_text = tag_name | capitalize %}
+          <span>{{ tag_text }}</span>
+
+          {% unless forloop.last %}
+            <span class="breadcrumb__divider" aria-hidden="true">+</span>
+          {% endunless %}
+
+        {% endfor %}
+      {% endif %} {% endcomment %}
+
+    {% elsif template.name == 'blog' %}
+
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+      {% if current_tags %}
+        {{ blog.title | link_to: blog.url }}
+        <span class="breadcrumb__divider" aria-hidden="true">/</span>
+        <span>{{ current_tags | join: " + " }}</span>
+      {% endif %}
+
+    {% elsif template.name == 'article' %}
+
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+      {{ blog.title | link_to: blog.url }}
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+
+    {% elsif template.name == 'page' %}
+
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+      <span>{{ page.title }}</span>
+
+    {% elsif template.name == 'search' %}
+
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+      <span>{{ page_title | replace: '*', '' }}</span>
+
+    {% else %}
+      {% comment %} {% if product.collections.size > 0 %}
+        <span class="breadcrumb__divider" aria-hidden="true">/</span>
+        <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a>
+      {% endif %}
+      <span class="breadcrumb__divider" aria-hidden="true">/</span>
+      <span>{{ page_title | split: '| NuWatt Lighting' | first }}</span> {% endcomment %}
+
+    {% endif %}
+  </nav> {% endcomment %}
+{% endunless %}
+
+{% endif %}
+
+{% if request.page_type == 'collection' or request.page_type == 'product' %}
+
+<nav class="breadcrumbs" aria-label="breadcrumb" data-breadcrumbs>
+  <ol class="breadcrumbs__list" data-breadcrumbs-list>
+    <li class="breadcrumbs__item">
+      <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t | default: 'Home' }}</a>
+    </li>
+    {% comment %} Remaining crumbs are injected client-side by the script below {% endcomment %}
+  </ol>
+</nav>
+
+{% comment %} =========================================================
+     Context blob consumed by the script below.
+     Collection pages carry a single-hop lookup of the
+     custom.parent_collection metafield (if set) so the client can
+     compare it against the last entry stored in session.
+========================================================= {% endcomment %}
+
+{% if template contains 'collection' and collection %}
+  {% assign mf_parent = collection.metafields.custom.parent_collection.value %}
+  <script type="application/json" data-breadcrumb-context>
+    {
+      "type": "collection",
+      "title": {{ collection.title | json }},
+      "url": {{ collection.url | json }},
+      "metafieldParent": {% if mf_parent != blank %}{"title": {{ mf_parent.title | json }}, "url": {{ mf_parent.url | json }}}{% else %}null{% endif %}
+    }
+  </script>
+{% endif %}
+
+{% if template contains 'product' and product %}
+  {%- liquid
+    # page_title comes back HTML-entity-escaped (e.g. a literal " in the
+    # title renders as the 6-character sequence &quot;) - unescape before
+    # use, same pattern as snippets/schema-breadcrumbs.liquid.
+    assign bc_product_title = page_title | replace: '&quot;', '"' | replace: '&#39;', "'" | replace: '&apos;', "'" | replace: '&lt;', '<' | replace: '&gt;', '>' | replace: '&amp;', '&'
+    # Keep only the part before the first " - " separator to shorten long,
+    # spec-heavy product titles in the breadcrumb.
+    assign bc_product_title = bc_product_title | split: ' - ' | first
+    # Drop a trailing "| NuWatt ..." brand suffix (from an SEO title like
+    # "Product Name | NuWatt Lighting") the same way.
+    assign bc_product_title = bc_product_title | split: '| NuWatt' | first | strip
+  -%}
+  <script type="application/json" data-breadcrumb-context>
+    { "type": "product", "title": {{ bc_product_title | json }} }
+  </script>
+{% endif %}
+{% endif %}
+
+{% comment %}
+  This script only READS the click chain (see getValidatedClickedChain
+  below) - it's written separately by snippets/breadcrumb-click-tracker.liquid,
+  rendered unconditionally from layout/theme.liquid. This file is only ever
+  rendered on specific page types (product, collection, search, cart,
+  article), so a click starting from any other page (e.g. the homepage)
+  would never be recorded if the tracker lived here instead - silently
+  forcing that navigation through the deepest-match tree-search fallback,
+  which is how an unrelated (but deeper-nested) ancestor could get prepended
+  even though the user clicked a shallower, more direct menu link.
+{% endcomment %}
+<script>
+  (function () {
+    'use strict';
+
+    var CLICKED_CHAIN_KEY = 'bc_clicked_chain';
+    var LAST_COLLECTION_TRAIL_KEY = 'bc_last_collection_trail';
+    var TREE_CACHE_KEY = 'bc_menu_tree_cache';
+    var MENU_WAIT_INTERVAL_MS = 100;
+    var MENU_WAIT_MAX_ATTEMPTS = 20; // ~2 seconds total
+
+    // ---------------------------------------------------------------
+    // Storage helpers
+    // ---------------------------------------------------------------
+
+    function getSessionStorage() {
+      try {
+        var testKey = '__bc_test__';
+        window.sessionStorage.setItem(testKey, '1');
+        window.sessionStorage.removeItem(testKey);
+        return window.sessionStorage;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function readJSON(storage, key) {
+      if (!storage) return null;
+      try {
+        var raw = storage.getItem(key);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function writeJSON(storage, key, value) {
+      if (!storage) return;
+      try {
+        storage.setItem(key, JSON.stringify(value));
+      } catch (e) {
+        // Ignore quota / access errors.
+      }
+    }
+
+    function clearKey(storage, key) {
+      if (!storage) return;
+      try {
+        storage.removeItem(key);
+      } catch (e) {
+        // Ignore.
+      }
+    }
+
+    // ---------------------------------------------------------------
+    // Page context (from the JSON script tag rendered by Liquid)
+    // ---------------------------------------------------------------
+
+    function getContext() {
+      var el = document.querySelector('[data-breadcrumb-context]');
+      if (!el) return null;
+      try {
+        return JSON.parse(el.textContent);
+      } catch (e) {
+        console.warn('[breadcrumbs] Could not parse breadcrumb context JSON', e);
+        return null;
+      }
+    }
+
+    // ---------------------------------------------------------------
+    // URL helpers
+    // ---------------------------------------------------------------
+
+    // Pathname only, query string ignored - used to recognize
+    // "same underlying collection" for de-duplication.
+    function normalizePath(url) {
+      if (!url) return '';
+      try {
+        var parsed = new URL(url, window.location.origin);
+        return parsed.pathname.replace(/\/+$/, '').toLowerCase();
+      } catch (e) {
+        return String(url).split('?')[0].replace(/\/+$/, '').toLowerCase();
+      }
+    }
+
+    // Pathname + query string - used to validate whether a stored
+    // clicked-path still matches the CURRENT page exactly (a filtered
+    // link and its unfiltered parent must NOT be treated as the same
+    // page here, even though normalizePath() treats them as the same
+    // underlying collection for de-dup purposes).
+    function normalizeFullPath(url) {
+      if (!url) return '';
+      try {
+        var parsed = new URL(url, window.location.origin);
+        return parsed.pathname.replace(/\/+$/, '').toLowerCase() + parsed.search.toLowerCase();
+      } catch (e) {
+        return String(url).toLowerCase();
+      }
+    }
+
+    // A menu entry whose URL carries a filter.* query string (e.g. "Black
+    // Retrofit" -> /collections/retrofit-recessed-lighting?filter.p.m...)
+    // points at the same base collection as its unfiltered counterpart once
+    // normalizePath() strips the query string. Left unchecked, that lets a
+    // filtered link elsewhere in the tree "match" a plain, unfiltered visit
+    // to that collection and contribute the wrong (filtered link's) ancestor
+    // chain to the breadcrumb.
+    function isFilteredMenuUrl(url) {
+      if (!url) return false;
+      try {
+        var parsed = new URL(url, window.location.origin);
+        var isFiltered = false;
+        new URLSearchParams(parsed.search).forEach(function (_, k) {
+          if (k.indexOf('filter.') === 0) isFiltered = true;
+        });
+        return isFiltered;
+      } catch (e) {
+        return String(url).indexOf('filter.') !== -1;
+      }
+    }
+
+    // ---------------------------------------------------------------
+    // Menu JSON fetch (with sessionStorage caching)
+    // ---------------------------------------------------------------
+
+    function waitForMeteorMenu(attemptsLeft) {
+      return new Promise(function (resolve) {
+        if (window.MeteorMenu && window.MeteorMenu.revisionFileUrl) {
+          resolve(window.MeteorMenu);
+          return;
+        }
+        if (attemptsLeft <= 0) {
+          resolve(null);
+          return;
+        }
+        setTimeout(function () {
+          waitForMeteorMenu(attemptsLeft - 1).then(resolve);
+        }, MENU_WAIT_INTERVAL_MS);
+      });
+    }
+
+    function fetchMenuTree(storage) {
+      return waitForMeteorMenu(MENU_WAIT_MAX_ATTEMPTS).then(function (meteorMenu) {
+        if (!meteorMenu) return null;
+
+        var revisionUrl = meteorMenu.revisionFileUrl;
+        var cached = readJSON(storage, TREE_CACHE_KEY);
+        if (cached && cached.url === revisionUrl && cached.data) {
+          return cached.data;
+        }
+
+        return fetch(revisionUrl)
+          .then(function (res) {
+            if (!res.ok) throw new Error('Menu JSON fetch failed: ' + res.status);
+            return res.json();
+          })
+          .then(function (data) {
+            writeJSON(storage, TREE_CACHE_KEY, { url: revisionUrl, data: data });
+            return data;
+          });
+      });
+    }
+
+    // ---------------------------------------------------------------
+    // Tree-search fallback (deepest match wins)
+    // ---------------------------------------------------------------
+
+    function getChildren(node, isRoot) {
+      if (isRoot) return (node.menu && node.menu.items) || [];
+      return node.items || [];
+    }
+
+    function collectPaths(nodes, targetPath, isRoot, ancestors, results) {
+      for (var i = 0; i < nodes.length; i++) {
+        var node = nodes[i];
+        var nodeUrl = (node.shopifyResource && node.shopifyResource.url) || node.url;
+        var crumb = { title: node.name, url: nodeUrl };
+        var trail = ancestors.concat([crumb]);
+
+        if (!isFilteredMenuUrl(node.url) && normalizePath(node.url) === targetPath) {
+          results.push(trail);
+        }
+
+        var children = getChildren(node, isRoot);
+        if (children.length) {
+          collectPaths(children, targetPath, false, trail, results);
+        }
+      }
+    }
+
+    function deepestTreeMatch(tree, targetPath) {
+      if (!tree) return null;
+      var results = [];
+      collectPaths(tree.navigationItems || [], targetPath, true, [], results);
+      if (!results.length) return null;
+      results.sort(function (a, b) {
+        return b.length - a.length;
+      });
+      return results[0];
+    }
+
+    // ---------------------------------------------------------------
+    // Click tracking (primary source — exact clicked path)
+    //
+    // The chain itself is written by snippets/breadcrumb-click-tracker.liquid
+    // (rendered unconditionally from layout/theme.liquid, since this file is
+    // only ever rendered on specific page types and would miss a click that
+    // started from anywhere else, e.g. the homepage). Only read + validate
+    // it here.
+    // ---------------------------------------------------------------
+
+    // Only valid if it matches the current page's FULL url (path +
+    // query) - a filtered link's stale chain must not "match" a
+    // later plain visit to the same base collection, or vice versa.
+    function getValidatedClickedChain(storage) {
+      var chain = readJSON(storage, CLICKED_CHAIN_KEY);
+      if (!chain || !chain.length) return null;
+      var lastUrlFull = normalizeFullPath(chain[chain.length - 1].url);
+      var currentFull = normalizeFullPath(window.location.href);
+      return lastUrlFull === currentFull ? chain : null;
+    }
+
+    // ---------------------------------------------------------------
+    // De-duplication (collapse repeated collections, e.g. a filtered
+    // link whose base collection already appears earlier in the chain)
+    // ---------------------------------------------------------------
+
+    function buildDedupedTrail(ancestors, currentTitle, currentUrl) {
+      var candidates = ancestors.concat([{ title: currentTitle, url: currentUrl }]);
+      var seen = {};
+      var result = [];
+
+      for (var i = 0; i < candidates.length; i++) {
+        var path = normalizePath(candidates[i].url);
+        if (seen[path]) continue; // already shown earlier in the chain - skip, don't repeat
+        seen[path] = true;
+        result.push(candidates[i]);
+      }
+
+      return result;
+    }
+
+    // ---------------------------------------------------------------
+    // Rendering
+    // ---------------------------------------------------------------
+
+    function addCrumb(list, title, url) {
+      var li = document.createElement('li');
+      li.className = 'breadcrumbs__item';
+
+      if (url) {
+        var a = document.createElement('a');
+        a.className = 'breadcrumbs__link';
+        a.href = url;
+        a.textContent = title;
+        li.appendChild(a);
+      } else {
+        li.textContent = title;
+        li.setAttribute('aria-current', 'page');
+      }
+
+      list.appendChild(li);
+    }
+
+    // A single "..." crumb standing in for one or more collapsed ancestor
+    // crumbs. Clicking/tapping it expands the trail in place - the "..."
+    // item itself is replaced by the real crumbs it was standing in for,
+    // right there in the breadcrumb bar (matching the REI reference Gary
+    // pointed to), rather than opening a dropdown/popup.
+    function addEllipsisCrumb(list, hiddenCrumbs) {
+      var li = document.createElement('li');
+      li.className = 'breadcrumbs__item breadcrumbs__item--ellipsis';
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'breadcrumbs__ellipsis-btn';
+      btn.setAttribute('aria-label', 'Show hidden breadcrumb links');
+      btn.textContent = '…';
+      li.appendChild(btn);
+
+      btn.addEventListener('click', function () {
+        hiddenCrumbs.forEach(function (crumb) {
+          var crumbLi = document.createElement('li');
+          crumbLi.className = 'breadcrumbs__item';
+          var a = document.createElement('a');
+          a.className = 'breadcrumbs__link';
+          a.href = crumb.url;
+          a.textContent = crumb.title;
+          crumbLi.appendChild(a);
+          list.insertBefore(crumbLi, li);
+        });
+        li.remove();
+      });
+
+      list.appendChild(li);
+    }
+
+    function handleCollectionPage(context, storage, list, tree) {
+      var currentPath = normalizePath(window.location.pathname);
+
+      var usedClickChain = false;
+      var chain = getValidatedClickedChain(storage);
+      if (chain) {
+        usedClickChain = true;
+      } else {
+        chain = deepestTreeMatch(tree, currentPath);
+      }
+
+      var ancestors = chain ? chain.slice(0, -1) : [];
+      var trail = buildDedupedTrail(ancestors, context.title, window.location.href);
+
+      for (var i = 0; i < trail.length - 1; i++) {
+        addCrumb(list, trail[i].title, trail[i].url);
+      }
+      addCrumb(list, trail[trail.length - 1].title, null);
+
+      // Store the fully resolved trail (grandparent included) so a later
+      // product page - this one or any other visited before the next
+      // collection page - can replay it and append its own title.
+      writeJSON(storage, LAST_COLLECTION_TRAIL_KEY, trail);
+
+      if (usedClickChain) {
+        // Consumed - clear it so it can't be reused for an unrelated later page.
+        clearKey(storage, CLICKED_CHAIN_KEY);
+      }
+    }
+
+    function handleProductPage(context, storage, list) {
+      // Reuse whatever collection trail was last resolved this session -
+      // stays constant across product-to-product navigation, and is only
+      // ever replaced by visiting another collection page.
+      var trail = readJSON(storage, LAST_COLLECTION_TRAIL_KEY);
+
+      if (trail && trail.length) {
+        // Visible crumbs = Home (static, already in the DOM) + trail +
+        // the current product = trail.length + 2. Once that would be
+        // more than 3 (i.e. more than one ancestor collection), show
+        // Home, an ellipsis standing in for everything else, then just
+        // the last ancestor (the one closest to the product) right
+        // before the product's own crumb - matching the REI reference:
+        // first step, then the last two steps.
+        if (trail.length > 1) {
+          addEllipsisCrumb(list, trail.slice(0, -1));
+          var lastAncestor = trail[trail.length - 1];
+          addCrumb(list, lastAncestor.title, lastAncestor.url);
+        } else {
+          trail.forEach(function (crumb) {
+            addCrumb(list, crumb.title, crumb.url);
+          });
+        }
+        addCrumb(list, context.title, null);
+        return;
+      }
+
+      // No resolved collection trail this session (e.g. arrived directly
+      // from the homepage or an external link) - product only, no
+      // static/URL-derived fallback.
+      addCrumb(list, context.title, null);
+    }
+
+    // ---------------------------------------------------------------
+    // Init
+    // ---------------------------------------------------------------
+
+    function init() {
+      var storage = getSessionStorage();
+
+      var list = document.querySelector('[data-breadcrumbs-list]');
+      var context = getContext();
+      if (!list || !context) return;
+
+      if (context.type === 'product') {
+        // No async work needed - resolved entirely from sessionStorage.
+        handleProductPage(context, storage, list);
+        return;
+      }
+
+      if (context.type === 'collection') {
+        fetchMenuTree(storage)
+          .then(function (tree) {
+            handleCollectionPage(context, storage, list, tree);
+          })
+          .catch(function (err) {
+            console.warn('[breadcrumbs] Falling back to current page only:', err);
+            addCrumb(list, context.title, null);
+          });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+{% comment %} 
+
+{% style %}
+.mfnav-breadcrumbs__nav{padding:14px 0;}
+.mfnav-breadcrumbs__list{display:flex;flex-wrap:wrap;align-items:center;list-style:none;margin:0;padding:0;gap:6px;font-size:13px;color:#666;}
+.mfnav-breadcrumbs__item{display:flex;align-items:center;gap:6px;}
+.mfnav-breadcrumbs__item a{color:#666;text-decoration:none;}
+.mfnav-breadcrumbs__item a:hover{color:#111;text-decoration:underline;}
+.mfnav-breadcrumbs__item.is-current span{color:#111;font-weight:600;}
+.mfnav-breadcrumbs__sep{color:#bbb;}
+.mfnav-breadcrumbs__item--ellipsis{position:relative;}
+.mfnav-breadcrumbs__ellipsis-btn{font:inherit;color:#666;background:none;border:none;cursor:pointer;padding:2px 4px;border-radius:4px;line-height:1;}
+.mfnav-breadcrumbs__ellipsis-btn:hover,.mfnav-breadcrumbs__ellipsis-btn[aria-expanded="true"]{color:#111;background:#f2f2f2;}
+.mfnav-breadcrumbs__dropdown{position:absolute;top:100%;left:0;margin-top:6px;background:#fff;border:1px solid #e5e5e5;border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.12);list-style:none;padding:6px;min-width:180px;z-index:20;}
+.mfnav-breadcrumbs__dropdown li{margin:0;}
+.mfnav-breadcrumbs__dropdown a{display:block;padding:8px 10px;font-size:13px;color:#333;text-decoration:none;border-radius:5px;white-space:nowrap;}
+.mfnav-breadcrumbs__dropdown a:hover{background:#f2f2f2;color:#111;}
+{% endstyle %} {% endcomment %}

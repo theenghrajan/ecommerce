@@ -1,0 +1,308 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_i8j8zU": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Voltage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.voltage }}</span></li>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">Triac</span></li>\n              </ul>\n\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>\n\n<div class=\"product-info__image\">\n\n    <img alt=\"MR16 12V Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/12v_MR16_Icon_b0379d45-42e7-498f-9235-722a9a1b5280.png?v=1724086039\">\n<img alt=\"MR16 Retrofit Adapter Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/MR16_Icon_321b2639-82d9-4fd3-a3e3-2887a07c0e4b.png?v=1724086039\">\n\n    <img alt=\"5CCT Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/5CCT_BLK.png?v=1723836191\">\n    <img alt=\"Triac Dimmable Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmable_blk.png?v=1723836192\">\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": true
+          }
+        },
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false
+          }
+        },
+        "4ec7592e-abc8-486b-a58c-5a9933c52c3e": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "price",
+        "custom_i8j8zU",
+        "variant_picker",
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84",
+        "buy_buttons",
+        "4ec7592e-abc8-486b-a58c-5a9933c52c3e"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_container_size": "medium",
+        "product_image_size": "square",
+        "product_zoom_enable": true,
+        "product_zoom_with_thumbnail": false,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "product_specs_accordion_xHDJJy": {
+      "type": "product-specs-accordion",
+      "disabled": true,
+      "settings": {
+        "specs-accordion-enable": true
+      }
+    },
+    "product_specifications_ex99hK": {
+      "type": "product-specifications",
+      "settings": {}
+    },
+    "product_page_details_o1_M7UXqx": {
+      "type": "product-page-details-o1",
+      "disabled": true,
+      "settings": {}
+    },
+    "pdp_downloads_n8EEiW": {
+      "type": "pdp-downloads",
+      "disabled": true,
+      "settings": {}
+    },
+    "product_page_specification_table_r7Xmrc": {
+      "type": "product-page-specification-table",
+      "settings": {}
+    },
+    "a_plus_content_HU79pV": {
+      "type": "a-plus-content",
+      "disabled": true,
+      "settings": {
+        "item_model_number": "NW-DL-4-MR16-LV-5CT-WH",
+        "image_1_desktop": "shopify://shop_images/NW-DL-4-MR16-LV-5CT-WH_A__NW_HEADER_IMG.jpg",
+        "alt_text_1_desktop": "low voltage can lights product highlight",
+        "image_2_desktop": "shopify://shop_images/NW-DL-4-MR16-LV-5CT-WH_A__NW_Top_Feartures_GFX.jpg",
+        "alt_text_2_desktop": "low voltage recessed lighting fixtures mr16 product highlight",
+        "image_3_desktop": "shopify://shop_images/NW-DL-4-MR16-LV-5CT-WH_A__NW_HEADER_copy_10.jpg",
+        "alt_text_3_desktop": "Nuwatt Lighting Premium Advantage banner image",
+        "alt_text_4_desktop": "Desktop Image 4",
+        "image_1_mobile": "shopify://shop_images/NW-DL-4-MR16-LV-5CT-WH_A___copy_2.jpg",
+        "alt_text_1_mobile": "low voltage can lights product highlight mobile size image",
+        "image_2_mobile": "shopify://shop_images/NW-DL-4-MR16-LV-5CT-WH_A.jpg",
+        "alt_text_2_mobile": "mr16 low voltage recessed lighting fixtures product highlight mobile size image",
+        "image_3_mobile": "shopify://shop_images/NW-DL-4-MR16-LV-5CT-WH_A___copy.jpg",
+        "alt_text_3_mobile": "Nuwatt Lighting Premium Advantage banner image for mobile size screens",
+        "alt_text_4_mobile": "Mobile Image 4"
+      }
+    },
+    "expandable_description_EeNUFY": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our MR16 Can Lights",
+        "collection_seo_description": "These low voltage, 12 Volt powerhouses are designed with efficiency and durability in mind. Everything you need comes right in the kit, including a GU5.3 bi-pin adapter and an integrated powder coated aluminum heat sink and trim—features you won’t find anywhere else. This setup ensures your lights stay cool, last longer, and perform in damp or wet areas."
+      }
+    },
+    "premium_product_content_3df8ca": {
+      "type": "premium-product-content",
+      "disabled": true,
+      "settings": {}
+    },
+    "accordion_product_description_WteHEd": {
+      "type": "accordion-product-description",
+      "disabled": true,
+      "settings": {
+        "accordion-enable": true
+      }
+    },
+    "product_downloads_wMUqQj": {
+      "type": "product-downloads",
+      "disabled": true,
+      "settings": {
+        "product-downloads-enable": true
+      }
+    },
+    "16769676867018dca5": {
+      "type": "apps",
+      "blocks": {
+        "stamped_reviews_main_widget_rKff3b": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
+          }
+        },
+        "junip_product_reviews_ugc_junip_product_review_MWWUca": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "stamped_reviews_main_widget_rKff3b",
+        "junip_product_reviews_ugc_junip_product_review_MWWUca"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": true
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "page": ""
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Ask a question",
+            "phone": true
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab",
+        "contact"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "more-products-collection": {
+      "type": "more-products-collection",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5
+      }
+    },
+    "more-products-vendor": {
+      "type": "more-products-vendor",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {
+        "color_scheme": "2"
+      }
+    },
+    "1714761246f61d7a21": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_review_4a8bYk": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_review_4a8bYk"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_specs_accordion_xHDJJy",
+    "product_specifications_ex99hK",
+    "product_page_details_o1_M7UXqx",
+    "pdp_downloads_n8EEiW",
+    "product_page_specification_table_r7Xmrc",
+    "a_plus_content_HU79pV",
+    "expandable_description_EeNUFY",
+    "premium_product_content_3df8ca",
+    "accordion_product_description_WteHEd",
+    "product_downloads_wMUqQj",
+    "16769676867018dca5",
+    "sub",
+    "more-products-collection",
+    "recommendations",
+    "more-products-vendor",
+    "recently-viewed",
+    "collection-return",
+    "1714761246f61d7a21"
+  ]
+}

@@ -1,0 +1,851 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_overlay_bEnfaw": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_EnqhQ4": {
+          "type": "heading",
+          "settings": {
+            "heading": "FAQ",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EnqhQ4"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/674135d7355431eb1ff947626cf33efc8382374f.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "breadcrumbs_RzgTi9": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "start",
+        "padding_top": 16,
+        "padding_bottom": 20
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "left",
+        "padding_top": 16,
+        "padding_bottom": 24
+      }
+    },
+    "collapsible_tabs_phAkEE": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_NdAytA": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/die-cut-tapes-labels_800_959.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_eFemDY": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you print UL labels?",
+            "content": "<p>Yes, we are an approved UL label printer.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": true
+          }
+        },
+        "collapsible_item_RQ3WzW": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you help with label design?",
+            "content": "<p>Yes, we have a full-service art department to help with design and layout creation.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": true
+          }
+        },
+        "collapsible_item_aKpRFm": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you add barcodes/QR codes to my label?",
+            "content": "<p>Yes, we can generate a wide assortment of 1D and 2D barcodes.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": true
+          }
+        },
+        "collapsible_item_3c4PkF": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you print sequential numbers on the same roll?",
+            "content": "<p>Yes, we can print VDP (Variable Data Printing) on the same roll.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": true
+          }
+        },
+        "collapsible_item_VTegmz": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you print on duct tape?",
+            "content": "<p>Yes, we can print your design on duct tape supplied on a liner (some limitations may apply).</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_z7NKKW": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Are there different grades of masking tape?",
+            "content": "<p>Yes, masking tape is typically categorized as low, medium, and high, based on the level of heat it can withstand.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_CLc9Pe": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do I need a special adhesive for labels that will be exposed to cold temperatures? ",
+            "content": "<p>Yes, there are various materials and adhesives rated for cold temperatures, including use in a freezer. Our experts can advise which products are right for your application.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_zCmTxj": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can I pay with my credit card? ",
+            "content": "<p>Yes, you can make secure credit card payments over the phone or through a secured payment link. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_LgX3xE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you make a ‘cover-up’ label? ",
+            "content": "<p>Yes, we can print ‘cover-up’ labels on stock with an opaque adhesive to block the label underneath from showing through.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_H3kC8w": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you die-cut special shapes?",
+            "content": "<p>Yes, we can design tools for your custom shape within certain industry tolerances.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_6GkUkY": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you supply labels in sheet form?",
+            "content": "<p>Yes, we can provide labels on a roll or in sheet form.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_667M8e": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do I have to buy special tooling to die-cut my labels?",
+            "content": "<p>Not necessarily. We are able to offer dozens of stock sizes by utilizing existing die-cutting tools. If you require a custom shape or size, then a new tool purchase will be required.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_wfLz6r": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you offer credit terms to new customers?",
+            "content": "<p>Yes, after a review of three trade references and credit references, we may grant customers credit terms (case-by-case review and approval is required).</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_VcjMd4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can I receive a sample of my label for inspection before my entire order is printed?",
+            "content": "<p>Yes, we call this form of press-proof an “FAI” (First Article for Inspection), where only a handful of samples are produced for an additional fee. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_3VHFCd": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Will the lead time to receive my labels be shorter for repeat orders of a pre-existing print? ",
+            "content": "<p>Not necessarily. You will save some time by skipping the artwork proofing and approval phase, but your job will still move through production at our standard pace. We offer blanket order services to give customers faster turn-around on frequently ordered products.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_t7UygP": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "What is a blanket order? ",
+            "content": "<p>A blanket order is where a customer enjoys considerable savings by ordering in large amounts, typically what they expect to use within one year, but pays for only what they receive with each release. We print and convert the entire order all at once, then store it at our climate-controlled warehouse facility until the customer is ready to use them. We can either set up recurring release dates and automatically ship or wait for our customer to call and ask for a release. With this service, the customer commits to the purchase of the entire blanket order within the time frame agreed upon.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_PzkYjq": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you make labels for auto-apply applications? ",
+            "content": "<p>Yes, labels that will be applied to bottles, cans, and other packaging in an automated packing line will be positioned on each roll according to your finished rewind code specs and will be die-cut with a measurable ‘gap’ between each label for auto-apply. </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_fwHh8i": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "What is the ‘unwind & rewind’ direction, and do I need to know this?",
+            "content": "<p>Unwind and rewind direction is important for labels that are being automatically applied by a machine, typically at a co-packer facility or bottling/canning plant. Your packaging/canning/bottling plant will work with you to determine how your labels will need to be positioned on the rolls for the best application process with their chosen equipment. Hand-applied labels do not typically require a rewind or unwind code.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_88aLVG": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Why do I need to purchase printing plates for my label design? ",
+            "content": "<p>If any part of your project involves flexographic printing, then a photopolymer printing plate will need to be purchased for each individual color within your design. This is a ONE-TIME charge to the customer per design.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_A96HQ3": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Is there any way to avoid paying for printing plates? ",
+            "content": "<p>Yes, digital printing (as opposed to flexographic printing) will not require the purchase of printing plates; however, this may not always be an option for your particular product. The printing method will be determined at the time of your order.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_xMDDf8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Is digital printing cheaper and faster than flexographic printing? ",
+            "content": "<p>Sometimes. With digital printing, the customer does not have to purchase or wait for printing plates, but the per-label cost may be slightly higher than traditional flexographic printing. This is a great fit for small to medium label runs and/or clients who need labels fast with little to no up-front investment.</p><p>Flexographic printing requires the purchase of photopolymer printing plates (one for each color in the design) but rotary presses run at higher speeds, resulting in a lower per-label cost that further reduces as label volumes increase. This is a great choice for medium to large orders or for products that require other in-line applications that must be done on a rotary press. Our team of experts will assist in guiding customers to the best printing method according to their project specs, materials used, quantities needed, and any other considerations that come up.  </p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_wnGRm8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you match colors to a previously printed sample I provide? ",
+            "content": "<p>Yes. We utilize the Pantone Coated Color System and mix most of our inks press-side for flexographic jobs. Changes in materials will affect colors, often dramatically, so we often send physical samples to our ink supplier along with a sample roll of the material we intend to print on for a draw-down color match. This is a more precise method that typically requires the purchase of a ‘custom mixed ink’ by the customer.  </p><p>Our digital presses utilize cutting-edge technology and software systems to calibrate color on the press and make automatic adjustments as the job is being printed should any colors wander out of the desired range.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_NdAytA",
+        "collapsible_item_eFemDY",
+        "collapsible_item_RQ3WzW",
+        "collapsible_item_aKpRFm",
+        "collapsible_item_3c4PkF",
+        "collapsible_item_VTegmz",
+        "collapsible_item_z7NKKW",
+        "collapsible_item_CLc9Pe",
+        "collapsible_item_zCmTxj",
+        "collapsible_item_LgX3xE",
+        "collapsible_item_H3kC8w",
+        "collapsible_item_6GkUkY",
+        "collapsible_item_667M8e",
+        "collapsible_item_wfLz6r",
+        "collapsible_item_VcjMd4",
+        "collapsible_item_3VHFCd",
+        "collapsible_item_t7UygP",
+        "collapsible_item_PzkYjq",
+        "collapsible_item_fwHh8i",
+        "collapsible_item_88aLVG",
+        "collapsible_item_A96HQ3",
+        "collapsible_item_xMDDf8",
+        "collapsible_item_wnGRm8"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h3",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "small",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "text-base",
+        "item_icon_size": "extra-medium",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_4VEemq": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_MAhh4B": {
+          "type": "image_card",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/die-cut-tapes-labels_800_959.jpg",
+            "image_ratio": "3/4",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_ppzkcp": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you have a local delivery option?",
+            "content": "<p>Yes, we offer a local delivery option for some orders. Call us at 800.839.9018 to see if local delivery is available for your shipment.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_jRg4Py": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you ship outside the U.S.?",
+            "content": "<p>Yes, with a supplied account number for FedEx, UPS or DHL. We can also ship outside the U.S. with a supplied BOL if via freight.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_iCte7d": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "How long will it take to receive my custom-printed labels?",
+            "content": "<p>Lead times fluctuate according to market trends, materials used, and other supply chain items. NADCO Tapes & Labels always strives to complete your order as quickly as possible. Please call for our current expected lead times.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_zWfbnp": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "How do you ship your orders?",
+            "content": "<p>We ship via FedEX, UPS and commend carriers for large pallet orders.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_iCxyeq": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you provide a Tracking Number?",
+            "content": "<p>Yes. Once the order ships, you’ll get a tracking number.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_tF8e3C": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you ship Overnight?",
+            "content": "<p>Yes, we can for stock items. Please make sure to submit your order early and we’ll do everything we can to ship your order the same day.</p><p>We include the freight cost to your order and invoice.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_MAhh4B",
+        "collapsible_item_ppzkcp",
+        "collapsible_item_jRg4Py",
+        "collapsible_item_iCte7d",
+        "collapsible_item_zWfbnp",
+        "collapsible_item_iCxyeq",
+        "collapsible_item_tF8e3C"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Shipping Information",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h3",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "small",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "text-base",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_qdGBhw": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_qzQKGk": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/Graphic_Design_Tapes_Label_Services_920_GE1A2645.jpg",
+            "image_ratio": "3/4",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_fUmgAW": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Can you match colors to a previously printed sample I provide?",
+            "content": "<p>Yes. We utilize the Pantone Coated Color System and mix most of our inks press-side for flexographic jobs. Changes in materials will affect colors, often dramatically, so we often send physical samples to our ink supplier along with a sample roll of the material we intend to print on for a draw-down color match. This is a more precise method that typically requires the purchase of a ‘custom mixed ink’ by the customer.  </p><p>Our digital presses utilize cutting-edge technology and software systems to calibrate color on the press and make automatic adjustments as the job is being printed should any colors wander out of the desired range.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_exdzKC": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Are your labels fade-resistant?",
+            "content": "<p>Yes. We can apply a special UV coating or laminate to protect your print from sun and/or light fading.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_4HdpdT": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Are your labels scratch-resistant?",
+            "content": "<p>Yes, we can apply a protective laminate which will stabilize your print and protect against scratching.  Offered in matte or glossy finishes.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_AqVGV4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you offer chemical- and weather-resistant labels?",
+            "content": "<p>Yes, we have several options for producing labels resistant to certain chemicals that will hold up in outdoor conditions. Typically (but not always) these will be printed on vinyl with a protective UV coating or laminate.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_mGfw8R": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "How long does it take to receive my label proof for approval?",
+            "content": "<p>Artwork proofs typically go out within 1 to 2 days of receipt of print-ready art files. If custom design work is required, the timing of this process may be extended.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_zHchqG": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "If I am purchasing for a 3rd party, can you ship without NADCO markings?",
+            "content": "<p>Yes. We call this ‘blind shipping’ or ‘drop shipping’. This is specified at the time of order entry and is saved in our system so that our shippers will know not to use any NADCO markings on the package or packing list.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_FyX4Az": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Are your label and tape prices listed on your website?",
+            "content": "<p>Some are. Price quoting is done on a case-by-case basis and is dependent on several factors such as size, quantity, and materials needed to complete the job. Quotes are typically presented the same day as requested.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_G4Dyjq": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you offer private labeling services?",
+            "content": "<p>Yes. We can print labels of any kind for any use. We are also tape converters, so if you want to private label your own line of custom-printed masking tape, for example, you’ll want to partner with NADCO since we can do everything under one roof (print and convert the tape, print the labels for your tape, AND package and distribute your tape by the case).</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_WQxWNR": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Do you have a minimum label requirement per order?",
+            "content": "<p>Yes, on some products. We can print one label for you if that is what you want, but your price will reflect all that is required to make that happen. In other words, you will still pay for press set-up and run time as well as any other materials and tooling required to complete your request. These things, along with raw material costs, will be added to the cost of your order whether you print 1 or 1 million labels. As a result, you will see dramatic drops in price as your volumes increase on your label orders. <a href=\"/pages/contact-us\" title=\"Contact us\">Call us for custom label quotes</a>!</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_zd6xzf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Industrial Adhesive Tapes and Labels from NADCO",
+            "content": "<p>At NADCO Tapes & Labels, customization is our specialty. We can create label and tape products up to 20” wide and print up to 7 spot colors. A small sampling of materials we offer include film, vinyl, duct, and cloth tapes, while our label material options include paper and metal foil, among others. If you have a special project, our R&D department can research it and provide you with an estimated quote. If you can imagine it, NADCO will make it stick!</p><p><a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Contact us</a> today or <a href=\"/pages/request-a-quote\" title=\"Request a Quote\">request a quote</a> to learn more about our products and capabilities.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_qzQKGk",
+        "collapsible_item_fUmgAW",
+        "collapsible_item_exdzKC",
+        "collapsible_item_4HdpdT",
+        "collapsible_item_AqVGV4",
+        "collapsible_item_mGfw8R",
+        "collapsible_item_zHchqG",
+        "collapsible_item_FyX4Az",
+        "collapsible_item_G4Dyjq",
+        "collapsible_item_WQxWNR",
+        "collapsible_item_zd6xzf"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "narrow",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "FAQ Cont'd",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h3",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "small",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "text-base",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "1768923832430792f1": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_hPUnNY": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_AB8tfP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_wjBftA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AB8tfP",
+        "button_wjBftA"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_bEnfaw",
+    "breadcrumbs_RzgTi9",
+    "main",
+    "collapsible_tabs_phAkEE",
+    "collapsible_tabs_4VEemq",
+    "collapsible_tabs_qdGBhw",
+    "1768923832430792f1",
+    "image_with_text_overlay_hPUnNY"
+  ]
+}

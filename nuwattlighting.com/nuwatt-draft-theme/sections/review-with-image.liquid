@@ -1,0 +1,705 @@
+<script type="text/javascript" async="true" src="https://scripts.juniphq.com/v1/junip_shopify.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
+<!-- The "Why NuWatt" eyebrow uses IBM Plex Mono per Figma, but that font was never
+     actually loaded anywhere in this theme — the CSS `font-family: 'IBM Plex Mono', ...`
+     was silently falling back to Courier New the whole time. -->
+
+<div class="image-with-review">
+    <div class="page-width">
+        <div class="main-div">
+            <div class="why-nuwatt-card">
+                <div class="image_wrapper">
+                    {% if section.settings.main_image != blank %}
+                    <img src="{{ section.settings.main_image | img_url:'master' }}">
+                    {% endif %}
+                </div>
+                <div class="why-nuwatt-content">
+                    {% if section.settings.eyebrow != blank %}
+                        <p class="why-nuwatt-eyebrow">{{ section.settings.eyebrow }}</p>
+                    {% endif %}
+                    {% if section.settings.heading != blank %}
+                        <h2 class="why-nuwatt-heading">{{ section.settings.heading }}</h2>
+                    {% endif %}
+                    {% if section.blocks.size > 0 %}
+                        <ul class="why-nuwatt-list">
+                            {% for block in section.blocks %}
+                                <li {{ block.shopify_attributes }}>
+                                    <span class="why-nuwatt-list__icon">
+                                        {% case block.settings.icon %}
+                                            {% when 'support' %}
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12a8 8 0 1116 0M4 12v3a2 2 0 002 2h1v-6H5a1 1 0 00-1 1zm16 0v3a2 2 0 01-2 2h-1v-6h1a1 1 0 011 1z" stroke="#fcc833" stroke-width="1.6"/></svg>
+                                            {% when 'truck' %}
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7h11v9H3V7zm11 3h4l3 3v3h-7v-6z" stroke="#fcc833" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7.5" cy="17.5" r="1.5" stroke="#fcc833" stroke-width="1.6"/><circle cx="17.5" cy="17.5" r="1.5" stroke="#fcc833" stroke-width="1.6"/></svg>
+                                            {% when 'pin' %}
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s7-6.5 7-11.5A7 7 0 105 9.5C5 14.5 12 21 12 21z" stroke="#fcc833" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" stroke="#fcc833" stroke-width="1.6"/></svg>
+                                            {% else %}
+                                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#fcc833" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                                        {% endcase %}
+                                    </span>
+                                    <span class="why-nuwatt-list__text">
+                                        <span class="why-nuwatt-list__title">{{ block.settings.title }}</span>
+                                        <span class="why-nuwatt-list__desc">{{ block.settings.text }}</span>
+                                    </span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="review_section">
+                 <span class="junip-store-key" data-store-key="Le1jN8TTeVzxxRUqTk2bMa2T"></span>
+                 <div
+  class="junip-review-carousel"
+  data-title=""
+  data-reviews-type="product_reviews"
+  data-product-id=""
+  data-review-tag=""
+  data-show-summary="true">
+</div>
+                <div class="why-nuwatt-review-footer">
+                    <!-- Junip's own widget doesn't render a working "view all reviews"
+                         link to the merchant's own reviews page (it's a JS-driven
+                         carousel with no such control), so this is a real link added
+                         directly in our markup rather than relying on Junip for it. -->
+                    <a href="/pages/reviews?page=reviews" class="why-nuwatt-view-all-btn">Read All Reviews</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  (function () {
+    // Junip's own summary markup (data-show-summary="true") renders a single
+    // line — "4.96 [one star] | 546 reviews" — centered, with no room for
+    // Figma's 5-star row or a second "Rated across the full catalog" line.
+    // Rather than fight that structure with CSS, we read the live rating/count
+    // Junip already fetched and render our own left-aligned summary from it,
+    // then hide (not remove) Junip's original so its own logic keeps working.
+    // Same star glyph Junip itself uses for the review-card star rows
+    // (its "#junipFilledStar" SVG symbol, viewBox 0 0 16 16) — reused here
+    // instead of a hand-picked path so the rating summary's stars are
+    // pixel-identical in shape to the cards' stars below, rather than a
+    // visibly different (fatter/blockier) custom star.
+    var STAR_PATH = '<path d="M8 1L10.0636 5.75252L15 6.34753L11.339 9.87976L12.3263 15L8 12.4305L3.67376 15L4.661 9.87976L1 6.34753L5.93638 5.75252L8 1Z"/>';
+
+    function starsHtml(rating) {
+      var filled = Math.round(rating);
+      var html = '';
+      for (var i = 0; i < 5; i++) {
+        html += '<svg viewBox="0 0 16 16" aria-hidden="true" style="opacity:' + (i < filled ? '1' : '0.25') + '">' + STAR_PATH + '</svg>';
+      }
+      return html;
+    }
+
+    // Junip redraws this widget on its own after the initial load (lazy-
+    // loading more reviews, reacting to a resize, etc.), which recreates a
+    // fresh, visible, centered summary — a one-time "build it and stop
+    // watching" fix would get silently undone whenever that happens. So
+    // this re-syncs on every relevant DOM change instead of running once.
+    function sync() {
+      var section = document.querySelector('.image-with-review .review_section');
+      if (!section) return;
+
+      var summary = section.querySelector('.junip-review-carousel-summary');
+      var ratingEl = section.querySelector('.junip-review-carousel-rating-average');
+      var countEl = section.querySelector('.junip-review-carousel-summary-review-count');
+      if (!summary || !ratingEl || !countEl) return;
+
+      // Re-hide every time — Junip may have recreated this element visible.
+      summary.style.display = 'none';
+
+      var ratingText = ratingEl.textContent.trim();
+      var countMatch = countEl.textContent.match(/[\d,]+/);
+      if (!ratingText || !countMatch) return;
+
+      var html =
+        '<p class="why-nuwatt-rating-number">' + ratingText + '</p>' +
+        '<div class="why-nuwatt-rating-side">' +
+          '<div class="why-nuwatt-rating-stars">' + starsHtml(parseFloat(ratingText)) + '</div>' +
+          '<p class="why-nuwatt-rating-count">' + countMatch[0] + ' verified reviews</p>' +
+          '<p class="why-nuwatt-rating-tagline">Rated across the full catalog</p>' +
+        '</div>';
+
+      var wrapper = section.querySelector('.why-nuwatt-rating-summary');
+      if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'why-nuwatt-rating-summary';
+        summary.insertAdjacentElement('beforebegin', wrapper);
+      } else if (!summary.previousElementSibling || summary.previousElementSibling !== wrapper) {
+        // Junip re-rendered and our wrapper got orphaned/detached elsewhere
+        // in the DOM — reattach it right before the (newly recreated)
+        // summary instead of leaving a stale duplicate lying around.
+        summary.insertAdjacentElement('beforebegin', wrapper);
+      }
+      // Skip the DOM write when nothing actually changed, so this doesn't
+      // needlessly re-render (and re-trigger the observer) on every mutation.
+      if (wrapper.dataset.content !== html) {
+        wrapper.innerHTML = html;
+        wrapper.dataset.content = html;
+      }
+    }
+
+    // The rating summary and footer need to start at the same left edge as
+    // the actual review cards — but exactly how deep Junip nests the card
+    // grid (how much padding its own wrapper divs add) has turned out to
+    // differ between environments in ways a hardcoded CSS padding-left
+    // couldn't reliably match (confirmed: 40px measured exactly correct in
+    // one browser, reported as visibly wrong in another, for the same
+    // markup/CSS — see PROGRESS.md). Rather than guess at another fixed
+    // number, measure the real gap directly from the rendered card and
+    // apply it live, so this is correct regardless of what Junip's actual
+    // internal padding turns out to be for a given viewer.
+    function alignToCards() {
+      var section = document.querySelector('.image-with-review .review_section');
+      if (!section) return;
+      var firstCard = section.querySelector('.junip-review-carousel-item');
+      var summary = section.querySelector('.why-nuwatt-rating-summary');
+      var footer = section.querySelector('.why-nuwatt-review-footer');
+      if (!firstCard || (!summary && !footer)) return;
+
+      var contentLeft = section.getBoundingClientRect().left + parseFloat(getComputedStyle(section).paddingLeft || 0);
+      var offset = Math.round(firstCard.getBoundingClientRect().left - contentLeft);
+      // A transient 0/negative reading (Junip mid-layout) or an implausibly
+      // large one (something else entirely) isn't a real alignment value —
+      // skip rather than shove the summary/footer somewhere wrong.
+      if (offset < 0 || offset > 200) return;
+
+      if (summary) summary.style.paddingLeft = offset + 'px';
+      if (footer) footer.style.paddingLeft = offset + 'px';
+    }
+
+    sync();
+    alignToCards();
+    var section = document.querySelector('.image-with-review .review_section');
+    if (section) {
+      new MutationObserver(function () { sync(); alignToCards(); }).observe(section, { childList: true, subtree: true, characterData: true });
+    }
+    // Cards can reflow (e.g. a breakpoint changing .review_section's width)
+    // without any DOM mutation for the observer above to catch.
+    window.addEventListener('resize', alignToCards);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Image with review",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Why NuWatt"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Made to spec. Stocked, shipped and supported here."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_item",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "shield", "label": "Shield" },
+            { "value": "support", "label": "Support" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "pin", "label": "Pin" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Backed by warranty"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "All lighting products backed by standard manufacturer's warranty."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with review",
+      "blocks": [
+        { "type": "benefit_item" },
+        { "type": "benefit_item" },
+        { "type": "benefit_item" },
+        { "type": "benefit_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+
+<style>
+  .image-with-review .page-width{
+    max-width: 1900px;
+  }
+  .image_wrapper img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    /* Swapped to the clean `nw-hq.jpg` HQ building photo (no baked-in
+       text/icons — the old `Review_Image_630x430...` asset had the
+       "Backed by warranty" etc. benefit copy composited directly into its
+       pixels, meant only for a since-abandoned full-width use elsewhere.
+       That's what was showing up as duplicate/garbled text on mobile: this
+       narrow container's crop only hid it at one specific desktop aspect
+       ratio, and any other viewport revealed more of the same baked-in
+       text). Slight left/upper bias keeps the flag + "NUWATT" building
+       sign in frame at this container's narrow aspect ratio. */
+    object-position: 48% 10%;
+  }
+  .image-with-review .main-div{
+    display:flex;
+    gap:15px;
+    align-items: stretch;
+  }
+  .image-with-review .why-nuwatt-card {
+    width: 50%;
+    display: flex;
+    background: #202020;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .image-with-review .why-nuwatt-card .image_wrapper {
+    width: 38%;
+    flex: 0 0 38%;
+  }
+  .image-with-review .why-nuwatt-content {
+    flex: 1 1 auto;
+    padding: 32px;
+    color: #fff;
+  }
+  .image-with-review .why-nuwatt-eyebrow {
+    color: #fcc833;
+    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+  }
+  /* Same global type_header_capitalize uppercase rule that hit other section
+     headings earlier — missed overriding it here. */
+  .image-with-review .why-nuwatt-heading {
+    text-transform: none !important;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.03;
+    letter-spacing: -0.5px;
+    margin: 0 0 16px;
+    color: #fff;
+  }
+  .image-with-review .why-nuwatt-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .image-with-review .why-nuwatt-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .image-with-review .why-nuwatt-list li:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .image-with-review .why-nuwatt-list__icon {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: rgba(252,200,51,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-with-review .why-nuwatt-list__icon svg {
+    width: 19px;
+    height: 19px;
+  }
+  .image-with-review .why-nuwatt-list__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .image-with-review .why-nuwatt-list__title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .image-with-review .why-nuwatt-list__desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.66);
+  }
+  .image-with-review .review_section{
+    width:50%;
+    background: #fff;
+    border: 1px solid #e2e6ec;
+    border-radius: 20px;
+    padding: 33px;
+    box-sizing: border-box;
+  }
+  .image-with-review .junip-review-carousel{
+    padding:0;
+  }
+  /* Our own left-aligned rating summary (rating number, 5-star row, bold
+     verified-review count, grey tagline) built via JS from Junip's live
+     rating/count once it loads — see the script above. Matches Figma's
+     "4.93 / ★★★★★ / 534 verified reviews / Rated across the full catalog"
+     layout, which Junip's own single-line summary markup can't reproduce. */
+  .image-with-review .why-nuwatt-rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    margin-bottom: 16px;
+    /* Junip nests the review-card grid two levels deeper than the summary
+       row: `.junip-px-4` (24px padding) wrapping `.junip-review-carousel-container`
+       (16px padding), while this summary sits directly in `.review_section`
+       with no such wrapper — so without this, the cards start 40px to the
+       right of the rating number instead of sharing its left edge like Figma. */
+    padding-left: 40px;
+  }
+  .image-with-review .why-nuwatt-rating-number {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #202020;
+  }
+  .image-with-review .why-nuwatt-rating-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .image-with-review .why-nuwatt-rating-stars {
+    display: flex;
+    gap: 2px;
+  }
+  .image-with-review .why-nuwatt-rating-stars svg {
+    width: 19px;
+    height: 19px;
+    fill: #fcc833;
+  }
+  .image-with-review .why-nuwatt-rating-count {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #202020;
+  }
+  .image-with-review .why-nuwatt-rating-tagline {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(32,32,32,0.6);
+  }
+  /* The Junip review widget renders its own markup/styles via its app JS — none of
+     this comes from our theme CSS by default, which is why it looked nothing like
+     Figma (tiny 18px rating number, white review cards instead of the tinted grey
+     Figma uses, a black "read all reviews" button instead of yellow). These are
+     purely cosmetic overrides (font-size/color/background/radius) targeting Junip's
+     own class names — nothing here touches its carousel logic or data loading. */
+  .image-with-review .junip-review-carousel-rating-average {
+    font-size: 48px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px;
+  }
+  .image-with-review .junip-review-carousel-summary-review-count {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+  }
+  .image-with-review .junip-review-carousel-item {
+    background: rgba(202, 202, 201, 0.1) !important;
+    border-radius: 13px !important;
+    padding: 17px !important;
+    /* Junip's default 1px solid rgba(0,0,0,0.08) border — Figma's card has
+       no border at all (verified via a zoomed Figma screenshot), just this
+       light fill. Missed overriding it originally. */
+    border: none !important;
+    /* Junip's default 275px fixed item width, combined with its own 16px
+       container padding + 16px gaps, needs more space than our narrower
+       .review_section (a 50%-width column, not the wider full-width
+       container Junip's widget expects) actually has — which is exactly
+       why the rightmost visible card's text was getting clipped mid-word.
+       A hardcoded px width here is fragile (the exact shortfall depends on
+       .review_section's actual rendered width, which changes with the
+       theme's page-width cap and viewport), so size relative to the
+       container instead: 3 items with 2 gaps of 16px between them means
+       each item is (100% - 32px) / 3 of the available space (container
+       padding is already excluded from a flex child's "100%" reference).
+       This sizing mismatch likely also explains some of the carousel's
+       scroll-step imprecision (its internal math was sized for the wider
+       container it expected), on top of the scroll-snap fix above.
+       Note: for subtracted value X, algebra places the 4th card's start at
+       contentWidth + (48 - X) (3 items + 3 sixteen-px gaps, one gap short
+       of the 3-visible-card row since the 3rd gap leads into the 4th
+       card), while the container's clip boundary (border edge) sits at
+       contentWidth + 16 — so the 4th card clears the boundary by exactly
+       (48 - X) - 16 = 32 - X px, constant regardless of container width.
+       That predicts X=33 (the original bug) undershoots the boundary by
+       1px (matches the reported hairline), X=32 lands exactly flush (0px
+       margin — sub-pixel rounding/zoom can tip either way, which is
+       exactly what kept happening), X=30 clears by only 2px (still ate
+       through on a real browser/zoom), and X=20 clears by 12px (STILL
+       reproduced as a barely-there hairline on a real browser/zoom, despite
+       measuring clean in automated testing every time — this 3rd-party
+       widget's real-world rounding drift is apparently larger than it
+       looks under automation). X=0 clears by a full 32px — should leave no
+       plausible amount of rounding/zoom drift able to reach the boundary —
+       at the cost of the 3rd card bleeding those same ~32px into its own
+       already-blank padding gutter (invisible, since nothing is clipped
+       until the true edge; card also grows correspondingly wider, still
+       comfortably within the row). */
+    flex: 0 0 calc(100% / 3) !important;
+    width: calc(100% / 3) !important;
+    /* Junip's own CSS gives this a fixed 350px height with overflow:scroll.
+       Combined with the bottom-pinned name row below, a card whose product
+       spec line wraps to 3 lines overflows that fixed height — and since
+       the name row is last in visual order, IT is the part that ends up
+       scrolled out of view (looks like the reviewer's name just vanished).
+       Let the card grow to fit its own content instead of clipping it. */
+    height: auto !important;
+    min-height: 350px !important;
+    overflow: visible !important;
+  }
+  .image-with-review .junip-review-carousel-item-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 17.6px !important;
+    letter-spacing: -0.288px !important;
+    color: #202020 !important;
+  }
+  .image-with-review .junip-review-body {
+    font-size: 14px !important;
+    line-height: 22.4px !important;
+    color: rgba(32, 32, 32, 0.8) !important;
+  }
+  .image-with-review .junip-review-carousel-item-customer {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+  }
+  /* Figma pins the name + verified badge row to the bottom of the card,
+     below the product spec line, regardless of review text length — the
+     card itself is a fixed-height flex column (Junip's own layout), so
+     giving this row the highest order and an auto top margin pushes it to
+     the bottom without needing to reorder or restyle the other rows. */
+  .image-with-review .junip-review-carousel-item .junip-d-flex.junip-align-items-center.junip-mt-4 {
+    order: 5;
+    margin-top: auto !important;
+  }
+  /* Figma's verified badge is solid yellow (#FCC833); Junip's default is a
+     black circle with a white check — swap just the fill, keep the check. */
+  .image-with-review .junip-verified-badge {
+    background-color: #fcc833 !important;
+  }
+  .image-with-review .junip-btn {
+    background: #fcc833 !important;
+    color: #202020 !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+  }
+  /* `.junip-review-carousel-arrow` turned out NOT to be the small circular button
+     Figma shows — it's a full-height (300px+) invisible edge hit-zone Junip uses for
+     swipe/click navigation, with no accessible icon element inside to restyle as a
+     circle. Giving it a border/background (an earlier attempt) just drew a long grey
+     vertical strip down the widget's edges, which is worse than leaving it alone. */
+  .image-with-review .why-nuwatt-review-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e6ec;
+    /* Same 40px (`.junip-px-4` 24px + `.junip-review-carousel-container`
+       16px) as `.why-nuwatt-rating-summary` above — without it "Read All
+       Reviews" sits flush with the outer white-card edge instead of lining
+       up under the cards, same original bug as the rating number had.
+       Doesn't affect the prev/next arrows: those are positioned via
+       `bottom`/`right` relative to `.junip-px-4` itself (see below), not
+       this footer's own padding box, so they're untouched by this. */
+    padding-left: 40px;
+  }
+  .image-with-review .why-nuwatt-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    background: #fcc833;
+    color: #202020;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .image-with-review .why-nuwatt-view-all-btn:hover {
+    background: #ffdb66;
+  }
+  /* A fake proxy button that calls .click() on Junip's real arrow element doesn't
+     work — Junip's carousel only responds to genuinely trusted browser clicks, not
+     JS-dispatched ones (confirmed by testing: neither .click() nor a full manually
+     dispatched pointerdown/mousedown/mouseup/click sequence advanced the carousel).
+     So instead of a proxy, these rules restyle and reposition Junip's REAL arrow
+     elements in place — the user's actual click lands directly on Junip's own
+     functional element, which we've just resized/repositioned/skinned to look
+     like Figma's button, sitting in the same row as "Read All Reviews".
+     Junip absolutely positions these (via its own stylesheet, vertically centered
+     over the review carousel) inside .junip-px-4, which sits directly above our
+     .why-nuwatt-review-footer and shares the same left/width — so a negative
+     `bottom` pushes them down out of the carousel and into the footer row while
+     keeping the same horizontal coordinate space. */
+  .image-with-review .junip-chevron-left,
+  .image-with-review .junip-chevron-right {
+    width: 40px !important;
+    height: 40px !important;
+    top: auto !important;
+    bottom: -81.5px !important;
+    background-color: #fff !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 17px 17px !important;
+    border: 1px solid #e2e6ec !important;
+    border-radius: 50% !important;
+    transform: none !important;
+  }
+  .image-with-review .junip-chevron-left {
+    left: auto !important;
+    right: 48px !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2017.0667%2017.0667%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M13.5101%208.53334H4.26562M7.82118%2012.0889L4.26562%208.53334L7.82118%204.97778%22%20stroke%3D%22%23202020%22%20stroke-width%3D%221.70667%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E") !important;
+  }
+  .image-with-review .junip-chevron-right {
+    left: auto !important;
+    right: 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2017.0667%2017.0667%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M3.55469%208.53334H12.7991M9.24358%2012.0889L12.7991%208.53334L9.24358%204.97778%22%20stroke%3D%22%23202020%22%20stroke-width%3D%221.70667%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E") !important;
+  }
+  .image-with-review{
+    padding-bottom:50px;
+  }
+  .junip-review-carousel-container{
+    padding-bottom:0;
+    margin-bottom:0;
+  }
+  /* Let the row grow to match the tallest card (see the item-height fix
+     above) instead of Junip's own fixed-height row, which would otherwise
+     clip a taller card even after the card itself stopped clipping. */
+  .image-with-review .junip-review-carousel-container {
+    height: auto !important;
+    align-items: stretch !important;
+  }
+  /* First/last card appearing partially cropped, needing an extra arrow
+     click to fully reveal — Junip's own click-step scroll math occasionally
+     lands short of a true card boundary (confirmed the cards/container
+     themselves are sized correctly: at the exact mathematical 0 and max
+     scroll positions nothing is cropped). scroll-snap corrects the
+     *resting* scroll position to the nearest full-card boundary after any
+     scroll (click-driven or otherwise) settles, independent of Junip's own
+     step calculation — a safe, purely-CSS mitigation that doesn't touch
+     Junip's click handling. */
+  .image-with-review .junip-review-carousel-container {
+    scroll-snap-type: x mandatory;
+  }
+  .image-with-review .junip-review-carousel-item {
+    scroll-snap-align: start;
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1250px){
+        .image-with-review{
+        padding-bottom:0;
+    }
+  }
+  @media screen and (min-width: 767px) and (max-width: 1023px){
+        .image-with-review{
+        padding-bottom:0;
+    }
+    .image-with-review .main-div {
+        gap: 25px;
+        flex-direction: column;
+    }
+    .image-with-review .review_section {
+        width: 100%;
+    }
+    .image-with-review .why-nuwatt-card {
+        width: 100%;
+        flex-direction: column;
+    }
+    .image-with-review .why-nuwatt-card .image_wrapper {
+        width: 100%;
+        flex-basis: auto;
+        aspect-ratio: 16/9;
+    }
+    /* `.junip-review-carousel-item`'s `calc(100% / 3)` width (further down
+       this file) was tuned for `.review_section` at its desktop 50%-width
+       column — but `.review_section` goes to 100% width right above in
+       this same breakpoint, and that fixed 1/3 fraction never got
+       adjusted to match. Confirmed live at a tablet-width viewport: cards
+       shrank to a fraction of a much wider container, badly cramped. 2
+       cards per view reads comfortably at this width. */
+    .image-with-review .junip-review-carousel-item {
+        flex: 0 0 calc(50% - 8px) !important;
+        width: calc(50% - 8px) !important;
+    }
+  }
+
+    @media screen and (max-width: 767px){
+    .image-with-review .why-nuwatt-card {
+        width: 100%;
+        flex-direction: column;
+    }
+    .image-with-review .why-nuwatt-card .image_wrapper {
+        width: 100%;
+        flex-basis: auto;
+        aspect-ratio: 16/9;
+    }
+          .image-with-review .main-div {
+        gap: 25px;
+        flex-direction: column;
+    }
+    .image-with-review .review_section {
+        width: 100%;
+    }
+    .image-with-review .image_wrapper{
+      width:100%;
+    }
+         .image-with-review{
+        padding-bottom:0;
+    }
+    /* Same `calc(100% / 3)` desktop-column bug as the tablet breakpoint
+       above, worse here since `.review_section` is a full mobile-width
+       column: confirmed live at a 512px-wide viewport, cards rendered at
+       ~116px wide with mid-word text wrapping ("SELECTABL E"). One full
+       card per view reads correctly on a phone screen — an earlier pass
+       left an 88% width here to peek the next card's edge, but that
+       partial sliver read as a visual glitch rather than a carousel
+       hint, so this is a clean, full-width single card instead. */
+    .image-with-review .junip-review-carousel-item {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+    }
+    }
+
+</style>

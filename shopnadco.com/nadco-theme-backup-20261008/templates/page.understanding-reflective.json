@@ -1,0 +1,608 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_DKcanL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_YkbFq9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Understanding Reflective Tape and Its Uses",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_qU8mQt": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YkbFq9",
+        "text_qU8mQt"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_z9DciD": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_yJJnXi": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NADCO University"
+          }
+        },
+        "heading_GAaqDJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why You Should Be Using Reflective Tapes for Your Business",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_TV7gJC": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Across transportation, manufacturing, warehousing, construction, and public safety sectors, reflective tape plays a crucial role in maintaining visibility where lighting is limited or conditions are unpredictable. Businesses rely on it to highlight vehicles, machinery, pathways, loading areas, and structural hazards so workers and operators can react quickly in real time. Reflective tape also supports compliance with safety regulations and industry standards, ensuring that essential equipment and traffic control elements remain easily identifiable day or night.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_yJJnXi",
+        "heading_GAaqDJ",
+        "text_TV7gJC"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_i76MrY": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_rYkdNf": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "start",
+            "image": "shopify://shop_images/ChatGPT_Image_Jan_30_2026_03_38_46_PM.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_ncciNp": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Reflective Tapes from NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p><strong>At NADCO®, our reflective tapes are engineered for durability, long-lasting performance, and strong adhesion across a wide range of surfaces. We offer three grades of reflective sheeting, each designed for specific applications:</strong></p>"
+          }
+        },
+        "collapsible_item_MbDG6j": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Regular Grade",
+            "content": "<p>An acrylic prismatic reflective film designed for use on metal and painted metal surfaces.</p><ul><li>Lifespan: Up to 7 years</li><li>Temperature range: -10°F to +160°F</li><li>Colors: White or red/white stripes</li><li>Common applications: Vehicle markings and general visibility enhancement</li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_gbaJDX": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Engineer Grade",
+            "content": "<p>A high-gloss, pressure-sensitive tape ideal for flat, smooth surfaces.</p><ul><li>Not recommended for unpainted stainless steel</li><li>Available in a variety of colors</li><li>Best suited for permanent traffic and information signs</li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_qMyrxW": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "High-Intensity Grade",
+            "content": "<p>A high-gloss, pressure-sensitive tape offering superior brightness and durability.</p><ul><li>Lifespan: Up to 10 years when properly applied</li><li>Temperature range: -40°F to 180°F</li><li>Available in multiple colors</li><li>Ideal for environments requiring exceptional visibility and performance</li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_rYkdNf",
+        "heading_ncciNp",
+        "collapsible_item_MbDG6j",
+        "collapsible_item_gbaJDX",
+        "collapsible_item_qMyrxW"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_ttQLky": {
+      "type": "rich-text",
+      "blocks": {
+        "text_UYCUXL": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>All three grades provide reliable nighttime visibility and are suitable for vehicle recognition, traffic signage, and other demanding traffic-control applications. NADCO® reflective tapes are manufactured to meet or exceed brightness and performance requirements for safety-critical use.</strong></p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_UYCUXL"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_fTP44r": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_ygrBx7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Key Benefits to Using Reflective Tapes For Your Business",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_QAQmiD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Incorporating reflective tape into your facility or fleet enhances safety while improving overall operational efficiency. It helps reduce accidents, equipment damage, and downtime by making critical areas and assets more noticeable. Reflective tape is also a cost-effective solution—it is durable, simple to apply, and engineered to withstand outdoor exposure, harsh temperatures, and demanding work environments. With multiple colors and performance grades available, businesses can customize markings to support organization, workflow clarity, and long-term visibility without frequent maintenance.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ygrBx7",
+        "text_QAQmiD"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_9tnfMY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_4PLH7H": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let NADCO Be Your Reflective Tape Provider",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_THLcMn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you own a restaurant or bar, reflective tapes are a simple, cost-effective solution for your social distancing efforts. NADCO has created custom tapes and labels for over two decades and prides itself on providing excellent customer service. <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Contact us</a> today to learn more about our products.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_4PLH7H",
+        "text_THLcMn"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_bgNBxM": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_Y39Dnf": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom-digital-printing_tapes_labels_800_600.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_CKpDBx": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": ""
+          }
+        },
+        "collapsible_item_734YLE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aerospace Industry",
+            "content": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. To withstand the operational challenges posed by aerospace equipment, tapes must meet stringent standards and requirements for temperature resistance, flammability, low weight, and adhesion.</p><p><a href=\"/pages/aerospace\" title=\"Aerospace\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_UByFww": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automotive Industry",
+            "content": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p><p><a href=\"/pages/automotive\" title=\"Automotive\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_jfWtHw": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Contruction Industry",
+            "content": "<p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry.</p><p><a href=\"/pages/construction-municipal\" title=\"Construction Municipal\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_admNAT": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electronics Industry",
+            "content": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p><p><a href=\"/pages/electronics\" title=\"Electronics\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_rQC7HE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Medical Industry",
+            "content": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization. The tapes used in medical applications have the potential of being exposed to varying conditions, so they must have biocompatibility and be able to withstand intense environments.</p><p><a href=\"/pages/adhesive-tapes-medical-industry\" title=\"Adhesive Tapes Medical Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_HrqmGR": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Nuclear Industry",
+            "content": "<p>At NADCO, we understand that each application is different, which is why we provide a wide range of nuclear tape and label designs, features, and customization options. We aim to enhance the safety of nuclear applications with quality adhesive solutions for every situation, from nuclear warning labels and RAD wipes to hazard tape and radioactivity indicator signage.</p><p><a href=\"/pages/nuclear-industry\" title=\"Nuclear Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_77bAmw": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Personal Protective Equipment Industry",
+            "content": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions. Different types of PPE are required across various industries, depending upon the unique risks posed on the job site. These include face and eye protection as well as hard hats for the construction industry.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_yhkBNx": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Industry",
+            "content": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk. In order to establish safe facilities, many companies incorporate safety tapes.</p><p><a href=\"/pages/safety-industry\" title=\"Safety Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_Y39Dnf",
+        "heading_CKpDBx",
+        "collapsible_item_734YLE",
+        "collapsible_item_UByFww",
+        "collapsible_item_jfWtHw",
+        "collapsible_item_admNAT",
+        "collapsible_item_rQC7HE",
+        "collapsible_item_HrqmGR",
+        "collapsible_item_77bAmw",
+        "collapsible_item_yhkBNx"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_4CWX3m": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_m6paPz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_GB8UGX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_m6paPz",
+        "button_GB8UGX"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_DKcanL",
+    "rich_text_z9DciD",
+    "collapsible_tabs_i76MrY",
+    "rich_text_ttQLky",
+    "rich_text_fTP44r",
+    "rich_text_9tnfMY",
+    "collapsible_tabs_bgNBxM",
+    "image_with_text_overlay_4CWX3m"
+  ]
+}

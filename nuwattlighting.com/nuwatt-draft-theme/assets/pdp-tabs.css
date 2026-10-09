@@ -1,0 +1,158 @@
+/* PDP Tabs — Figma "128 Audit Fixes" Product Page (node 9211:7), tab bar region.
+   Self-contained: its own click-handling script (in pdp-tabs.liquid) and its own
+   visibility rule below — it does not depend on tab-section.liquid's classes/CSS. */
+
+.pdp-tabs{
+  margin-top: 48px;
+}
+
+.pdp-tabs__list{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 2px;
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.pdp-tabs__tab{
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.pdp-tabs__tab a{
+  display: block;
+  padding: 16px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #202020;
+  border-radius: 8px 8px 0 0;
+  transition: background-color 0.15s ease;
+}
+
+.pdp-tabs__tab.active a{
+  background: #eef1f5;
+}
+
+.pdp-tabs__panel{
+  display: none;
+  padding: 8px 0 16px;
+}
+
+.pdp-tabs__panel.active{
+  display: block;
+}
+
+/* Description tab: text + read-more on the left, metafield image on the right */
+.pdp-tab-description{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.pdp-tab-description__text{
+  max-height: 9em;
+  overflow: hidden;
+  position: relative;
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+  transition: max-height 0.3s ease-out;
+}
+
+.pdp-tab-description__text p + p{
+  margin-top: 14px;
+}
+
+.pdp-tab-description__text.is-collapsed::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3em;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+}
+
+.pdp-tab-description__text:not(.is-collapsed){
+  max-height: none;
+}
+
+.pdp-tab-description__toggle{
+  margin-top: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #1d4ed8;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pdp-tab-description__image-col img{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.pdp-tab-description__placeholder-note{
+  margin-top: 6px;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+@media only screen and (min-width: 750px){
+  .pdp-tab-description{
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* Specifications / Dimensions tables */
+.pdp-tabs__panel .product-specs-table{
+  margin-top: 0;
+}
+
+/* Warranty */
+.pdp-tab-warranty{
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* FAQ */
+.pdp-tab-faq .collapsibles-wrapper + .collapsibles-wrapper{
+  margin-top: 8px;
+}
+
+.pdp-tab-faq__empty,
+.pdp-tab-manuals__empty{
+  color: #666;
+  font-size: 14px;
+}
+
+/* Manuals */
+.pdp-tab-manuals .specs-download{
+  display: inline-block;
+}
+
+@media only screen and (max-width: 749px){
+  .pdp-tabs{
+    margin-top: 32px;
+  }
+  .pdp-tabs__list{
+    margin-bottom: 20px;
+  }
+  .pdp-tabs__tab a{
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+}

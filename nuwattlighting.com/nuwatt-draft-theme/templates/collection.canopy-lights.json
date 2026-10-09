@@ -1,0 +1,220 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_Ry8BeX": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Canopy Lights Collection",
+        "collection_seo_description": "Our collection of LED canopy lights offer reliable, energy-efficient lighting for large, open areas. These fixtures are ideal for high ceilings in spaces like gas stations, parking lots, and warehouses, delivering bright, even illumination. LED canopy light fixtures offer a lasting, complete lighting solution."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_zr6YpY": {
+      "type": "jump-to",
+      "blocks": {
+        "question_dCYtwQ": {
+          "type": "question",
+          "settings": {
+            "button": "Commercial Downlights",
+            "link": "shopify://collections/commercial-recessed-lighting",
+            "image": "shopify://shop_images/LED-DLJBX-4RG-main-597242.jpg",
+            "alt-text": "Jump to our commercial recessed lighting collection page"
+          }
+        },
+        "question_G4jkHm": {
+          "type": "question",
+          "settings": {
+            "button": "Wall Packs",
+            "link": "shopify://collections/led-wall-packs",
+            "image": "shopify://shop_images/wall.png",
+            "alt-text": "Jump to our wall pack collection page"
+          }
+        },
+        "question_LFXKCV": {
+          "type": "question",
+          "settings": {
+            "button": "All Commercial Lights",
+            "link": "shopify://collections/commercial-lighting",
+            "image": "shopify://shop_images/view-all-commercial-lighting-products.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_tRBMAJ": {
+          "type": "question",
+          "settings": {
+            "button": "Shop Lights",
+            "link": "shopify://collections/led-shop-lights",
+            "image": "shopify://shop_images/shop-lights-wraparounds-collection.png",
+            "alt-text": "Jump to the shop light collection page"
+          }
+        },
+        "question_EBfUgU": {
+          "type": "question",
+          "settings": {
+            "button": "High Bays",
+            "link": "shopify://collections/high-bay-led-lights",
+            "image": "shopify://shop_images/high-bay-lighting.webp",
+            "alt-text": "Jump to the high bay lighting collection page"
+          }
+        },
+        "question_4dw8Eh": {
+          "type": "question",
+          "settings": {
+            "button": "Tubes",
+            "link": "shopify://collections/led-tube-lights",
+            "image": "shopify://shop_images/NW-T8F-4-18W-50K-30P-MAIN-464841.jpg",
+            "alt-text": "Jump to the tube light collection page"
+          }
+        },
+        "question_xxTEnw": {
+          "type": "question",
+          "settings": {
+            "button": "Panels",
+            "link": "shopify://collections/led-panel-light",
+            "image": "shopify://shop_images/nuwatt-2x4-led-panel-for-drop-in-ceiling-50w40w30w-selectable-5-color-select-3000k3500k4000k5000k6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fixture-e-274470.jpg",
+            "alt-text": "Jump to our panels collection page"
+          }
+        }
+      },
+      "block_order": [
+        "question_dCYtwQ",
+        "question_G4jkHm",
+        "question_LFXKCV",
+        "question_tRBMAJ",
+        "question_EBfUgU",
+        "question_4dw8Eh",
+        "question_xxTEnw"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_cpa3kh": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_ReYPyN": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_TyXJkf": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_PWR6PA": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_qCNxMk": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_kBVGEP": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_amwfAG": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_ReYPyN",
+        "question_TyXJkf",
+        "question_PWR6PA",
+        "question_qCNxMk",
+        "question_kBVGEP",
+        "question_amwfAG"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_JTft4e": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Canopy Lights Collection",
+        "collection_seo_description": "Our collection of LED canopy lights offer reliable, energy-efficient lighting for large, open areas. These fixtures are ideal for high ceilings in spaces like gas stations, parking lots, and warehouses, delivering bright, even illumination. LED canopy light fixtures offer a lasting, complete lighting solution."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_Ry8BeX",
+    "main-collection",
+    "jump_to_zr6YpY",
+    "collection_metafield_faq_cpa3kh",
+    "recently-viewed",
+    "expandable_description_JTft4e"
+  ]
+}

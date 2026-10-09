@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "text_columns_c46MTn": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_zidGex": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_hybrid_bk-lea_bk-sde_410f0c79-ee28-45e1-a777-4bbe68a21e73.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Hybrid Sneaker",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/ultimate-hybrid"
+          }
+        },
+        "text_block_kkwHFg": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_womens_practice_bk-leather-low_front_2a147427-0260-4b7a-b292-19dbbdf685e0.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Women's Practice",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://products/ultimate-womens-practice-black-leather-low-heel"
+          }
+        },
+        "text_block_DCJRkm": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_1317_bklycra_low_6fc0291d-a780-4325-8343-01def2adc048.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Women's Depth",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/ultimate-womens-depth-mesh"
+          }
+        },
+        "text_block_nTBzJW": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_1317_tan_lacey_front_931ea74d-c29f-4c55-944b-ca657e82528a.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Women's Practice Mesh",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/ultimate-womens-depth-mesh"
+          }
+        },
+        "text_block_GWn33V": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_hautevintage_bk_low_af819a81-6e08-4d61-a3af-19fea11b6146.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Haute Vintage",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/ultimate-haute-vintage"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_zidGex",
+        "text_block_kkwHFg",
+        "text_block_DCJRkm",
+        "text_block_nTBzJW",
+        "text_block_GWn33V"
+      ],
+      "custom_css": [
+        "@media only screen and (min-width: 768px) {.grid--flush-bottom {overflow: auto; max-width: 75%; margin: 0 auto; }}"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "text_columns_c46MTn"
+  ]
+}

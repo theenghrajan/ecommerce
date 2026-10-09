@@ -1,0 +1,248 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "inventory_status": {
+          "type": "inventory_status",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        },
+        "sales_point": {
+          "type": "sales_point",
+          "settings": {}
+        },
+        "sales_point2": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "Free returns"
+          }
+        },
+        "sales_point3": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "leaf",
+            "text": "Carbon neutral"
+          }
+        },
+        "sales_point4": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "lock",
+            "text": "Secure payments"
+          }
+        }
+      },
+      "block_order": [
+        "variant_picker",
+        "price",
+        "sales_point",
+        "sales_point2",
+        "sales_point3",
+        "sales_point4",
+        "inventory_status",
+        "buy_buttons"
+      ],
+      "settings": {
+        "mobile_layout": "full",
+        "thumbnail_position": "below"
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {},
+      "disabled": true
+    },
+    "more-products-vendor": {
+      "type": "more-products-vendor",
+      "settings": {},
+      "disabled": true
+    },
+    "more-products-collection": {
+      "type": "more-products-collection",
+      "settings": {},
+      "disabled": true
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {}
+    },
+    "pdp_tabs": {
+      "type": "pdp-tabs",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "specifications": {
+          "type": "specifications",
+          "settings": {
+            "title": "Specifications"
+          }
+        },
+        "warranty": {
+          "type": "warranty",
+          "settings": {
+            "title": "Warranty / Certifications",
+            "content": "<p><strong>[Demo content — confirm final copy with client]</strong></p><p>NuWatt Lighting products are backed by a standard manufacturer's limited warranty. This section will list the specific warranty term and any relevant certifications (UL, ETL, Energy Star, etc.) for this product once confirmed.</p>"
+          }
+        },
+        "faq": {
+          "type": "faq",
+          "settings": {
+            "title": "FAQ's",
+            "empty_state_text": "FAQs for this product have not been added yet."
+          }
+        },
+        "dimensions": {
+          "type": "dimensions",
+          "settings": {
+            "title": "Dimensions"
+          }
+        },
+        "manuals": {
+          "type": "manuals",
+          "settings": {
+            "title": "Manuals"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "specifications",
+        "warranty",
+        "faq",
+        "dimensions",
+        "manuals"
+      ],
+      "settings": {}
+    },
+    "pdp_image_rows": {
+      "type": "pdp-image-rows",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-1-spec-diagram.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-2-easy-install.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-3-use-cases.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-4-adjustable-lens.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-5-dimmability-cct.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-6-install-guide-poster.png",
+            "show_play_icon": true,
+            "caption": "Video coming soon — this is a placeholder poster frame from the Figma reference until a real install-guide video is uploaded."
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {}
+    },
+    "pdp_lighting_calculator": {
+      "type": "pdp-lighting-calculator",
+      "settings": {
+        "heading": "",
+        "content": ""
+      }
+    },
+    "pdp_fbt": {
+      "type": "pdp-frequently-bought-together",
+      "settings": {
+        "heading": "Frequently Bought Together",
+        "collection": "",
+        "complementary_count": 4,
+        "products_per_row": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pdp_tabs",
+    "pdp_image_rows",
+    "pdp_lighting_calculator",
+    "pdp_fbt",
+    "recommendations",
+    "more-products-vendor",
+    "more-products-collection",
+    "recently-viewed",
+    "collection-return"
+  ]
+}

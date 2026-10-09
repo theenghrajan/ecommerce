@@ -1,0 +1,20 @@
+Dylan Scheckwitz
+
+As per comment #16,
+
+For the website: https://www.danceconnection.com/
+
+Re: FAQs section and FAQ schema
+....
+We have added a new "FAQs" section to the product pages, right below the product description and above "Ask a question". It shows the questions and answers as a dropdown (click a question to see the answer) and also adds FAQ schema, so search engines can read the FAQs.
+
+The FAQs are managed from the Shopify admin for each product, so no code change is needed to add or edit them:
+1. Add the questions and answers under Content -> Metaobjects -> FAQ.
+2. Open the product and select its FAQs in the "Product FAQs" field.
+Products without FAQs do not show the section.
+
+The section is live on the default product page layout, which the Women's Shoe Design Center uses: https://www.danceconnection.com/products/comfort-shoe-design-center
+Once the FAQs from the content document in comment #15 are added to this product, they will show on the page.
+Screenshot:
+
+Thanks!

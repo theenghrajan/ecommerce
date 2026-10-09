@@ -1,0 +1,173 @@
+{% style %}
+.top-info-bar {
+  background: {{ section.settings.bg_color }};
+  padding: {{ section.settings.padding_top }}px 0 0;
+}
+.top-info-inner {
+  max-width: {{ section.settings.container_width }}px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.payment-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.payment-icons img {
+  height: {{ section.settings.payment_icon_height }}px;
+}
+.center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.center-logo img {
+  max-height: {{ section.settings.logo_height }}px;
+}
+.center-logo a {
+  display: inline-flex;
+}
+.center-logo .jbc-logo {
+  height: {{ section.settings.logo_height | times: 0.6 | round }}px;
+  width: auto;
+  max-height: {{ section.settings.logo_height | times: 0.6 | round }}px;
+}
+.social-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+}
+.social-title {
+  font-size: {{ section.settings.text_size }}px;
+  color: {{ section.settings.text_color }};
+}
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+}
+.social-icons img {
+  height: {{ section.settings.social_icon_size }}px;
+}
+.cpy-right-main .footer__copyright {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top:{{ section.settings.padding_bottom }}px;
+}
+.social-wrap .social__item .social__link {
+        width: fit-content;
+    height: fit-content;
+    border: none;
+}
+.cpy-right-main .footer__copyright-content a:hover {
+  color:currentColor;
+}
+@media(max-width: 768px) {
+  .top-info-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+  .payment-icons,
+  .social-wrap {
+    justify-content: center;
+  }
+}
+{% endstyle %}
+
+<section class="top-info-bar">
+  <div class="top-info-inner">
+
+    <div class="payment-icons">
+      {% for block in section.blocks %}
+        {% if block.type == 'payment' %}
+          <div class="footer__payment">
+                <span class="visually-hidden">{{ 'general.payment.methods' | t }}</span>
+                <ul class="list list-payment" role="list">
+                  {%- for type in shop.enabled_payment_types -%}
+                    <li class="list-payment__item">
+                      {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="center-logo">
+      {% if section.settings.logo != blank %}
+        <img src="{{ section.settings.logo | image_url: width: 300 }}" alt="">
+      {% endif %}
+      <a href="https://www.jbc-tech.com/" target="_blank" rel="noopener" aria-label="JBC Technologies">
+        <img class="jbc-logo" src="{{ 'jbc-logo.svg' | asset_url }}" alt="JBC">
+      </a>
+    </div>
+
+    <div class="social-wrap">
+      <div class="social-title">{{ section.settings.social_title }}</div>
+      <div class="social-icons">
+        {% for block in section.blocks %}
+          {% if block.type == 'social' %}
+            {%- liquid
+              assign button_style = 'btn btn--icon-circle ' | append: section.settings.social_button_style
+            -%}
+            {%- render 'social-icons', class: 'footer__list-social', item_class: button_style, size: 'large' -%}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+</div>
+<div class="cpy-right-main">
+    <div class="footer__copyright">
+          <p class="footer__copyright-content">
+            &copy; {{ 'now' | date: '%Y' }}
+            <a class="link-underline" href="{{ routes.root_url }}">{{ shop.name }}</a>
+            All Rights Reserved
+          </p>
+        </div>
+</div>
+</section>
+
+{% schema %}
+{
+  "name": "Footer Center",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "range", "id": "container_width", "label": "Container width", "min": 1000, "max": 1800, "step": 50, "default": 1400 },
+
+    { "type": "image_picker", "id": "logo", "label": "Center logo" },
+    { "type": "range", "id": "logo_height", "label": "Logo height", "min": 30, "max": 120, "step": 5, "default": 60 },
+
+    { "type": "text", "id": "social_title", "label": "Social title", "default": "Connect With Us:" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#000000" },
+    { "type": "range", "id": "text_size", "label": "Text size", "min": 12, "max": 20, "step": 1, "default": 14 },
+
+    { "type": "range", "id": "payment_icon_height", "label": "Payment icon height", "min": 18, "max": 50, "step": 2, "default": 26 },
+    { "type": "range", "id": "social_icon_size", "label": "Social icon size", "min": 16, "max": 40, "step": 2, "default": 22 },
+
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 5, "max": 60, "step": 5, "default": 20 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 5, "max": 60, "step": 5, "default": 20 }
+  ],
+  "blocks": [
+    {
+      "type": "payment",
+      "name": "Payment Icon",
+     
+    },
+    {
+      "type": "social",
+      "name": "Social Icon",
+    }
+  ],
+  "presets": [
+    { "name": "footer center" }
+  ]
+}
+{% endschema %}

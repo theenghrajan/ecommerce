@@ -1,0 +1,188 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_4XtLWq": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About Our LED Tube Lights Collection",
+        "collection_seo_description": "Explore our range of LED Tube Lights, designed to easily convert fluorescent tubes to LED. With both plug and play LED tube and ballast compatible LED tubes options, retrofitting old fixtures or installing new ones has never been easier. Our products offer a seamless all-in-one solution for any lighting upgrade."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_YYUr3d": {
+      "type": "jump-to",
+      "blocks": {
+        "question_ai3XJP": {
+          "type": "question",
+          "settings": {
+            "button": "T8",
+            "link": "shopify://collections/t8-led-bulbs",
+            "image": "shopify://shop_images/NW-T8F-4-18W-40K-30P_MAIN_7c51a1c9-e842-4320-aebb-a541910ee427-654105.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_qkQAQt": {
+          "type": "question",
+          "settings": {
+            "button": "T5",
+            "link": "shopify://collections/t5-led-bulbs",
+            "image": "shopify://shop_images/NW-T5F-4-24W-50K-30P-MAIN-909129.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_UQYdAf": {
+          "type": "question",
+          "settings": {
+            "button": "4 Foot",
+            "link": "https://www.nuwattlighting.com/collections/led-tube-lights?filter.p.m.custom.size=4+Foot",
+            "image": "shopify://shop_images/NW-T8F-4-18W-30K-30P-IMG-07-112891.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_EDPeAA": {
+          "type": "question",
+          "settings": {
+            "button": "8 Foot",
+            "link": "",
+            "image": "shopify://shop_images/8_ft_led_tube_or_bulb.png",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_ai3XJP",
+        "question_qkQAQt",
+        "question_UQYdAf",
+        "question_EDPeAA"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_84CFz8": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_JYDFmq": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_n6YTVg": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_b9Y8Py": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_YaEi8V": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_JtCekj": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_JYDFmq",
+        "question_n6YTVg",
+        "question_b9Y8Py",
+        "question_YaEi8V",
+        "question_JtCekj"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_DX9YYB": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About Our LED Tube Lights Collection",
+        "collection_seo_description": "Explore our range of LED Tube Lights, designed to easily convert fluorescent tubes to LED. With both plug and play LED tube and ballast compatible LED tubes options, retrofitting old fixtures or installing new ones has never been easier. Our products offer a seamless all-in-one solution for any lighting upgrade."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_4XtLWq",
+    "main-collection",
+    "jump_to_YYUr3d",
+    "collection_metafield_faq_84CFz8",
+    "recently-viewed",
+    "expandable_description_DX9YYB"
+  ]
+}

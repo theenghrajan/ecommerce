@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "blocks": {
+        "collection_description_VdUBmW": {
+          "type": "collection_description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "collection_description_VdUBmW"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": true,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_pw3Ldq": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "",
+        "collection_seo_description": ""
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        },
+        "collection_description_8qkJ6A": {
+          "type": "collection_description",
+          "settings": {}
+        },
+        "faq_badjXh": {
+          "type": "faq",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_grid",
+        "collection_description_8qkJ6A",
+        "faq_badjXh"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": false,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "collection_metafield_faq_bccfUJ": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_Ncgir4": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_F9eUNC": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_GGn68d": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_4BiddF": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_PyEyAp": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_Ncgir4",
+        "question_F9eUNC",
+        "question_GGn68d",
+        "question_4BiddF",
+        "question_PyEyAp"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "collection_metafield_faq_jQ7PC4": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_6axdLV": {
+          "type": "question",
+          "settings": {
+            "title": "",
+            "text": ""
+          }
+        },
+        "question_3Wdc68": {
+          "type": "question",
+          "settings": {
+            "title": "Frequently asked question",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_6axdLV",
+        "question_3Wdc68"
+      ],
+      "disabled": true,
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_pw3Ldq",
+    "main-collection",
+    "collection_metafield_faq_bccfUJ",
+    "collection_metafield_faq_jQ7PC4",
+    "recently-viewed"
+  ]
+}

@@ -1,0 +1,52 @@
+/* PDP Image Rows + Video — Figma "128 Audit Fixes" Product Page (node 9211:7).
+   Each row is a bordered card (matching the Figma reference) contained within
+   the normal page-width column — not a viewport-edge bleed. The image fills
+   that bordered box completely (zero internal padding, so it touches the
+   border on every side) rather than sitting inset within it. */
+
+.pdp-image-rows{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.pdp-image-rows__row{
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.pdp-image-rows__row img,
+.pdp-image-rows__row video{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pdp-image-rows__row--video{
+  position: relative;
+}
+
+.pdp-image-rows__row--poster{
+  position: relative;
+}
+
+.pdp-image-rows__play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  pointer-events: none;
+}
+
+.pdp-image-rows__caption{
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  line-height: normal;
+}

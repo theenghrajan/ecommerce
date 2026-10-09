@@ -1,0 +1,366 @@
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+<style>
+  .custom-text-box {
+   position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    color: white;
+    font-size: 16px;
+    width: calc(100% - 10%);
+    margin: 0 auto;
+    {% comment %} background: #00000054; {% endcomment %}
+    color: #000;
+    {% comment %} box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); {% endcomment %}
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #FFD700 0%, #FFC107 100%);
+  }
+
+  @media only screen and (max-width:767px){ 
+    .custom-text-box { 
+      font-size:12px;
+    }
+  }
+  @media only screen and (max-width:372px){
+    .logo-list-cstm .product-grid .grid-item.grid-product {
+      flex: 0 0 100%;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .logo-bar__item {
+    position: relative;
+    border-radius: 20px;
+  }
+  #shopify-section-{{ section.id }} .logo-bar__item img {
+    aspect-ratio: 305 / 340;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* image-element (restored 21SEP2026 in place of a raw <img> that always
+     downloaded the full master-resolution file) wraps its <img> in an
+     <image-element> custom tag, which defaults to display:inline -- without
+     this it can undersize inside the card instead of filling it. */
+  #shopify-section-{{ section.id }} .logo-bar__item image-element {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  /* Figma's scrim spans the FULL card height (top to bottom), not just the bottom
+     text strip — its 26%/58% gradient stops only read correctly against that full
+     height. Putting the gradient on the small text box instead compresses/misplaces
+     the fade entirely. */
+  #shopify-section-{{ section.id }} .logo-bar__item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(9, 16, 28, 0.9) 0%, rgba(9, 16, 28, 0.45) 26%, rgba(9, 16, 28, 0) 58%);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .custom-text-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 24px;
+    text-align: left;
+    background: none;
+    border-radius: 0 0 20px 20px;
+    box-shadow: none;
+    z-index: 2;
+  }
+  #shopify-section-{{ section.id }} .custom-text-box__eyebrow {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fcc833;
+    margin-bottom: 4px;
+  }
+  #shopify-section-{{ section.id }} .custom-text-box__title {
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    /* Enforces Title Case on every card regardless of how the text is typed
+       into the "Logo Heading" setting (currently typed as sentence case,
+       e.g. "Kitchen lights") -- no per-entry retyping needed, and it applies
+       automatically to any card added later too. */
+    text-transform: capitalize;
+  }
+  #shopify-section-{{ section.id }} .custom-text-box__arrow {
+    flex: 0 0 auto;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fcc833;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .custom-text-box__arrow svg {
+    width: 17px;
+    height: 17px;
+  }
+  #shopify-section-{{ section.id }} .section-header__eyebrow {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #202020;
+    margin: 0 0 6px;
+  }
+  #shopify-section-{{ section.id }} .section-header__title {
+    text-transform: none !important;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+  }
+
+  /* Added 21SEP2026: the redesigned overlay card (scrim + eyebrow + title +
+     arrow button) had no mobile sizing at all -- only a leftover font-size
+     rule from an earlier, different version of .custom-text-box carried
+     over (see the unscoped .custom-text-box rule at the top of this file).
+     At the theme's 2-up mobile grid (~160px-wide card, confirmed against
+     theme.css.liquid's [data-view=small] .grid-item rule), the desktop
+     24px padding + 38px arrow button left no room for the text and
+     overlapped/overflowed. This keeps the 2-up layout and shrinks the card
+     itself to fit it instead. */
+  @media only screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .custom-text-box {
+      padding: 12px;
+      gap: 6px;
+    }
+    #shopify-section-{{ section.id }} .custom-text-box__eyebrow {
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    #shopify-section-{{ section.id }} .custom-text-box__title {
+      font-size: 14px;
+    }
+    #shopify-section-{{ section.id }} .custom-text-box__arrow {
+      width: 28px;
+      height: 28px;
+    }
+    #shopify-section-{{ section.id }} .custom-text-box__arrow svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+</style>
+<div class="page-width">
+  {%- if section.settings.title != blank or section.settings.eyebrow != blank -%}
+    <div class="section-header text-{{ section.settings.heading_position }}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-header__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="section-header__title {{ section.settings.heading_size }}">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="logo-bar logo-bar--{{ section.id }}">
+      <div class="new-grid product-grid" data-view="small">
+        {%- for block in section.blocks -%}
+          <div class="grid-item grid-product" {{ block.shopify_attributes }}>
+            <div class="logo-bar__item{% if block.settings.image == blank %} logo-bar__item-svg{% endif %}">
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="logo-bar__link" aria-label="{{ block.settings.image.alt }}">
+              {%- endif -%}
+              {%- if block.settings.image != blank -%}
+                {%- render 'image-element',
+                  img: block.settings.image,
+                  sizeVariable: '6',
+                  fallback: '50vw',
+                  widths: '360, 540, 720, 1020',
+                  classes: 'logo-bar__image',
+                -%}
+                  {% if block.settings.logo-heading != blank %}
+                {%- assign heading_parts = block.settings.logo-heading | split: '|' -%}
+                <div class="custom-text-box">
+                  <span>
+                    {%- if heading_parts.size > 1 -%}
+                      <span class="custom-text-box__eyebrow">{{ heading_parts[0] | strip }}</span>
+                      <span class="custom-text-box__title">{{ heading_parts[1] | strip }}</span>
+                    {%- else -%}
+                      <span class="custom-text-box__title">{{ block.settings.logo-heading }}</span>
+                    {%- endif -%}
+                  </span>
+                  <span class="custom-text-box__arrow">
+                    <svg viewBox="0 0 17.0443 17.0443" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.55089 8.5223H12.7832M9.23234 12.0732L12.7832 8.5223L9.23234 4.9714" stroke="#202020" stroke-width="1.70443" stroke-linecap="round"/></svg>
+                  </span>
+                </div>
+              {% endif %}
+              {%- else -%}
+                {{ 'logo' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--no-padding' }}
+              {%- endif -%}
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+              
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{%- if section.settings.divider -%}</div>{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.logo-list.name",
+  "class": "index-section logo-list-cstm",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.logo-list.settings.title.label",
+      "default": "Our brands"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:common.heading_size.label",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h3",
+          "label": "t:common.heading_size.options.small.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:common.heading_size.options.medium.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:common.heading_size.options.large.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:common.heading_size.options.extra_large.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_position",
+      "label": "t:common.heading_position.label",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:common.heading_position.options.left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:common.heading_position.options.center.label"
+        },
+        {
+          "value": "right",
+          "label": "t:common.heading_position.options.right.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.logo-list.settings.divider.label",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_image",
+      "name": "t:sections.logo-list.blocks.logo.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.logo-list.blocks.logo.settings.image.label",
+          "info": "t:sections.logo-list.blocks.logo.settings.image.info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.logo-list.blocks.logo.settings.link.label",
+          "info": "t:sections.logo-list.blocks.logo.settings.link.info"
+        },
+        {
+          "type": "text",
+          "id": "logo-heading",
+          "label": "Logo Heading"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "t:sections.logo-list.presets.logo_list.name",
+      "blocks": [
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  },
+  "locales": {
+    "en": {
+      "section_name": "logo-list"
+    },
+    "es": {
+      "section_name": "logo-list"
+    },
+    "fr": {
+      "section_name": "logo-list"
+    }
+  }
+}
+{% endschema %}

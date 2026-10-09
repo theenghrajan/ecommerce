@@ -1,0 +1,428 @@
+
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function() {
+
+    
+ // Description expand/collapse
+        const description = document.querySelector('.rlk-product-description');
+        const readMoreBtn = document.querySelector('.rlk-read-more-btn');
+
+        readMoreBtn.addEventListener('click', () => {
+            description.classList.toggle('rlk-collapsed');
+            readMoreBtn.classList.toggle('rlk-expanded');
+            readMoreBtn.textContent = description.classList.contains('rlk-collapsed') ? 'Read More' : 'Read Less';
+        });
+
+        // Modal functionality
+        function setupModal(buttonId, modalId) {
+            const button = document.getElementById(buttonId);
+            const modal = document.getElementById(modalId);
+            const closeBtn = modal.querySelector('.rlk-modal-close');
+
+            button.addEventListener('click', () => {
+                modal.classList.add('rlk-active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            function closeModal() {
+                modal.classList.remove('rlk-active');
+                document.body.style.overflow = '';
+            }
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
+        setupModal('dimensionsBtn', 'dimensionsModal');
+        setupModal('videoBtn', 'videoModal');
+
+    
+        });
+  
+  {% endjavascript %}
+
+{% stylesheet %}
+        :root {
+            --rlk-text-color: #333;
+            --rlk-border-color: #e5e7eb;
+            --rlk-button-hover-bg: #f3f4f6;
+        }
+
+        .rlk-product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+          padding-left: 20px;
+          padding-right:20px;
+        }
+
+        .rlk-section-label {
+            font-size: 0.875rem;
+            
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+              margin: 1rem 0 0.5rem 0;
+        }
+
+        .rlk-product-heading {
+
+
+              font-size: 28px;
+    font-family: 'nw-medium';
+    letter-spacing: 2.8px;
+
+          
+        }
+
+        .rlk-product-description-wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+            max-width: max-content;
+        }
+
+        .rlk-product-description {
+            font-size: 1rem;
+            color: #4b5563;
+            transition: max-height 0.5s ease-in-out;
+            position: relative;
+        }
+
+        .rlk-product-description.rlk-collapsed {
+            max-height: 9em;
+            overflow: hidden;
+        }
+
+        .rlk-product-description.rlk-collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 9em;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .rlk-read-more-btn {
+            color: #2563eb;
+            cursor: pointer;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: color 0.2s ease;
+            position: relative;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 0.875rem;
+        }
+
+        .rlk-read-more-btn:hover {
+            color: #1d4ed8;
+        }
+
+        .rlk-read-more-btn::after {
+            content: '';
+            display: inline-block;
+            width: 0.65em;
+            height: 0.65em;
+            margin-left: 0.5em;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+            position: relative;
+            top: -0.2em;
+        }
+
+        .rlk-read-more-btn.rlk-expanded::after {
+            transform: rotate(-135deg);
+            top: 0.2em;
+        }
+
+        .rlk-button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rlk-action-button,
+        .rlk-action-link {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--rlk-text-color);
+            border-radius: 9999px;
+            background: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: var(--rlk-text-color);
+            display: inline-block;
+        }
+
+        .rlk-action-button:hover,
+        .rlk-action-link:hover {
+            background-color: var(--rlk-button-hover-bg);
+            transform: translateY(-1px);
+        }
+
+        .rlk-details-section {
+            margin-top: 2rem;
+        }
+
+        .rlk-details-heading {
+
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'nw-medium';
+    margin-bottom: 1.5rem;
+        }
+
+        .rlk-specs-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .rlk-specs-table tr {
+            border-bottom: rgb(191 191 191);
+        }
+
+        .rlk-specs-table th,
+        .rlk-specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--rlk-border-color);
+              font-family: 'nw-medium';
+        }
+
+        .rlk-specs-table th {
+            font-weight: 500;
+            width: 40%;
+              font-family: 'nw-medium';
+                        background: rgb(243 243 243);
+
+        }
+
+        /* Modal styles */
+        .rlk-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .rlk-modal-overlay.rlk-active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .rlk-modal {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .rlk-modal-overlay.rlk-active .rlk-modal {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .rlk-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            color: #666;
+            transition: color 0.2s ease;
+        }
+
+        .rlk-modal-close:hover {
+            color: #000;
+        }
+
+        .rlk-modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .rlk-modal-content {
+            margin-top: 1rem;
+              width: 100%;
+        }
+
+
+        .rlk-modal-content img{
+              height: 100%;
+    width: 700px;
+        }
+
+  .rlk-modal .rlk-modal-title{
+
+    font-family: 'nw-medium';
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+        @media (max-width: 768px) {
+
+
+            .rlk-product-heading {
+                font-size: 1.1rem;
+              line-height: 1.5rem;
+            }
+
+            .rlk-button-group {
+                flex-direction: column;
+            }
+
+            .rlk-action-button,
+            .rlk-action-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .rlk-specs-table th,
+            .rlk-specs-table td {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+
+            .rlk-modal {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .rlk-modal .rlk-modal-title{
+
+    font-size: 12px;
+}
+        }
+{% endstylesheet %}
+
+
+{% if product.metafields.custom.item_model_number contains "MR16" or product.metafields.custom.installation_type contains "Retrofit Can Light"  %}
+
+
+
+
+
+
+        <div class="rlk-button-group">
+          
+            {% if product.metafields.custom.dimensions_url != blank %}
+            <button class="rlk-action-button" id="dimensionsBtn">View Dimensions</button>
+            {% endif %}
+          
+            {% if product.metafields.custom.manual != blank %}
+            <a href="{{ product.metafields.custom.manual }}" class="rlk-action-link" target="_blank">Download Manual</a>
+
+            {% endif %}
+            {% if product.metafields.custom.pdf_link != blank %}
+            <a href="{{ product.metafields.custom.pdf_link }}" class="rlk-action-link" target="_blank">Download Specs</a>
+
+            {% endif %}
+
+            <!-- <button class="rlk-action-button" id="videoBtn">Watch Video</button> -->
+        </div>
+
+        <!-- <div class="rlk-details-section">
+            <h3 class="rlk-details-heading">S P E C I F I C A T I O N S</h3>
+            <table class="rlk-specs-table">
+                <tr>
+                    <th>Actual Color Temperature (K)</th>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <th>Color Temperature</th>
+                    <td>Daylight</td>
+                </tr>
+                <tr>
+                    <th>Color/Finish Family</th>
+                    <td>Bronze</td>
+                </tr>
+                <tr>
+                    <th>Damp/Wet Rating</th>
+                    <td>Damp Rated, Wet Rated</td>
+                </tr>
+                <tr>
+                    <th>Features</th>
+                    <td>No Additional Features</td>
+                </tr>
+            </table>
+        </div> -->
+
+    <!-- Dimensions Modal -->
+
+            {% if product.metafields.custom.dimensions_url != blank %}
+    <div class="rlk-modal-overlay" id="dimensionsModal">
+        <div class="rlk-modal">
+            <button class="rlk-modal-close">&times;</button>
+             <h4 class="rlk-modal-title">Product Dimensions</h4>
+            <div class="rlk-modal-content">
+                <img src="{{ product.metafields.custom.dimensions_url }}" alt="Product Dimensions Image" >
+            </div>
+        </div>
+    </div>            {% endif %}
+
+    <!-- Video Modal -->
+    <!-- <div class="rlk-modal-overlay" id="videoModal">
+        <div class="rlk-modal">
+            <button class="rlk-modal-close">&times;</button>
+            <h4 class="rlk-modal-title">Product Video</h4>
+            <div class="rlk-modal-content">
+                <img src="/api/placeholder/800/450" alt="Product Video Placeholder" style="width: 100%; height: auto;">
+            </div>
+        </div>
+    </div> -->
+
+</div>
+
+
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "PDP Downloads",
+    "settings": [
+
+
+      
+    ],
+
+  "presets": [
+      {
+        "name": "PDP Downloads",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

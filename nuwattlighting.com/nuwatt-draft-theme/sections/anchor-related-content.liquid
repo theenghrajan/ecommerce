@@ -1,0 +1,176 @@
+{% comment %}
+  Anchor page — related content
+  Figma: "128 Audit Fixes" / Anchor page — Section - Related Content (node 9172:500)
+
+  Each block can either point at a blog article (image, title and URL are read
+  from it) or be filled in by hand for a video or off-site resource.
+{% endcomment %}
+
+{%- render 'anchor-head' -%}
+
+<div
+  class="anchor-section anchor-related"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="anchor-inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="anchor-heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="anchor-related__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign article = block.settings.article
+          assign card_title = block.settings.title
+          assign card_image = block.settings.image
+          assign card_url = block.settings.link
+
+          if article != blank
+            if card_title == blank
+              assign card_title = article.title
+            endif
+            if card_image == blank and article.image != blank
+              assign card_image = article.image
+            endif
+            if card_url == blank
+              assign card_url = article.url
+            endif
+          endif
+        -%}
+
+        <a
+          class="anchor-related__card"
+          {% if card_url != blank %}href="{{ card_url }}"{% endif %}
+          {{ block.shopify_attributes }}
+        >
+          <span class="anchor-related__media">
+            {%- if card_image != blank -%}
+              {%- render 'image-element',
+                img: card_image,
+                alt: '',
+                widths: '300, 450, 600',
+                sizes: '(min-width: 1025px) 268px, (min-width: 769px) 45vw, 90vw',
+                ariaHidden: true
+              -%}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+
+            {%- if block.settings.show_play -%}
+              <span class="anchor-related__play">
+                {%- render 'anchor-icon', icon: 'play' -%}
+              </span>
+            {%- endif -%}
+          </span>
+
+          {%- if card_title != blank -%}
+            <h3 class="anchor-related__title">{{ card_title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.link_label != blank -%}
+            <span class="anchor-link anchor-link--sm">
+              {{ block.settings.link_label | escape }}
+              {%- render 'anchor-icon', icon: 'arrow', classes: 'anchor-link__icon' -%}
+            </span>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anchor: Related content",
+  "tag": "section",
+  "class": "anchor-section-wrapper",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Related Content"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Content card",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article",
+          "info": "Optional. Fills in the image, title and link from the article."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Overrides the article image."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "Overrides the article title."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Overrides the article link. Use this for videos or off-site resources."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Read more"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_play",
+          "label": "Show play badge",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anchor: Related content",
+      "blocks": [
+        { "type": "item", "settings": { "link_label": "Read more" } },
+        { "type": "item", "settings": { "link_label": "Watch now" } },
+        { "type": "item", "settings": { "link_label": "Read more" } },
+        { "type": "item", "settings": { "link_label": "Read more" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,143 @@
+/* Frequently Bought Together — Figma "128 Audit Fixes" Product Page (node 9211:7).
+   Cards reuse snippets/product-grid-item.liquid entirely unmodified (the theme's
+   shared catalog card engine, used site-wide in collections/search/recommendations
+   — not something to fork or rewrite for one section). Everything below is a CSS-
+   only restriction of what's visible within this section's grid specifically:
+   image, title, price, and the existing Add to Cart button only, per Figma —
+   plus the bordered "boxed" card treatment Figma uses. No markup was removed from
+   the shared snippet; every other usage of it elsewhere in the theme is untouched. */
+
+.pdp-fbt-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+  /* CSS Grid's default align-items:stretch makes every card in a row match
+     the row's tallest card — with the site's shared card engine (below),
+     that tallest-card height reflects a full card's worth of vendor/specs/
+     tags/swatches content that's hidden here, so every card was inflated to
+     match that hidden height, leaving a large blank gap under Add to Cart.
+     align-items:start lets each card size to its own (now much shorter)
+     visible content instead. */
+  align-items: start;
+}
+
+.pdp-fbt-grid .grid-item{
+  padding-left: 0;
+  width: auto;
+  min-width: 0;
+  float: none;
+}
+
+.pdp-fbt-grid .grid-item__content{
+  height: auto;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+}
+
+/* assets/custom.css sets .grid-item__meta-secondary{align-content:end}, with a
+   :has() escape hatch back to flex-start only when the spec-bullet <ul> has no
+   <li> children at all. Since we hide those bullets with display:none rather
+   than removing them from the DOM, the <li>s are still present — so :has()
+   still matches "has content" and align-content:end still applies, which is
+   exactly what pushed price+button down to the bottom of the card, leaving a
+   large gap under the title. Forcing flex-start here (scoped to this section)
+   restores the tight spacing without touching that shared rule or its :has()
+   logic, which other product-grid-item usages rely on. */
+/* assets/custom.css sets .grid-item__content .grid-item__meta{height:310px}
+   at >=767px — a fixed height sized for the standard collection card's full
+   vendor/specs/tags/swatches/review content. This section hides almost all
+   of that, but the fixed height still applied, leaving a large blank gap
+   below Add to Cart even after every other stretch mechanism was removed.
+   Confirmed via direct inspection: .grid-item__meta measured exactly 310px
+   while its actual (title + price) content only needed ~190px. */
+.pdp-fbt-grid .grid-item__meta{
+  height: auto !important;
+}
+
+.pdp-fbt-grid .grid-item__meta-secondary{
+  align-content: flex-start !important;
+  /* assets/theme.css.liquid sets .grid-item__meta-secondary{flex:1 0 auto} —
+     flex-grow:1 so this block (price) expands to absorb any free space left
+     over from a longer spec-bullet list elsewhere in the row. Since this
+     section hides the spec-bullet lists rather than removing them, and cards
+     no longer stretch to a shared row height (see align-items:start above),
+     there's no free space this should be growing into — flex-grow:1 was
+     otherwise pulling the card's own height taller than its content. */
+  flex: 0 0 auto !important;
+}
+
+/* Hide everything but image / title / price / Add to Cart.
+   Price and the Add to Cart button both live inside .grid-item__meta-secondary
+   alongside the metafield spec bullets, so that container can't be hidden
+   wholesale — only the specific spec-bullet lists and the trim/color <li>
+   (a plain <li>, no class of its own) that sits right after the title. */
+.pdp-fbt-grid .grid-product__vendor,
+.pdp-fbt-grid .product-specs-collection-page,
+.pdp-fbt-grid .nw-hr-collection-page-specs,
+.pdp-fbt-grid .grid-item__meta-main > li,
+.pdp-fbt-grid .grid-product__tags,
+.pdp-fbt-grid .color-swatch-list,
+.pdp-fbt-grid .grid-product__review{
+  display: none !important;
+}
+
+.pdp-fbt-grid .grid-product__title{
+  font-size: 15px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.pdp-fbt-grid .grid-product__price{
+  margin-bottom: 12px;
+}
+
+/* .grid-item__content's 2 direct children render in this DOM order: the
+   Add to Cart button (.grid-product__actions) first, then the image+title+
+   price link (.grid-item__link) — margin-top:auto on the button used to
+   push it down past the link to appear last, which relied on the card
+   being taller than its content (see height:auto above) to have free space
+   to push into. Now that the card sizes to its content, that free space no
+   longer exists, so the button is instead explicitly reordered after the
+   link with a fixed gap — visual position unchanged, no longer dependent on
+   extra card height. */
+.pdp-fbt-grid .grid-item__link{
+  order: 1;
+}
+
+.pdp-fbt-grid .grid-product__actions{
+  order: 2;
+  margin-top: 12px;
+}
+
+/* .nw-quick-add-btn's own default (assets/chico.css) is a white/outline button
+   that only turns yellow on :hover — Figma's cross-sell cards show a solid
+   yellow Add to Cart at rest, matching the buy box's Add to Cart treatment.
+   Scoped to this grid only. */
+.pdp-fbt-grid .nw-quick-add-btn{
+  background-color: var(--colorBtnPrimary);
+  border-color: var(--colorBtnPrimary);
+  color: var(--colorBtnPrimaryText);
+}
+
+.pdp-fbt-grid .nw-quick-add-btn:hover{
+  background-color: var(--colorBtnPrimaryDim, var(--colorBtnPrimary));
+  border-color: var(--colorBtnPrimaryDim, var(--colorBtnPrimary));
+}
+
+@media only screen and (max-width: 1024px){
+  .pdp-fbt-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .pdp-fbt-grid{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

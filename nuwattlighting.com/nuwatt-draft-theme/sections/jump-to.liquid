@@ -1,0 +1,104 @@
+{{ "jump-two.css" | asset_url | stylesheet_tag }}
+
+
+
+
+<div class="flex-container-parent">
+
+  
+<!-- <button class="jump-to-arrows" ><</button> -->
+
+<div class="flex-container" id="scroll-container">
+<!-- <div class="swipe" id="little-hand">
+  <div class="path"></div>
+  <div class="hand-icon"></div>
+</div> -->
+  <span id="jump-to-span">Jump to:</span>
+
+     {% for block in section.blocks %}
+   <div class="flex-items">
+     <a href="{{ block.settings.link }}">
+
+       {%- if block.settings.alt-text == blank -%}
+         
+       <img class="jump-to-image" src="https://www.nuwattlighting.com/cdn/shop/{{ block.settings.image }}" alt="{{ block.settings.button }}">
+
+         {%- else -%}
+              <img class="jump-to-image" src="https://www.nuwattlighting.com/cdn/shop/{{ block.settings.image }}" alt="{{ block.settings.alt-text }}">
+
+       {%- endif -%}
+       
+       <span class="jump-to-span">{{ block.settings.button }}</span>
+      </a>
+   </div>
+      {% endfor %}
+</div>
+
+  <button id="right-jump-to-arrow" class="jump-to-arrows">
+
+<svg class="jump-right-svg" viewBox="0 0 100 100"><path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" class="arrow" transform="translate(100, 100) rotate(180) "></path></svg>
+    
+  </button>
+
+
+  
+</div>
+
+
+
+  
+
+
+
+
+  
+
+{% schema %}
+  {
+    "name": "Jump To",
+    "settings": [
+      {
+        "type": "text",
+        "label": "Headline",
+        "id": "headline"
+      }
+
+    ],
+    "blocks": [
+      {
+        "name": "Jump To Item",
+        "type": "question",
+        "settings": [
+          {
+            "type": "text",
+            "label": "Button Text",
+            "id": "button"
+          },
+          {
+            "type": "url",
+            "label": "Select URL",
+            "id": "link"
+          },
+          {
+            "type": "image_picker",
+            "label": "Select Image",
+            "id": "image"
+          },
+          {
+            "type": "text",
+            "label": "Image Alt Text",
+            "id": "alt-text"
+          }
+        ]
+      }
+    ],
+    "presets": [
+
+      {
+              "name": "Jump To"
+      }
+      
+      
+    ]
+  }
+{% endschema %}

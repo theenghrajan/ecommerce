@@ -1,0 +1,165 @@
+
+{%- assign disable_sticky_header = false -%}
+
+{%- if section.settings.enable -%}
+  {%- if section.settings.collection_image_enable and collection.image -%}
+    {% style %}
+      @media screen and (min-width: 769px) {
+        .collection-content {
+          border: 0;
+          margin-top: 0;
+        }
+      }
+    {% endstyle %}
+    
+    <div
+      id="CollectionHeaderSection"
+      data-section-id="{{ section.id }}"
+      data-section-type="collection-header"
+      {% if section.settings.parallax %}data-parallax="true"{% endif %}>
+      <div class="collection-hero loading">
+        {%- if section.settings.parallax -%}
+          <parallax-image class="parallax-container">
+            <div class="parallax-image" data-movement="15%" data-parallax-image data-angle="{{ section.settings.parallax_direction }}">
+        {%- endif -%}
+          {% comment %}Full width image so don't need to adjust sizes attribute, fallback is 100vw{% endcomment %}
+          {%- render 'image-element',
+            img: collection.image,
+            img_width: 2400,
+            classes: 'collection-hero__image image-fit',
+            preload: true,
+            loading: 'eager'
+          -%}
+
+        {%- if section.settings.parallax -%}
+            </div>
+          </parallax-image>
+        {%- endif -%}
+
+        <div class="collection-hero__content">
+          <div class="page-width">
+            <header class="section-header section-header--flush">
+              <h1 class="section-header__title">
+                {{ collection.title }}
+              </h1>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+              
+
+
+    <div class="page-width medium-up--hide" data-collection-count style="padding-top: 15px;">
+      {{ 'collections.general.items_with_count' | t: count: collection.products_count }}
+    </div>
+
+  {%- else -%}
+    {%- assign disable_sticky_header = true -%}
+    <div class="page-width page-content page-content--top">
+      <header class="section-header section-header--flush">
+        {% comment %} <h1 class="section-header__title">
+          {{ collection.title }}
+        </h1> {% endcomment %}
+        <h1 class="section-header__title">
+          {% if collection.metafields.custom.collection_h1_heading != blank %}
+            {{ collection.metafields.custom.collection_h1_heading }}
+          {% else %}
+            {{ collection.title }}
+          {% endif %}
+        </h1>
+        <!-- <p class="medium-up--hide" data-collection-count>{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</p> -->
+      </header>
+
+<!-- HEADER DESC -->
+      
+            <div class="grid__item medium-up--four-fifths grid__item--content collection-description-container">
+
+            {%- for block in section.blocks -%}
+              {%- if collection.description != blank -%}
+                <div class="rte rte--collection-desc header-collection-description" {{ block.shopify_attributes }}>
+
+                    {{ collection.description }}
+                          <button id="btn-ting" class="expanded-read-less">Read More</button>
+
+                </div>
+
+              {%- endif -%}
+                        {%- endfor -%}
+              </div> 
+
+<!-- HEADER DESC -->
+
+
+      
+    </div>
+  {%- endif -%}
+{% else %}
+  {%- assign disable_sticky_header = true -%}
+{%- endif -%}
+
+{%- if disable_sticky_header -%}
+  {% comment %}
+    Div to trigger theme.CollectionHeader JS
+  {% endcomment %}
+  <div
+    id="CollectionHeaderSection"
+    data-section-id="{{ section.id }}"
+    data-section-type="collection-header">
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.collection-header.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "t:sections.collection-header.settings.enable.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_image_enable",
+      "label": "t:sections.collection-header.settings.collection_image_enable.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "t:sections.collection-header.settings.parallax.label"
+    },
+    {
+      "type": "select",
+      "id": "parallax_direction",
+      "label": "t:sections.background-image-text.settings.parallax_direction.label",
+      "default": "top",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.background-image-text.settings.parallax_direction.options.top.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.background-image-text.settings.parallax_direction.options.left.label"
+        }
+      ]
+    }
+  ],
+
+ "blocks": [
+    {
+      "type": "collection_description",
+      "name": "t:sections.main-collection.blocks.collection_description.name",
+      "limit": 1
+    }
+
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}

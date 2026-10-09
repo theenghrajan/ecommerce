@@ -1,0 +1,603 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_Gxg9wp": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "start",
+        "padding_top": 16,
+        "padding_bottom": 20
+      }
+    },
+    "image_with_text_overlay_qdM4Ub": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_XrwPwy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Home / {{ collection.title }}</p>",
+            "text_size": "text-base"
+          }
+        },
+        "heading_wKnCPa": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.title }}",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_XrwPwy",
+        "heading_wKnCPa"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "full",
+        "image": "{{ collection.image }}",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "enable_preload_image": false
+      }
+    },
+    "sub_collections_LNeycx": {
+      "type": "sub-collections",
+      "name": "Sub Collections",
+      "settings": {
+        "grid_columns": 4,
+        "grid_gap": 25,
+        "card_border_color": "#e5e5e5",
+        "border_radius": 10,
+        "title_font_size": 20,
+        "description_font_size": 15,
+        "content_padding": 20
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "blocks": {
+        "collection_info_zUNyKV": {
+          "type": "collection_info",
+          "settings": {
+            "heading_size": "h1",
+            "heading_tag": "h1",
+            "show_description": true,
+            "padding_top": 40,
+            "padding_bottom": 40
+          }
+        }
+      },
+      "block_order": [
+        "collection_info_zUNyKV"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "container": "full",
+        "color_scheme": "scheme-inverse",
+        "text_alignment": "center",
+        "show_collection_image": true,
+        "image_overlay_opacity": 18,
+        "image_position": "as-bg",
+        "image_height": "extra-small",
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "image_height_mobile": "auto",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_slider_JiW9t4": {
+      "type": "collection-list-slider",
+      "blocks": {
+        "featured_collection_7myDMy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Sale Items"
+          }
+        },
+        "featured_collection_tTXGhG": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Press Tables"
+          }
+        },
+        "featured_collection_eTmenR": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Lighting"
+          }
+        },
+        "featured_collection_NqmiBp": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Spoke Sofa"
+          }
+        },
+        "featured_collection_cwXGef": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Storage"
+          }
+        },
+        "featured_collection_tnVfbN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Turn Chairs"
+          }
+        },
+        "featured_collection_Tk8fAX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Longe Chairs"
+          }
+        },
+        "featured_collection_zMCcHU": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Curve Coat"
+          }
+        },
+        "featured_collection_8gXBqF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Bend Chairs"
+          }
+        },
+        "featured_collection_bKtVPN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Accessories"
+          }
+        },
+        "featured_collection_FXHYwn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Cross Tables"
+          }
+        },
+        "featured_collection_y8fDzC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "",
+            "title": "Bar Chairs"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_7myDMy",
+        "featured_collection_tTXGhG",
+        "featured_collection_eTmenR",
+        "featured_collection_NqmiBp",
+        "featured_collection_cwXGef",
+        "featured_collection_tnVfbN",
+        "featured_collection_Tk8fAX",
+        "featured_collection_zMCcHU",
+        "featured_collection_8gXBqF",
+        "featured_collection_bKtVPN",
+        "featured_collection_FXHYwn",
+        "featured_collection_y8fDzC"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_image_ratio": "1/1",
+        "card_image_width": "medium",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "mobile_layout": "vertical",
+        "carousel_item_size": "auto",
+        "columns_desktop": 6,
+        "carousel_control_color_scheme": "",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_liquid_mpg4bC": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "<style>\n.sub-collections-grid {\n  display: grid;\n  grid-template-columns: repeat(4,1fr);\n  gap: 24px;\n}\n\n.sub-collection-card {\n  display: block;\n  border: 1px solid #e5e5e5;\n  border-radius: 8px;\n  overflow: hidden;\n  text-decoration: none;\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n}\n\n\n.sub-collection-image img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n\n.sub-collection-content {\n  padding: 16px;\n}\n\n.sub-collection-title {\n  margin: 0 0 8px;\n  font-size: 16px;\n  color: #000;\n}\n\n.sub-collection-description {\n  font-size: 15px;\n  color: #555;\n}\n@media screen and (max-width:1000px){\n.sub-collections-grid {\n  grid-template-columns: repeat(2,1fr);\n}\n}\n@media screen and (max-width:768px){\n.sub-collections-grid {\n  grid-template-columns: repeat(1,1fr);\n}\n}\n</style>\n{% if collection.metafields.custom.sub_collection != blank %}\n  <div class=\"section__container page-width page-width--fixed\">\n    <div class=\"sub-collections-grid\">\n      {% for sub_collection in collection.metafields.custom.sub_collection.value %}\n        <a href=\"{{ sub_collection.url }}\" class=\"sub-collection-card\">\n\n          <div class=\"sub-collection-image\">\n            {% if sub_collection.featured_image %}\n              <img\n                src=\"{{ sub_collection.featured_image | image_url: width: 600 }}\"\n                alt=\"{{ sub_collection.title | escape }}\"\n                loading=\"lazy\"\n              >\n            {% else %}\n              {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}\n            {% endif %}\n          </div>\n\n          <div class=\"sub-collection-content\">\n            <h3 class=\"sub-collection-title\">\n              {{ sub_collection.title }}\n            </h3>\n\n            {% if sub_collection.description != blank %}\n              <p class=\"sub-collection-description\">\n                {{ sub_collection.description | strip_html | truncate: 100 }}\n              </p>\n            {% endif %}\n          </div>\n\n        </a>\n      {% endfor %}\n    </div>\n  </div>\n{% endif %}",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "image_card_mwkyJy": {
+          "type": "image_card",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-inverse",
+            "image_position": 1,
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 10,
+            "content_position": "split-bottom-button",
+            "content_alignment": "center",
+            "content_spacing": "small",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "Home & Decor",
+            "subheading_style": "",
+            "heading": "Saving $30 for Lighting",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "text_size": "text-base",
+            "button_label": "Shop Now",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_mwkyJy"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "column_gap": "medium",
+        "row_gap": "large",
+        "pagination": "infinite",
+        "enable_filtering": true,
+        "enable_color_swatch": true,
+        "filter_type": "vertical",
+        "expand_filter_groups": "Availability, Price, Color, Size, Category",
+        "enable_sorting": true,
+        "enable_layout_switching": true,
+        "columns_mobile": "2",
+        "padding_top": 28,
+        "padding_bottom": 60,
+        "show_section_divider": true,
+        "divider_width": "full"
+      }
+    },
+    "rich_text_dgPtDV": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kVf6qj": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "About Garage",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3"
+          }
+        },
+        "text_xtLQE8": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>From classic wood and metal to contemporary acrylic and glass, each material brings unique advantages to furniture design. Wood offers timeless strength and natural warmth, while metal adds resilience and industrial charm. Acrylic and glass, on the other hand, bring a modern touch, providing sleek, versatile options for contemporary spaces. The choice of material is not just about appearance; it defines durability and functionality, ensuring each piece serves its purpose beautifully.</p><p>When selecting furniture, it’s important to think beyond aesthetics. The right pieces create a cohesive atmosphere that balances beauty, practicality, and longevity. Minimalist designs, with their clean lines and simplicity, appeal to those who value modern elegance. However, traditional styles like Victorian, Art Deco, or Mid-Century Modern captivate with their intricate details and timeless craftsmanship, offering a sense of history and character that enriches any space.</p><p>This guide explores a variety of furniture styles and materials, helping you discover what aligns with your preferences and needs. Whether you lean toward contemporary sophistication or classic charm, choosing the right furniture ensures your space reflects your unique personality while meeting functional requirements. With the right selections, you can create a harmonious and inviting home.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "5-lines",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "text_eXcgQe": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.description }}",
+            "text_size": "text-base",
+            "text_line_limit": "5-lines",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kVf6qj",
+        "text_xtLQE8",
+        "text_eXcgQe"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": true,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "buttons_with_icon_MjeR8i": {
+      "type": "buttons-with-icon",
+      "blocks": {
+        "button_item_BiWcgC": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Living Room",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_cMN9jF": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Planters",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_brEqap": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Gravel Rug",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_cdXxtW": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Table Mirror",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_JJW7dr": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Table Wears",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_BACqy3": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Dining Decor",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_LxTaHn": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Ray Table Lamp",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_EqXp3Y": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Chairs",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_7tzdU9": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Living Room",
+            "button_link": "",
+            "icon": "check"
+          }
+        },
+        "button_item_idaFU3": {
+          "type": "button_item",
+          "settings": {
+            "button_label": "Planters",
+            "button_link": "",
+            "icon": "check"
+          }
+        }
+      },
+      "block_order": [
+        "button_item_BiWcgC",
+        "button_item_cMN9jF",
+        "button_item_brEqap",
+        "button_item_cdXxtW",
+        "button_item_JJW7dr",
+        "button_item_BACqy3",
+        "button_item_LxTaHn",
+        "button_item_EqXp3Y",
+        "button_item_7tzdU9",
+        "button_item_idaFU3"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Popular Search",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "item_alignment": "left",
+        "item_button_style": "btn--icon",
+        "item_button_font": "button",
+        "enable_slider": true,
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "scrolling_promotion_Fy9Yhn": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "text_gijz7Q": {
+          "type": "text",
+          "settings": {
+            "text_link": "",
+            "text": "Fast Delivery",
+            "text_size": "h4",
+            "text_opacity": 100,
+            "use_custom_color": false,
+            "custom_color": "#000000"
+          }
+        },
+        "text_3TVCPg": {
+          "type": "text",
+          "settings": {
+            "text_link": "",
+            "text": "30 Days Free Returns",
+            "text_size": "h4",
+            "text_opacity": 100,
+            "use_custom_color": false,
+            "custom_color": "#000000"
+          }
+        },
+        "text_iD6689": {
+          "type": "text",
+          "settings": {
+            "text_link": "",
+            "text": "Secure Payment",
+            "text_size": "h4",
+            "text_opacity": 100,
+            "use_custom_color": false,
+            "custom_color": "#000000"
+          }
+        },
+        "text_CtJBtL": {
+          "type": "text",
+          "settings": {
+            "text_link": "",
+            "text": "24/7 Customer Support",
+            "text_size": "h4",
+            "text_opacity": 100,
+            "use_custom_color": false,
+            "custom_color": "#000000"
+          }
+        },
+        "text_dGmg9m": {
+          "type": "text",
+          "settings": {
+            "text_link": "",
+            "text": "Sustainable Materials",
+            "text_size": "h4",
+            "text_opacity": 100,
+            "use_custom_color": false,
+            "custom_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "text_gijz7Q",
+        "text_3TVCPg",
+        "text_iD6689",
+        "text_CtJBtL",
+        "text_dGmg9m"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "direction": "left",
+        "pause_on_hover": true,
+        "speed": 0.2,
+        "h_spacing": 80,
+        "show_section_divider": false,
+        "padding_top": 22,
+        "padding_bottom": 22
+      }
+    },
+    "custom_liquid_CkQgHM": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.name",
+      "settings": {
+        "custom_liquid": "{% if collection.metafields.custom.top_content.value != blank %}\n<div class=\"page-width\">\n  <div class=\"collection-content-wrapper\">\n\n    <div class=\"rte\">\n      {{ collection.metafields.custom.top_content | metafield_tag }}\n    </div>\n\n    {% if collection.metafields.custom.content.value != blank %}\n      <div id=\"read-more-content\" class=\"rte\" style=\"display:none;\">\n        {{ collection.metafields.custom.content | metafield_tag }}\n      </div>\n\n      <button type=\"button\" id=\"read-more-btn\" class=\"read-more-btn\">\n        Read More\n      </button>\n    {% endif %}\n\n  </div>\n</div>\n\n<style>\n.read-more-btn{\n  margin-top:20px;\n  background:none;\n  border:none;\n  color:#007acc;\n  cursor:pointer;\n  font-weight:600;\n  padding:0;\n}\n</style>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function () {\n\n  const btn = document.getElementById('read-more-btn');\n  const content = document.getElementById('read-more-content');\n\n  if (!btn || !content) return;\n\n  btn.addEventListener('click', function () {\n\n    if (content.style.display === 'none') {\n      content.style.display = 'block';\n      btn.textContent = 'Read Less';\n    } else {\n      content.style.display = 'none';\n      btn.textContent = 'Read More';\n    }\n\n  });\n\n});\n</script>\n{% endif %}",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_Gxg9wp",
+    "image_with_text_overlay_qdM4Ub",
+    "sub_collections_LNeycx",
+    "banner",
+    "collection_list_slider_JiW9t4",
+    "custom_liquid_mpg4bC",
+    "product-grid",
+    "rich_text_dgPtDV",
+    "buttons_with_icon_MjeR8i",
+    "scrolling_promotion_Fy9Yhn",
+    "custom_liquid_CkQgHM"
+  ]
+}

@@ -1,0 +1,245 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_Q8btPX": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Square Recessed Light Collection",
+        "collection_seo_description": "Square canless recessed lighting is a minimalist solution for modern interiors. These square recessed lights blend seamlessly into your ceiling, offering unobtrusive, bright illumination."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_3QFHxB": {
+      "type": "jump-to",
+      "blocks": {
+        "question_tnTiVX": {
+          "type": "question",
+          "settings": {
+            "button": "View All Canless",
+            "link": "https://www.nuwattlighting.com/collections/canless-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-DL-6-15W-5CT-WH-667527_f9681c57-6e46-48b7-8e27-ec81404fcd84-911146.jpg",
+            "alt-text": "view all canless lights"
+          }
+        },
+        "question_3FDQ4L": {
+          "type": "question",
+          "settings": {
+            "button": "Square Gimbals",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights?filter.p.m.custom.shape=Square",
+            "image": "shopify://shop_images/NW-GMB-3-5CT-WH-SQ-4P-3.jpg",
+            "alt-text": "Square Canless Gimbals"
+          }
+        },
+        "question_eqUQQm": {
+          "type": "question",
+          "settings": {
+            "button": "Square Fire Rated",
+            "link": "https://www.nuwattlighting.com/collections/square-fire-rated-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-SQDL-4-12W-5CT-FR-WH_LISTING1PK.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_cpWUhz": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/square-canless-recessed-light?filter.p.m.custom.color=Black",
+            "image": "shopify://shop_images/NW-P-SQDL-4-9W-5CT-BLK-658497.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_7PjX94": {
+          "type": "question",
+          "settings": {
+            "button": "White Trim",
+            "link": "https://www.nuwattlighting.com/collections/square-canless-recessed-light?filter.p.m.custom.color=White",
+            "image": "shopify://shop_images/NW-P-SQDL-4-9W-5CT-WH-727024.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_tnTiVX",
+        "question_3FDQ4L",
+        "question_eqUQQm",
+        "question_cpWUhz",
+        "question_7PjX94"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_CHwkjt": {
+      "type": "faq",
+      "blocks": {
+        "question_yUDiLt": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_Ug47f3": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_xiEKXa": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_yUDiLt",
+        "question_Ug47f3",
+        "question_xiEKXa"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_BBfxQX": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_yNTrPq": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_wfRbXT": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_RzwGxz": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_bhzair": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_m4k3Ef": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_V94axe": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_yNTrPq",
+        "question_wfRbXT",
+        "question_RzwGxz",
+        "question_bhzair",
+        "question_m4k3Ef",
+        "question_V94axe"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_4BjCiK": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Square Recessed Light Collection",
+        "collection_seo_description": "Square canless recessed lighting is a minimalist solution for modern interiors. These square recessed lights blend seamlessly into your ceiling, offering unobtrusive, bright illumination."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_Q8btPX",
+    "main-collection",
+    "jump_to_3QFHxB",
+    "faq_CHwkjt",
+    "collection_metafield_faq_BBfxQX",
+    "recently-viewed",
+    "expandable_description_4BjCiK"
+  ]
+}

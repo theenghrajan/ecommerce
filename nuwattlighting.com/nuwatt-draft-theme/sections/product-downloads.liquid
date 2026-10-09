@@ -1,0 +1,147 @@
+
+{% if product.metafields.custom.pdf_link == blank and product.metafields.custom.manual == blank %}
+
+  
+{% else %}
+
+
+  <div class="page-width mobile-hak">
+<div class="product-downloads-container">
+    <h3>Downloads</h3>
+   <div class="product-downloads">
+      <ul> 
+
+
+        
+{% if product.metafields.custom.pdf_link == blank%}
+  
+{% else %}
+
+        <li><a href="{{ product.metafields.custom.pdf_link }}" class="specs-download" target="_blank" rel="noopener noreferrer">Download Specs</a></li>
+
+{% endif %}
+
+
+{% if product.metafields.custom.manual == blank %}
+  
+{% else %}
+        <li><a href="{{ product.metafields.custom.manual }}" class="specs-download" target="_blank" rel="noopener noreferrer">Download Manual</a></li>
+
+
+{% endif %}
+
+
+        
+
+        
+      </ul>
+    </div>
+</div>
+</div>
+
+  
+
+{% endif %}
+
+
+{% stylesheet %}
+
+  .product-downloads-container{
+    margin-top: 50px;
+  }
+
+
+  .product-downloads-container h3{
+font-family: 'nw-medium';
+    font-weight: 500;
+    border-bottom: 1px solid #bbbbbb;
+        text-transform: unset;
+    padding: 10px 0 10px 10px;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+.product-downloads ul {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  gap: 1em;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;;
+  
+  
+}
+  
+.product-downloads ul li {
+
+  margin: 20px 10px;
+
+
+  
+}
+
+  .product-downloads ul li a {
+      border: 1px solid #636363;
+    border-radius: 30px;
+      background: #ffd25d;
+        padding: 10px 40px;
+    font-family: 'nw-medium';
+    color:black;
+    letter-spacing: 0.7px;
+    font-size: 19px;
+    
+
+  }
+
+
+
+
+.product-downloads ul li a:hover {
+
+  background: #ffdd83;
+  transition: all 0.3s ease;
+    
+
+  }
+
+
+  /* fix mobile */
+
+  @media only screen and (max-width:769px){
+
+    
+
+
+}
+
+
+
+
+{% endstylesheet %}
+
+
+
+
+{% schema %}
+  {
+    "name": "Product Downloads",
+    "settings": [
+      {
+
+            "type": "checkbox",
+      "id": "product-downloads-enable",
+      "label": "Enable Product Downloads",
+      "default": true
+        
+      }
+    ],
+
+        "presets": [
+      {
+        "name": "Product Downloads Section",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

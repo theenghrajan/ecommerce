@@ -1,0 +1,1071 @@
+
+
+<div class="cct-dimmer-container">
+  <!-- <h2> {{ section.settings.custom_text_title }} </h2>
+  <div>{{ section.settings.custom_text_body }}</div> -->
+
+
+
+<div class="cct-cta">
+      <h2 class="h1 hero__title">Play with Color Temperatures</h2>
+      <p>What's your Preferred Color?</p>
+</div>
+  
+  
+
+
+
+<div class="image mt-3 mb-3" id="sliderImages">
+
+
+<!-- DIMMER BOX -->
+<div class="dimmer-box" >
+  <div class="rangeslider2">
+  <div class="main_boxin">
+    <input type="range" min="1" max="20" value="1" class="myslider2" id="sliderRange2">
+  </div>
+
+<div style="overflow: hidden;">
+<!-- <img src="https://cdn.shopify.com/s/files/1/0293/5858/7978/files/ARROW_4.png?v=1713461947" style="height: 30px;"> -->
+<p>Slide the Dimmer</p>
+</div>
+    
+</div>
+
+</div>
+<!-- END DIMMER BOX -->
+
+ 
+  
+
+  <div class="image-h2-wrap">
+    <img src="https://cdn.shopify.com/s/files/1/0293/5858/7978/files/CCT_DIMM__Seq_2700K_00000.jpg" id="cctImage">
+    <img src="https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Mobile_2700K_00000_7e150eb9-910a-48c7-848b-48ae9e2d1b48.jpg?v=1715813684" id="cctImage-mobile" class="mobile-cct-image">
+
+  </div>
+
+<div class="slides" >
+  <div class="rangeslider">
+<div class="cct-cta-flex-container">
+<!-- <img src="https://cdn.shopify.com/s/files/1/0293/5858/7978/files/ARROW_4.png?v=1713461947" style="height: 30px;width: auto;transform: rotate(312deg);"> -->
+  
+  <p>Slide the Switch</p>
+</div>
+  <input type="range" min="1" max="6" value="1" class="myslider" id="sliderRange">
+  <!-- <div class="hero__link">
+     <a href="https://www.nuwattlighting.com/blogs/news/kelvin-vs-lumen-understanding-common-lighting-terms" class="btn">Learn More</a>
+  </div> -->
+</div>
+
+</div>
+
+
+</div>
+  
+
+
+  
+</div>
+
+
+
+{% stylesheet %}
+
+  .cct-dimmer-container div{
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+  }
+
+  .rangeslider2{
+    overflow-y: hidden;
+  }
+
+
+  .rangeslider .hero__link{
+z-index: 3;
+}
+
+
+  .rangeslider .hero__link a{
+      margin: 0;
+      padding: 5px 15px 5px 15px;
+      font-size: 1em;
+}
+
+    #thumb{
+    border: none !important;
+          box-shadow: none !important;
+  }   
+
+  
+
+    .dimmer-box{
+    display: flex;
+    position: absolute;
+    /* left: 15%; */
+    width: -webkit-fill-available;
+    /* top: 30%;
+    width: -webkit-fill-available;
+        justify-content: center; */
+    
+  }
+
+
+  /* tiny hand */
+.cct-cta-flex-container{
+   display: flex;
+    flex-direction: row;
+}
+
+  .cct-cta-flex-container img{
+    height: 30px;
+    width: 30px;
+    margin-right: 5px;
+  }
+  /* END tiny hand */
+  
+
+/*hand*/
+@keyframes swipe {
+
+
+    0% {
+        margin:0;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        margin-right:20px;
+        transform: rotate(-5deg);
+    }
+
+
+
+}
+
+.handswipe {
+    animation: swipe .8s alternate infinite; /* IE 10+, Fx 29+ */
+    animation-timing-function: ease;
+    position: absolute;
+    bottom: 95px;
+    width: 100px;
+    right: 50%;
+    top:50%;
+}
+
+.handswipe img{
+  pointer-events: none;
+      -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+  .handswipe-image{
+    
+  }
+
+  /* hand */
+
+
+
+
+
+  
+
+  .image-h2-wrap h2{
+    position: absolute;
+    top: 7%;
+    left: 6%;
+    font-size:40px;
+    color: white;
+    
+    
+  }
+
+  .rangeslider p{
+    color: white;
+    font-weight: bold;
+    margin: 0;
+      text-shadow: 0 0 6px #000;
+    border-radius: 15px;
+    padding-right: 9px;
+    padding-left: 9px;
+    background: blanchedalmond;
+    
+  }
+
+    .rangeslider2 p{
+    color: white;
+    font-weight: bold;
+    margin: 0;
+      width: max-content;
+      text-wrap: nowrap;
+        text-shadow: 0 0 6px #000;
+    border-radius: 15px;
+    padding-right: 9px;
+    padding-left: 9px;
+    background: blanchedalmond;
+      
+  }
+
+  .cct-cta{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    align-items: center;
+  }
+
+  .cct-text-left h2{
+    font-size: 55px;
+    
+  }
+
+  .cct-cta p{
+    text-align: center;
+  }
+
+  .slides{
+    display: flex;
+    position: absolute;
+    /* border: solid peachpuff; */
+    top: 50%;
+    width: -webkit-fill-available;
+        justify-content: center;
+    
+  }
+
+
+
+
+
+  #cctImage{
+    z-index: -1;
+    width: -webkit-fill-available;
+      /* border-radius: 25px; */
+        border-radius: 45px;
+    padding: 0px 10px;
+  }
+
+  #cctImage-mobile{
+        width: -webkit-fill-available;
+           border-radius: 45px;
+    padding: 0px 10px;
+  }
+
+.cct-dimmer-container{
+/* border: solid red; */
+      /* padding: 25px; */
+}
+  
+#sliderImages{
+ 
+}
+
+  
+  .rangeslider {
+  width: 400px;
+    position: relative;
+    left: 0;
+    margin: 0;
+    top:30%;
+
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+  .dimmer{
+      width: 400px;
+  margin: 0 auto;
+  }
+
+.myslider {
+  -webkit-appearance: none;
+  background: #FCF3CF;
+  width: 100%;
+  height: 20px;
+  border: none;
+}
+
+.myslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: #34495E;
+  width: 13%;
+  height: 20px;
+}
+ 
+ .myslider{
+
+background: url(https://cdn.shopify.com/s/files/1/0293/5858/7978/files/CCT_GRADIANT_2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 155px;
+    width: inherit;
+    border: none;
+    appearance: none;
+ 
+ 
+       /* transform: rotate(-90deg); */
+   
+}
+
+
+
+.image {
+  position: relative;
+  margin: 0 auto;
+  width: auto;
+}
+
+.image>img {
+  position: relative;
+  display: none;
+}
+
+.image>img.visible,
+.image>img:first-child {
+  display: block;
+}
+
+.sliderOutput>div {
+  margin: 5px;
+  width: 120px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+.sliderOutput h6,
+.sliderOutput p {
+  margin: 5px;
+}
+
+
+.rangeslider  input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+
+    border: none;
+}
+
+.rangeslider input[type=range]::-webkit-slider-runnable-track {
+  width: 5px;
+  height: 5px;
+  box-shadow: none !important;
+}
+
+
+.rangeslider input[type=range]::-webkit-slider-thumb {
+  height: 145px;
+  width: 61px;
+  background: url(https://cdn.shopify.com/s/files/1/0293/5858/7978/files/CCT_SWITCH_2.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -69px;
+  box-shadow: none !important;
+}
+
+.rangeslider input[type="range"]::-moz-range-thumb {
+  height: 145px;
+  width: 61px;
+  background: url(https://cdn.shopify.com/s/files/1/0293/5858/7978/files/CCT_SWITCH_2.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -69px;
+  box-shadow: none !important;
+}
+
+
+  /* slider 2 */
+
+
+  
+  .rangeslider2 {
+  width: auto;
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 120px;
+    flex-basis: min-content;
+}
+
+
+.myslider2 {
+  -webkit-appearance: none;
+  background: #FCF3CF;
+  width: 100%;
+  height: 20px;
+  border: none;
+}
+
+.myslider2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: #34495E;
+  width: 13%;
+  height: 20px;
+}
+
+ .myslider2{
+
+background: url(https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmer_PLATE-01_1.svg?v=1712012578);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 155px;
+    width: inherit;
+    border: none;
+    appearance: none;
+ 
+ 
+       transform: rotate(90deg);
+}
+
+ 
+
+ .rangeslider2 input[type=range] {
+  -webkit-appearance: none;
+   box-shadow: none !important;
+    border: none;
+   z-index: 5;
+}
+
+.rangeslider2 input[type=range]::-webkit-slider-runnable-track {
+  width: 5px;
+  height: 5px;
+  box-shadow: none !important;
+}
+.rangeslider2 input[type=range]::-webkit-slider-thumb {
+  height: 130px;
+  width: 18px;
+  background: url(https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmer_switch-02.svg?v=1712012578);
+      background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  margin-top: -63px; 
+  box-shadow: none !important;
+  /* transform: rotate(-180deg); */
+}
+
+
+/* @media only screen and (max-width:769px){
+
+  .myslider{
+  height:90px;
+}
+.rangeslider input[type=range]::-webkit-slider-thumb {
+  height: 83px;
+  width: 154px;
+  margin-top: -40px;
+}
+
+    .myslider2{
+  height:90px;
+}
+.rangeslider2 input[type=range]::-webkit-slider-thumb {
+  height: 83px;
+   width: 42px;
+  margin-top: -40px;
+}
+
+    .cct-text-left h2{
+    font-size: 34px;
+    
+  }
+
+} */
+
+
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+/*mobile styles here*/
+
+
+  @media only screen and (min-width: 200px) and (max-width: 359.99px) {
+
+  #cctImage{
+    display: none;
+  }
+ 
+  #cctImage-mobile{
+    display: unset;
+    /* border: solid blue; */
+
+  }
+ 
+
+
+
+/*CCT sizing */
+
+.rangeslider{
+
+width: 295px;
+
+}
+
+
+.myslider{
+width: 70px;
+height: 75px;
+
+}
+
+
+
+.slides{
+top: 59%;
+}
+
+.rangeslider input[type=range]::-webkit-slider-thumb{
+height: 144px;
+width: 45px;
+}
+
+/*END CCT sizing */
+
+/*dimmer sizing */
+
+.rangeslider2{
+
+ width: 100px;
+
+}
+
+.rangeslider2 input[type=range]::-webkit-slider-thumb{
+  width: 15px;
+}
+
+/*END dimmer sizing */
+
+/*text and arrow size*/
+
+.rangeslider p{
+font-size: 15px;
+}
+
+.rangeslider2 div p{
+  font-size: 15px;
+  text-decoration: underline;
+
+}
+/*END text and arrow size*/
+
+
+  .cct-cta h2{
+
+    font-size: 1em;
+        font-family: 'nw-medium';
+        letter-spacing: 2px;
+    
+  }
+
+      .cct-cta p{
+
+    font-size: 15px;
+
+    
+  }
+
+    
+
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+   
+@media only screen and (min-width: 360px) and (max-width: 599.99px) {
+
+    #cctImage{
+    display: none;
+  }
+ 
+  #cctImage-mobile{
+    display: unset;
+    /* border: solid green; */
+
+  }
+ 
+
+
+
+/*CCT sizing */
+
+.rangeslider{
+
+width: 295px;
+
+}
+
+
+.myslider{
+width: 70px;
+height: 75px;
+
+}
+
+
+
+.slides{
+top: 59%;
+}
+
+.rangeslider input[type=range]::-webkit-slider-thumb{
+height: 144px;
+width: 45px;
+}
+
+/*END CCT sizing */
+
+/*dimmer sizing */
+
+.rangeslider2{
+
+ width: 100px;
+
+}
+
+.rangeslider2 input[type=range]::-webkit-slider-thumb{
+  width: 20px;
+}
+
+/*END dimmer sizing */
+
+/*text and arrow size*/
+
+.rangeslider p{
+font-size: 15px;
+}
+
+.rangeslider2 div p{
+  font-size: 15px;
+}
+/*END text and arrow size*/
+
+
+  .cct-cta h2{
+
+    font-size: 1em;
+        font-family: 'nw-medium';
+        letter-spacing: 2px;
+    
+  }
+
+      .cct-cta p{
+
+    font-size: 15px;
+
+    
+  }
+  
+} 
+
+
+@media only screen and (min-width: 600px) and (max-width: 1099.99px){
+ 
+      #cctImage{
+    display: none;
+  }
+ 
+  #cctImage-mobile{
+    display: unset;
+    /* border: solid black; */
+
+  }
+ 
+.rangeslider .hero__link a{
+  font-size: 25px;
+}
+
+
+/*CCT sizing */
+
+.rangeslider{
+
+width: 545px;
+
+}
+
+
+.myslider{
+width: 70px;
+height: 125px;
+
+}
+
+
+
+.slides{
+top: 34%;
+}
+
+.rangeslider input[type=range]::-webkit-slider-thumb{
+height: 145px;
+width: 100px;
+}
+
+/*END CCT sizing */
+
+/*dimmer sizing */
+
+.rangeslider2{
+
+ width: 175px;
+
+}
+
+.rangeslider2 input[type=range]::-webkit-slider-thumb{
+  width: 30px;
+}
+
+  .dimmer-box{
+        /* top: 5%; */
+  }
+
+/*END dimmer sizing */
+
+/*text and arrow size*/
+
+.rangeslider .cct-cta-flex-container p{
+font-size: 25px;
+}
+
+.rangeslider2 div p{
+  font-size: 25px;
+}
+/*END text and arrow size*/
+
+
+  .cct-cta h2{
+
+    font-size: 1em;
+        font-family: 'nw-medium';
+        letter-spacing: 2px;
+    
+  }
+
+      .cct-cta p{
+
+    font-size: 15px;
+
+    
+  }
+
+
+  
+}
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
+ 
+@media only screen and (min-width: 1100px) and (max-width: 1999.99px) {
+  
+      #cctImage{
+    display: unset;
+    /* border: solid red; */
+  }
+
+  .slides{
+    top: 24%;
+  }
+
+  #cctImage-mobile{
+    display: none;
+  }
+
+    .dimmer-box{
+      /* top: 0%; */
+    }
+  .rangeslider2 input[type=range]::-webkit-slider-thumb{
+    width: 23px;
+  }
+
+  .rangeslider input[type=range]::-webkit-slider-thumb{
+    width: 73px;
+  }
+}
+
+  @media only screen and (min-width: 2000px) and (max-width: 2999.99px) {
+
+      #cctImage{
+    display: unset;
+    /* border: solid yellow; */
+  }
+
+  #cctImage-mobile{ 
+    display: none;
+  }
+
+    .dimmer-box{
+      /* top: 15%; */
+    }
+ 
+    .rangeslider2{
+      width: 235px;
+    }
+    .rangeslider2 input[type=range]::-webkit-slider-thumb{
+      width: 40px;
+    }
+    .rangeslider{
+      width: 755px;
+    }
+
+    .rangeslider input[type=range]::-webkit-slider-thumb{
+      width: 110px;
+    }
+
+    .rangeslider .cct-cta-flex-container p{
+font-size: 40px;
+}
+
+.rangeslider2 div p{
+  font-size: 40px;
+}
+
+.rangeslider .hero__link a{
+        font-size: 30px;
+        padding: 5px 50px;
+        margin-top: 15px;
+  
+}
+
+
+    
+}
+
+
+    @media only screen and (min-width: 3000px) and (max-width: 6000px) {
+
+      .slides{
+        top: 60%;
+ 
+      }
+
+      #cctImage{
+    display: unset;
+    /* border: solid purple; */
+  }
+
+  #cctImage-mobile{
+    display: none;
+  }
+
+    .dimmer-box{
+      /* top: 15%; */
+    }
+  
+    .rangeslider2{
+      width: 380px;
+    }
+      .myslider2{
+        height: 305px;
+      }
+ 
+      .myslider{
+                height: 193px;
+      }
+
+       
+    .rangeslider2 input[type=range]::-webkit-slider-thumb{
+      width: 60px;
+      height: 171px;
+      margin-top: -84px;
+      
+    }
+    .rangeslider{
+      width: 1500px;
+    }
+
+    .rangeslider input[type=range]::-webkit-slider-thumb{
+              width: 655px;
+      /* margin-left: 115px; */
+                  margin-top: -49px;
+    }
+
+    .rangeslider .cct-cta-flex-container p{
+font-size: 40px;
+}
+
+.rangeslider2 div p{
+  font-size: 40px;
+}
+
+.rangeslider .hero__link a{
+  font-size: 30px;
+}
+
+      .rangeslider .hero__link a{
+        font-size: 35px;
+        margin-top: 10px;
+        padding: 5px 40px;
+      }
+
+
+}
+
+
+
+/* END CCT SLIDER BREAK POINTS */
+
+
+
+.main_boxin {
+    position: relative;
+    width: 114px;
+    height: 135px;
+    /* padding: 10px; */
+}
+.main_boxin input {
+    background: url(/cdn/shop/files/Dimmer_PLATE-01_1.svg?v=1712012578);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 155px;
+    width: 110px;
+    border: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transform: rotate(90deg);
+}
+@media screen and (min-width: 1600px) and (max-width: 1950px){
+  .main_boxin {
+    position: relative;
+    width: 200px;
+    height: 300px;
+}
+}
+@media screen and (min-width: 1600px) {
+.main_boxin input {
+    height: 294px;
+    width: 120px;
+}
+.main_boxin {
+    position: relative;
+    width: 290px;
+    height: 300px;
+}
+}
+@media screen and (min-width: 600px) and (max-width: 1099px){
+      .main_boxin {
+        position: relative;
+        width: 150px;
+        height: 151px;
+        padding-top: 10px;
+    }
+    .main_boxin input {
+        height: 155px;
+        width: 150px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+.main_boxin input {
+    height: 294px;
+    width: 210px;
+}
+}
+
+@media screen and (min-width: 3000px) {
+.main_boxin input {
+    height: 294px;
+    width: 300px;
+}
+}
+
+
+@media screen and (min-width: 1600px) and (max-width: 1950px){
+  .dimmer-box {
+    height: 135px;
+    /* width: 400px; */
+}
+.main_boxin{
+  width:140px;
+}
+}
+{% endstylesheet %}
+
+
+{% javascript %}
+
+  
+  
+{% endjavascript %}
+
+{% schema %}
+  {
+    "name": "CCT Slider",
+    "settings": [
+      {
+        "id": "custom_text_title",
+        "type": "text",
+        "label": "Text box heading",
+        "default": "Title"
+      },
+      {
+        "id": "custom_text_body",
+        "type": "richtext",
+        "label": "Add custom text below",
+        "default": "<p>Add your text here</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "custom-text",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+<style>
+  
+.dimmer-box{
+    position: absolute;
+    left: calc(100% - 80%) !important;
+    top: calc(100% - 90%) !important;
+    z-index: 1;
+}
+</style>

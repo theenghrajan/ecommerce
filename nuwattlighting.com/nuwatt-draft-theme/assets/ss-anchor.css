@@ -1,0 +1,847 @@
+/* ==========================================================================
+   SS Anchor page
+   Figma: "128 Audit Fixes" / Anchor page (file D9iaVcgzmBdhqLXKJ3Q1fn,
+   canvas node 9172:29, frame node 9172:31)
+
+   Used by: sections/ss-anchor-*.liquid + templates/page.anchor.json
+
+   COLOUR AND TYPE COME FROM THE THEME. These map onto the theme's own custom
+   properties (assets/theme.css.liquid :root and snippets/css-variables.liquid,
+   rendered at layout/theme.liquid:305) so the page follows the theme editor.
+   Hex fallbacks are the current live settings.
+
+   FIGMA SUPPLIES LAYOUT ONLY: sizes, spacing, grid tracks, breakpoints.
+
+   Buttons are NOT styled here — they use the theme's .btn and its variants, so
+   shape comes from --buttonRadius (currently a 50px pill) and padding from
+   --btnPadding. Figma's 2px radius is deliberately not reproduced.
+
+   Headings do not restate font-family, font-weight or letter-spacing: the
+   theme's own h1-h6 rule (theme.css.liquid:2865) supplies those from
+   settings.type_header_*. Only Figma's size, line-height and colour are set.
+   Heading CASE is handled per-section by snippets/ss-anchor-case.liquid.
+   ========================================================================== */
+
+:root {
+  --ss-ink: var(--colorTextBody, #202020);
+  --ss-accent: var(--colorBtnPrimary, #fcc833);
+  --ss-accent-text: var(--colorBtnPrimaryText, #202020);
+  --ss-surface: var(--colorBody, #fff);
+
+  /* No theme setting covers secondary text or subtle surfaces, so these stay
+     literal. They are layout scaffolding, not brand colour. */
+  --ss-muted: #4b5563;
+  --ss-muted-alt: #6b7280;
+  --ss-surface-alt: #f9fafb;
+
+  /* Overridable per section from the theme editor. --ss-card-border is
+     deliberately NOT mapped to the theme's --colorBorder: settings.color_borders
+     is currently #ffffff, which would make every card border invisible. */
+  --ss-card-border: #e5e7eb;
+  --ss-card-radius: 8px;
+  --ss-btn-border: var(--ss-accent);
+
+  --ss-gap: 16px;
+  --ss-gap-lg: 24px;
+  --ss-row-gap: 48px;
+  --ss-title-lines: 2;
+}
+
+/* ----- shared -------------------------------------------------------------- */
+
+.ss-anchor-section {
+  font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+  color: var(--ss-ink);
+  box-sizing: border-box;
+}
+
+.ss-anchor-section *,
+.ss-anchor-section *::before,
+.ss-anchor-section *::after { box-sizing: inherit; }
+
+/* Figma MainContent children are 1120 wide inside a 1280 frame (x=64 each
+   side), so 1152 outer with 16px padding gives the 1120 measure. */
+/* THE page column. One rule for every section so the left and right edges
+   line up down the whole page at every viewport width.
+
+   Figma (node 9172:31, 1280 frame) actually draws three different insets:
+     - MainContent  x=64  w=1152, its sections inset 16 -> x=80  w=1120
+     - TrustBar     full-bleed 1280, strip inset 16     -> x=16  w=1248
+     - Hero text    x=80, as a fixed inset from the frame edge
+   Signed off 28 Aug: hold ONE consistent width instead, so the trust strip
+   and the hero headline both join the 1120 column. At a 1280 viewport this
+   resolves to x=80 / w=1120 and therefore still matches Figma exactly; below
+   and above 1280 everything now stays aligned, which the fixed 80px hero
+   inset did not (at 1400 it left the hero 60px out of step with the grid). */
+.ss-anchor-inner,
+.ss-anchor-hero__inner,
+.ss-anchor-trust .page-width {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding-left: var(--ss-gap);
+  padding-right: var(--ss-gap);
+}
+
+.ss-anchor-heading {
+  margin: 0 0 var(--ss-gap-lg);
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--ss-ink);
+}
+
+.ss-anchor-subheading {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--ss-muted);
+}
+
+/* Arrow link — "VIEW ALL", "SHOP NOW", "READ MORE".
+   Uppercase here is a Figma label treatment on non-heading elements, so it is
+   unaffected by the per-section heading-case setting. Weight 600 is the bold
+   face snippets/font-face.liquid actually loads (400 / 600 / 900 only). */
+.ss-anchor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ss-ink);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.ss-anchor-link:hover,
+.ss-anchor-link:focus { opacity: 0.7; text-decoration: none; color: var(--ss-ink); }
+
+.ss-anchor-link--accent,
+.ss-anchor-link--accent:hover,
+.ss-anchor-link--accent:focus { color: var(--ss-accent); }
+
+.ss-anchor-link--sm { font-size: 12px; line-height: 16px; letter-spacing: 0.3px; }
+
+.ss-anchor-icon {
+  flex: 0 0 auto;
+  display: block;
+  width: 12.25px;
+  height: 10.5px;
+  fill: currentColor;
+}
+
+.ss-anchor-icon--sm { width: 10.5px; height: 9px; }
+.ss-anchor-icon--play { width: 9px; height: 10.512px; }
+
+/* ----- hero (node 9172:203) ---------------------------------------------- */
+
+.ss-anchor-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--ss-ink);
+}
+
+.ss-anchor-hero__media,
+.ss-anchor-hero__media img,
+.ss-anchor-hero__media image-element {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ss-anchor-hero__media img { object-fit: cover; object-position: center; }
+
+/* Explicit stacking order: media 1 -> overlay 2 -> content 3.
+
+   The z-index on the WRAPPER is the load-bearing part. The photo is rendered
+   through snippets/image-element.liquid carrying the theme's own hero__image
+   class, and theme.css.liquid:7332 sets .hero__image { position: relative;
+   z-index: 1 }. This wrapper was position:absolute at z-index:auto, so it was
+   NOT a stacking context -- that z-index:1 escaped into the shared context,
+   where it outranked the overlay's z-index:auto. The gradient was being
+   painted all along; the photo was simply painted on top of it.
+
+   Giving the wrapper its own z-index makes it a stacking context, so the
+   theme's value is contained inside it and can never outrank the overlay
+   again. The bug only surfaced once a real image was uploaded: the
+   placeholder SVG carries no hero__image class, so it had no z-index to win
+   with and the gradient rendered correctly in the empty state. */
+.ss-anchor-hero__media { z-index: 1; }
+
+.ss-anchor-hero__overlay { position: absolute; inset: 0; z-index: 2; }
+
+/* Horizontal insets come from the shared column rule above -- only the
+   vertical padding is the hero's own. */
+.ss-anchor-hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.ss-anchor-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ss-gap);
+  max-width: 448px;
+}
+
+.ss-anchor-hero__title {
+  margin: 0;
+  font-size: 60px;
+  line-height: 75px;
+  color: #fff;
+}
+
+/* Figma drew this at Medium 500, but the theme loads only 400 / 600 / 900, so a
+   500 request resolves to 400 anyway. Declared as what actually renders. */
+.ss-anchor-hero__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.ss-anchor-hero__text > p { margin: 0; }
+
+/* Hero CTA. Colour still comes from the theme's .btn (--colorBtnPrimary /
+   --colorBtnPrimaryText), but shape, padding, size and weight now follow the
+   Figma button: 14px/20px, 12px 32px padding, 0.7px tracking, 2px radius.
+   The theme's .btn would give 20px text, 11px 25px padding and a 50px pill.
+   Radius is a section setting (--ss-btn-radius) so it stays adjustable.
+   Weight 600 is the bold face font-face.liquid actually loads — Figma asks for
+   700, which the browser resolves down to 600 anyway. */
+.ss-anchor-btn {
+  padding: 12px 32px;
+  border-radius: var(--ss-btn-radius, 2px);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease;
+}
+
+/* Button-only hover.
+   The theme gives the CTA no visible hover of its own: .btn:hover sets
+   background-color back to --colorBtnPrimary, the colour it already is. The
+   only lift the theme defines is the banner-wide one keyed off
+   .hero__slide-link, which is not wanted here. So the lightened accent is
+   applied directly to the button, scoped to the button.
+   .btn:hover is (0,2,0) and so is this, but ss-anchor.css loads after
+   theme.css, so this wins on order. */
+.ss-anchor-btn:hover,
+.ss-anchor-btn:focus-visible {
+  background-color: var(--colorBtnPrimaryLight, #fdd665);
+  color: var(--colorBtnPrimaryText, #202020);
+}
+
+/* ----- trust bar (node 9172:88) ------------------------------------------ */
+/* Figma: 4 columns of 300x40 at 16px gaps, 24px vertical padding, a vertical
+   rule before columns 2-4. Scoped to the ss- copy so the original
+   text-with-icons layout is untouched. */
+
+/* The theme's .page-width here is max-width 1900px with ~34px padding, which
+   is far wider than the design's 1280. Constrain it to the Figma frame. */
+/* max-width/padding now come from the shared column rule above. Kept as a
+   named hook so the theme's own .page-width cannot reassert its width here. */
+.ss-anchor-trust .page-width {
+  width: 100%;
+}
+
+.ss-anchor-trust .text-with-icons__blocks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ss-gap);
+  padding: var(--ss-gap-lg) 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Something outside our control gives .text-with-icons a -22px bottom margin
+   on this page — it is not an inline style and no readable rule matches it, so
+   it comes from a stylesheet the page will not expose. It pulled the intro up
+   into the trust bar by 22px. Zeroed at (0,3,0) so whatever sets it loses. */
+.ss-anchor-trust-wrap .text-with-icons.ss-anchor-trust {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Two things here are load-bearing.
+   width: auto — the theme sets .has-4-per-row .text-with-icons__block
+   { width: 25% } and custom.css sets .text-with-iconsmd .text-with-icons__blocks
+   .text-with-icons__block { width: calc(12.5% - 30px) } at (0,3,0). Inside this
+   grid those percentages resolve against the track rather than the row, which
+   collapsed every block to 32px wide. The ss- copy no longer carries
+   .text-with-iconsmd, and this resets the remaining width rule.
+   row-gap: 0 — the block is a 2-row grid (title 20px, subtitle 20px) and a
+   shared `gap` added 16px between the rows, making each item 56px tall where
+   Figma has 40. Only the icon/text column gap should be 16. */
+.ss-anchor-trust .text-with-icons__block {
+  display: grid;
+  /* auto (not 1fr) + justify-content:center centres the icon+text pair inside
+     the 300px track. Figma item 2 puts its icon at x=71 in a 300 track with the
+     content spanning 71-231 — dead centre. With 1fr the text column absorbed
+     all the slack and the pair sat hard against the left edge/divider. */
+  grid-template-columns: 24px auto;
+  justify-content: center;
+  align-items: center;
+  column-gap: var(--ss-gap);
+  row-gap: 0;
+  width: auto;
+  min-height: 40px;
+  padding: 0 var(--ss-gap);
+}
+
+.ss-anchor-trust--dividers .text-with-icons__block + .text-with-icons__block {
+  border-left: 1px solid var(--ss-card-border);
+}
+
+.ss-anchor-trust .text-with-icons__block-icon { grid-row: 1 / span 2; }
+
+.ss-anchor-trust .text-with-icons__block-icon svg,
+.ss-anchor-trust .text-with-icons__block-icon img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.ss-anchor-trust .text-with-icons__block-title { grid-column: 2; align-self: end; }
+
+.ss-anchor-trust .text-with-icons__block-title h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.ss-anchor-trust .text-with-icons__block-text {
+  grid-column: 2;
+  align-self: start;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ss-muted-alt);
+}
+
+/* V2 design: each badge is its own light-grey rounded box, content left-aligned,
+   bold title over muted subtext (no dividers between them). */
+.ss-anchor-trust .text-with-icons__block {
+  justify-content: start;
+  padding: 16px 20px;
+  border-radius: var(--ss-card-radius, 8px);
+  background: #f3f4f6;
+}
+.ss-anchor-trust .text-with-icons__block + .text-with-icons__block { border-left: 0; }
+.ss-anchor-trust .text-with-icons__block-title h3 { font-weight: 700; color: var(--ss-ink); }
+.ss-anchor-trust .text-with-icons__block-text { font-size: 13px; line-height: 18px; }
+
+/* ----- intro (node 9172:215)--------------------------------------------- */
+/* Figma measure is 882px. Line-height comes from the theme (1.5), not Figma's
+   1.625 — per sign-off, the theme wins on type. */
+
+/* Join the shared page column. The theme's .page-width is overridden
+   somewhere upstream with a fluid max-width and a PERCENTAGE horizontal
+   padding (computed 2.664%, i.e. 33.7px at a 1265 viewport), which sat the
+   intro 38.7px left of every other section and drifted further as the
+   viewport changed. Pinning it to the same 1152/16px column as the rest puts
+   the copy at x=80 -- which is exactly where Figma draws it (node 9172:215,
+   x=80 w=882) -- and keeps it there at any width. */
+.ss-anchor-intro .page-width,
+.ss-anchor-intro .page-width--narrow {
+  max-width: 1152px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--ss-gap);
+  padding-right: var(--ss-gap);
+}
+
+/* 882px measure, left-aligned inside that column (Figma does not centre it). */
+.ss-anchor-intro .rte,
+.ss-anchor-intro .rte-setting,
+.ss-anchor-intro .theme-block {
+  max-width: 882px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* "Text alignment: Center" in the editor centres the 882px box in the column
+   as well as the lines inside it (client request on task #136, 6 Oct 2026). */
+.ss-anchor-intro .text-center .rte,
+.ss-anchor-intro .text-center .rte-setting,
+.ss-anchor-intro .text-center .theme-block {
+  margin-left: auto;
+}
+
+/* ----- category rows (nodes 9172:217 / 309 / 406) ------------------------ */
+
+/* Adjacent-sibling margin rather than a grid gap, so a block hidden in the
+   theme editor does not leave a doubled gap behind it. */
+.ss-anchor-category__row + .ss-anchor-category__row {
+  margin-top: var(--ss-row-gap, 48px);
+}
+
+.ss-anchor-category__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ss-gap);
+  margin-bottom: var(--ss-gap-lg);
+}
+
+.ss-anchor-category__titles { min-width: 0; }
+.ss-anchor-category__titles .ss-anchor-heading { margin-bottom: 0; }
+
+/* Figma: a fixed 277px promo tile leads the row, then four product columns
+   that work out at roughly 195px each on a 1120 measure. The tile is a fixed
+   track on purpose — letting it flex stretches the product images. */
+.ss-anchor-category__grid {
+  display: grid;
+  grid-template-columns: 277px repeat(4, minmax(0, 1fr));
+  gap: var(--ss-gap);
+  align-items: stretch;
+}
+
+.ss-anchor-feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-height: 369px;
+  padding: var(--ss-gap-lg);
+  overflow: hidden;
+  border-radius: var(--ss-card-radius);
+  background-color: var(--ss-ink);
+  text-decoration: none;
+}
+
+.ss-anchor-feature__media,
+.ss-anchor-feature__media img,
+.ss-anchor-feature__media image-element {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ss-anchor-feature__media img { object-fit: cover; object-position: center; }
+
+.ss-anchor-feature__overlay { position: absolute; inset: 0; }
+
+.ss-anchor-feature__body { position: relative; width: 100%; }
+
+.ss-anchor-feature__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  color: #fff;
+}
+
+.ss-anchor-feature__text {
+  margin: 0 0 var(--ss-gap);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* V2: on desktop the image tile carries only the title + link; the
+   subhead already sits in the row heading above. Text returns on mobile. */
+@media screen and (min-width: 769px) {
+  .ss-anchor-feature__text { display: none; }
+  .ss-anchor-feature__title { font-size: 28px; line-height: 34px; }
+}
+
+/* Product cards come from the theme's own snippets/product-grid-item.liquid
+   and keep the theme's collection-page card styling as-is (V2: "look exactly
+   like our product card on the collection pages"). Only duplicates are hidden. */
+.ss-anchor-product { min-width: 0; }
+
+/* The trim line is a bare <li>; the collection grid shows it without a bullet. */
+.ss-anchor-product .grid-item__meta-main > li { list-style: none; }
+
+/* The theme renders a second, absolutely-positioned quick-add over the image;
+   the in-flow "Add to Cart" is the one shown on collection pages. */
+.ss-anchor-product .grid-item__content > .grid-product__actions,
+.ss-anchor-product .grid-product__actions .btn--circle {
+  display: none;
+}
+
+
+.ss-anchor-product__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: var(--ss-gap);
+  text-align: center;
+}
+
+.ss-anchor-product__placeholder svg { width: 100%; height: auto; max-width: 160px; }
+
+.ss-anchor-product__placeholder-label {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ss-muted-alt);
+}
+
+.ss-anchor-empty {
+  padding: var(--ss-gap-lg);
+  border: 1px dashed var(--ss-card-border);
+  border-radius: var(--ss-card-radius);
+  color: var(--ss-muted);
+  text-align: center;
+}
+
+/* ----- related content (node 9172:500) ---------------------------------- */
+/* Figma: 4-up grid at 24px gaps, cards 262x245, 32px play badge. */
+
+.ss-anchor-related__grid,
+.ss-anchor-shopmore__grid {
+  display: grid;
+  gap: var(--ss-gap-lg);
+}
+
+/* V2: carousel -- 3 cards in view, the rest scroll (scroll-snap, no scrollbar). */
+.ss-anchor-related__carousel { position: relative; }
+.ss-anchor-related__grid {
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 2 * var(--ss-gap-lg)) / 3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.ss-anchor-related__grid::-webkit-scrollbar { display: none; }
+.ss-anchor-related__card { scroll-snap-align: start; }
+
+.ss-anchor-related__arrow {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: calc((100% - 2 * var(--ss-gap-lg)) / 3 * 9 / 16 / 2 - 20px);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ss-accent);
+  color: var(--ss-accent-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.ss-anchor-related__arrow[hidden] { display: none; }
+.ss-anchor-related__arrow--prev { left: -20px; }
+.ss-anchor-related__arrow--prev .ss-anchor-icon { transform: rotate(180deg); }
+.ss-anchor-related__arrow--next { right: -20px; }
+
+.ss-anchor-related__card { display: flex; flex-direction: column; min-width: 0; }
+
+.ss-anchor-related__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: var(--ss-card-radius);
+  overflow: hidden;
+  cursor: default;
+  line-height: 0;
+}
+
+.ss-anchor-related__media--video { cursor: pointer; }
+
+/* An uploaded thumbnail comes through snippets/image-element.liquid, which
+   wraps its <img> in an <image-element> custom element. Custom elements are
+   display:inline by default, so it has to be told to fill the card, the same
+   way the hero / feature / shop-more media wrappers already are. */
+.ss-anchor-related__media image-element { display: block; width: 100%; }
+
+/* Note the deliberately MIXED combinators below.
+
+   img is a DESCENDANT selector: an uploaded thumbnail sits inside the
+   <image-element> wrapper above, i.e. a grandchild, so the previous `>` rule
+   missed it entirely and the image rendered at its natural aspect ratio --
+   one very tall card beside three correctly sized ones. A YouTube fallback
+   thumbnail and the placeholder are plain direct children, which is why only
+   the uploaded card was wrong.
+
+   svg stays a CHILD selector: without `>` it also matches the play badge's
+   icon, nested inside .ss-anchor-related__play, at specificity (0,1,1) --
+   that beats .ss-anchor-icon--play at (0,1,0) and stretches a 9x10.5
+   triangle to 32x165. The badge holds an svg but never an img, so the
+   descendant form is safe for img and unsafe for svg. */
+.ss-anchor-related__media img,
+.ss-anchor-related__media > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Figma puts the badge at (8, 125) inside a 165px-tall thumbnail — i.e. 8px
+   from the left and 8px from the bottom, NOT centred. */
+.ss-anchor-related__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  line-height: 0;
+}
+.ss-anchor-related__play svg { width: 100%; height: 100%; }
+
+/* Figma card is 262x245: thumb 165 → 8px → title (2 lines, 40) → 8px → link 16.
+   The clamp keeps every card the same height whatever the title length. */
+.ss-anchor-related__card { gap: 8px; }
+
+/* Figma stacks these as: thumb 165 → 16 → title 40 → 8 → link 16 = 245.
+   The card's 8px gap supplies one half of that first 16, this margin the other.
+   min-height reserves both title lines so a short title cannot shorten a card. */
+.ss-anchor-related__title {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ss-ink);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: 40px;
+}
+
+.ss-anchor-related__title a { color: inherit; text-decoration: none; }
+.ss-anchor-related__title a:hover { text-decoration: underline; }
+
+/* ----- shop more (node 9172:552) ---------------------------------------- */
+/* Figma: 3-up grid at 24px gaps, cards 357x256, text over the image. */
+
+.ss-anchor-shopmore__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.ss-anchor-shopmore__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 256px;
+  padding: var(--ss-gap-lg);
+  overflow: hidden;
+  border-radius: var(--ss-card-radius);
+  background-color: var(--ss-ink);
+  text-decoration: none;
+}
+
+.ss-anchor-shopmore__media,
+.ss-anchor-shopmore__media img,
+.ss-anchor-shopmore__media image-element {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ss-anchor-shopmore__media img { object-fit: cover; object-position: center; }
+
+.ss-anchor-shopmore__overlay { position: absolute; inset: 0; }
+
+.ss-anchor-shopmore__body { position: relative; width: 100%; }
+
+.ss-anchor-shopmore__title {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 32px;
+  color: #fff;
+}
+
+.ss-anchor-shopmore__text {
+  margin: 0 0 var(--ss-gap);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* ----- reviews (node 9172:122) ------------------------------------------ */
+/* Figma: full-bleed band, 1248px inner, 4-up, 32px under the heading.
+   The band colour comes from the theme's colour_scheme setting on the copied
+   testimonials section, so it is not restated here. */
+
+.ss-anchor-reviews .testimonials-wrapper,
+.ss-anchor-reviews .testimonial-slider {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ss-gap-lg);
+  max-width: 1248px;
+  margin: 0 auto;
+}
+
+.ss-anchor-reviews .section-header { margin-bottom: 32px; }
+
+/* ----- video modal ------------------------------------------------------ */
+
+.ss-anchor-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: var(--ss-gap-lg);
+}
+
+.ss-anchor-modal[hidden] { display: none; }
+
+.ss-anchor-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  border: 0;
+}
+
+.ss-anchor-modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: var(--ss-card-radius);
+  overflow: hidden;
+}
+
+.ss-anchor-modal__frame,
+.ss-anchor-modal__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.ss-anchor-modal__close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ss-surface);
+  color: var(--ss-ink);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ss-anchor-modal__close:focus-visible,
+.ss-anchor-related__media--video:focus-visible,
+.ss-anchor-link:focus-visible {
+  outline: 2px solid var(--ss-accent);
+  outline-offset: 2px;
+}
+
+html.ss-anchor-modal-open { overflow: hidden; }
+
+/* ----- responsive --------------------------------------------------------
+   The theme's convention is max-width:768 / min-width:769, which is gap-free.
+   These follow it rather than introducing a competing breakpoint. */
+
+@media screen and (max-width: 1024px) {
+  .ss-anchor-hero__title { font-size: 44px; line-height: 54px; }
+  /* Vertical only -- the horizontal inset must stay equal to the grids'. */
+  .ss-anchor-hero__inner { padding-top: 40px; padding-bottom: 40px; }
+
+  /* Feature tile leads the row full-width, products fall to a 4-up grid. */
+  .ss-anchor-category__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ss-anchor-feature { grid-column: 1 / -1; min-height: 220px; }
+  .ss-anchor-feature__body { max-width: 420px; }
+
+  .ss-anchor-related__grid { grid-auto-columns: calc((100% - var(--ss-gap-lg)) / 2); }
+  .ss-anchor-related__arrow { margin-top: calc((100% - var(--ss-gap-lg)) / 2 * 9 / 16 / 2 - 20px); }
+  /* At 4-up the real column is ~294px, so the fixed 165.38px height lands on
+     video's native 16:9 and all four cards match. Below this the grid drops
+     to 2-up then 1-up and the column roughly doubles, which would letterbox
+     a fixed height -- so hold the ratio rather than the pixel value. */
+  .ss-anchor-related__media img,
+  .ss-anchor-related__media > svg { height: auto; aspect-ratio: 16 / 9; }
+  .ss-anchor-reviews .testimonials-wrapper,
+  .ss-anchor-reviews .testimonial-slider { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 768px) {
+  /* V2 mobile: videos stack in a single column, no carousel. */
+  .ss-anchor-related__grid { grid-auto-flow: row; grid-template-columns: 1fr; overflow: visible; }
+  .ss-anchor-related__arrow { display: none; }
+
+  .ss-anchor-hero__title { font-size: 34px; line-height: 42px; }
+  .ss-anchor-hero__inner { padding-top: 32px; padding-bottom: 32px; }
+  .ss-anchor-hero__content { max-width: none; }
+  /* Full-width CTA reads better than a narrow pill on a phone. */
+  .ss-anchor-hero .hero__link { width: 100%; }
+  .ss-anchor-btn { width: 100%; }
+
+  .ss-anchor-shopmore__grid { grid-template-columns: 1fr; }
+
+  /* V2 mobile: each category is just its image tile (title, subhead, link),
+     centred, with no row heading and no products. */
+  .ss-anchor-category__head,
+  .ss-anchor-product { display: none; }
+  .ss-anchor-category__grid { grid-template-columns: 1fr; }
+  .ss-anchor-feature {
+    grid-column: 1 / -1;
+    min-height: 260px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .ss-anchor-feature__title { font-size: 30px; line-height: 36px; }
+  .ss-anchor-feature__text { margin-bottom: 12px; }
+  /* Text is centred here, above the bottom-only gradient, so dim the whole
+     image like the mobile design. !important beats the inline gradient. */
+  .ss-anchor-feature__overlay { background: rgba(0, 0, 0, 0.45) !important; }
+
+  .ss-anchor-trust .text-with-icons__blocks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ss-anchor-trust--dividers .text-with-icons__block + .text-with-icons__block { border-left: 0; }
+  /* Left-align on mobile: centred content in a narrow cell reads as ragged. */
+  .ss-anchor-trust .text-with-icons__block { justify-content: start; }
+
+  .ss-anchor-modal__close { top: auto; bottom: -40px; right: 50%; transform: translateX(50%); }
+}
+
+@media screen and (max-width: 480px) {
+  .ss-anchor-category__grid,
+  .ss-anchor-reviews .testimonials-wrapper,
+  .ss-anchor-reviews .testimonial-slider { grid-template-columns: 1fr; }
+
+  /* V2 mobile keeps the badges 2x2; tighten the boxes to fit. */
+  .ss-anchor-trust .text-with-icons__blocks { gap: 10px; }
+  .ss-anchor-trust .text-with-icons__block { padding: 12px; column-gap: 10px; }
+  /* One product per row: give the card back a sensible floor. */
+  .ss-anchor-product__placeholder { min-height: 260px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-anchor-link,
+  .ss-anchor-btn { transition: none; }
+}

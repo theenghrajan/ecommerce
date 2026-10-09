@@ -1,0 +1,55 @@
+<div class="footer__mobile-section">
+  <div class="footer__blocks--mobile">
+    <div class="footer__block--mobile">
+      <h2 class="footer__title">
+        {{ 'layout.footer.contact_title' | t }}
+      </h2>
+
+      {%- comment -%}
+        Figma (node 9229:580 above 9229:588) shows Email Us before the
+        phone number — swapped from the previous phone-first order.
+      {%- endcomment -%}
+      <ul class="footer__menu">
+        {%- if block.settings.contact != blank -%}
+          <li><a href="{{ pages[block.settings.contact].url }}?page=contact-us">
+            <span class="icon-and-text">
+              <img class="icon icon-email" src="{{ 'figma-footer-icon-email.svg' | asset_url }}" width="40" height="40" alt="" loading="lazy">
+               {%  if block.settings.contact_title != blank %}
+                <span>{{ block.settings.contact_title }}</span>
+               {%  else %}
+              <span>{{ 'layout.footer.email_link' | t }}</span>
+               {%  endif %}
+            </span>
+          </a></li>
+        {%- endif -%}
+        {%- if block.settings.phone != blank -%}
+          <li><a href="tel:{{ block.settings.phone }}">
+            <span class="icon-and-text">
+              <img class="icon icon-phone" src="{{ 'figma-footer-icon-phone.svg' | asset_url }}" width="40" height="40" alt="" loading="lazy">
+              <span>{{ block.settings.phone }}</span>
+            </span>
+          </a></li>
+        {%- endif -%}
+        {%- if block.settings.chat != blank -%}
+          <li><a href="{{ pages[block.settings.chat].url }}">
+            <span class="icon-and-text">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chat" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="cls-1" d="M13.94 46.62a9 9 0 0 1-9-9V14a9 9 0 0 1 9-9h37.12a9 9 0 0 1 9 9v23.62a9 9 0 0 1-9 9h-1.68V59L36.44 46.62z"/></svg>
+              <span>{{ 'layout.footer.chat_link' | t }}</span>
+            </span>
+          </a></li>
+        {%- endif -%}
+      </ul>
+    </div>
+    {%- if block.settings.enable_social -%}
+      <div class="footer__block--mobile">
+        {% comment %}
+                  <div class="footer__title">
+          {{ 'layout.footer.social_title' | t }}
+        </div>
+        {% endcomment %}
+
+        {% render 'social-icons', additional_classes: 'footer__social' %}
+      </div>
+    {%- endif -%}
+  </div>
+</div>

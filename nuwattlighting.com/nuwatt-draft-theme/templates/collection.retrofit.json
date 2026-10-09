@@ -1,0 +1,228 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "blocks": {
+        "collection_description_GCGyiB": {
+          "type": "collection_description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "collection_description_GCGyiB"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "expandable_description_tMjKaH": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Retrofit Can Lights",
+        "collection_seo_description": "These aren't your average LED can lights. They're built to withstand heat, moisture, and installation is practically plug and play. Everything you need to swap out those outdated incandescent lamps for LED downlights comes right in the box. Plus, they come with premium aluminum heat sinks and trims that relentlessly pull heat away from the LED chips. That means better energy efficiency, and longevity that those flimsy plastic alternatives can't even touch."
+      }
+    },
+    "custom_expandable_discription_3zUU3L": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Retrofit Can Lights",
+        "collection_seo_description": "These aren't your average LED can lights. They're built to withstand heat, moisture, and installation is practically plug and play. Everything you need to swap out those outdated incandescent lamps for LED downlights comes right in the box. Plus, they come with premium aluminum heat sinks and trims that relentlessly pull heat away from the LED chips. That means better energy efficiency, and longevity that those flimsy plastic alternatives can't even touch."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/cct-color-temperature-recessed-lighting-icon.png?v=1724086946\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "collection_metafield_faq_EmqnLW": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_LiUnEE": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_rwnAVC": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_edUDyN": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_VcVbe6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_gXP47n": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_LiUnEE",
+        "question_rwnAVC",
+        "question_edUDyN",
+        "question_VcVbe6",
+        "question_gXP47n"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "jump_to_4tBMHz": {
+      "type": "jump-to",
+      "blocks": {
+        "question_kjYCdM": {
+          "type": "question",
+          "settings": {
+            "button": "View All",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting",
+            "image": "shopify://shop_images/view-all-recessed-lighting-products.png",
+            "alt-text": "View All Our Recessed Lighting"
+          }
+        },
+        "question_JNQUCP": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/retrofit-recessed-lighting?filter.p.m.custom.color=Black",
+            "image": "shopify://shop_images/recessed_lighting_black_trim.png",
+            "alt-text": ""
+          }
+        },
+        "question_69UjjM": {
+          "type": "question",
+          "settings": {
+            "button": "Gimbals",
+            "link": "shopify://collections/gimbal-retrofit-recessed-lights",
+            "image": "shopify://shop_images/adjustable_recessed_lighting_collection.webp",
+            "alt-text": ""
+          }
+        },
+        "question_QdyT7p": {
+          "type": "question",
+          "settings": {
+            "button": "MR16 Base",
+            "link": "shopify://collections/mr16-retrofit-recessed-lights",
+            "image": "shopify://shop_images/NW_DL_MR16_LV_5CT_WT_LISTING-MAIN_1P-667710.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_4FLz6r": {
+          "type": "question",
+          "settings": {
+            "button": "Square Trim",
+            "link": "shopify://collections/square-retrofit-recessed-lights",
+            "image": "shopify://shop_images/4-inch-square-12v-mr16-led-recessed-lighting-2700k3000k3500k4000k5000k-selectable-10w-660lm-dimmable-retrofit-light-low-voltage-can-lights-for-ceiling-gu53-2-pr-884669.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_HqKinj": {
+          "type": "question",
+          "settings": {
+            "button": "Disk Downlights",
+            "link": "shopify://collections/ceiling-disk-led-lights",
+            "image": "shopify://shop_images/NW-R-DSK-6-15W-5CT_WH_LISTING_B_MAIN_1P-414840.jpg",
+            "alt-text": "LED Disk Lights"
+          }
+        },
+        "question_nEyqQY": {
+          "type": "question",
+          "settings": {
+            "button": "Round",
+            "link": "https://www.nuwattlighting.com/collections/round-recessed-lighting?filter.p.m.custom.installation_type=Retrofit+Can+Light",
+            "image": "shopify://shop_images/NW-DL-R-6-18WC-5CCT-WH-01-195580_bfe29982-9888-4176-9cb4-07859d0100dd.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_kjYCdM",
+        "question_JNQUCP",
+        "question_69UjjM",
+        "question_QdyT7p",
+        "question_4FLz6r",
+        "question_HqKinj",
+        "question_nEyqQY"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-header",
+    "expandable_description_tMjKaH",
+    "custom_expandable_discription_3zUU3L",
+    "main-collection",
+    "jump_to_4tBMHz",
+    "collection_metafield_faq_EmqnLW",
+    "recently-viewed"
+  ]
+}

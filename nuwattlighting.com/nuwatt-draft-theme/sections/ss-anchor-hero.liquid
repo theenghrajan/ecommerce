@@ -1,0 +1,250 @@
+{% comment %}
+  SS Anchor Hero
+  Figma: "128 Audit Fixes" / Anchor page — HeroSection (node 9172:203)
+
+  A TRIMMED COPY of sections/slideshow.liquid's "hero" block path, prefixed ss-.
+  slideshow.liquid itself is used by 8 templates and is left untouched.
+
+  Trimmed deliberately: the design is one static hero, so the slick carousel,
+  autoplay, pause control, multi-slide loop and mobile-image swap are dropped.
+  What is KEPT is the theme's own markup and class names — hero, hero__image-
+  wrapper, hero__text-wrap, hero__text-content, h1 hero__title, hero__subtitle,
+  hero__link — so it inherits the theme's hero styling rather than re-inventing
+  it. The CTA uses the theme's .btn, so shape, padding and colour follow
+  settings.button_style and settings.color_button.
+
+  Added over the source:
+    - heading_tag, so this page can own its H1 (slideshow renders h2 only).
+    - gradient overlay direction, which the source has as a flat opacity.
+
+  Layout from Figma: 500px min height, content column max 448px (measured 436)
+  inset 80px from the left, 16px stack, left-to-right dark gradient.
+{% endcomment %}
+
+{{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
+{%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
+{%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+
+{%- liquid
+  assign min_h = section.settings.min_height
+  assign o = section.settings.overlay_opacity | divided_by: 100.0
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --ss-btn-radius: {{ section.settings.button_radius }}px;
+  }
+  #shopify-section-{{ section.id }} .ss-anchor-hero {
+    min-height: {{ min_h }}px;
+  }
+  #shopify-section-{{ section.id }} .ss-anchor-hero__overlay {
+    background: linear-gradient(
+      to {{ section.settings.gradient_direction }},
+      rgba(0, 0, 0, {{ o }}) 0%,
+      rgba(0, 0, 0, {{ o | times: 0.625 }}) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+{%- endstyle -%}
+
+<div
+  class="page-width hero--padded ss-anchor-section ss-anchor-hero-wrap"
+  data-section-id="{{ section.id }}"
+  data-section-type="ss-anchor-hero"
+>
+  <div class="ss-anchor-hero hero">
+    <div class="ss-anchor-hero__media hero__image-wrapper">
+      {%- if section.settings.image != blank -%}
+        {%- render 'image-element',
+          img: section.settings.image,
+          alt: '',
+          widths: '600, 900, 1280, 1600, 2000, 2400, 3000',
+          sizes: '100vw',
+          classes: 'hero__image',
+          ariaHidden: true
+        -%}
+      {%- else -%}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+
+    <div class="ss-anchor-hero__overlay" aria-hidden="true"></div>
+
+    {%- comment -%}
+      NOTE: no .hero__slide-link here, deliberately.
+
+      The theme's hero puts a full-bleed anchor over the whole slide and hangs
+      its hover off it (theme.css.liquid:7423), so hovering ANYWHERE on the
+      banner lightens the CTA and the entire banner is clickable. That was not
+      wanted here — the hover belongs to the button alone — so the overlay is
+      omitted and .ss-anchor-btn:hover in ss-anchor.css provides the effect
+      instead. Re-adding that anchor would bring the banner-wide hover back.
+    {%- endcomment -%}
+
+    <div class="ss-anchor-hero__inner hero__text-wrap">
+      <div class="ss-anchor-hero__content hero__text-content">
+        {%- if section.settings.heading != blank -%}
+          {%- case section.settings.heading_tag -%}
+            {%- when 'h1' -%}
+              <h1 class="h1 hero__title ss-anchor-hero__title">{{ section.settings.heading | escape }}</h1>
+            {%- when 'h2' -%}
+              <h2 class="h1 hero__title ss-anchor-hero__title">{{ section.settings.heading | escape }}</h2>
+            {%- else -%}
+              <div class="h1 hero__title ss-anchor-hero__title">{{ section.settings.heading | escape }}</div>
+          {%- endcase -%}
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="hero__subtitle ss-anchor-hero__text rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          {%- comment -%}
+            Theme .btn: shape from --buttonRadius, padding from --btnPadding,
+            colour from --colorBtnPrimary. Figma's 2px radius is deliberately
+            not reproduced — the theme wins on button design.
+          {%- endcomment -%}
+          <div class="hero__link">
+            <a class="btn ss-anchor-btn" href="{{ section.settings.button_link | default: '#' }}">
+              {{ section.settings.button_label | escape }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SS Anchor Hero",
+  "tag": "section",
+  "class": "ss-anchor-section-wrapper",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness",
+      "info": "Strength of the gradient at its darkest edge.",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 80
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "Gradient direction",
+      "default": "right",
+      "options": [
+        { "value": "right", "label": "Dark on the left" },
+        { "value": "left", "label": "Dark on the right" },
+        { "value": "top", "label": "Dark at the bottom" },
+        { "value": "bottom", "label": "Dark at the top" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bedroom Lights"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading level",
+      "info": "Use H1 when this is the page's main heading. Only one H1 per page.",
+      "default": "h1",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "div", "label": "No heading tag" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_case",
+      "label": "Heading case",
+      "info": "Overrides the theme-wide uppercase heading setting for this section only.",
+      "default": "sentence",
+      "options": [
+        { "value": "sentence", "label": "Sentence case" },
+        { "value": "uppercase", "label": "UPPERCASE" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Create a relaxing retreat with premium LED lighting designed for comfort, style and efficiency.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Bedroom Lights"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Button corner radius",
+      "info": "Overrides the theme's button shape (currently a 50px pill). The design uses 2px.",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS Anchor Hero"
+    }
+  ]
+}
+{% endschema %}

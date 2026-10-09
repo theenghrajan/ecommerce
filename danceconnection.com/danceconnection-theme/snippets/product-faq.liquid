@@ -1,0 +1,44 @@
+{%- comment -%}
+  Product FAQs from metafield custom.ss_product_faqs (list of "faq" metaobjects: question, answer).
+  Accordion (same markup as sections/faq.liquid) + FAQPage JSON-LD. Renders nothing when empty.
+  Params: product, id (unique per placement), title (optional heading).
+{%- endcomment -%}
+{%- assign faqs = product.metafields.custom.ss_product_faqs.value -%}
+{%- if faqs != blank and faqs.count > 0 -%}
+  {%- if title != blank -%}
+    <h2 class="h4">{{ title | escape }}</h2>
+  {%- endif -%}
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for faq in faqs -%}
+          {
+            "@type": "Question",
+            "name": {{ faq.question.value | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ faq.answer | metafield_text | json }}
+            }
+          }{% unless forloop.last %},{% endunless %}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+
+  {%- for faq in faqs -%}
+    <div>
+      <button type="button" class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left" aria-controls="FAQ-content-{{ id }}-{{ forloop.index }}">
+        {%- render 'collapsible-icons-alt', no_circle: true -%}
+        <span>{{ faq.question.value | escape }}</span>
+      </button>
+      <div id="FAQ-content-{{ id }}-{{ forloop.index }}" class="collapsible-content collapsible-content--all">
+        <div class="collapsible-content__inner collapsible-content__inner--faq rte">
+          {{ faq.answer | metafield_tag }}
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+{%- endif -%}

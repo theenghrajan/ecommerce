@@ -1,0 +1,1505 @@
+
+{% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"> {% endcomment %}
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --ink:#171A1F;
+  --slate:#5C6270;
+  --slate-light:#8B909C;
+  --navy:#0F1B30;
+  --navy-2:#172743;
+  --gold:#F2B705;
+  --gold-deep:#A9760A;
+  --paper:#FAF8F4;
+  --paper-2:#F2EFE7;
+  --white:#FFFFFF;
+  --line:#E3E0D6;
+  --line-dark:#2A3A57;
+  --mistake-bg:#FBECEA;
+  --mistake-border:#E3B4AC;
+  --mistake-text:#8A2A22;
+  --check-bg:#F3F6F1;
+  --check-border:#C9DBC4;
+  --check-text:#2F5233;
+  --radius-s:3px;
+  --radius-m:6px;
+  --radius-l:10px;
+  --maxw:1200px;
+  --font-display:'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+  --header-h:112px;
+}
+
+{% comment %} *,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important;}
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--white);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+} {% endcomment %}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+.container{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01em; color:var(--navy); margin:0;}
+.skip-link{
+  position:absolute; left:-9999px; top:0; background:var(--gold); color:var(--navy);
+  padding:10px 16px; z-index:1000; font-weight:600; font-family:var(--font-body);
+}
+.skip-link:focus{left:16px; top:16px;}
+:focus-visible{outline:3px solid var(--gold-deep); outline-offset:2px;}
+
+/* ============================================================
+   SITE HEADER (context only — represents existing NuWatt/Shopify header)
+   ============================================================ */
+.announce-bar{
+  background:var(--navy); color:var(--white); text-align:center;
+  font-size:12.5px; letter-spacing:.04em; padding:7px 12px; font-weight:500;
+}
+.site-header{
+  position:sticky; top:0; z-index:100; background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.site-header__inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px; max-width:var(--maxw); margin:0 auto;
+}
+.site-logo{
+  font-family:var(--font-display); font-weight:700; font-size:21px; letter-spacing:-.02em;
+  color:var(--navy); text-decoration:none; display:flex; align-items:center; gap:8px;
+}
+.site-logo span{color:var(--gold-deep);}
+.site-nav{display:flex; gap:28px; font-size:14.5px; font-weight:500;}
+.site-nav a{text-decoration:none; color:var(--ink);}
+.site-nav a:hover{color:var(--gold-deep);}
+.site-header__actions{display:flex; gap:18px; align-items:center; font-size:13px; color:var(--slate);}
+.site-header__actions .cta-quote{
+  background:var(--navy); color:var(--white); padding:9px 16px; border-radius:var(--radius-s);
+  text-decoration:none; font-weight:600; font-size:13px;
+}
+.site-header__actions .cta-quote:hover{background:var(--gold-deep);}
+@media (max-width:900px){
+  .site-nav{display:none;}
+}
+@media (max-width:520px){
+  .site-header__inner{padding:14px 20px;}
+  .site-logo{font-size:17px;}
+  .site-header__actions span{display:none;}
+  .site-header__actions .cta-quote{padding:9px 14px; font-size:12.5px;}
+  .announce-bar{font-size:11px; padding:6px 10px;}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  background:var(--navy);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 85% -10%, rgba(242,183,5,0.14), transparent 60%),
+    linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 100%);
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+.hero__inner{
+  max-width:var(--maxw); margin:0 auto; padding:76px 24px 64px;
+  display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;
+}
+.hero__eyebrow{
+  font-family:var(--font-mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; margin-bottom:18px; display:flex; align-items:center; gap:10px;
+}
+.hero__eyebrow::before{content:""; width:22px; height:1px; background:var(--gold);}
+.hero h1{
+  color:var(--white); font-size:clamp(32px, 4vw, 48px); line-height:1.1; margin-bottom:22px;
+  max-width:620px;
+}
+.hero__sub{
+  font-size:16.5px; line-height:1.7; color:#C7CEDC; max-width:520px; margin-bottom:30px;
+}
+.hero__sub strong{color:var(--white); font-weight:600;}
+.hero__cta-row{display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--gold); color:var(--navy); font-weight:700; font-size:15px;
+  padding:14px 24px; border-radius:var(--radius-s); text-decoration:none;
+  transition:transform .15s ease, background .15s ease;
+}
+.btn-primary:hover{background:#FFCF33; transform:translateY(-1px);}
+.hero__meta{
+  font-family:var(--font-mono); font-size:12.5px; color:#8B94A8; letter-spacing:.03em;
+}
+.hero__visual{
+  position:relative; border-radius:var(--radius-l); overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  aspect-ratio:4/5; background:linear-gradient(160deg,#1B2C4C,#0B1424);
+}
+.hero__visual-grid{
+  position:absolute; inset:0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 46px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 46px);
+}
+.hero__visual-glow{
+  position:absolute; width:70%; height:38%; left:15%; top:8%;
+  background:radial-gradient(ellipse at center, rgba(242,183,5,.55), transparent 70%);
+  filter:blur(6px);
+}
+.hero__visual-label{
+  position:absolute; bottom:18px; left:18px; right:18px;
+  font-family:var(--font-mono); font-size:11.5px; color:#B9C1D4;
+  background:rgba(15,27,48,.72); border:1px solid rgba(255,255,255,.15);
+  padding:12px 14px; border-radius:var(--radius-s); backdrop-filter:blur(4px);
+}
+.hero__visual-label b{color:var(--gold); display:block; font-family:var(--font-body); font-size:12.5px; margin-bottom:2px;}
+@media (max-width:900px){
+  .hero__inner{grid-template-columns:1fr; padding:56px 20px 44px;}
+  .hero__visual{aspect-ratio:16/10;}
+}
+</style>
+
+{% comment %} <a href="#MainContent" class="skip-link">Skip to content</a> {% endcomment %}
+
+<!-- ================= SITE HEADER (context) ================= -->
+{% comment %} <div class="announce-bar">Free Shipping on All Orders — Same-Day Order Processing</div> {% endcomment %}
+{% comment %} <header class="site-header">
+  <div class="site-header__inner">
+    <a href="/" class="site-logo">NUWATT<span>LIGHTING</span></a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#">Residential</a>
+      <a href="#">Outdoor</a>
+      <a href="#">Commercial</a>
+      <a href="#">Industrial</a>
+      <a href="#" style="color:var(--gold-deep); font-weight:700;">Buying Guides</a>
+    </nav>
+    <div class="site-header__actions">
+      <span>(862) 801-2006</span>
+      <a href="#" class="cta-quote">Get a Quote</a>
+    </div>
+  </div>
+</header> {% endcomment %}
+
+<main id="MainContent">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero__inner">
+    <div>
+      <p class="hero__eyebrow">Commercial Buying Guide</p>
+      <h1>How to Choose Commercial LED&nbsp;Lighting: A Buying Guide by Application</h1>
+      <p class="hero__sub">
+        The right commercial fixture isn't determined by wattage alone — it's determined by
+        your space. Ceiling height, mounting conditions, light distribution, visual
+        requirements, controls, electrical compatibility, and environmental exposure all narrow the
+        decision differently depending on whether you're lighting an office, a warehouse, or a loading dock.
+        This guide is organized around your application, not a list of specifications.
+      </p>
+      <div class="hero__cta-row">
+        <a href="#choose-application" class="btn-primary">Start by choosing your application ↓</a>
+        {% comment %} <span class="hero__meta">7 applications · Product-matched · No spec sheet required</span> {% endcomment %}
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      {% comment %} <div class="hero__visual-grid"></div>
+      <div class="hero__visual-glow"></div> {% endcomment %}
+      <div class="buying-hero-img"><a href="https://www.nuwattlighting.com/collections/high-bay-led-lights"><img src="https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Gemini_Generated_Image_2s4dsk2s4dsk2s4d.jpg?v=1789121255" alt="hero banner"> </a></a></div>
+      <div class="hero__visual-label"><b>NuWatt warehouse lights in a loading dock.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPLICATION NAVIGATION ================= -->
+<style>
+.app-nav-section{
+  background:var(--paper); border-bottom:1px solid var(--line);
+  padding:52px 0 56px; scroll-margin-top:var(--header-h);
+}
+.app-nav-section h2{font-size:26px; margin-bottom:6px;}
+.app-nav-section .section-kicker{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--gold-deep); font-weight:600; margin-bottom:10px; display:block;
+}
+.app-nav-section .lede{color:var(--slate); font-size:15px; max-width:640px; margin-bottom:30px;}
+.app-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;
+  list-style:none; margin:0; padding:0;
+}
+.app-grid li{list-style:none;}
+.app-card{
+  display:flex; flex-direction:column; gap:10px;
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-m);
+  padding:20px 18px; text-decoration:none; color:var(--ink);
+  transition:border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  height:100%;
+}
+.app-card:hover, .app-card:focus-visible{
+  border-color:var(--gold-deep); transform:translateY(-2px);
+  box-shadow:0 8px 20px -12px rgba(15,27,48,.35);
+}
+.app-card__icon{
+  width:34px; height:34px; border-radius:var(--radius-s);
+  background:var(--navy); color:var(--gold); display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-size:13px; font-weight:600;
+}
+.app-card__name{font-family:var(--font-display); font-weight:600; font-size:16px; color:var(--navy);}
+.app-card__products{font-size:12.5px; color:var(--slate); line-height:1.5;}
+@media (max-width:1000px){ .app-grid{grid-template-columns:repeat(3,1fr);} }
+@media (max-width:720px){ .app-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:460px){ .app-grid{grid-template-columns:1fr;} }
+
+/* How this guide works strip */
+{% comment %} .how-it-works{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:0; margin-top:36px;
+  border:1px solid var(--line); border-radius:var(--radius-m); overflow:hidden; background:var(--white);
+}
+.how-it-works div{
+  padding:16px 16px; border-right:1px solid var(--line); font-size:12.5px; color:var(--slate);
+}
+.how-it-works div:last-child{border-right:none;}
+.how-it-works b{
+  display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em;
+  color:var(--gold-deep); text-transform:uppercase; margin-bottom:4px;
+}
+@media (max-width:900px){
+  .how-it-works{grid-template-columns:1fr 1fr;}
+  .how-it-works div{border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+}
+@media (max-width:520px){ .how-it-works{grid-template-columns:1fr;} } {% endcomment %}
+
+/* How this guide works - step flow */
+
+.how-it-works {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 36px;
+  background: transparent;
+}
+
+.how-it-works div {
+  position: relative;
+  padding: 16px 28px 16px 16px;
+  font-size: 12.5px;
+  color: var(--slate);
+}
+
+.how-it-works div:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--gold-deep);
+}
+
+.how-it-works b {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: var(--gold-deep);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 900px) {
+  .how-it-works {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .how-it-works div {
+    padding-right: 35px;
+  }
+
+  .how-it-works div:nth-child(2)::after {
+    content: "";
+  }
+
+  .how-it-works div:nth-child(odd)::after {
+    content: "→";
+  }
+}
+
+@media (max-width: 520px) {
+  .how-it-works {
+    grid-template-columns: 1fr;
+  }
+
+  .how-it-works div {
+    padding: 12px 16px 28px;
+  }
+
+  .how-it-works div:not(:last-child)::after {
+    content: "↓";
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+}
+
+</style>
+
+<section class="app-nav-section" id="choose-application">
+  <div class="container">
+<div class="how-it-works" style="margin-bottom: 25px;">
+      <div><b>Choose</b>Pick your application above</div>
+      <div><b>Understand</b>Read what matters for your space</div>
+      <div><b>Select</b>See the matched NuWatt fixture types</div>
+      <div><b>Avoid</b>Check common buying mistakes</div>
+      <div><b>Order</b>Confirm with the pre-order checklist</div>
+    </div>
+
+
+    {% comment %} <span class="section-kicker">Step 1</span> {% endcomment %}
+    <h2>Choose Your Application</h2>
+    <p class="lede">Select the space you're lighting. Each application opens a short, focused section covering exactly what matters for that environment — no unrelated specifications.</p>
+
+    <ul class="app-grid">
+      <li><a class="app-card" href="#office">
+        <span class="app-card__icon">01</span>
+        <span class="app-card__name">Office</span>
+        <span class="app-card__products">Panel Lights · Tube Lights</span>
+      </a></li>
+      <li><a class="app-card" href="#garage-shop">
+        <span class="app-card__icon">02</span>
+        <span class="app-card__name">Garage &amp; Shop</span>
+        <span class="app-card__products">Wraparound · Shop · Panel Lights</span>
+      </a></li>
+      <li><a class="app-card" href="#warehouse">
+        <span class="app-card__icon">03</span>
+        <span class="app-card__name">Warehouse</span>
+        <span class="app-card__products">UFO &amp; Linear High Bay</span>
+      </a></li>
+      <li><a class="app-card" href="#gym-fitness">
+        <span class="app-card__icon">04</span>
+        <span class="app-card__name">Gym &amp; Fitness</span>
+        <span class="app-card__products">High Bay · Panel Lights</span>
+      </a></li>
+      <li><a class="app-card" href="#hospitality">
+        <span class="app-card__icon">05</span>
+        <span class="app-card__name">Hospitality</span>
+        <span class="app-card__products">Recessed Lights</span>
+      </a></li>
+      <li><a class="app-card" href="#lobbies-waiting-areas">
+        <span class="app-card__icon">06</span>
+        <span class="app-card__name">Lobbies &amp; Waiting Areas</span>
+        <span class="app-card__products">Recessed · Panel Lights</span>
+      </a></li>
+      <li><a class="app-card" href="#outdoor">
+        <span class="app-card__icon">07</span>
+        <span class="app-card__name">Outdoor</span>
+        <span class="app-card__products">Flood · Bullet · Wall Pack · Canopy</span>
+      </a></li>
+    </ul>
+
+    
+  </div>
+</section>
+
+<!-- ================= SHARED APPLICATION SECTION STYLES ================= -->
+<style>
+.app-section{
+  padding:72px 0; border-bottom:1px solid var(--line); scroll-margin-top:var(--header-h);
+}
+.app-section:nth-of-type(even){background:var(--paper);}
+.app-section__head{max-width:760px; margin-bottom:34px;}
+.app-section__num{
+  font-family:var(--font-mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold-deep); font-weight:600; display:block; margin-bottom:10px;
+}
+.app-section h2{font-size:32px; margin-bottom:14px;}
+.app-section__intro{font-size:16px; color:var(--slate); line-height:1.7;}
+
+/* Quick Selection plate — signature element */
+.quick-select{
+  display:grid; grid-template-columns:1fr 1.6fr; gap:0;
+  background:var(--navy); color:var(--white); border-radius:var(--radius-l);
+  overflow:hidden; margin:28px 0 48px;
+}
+.quick-select__label{
+  padding:26px 26px; background:var(--navy-2); border-right:1px solid rgba(255,255,255,.1);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.quick-select__label .tag{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold); font-weight:600; margin-bottom:8px;
+}
+.quick-select__label .best-for{font-family:var(--font-display); font-size:18px; font-weight:600; line-height:1.35;}
+.quick-select__body{padding:26px 28px; display:flex; flex-direction:column; gap:14px; justify-content:center;}
+.quick-select__row{display:flex; gap:14px; align-items:baseline; font-size:14px;}
+.quick-select__row .k{
+  font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:#ebf7f6; min-width:88px; flex-shrink:0;
+}
+.quick-select__row .v{color:#DDE2EC; line-height:1.6;}
+@media (max-width:760px){
+  .quick-select{grid-template-columns:1fr;}
+  .quick-select__label{border-right:none; border-bottom:1px solid rgba(255,255,255,.1);}
+}
+
+/* H3 sub-blocks */
+.app-section h3{
+  font-size:19px; color:var(--navy); margin:44px 0 18px; padding-top:2px;
+  display:flex; align-items:center; gap:10px;
+}
+.app-section h3::before{content:""; width:20px; height:2px; background:var(--gold-deep); flex-shrink:0;}
+.consider-list{
+  list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px 28px;
+}
+.consider-list li{
+  font-size:14.5px; color:var(--ink); line-height:1.55; padding-left:18px; position:relative;
+}
+.consider-list li::before{
+  content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:50%;
+  background:var(--gold-deep);
+}
+.consider-list li b{color:var(--navy); font-weight:600;}
+@media (max-width:640px){ .consider-list{grid-template-columns:1fr;} }
+
+/* Fixture recommendation cards */
+.fixture-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:18px;}
+.fixture-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+.fixture-grid.cols-1{grid-template-columns:1fr; max-width:480px;}
+.fixture-card{
+  border:1px solid var(--line); border-radius:var(--radius-m); background:var(--white);
+  padding:22px; display:flex; flex-direction:column; gap:12px;
+}
+.fixture-card__name{font-family:var(--font-display); font-size:17px; font-weight:600; color:var(--navy);}
+.fixture-card__best{
+  font-size:13px; color:var(--slate); line-height:1.6;
+}
+.fixture-card__best strong{color:var(--ink);}
+.fixture-card__points{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px;}
+.fixture-card__points li{
+  font-size:12.5px; color:var(--slate); padding-left:14px; position:relative;
+}
+.fixture-card__points li::before{content:"—"; position:absolute; left:0; color:var(--gold-deep);}
+.fixture-card__cta{
+  margin-top:auto; align-self:flex-start; font-weight:700; font-size:13.5px; color:var(--gold-deep);
+  text-decoration:none; padding-top:6px; border-top:1px solid var(--line); width:100%;
+}
+.fixture-card__cta:hover{color:var(--navy);}
+@media (max-width:760px){
+  .fixture-grid, .fixture-grid.cols-4{grid-template-columns:1fr;}
+}
+
+/* Mistake callout */
+.mistake-box{
+  background:var(--mistake-bg); border:1px solid var(--mistake-border); border-radius:var(--radius-m);
+  padding:22px 24px;
+}
+.mistake-box ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;}
+.mistake-box li{
+  font-size:14.5px; color:var(--ink); padding-left:26px; position:relative; line-height:1.55;
+}
+.mistake-box li::before{
+  content:"✕"; position:absolute; left:0; top:0; color:var(--mistake-text); font-weight:700; font-size:13px;
+}
+
+/* Checklist */
+.checklist{
+  background: #fce8af59;
+    border: 1px solid #fef8e5; border-radius:var(--radius-m);
+  padding:24px 26px;
+}
+.checklist__title{
+  font-family:var(--font-mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--check-text); font-weight:600; margin-bottom:14px; display:block;
+}
+.checklist ul{list-style:none; margin:0; padding:0; columns:2; column-gap:28px;}
+.checklist li{break-inside:avoid; margin-bottom:11px;}
+.checklist label{
+  display:flex; align-items:flex-start; gap:10px; font-size:14px; color:var(--ink); cursor:pointer; line-height:1.5; font-weight: 400 !important;
+}
+.checklist input[type="checkbox"]{
+  width:17px; height:17px; margin-top:2px; accent-color:var(--gold-deep); flex-shrink:0; cursor:pointer;
+}
+@media (max-width:640px){ .checklist ul{columns:1;} }
+
+/* Reference jump link */
+.ref-note{
+  font-size:13.5px; color:var(--slate); background:var(--paper-2); border-left:3px solid var(--gold-deep);
+  padding:12px 16px; border-radius:0 var(--radius-s) var(--radius-s) 0; margin:20px 0 0;
+}
+.ref-note a{color:var(--gold-deep); font-weight:600; text-decoration:underline;}
+
+/* Back to applications */
+.back-to-apps{
+  display:inline-flex; align-items:center; gap:6px; margin-top:48px;
+  font-size:13.5px; font-weight:600; color:var(--navy); text-decoration:none;
+  font-family:var(--font-mono); letter-spacing:.02em;
+}
+.back-to-apps:hover{color:var(--gold-deep);}
+</style>
+
+<!-- ================= OFFICE ================= -->
+<section class="app-section" id="office">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 01 / 07</span>
+      <h2>Office Lighting</h2>
+      <p class="app-section__intro">Office lighting is judged on comfort, not brightness. The right fixture keeps glare off screens, renders the space evenly, and matches whatever ceiling and infrastructure is already in place.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">Panel Lights + Tube Lights</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Visual comfort, glare control, uniform illumination, ceiling type, CCT, CRI, controls, electrical compatibility</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Visual comfort &amp; glare</b> — minimize direct glare, especially near desks and screens.</li>
+      <li><b>Ceiling type</b> — confirm suspended/drop grid vs. drywall before choosing a mounting style.</li>
+      <li><b>Ceiling-grid dimensions</b> — verify actual grid size (2×2 vs. 2×4) before ordering panels.</li>
+      <li><b>Existing infrastructure</b> — note whether you're retrofitting fluorescent troffers or starting fresh.</li>
+      <li><b>Light distribution</b> — even spread across desks and walkways reduces eye strain.</li>
+      <li><b>CCT</b> — most offices land between 3500K–4000K for alertness without harshness.</li>
+      <li><b>CRI</b> — 80+ is typical for accurate color rendering in workspaces.</li>
+      <li><b>Dimming &amp; controls</b> — confirm compatibility with 0-10V dimming or occupancy sensors.</li>
+      <li><b>Voltage compatibility</b> — confirm building voltage (120V, 277V, or universal) before ordering.</li>
+      <li><b>Installation method</b> — recessed, surface-mount, or grid-mount changes which fixture fits.</li>
+    </ul>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid">
+      <article class="fixture-card">
+        <span class="fixture-card__name">Panel Lights</span>
+        <p class="fixture-card__best">Best for <strong>suspended / drop-ceiling offices</strong> that need clean, uniform illumination with low glare.</p>
+        <ul class="fixture-card__points">
+          <li>Confirm grid size (2×2 or 2×4) before ordering</li>
+          <li>Diffused optics reduce screen glare</li>
+          <li>Pairs well with 0-10V dimming systems</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-panel-light">Shop Panel Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Tube Lights</span>
+        <p class="fixture-card__best">Best for offices with <strong>existing linear fluorescent troffers</strong> being retrofitted rather than replaced.</p>
+        <ul class="fixture-card__points">
+          <li>Verify ballast type: plug-and-play vs. ballast bypass</li>
+          <li>Matches existing 4ft/2ft fixture housings</li>
+          <li>Lower disruption than a full fixture swap</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-tube-lights">Shop Tube Lights →</a>
+      </article>
+    </div>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Choosing a fixture based on wattage alone instead of light quality and distribution</li>
+        <li>Ignoring glare in screen-heavy work areas</li>
+        <li>Ordering the wrong panel dimensions for the ceiling grid</li>
+        <li>Failing to account for ceiling configuration (drop grid vs. hard ceiling)</li>
+        <li>Not verifying ballast compatibility before ordering tube lights</li>
+        <li>Selecting controls that aren't compatible with the fixture's dimming protocol</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Office — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Ceiling type confirmed (drop grid or hard ceiling)</label></li>
+        <li><label><input type="checkbox"> Panel size or tube length matches existing layout</label></li>
+        <li><label><input type="checkbox"> CCT selected (3500K–4000K typical)</label></li>
+        <li><label><input type="checkbox"> CRI 80+ confirmed</label></li>
+        <li><label><input type="checkbox"> Dimming/control compatibility verified</label></li>
+        <li><label><input type="checkbox"> Voltage confirmed (120V / 277V / Universal)</label></li>
+        <li><label><input type="checkbox"> Ballast type verified, if replacing tubes</label></li>
+        <li><label><input type="checkbox"> Quantity and layout confirmed for even coverage</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= GARAGE & SHOP ================= -->
+<section class="app-section" id="garage-shop">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 02 / 07</span>
+      <h2>Garage &amp; Shop Lighting</h2>
+      <p class="app-section__intro">Garages and shops fail on shadows, not lumens. A single center fixture rarely covers a workbench properly — the goal is even, shadow-free light across the areas you actually work in.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">Wraparound Lights + Shop Lights<br>(Panel Lights for finished spaces)</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Task-level brightness, shadow-free coverage, mounting height, environmental rating, durability</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Task visibility</b> — workbenches and tool areas need brighter, more direct light than general space.</li>
+      <li><b>Shadow patterns</b> — a single central fixture creates shadows exactly where you work.</li>
+      <li><b>Mounting height</b> — typical 8–12 ft ceilings suit wraparound and shop-light form factors well.</li>
+      <li><b>Ceiling configuration</b> — open joist vs. finished drywall changes mounting hardware.</li>
+      <li><b>Dust &amp; moisture exposure</b> — vehicles, welding, or open bay doors call for a higher ingress rating.</li>
+      <li><b>Durability</b> — impact-resistant housings hold up better in active work environments.</li>
+      <li><b>Controls</b> — motion/occupancy sensors help in spaces used intermittently.</li>
+      <li><b>Electrical compatibility</b> — confirm voltage and whether fixtures are plug-in or hardwired.</li>
+    </ul>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid">
+      <article class="fixture-card">
+        <span class="fixture-card__name">Wraparound Lights</span>
+        <p class="fixture-card__best">Best for <strong>finished garages/shops</strong> wanting broad, diffused light with a cleaner appearance.</p>
+        <ul class="fixture-card__points">
+          <li>Diffused lens softens shadows around benches</li>
+          <li>Surface-mount, no grid required</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-shop-lights">Shop Wraparound Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Shop Lights</span>
+        <p class="fixture-card__best">Best for <strong>utility garages and basements</strong> needing high-output, budget-friendly linear light.</p>
+        <ul class="fixture-card__points">
+          <li>High lumen output per fixture</li>
+          <li>Fast install on open joists</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-shop-lights">Shop Shop Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Panel Lights</span>
+        <p class="fixture-card__best">Best for <strong>finished spaces with a drop ceiling</strong> wanting an office-grade, low-glare look.</p>
+        <ul class="fixture-card__points">
+          <li>Clean, uniform illumination</li>
+          <li>Grid-mount for finished ceilings</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-panel-light">Shop Panel Lights →</a>
+      </article>
+    </div>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Relying on a single central fixture for the whole space</li>
+        <li>Creating shadows directly over workbenches and task areas</li>
+        <li>Ignoring mounting height when selecting output</li>
+        <li>Choosing a fixture without the right environmental/ingress rating for the space</li>
+        <li>Overlooking task-specific illumination near tool stations</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Garage &amp; Shop — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Task areas identified (workbench, lift, tool stations)</label></li>
+        <li><label><input type="checkbox"> Fixture spacing planned to avoid shadows</label></li>
+        <li><label><input type="checkbox"> Mounting height confirmed</label></li>
+        <li><label><input type="checkbox"> Ingress/environmental rating matches conditions</label></li>
+        <li><label><input type="checkbox"> Controls selected (switch, sensor, or both)</label></li>
+        <li><label><input type="checkbox"> Voltage and wiring method confirmed</label></li>
+        <li><label><input type="checkbox"> Quantity planned for even coverage</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= WAREHOUSE ================= -->
+<section class="app-section" id="warehouse">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 03 / 07</span>
+      <h2>Warehouse Lighting</h2>
+      <p class="app-section__intro">Warehouse lighting is a function of ceiling height and layout, not fixture count. Getting mounting height and distribution pattern right matters more than lumen output on its own.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">UFO High Bay + Linear High Bay</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Mounting height, distribution pattern, aisle layout, environmental rating, controls</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Mounting height</b> — high bay fixtures are built for elevated ceilings, typically 15 ft and above.</li>
+      <li><b>Aisle layout</b> — long, narrow aisles benefit from directional light; open floors benefit from broad coverage.</li>
+      <li><b>Ceiling structure</b> — confirm mounting method (hook, chain, surface, pendant) matches your structure.</li>
+      <li><b>Beam pattern</b> — wide beam angles suit open floors; linear patterns suit aisles and racking.</li>
+      <li><b>Lumen output</b> — size to mounting height and required floor-level foot-candles, not wattage alone.</li>
+      <li><b>Operating environment</b> — dust, temperature extremes, and moisture drive ingress-rating needs.</li>
+      <li><b>Controls</b> — occupancy sensors and 0-10V dimming cut energy use in low-traffic zones.</li>
+      <li><b>Electrical requirements</b> — confirm voltage and mounting accessories (hooks, yokes, sensors).</li>
+      <li><b>Installation hardware</b> — verify accessory compatibility before ordering.</li>
+    </ul>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid">
+      <article class="fixture-card">
+        <span class="fixture-card__name">UFO High Bay Lights</span>
+        <p class="fixture-card__best">Best for <strong>high-ceiling, open-floor areas</strong> needing broad, high-output illumination in a compact footprint.</p>
+        <ul class="fixture-card__points">
+          <li>Wide, even beam for open floor plans</li>
+          <li>Compact form factor for pendant or hook mount</li>
+          <li>Common accessories: sensors, mounting yokes</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/ufo-led-lights">Shop UFO High Bay Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Linear High Bay Lights</span>
+        <p class="fixture-card__best">Best for <strong>long aisles and racking layouts</strong> where directional, linear coverage follows the row.</p>
+        <ul class="fixture-card__points">
+          <li>Rectangular distribution aligns with aisles</li>
+          <li>Reduces dark gaps between racks</li>
+          <li>0-10V dimming available on select models</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/linear-high-bay-led-lights">Shop Linear High Bay Lights →</a>
+      </article>
+    </div>
+
+    <p class="ref-note">Before finalizing a warehouse order, verify environmental rating and DLC/rebate eligibility for the specific product. See <a href="#professional-reference">Professional Lighting Selection &amp; Compliance Reference</a>.</p>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Selecting wattage without factoring in mounting height</li>
+        <li>Ignoring light distribution pattern for the layout (open floor vs. aisle)</li>
+        <li>Under-lighting far aisles or over-lighting open areas</li>
+        <li>Overlooking environmental/ingress requirements in dusty or high-temp zones</li>
+        <li>Skipping controls that would reduce energy costs in low-traffic zones</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Warehouse — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Mounting height measured</label></li>
+        <li><label><input type="checkbox"> Fixture type matched to layout (UFO vs. linear)</label></li>
+        <li><label><input type="checkbox"> Beam angle/distribution confirmed for aisle or open-floor use</label></li>
+        <li><label><input type="checkbox"> Lumen output sized to ceiling height</label></li>
+        <li><label><input type="checkbox"> Environmental/ingress rating confirmed</label></li>
+        <li><label><input type="checkbox"> Controls and dimming compatibility confirmed</label></li>
+        <li><label><input type="checkbox"> Mounting accessories confirmed (hooks, yokes, chain)</label></li>
+        <li><label><input type="checkbox"> DLC/rebate eligibility checked, if applicable</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= GYM & FITNESS ================= -->
+<section class="app-section" id="gym-fitness">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 04 / 07</span>
+      <h2>Gym &amp; Fitness Lighting</h2>
+      <p class="app-section__intro">Gyms combine two competing needs: strong, uniform output across the floor, and glare control against mirrored walls. Getting both right protects visual comfort during extended member use.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">High Bay Lights + Panel Lights</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Uniform illumination, glare control near mirrors, ceiling height, activity-zone lighting, CCT</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Uniform illumination</b> — inconsistent light across the floor creates visibility issues during activity.</li>
+      <li><b>Glare</b> — mirrored walls amplify glare from poorly-controlled fixtures; favor diffused optics.</li>
+      <li><b>Vertical visibility</b> — light should illuminate walls and equipment, not just the floor.</li>
+      <li><b>Ceiling height</b> — determines whether high bay or panel-style fixtures fit better.</li>
+      <li><b>Activity zones</b> — free-weight, cardio, and studio areas can have different lighting needs.</li>
+      <li><b>CCT</b> — cooler CCT (4000K–5000K) is common for energetic training environments.</li>
+      <li><b>Controls</b> — zoned controls allow independent adjustment by activity area.</li>
+      <li><b>Visual comfort</b> — members and staff spend extended time under these fixtures.</li>
+    </ul>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid">
+      <article class="fixture-card">
+        <span class="fixture-card__name">High Bay Lights</span>
+        <p class="fixture-card__best">Best for <strong>gyms with higher ceilings and open floor plans</strong> needing strong, uniform output.</p>
+        <ul class="fixture-card__points">
+          <li>Even coverage across large open floors</li>
+          <li>Suited to free-weight and cardio zones</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/high-bay-led-lights">Shop High Bay Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Panel Lights</span>
+        <p class="fixture-card__best">Best for <strong>studio rooms and lower-ceiling areas</strong> wanting a low-glare, diffused look near mirrors.</p>
+        <ul class="fixture-card__points">
+          <li>Diffused optics reduce mirror glare</li>
+          <li>Fits drop-ceiling studio spaces</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-panel-light">Shop Panel Lights →</a>
+      </article>
+    </div>
+
+    <p class="ref-note">DLC-listed fixtures may qualify certain gym and fitness projects for utility rebates. Verify eligibility in the <a href="#professional-reference">Professional Lighting Selection &amp; Compliance Reference</a>.</p>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Allowing glare to bounce off mirrored walls</li>
+        <li>Leaving dark spots in high-traffic activity zones</li>
+        <li>Choosing fixtures by lumen output alone, without considering distribution</li>
+        <li>Ignoring ceiling height when selecting fixture type</li>
+        <li>Using a single lighting zone for rooms with mixed activities</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Gym &amp; Fitness — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Ceiling height confirmed</label></li>
+        <li><label><input type="checkbox"> Fixture type matched to zone (high bay vs. panel)</label></li>
+        <li><label><input type="checkbox"> Mirror walls and glare paths considered</label></li>
+        <li><label><input type="checkbox"> CCT selected for activity type</label></li>
+        <li><label><input type="checkbox"> Zoned controls planned, if activity areas differ</label></li>
+        <li><label><input type="checkbox"> Voltage and mounting method confirmed</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= HOSPITALITY ================= -->
+<section class="app-section" id="hospitality">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 05 / 07</span>
+      <h2>Hospitality Lighting</h2>
+      <p class="app-section__intro">Hospitality spaces are judged on how they feel, not just how well they're lit. Recessed lighting gives guest-facing areas a built-in, architectural look while still needing to be specified with the same rigor as any commercial fixture.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">Recessed Lights</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Ambiance &amp; CCT, beam angle, glare control, CRI, dimming, architectural integration</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Ambiance</b> — guest-facing spaces benefit from warmer CCT and layered light over flat brightness.</li>
+      <li><b>Beam angle</b> — narrow beams highlight features; wider beams provide general fill light.</li>
+      <li><b>Glare</b> — quality trims and baffles reduce visible glare in seating and dining areas.</li>
+      <li><b>CRI</b> — 90+ renders finishes, food, and skin tones more accurately.</li>
+      <li><b>Dimming</b> — guest areas typically need dimming to shift mood from day to evening service.</li>
+      <li><b>Architectural integration</b> — trim style and finish should match the space's design intent.</li>
+      <li><b>Ceiling construction</b> — confirm ceiling type and depth for the correct housing.</li>
+      <li><b>Environmental conditions</b> — covered outdoor or damp areas need a suitable rating.</li>
+    </ul>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid cols-1">
+      <article class="fixture-card">
+        <span class="fixture-card__name">Recessed Lights</span>
+        <p class="fixture-card__best">Best for <strong>guest-facing hospitality spaces</strong> needing a clean, built-in look with dimmable, warm-to-neutral illumination.</p>
+        <ul class="fixture-card__points">
+          <li>Choose trim/finish to match design intent</li>
+          <li>Confirm CRI 90+ for dining and lounge areas</li>
+          <li>Pair with dimming for day-to-evening transitions</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/recessed-lighting">Shop Recessed Lights →</a>
+      </article>
+    </div>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Selecting a CCT that feels clinical instead of inviting</li>
+        <li>Ignoring glare in seating and dining sightlines</li>
+        <li>Choosing a low-CRI fixture where color accuracy matters</li>
+        <li>Skipping dimming controls in guest-facing areas</li>
+        <li>Overlooking damp/wet-location needs for covered outdoor areas</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Hospitality — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> CCT selected for desired ambiance (2700K–3000K typical)</label></li>
+        <li><label><input type="checkbox"> CRI 90+ confirmed for guest-facing areas</label></li>
+        <li><label><input type="checkbox"> Beam angle matched to feature vs. fill lighting</label></li>
+        <li><label><input type="checkbox"> Dimming/control compatibility confirmed</label></li>
+        <li><label><input type="checkbox"> Trim and finish confirmed for design intent</label></li>
+        <li><label><input type="checkbox"> Environmental rating confirmed for damp/covered areas</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= LOBBIES & WAITING AREAS ================= -->
+<section class="app-section" id="lobbies-waiting-areas">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 06 / 07</span>
+      <h2>Lobbies &amp; Waiting Areas</h2>
+      <p class="app-section__intro">Lobbies do two jobs at once — make a first impression and move people through safely. That usually means mixing an architectural fixture for seating and accent zones with a broader fixture for circulation.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">Recessed Lights + Panel Lights</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Welcoming appearance, uniform illumination, glare control, CCT/CRI, dimming controls</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Welcoming appearance</b> — first-impression spaces benefit from layered light over harsh uniformity.</li>
+      <li><b>Visual comfort</b> — seating areas should avoid direct glare into sightlines.</li>
+      <li><b>Uniform illumination</b> — circulation paths need even, predictable light for safety and comfort.</li>
+      <li><b>Ceiling design</b> — architectural or drop ceilings each favor different fixture types.</li>
+      <li><b>Color rendering</b> — accurate CRI supports a polished, professional appearance.</li>
+      <li><b>Circulation vs. seating</b> — different zones can call for different fixture styles.</li>
+      <li><b>Dimming/controls</b> — useful for shifting mood between business hours and after-hours use.</li>
+    </ul>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid">
+      <article class="fixture-card">
+        <span class="fixture-card__name">Recessed Lights</span>
+        <p class="fixture-card__best">More <strong>architectural, controlled lighting</strong> — best for accent zones, seating nooks, and design-forward areas.</p>
+        <ul class="fixture-card__points">
+          <li>Built-in, low-profile appearance</li>
+          <li>Good for highlighting seating or reception features</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/recessed-lighting">Shop Recessed Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Panel Lights</span>
+        <p class="fixture-card__best"><strong>Broad, uniform general illumination</strong> — best for larger circulation and waiting areas with a drop ceiling.</p>
+        <ul class="fixture-card__points">
+          <li>Even coverage for larger open lobbies</li>
+          <li>Grid-mount for suspended ceilings</li>
+        </ul>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-panel-light">Shop Panel Lights →</a>
+      </article>
+    </div>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Using one fixture type uniformly across zones with different needs</li>
+        <li>Ignoring glare in seating sightlines</li>
+        <li>Mismatched CCT between adjoining spaces (lobby vs. hallway)</li>
+        <li>Skipping dimming/control options in guest-facing lobbies</li>
+        <li>Overlooking ceiling type when selecting mounting method</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Lobbies &amp; Waiting Areas — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Zones identified (circulation vs. seating vs. accent)</label></li>
+        <li><label><input type="checkbox"> Fixture type matched to zone (recessed vs. panel)</label></li>
+        <li><label><input type="checkbox"> CCT/CRI consistent with adjoining spaces</label></li>
+        <li><label><input type="checkbox"> Dimming/control compatibility confirmed</label></li>
+        <li><label><input type="checkbox"> Ceiling type and mounting method confirmed</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= OUTDOOR ================= -->
+<section class="app-section" id="outdoor">
+  <div class="container">
+    <div class="app-section__head">
+      <span class="app-section__num">Application 07 / 07</span>
+      <h2>Outdoor Lighting</h2>
+      <p class="app-section__intro">Outdoor fixtures live or die on environmental fit. Mounting location, wet-rating, and beam distribution matter more here than anywhere else in this guide — an indoor-rated fixture is never the right answer outside.</p>
+    </div>
+
+    <div class="quick-select">
+      <div class="quick-select__label">
+        <span class="tag">Quick Selection</span>
+        <span class="best-for">Flood + Bullet + Wall Pack + Canopy</span>
+      </div>
+      <div class="quick-select__body">
+        <div class="quick-select__row"><span class="k">Prioritize</span><span class="v">Environmental/wet rating, mounting location &amp; height, beam distribution, glare/light trespass, controls</span></div>
+      </div>
+    </div>
+
+    <h3>What to Know Before You Buy</h3>
+    <ul class="consider-list">
+      <li><b>Wet/weather exposure</b> — every outdoor fixture should carry a wet-location rating fit for its mounting location.</li>
+      <li><b>Mounting location &amp; height</b> — pole, wall, or ceiling mount changes beam spread and coverage.</li>
+      <li><b>Beam/distribution</b> — broad flood patterns suit open areas; directional patterns suit accent or security use.</li>
+      <li><b>Security</b> — coverage and output should match the safety needs of the area (entries, lots, perimeters).</li>
+      <li><b>Light trespass &amp; glare</b> — minimize spill onto neighboring properties or public ways.</li>
+      <li><b>Operating hours</b> — photocell or timed controls reduce energy use during daylight.</li>
+      <li><b>Controls</b> — dusk-to-dawn sensors and motion controls are standard for most outdoor applications.</li>
+      <li><b>Corrosion/environmental exposure</b> — coastal or high-moisture sites benefit from corrosion-resistant housings.</li>
+      <li><b>Electrical compatibility</b> — confirm voltage and whether fixtures are hardwired, knuckle-mount, or junction-box compatible.</li>
+    </ul>
+
+    <p class="ref-note">Before ordering an outdoor fixture, verify the required environmental rating and applicable project requirements. See the <a href="#professional-reference">Professional Lighting Selection &amp; Compliance Reference</a>.</p>
+
+    <h3>Choosing the Right Light</h3>
+    <div class="fixture-grid cols-4">
+      <article class="fixture-card">
+        <span class="fixture-card__name">Flood Lights</span>
+        <p class="fixture-card__best"><strong>Broad-area illumination</strong> for lots, yards, and security applications.</p>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-flood-lights">Shop Flood Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Bullet Lights</span>
+        <p class="fixture-card__best"><strong>Directional, spot-oriented</strong> illumination for accent and targeted security lighting.</p>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/bullet-lights">Shop Bullet Lights →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Wall Packs</span>
+        <p class="fixture-card__best"><strong>Building-mounted</strong> perimeter and entry security lighting.</p>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/led-wall-packs">Shop Wall Packs →</a>
+      </article>
+      <article class="fixture-card">
+        <span class="fixture-card__name">Canopy Lights</span>
+        <p class="fixture-card__best"><strong>Overhead lighting</strong> for covered parking, carports, and similar covered areas.</p>
+        <a class="fixture-card__cta" href="https://www.nuwattlighting.com/collections/canopy-lights">Shop Canopy Lights →</a>
+      </article>
+    </div>
+
+    <h3>Avoidable Buying Mistakes</h3>
+    <div class="mistake-box">
+      <ul>
+        <li>Using indoor-rated fixtures in outdoor locations</li>
+        <li>Ignoring wet-location requirements for the specific mounting location</li>
+        <li>Choosing the wrong beam pattern for the area's shape and use</li>
+        <li>Creating excessive glare or light trespass onto neighboring areas</li>
+        <li>Overlooking environmental exposure such as corrosion or temperature extremes</li>
+        <li>Skipping dusk-to-dawn or motion controls where they'd reduce operating cost</li>
+      </ul>
+    </div>
+
+    <h3>Before You Order</h3>
+    <div class="checklist">
+      <span class="checklist__title">Outdoor — Pre-Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Wet/damp location rating confirmed for mounting location</label></li>
+        <li><label><input type="checkbox"> Mounting height and method confirmed</label></li>
+        <li><label><input type="checkbox"> Beam pattern matched to area shape and purpose</label></li>
+        <li><label><input type="checkbox"> Light trespass/glare considered for neighboring properties</label></li>
+        <li><label><input type="checkbox"> Controls selected (photocell, motion, or timer)</label></li>
+        <li><label><input type="checkbox"> Corrosion resistance confirmed for the environment</label></li>
+        <li><label><input type="checkbox"> Voltage and wiring method confirmed</label></li>
+      </ul>
+    </div>
+
+    <a class="back-to-apps" href="#choose-application">↑ Back to Applications</a>
+  </div>
+</section>
+
+<!-- ================= PROFESSIONAL REFERENCE ================= -->
+<style>
+.ref-section {
+  background: var(--navy);
+  color: var(--white);
+  padding: 76px 0;
+  scroll-margin-top: var(--header-h);
+}
+
+.ref-section h2 {
+  color: var(--white);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.ref-section .lede {
+  color: #B9C1D4;
+  font-size: 15.5px;
+  margin-bottom: 40px;
+}
+
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.ref-card {
+  position: relative;
+  background: var(--navy-2);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: var(--radius-m);
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ref-card__num {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: .08em;
+  margin-bottom: 12px;
+}
+
+.ref-card h3 {
+  font-family: var(--font-display);
+  color: var(--white);
+  font-size: 16px;
+  margin: 0 0 10px;
+  line-height: 1.3;
+  padding-right: 25px;
+}
+
+.ref-card p {
+  font-size: 13px;
+  color: #C4CBDA;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.ref-card .key-standard {
+  margin-bottom: 8px;
+}
+
+.ref-card .key-standard strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Icons */
+.ref-card::after {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.ref-card:nth-child(1)::after {
+  content: "✅";
+  color: #B99A70;
+}
+
+.ref-card:nth-child(2)::after {
+  content: "🗺️";
+  color: #B99A70;
+}
+
+.ref-card:nth-child(3)::after {
+  content: "💧";
+  color: #70A9E0;
+}
+
+.ref-card:nth-child(4)::after {
+  content: "🍃";
+  color: #82B86A;
+}
+
+/* Learn More button */
+.ref-card .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: auto !important;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .ref-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .ref-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ref-card {
+    height: auto;
+  }
+}
+</style>
+
+<section class="ref-section" id="professional-reference">
+  <div class="container">
+
+    <h2>PROFESSIONAL LIGHTING SELECTION &amp; COMPLIANCE REFERENCE</h2>
+
+    <p class="lede">
+      Essential compliance standards to verify before specifying or purchasing commercial fixtures.
+    </p>
+
+    <div class="ref-grid">
+
+      <!-- 01 -->
+      <div class="ref-card">
+        <span class="ref-card__num">01</span>
+
+        <h3>SAFETY &amp; CERTIFICATIONS</h3>
+
+        <p class="key-standard">
+          <strong>KEY STANDARDS:</strong> UL / ETL Listed, CSA
+        </p>
+
+        <p>
+          Verify the safety listing required for building code clearance and local AHJ inspection.
+          Match requirements to the specific mounting, application, and wet/hazardous environments.
+        </p>
+
+        <a href="https://www.nuwattlighting.com/blogs/news/guide-to-led-lighting-standards-and-certifications"
+           class="btn-primary"
+           style="margin-top: 5px;">
+          Learn More
+        </a>
+      </div>
+
+      <!-- 02 -->
+      <div class="ref-card">
+        <span class="ref-card__num">02</span>
+
+        <h3>ENERGY &amp; STATE CODES</h3>
+
+        <p class="key-standard">
+          <strong>KEY STANDARDS:</strong> CA Title 24, ASHRAE 90.1, IECC
+        </p>
+
+        <p>
+          Check state and regional energy mandates. Regulates lighting power density (LPD),
+          mandatory controls (e.g., occupancy/daylight sensors), and California Title 24 compliance.
+        </p>
+
+        <a href="https://www.nuwattlighting.com/blogs/news/high-efficiency-lighting-big-tax-savings-with-section-179d"
+           class="btn-primary"
+           style="margin-top: 5px;">
+          Learn More
+        </a>
+      </div>
+
+      <!-- 03 -->
+      <div class="ref-card">
+        <span class="ref-card__num">03</span>
+
+        <h3>LOCATION &amp; INGRESS</h3>
+
+        <p class="key-standard">
+          <strong>KEY STANDARDS:</strong> Damp / Wet, IP65 / IP66, NEMA
+        </p>
+
+        <p>
+          Ensure rating suits where the fixture is installed. Use IP65/IP66 or wet-location for
+          outdoors, hose-downs, and washdowns. Use damp-location for indoor high humidity.
+        </p>
+
+        <a href="https://www.nuwattlighting.com/blogs/news/choosing-commercial-lighting-for-different-installation-environments"
+           class="btn-primary"
+           style="margin-top: 5px;">
+          Learn More
+        </a>
+      </div>
+
+      <!-- 04 -->
+      <div class="ref-card">
+        <span class="ref-card__num">04</span>
+
+        <h3>REBATE &amp; EFFICIENCY</h3>
+
+        <p class="key-standard">
+          <strong>KEY STANDARDS:</strong> DLC Premium, Energy Star
+        </p>
+
+        <p>
+          Determine eligibility for commercial utility rebates (which can offset up to 20%–50%
+          of cost). Verify exact model numbers on the QPL (Qualified Products List).
+        </p>
+
+        <a href="https://www.nuwattlighting.com/blogs/news/california-s-title-24-lighting-standards-whats-changing-in-2025"
+           class="btn-primary"
+           style="margin-top: 5px;">
+          Learn More
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CHECKLIST ================= -->
+<style>
+.final-checklist{padding:76px 0; background:var(--paper); scroll-margin-top:var(--header-h);}
+.final-checklist h2{font-size:30px; margin-bottom:10px;}
+.final-checklist .lede{color:var(--slate); max-width:640px; font-size:15.5px; margin-bottom:36px;}
+.final-checklist .checklist{padding:32px 34px;}
+.final-checklist .checklist ul{columns:3;}
+@media (max-width:900px){ .final-checklist .checklist ul{columns:2;} }
+@media (max-width:600px){ .final-checklist .checklist ul{columns:1;} }
+</style>
+
+<section class="final-checklist" id="before-you-order">
+  <div class="container">
+    {% comment %} <span class="section-kicker">Step 5</span> {% endcomment %}
+    <h2>Before You Place Your Commercial Lighting Order</h2>
+    <p class="lede">Whichever application you're lighting, confirm these before checkout. This is the practical, final decision layer for any commercial order.</p>
+    <div class="checklist">
+      <span class="checklist__title">Final Order Checklist</span>
+      <ul>
+        <li><label><input type="checkbox"> Application confirmed</label></li>
+        <li><label><input type="checkbox"> Fixture type confirmed</label></li>
+        <li><label><input type="checkbox"> Dimensions confirmed</label></li>
+        <li><label><input type="checkbox"> Mounting method confirmed</label></li>
+        <li><label><input type="checkbox"> Mounting height confirmed</label></li>
+        <li><label><input type="checkbox"> Light distribution confirmed</label></li>
+        <li><label><input type="checkbox"> Lumens/wattage confirmed</label></li>
+        <li><label><input type="checkbox"> CCT/CRI confirmed</label></li>
+        <li><label><input type="checkbox"> Voltage confirmed</label></li>
+        <li><label><input type="checkbox"> Dimming/controls confirmed</label></li>
+        <li><label><input type="checkbox"> Environmental rating confirmed</label></li>
+        <li><label><input type="checkbox"> Safety listing confirmed</label></li>
+        <li><label><input type="checkbox"> DLC/rebate requirements checked, if applicable</label></li>
+        <li><label><input type="checkbox"> Local/project code requirements checked</label></li>
+        <li><label><input type="checkbox"> Quantity confirmed</label></li>
+        <li><label><input type="checkbox"> Installation requirements confirmed</label></li>
+      </ul>
+    </div>
+  </div>
+</section> 
+
+<!-- ================= FAQ ================= -->
+<style>
+.faq-section{padding:76px 0; scroll-margin-top:var(--header-h);}
+.faq-section h2{font-size:30px; margin-bottom:36px;}
+.faq-list{max-width:820px; border-top:1px solid var(--line);}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-item summary{
+  list-style:none; cursor:pointer; padding:20px 4px; display:flex; align-items:center;
+  justify-content:space-between; gap:20px; font-family:var(--font-display); font-weight:600;
+  font-size:16px; color:var(--navy);
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary .icon{
+  flex-shrink:0; width:22px; height:22px; border:1.5px solid var(--gold-deep); border-radius:50%;
+  position:relative;
+}
+.faq-item summary .icon::before, .faq-item summary .icon::after{
+  content:""; position:absolute; background:var(--gold-deep); top:50%; left:50%;
+}
+.faq-item summary .icon::before{width:10px; height:1.5px; transform:translate(-50%,-50%);}
+.faq-item summary .icon::after{width:1.5px; height:10px; transform:translate(-50%,-50%); transition:transform .15s ease;}
+.faq-item[open] summary .icon::after{transform:translate(-50%,-50%) rotate(90deg); opacity:0;}
+.faq-item p{margin:0 0 22px; padding:0 4px; font-size:14.5px; color:var(--slate); line-height:1.7; max-width:680px;}
+</style>
+
+<section class="faq-section" id="faq">
+  <div class="container">
+    <span class="section-kicker">FAQ</span>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How do I choose commercial LED lighting for a warehouse?<span class="icon"></span></summary>
+        <p>Start with mounting height and layout. High ceilings and open floors typically call for UFO high bay lights, while long aisles with racking benefit from linear high bay lights for directional coverage.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What type of LED lighting is best for an office?<span class="icon"></span></summary>
+        <p>Panel lights are the standard choice for suspended-ceiling offices needing uniform, low-glare light. Tube lights make sense when you're retrofitting existing fluorescent troffers rather than replacing the fixture entirely.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between UFO and linear high bay lights?<span class="icon"></span></summary>
+        <p>UFO high bays have a compact, round form factor that distributes light broadly across open floor areas. Linear high bays are rectangular and distribute light in a directional pattern, which works well along aisles and racking rows.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I consider when choosing outdoor commercial lighting?<span class="icon"></span></summary>
+        <p>Environmental fit matters most: confirm the wet/damp location rating for the mounting location, choose a beam pattern that matches the area's shape, and plan controls (photocell or motion) to manage operating hours.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I know whether a commercial fixture will work with my existing electrical system?<span class="icon"></span></summary>
+        <p>Confirm the building's voltage (commonly 120V, 277V, or universal input) and, for retrofits, verify ballast compatibility or wiring method before ordering. When in doubt, check with your electrician before finalizing fixture selection.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do commercial lighting projects require DLC-listed fixtures?<span class="icon"></span></summary>
+        <p>Not always — but DLC listing is often required for utility rebate eligibility. If your project may qualify for a rebate program, verify DLC status for the specific product against current program requirements.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What should I check before ordering commercial LED fixtures?<span class="icon"></span></summary>
+        <p>Confirm application, fixture type, dimensions, mounting method and height, light distribution, CCT/CRI, voltage, controls, environmental rating, safety listing, and any applicable code or rebate requirements. See the full checklist above.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSING CTA ================= -->
+<style>
+.closing-cta{
+  background:linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color:var(--white); padding:64px 0; text-align:center;
+}
+.closing-cta h2{color:var(--white); font-size:27px; margin-bottom:12px;}
+.closing-cta p{color:#C4CBDA; font-size:15px; max-width:520px; margin:0 auto 28px;}
+.closing-cta .btn-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.btn-ghost{
+  display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.3);
+  color:var(--white); padding:13px 22px; border-radius:var(--radius-s); text-decoration:none;
+  font-weight:600; font-size:14.5px;
+}
+.btn-ghost:hover{border-color:var(--gold);}
+</style>
+<section class="closing-cta">
+  <div class="container">
+    <h2>Still not sure which fixture fits your space?</h2>
+    <p>Our team can review your layout and specs directly — no obligation, and typically same-day.</p>
+    <div class="btn-row">
+      <a href="#choose-application" class="btn-primary">↑ Revisit Your Application</a>
+      <a href="https://www.nuwattlighting.com/pages/help-center?page=%2Fpages%2Fcontact-us" class="btn-ghost">Talk to a Lighting Specialist →</a>
+    </div>
+  </div>
+</section>
+
+
+</main>

@@ -1,0 +1,64 @@
+{%- liquid
+  assign hide_icon_labels = true
+  if nav_position == 'below'
+    assign hide_icon_labels = false
+  endif
+-%}
+
+<div class="site-nav">
+  <div class="site-nav__icons">
+    <a href="{{ routes.search_url }}" id="the-search-ting" onclick="document.getElementById('Search').focus()" class="site-nav__link site-nav__link--icon js-search-header{% if nav_position == 'below' %} medium-up--hide{% endif %} js-no-transition">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+      <span class="icon__fallback-text">{{ 'general.search.title' | t }}</span>
+    </a>
+
+    {%- if shop.customer_accounts_enabled -%}
+      <a class="site-nav__link site-nav__link--icon small--hide" href="{{ routes.account_url }}">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.9993 10.5417C12.7713 10.5417 14.2077 9.10525 14.2077 7.33333C14.2077 5.56142 12.7713 4.125 10.9993 4.125C9.22744 4.125 7.79102 5.56142 7.79102 7.33333C7.79102 9.10525 9.22744 10.5417 10.9993 10.5417Z" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/><path d="M4.58398 18.3333C4.58398 16.6315 5.26002 14.9994 6.46338 13.7961C7.66674 12.5927 9.29885 11.9167 11.0007 11.9167C12.7025 11.9167 14.3346 12.5927 15.5379 13.7961C16.7413 14.9994 17.4173 16.6315 17.4173 18.3333" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/></svg>
+        <span class="site-nav__icon-label small--hide{% if hide_icon_labels %} icon__fallback-text{% endif %}">
+          {{ 'layout.customer.account' | t }}
+        </span>
+      </a>
+    {%- endif -%}
+   {% comment %} {% if cart.item_count > 0 %} href="/checkout" {% endif %} {% endcomment %}
+    <a 
+      id="HeaderCartTrigger"
+      aria-controls="HeaderCart"
+      class="site-nav__link site-nav__link--icon js-no-transition"
+      data-icon="{{ settings.cart_icon }}"
+      aria-label="{{ 'layout.cart.title' | t }}"
+      {% if cart.item_count > 0 %} href="/checkout" {% endif %}
+    >
+      <span class="cart-link">
+        {%- if settings.cart_icon == 'cart' -%}
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 6.41667H16.5L15.4 17.4167H6.6L5.5 6.41667Z" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/><path d="M8.25 6.41667C8.25 5.68732 8.53973 4.98785 9.05546 4.47212C9.57118 3.9564 10.2707 3.66667 11 3.66667C11.7293 3.66667 12.4288 3.9564 12.9445 4.47212C13.4603 4.98785 13.75 5.68732 13.75 6.41667" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/></svg>
+        {%- elsif settings.cart_icon == 'bag-minimal' -%}
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag-minimal" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 6.41667H16.5L15.4 17.4167H6.6L5.5 6.41667Z" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/><path d="M8.25 6.41667C8.25 5.68732 8.53973 4.98785 9.05546 4.47212C9.57118 3.9564 10.2707 3.66667 11 3.66667C11.7293 3.66667 12.4288 3.9564 12.9445 4.47212C13.4603 4.98785 13.75 5.68732 13.75 6.41667" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/></svg>
+        {%- else -%}
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-bag" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.5 6.41667H16.5L15.4 17.4167H6.6L5.5 6.41667Z" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/><path d="M8.25 6.41667C8.25 5.68732 8.53973 4.98785 9.05546 4.47212C9.57118 3.9564 10.2707 3.66667 11 3.66667C11.7293 3.66667 12.4288 3.9564 12.9445 4.47212C13.4603 4.98785 13.75 5.68732 13.75 6.41667" stroke="#202020" stroke-width="1.425" stroke-linecap="round"/></svg>
+        {%- endif -%}
+        <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}">
+          <span class="cart-link__bubble-num">{{ cart.item_count }}</span>
+        </span>
+      </span>
+      <span class="site-nav__icon-label small--hide{% if hide_icon_labels %} icon__fallback-text{% endif %}">
+        {{ 'layout.cart.title' | t }}
+      </span>
+    </a>
+
+    <button type="button"
+      aria-controls="MobileNav"
+      class="site-nav__link site-nav__link--icon medium-up--hide mobile-nav-trigger">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64"><path class="cls-1" d="M7 15h51">.</path><path class="cls-1" d="M7 32h43">.</path><path class="cls-1" d="M7 49h51">.</path></svg>
+      <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+    </button>
+  </div>
+
+  <div class="site-nav__close-cart">
+    <button type="button" class="site-nav__link site-nav__link--icon js-close-header-cart">
+      <span>{{ 'general.accessibility.close' | t }}</span>
+      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"/></svg>
+    </button>
+  </div>
+ 
+</div>

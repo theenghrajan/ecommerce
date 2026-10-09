@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_Krpipa": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our flat panel LED lights Collection",
+        "collection_seo_description": "Our flat panel LED surface mount collection, from 1x1 to 2x4 sizes, offers versatile and energy efficient lighting solutions for any space. Bright, uniform, and easy to install, these LED flat panel lights are ideal for commercial and residential environments."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_GmtPCE": {
+      "type": "jump-to",
+      "blocks": {
+        "question_KVktCF": {
+          "type": "question",
+          "settings": {
+            "button": "1x1 FT",
+            "link": "shopify://collections/1x1-led-flat-panel",
+            "image": "shopify://shop_images/NW-SM-1X1-18W-5CT-UV-2P_Listing_MAIN_1P-852126.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_xx3ERc": {
+          "type": "question",
+          "settings": {
+            "button": "1x2 FT",
+            "link": "shopify://collections/1x2-led-flat-panel",
+            "image": "shopify://shop_images/NW-SM-1X2-22W-5CT-UV-WH_Listing_MAIN_1P-379233.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_4D4qjF": {
+          "type": "question",
+          "settings": {
+            "button": "1x4 FT",
+            "link": "shopify://collections/1x4-led-flat-panel",
+            "image": "shopify://shop_images/NW-SM-1X4-40W-3CT-UV-WH_Listing_MAIN_2P-944515.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_Vb7p7a": {
+          "type": "question",
+          "settings": {
+            "button": "2x2 FT",
+            "link": "shopify://collections/2x2-led-flat-panel",
+            "image": "shopify://shop_images/NW-SM-2X2-40W-3CT-UV-WH_Listing_MAIN_1P-413052.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_Ch3pNL": {
+          "type": "question",
+          "settings": {
+            "button": "2x4 FT",
+            "link": "shopify://collections/2x4-led-flat-panel",
+            "image": "shopify://shop_images/NW-SM-2X4-50W-3CT-UV_Listing_MAIN_1P-649665.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_neBmx3": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/led-ceiling-panel?filter.p.m.custom.color=Black&filter.p.m.custom.installation_type=Surface+Mount",
+            "image": "shopify://shop_images/NW-SM-1X4-40W-3CT-UV-BLK-2P_Listing_MAIN_4P-261885.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_KVktCF",
+        "question_xx3ERc",
+        "question_4D4qjF",
+        "question_Vb7p7a",
+        "question_Ch3pNL",
+        "question_neBmx3"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_GNbaYb": {
+      "type": "faq",
+      "blocks": {
+        "question_LCfDtP": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_eP4ytQ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_h8HVYz": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_LCfDtP",
+        "question_eP4ytQ",
+        "question_h8HVYz"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_38pfig": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_A9gfGQ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_ppFGiq": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_jnmPar": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_GrxqiF": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_K67Ez6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_mKCRTn": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_A9gfGQ",
+        "question_ppFGiq",
+        "question_jnmPar",
+        "question_GrxqiF",
+        "question_K67Ez6",
+        "question_mKCRTn"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_dTFRn7": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our flat panel LED lights Collection",
+        "collection_seo_description": "Our flat panel LED surface mount collection, from 1x1 to 2x4 sizes, offers versatile and energy efficient lighting solutions for any space. Bright, uniform, and easy to install, these LED flat panel lights are ideal for commercial and residential environments."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_Krpipa",
+    "main-collection",
+    "jump_to_GmtPCE",
+    "faq_GNbaYb",
+    "collection_metafield_faq_38pfig",
+    "recently-viewed",
+    "expandable_description_dTFRn7"
+  ]
+}

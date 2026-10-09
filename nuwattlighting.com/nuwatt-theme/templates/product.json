@@ -1,0 +1,270 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_i8j8zU": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n                <li><span>Moisture Rating:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.dimmable }}</span></li>\n                <li><span>Warranty:&nbsp;</span><span class=\"mini-spec-meta\">5 Year</span></li>\n              </ul>\n\n\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": true
+          }
+        },
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "powr_form_builder_app_block_cLhTTL": {
+          "type": "shopify://apps/powr-form-builder/blocks/app-block/1412fe37-d89c-4706-a797-6e2b53cb4a69",
+          "disabled": true,
+          "settings": {
+            "app_id": "0cc5b539_1738868707"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false
+          }
+        },
+        "forms_inline_QAtqVW": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "price",
+        "custom_i8j8zU",
+        "variant_picker",
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84",
+        "powr_form_builder_app_block_cLhTTL",
+        "buy_buttons",
+        "forms_inline_QAtqVW"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_container_size": "medium",
+        "product_image_size": "square",
+        "product_zoom_enable": false,
+        "product_zoom_with_thumbnail": false,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "product_specs_accordion_xHDJJy": {
+      "type": "product-specs-accordion",
+      "settings": {
+        "specs-accordion-enable": true
+      }
+    },
+    "accordion_product_description_WteHEd": {
+      "type": "accordion-product-description",
+      "settings": {
+        "accordion-enable": true
+      }
+    },
+    "product_downloads_wMUqQj": {
+      "type": "product-downloads",
+      "settings": {
+        "product-downloads-enable": true
+      }
+    },
+    "product_specifications_jfqMeB": {
+      "type": "product-specifications",
+      "disabled": true,
+      "settings": {}
+    },
+    "16769676867018dca5": {
+      "type": "apps",
+      "blocks": {
+        "stamped_reviews_main_widget_WcakTR": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
+          }
+        },
+        "junip_product_reviews_ugc_junip_product_review_MWWUca": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "stamped_reviews_main_widget_WcakTR",
+        "junip_product_reviews_ugc_junip_product_review_MWWUca"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": true
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>Use collapsible tabs for more detailed information that will help customers make a purchasing decision.</p><p>Ex: Shipping and return policies, size guides, and other common questions.</p>",
+            "page": ""
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Ask a question",
+            "phone": true
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "tab",
+        "contact"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "more-products-collection": {
+      "type": "more-products-collection",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5
+      }
+    },
+    "more-products-vendor": {
+      "type": "more-products-vendor",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {
+        "color_scheme": "2"
+      }
+    },
+    "1714761246f61d7a21": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_review_4a8bYk": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_review_4a8bYk"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_specs_accordion_xHDJJy",
+    "accordion_product_description_WteHEd",
+    "product_downloads_wMUqQj",
+    "product_specifications_jfqMeB",
+    "16769676867018dca5",
+    "sub",
+    "more-products-collection",
+    "recommendations",
+    "more-products-vendor",
+    "recently-viewed",
+    "collection-return",
+    "1714761246f61d7a21"
+  ]
+}

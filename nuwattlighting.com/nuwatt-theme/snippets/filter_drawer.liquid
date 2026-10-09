@@ -1,0 +1,294 @@
+{% style %}
+.filter_drawer {
+    position: fixed;
+    top: 0px;
+    right: -100%;
+    background-color: #fff;
+    width: 480px;
+    height: 100vh;
+    z-index: 8;
+    transition: .4s all linear;
+}
+.filter_drawer form.filter-form {
+    height: 72%;
+    overflow-y: auto;
+    padding: 30px; 
+    padding-bottom: 0px;
+}
+.filter_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+    opacity: .4;
+    display: none;
+   transition: .6s all linear;
+}  
+.drawer_head {
+    position: relative;
+    text-align: center;
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+}
+span.close_icon {
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+.drawer_head h4 {
+    font-size: 16px;
+    margin: 0px;
+}  
+.filter_drawer_footer {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter_drawer_footer button {
+    width: 46%;
+    height: 60px;
+    display: block;
+    background: #000;
+    color: #Fff;
+    border-radius: 40px;
+}
+/* design  */
+.filter_drawer .filter-form span.collapsible-trigger__layout.collapsible-trigger__layout--inline {
+    background: unset;
+    max-width: 100% !important;
+    border-radius: unset;
+    padding: 0px;
+    justify-content: space-between;
+}  
+.filter_drawer .collection-sidebar__group {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+.filter_drawer button.collapsible-trigger {
+    padding-bottom: 30px;
+}
+.filter_drawer .collapsible-trigger__layout {
+    font-size: 16px;
+}  
+.filter_drawer .collection_sidebar_group:last-child .collection-sidebar__group {
+    border-bottom: none;
+}  
+.filter_drawer .filter-form input.tag__input {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #000;
+    opacity: 1;
+    right: 0;
+}
+  
+{% endstyle %}
+
+    <div class="filter_overlay filter_overlay_mobile"></div>
+<div class="filter_drawer filter_drawer_mobile">
+    <div class="drawer_head">
+      <h4>Filter and sort</h4>
+      <span class="close_icon close_icon_mobile">
+        <svg viewBox="0 0 24 24" focusable="false" width="24" height="24" aria-hidden="true" class="plp-svg-icon plp-btn__icon"><path fill-rule="evenodd" clip-rule="evenodd" d="m12 13.4139 4.9497 4.9498 1.4142-1.4142-4.9497-4.9498L18.3639 7.05l-1.4142-1.4143L12 10.5855 7.0502 5.6357 5.636 7.05l4.9497 4.9497-4.9497 4.9498 1.4142 1.4142L12 13.4139z"></path></svg>
+      </span>
+    </div>
+     <form class="filter-form filter_drawer_main">
+            {%- for filter in collection.filters -%}
+              {%- capture filter_id -%}filter-{{ filter.label | handleize }}{%- endcapture -%}
+              {%- assign filter_index = forloop.index -%}
+              {%- assign collapsed_state = section.settings.collapse_filters -%}
+              <div class="collection_sidebar_group collection-sidebar__group--{{ filter_index }}">
+                <div class="collection-sidebar__group">
+                  {%- render 'collection-sidebar-filter-trigger',
+                        id: filter_id,
+                        location: location,
+                        title: filter.label,
+                        index: filter_index,
+                        collapsed_state: collapsed_state -%}
+                  <div
+                    data-id="{{ location }}-{{ filter_index }}"
+                    data-collapsible-id="{{ filter_id }}"
+                    class="collapsible-content collapsible-content--all{% unless collapsed_state %} is-open{% endunless %}"
+                    {% unless collapsed_state %}style="height: auto;"{% endunless %}>
+                    <div class="collapsible-content__inner">
+                      {%- case filter.type -%}
+                        {%- when 'list' or 'boolean' -%}
+
+                          {%- liquid
+                            assign is_color = false
+                            assign swatch_file_extension = 'png'
+                            if enable_color_swatches
+                              assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase
+                              assign downcased_label = filter.label | downcase
+                              if downcased_label contains swatch_trigger
+                                assign is_color = true
+                              elsif swatch_trigger == 'color' and downcased_label contains 'colour'
+                                assign is_color = true
+                              endif
+                            endif
+                          -%}
+
+                          <ul class="no-bullets tag-list{% if tags_combine %} tag-list--checkboxes{% endif %}{% if is_color %} tag-list--swatches{% endif %}">
+                            {%- assign tag_count = filter.values.size -%}
+                            {%- for filter_value in filter.values -%}
+                              {%- liquid
+                                assign tag_count = tag_count | plus: 1
+                                assign filter_value_index = forloop.index
+
+                                assign color_file_name = filter_value.label | handle | append: '.' | append: swatch_file_extension
+                                assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' | split: '?' | first
+                                assign color_swatch_fallback = filter_value.label | split: ' ' | last | handle
+                              -%}
+
+                              <li class="tag{% if filter_value.active %} tag--active{% endif %}{% if is_color %} tag--swatch{% endif %}{% if filter_value.count == 0%} hide{% endif %}">
+                                <label class="tag__checkbox-wrapper text-label">
+                                  <input
+                                    type="checkbox"
+                                    class="tag__input"
+                                    name="{{ filter_value.param_name }}"
+                                    value="{{ filter_value.value }}"
+                                    {% if filter_value.active -%}checked{% endif %}>
+                                  {%- if is_color -%}
+                                    <span
+                                      class="color-swatch color-swatch--filter color-swatch--{{ filter_value.label | handle }}"
+                                      title="{{ filter_value.label }}"
+                                      style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}"
+                                    >
+                                      {{ filter_value.label }}
+                                    </span>
+                                    <span class="tag__text hide">{{ filter_value.label | escape }}</span>
+                                  {%- else -%}
+                                    <!-- <span class="tag__checkbox"></span> -->
+                                    <span>
+                                      <span class="tag__text">{{ filter_value.label | escape }}</span> ({{ filter_value.count }})
+                                    </span>
+                                  {%- endif -%}
+                                </label>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+
+                          {%- assign total_tags = total_tags | plus: tag_count -%}
+
+                          {%- if tag_count == 0 -%}
+                            {%- style -%}
+                              .collection-sidebar__group--{{ filter_index }} { display: none; }
+                            {%- endstyle -%}
+                          {%- endif -%}
+                        {%- when 'price_range'-%}
+                          {% comment %} Comma code from Dawn {% endcomment %}
+                          {% liquid
+                            assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                            assign uses_comma_decimals = false
+
+                            if currencies_using_comma_decimals contains cart.currency.iso_code
+                              assign uses_comma_decimals = true
+                            endif
+
+                            assign filter_min_value = filter.min_value.value | money_without_currency | replace: ',', ''
+                            assign filter_max_value = filter.max_value.value | money_without_currency | replace: ',', ''
+                            assign filter_range_min = filter.range_min | money_without_currency | replace: ',', ''
+                            assign filter_range_max = filter.range_max | money_without_currency | replace: ',', ''
+
+                            if uses_comma_decimals
+                              if filter.min_value.value
+                                assign filter_min_value = filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.'
+                              endif
+
+                              if filter.max_value.value
+                                assign filter_max_value = filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.'
+                              endif
+
+                              assign filter_range_min = filter.range_min | money_without_currency | replace: '.', '' | replace: ',', '.'
+                              assign filter_range_max = filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.'
+                            endif
+                          %}
+                          <div
+                            class="price-range"
+                            data-min-value="{{ filter_min_value }}"
+                            data-min-name="{{ filter.min_value.param_name }}"
+                            data-min="{{ filter_range_min }}"
+                            data-max-value="{{ filter_max_value }}"
+                            data-max-name="{{ filter.max_value.param_name }}"
+                            data-max="{{ filter_range_max }}">
+                            <div class="price-range__display-wrapper">
+                              <span class="price-range__display-min">{{ filter_min_value }}</span>
+                              <span class="price-range__display-max">{{ filter_max_value }}</span>
+                            </div>
+                            <div class="price-range__slider-wrapper">
+                              <div class="price-range__slider"></div>
+                            </div>
+                            <input
+                              class="price-range__input price-range__input-min"
+                              name="{{ filter.min_value.param_name }}"
+                              value="{{ filter_min_value }}"
+                              readonly>
+                            <input
+                              class="price-range__input price-range__input-max"
+                              name="{{ filter.max_value.param_name }}"
+                              value="{{ filter_max_value }}"
+                              readonly>
+                          </div>
+                      {%- endcase -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%} 
+          </form>
+          <div class="filter_drawer_footer">
+              <button class="viewBtn close_filter close_filter_mobile">View </button>
+              <button class="clearBtn clearBtnMobile">Clear all</button>
+          </div>
+</div>
+<script>
+
+// function initFilterDrawer() {
+//     let filter_drawer_btn = document.querySelector('.filter_drawer_toggle');
+//     let filter_drawer = document.querySelector('.filter_drawer');
+//     let filter_overlay = document.querySelector('.filter_overlay');
+//     let close_icon = document.querySelector('.close_icon');
+
+//     if (!filter_drawer_btn || !filter_drawer || !filter_overlay || !close_icon) {
+//         console.warn("Filter drawer elements not found in the DOM.");
+//         return;
+//     }
+
+//     filter_drawer_btn.addEventListener('click', function(e) {
+//         filter_drawer.style.right = '0px';
+//         filter_overlay.style.display = 'block';
+//     });
+
+//     function closeDrawer() {
+//         filter_drawer.style.right = '-100%';
+//         filter_overlay.style.display = 'none';
+//     }
+
+//     close_icon.addEventListener('click', closeDrawer);
+//     filter_overlay.addEventListener('click', closeDrawer);
+// }
+
+// document.addEventListener('DOMContentLoaded', initFilterDrawer);
+
+
+
+
+
+
+
+
+
+
+  
+</script>
+
+
+
+
+

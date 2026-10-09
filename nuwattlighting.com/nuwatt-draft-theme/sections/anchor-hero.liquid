@@ -1,0 +1,149 @@
+{% comment %}
+  Anchor page — hero
+  Figma: "128 Audit Fixes" / Anchor page — HeroSection (node 9172:203)
+{% endcomment %}
+
+{%- render 'anchor-head' -%}
+
+{%- liquid
+  assign overlay = section.settings.overlay_opacity | divided_by: 100.0
+  assign overlay_mid = section.settings.overlay_opacity | times: 0.625 | divided_by: 100.0
+
+  # Built here rather than inline: filters are not allowed on render arguments.
+  assign hero_image_style = 'object-position: center ' | append: section.settings.focal_point | append: ';'
+-%}
+
+<div
+  class="anchor-section anchor-hero"
+  style="min-height: {{ section.settings.min_height }}px;"
+>
+  {%- if section.settings.image != blank -%}
+    <div class="anchor-hero__media">
+      {%- render 'image-element',
+        img: section.settings.image,
+        alt: section.settings.image.alt,
+        loading: 'eager',
+        widths: '600, 900, 1200, 1600, 1920',
+        sizes: '100vw',
+        style: hero_image_style
+      -%}
+    </div>
+  {%- endif -%}
+
+  <div
+    class="anchor-hero__overlay"
+    style="background: linear-gradient(to right, rgba(0,0,0,{{ overlay }}) 0%, rgba(0,0,0,{{ overlay_mid }}) 50%, rgba(0,0,0,0) 100%);"
+  ></div>
+
+  <div class="anchor-hero__inner">
+    <div class="anchor-hero__content">
+      {%- if section.settings.heading != blank -%}
+        {%- if section.settings.heading_tag == 'h1' -%}
+          <h1 class="anchor-hero__title">{{ section.settings.heading | escape }}</h1>
+        {%- else -%}
+          <h2 class="anchor-hero__title">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="anchor-hero__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a class="anchor-btn" href="{{ section.settings.button_link | default: '#' }}">
+          {{ section.settings.button_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anchor: Hero",
+  "tag": "section",
+  "class": "anchor-section-wrapper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "focal_point",
+      "label": "Image focal point",
+      "default": "center",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 300,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness",
+      "info": "Fades from left to transparent on the right, keeping the heading legible.",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Bedroom Lights"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "info": "Keep this as H1 unless another section on the page already provides one.",
+      "default": "h1",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Create a relaxing retreat with premium LED lighting designed for comfort, style and efficiency.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Bedroom Lights"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anchor: Hero"
+    }
+  ]
+}
+{% endschema %}

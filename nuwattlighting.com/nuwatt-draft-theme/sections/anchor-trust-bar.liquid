@@ -1,0 +1,146 @@
+{% comment %}
+  Anchor page — trust bar
+  Figma: "128 Audit Fixes" / Anchor page — Section - TrustBar (node 9172:88)
+
+  Icon defaults ship as theme assets exported from the design
+  (assets/anchor-trust-*.png). A merchant can override any of them per block
+  with the image picker.
+{% endcomment %}
+
+{%- render 'anchor-head' -%}
+
+<div class="anchor-section anchor-trust">
+  <div class="anchor-inner anchor-inner--wide">
+    <ul class="anchor-trust__list">
+      {%- for block in section.blocks -%}
+        <li class="anchor-trust__item" {{ block.shopify_attributes }}>
+          <div class="anchor-trust__icon{% if block.settings.flip_icon %} anchor-trust__icon--flip{% endif %}">
+            {%- if block.settings.icon != blank -%}
+              {%- render 'image-element',
+                img: block.settings.icon,
+                alt: '',
+                img_width: 48,
+                widths: '24, 48, 72',
+                sizes: '24px',
+                ariaHidden: true
+              -%}
+            {%- elsif block.settings.default_icon != 'none' -%}
+              {%- assign icon_asset = 'anchor-trust-' | append: block.settings.default_icon | append: '.png' -%}
+              <img
+                src="{{ icon_asset | asset_url }}"
+                width="24"
+                height="24"
+                alt=""
+                loading="lazy"
+                aria-hidden="true"
+              >
+            {%- endif -%}
+          </div>
+
+          <div>
+            {%- if block.settings.title != blank -%}
+              <h4 class="anchor-trust__title">{{ block.settings.title | escape }}</h4>
+            {%- endif -%}
+            {%- if block.settings.subtitle != blank -%}
+              <p class="anchor-trust__sub">{{ block.settings.subtitle | escape }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Anchor: Trust bar",
+  "tag": "section",
+  "class": "anchor-section-wrapper",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Optional. Leave empty to use the built-in icon selected below."
+        },
+        {
+          "type": "select",
+          "id": "default_icon",
+          "label": "Built-in icon",
+          "default": "warranty",
+          "options": [
+            { "value": "warranty", "label": "Shield with check" },
+            { "value": "returns", "label": "Box" },
+            { "value": "discount", "label": "Tag" },
+            { "value": "secure", "label": "Padlock" },
+            { "value": "none", "label": "No icon" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "flip_icon",
+          "label": "Mirror icon horizontally",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Best Warranty"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "5 Year Warranty"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Anchor: Trust bar",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "default_icon": "warranty",
+            "title": "Best Warranty",
+            "subtitle": "5 Year Warranty"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "default_icon": "returns",
+            "title": "Easy Returns",
+            "subtitle": "30-Day Hassle Free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "default_icon": "discount",
+            "flip_icon": true,
+            "title": "Volume Discount",
+            "subtitle": "Save More on Bulk"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "default_icon": "secure",
+            "title": "100% Secure Shopping",
+            "subtitle": "Safe & Protected"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

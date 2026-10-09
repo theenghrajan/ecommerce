@@ -1,0 +1,30 @@
+{%- comment -%}
+  Standalone Product FAQs section (full width). The default product template uses the
+  "Product FAQs" block in main-product instead. Both render snippets/product-faq.liquid.
+{%- endcomment -%}
+{%- if product.metafields.custom.ss_product_faqs.value.count > 0 -%}
+  <div class="page-width page-width--narrow">
+    {%- render 'product-faq', product: product, id: section.id, title: section.settings.title -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product FAQs",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "FAQs"
+    },
+    {
+      "type": "paragraph",
+      "content": "Shows the product's FAQs from metafield custom.ss_product_faqs. Hidden when a product has none."
+    }
+  ],
+  "presets": [{ "name": "Product FAQs" }],
+  "enabled_on": { "templates": ["product"] }
+}
+{% endschema %}

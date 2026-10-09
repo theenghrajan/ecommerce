@@ -1,0 +1,314 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Home / {{ page.title }}</p>",
+            "text_size": "text-base"
+          }
+        },
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ page.title }}",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_tNNyqd",
+        "heading_VKxnhT"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_yMbjra": {
+      "type": "image-with-text",
+      "blocks": {
+        "badge_rTMetq": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-3",
+            "text": "garace - where design meet function -",
+            "position_mobile": "right"
+          }
+        },
+        "heading_brVgWK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vicky Edgerly, Prepress/Graphic Supervisor",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_YYjgFV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vicky’s journey with NADCO began in 2000, after meeting Rena while managing a party supply store in New Hampshire. Despite having no experience in the industry, Vicky’s natural talent and skills quickly caught the attention of the NADCO team. She fondly recalls her interview, where Lexi, Neil and Rena’s boxer, was the first to greet her—licking all the lotion off her legs. Laughing, Vicky remarked, “I’ve never had my legs licked in an interview before.”</p><p>During her early years at NADCO, Vicky faced the unimaginable loss of her son in 2002. In a heartfelt gesture, Neil closed the company for the day to allow anyone who wanted to attend the funeral. This act left a lasting impression on Vicky, and she came to understand that at the heart of NADCO are its core values—valuing employees and customers alike.</p><p>When the company relocated to Florida in 2005, Vicky wasn’t able to move with them but continued to contribute remotely, handling pre-press work and training a replacement. In 2019, Neil and Rena reached out for help, and without hesitation, Vicky flew to Florida to rejoin the NADCO family. She was thrilled to be back home with the team she had grown so fond of over the years.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "badge_rTMetq",
+        "heading_brVgWK",
+        "text_YYjgFV"
+      ],
+      "custom_css": [
+        ".image-with-text__content {/* max-width: 45rem; */ /* --text-margin-top: 2rem; */}",
+        "@media (min-width: 1280px) {.image-with-text__media {padding-inline-start: 5rem; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/image_13.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_KckTAy": {
+      "type": "rich-text",
+      "blocks": {
+        "text_i3qdf3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Vicky enjoys the balance of creativity and precision required in pre-press, where she taps into both the analytical and creative sides of her brain. She finds satisfaction in helping entrepreneurs bring their vision to life and loves the diversity the work offers.</p><p>Outside of work, Vicky is passionate about photography. She describes her approach to capturing the world through a camera as “shooting photos through grief-colored glasses,” a conscious effort to see the beauty in the world despite the hardships she’s faced. Vicky is a proud grandmother of three, a great-grandmother of one, and soon-to-be great-grandmother to another.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_i3qdf3"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "multicolumn_QY9YVC": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Weat8R": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Charlie_jpg.webp",
+            "title": "Charlie",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_GQERB6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Stella-square_png.webp",
+            "title": "Stella",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_Weat8R",
+        "column_GQERB6"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "center",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 4,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "apps_XqEhrf": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_BzPD3D": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_BzPD3D"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "image_with_text_yMbjra",
+    "rich_text_KckTAy",
+    "multicolumn_QY9YVC",
+    "apps_XqEhrf",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

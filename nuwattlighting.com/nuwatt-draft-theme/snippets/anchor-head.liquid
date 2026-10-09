@@ -1,0 +1,22 @@
+{% comment %}
+  Anchor page shared assets.
+  Rendered by every anchor-* section so the template still styles correctly
+  if a merchant removes or reorders sections in the theme editor.
+
+  Duplicate <link> tags to one URL and identical @font-face blocks are
+  de-duplicated by the browser, so repeating this per section is safe.
+
+  The theme is set to Roboto (config/settings_data.json: roboto_n4 / roboto_n9)
+  which matches the design. snippets/font-face.liquid already loads weights
+  400 and 600; the design also uses Bold 700 for headings, so it is loaded here
+  rather than letting the browser synthesise it from the 600 face.
+{% endcomment %}
+
+{{ 'anchor-page.css' | asset_url | stylesheet_tag }}
+
+{%- assign anchor_bold = settings.type_base_font_family | font_modify: 'weight', '700' -%}
+{%- if anchor_bold -%}
+  {%- style -%}
+    {{ anchor_bold | font_face: font_display: 'swap' }}
+  {%- endstyle -%}
+{%- endif -%}

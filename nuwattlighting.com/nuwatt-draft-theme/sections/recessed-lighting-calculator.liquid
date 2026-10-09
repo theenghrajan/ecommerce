@@ -1,0 +1,541 @@
+{% javascript %}
+
+    // Wrap your JavaScript code inside DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+        var results = [];
+        var selectedResultIndex = null;
+        var distanceFromWalls = 2; // Default value
+
+        // Handle pill-button selection
+        var pillButtons = document.getElementsByClassName('rlc-pill-button');
+        Array.from(pillButtons).forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Remove 'selected' class from all buttons
+                Array.from(pillButtons).forEach(function(btn) {
+                    btn.classList.remove('selected');
+                });
+                // Add 'selected' class to the clicked button
+                this.classList.add('selected');
+                // Update distanceFromWalls value
+                distanceFromWalls = parseFloat(this.getAttribute('data-value'));
+                // Trigger calculation
+                calculateLights();
+            });
+        });
+
+        // Attach event listener to the Calculate button
+        var calculateButton = document.getElementById('calculate-button');
+        calculateButton.addEventListener('click', function() {
+            calculateLights();
+        });
+
+        function showToast(message) {
+            var toast = document.getElementById('rlc-toast');
+            toast.textContent = message;
+            toast.className = 'show';
+            setTimeout(function() {
+                toast.className = toast.className.replace('show', '');
+            }, 3000);
+        }
+
+        function calculateLights() {
+            // Retrieve input values
+            var length = parseFloat(document.getElementById('rlc-length').value);
+            var width = parseFloat(document.getElementById('rlc-width').value);
+            var height = parseFloat(document.getElementById('rlc-height').value);
+            var lumensInput = parseFloat(document.getElementById('rlc-lumens').value);
+            var footCandles = parseFloat(document.getElementById('rlc-footCandles').value);
+            var beamAngle = parseFloat(document.getElementById('rlc-beamAngle').value);
+
+            // Validate inputs
+            if (length < 8 || length > 80) {
+                showToast("Room length must be between 8 ft and 80 ft.");
+                return;
+            }
+            if (width < 8 || width > 80) {
+                showToast("Room width must be between 8 ft and 80 ft.");
+                return;
+            }
+            if (height < 8 || height > 20) {
+                showToast("Ceiling height must be between 8 ft and 20 ft.");
+                return;
+            }
+            if (beamAngle < 10 || beamAngle > 180) {
+                showToast("Beam angle must be between 10° and 180°.");
+                return;
+            }
+            if (lumensInput < 100 || lumensInput > 35000) {
+                showToast("Lumens per fixture must be between 100 lm and 35,000 lm.");
+                return;
+            }
+            if (footCandles < 1 || footCandles > 100) {
+                showToast("Foot-candles must be between 1 fc and 100 fc.");
+                return;
+            }
+
+            // Calculate area
+            var area = length * width;
+
+            // Calculate total lumens needed
+            var totalLumensNeeded = area * footCandles;
+
+            // Fixture lumens list
+            var fixtures = [
+                100, 550, 600, 620, 630, 660, 680, 700, 750, 900, 950,
+                1000, 1050, 1100, 1200, 1500, 1600, 2000, 2100, 2200, 2400, 2500,
+                2600, 3200, 3300, 3375, 3500, 4000, 4200, 4400, 4600, 4800,
+                5000, 5200, 5500, 7050, 7800, 12600, 13000, 18000, 19500, 21250, 35000
+            ];
+
+            // Include user-provided lumens if not in the list
+            if (!fixtures.includes(lumensInput)) {
+                fixtures.push(lumensInput);
+                fixtures.sort(function(a, b) { return a - b; });
+            }
+
+            results = [];
+            selectedResultIndex = null;
+
+            // Calculate mounting height
+            var workingPlaneHeight = 2.5; // in feet
+            var mountingHeight = height - workingPlaneHeight;
+
+            // Calculate maximum spacing
+            var maxSpacing = 1.5 * mountingHeight;
+
+            fixtures.forEach(function(lumensPerFixture) {
+                // Calculate number of fixtures
+                var numberOfFixtures = Math.ceil(totalLumensNeeded / lumensPerFixture);
+
+                // Enforce minimum of two fixtures for lumens per fixture below 1300 lm
+                if (lumensPerFixture < 1300 && numberOfFixtures < 2) {
+                    numberOfFixtures = 2;
+                }
+
+                // Determine fixture layout considering room dimensions and max spacing
+                var layout = determineFixtureLayout(numberOfFixtures, length, width, maxSpacing, distanceFromWalls);
+
+                if (!layout) {
+                    // Unable to find a suitable layout
+                    return;
+                }
+
+                // Use the adjusted number of fixtures
+                numberOfFixtures = layout.adjustedFixtures;
+
+                // Adjust spacing calculations to handle single row/column
+                var columnsMinusOne = (layout.columns - 1) || 1;
+                var rowsMinusOne = (layout.rows - 1) || 1;
+
+                var spacingX = (length - 2 * distanceFromWalls) / columnsMinusOne;
+                var spacingY = (width - 2 * distanceFromWalls) / rowsMinusOne;
+
+                // Check if spacing exceeds maximum
+                var exceedsMaxSpacing = spacingX > maxSpacing || spacingY > maxSpacing;
+
+                // Store results
+                results.push({
+                    lumensPerFixture: lumensPerFixture,
+                    numberOfFixtures: numberOfFixtures,
+                    spacingX: spacingX,
+                    spacingY: spacingY,
+                    distanceFromWallsX: distanceFromWalls,
+                    distanceFromWallsY: distanceFromWalls,
+                    rows: layout.rows,
+                    columns: layout.columns,
+                    roomLength: length,
+                    roomWidth: width,
+                    exceedsMaxSpacing: exceedsMaxSpacing
+                });
+            });
+
+            // Sort results to prioritize user input lumens per fixture
+            results.sort(function(a, b) {
+                if (a.lumensPerFixture === lumensInput && !a.exceedsMaxSpacing) return -1;
+                if (b.lumensPerFixture === lumensInput && !b.exceedsMaxSpacing) return 1;
+                var diffA = Math.abs(a.lumensPerFixture - lumensInput);
+                var diffB = Math.abs(b.lumensPerFixture - lumensInput);
+                return diffA - diffB;
+            });
+
+            // Limit results to top 5
+            results = results.slice(0, 5);
+
+            // Display results
+            var resultDiv = document.getElementById('rlc-result');
+            resultDiv.innerHTML = '<h2>Calculation Results</h2>';
+
+            if (results.length === 0) {
+                resultDiv.innerHTML += '<p>No suitable layout found with the given parameters. Please adjust your inputs.</p>';
+                // Clear the canvas
+                var canvas = document.getElementById('rlc-roomCanvas');
+                var ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                resetAnimation(resultDiv);
+                return;
+            }
+
+            results.forEach(function(result, index) {
+                var warningText = result.exceedsMaxSpacing ? '<p style="color:red;">* Exceeds recommended maximum spacing</p>' : '';
+                var resultItem = document.createElement('div');
+                resultItem.className = 'rlc-result-item';
+                resultItem.innerHTML = '<p><strong>' + result.numberOfFixtures + ' fixtures</strong> using <strong>' + result.lumensPerFixture + ' lm</strong> fixtures</p>' +
+                    '<p>Spacing between fixtures: ' + result.spacingX.toFixed(2) + ' ft (length), ' + result.spacingY.toFixed(2) + ' ft (width)</p>' +
+                    '<p>Distance from walls: ' + result.distanceFromWallsX.toFixed(2) + ' ft</p>' + warningText;
+                resultItem.addEventListener('click', function() {
+                    selectedResultIndex = index;
+                    drawFixtureLayout(result);
+                    highlightSelectedResult();
+                });
+                resultDiv.appendChild(resultItem);
+            });
+
+            // Draw the first result
+            if (results.length > 0) {
+                selectedResultIndex = 0;
+                drawFixtureLayout(results[0]);
+                highlightSelectedResult();
+            }
+
+            // Reset and trigger the animation
+            resetAnimation(resultDiv);
+        }
+
+        function resetAnimation(element) {
+            element.classList.remove('visible');
+            void element.offsetWidth; // Trigger reflow to reset the animation
+            element.classList.add('visible');
+        }
+
+        function highlightSelectedResult() {
+            var resultItems = document.getElementsByClassName('rlc-result-item');
+            for (var i = 0; i < resultItems.length; i++) {
+                resultItems[i].classList.remove('rlc-selected-result');
+            }
+            if (selectedResultIndex !== null && resultItems[selectedResultIndex]) {
+                resultItems[selectedResultIndex].classList.add('rlc-selected-result');
+            }
+        }
+
+        function determineFixtureLayout(numberOfFixtures, length, width, maxSpacing, distanceFromWalls) {
+            var possibleLayouts = [];
+
+            for (var fixtures = numberOfFixtures; fixtures >= 1; fixtures--) {
+                for (var rows = 1; rows <= fixtures; rows++) {
+                    if (fixtures % rows === 0) {
+                        var columns = fixtures / rows;
+                        if (columns >= 1) {
+                            // Adjust spacing calculations to handle single row/column
+                            var columnsMinusOne = (columns - 1) || 1;
+                            var rowsMinusOne = (rows - 1) || 1;
+
+                            var spacingX = (length - 2 * distanceFromWalls) / columnsMinusOne;
+                            var spacingY = (width - 2 * distanceFromWalls) / rowsMinusOne;
+
+                            // Check if spacing is valid (non-negative and finite)
+                            var spacingValid = isFinite(spacingX) && isFinite(spacingY) && spacingX > 0 && spacingY > 0;
+
+                            if (spacingValid) {
+                                possibleLayouts.push({
+                                    rows: rows,
+                                    columns: columns,
+                                    adjustedFixtures: fixtures,
+                                    spacingX: spacingX,
+                                    spacingY: spacingY
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (possibleLayouts.length === 0) {
+                return null;
+            }
+
+            // Select the layout with the closest spacing to the maxSpacing without exceeding it
+            var bestLayout = possibleLayouts.reduce(function(prev, curr) {
+                var prevSpacingDiff = Math.max(prev.spacingX, prev.spacingY) - maxSpacing;
+                var currSpacingDiff = Math.max(curr.spacingX, curr.spacingY) - maxSpacing;
+
+                if (prevSpacingDiff <= 0 && currSpacingDiff <= 0) {
+                    return Math.abs(prevSpacingDiff) < Math.abs(currSpacingDiff) ? prev : curr;
+                } else if (prevSpacingDiff <= 0) {
+                    return prev;
+                } else if (currSpacingDiff <= 0) {
+                    return curr;
+                } else {
+                    return Math.min(prev.spacingX, prev.spacingY) < Math.min(curr.spacingX, curr.spacingY) ? prev : curr;
+                }
+            });
+
+            return bestLayout;
+        }
+
+        function drawFixtureLayout(result) {
+            var roomLength = result.roomLength;
+            var roomWidth = result.roomWidth;
+            var canvas = document.getElementById('rlc-roomCanvas');
+            var ctx = canvas.getContext('2d');
+
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Canvas dimensions
+            var canvasWidth = canvas.width;
+            var canvasHeight = canvas.height;
+
+            // Determine scale to fit room dimensions into canvas
+            var scaleX = canvasWidth / roomLength;
+            var scaleY = canvasHeight / roomWidth;
+            var scale = Math.min(scaleX, scaleY);
+
+            // Adjusted room dimensions
+            var adjustedRoomWidth = roomLength * scale;
+            var adjustedRoomHeight = roomWidth * scale;
+
+            // Calculate the offset to center the room in the canvas
+            var offsetX = (canvasWidth - adjustedRoomWidth) / 2;
+            var offsetY = (canvasHeight - adjustedRoomHeight) / 2;
+
+            // Draw the room rectangle
+            ctx.strokeStyle = '#202124';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(offsetX, offsetY, adjustedRoomWidth, adjustedRoomHeight);
+
+            // Draw fixtures
+            var fixtureRadius = 5; // Radius of the fixture circles
+
+            // Use positions based on calculated spacing and distance from walls
+            var positions = [];
+            for (var row = 0; row < result.rows; row++) {
+                for (var col = 0; col < result.columns; col++) {
+                    var x, y;
+
+                    if (result.columns === 1) {
+                        // Center fixture horizontally
+                        x = roomLength / 2;
+                    } else {
+                        x = result.distanceFromWallsX + col * result.spacingX;
+                    }
+
+                    if (result.rows === 1) {
+                        // Center fixture vertically
+                        y = roomWidth / 2;
+                    } else {
+                        y = result.distanceFromWallsY + row * result.spacingY;
+                    }
+
+                    // Scale positions
+                    var canvasX = offsetX + x * scale;
+                    var canvasY = offsetY + y * scale;
+
+                    positions.push({ x: canvasX, y: canvasY, originalX: x, originalY: y, row: row, col: col });
+                }
+            }
+
+            // Draw the fixtures
+            ctx.fillStyle = '#000000';
+            positions.forEach(function(pos) {
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, fixtureRadius, 0, 2 * Math.PI);
+                ctx.fill();
+            });
+
+            // Draw annotations for distances
+            ctx.fillStyle = '#202124';
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+
+            // Keep track of lines drawn to avoid duplicates
+            var drawnLines = {};
+
+            // Draw distances from fixtures to walls (only for first row and first column)
+            positions.forEach(function(pos) {
+                if (pos.col === 0) {
+                    // Distance to left wall
+                    var distLeft = pos.originalX - result.distanceFromWallsX;
+                    var distLeftText = formatDistance(result.distanceFromWallsX);
+
+                    ctx.beginPath();
+                    ctx.moveTo(offsetX, pos.y);
+                    ctx.lineTo(pos.x - fixtureRadius, pos.y);
+                    ctx.stroke();
+
+                    ctx.fillText(distLeftText, (offsetX + pos.x - fixtureRadius) / 2, pos.y - 5);
+                }
+
+                if (pos.row === 0) {
+                    // Distance to top wall
+                    var distTop = pos.originalY - result.distanceFromWallsY;
+                    var distTopText = formatDistance(result.distanceFromWallsY);
+
+                    ctx.beginPath();
+                    ctx.moveTo(pos.x, offsetY);
+                    ctx.lineTo(pos.x, pos.y - fixtureRadius);
+                    ctx.stroke();
+
+                    ctx.fillText(distTopText, pos.x + 30, (offsetY + pos.y - fixtureRadius) / 2);
+                }
+            });
+
+            // Draw distances between fixtures horizontally
+            for (var row = 0; row < result.rows; row++) {
+                for (var col = 0; col < result.columns - 1; col++) {
+                    var idx = row * result.columns + col;
+                    var pos1 = positions[idx];
+                    var pos2 = positions[idx + 1];
+
+                    var key = 'h-' + row + '-' + col;
+                    if (!drawnLines[key]) {
+                        var distX = result.spacingX;
+                        var distXText = formatDistance(distX);
+                        var midX = (pos1.x + pos2.x) / 2;
+                        var y = pos1.y;
+
+                        ctx.beginPath();
+                        ctx.moveTo(pos1.x + fixtureRadius, y);
+                        ctx.lineTo(pos2.x - fixtureRadius, y);
+                        ctx.stroke();
+
+                        ctx.fillText(distXText, midX, y - 5);
+
+                        drawnLines[key] = true;
+                    }
+                }
+            }
+
+            // Draw distances between fixtures vertically
+            for (var col = 0; col < result.columns; col++) {
+                for (var row = 0; row < result.rows - 1; row++) {
+                    var idx = row * result.columns + col;
+                    var pos1 = positions[idx];
+                    var pos2 = positions[idx + result.columns];
+
+                    var key = 'v-' + col + '-' + row;
+                    if (!drawnLines[key]) {
+                        var distY = result.spacingY;
+                        var distYText = formatDistance(distY);
+                        var x = pos1.x;
+                        var midY = (pos1.y + pos2.y) / 2;
+
+                        ctx.beginPath();
+                        ctx.moveTo(x, pos1.y + fixtureRadius);
+                        ctx.lineTo(x, pos2.y - fixtureRadius);
+                        ctx.stroke();
+
+                        ctx.fillText(distYText, x + 30, midY);
+
+                        drawnLines[key] = true;
+                    }
+                }
+            }
+
+            // Add labels to fixtures
+            positions.forEach(function(pos, index) {
+                ctx.fillText('Fixture ' + (index + 1), pos.x, pos.y - 10);
+            });
+        }
+
+        function formatDistance(distanceInFeet) {
+            return distanceInFeet.toFixed(2) + "'";
+        }
+
+        // Trigger initial calculation on page load
+        calculateLights();
+    });
+
+{% endjavascript %}
+
+<div class="rlc-container">
+        <!-- Calculator Section -->
+        <div class="rlc-calculator">
+            <!-- Input groups -->
+            <div class="rlc-input-group">
+                <label for="rlc-length">Room Length (ft)</label>
+                <input type="number" id="rlc-length" name="length" min="8" max="80" value="10" step="0.1">
+            </div>
+
+            <div class="rlc-input-group">
+                <label for="rlc-width">Room Width (ft)</label>
+                <input type="number" id="rlc-width" name="width" min="8" max="80" value="10" step="0.1">
+            </div>
+
+            <div class="rlc-input-group">
+                <label for="rlc-height">Ceiling Height (ft)</label>
+                <input type="number" id="rlc-height" name="height" min="8" max="20" value="8" step="0.1">
+            </div>
+
+            <div class="rlc-input-group">
+                <label for="rlc-lumens">Lumens per Fixture (lm)</label>
+                <input type="number" id="rlc-lumens" name="lumens" min="100" max="35000" value="600" step="1">
+            </div>
+
+            <div class="rlc-input-group">
+                <label for="rlc-footCandles">Desired Foot-Candles (fc)</label>
+                <input type="number" id="rlc-footCandles" name="footCandles" min="1" max="100" value="20" step="0.1">
+            </div>
+
+            <div class="rlc-input-group">
+                <label for="rlc-beamAngle">Beam Angle (degrees)</label>
+                <input type="number" id="rlc-beamAngle" name="beamAngle" min="10" max="180" value="110" step="1">
+            </div>
+
+            <!-- Label for Distance from Walls (full width) -->
+            <div class="rlc-pill-container">
+                <label>Distance from walls:</label>
+                <!-- Pill-Shaped Buttons for Distance from Walls -->
+                <div class="rlc-pill-buttons">
+                    <span class="rlc-pill-button selected" data-value="2">2 ft</span>
+                    <span class="rlc-pill-button" data-value="2.5">2.5 ft</span>
+                    <span class="rlc-pill-button" data-value="3">3 ft</span>
+                </div>
+            </div>
+
+            <!-- Calculate Button (full width) -->
+            <button id="calculate-button">Calculate</button>
+        </div>
+
+        <!-- Visualization and Result Section -->
+        <div class="rlc-visualization-and-result">
+            <!-- Visualization Section -->
+            <div class="rlc-visualization">
+                <div id="rlc-canvasContainer">
+                    <h2>Fixture Layout Visualization</h2>
+                    <canvas id="rlc-roomCanvas" width="600" height="600"></canvas>
+                </div>
+            </div>
+
+            <!-- Result Display -->
+            <div class="rlc-result" id="rlc-result">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="rlc-content">
+        <!-- Include your content here -->
+        <!-- [Content omitted for brevity; please include your actual content] -->
+    </div>
+
+    <!-- Toast Message -->
+    <div id="rlc-toast"></div>
+
+{% schema %}
+  {
+    "name": "Lighting Calculator",
+    "settings": [
+
+
+      
+    ],
+
+  "presets": [
+      {
+        "name": "Lighting Calculator",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

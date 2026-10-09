@@ -1,0 +1,140 @@
+{% comment %}
+  Anchor page product card
+  Figma: "128 Audit Fixes" / Anchor page — Product Cards (node 9172:241)
+
+  Deliberately not snippets/product-grid-item.liquid: that card carries custom
+  labels, quick-shop, swatches and metafield rows this design does not have,
+  and its markup would need to be overridden more than reused.
+
+  It does reuse the theme QuickAdd contract from assets/theme.js so the button
+  drives the real cart:
+    - root needs .grid-product + data-product-handle + data-product-id
+      (QuickAdd.loadQuickAddForm does closest('.grid-product'))
+    - single variant  -> .js-quick-add-btn with data-id
+    - 1+ variants     -> .js-quick-add-form.js-modal-open-quick-add opens the
+                         variant modal (#QuickAddHolder, rendered globally in
+                         layout/theme.liquid when settings.quick_add_enable)
+    - QuickAdd.addToCart does btn.querySelector('.btn').classList.add(...) and
+      throws if that element is missing, so every add button carries an inert
+      hidden .btn hook. Loading state is driven off it via :has() in the CSS.
+
+  Parameters:
+    - product (Required - Product object)
+    - price_label (Optional - String) prefix before the price, e.g. "From"
+    - show_save (Optional - Boolean) render the wishlist/save toggle
+    - loading (Optional - String) passed through to image-element
+{% endcomment %}
+
+{%- liquid
+  assign quick_add_on = settings.quick_add_enable
+  assign has_variants = false
+  if product.variants.size > 1
+    assign has_variants = true
+  endif
+
+  # Split the price into symbol / dollars / cents to match the design, where
+  # the symbol and cents are set smaller and raised against the dollar figure.
+  assign money_full = product.price_min | money
+  assign amount_plain = product.price_min | money_without_currency
+  assign currency_symbol = money_full | split: amount_plain | first
+  assign amount_parts = amount_plain | split: '.'
+  assign amount_dollars = amount_parts | first
+  assign amount_cents = ''
+  if amount_parts.size > 1
+    assign amount_cents = amount_parts | last
+  endif
+-%}
+
+<div
+  class="anchor-product grid-product"
+  data-product-handle="{{ product.handle }}"
+  data-product-id="{{ product.id }}"
+>
+  <a class="anchor-product__image" href="{{ product.url | within: collection }}" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_media -%}
+      {%- render 'image-element',
+        img: product.featured_media.preview_image,
+        alt: product.featured_media.alt,
+        loading: loading,
+        widths: '200, 300, 400, 600',
+        sizes: '(min-width: 1025px) 195px, (min-width: 769px) 25vw, 45vw'
+      -%}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </a>
+
+  {%- if show_save -%}
+    <button
+      type="button"
+      class="anchor-product__save"
+      aria-pressed="false"
+      aria-label="{{ 'products.product.add_to_cart' | t }} — {{ product.title | escape }}"
+    >
+      {%- render 'anchor-icon', icon: 'heart' -%}
+    </button>
+  {%- endif -%}
+
+  <h4 class="anchor-product__title">
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </h4>
+
+  <div class="anchor-product__foot">
+    {%- if product.available -%}
+      <p class="anchor-product__price">
+        {%- if price_label != blank -%}
+          <span class="anchor-product__price-label">{{ price_label }}</span>
+        {%- endif -%}
+        <span class="anchor-product__price-symbol">{{ currency_symbol }}</span>
+        <span class="anchor-product__price-amount">{{ amount_dollars }}</span>
+        {%- if amount_cents != blank -%}
+          <span class="anchor-product__price-cents">{{ amount_cents }}</span>
+        {%- endif -%}
+        <span class="visually-hidden">{{ product.price_min | money }}</span>
+      </p>
+    {%- else -%}
+      <p class="anchor-product__price anchor-product__price--sold">
+        {{ 'products.product.sold_out' | t }}
+      </p>
+    {%- endif -%}
+
+    {%- if product.available == false -%}
+      <button type="button" class="anchor-product__cta" disabled>
+        {{ 'products.product.sold_out' | t }}
+      </button>
+
+    {%- elsif quick_add_on and has_variants -%}
+      {%- comment -%} Multiple variants: open the theme variant-picker modal {%- endcomment -%}
+      <button
+        type="button"
+        class="anchor-product__cta js-quick-add-form js-modal-open-quick-add"
+        title="{{ 'products.product.add_to_cart' | t }}"
+      >
+        {{ 'products.product.add_to_cart' | t }}
+        <span class="btn anchor-product__cta-hook" aria-hidden="true"></span>
+      </button>
+
+    {%- elsif quick_add_on -%}
+      {%- comment -%} Single variant: add straight to cart {%- endcomment -%}
+      <button
+        type="button"
+        class="anchor-product__cta js-quick-add-btn"
+        title="{{ 'products.product.add_to_cart' | t }}"
+        data-id="{{ product.selected_or_first_available_variant.id }}"
+      >
+        {{ 'products.product.add_to_cart' | t }}
+        <span class="btn anchor-product__cta-hook" aria-hidden="true"></span>
+      </button>
+
+    {%- else -%}
+      {%- comment -%}
+        Quick add is switched off in theme settings, so theme.QuickAdd is a
+        no-op. Send the shopper to the product page instead of rendering a
+        button that would do nothing.
+      {%- endcomment -%}
+      <a class="anchor-product__cta" href="{{ product.url | within: collection }}">
+        {{ 'products.product.add_to_cart' | t }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>

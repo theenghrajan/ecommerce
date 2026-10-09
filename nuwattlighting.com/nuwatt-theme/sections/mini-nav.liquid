@@ -1,0 +1,160 @@
+{% stylesheet %}
+
+        .custom-navbar {
+            background-color: #ffffff;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-nav-list {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .custom-nav-item {
+            position: relative;
+            margin: 0 1rem;
+        }
+
+        .custom-nav-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        font-family: 'nw-medium';
+
+          
+        }
+
+        .custom-nav-link:hover,
+        .custom-nav-link:focus {
+            color: #007bff;
+        }
+
+        .custom-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #007bff;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .custom-nav-link:hover::after,
+        .custom-nav-link:focus::after,
+        .custom-nav-link.custom-nav-active::after {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .custom-nav-link.custom-nav-active {
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .custom-nav-list {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .custom-nav-item {
+                margin: 0.25rem 0.5rem;
+            }
+
+            .custom-nav-link {
+                font-size: 0.8rem;
+                padding: 0.25rem 0;
+            }
+        }
+  
+  
+  
+{% endstylesheet %}
+
+{% javascript %}
+
+          document.addEventListener('DOMContentLoaded', function() {
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.custom-nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('custom-nav-active');
+                }
+            });
+        });
+  
+{% endjavascript %}
+
+
+
+
+    <nav class="custom-navbar" role="navigation" aria-label="Main navigation">
+        <ul class="custom-nav-list">
+            <li class="custom-nav-item">
+                <a href="/pages/warranty-registration" class="custom-nav-link" aria-label="About Us">{{ section.settings.menufirst_title }}</a>
+            </li>
+            <li class="custom-nav-item">
+                <a href="/pages/customer-help-center" class="custom-nav-link" aria-label="Help Center">{{ section.settings.menusecond_title }}</a>
+            </li>
+            <li class="custom-nav-item">
+                <a href="/pages/resources" class="custom-nav-link" aria-label="Resources">{{ section.settings.menuthird_title }}</a>
+            </li>
+            <li class="custom-nav-item">
+                <a href="/pages/contact-us" class="custom-nav-link" aria-label="Request a Volume Quote">{{ section.settings.menuforuth_title }}</a>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Mini Nav",
+    "settings": [
+        {
+        "type": "text",
+        "id": "menufirst_title",
+        "label": "Menu title",
+        "default": "Warranty Registration"
+        },
+        {
+        "type": "text",
+        "id": "menusecond_title",
+        "label": "Menu title",
+        "default": "Help Center"
+        },
+        {
+        "type": "text",
+        "id": "menuthird_title",
+        "label": "Menu title",
+        "default": "Resources"
+        },
+        {
+        "type": "text",
+        "id": "menuforuth_title",
+        "label": "Menu title",
+        "default": "Request Quote"
+        }
+    ],
+
+  "presets": [
+      {
+        "name": "Mini Nav",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

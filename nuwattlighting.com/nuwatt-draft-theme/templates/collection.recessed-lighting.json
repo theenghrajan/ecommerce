@@ -1,0 +1,302 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_aq3GFX": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Recessed Lighting Collection",
+        "collection_seo_description": "The LED Recessed Lighting collection offers versatile, energy efficient solutions for creating a clean, modern look in any space. These fixtures provide bright, even illumination, perfect for kitchens, living rooms, and offices. Designed for easy installation, they seamlessly blend into ceilings for an unobtrusive lighting experience."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #914800;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/cct-color-temperature-recessed-lighting-icon.png?v=1724086946\");}",
+        ".tag__text {display: unset !important;}",
+        ".collection-content {margin-top: 0px; padding-top: 0px;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_ichdPC": {
+      "type": "jump-to",
+      "blocks": {
+        "question_KzRb7f": {
+          "type": "question",
+          "settings": {
+            "button": "Retrofit",
+            "link": "shopify://collections/retrofit-recessed-lighting",
+            "image": "shopify://shop_images/LED-RDL-4-PC-CCT-WH-SM.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_ypP8wC": {
+          "type": "question",
+          "settings": {
+            "button": "Canless",
+            "link": "shopify://collections/canless-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-DL-6-15W-5CT-WH-667527_f9681c57-6e46-48b7-8e27-ec81404fcd84-911146.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_fADaU9": {
+          "type": "question",
+          "settings": {
+            "button": "MR16 Downlights",
+            "link": "shopify://collections/mr16-retrofit-recessed-lights",
+            "image": "shopify://shop_images/NW_DL_MR16_LV_5CT_WT_LISTING-MAIN_1P-667710.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_ExCEfm": {
+          "type": "question",
+          "settings": {
+            "button": "Fire Rated",
+            "link": "shopify://collections/fire-rated-recessed-light",
+            "image": "shopify://shop_images/NW-PB-DL-4-12W-5CT-FR-WH_LISTING_MAIN_1P_20fd31cf-20b9-4225-8d4a-2514853a5adf-828261.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_wJxaMA": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "shopify://collections/black-recessed-lighting",
+            "image": "shopify://shop_images/recessed_lighting_black_trim.png",
+            "alt-text": ""
+          }
+        },
+        "question_imBeYL": {
+          "type": "question",
+          "settings": {
+            "button": "Adjustable",
+            "link": "shopify://collections/adjustable-recessed-lighting",
+            "image": "shopify://shop_images/adjustable_recessed_lighting_collection.webp",
+            "alt-text": ""
+          }
+        },
+        "question_L4ew6m": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "button": "Square Trim",
+            "link": "shopify://collections/square-recessed-lighting",
+            "image": "shopify://shop_images/Square_Recessed_Lighting_Collection.png",
+            "alt-text": ""
+          }
+        },
+        "question_QLWXxL": {
+          "type": "question",
+          "settings": {
+            "button": "Disk Downlights",
+            "link": "https://www.nuwattlighting.com/collections/recessedlighting?filter.p.m.custom.installation_type=Surface+Mount",
+            "image": "shopify://shop_images/NW-R-DSK-6-15W-5CT_WH_LISTING_B_MAIN_1P-414840.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_KzRb7f",
+        "question_ypP8wC",
+        "question_fADaU9",
+        "question_ExCEfm",
+        "question_wJxaMA",
+        "question_imBeYL",
+        "question_L4ew6m",
+        "question_QLWXxL"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_zgpM4z": {
+      "type": "faq",
+      "blocks": {
+        "question_ejYDLj": {
+          "type": "question",
+          "settings": {
+            "title": "<p>Frequently asked question</p>",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        },
+        "question_wF8CAU": {
+          "type": "question",
+          "settings": {
+            "title": "<p>Frequently asked question</p>",
+            "text": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_ejYDLj",
+        "question_wF8CAU"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "faq_yLpRjX": {
+      "type": "faq",
+      "blocks": {
+        "question_ejWwdH": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_wK4zPr": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_UiKkac": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_ejWwdH",
+        "question_wK4zPr",
+        "question_UiKkac"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_PFMxiG": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_E3LfGD": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_xzbakr": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_QtG68W": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_RFLrF6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_QbqJUG": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_cJHYqW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_E3LfGD",
+        "question_xzbakr",
+        "question_QtG68W",
+        "question_RFLrF6",
+        "question_QbqJUG",
+        "question_cJHYqW"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_EffhUj": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Recessed Lighting Collection",
+        "collection_seo_description": "The LED Recessed Lighting collection offers versatile, energy efficient solutions for creating a clean, modern look in any space. These fixtures provide bright, even illumination, perfect for kitchens, living rooms, and offices. Designed for easy installation, they seamlessly blend into ceilings for an unobtrusive lighting experience."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_aq3GFX",
+    "main-collection",
+    "jump_to_ichdPC",
+    "faq_zgpM4z",
+    "faq_yLpRjX",
+    "collection_metafield_faq_PFMxiG",
+    "recently-viewed",
+    "expandable_description_EffhUj"
+  ]
+}

@@ -1,0 +1,47 @@
+{% comment %}
+  SS Anchor — section spacing.
+
+  WHY THIS EXISTS: the theme's .index-section applies `margin: 60px 0`
+  (assets/theme.css.liquid:7013, via --indexSectionPadding). Four of the copied
+  sections carried that class and three carried their own padding, so the page
+  rendered gaps of 60 / 146 / 60 / 60 instead of the design's even 48.
+
+  This makes spacing come from exactly ONE place — the section's own
+  padding_top / padding_bottom sliders — by:
+    1. zeroing any .index-section margin inside the section, and
+    2. applying the slider values as padding on the section wrapper.
+
+  The id selector is (1,1,0), which beats .index-section at (0,1,0), so no
+  !important is needed.
+
+  Usage:
+    {%- render 'ss-anchor-space', id: section.id,
+        top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+
+  Params:
+    - id     (required) section.id
+    - top    (required) px
+    - bottom (required) px
+{% endcomment %}
+
+{%- liquid
+  assign pt = top | default: 0
+  assign pb = bottom | default: 0
+-%}
+
+{%- if id != blank -%}
+  {%- style -%}
+    #shopify-section-{{ id }} {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: {{ pt }}px;
+      padding-bottom: {{ pb }}px;
+    }
+
+    #shopify-section-{{ id }} .index-section,
+    #shopify-section-{{ id }} .index-section + .index-section {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  {%- endstyle -%}
+{%- endif -%}

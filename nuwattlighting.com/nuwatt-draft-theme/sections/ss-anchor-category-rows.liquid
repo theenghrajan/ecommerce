@@ -1,0 +1,407 @@
+{% comment %}
+  SS Anchor Category Rows
+  Figma: "128 Audit Fixes" / Anchor page
+         Section - Canless Recessed Lights Category (9172:217)
+         Section - Retrofit Category (9172:309)
+         Section - Ceiling Category (9172:406)
+
+  CUSTOM section. featured-collection.liquid was the closest theme candidate and
+  was rejected: it cannot place a fixed-width promo tile in the first grid
+  track, has no subheading, and is used by 3 other templates, so restructuring
+  its grid is unsafe.
+
+  The three rows in the design are BLOCKS of this one section, not three
+  section instances. Shared controls (title clamp, card border, radius, case,
+  spacing) sit at section level so the rows cannot drift apart.
+
+  REQUIREMENTS (CSV row 9 / sign-off):
+    - "We want to manually control what products show up in each collection"
+      -> four discrete product pickers per block. There is deliberately NO
+         collection-driven loop here.
+    - "Image should be manually selectable also" -> feature_image per block.
+    - View All button carries its own manual link.
+
+  Product cards render through the theme's own snippets/product-grid-item.liquid
+  so pricing, badges and quick-add match the rest of the store.
+
+  Layout from Figma: head 1120x56, 24px gap, grid = 277px feature tile +
+  4 product columns at 16px gaps, row height 369px, 48px between rows.
+{% endcomment %}
+
+{{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
+{%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
+{%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --ss-card-radius: {{ section.settings.card_radius }}px;
+    --ss-row-gap: {{ section.settings.row_gap }}px;
+  }
+{%- endstyle -%}
+
+<div
+  id="SsAnchorCategory-{{ section.id }}"
+  class="ss-anchor-section ss-anchor-category"
+  data-section-id="{{ section.id }}"
+  data-section-type="ss-anchor-category-rows"
+>
+  <div class="ss-anchor-inner">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign feature_overlay = block.settings.feature_overlay | divided_by: 100.0
+        assign feature_overlay_mid = feature_overlay | times: 0.5
+
+        # Feature tile image, in order: the merchant's upload, then the first
+        # selected product's own image. The fallback means the tile has real
+        # artwork the moment products are chosen, with nothing to upload —
+        # image_picker needs Shopify Files, which the Theme CLI cannot write to.
+        assign feature_img = block.settings.feature_image
+        if feature_img == blank
+          for p in block.settings.products limit: 1
+            assign feature_img = p.featured_image
+          endfor
+        endif
+      -%}
+
+      <div class="ss-anchor-category__row" {{ block.shopify_attributes }}>
+
+        <div class="ss-anchor-category__head">
+          <div class="ss-anchor-category__titles">
+            {%- if block.settings.heading != blank -%}
+              <h2 class="ss-anchor-heading">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            {%- if block.settings.subheading != blank -%}
+              <p class="ss-anchor-subheading">{{ block.settings.subheading | escape }}</p>
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.view_all_label != blank and block.settings.view_all_link != blank -%}
+            <a class="ss-anchor-link" href="{{ block.settings.view_all_link }}">
+              {{ block.settings.view_all_label | escape }}
+              {%- render 'ss-anchor-icon', icon: 'arrow' -%}
+            </a>
+          {%- endif -%}
+        </div>
+
+        <div class="ss-anchor-category__grid">
+          {%- comment -%} Feature promo tile — leads the row at a fixed 277px {%- endcomment -%}
+          {%- if block.settings.feature_title != blank or feature_img != blank -%}
+            {%- capture feature_body -%}
+              {%- if feature_img != blank -%}
+                <div class="ss-anchor-feature__media">
+                  {%- render 'image-element',
+                    img: feature_img,
+                    alt: '',
+                    widths: '450, 600, 800, 1000, 1200, 1500',
+                    sizes: '(min-width: 1025px) 500px, 100vw',
+                    ariaHidden: true
+                  -%}
+                </div>
+              {%- endif -%}
+              {%- comment -%}
+                Bottom-darkening scrim, matching the Logo list section's image
+                treatment (sections/logo-list.liquid, .logo-bar__item::before)
+                instead of a flat overlay: full-height gradient anchored at the
+                bottom, fading to transparent by 58% up the image. Stop opacities
+                scale off the merchant's feature_overlay setting, keeping the
+                same 100% / 50% / 0% ratio as the logo-list gradient.
+              {%- endcomment -%}
+              <div class="ss-anchor-feature__overlay" style="background: linear-gradient(0deg, rgba(0, 0, 0, {{ feature_overlay }}) 0%, rgba(0, 0, 0, {{ feature_overlay_mid }}) 26%, rgba(0, 0, 0, 0) 58%);"></div>
+              <div class="ss-anchor-feature__body">
+                {%- if block.settings.feature_title != blank -%}
+                  <h3 class="ss-anchor-feature__title">{{ block.settings.feature_title | escape }}</h3>
+                {%- endif -%}
+                {%- if block.settings.feature_text != blank -%}
+                  <p class="ss-anchor-feature__text">{{ block.settings.feature_text | escape }}</p>
+                {%- endif -%}
+                {%- if block.settings.feature_link_label != blank -%}
+                  <span class="ss-anchor-link ss-anchor-link--accent">
+                    {{ block.settings.feature_link_label | escape }}
+                    {%- render 'ss-anchor-icon', icon: 'arrow' -%}
+                  </span>
+                {%- endif -%}
+              </div>
+            {%- endcapture -%}
+
+            {%- comment -%}
+              Rendered as <a> only when it has a link — an <a> with no href is
+              not focusable and reads as a link to assistive tech.
+            {%- endcomment -%}
+            {%- if block.settings.feature_link != blank -%}
+              <a class="ss-anchor-feature" href="{{ block.settings.feature_link }}">{{ feature_body }}</a>
+            {%- else -%}
+              <div class="ss-anchor-feature">{{ feature_body }}</div>
+            {%- endif -%}
+          {%- endif -%}
+
+          {%- comment -%}
+            Four hand-picked products, per the client's sign-off. Each renders
+            through the theme's own product card so it matches the rest of the
+            store. Empty slots fall back to a placeholder in the editor.
+          {%- endcomment -%}
+          {%- comment -%}
+            product_list is Shopify's native multi-select picker, so the
+            merchant chooses and reorders all four in one field.
+
+            Iterate the list DIRECTLY rather than indexing it by a counter
+            variable — Liquid's bracket access on a product_list is unreliable,
+            and an earlier version using picked[idx] rendered nothing at all.
+            Remaining slots are then padded so the grid tracks stay even.
+          {%- endcomment -%}
+          {%- assign picked = block.settings.products -%}
+          {%- assign picked_count = 0 -%}
+
+          {%- for product in picked limit: 4 -%}
+            {%- assign picked_count = picked_count | plus: 1 -%}
+            <div class="ss-anchor-product">
+              {%- render 'product-grid-item',
+                product: product,
+                collection: null,
+                sizeVariable: 4,
+                classes: 'ss-anchor-product__card'
+              -%}
+            </div>
+          {%- endfor -%}
+
+          {%- comment -%} Pad the row out to 4 so the tracks stay even. {%- endcomment -%}
+          {%- assign empty_slots = 4 | minus: picked_count -%}
+          {%- if empty_slots > 0 -%}
+            {%- for i in (1..empty_slots) -%}
+              <div class="ss-anchor-product ss-anchor-product--empty">
+                <div class="ss-anchor-product__placeholder">
+                  {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- comment -%}
+                    Key verified present in locales/en.default.json at
+                    home_page.onboarding.product_title. A missing t: key renders
+                    "Translation missing" (which is truthy, so | default would
+                    not catch it) — so the path matters.
+                  {%- endcomment -%}
+                  <p class="ss-anchor-product__placeholder-label">
+                    {{ 'home_page.onboarding.product_title' | t }}
+                  </p>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+
+    {%- if section.blocks.size == 0 -%}
+      <div class="ss-anchor-empty">
+        <p>Add a “Category row” block to start.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var sectionId = {{ section.id | json }};
+
+    // theme.QuickAdd binds .js-quick-add-btn (single variant, adds straight to
+    // cart) and .js-quick-add-form (multiple variants, opens the modal) within
+    // whatever container it is given. theme.js only auto-registers its OWN
+    // section types, so a custom section has to wire itself up — without this
+    // the buttons render but nothing is bound, and the click bubbles up to the
+    // card's wrapping <a>, which is why it went to the product page instead.
+    //
+    // #QuickAddHolder and #QuickAddModal already exist globally
+    // (layout/theme.liquid renders 'quick-add-modal'), so nothing else is
+    // needed here. It no-ops on its own when settings.quick_add_enable is off.
+    function init() {
+      var root = document.getElementById('SsAnchorCategory-' + sectionId);
+      if (!root || root.getAttribute('data-quick-add-ready') === 'true') return;
+      if (!window.theme || typeof window.theme.QuickAdd !== 'function') return;
+
+      new window.theme.QuickAdd(root);
+      root.setAttribute('data-quick-add-ready', 'true');
+    }
+
+    // 'page:loaded' is the theme's documented "assets are ready" event.
+    document.addEventListener('page:loaded', init);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    // Re-bind after the theme editor replaces this section's markup.
+    document.addEventListener('shopify:section:load', function (evt) {
+      if (evt.detail && evt.detail.sectionId === sectionId) init();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "SS Anchor Category Rows",
+  "tag": "section",
+  "class": "ss-anchor-section-wrapper",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Add a “Category row” block per category. The settings below are shared by every row so the rows stay consistent."
+    },
+    {
+      "type": "select",
+      "id": "text_case",
+      "label": "Heading case",
+      "info": "Overrides the theme-wide uppercase heading setting for this section only.",
+      "default": "sentence",
+      "options": [
+        { "value": "sentence", "label": "Sentence case" },
+        { "value": "uppercase", "label": "UPPERCASE" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Image tile corner radius",
+      "info": "Product cards use the store-wide collection-page card style.",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Space between rows",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Canless Recessed Lights"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Sleek, modern and easy to install. Perfect for any bedroom."
+        },
+        {
+          "type": "text",
+          "id": "view_all_label",
+          "label": "View all label",
+          "default": "View all"
+        },
+        {
+          "type": "url",
+          "id": "view_all_link",
+          "label": "View all link",
+          "info": "Set this manually — usually the matching collection."
+        },
+        {
+          "type": "header",
+          "content": "Products"
+        },
+        {
+          "type": "paragraph",
+          "content": "Pick the products for this row by hand — they are not pulled from a collection. Order here is the order they appear."
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Products",
+          "info": "Select up to 4. Drag to reorder. Empty slots show a placeholder.",
+          "limit": 4
+        },
+        {
+          "type": "header",
+          "content": "Feature tile"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Title",
+          "default": "Canless Recessed Lights"
+        },
+        {
+          "type": "text",
+          "id": "feature_text",
+          "label": "Text",
+          "info": "Shown on mobile only. On desktop the tile shows just the title and link.",
+          "default": "Sleek, modern and easy to install. Perfect for any bedroom."
+        },
+        {
+          "type": "text",
+          "id": "feature_link_label",
+          "label": "Link label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "feature_link",
+          "label": "Link"
+        },
+        {
+          "type": "range",
+          "id": "feature_overlay",
+          "label": "Image overlay",
+          "info": "Darkens the bottom of the image, fading to clear near the top — same treatment as the Logo list section, not a flat tint.",
+          "min": 0,
+          "max": 90,
+          "step": 2,
+          "unit": "%",
+          "default": 48
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS Anchor Category Rows",
+      "blocks": [
+        { "type": "category" },
+        { "type": "category" },
+        { "type": "category" }
+      ]
+    }
+  ]
+}
+{% endschema %}

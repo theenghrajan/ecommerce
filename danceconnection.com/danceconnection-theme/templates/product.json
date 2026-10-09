@@ -1,0 +1,182 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "judge_me_reviews_preview_badge_AbKaT8": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "dropdown",
+            "product_dynamic_variants_enable": false,
+            "color_swatches": false
+          }
+        },
+        "inventory_status_6dRmAJ": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 2,
+            "inventory_transfers_enable": true
+          }
+        },
+        "apo_product_options_app_block_8cYTbE": {
+          "type": "shopify://apps/apo-product-options/blocks/app-block/a1199153-7462-4b5b-8a80-f0eefba85e99",
+          "settings": {}
+        },
+        "quantity_selector_HahmXb": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "esc_size_charts_size_guide_app_block_MbamEX": {
+          "type": "shopify://apps/esc-size-charts/blocks/app-block/daa9a1f8-04ef-4369-ae22-966a9c435d5f",
+          "settings": {
+            "widget_type": "link",
+            "force_background": false,
+            "btn_text": "[ CLICK HERE FOR SHOE SIZE CHART ]"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "faq": {
+          "type": "faq",
+          "settings": {
+            "title": "FAQs"
+          }
+        },
+        "contact": {
+          "type": "contact",
+          "settings": {
+            "title": "Ask a question",
+            "phone": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_AbKaT8",
+        "price",
+        "separator",
+        "variant_picker",
+        "inventory_status_6dRmAJ",
+        "apo_product_options_app_block_8cYTbE",
+        "quantity_selector_HahmXb",
+        "esc_size_charts_size_guide_app_block_MbamEX",
+        "buy_buttons",
+        "description",
+        "faq",
+        "contact",
+        "share"
+      ],
+      "custom_css": [
+        ".product-block.product-block--price {margin-bottom: 0; margin-top: 12px;}",
+        ".product__thumbs--beside.product__thumbs-placement--left {margin-left: initial; margin-right: initial; order: initial;}"
+      ],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "medium",
+        "product_zoom_enable": true,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": false,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 6,
+        "products_per_row": 3
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "disabled": true,
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    },
+    "170535602435ce9bcb": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_bGXpxY": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_bGXpxY"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "product-recommendations",
+    "recently-viewed",
+    "collection-return",
+    "170535602435ce9bcb"
+  ]
+}

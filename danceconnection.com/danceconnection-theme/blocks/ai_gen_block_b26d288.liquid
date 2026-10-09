@@ -1,0 +1,51 @@
+{% doc %}
+  @prompt
+    Add custom CSS to make the announcement bar text font size 20px, targeting only the announcement bar section so it doesn't affect other text on the site.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-custom-css-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+  }
+
+  .announcement-bar__message {
+    font-size: {{ block.settings.announcement_font_size }}px !important;
+  }
+{% endstyle %}
+
+<div class="ai-custom-css-{{ ai_gen_id }}" {{ block.shopify_attributes }}></div>
+
+{% schema %}
+{
+  "name": "Custom announcement CSS",
+  "tag": null,
+  "class": "ai-custom-css-block",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Announcement bar styling"
+    },
+    {
+      "type": "range",
+      "id": "announcement_font_size",
+      "label": "Text size",
+      "min": 10,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "paragraph",
+      "content": "This block applies custom CSS to the announcement bar text only."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom announcement CSS"
+    }
+  ]
+}
+{% endschema %}

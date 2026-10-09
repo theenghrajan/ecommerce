@@ -1,0 +1,97 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer-group.name",
+  "sections": {
+    "footer-promotions": {
+      "type": "footer-promotions",
+      "disabled": true,
+      "settings": {
+        "hide_homepage": false,
+        "image_size": "natural"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image_bxwhmN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/NW_LOGO_2024-01.svg",
+            "image_mask": "none",
+            "link": "",
+            "description": "<p>Your one stop shop to all outdoor and indoor LED lighting solutions for residential, commercial, and industrial applications. All products are designed by our American lighting experts, headquartered in Los Angeles. We ship nationwide with arrival in 1 to 5 business days.</p>",
+            "show_social": true,
+            "use_theme_logo": true
+          }
+        },
+        "menu_aAYxag": {
+          "type": "menu",
+          "settings": {
+            "title": "Company",
+            "menu": "3-0-footer-menu-about-company",
+            "enable_account_link": true
+          }
+        },
+        "footer-0": {
+          "type": "menu",
+          "settings": {
+            "title": "Help Center",
+            "menu": "3-0-footer-menu-help-center-copy",
+            "enable_account_link": false
+          }
+        },
+        "footer-1": {
+          "type": "contact",
+          "settings": {
+            "phone": "(862) 801-2006",
+            "contact_title": "Email us",
+            "contact": "help-center",
+            "chat": "",
+            "enable_social": false
+          }
+        },
+        "footer-2": {
+          "type": "payment",
+          "disabled": true,
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": false,
+            "show_currency_selector": false,
+            "show_currency_flags": false
+          }
+        }
+      },
+      "block_order": [
+        "image_bxwhmN",
+        "menu_aAYxag",
+        "footer-0",
+        "footer-1",
+        "footer-2"
+      ],
+      "custom_css": [
+        "#Email-sections--16668242509898__footer {border: solid black 1px;}"
+      ],
+      "settings": {
+        "show_newsletter": true,
+        "newsletter_richtext": "<p>5% Off for Email Subscribers</p><p>One email when there's something worth knowing — new fixtures, spec updates, restocks.</p>",
+        "footer_main_menu": false,
+        "show_copyright": true,
+        "copyright_text": "| All Rights Reserved",
+        "policies_menu": "policies"
+      }
+    }
+  },
+  "order": [
+    "footer-promotions",
+    "footer"
+  ]
+}

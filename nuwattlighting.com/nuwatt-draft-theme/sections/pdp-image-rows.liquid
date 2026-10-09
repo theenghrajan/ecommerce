@@ -1,0 +1,143 @@
+{% comment %}
+  PDP Image Rows + Video — Figma "128 Audit Fixes" Product Page (node 9211:7), the
+  stacked full-width marketing image/diagram bands below the tabs, ending in an
+  install-guide video.
+
+  Precedence: if product.metafields.custom.image_rows (a list-of-files metafield)
+  is populated, its images render — plus product.metafields.custom.image_rows_video
+  at the end if that's also set — and this section's own blocks are ignored
+  entirely. Only when that metafield is blank do the blocks below render instead,
+  as the fallback/default (each block independently chooses image or video, so a
+  merchant can put a video anywhere, typically last, matching the Figma reference).
+
+  Metafields expected (create these in Shopify Admin):
+  - product.metafields.custom.image_rows        (list of files, images only)
+  - product.metafields.custom.image_rows_video  (file reference, validated to Video)
+{% endcomment %}
+
+{%- assign mf_images = product.metafields.custom.image_rows.value -%}
+{%- assign mf_video = product.metafields.custom.image_rows_video.value -%}
+
+<div class="pdp-image-rows page-width">
+  {%- if mf_images != blank -%}
+    {%- for img in mf_images -%}
+      <div class="pdp-image-rows__row">
+        {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600' }}
+      </div>
+    {%- endfor -%}
+    {%- if mf_video != blank -%}
+      <div class="pdp-image-rows__row pdp-image-rows__row--video">
+        {{ mf_video | media_tag: image_size: '1600x', controls: true }}
+      </div>
+    {%- endif -%}
+  {%- else -%}
+    {%- for block in section.blocks -%}
+      {%- assign has_media = false -%}
+      {%- if block.settings.media_type == 'video' and block.settings.video != blank -%}
+        {%- assign has_media = true -%}
+      {%- elsif block.settings.media_type != 'video' and block.settings.image != blank -%}
+        {%- assign has_media = true -%}
+      {%- elsif block.settings.media_type != 'video' and block.settings.image_asset != blank -%}
+        {%- assign has_media = true -%}
+      {%- endif -%}
+      {%- if has_media -%}
+      <div class="pdp-image-rows__row{% if block.settings.show_play_icon %} pdp-image-rows__row--poster{% endif %}" {{ block.shopify_attributes }}>
+        {%- case block.settings.media_type -%}
+          {%- when 'video' -%}
+            <div class="pdp-image-rows__row--video">
+              {{ block.settings.video | video_tag: image_size: '1600x', controls: true }}
+            </div>
+          {%- else -%}
+            {%- comment -%}
+              image_picker (block.settings.image) is the merchant-facing option — it
+              references a file already uploaded to this store's Files library via
+              Shopify Admin. image_asset is a theme-asset fallback (a filename in
+              this theme's assets/ folder) for content that ships with the theme
+              itself rather than being uploaded per-store, e.g. the Figma reference
+              rows below. image_picker wins if both happen to be set.
+            {%- endcomment -%}
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600' }}
+            {%- else -%}
+              <img src="{{ block.settings.image_asset | asset_url }}" alt="" loading="lazy" width="1280" height="600">
+            {%- endif -%}
+            {%- if block.settings.show_play_icon -%}
+              <span class="pdp-image-rows__play" aria-hidden="true">
+                <svg viewBox="0 0 64 64" width="28" height="28"><circle cx="32" cy="32" r="31" fill="#fff" opacity="0.9"/><path d="M25 19l22 13-22 13V19z" fill="#202020"/></svg>
+              </span>
+            {%- endif -%}
+        {%- endcase -%}
+        {%- if block.settings.caption != blank -%}
+          <p class="pdp-image-rows__caption">{{ block.settings.caption }}</p>
+        {%- endif -%}
+      </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "PDP Image Rows",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Image or Video Row",
+      "settings": [
+        {
+          "type": "select",
+          "id": "media_type",
+          "label": "Media type",
+          "options": [
+            { "value": "image", "label": "Image" },
+            { "value": "video", "label": "Video" }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Used when Media type is Image. Takes priority over the theme asset filename below if both are set."
+        },
+        {
+          "type": "text",
+          "id": "image_asset",
+          "label": "Theme asset filename (fallback)",
+          "info": "Only used when Media type is Image and no image above is picked — a filename already in this theme's assets/ folder, e.g. pdp-row-1-spec-diagram.png"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Used when Media type is Video"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_play_icon",
+          "label": "Show a play-icon overlay",
+          "info": "For an image row that acts as a video's poster frame until a real video is uploaded",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Image Rows",
+      "blocks": [
+        { "type": "row" },
+        { "type": "row" },
+        { "type": "row" },
+        { "type": "row", "settings": { "media_type": "video" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

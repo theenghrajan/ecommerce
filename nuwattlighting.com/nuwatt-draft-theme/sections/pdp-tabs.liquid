@@ -1,0 +1,322 @@
+{% comment %}
+  PDP Tabs — Figma "128 Audit Fixes" Product Page (node 9211:7), tab bar region.
+
+  Tab switching uses its own small, self-contained script below (scoped to #pdp-tabs).
+  An earlier version tried to reuse assets/theme.js's tab_section_list/wrap_content_block
+  click handler, but that handler assumes a mobile/desktop duplicate-markup pair
+  (.tabs_main_content.hide_mobile / .hide_desktop) from sections/tab-section.liquid that
+  this section doesn't have, so it silently failed to re-activate any panel after the
+  first click — every tab went blank. Scoping our own handler avoids depending on that
+  markup assumption, and avoids colliding with tab-section.liquid's own global selectors
+  wherever else it's used (e.g. templates/page.new-contact-page.json).
+
+  Other pieces below are still reused as-is:
+  - Specifications / Dimensions tables reuse the exact `product-specs-table` markup and
+    class from sections/product-specs-accordion.liquid (already styled in theme.css.liquid).
+  - The Manuals tab reuses the exact Download Manual link/class from
+    sections/product-downloads.liquid.
+  - FAQ accordion items are rendered through the existing 'tab' snippet (the same
+    collapsible-trigger/collapsible-content component already used elsewhere in this
+    theme), one per metaobject entry.
+
+  Metafields this section expects (create these in Shopify Admin — see chat for full list):
+  - product.metafields.custom.description_image      (file/image reference)
+  - product.metafields.custom.faqs                    (list of "faq" metaobjects, fields: question, answer — both plain text)
+  - product.metafields.custom.dimension_height/_width/_depth/_cutout/_weight (single line text)
+  - product.metafields.custom.manual                  (already exists; reused as-is)
+  - product.metafields.custom.warranty_content         (rich text) - falls back to this
+    block's own "Content" setting when blank, same pattern as description_image above.
+{% endcomment %}
+
+<div class="pdp-tabs page-width" id="pdp-tabs">
+  <ul class="pdp-tabs__list">
+    {%- for block in section.blocks -%}
+      <li
+        class="pdp-tabs__tab{% if forloop.first %} active{% endif %}"
+        data-index="tab-{{ forloop.index }}"
+        {% if block.type == 'specifications' %}id="pdp-tab-trigger-specifications"{% endif %}
+        {{ block.shopify_attributes }}
+      >
+        <a><span class="tab_link_text">{{ block.settings.title }}</span></a>
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  <div class="pdp-tabs__panels">
+    {%- for block in section.blocks -%}
+      <div class="pdp-tabs__panel{% if forloop.first %} active{% endif %}" data-index="tab-{{ forloop.index }}">
+        {%- case block.type -%}
+
+          {%- when 'description' -%}
+            <div class="pdp-tab-description">
+              <div class="pdp-tab-description__text-col">
+                {%- assign desc_text = product.description -%}
+                <div class="pdp-tab-description__text is-collapsed" data-pdp-description-text>
+                  {{ desc_text }}
+                </div>
+                {%- if desc_text != blank -%}
+                  <button type="button" class="pdp-tab-description__toggle" data-pdp-description-toggle>Read more</button>
+                {%- endif -%}
+              </div>
+              <div class="pdp-tab-description__image-col">
+                {%- if product.metafields.custom.description_image != blank -%}
+                  {{ product.metafields.custom.description_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '450,600,900', alt: product.title }}
+                {%- else -%}
+                  {%- comment -%}
+                    No description_image metafield set yet — show the exact lifestyle
+                    photo from the Figma reference as a placeholder until a real,
+                    per-product image is uploaded to that metafield.
+                  {%- endcomment -%}
+                  <img src="{{ 'pdp-description-placeholder.png' | asset_url }}" alt="" loading="lazy" width="1344" height="768">
+                  <p class="pdp-tab-description__placeholder-note">Placeholder image — set product.metafields.custom.description_image for a per-product photo.</p>
+                {%- endif -%}
+              </div>{% comment %} pdp-tab-description--no-image is intentionally unused now: an image (real or placeholder) always renders. {% endcomment %}
+            </div>
+
+          {%- when 'specifications' -%}
+            {%- capture specs_rows -%}
+                {%- if product.metafields.custom.base_type contains 'FPO' or product.metafields.custom.base_type == blank or product.metafields.custom.base_type == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Base Type</td><td class="text-left">{{ product.metafields.custom.base_type }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.dimmable contains 'FPO' or product.metafields.custom.dimmable == blank or product.metafields.custom.dimmable == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Dimmability</td><td class="text-left">{{ product.metafields.custom.dimmable }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.size contains 'FPO' or product.metafields.custom.size == blank or product.metafields.custom.size == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Size</td><td class="text-left fgtm">{{ product.metafields.custom.size }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.light_color contains 'FPO' or product.metafields.custom.light_color == blank or product.metafields.custom.light_color == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Color Temperature</td><td class="text-left">{{ product.metafields.custom.light_color }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.color_rendering_index_cri contains 'FPO' or product.metafields.custom.color_rendering_index_cri == blank or product.metafields.custom.color_rendering_index_cri == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">CRI</td><td class="text-left">{{ product.metafields.custom.color_rendering_index_cri }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.specification_met contains 'FPO' or product.metafields.custom.specification_met == blank or product.metafields.custom.specification_met == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Certifications</td><td class="text-left">{{ product.metafields.custom.specification_met }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.indoor_outdoor_usage contains 'FPO' or product.metafields.custom.indoor_outdoor_usage == blank or product.metafields.custom.indoor_outdoor_usage == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Indoor/Outdoor Usage</td><td class="text-left">{{ product.metafields.custom.indoor_outdoor_usage }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.material contains 'FPO' or product.metafields.custom.material == blank or product.metafields.custom.material == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Product Materials</td><td class="text-left">{{ product.metafields.custom.material }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.color contains 'FPO' or product.metafields.custom.color == blank or product.metafields.custom.color == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Color</td><td class="text-left">{{ product.metafields.custom.color }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.mounting_type contains 'FPO' or product.metafields.custom.mounting_type == blank or product.metafields.custom.mounting_type == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Mounting Type</td><td class="text-left">{{ product.metafields.custom.mounting_type }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.warranty_type contains 'FPO' or product.metafields.custom.warranty_type == blank or product.metafields.custom.warranty_type == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Warranty</td><td class="text-left">{{ product.metafields.custom.warranty_type }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.item_model_number contains 'FPO' or product.metafields.custom.item_model_number == blank or product.metafields.custom.item_model_number == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Model Number</td><td class="text-left">{{ product.metafields.custom.item_model_number }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.brand contains 'FPO' or product.metafields.custom.brand == blank or product.metafields.custom.brand == 'a' -%}
+                {%- else -%}
+                  <tr><td class="text-left">Brand</td><td class="text-left">{{ product.metafields.custom.brand }}</td></tr>
+                {%- endif -%}
+            {%- endcapture -%}
+            {%- if specs_rows != blank -%}
+              <table class="product-specs-table">
+                <tbody class="tbody-table">
+                  {{ specs_rows }}
+                </tbody>
+              </table>
+            {%- else -%}
+              <p class="pdp-tab-specifications__empty">Specifications for this product have not been added yet.</p>
+            {%- endif -%}
+
+          {%- when 'warranty' -%}
+            <div class="rte pdp-tab-warranty">
+              {%- if product.metafields.custom.warranty_content != blank -%}
+                {{ product.metafields.custom.warranty_content }}
+              {%- else -%}
+                {{ block.settings.content }}
+              {%- endif -%}
+            </div>
+
+          {%- when 'faq' -%}
+            <div class="pdp-tab-faq">
+              {%- assign faq_list = product.metafields.custom.faqs.value -%}
+              {%- if faq_list != blank -%}
+                {%- for faq in faq_list -%}
+                  {%- assign faq_id = 'pdp-faq-' | append: forloop.index -%}
+                  {%- render 'tab', id: faq_id, title: faq.question, content: faq.answer -%}
+                {%- endfor -%}
+              {%- else -%}
+                <p class="pdp-tab-faq__empty">{{ block.settings.empty_state_text | default: 'FAQs for this product have not been added yet.' }}</p>
+              {%- endif -%}
+            </div>
+
+          {%- when 'dimensions' -%}
+            {%- capture dimension_rows -%}
+                {%- if product.metafields.custom.dimension_height != blank -%}
+                  <tr><td class="text-left">Height</td><td class="text-left">{{ product.metafields.custom.dimension_height }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.dimension_width != blank -%}
+                  <tr><td class="text-left">Width / Diameter</td><td class="text-left">{{ product.metafields.custom.dimension_width }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.dimension_depth != blank -%}
+                  <tr><td class="text-left">Depth</td><td class="text-left">{{ product.metafields.custom.dimension_depth }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.dimension_cutout != blank -%}
+                  <tr><td class="text-left">Cutout Size</td><td class="text-left">{{ product.metafields.custom.dimension_cutout }}</td></tr>
+                {%- endif -%}
+                {%- if product.metafields.custom.dimension_weight != blank -%}
+                  <tr><td class="text-left">Weight</td><td class="text-left">{{ product.metafields.custom.dimension_weight }}</td></tr>
+                {%- endif -%}
+            {%- endcapture -%}
+            {%- if dimension_rows != blank -%}
+              <table class="product-specs-table">
+                <tbody class="tbody-table">
+                  {{ dimension_rows }}
+                </tbody>
+              </table>
+            {%- else -%}
+              <p class="pdp-tab-dimensions__empty">Dimensions for this product have not been added yet.</p>
+            {%- endif -%}
+
+          {%- when 'manuals' -%}
+            <div class="pdp-tab-manuals">
+              {%- if product.metafields.custom.manual != blank -%}
+                <a href="{{ product.metafields.custom.manual }}" class="specs-download" target="_blank" rel="noopener noreferrer">Download Manual</a>
+              {%- else -%}
+                <p class="pdp-tab-manuals__empty">No manual has been uploaded for this product yet.</p>
+              {%- endif -%}
+            </div>
+
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var pdpTabs = document.getElementById('pdp-tabs');
+    if (pdpTabs) {
+      var tabs = pdpTabs.querySelectorAll('.pdp-tabs__tab');
+      var panels = pdpTabs.querySelectorAll('.pdp-tabs__panel');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var index = tab.getAttribute('data-index');
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          tab.classList.add('active');
+          var targetPanel = pdpTabs.querySelector('.pdp-tabs__panel[data-index="' + index + '"]');
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+    }
+
+    var toggle = document.querySelector('[data-pdp-description-toggle]');
+    var text = document.querySelector('[data-pdp-description-text]');
+    if (toggle && text) {
+      toggle.addEventListener('click', function () {
+        var collapsed = text.classList.toggle('is-collapsed');
+        toggle.textContent = collapsed ? 'Read more' : 'Read less';
+      });
+    }
+
+    // The mini-specs "Read More" link lives outside this section (in the buy-box
+    // column's custom block); wire it to activate the Specifications tab rather
+    // than just anchor-scroll to it.
+    var specsJumpLinks = document.querySelectorAll('[data-pdp-jump-to-specs]');
+    specsJumpLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var specsTab = document.getElementById('pdp-tab-trigger-specifications');
+        if (specsTab) {
+          specsTab.click();
+          specsTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "PDP Tabs",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "description",
+      "name": "Description",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab label", "default": "Description" }
+      ]
+    },
+    {
+      "type": "specifications",
+      "name": "Specifications",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab label", "default": "Specifications" }
+      ]
+    },
+    {
+      "type": "warranty",
+      "name": "Warranty / Certifications",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab label", "default": "Warranty / Certifications" },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content (fallback)",
+          "info": "Only used when product.metafields.custom.warranty_content is blank.",
+          "default": "<p><strong>[Demo content — confirm final copy with client]</strong></p><p>NuWatt Lighting products are backed by a standard manufacturer's limited warranty. This section will list the specific warranty term and any relevant certifications (UL, ETL, Energy Star, etc.) for this product once confirmed.</p>"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ's",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab label", "default": "FAQ's" },
+        { "type": "text", "id": "empty_state_text", "label": "Empty state text", "default": "FAQs for this product have not been added yet." }
+      ]
+    },
+    {
+      "type": "dimensions",
+      "name": "Dimensions",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab label", "default": "Dimensions" }
+      ]
+    },
+    {
+      "type": "manuals",
+      "name": "Manuals",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Tab label", "default": "Manuals" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDP Tabs",
+      "blocks": [
+        { "type": "description" },
+        { "type": "specifications" },
+        { "type": "warranty" },
+        { "type": "faq" },
+        { "type": "dimensions" },
+        { "type": "manuals" }
+      ]
+    }
+  ]
+}
+{% endschema %}

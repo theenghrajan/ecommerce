@@ -1,0 +1,556 @@
+{% stylesheet %}
+
+  
+{% endstylesheet %}
+
+{% javascript %}
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const topics = document.querySelectorAll('.lighting101-topic');
+
+            topics.forEach(topic => {
+                const header = topic.querySelector('.lighting101-topic-header');
+                const content = topic.querySelector('.lighting101-topic-content');
+
+                header.addEventListener('click', () => {
+                    const isActive = topic.classList.contains('active');
+                    
+                    // Close all topics
+                    topics.forEach(t => {
+                        t.classList.remove('active');
+                        t.querySelector('.lighting101-topic-content').style.maxHeight = '0';
+                        t.querySelector('.lighting101-topic-content').style.paddingBottom = '0';
+                    });
+
+                    // If the clicked topic wasn't active, open it
+                    if (!isActive) {
+                        topic.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.paddingBottom = '15px';
+                    }
+                });
+            });
+        });
+{% endjavascript %}
+
+
+    <div class="lighting101-container">
+        <aside class="lighting101-sidebar">
+            <h2>Quick Links</h2>
+            <nav>
+                <ul>
+                    <li><a href="/pages/resources" >Lighting for Beginners</a></li>
+                    <li><a href="/pages/customer-help-center" class="active">Help Hub</a></li>
+                    <li><a href="/blogs/news">Blog</a></li>
+                    <li><a href="/pages/contact-us">Contact Us</a></li>
+                    <li><a href="/pages/refund-policy">Refund Policy</a></li>
+                    <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="lighting101-main-content">
+<div class="page-width page-width--narrow nw-faq-section nw-faq-section-"><script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "I purchased the wrong product, what now?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eAll Sales are final after 30 days of purchase. If a customer would like to return the goods within the 30 day return window, the shipping is paid for by the customer. If the product is no longer needed, returns are subject to a 15% restocking fee unless otherwise stated by a NuWatt employee. \u003cbr\/\u003e\u003cbr\/\u003eJust get in touch with our Customer Service team by email at cs@nuwattlighting.com or by phone at (862) 801-2006. They'll help you kick off the return process. Don't forget to check out our \u003ca href=\"\/pages\/refund-policy\" title=\"\/pages\/refund-policy\"\u003eReturn Policy\u003c\/a\u003e for all the details.\u003cbr\/\u003e\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "I received damaged, or missing items, what's next?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eSorry to hear you're experiencing problems with your order. We're here to help you get it sorted out!\u003cbr\/\u003e\u003cbr\/\u003eWe apologize for shipping you the wrong item on your order. \u003cbr\/\u003e\u003cbr\/\u003ePlease return the incorrect item after speaking with our helpful Customer Service Team by email at cs@nuwattlighting.com or&nbsp;by phone at (862) 801-2006\u003cbr\/\u003e\u003cbr\/\u003eOnce your returned item is received and inspected, we will send you the replacement item.\u003cbr\/\u003e\u003cbr\/\u003eRefer to our \u003ca href=\"\/pages\/refund-policy\" title=\"\/pages\/refund-policy\"\u003eReturn Policy\u003c\/a\u003e for complete details.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "I ordered from another site and have questions about my order?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eNo worries! If you bought a NuWatt product somewhere other than our website—like Amazon, Home Depot, etc.—and have questions about your order, we're here to help.\u003cbr\/\u003e\u003cbr\/\u003eIf you ordered on Amazon: Please contact Amazon Customer Service at 888-280-4331.\u003cbr\/\u003e\u003cbr\/\u003eIf you ordered on our website, or other online marketplaces: Reach out to our Customer Service Team, and they'll gladly review your order and answer any questions you have.\u003cbr\/\u003e\u003cbr\/\u003eemail cs@nuwattlighting.com or by phone at (862) 801-2006\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "I need to change my delivery or shipping address?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cul\u003e\u003cli\u003e\u003cstrong\u003eIf you ordered a NuWatt product on Amazon:\u003c\/strong\u003e\u003cbr\/\u003ePlease contact Amazon Customer Service at 888-280-4331.\u003cbr\/\u003e\u003c\/li\u003e\u003cli\u003e\u003cstrong\u003eIf you ordered on our website, or other online marketplaces:\u003c\/strong\u003e\u003cbr\/\u003eReach out to our Customer Service Team by email cs@nuwattlighting.com or by phone at (862) 801-2006\u003cbr\/\u003e\u003cbr\/\u003eFeel free to get in touch—we're here to make sure your order gets to the right place!\u003c\/li\u003e\u003c\/ul\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Buy in bulk discounts?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eGreat news! We offer bulk buying options for customers who qualify. To learn more read our article about \u003ca href=\"https:\/\/www.nuwattlighting.com\/blogs\/news\/discounted-led-lighting-on-large-quantity-orders\" title=\"https:\/\/www.nuwattlighting.com\/blogs\/news\/discounted-led-lighting-on-large-quantity-orders\"\u003eNuWatt Large Quantity Order Discounts\u003c\/a\u003e\u003cbr\/\u003e\u003cbr\/\u003eOr \u003ca href=\"\/pages\/contact-us\" title=\"\/pages\/contact-us\"\u003econtact us\u003c\/a\u003e directly.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Can I change the order I just placed?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eWe're here to help you adjust your order.\u003cbr\/\u003e\u003cbr\/\u003eContact our Customer Service Team to cancel your current order:\u003cbr\/\u003e\u003cstrong\u003ecs@nuwattlighting.com or by phone at (862) 801-2006\u003c\/strong\u003e\u003cbr\/\u003e\u003c\/p\u003e\u003cp\u003eThen, you can reorder the product(s) you want.\u003cbr\/\u003e\u003cbr\/\u003e\u003cstrong\u003eHave your order number handy so our team can assist you promptly.\u003c\/strong\u003e\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "What is NuWatt's refund policy?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003e\u003cstrong\u003eHere's what you need to know:\u003c\/strong\u003e\u003c\/p\u003e\u003cp\u003e\u003cstrong\u003eRETURN OF DEFECTIVE PRODUCT\u003c\/strong\u003e\u003cbr\/\u003eAfter obtaining a return authorization number (RMA), product should be shipped freight pre-paid to the address provided with your RMA. Failure to follow this procedure shall void this warranty. NUWATT reserves the right to (i) examine all failed LED fixtures to determine the cause of failure and patterns of usage and (ii) be the sole judge as to whether an LED fixture is defective and covered under warranty.\u003cbr\/\u003e\u003cbr\/\u003e\u003cstrong\u003eRETURN POLICY\u003c\/strong\u003e\u003cbr\/\u003eAll Sales are final after 30 days of purchase. If a customer would like to return the goods within the 30 day return window, the shipping is paid for by the customer. If the product is no longer needed, returns are subject to a 15% restocking fee unless otherwise stated by a NuWatt employee. \u003c\/p\u003e\u003cp\u003eFeel free to reach out to our Customer Service Team either by email at cs@nuwattlighting.com or by phone at (862) 801-2006—we're here to help!\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "How long it takes to get a refund from a return?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eOnce your return is approved, we'll process your refund and apply the credit to your credit card or original method of payment. This usually takes about 3-5 business days.\u003cbr\/\u003e\u003cbr\/\u003eIf you've already been approved but don't see the refund on your statement yet, keep in mind that banks and credit card companies often take some time before the refund officially posts to your account. It might help to contact your financial institution or credit card company to check if there's a delay on their end.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Where is NuWatt's full warranty policy?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eFor detailed information, please visit our \u003ca href=\"\/pages\/refund-policy\" title=\"\/pages\/refund-policy\"\u003epolicy page\u003c\/a\u003e.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Need to activate your warranty or make a service claim?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003e\u003cstrong\u003eNeed to activate your warranty or make a service claim?\u003cbr\/\u003e\u003cbr\/\u003e\u003c\/strong\u003eVisit our \u003ca href=\"\/pages\/warranty-registration\" title=\"\/pages\/warranty-registration\"\u003eWarranty Registration Page\u003c\/a\u003e\u003c\/p\u003e\u003cp\u003eGet in touch with us:\u003c\/p\u003e\u003cul\u003e\u003cli\u003e\u003cstrong\u003eEmail:\u003c\/strong\u003e cs@nuwattlighting.com\u003c\/li\u003e\u003cli\u003e\u003cstrong\u003ePhone:\u003c\/strong\u003e (862) 801-2006\u003c\/li\u003e\u003c\/ul\u003e\u003cp\u003eFeel free to reach out—we're ready to assist you with any warranty activation or service claims!\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Does NuWatt offer free shipping?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eYes! \u003cstrong\u003eGET FREE SHIPPING ON ALL ORDERS\u003c\/strong\u003e\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "How do I track my order?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003e\u003cstrong\u003eIf you ordered a NuWatt product on Amazon:\u003c\/strong\u003e\u003c\/p\u003e\u003cul\u003e\u003cli\u003ePlease contact \u003cstrong\u003eAmazon Customer Service\u003c\/strong\u003e at \u003cstrong\u003e888-280-4331\u003c\/strong\u003e.\u003c\/li\u003e\u003c\/ul\u003e\u003cp\u003e\u003cstrong\u003eIf you ordered on our website:\u003c\/strong\u003e\u003c\/p\u003e\u003cul\u003e\u003cli\u003eYou should have received a tracking email with all the details about your shipment.\u003c\/li\u003e\u003cli\u003e\u003cstrong\u003eNeed further assistance?\u003c\/strong\u003e Please reach out to our Customer Service team either by email at cs@nuwattlighting.com or&nbsp;by phone at (862) 801-2006\u003c\/li\u003e\u003c\/ul\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Does NuWatt ship internationally?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eNo we do not ship internationally.\u003c\/p\u003e"
+                  }
+                }
+            
+          
+        ]
+      }
+    </script><div>
+        
+            <div class="index-section index-section--faq">
+              <div class="text-left"><p class="h2">
+                    Orders
+                  </p></div>
+            </div>
+
+          
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-faq-1" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">I purchased the wrong product, what now?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-faq-1" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>All Sales are final after 30 days of purchase. If a customer would like to return the goods within the 30 day return window, the shipping is paid for by the customer. If the product is no longer needed, returns are subject to a 15% restocking fee unless otherwise stated by a NuWatt employee. <br><br>Just get in touch with our Customer Service team by email at cs@nuwattlighting.com or by phone at (862) 801-2006. They'll help you kick off the return process. Don't forget to check out our <a href="/pages/refund-policy" title="/pages/refund-policy">Return Policy</a> for all the details.<br></p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-faq-2" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">I received damaged, or missing items, what's next?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-faq-2" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Sorry to hear you're experiencing problems with your order. We're here to help you get it sorted out!<br><br>We apologize for shipping you the wrong item on your order. <br><br>Please return the incorrect item after speaking with our helpful Customer Service Team by email at cs@nuwattlighting.com or&nbsp;by phone at (862) 801-2006<br><br>Once your returned item is received and inspected, we will send you the replacement item.<br><br>Refer to our <a href="/pages/refund-policy" title="/pages/refund-policy">Return Policy</a> for complete details.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-faq-4" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">I ordered from another site and have questions about my order?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-faq-4" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>No worries! If you bought a NuWatt product somewhere other than our website—like Amazon, Home Depot, etc.—and have questions about your order, we're here to help.<br><br>If you ordered on Amazon: Please contact Amazon Customer Service at 888-280-4331.<br><br>If you ordered on our website, or other online marketplaces: Reach out to our Customer Service Team, and they'll gladly review your order and answer any questions you have.<br><br>email cs@nuwattlighting.com or by phone at (862) 801-2006</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_pf47eX" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">I need to change my delivery or shipping address?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_pf47eX" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <ul><li><strong>If you ordered a NuWatt product on Amazon:</strong><br>Please contact Amazon Customer Service at 888-280-4331.<br></li><li><strong>If you ordered on our website, or other online marketplaces:</strong><br>Reach out to our Customer Service Team by email cs@nuwattlighting.com or by phone at (862) 801-2006<br><br>Feel free to get in touch—we're here to make sure your order gets to the right place!</li></ul>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_ET9PC3" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Buy in bulk discounts?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_ET9PC3" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Great news! We offer bulk buying options for customers who qualify. To learn more read our article about <a href="https://www.nuwattlighting.com/blogs/news/discounted-led-lighting-on-large-quantity-orders" title="https://www.nuwattlighting.com/blogs/news/discounted-led-lighting-on-large-quantity-orders">NuWatt Large Quantity Order Discounts</a><br><br>Or <a href="/pages/contact-us" title="/pages/contact-us">contact us</a> directly.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_tnmXmX" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Can I change the order I just placed?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_tnmXmX" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>We're here to help you adjust your order.<br><br>Contact our Customer Service Team to cancel your current order:<br><strong>cs@nuwattlighting.com or by phone at (862) 801-2006</strong><br></p><p>Then, you can reorder the product(s) you want.<br><br><strong>Have your order number handy so our team can assist you promptly.</strong></p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <div class="index-section index-section--faq">
+              <div class="text-left"><p class="h2">
+                    Returns
+                  </p></div>
+            </div>
+
+          
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_eBtFKt" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">What is NuWatt's refund policy?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_eBtFKt" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p><strong>Here's what you need to know:</strong></p><p><strong>RETURN OF DEFECTIVE PRODUCT</strong><br>After obtaining a return authorization number (RMA), product should be shipped freight pre-paid to the address provided with your RMA. Failure to follow this procedure shall void this warranty. NUWATT reserves the right to (i) examine all failed LED fixtures to determine the cause of failure and patterns of usage and (ii) be the sole judge as to whether an LED fixture is defective and covered under warranty.<br><br><strong>RETURN POLICY</strong><br>All Sales are final after 30 days of purchase. If a customer would like to return the goods within the 30 day return window, the shipping is paid for by the customer. If the product is no longer needed, returns are subject to a 15% restocking fee unless otherwise stated by a NuWatt employee. </p><p>Feel free to reach out to our Customer Service Team either by email at cs@nuwattlighting.com or by phone at (862) 801-2006—we're here to help!</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_W8k34B" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">How long it takes to get a refund from a return?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_W8k34B" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Once your return is approved, we'll process your refund and apply the credit to your credit card or original method of payment. This usually takes about 3-5 business days.<br><br>If you've already been approved but don't see the refund on your statement yet, keep in mind that banks and credit card companies often take some time before the refund officially posts to your account. It might help to contact your financial institution or credit card company to check if there's a delay on their end.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <div class="index-section index-section--faq">
+              <div class="text-left"><p class="h2">
+                    Warranty
+                  </p></div>
+            </div>
+
+          
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_V8tjxi" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Where is NuWatt's full warranty policy?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_V8tjxi" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>For detailed information, please visit our <a href="/pages/refund-policy" title="/pages/refund-policy">policy page</a>.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_f9P8PM" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Need to activate your warranty or make a service claim?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_f9P8PM" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p><strong>Need to activate your warranty or make a service claim?<br><br></strong>Visit our <a href="/pages/warranty-registration" title="/pages/warranty-registration">Warranty Registration Page</a></p><p>Get in touch with us:</p><ul><li><strong>Email:</strong> cs@nuwattlighting.com</li><li><strong>Phone:</strong> (862) 801-2006</li></ul><p>Feel free to reach out—we're ready to assist you with any warranty activation or service claims!</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <div class="index-section index-section--faq">
+              <div class="text-left"><p class="h2">
+                    Shipping
+                  </p></div>
+            </div>
+
+          
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_gkUU8A" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Does NuWatt offer free shipping?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_gkUU8A" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Yes! <strong>GET FREE SHIPPING ON ALL ORDERS</strong></p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_Ad8P8g" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">How do I track my order?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_Ad8P8g" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p><strong>If you ordered a NuWatt product on Amazon:</strong></p><ul><li>Please contact <strong>Amazon Customer Service</strong> at <strong>888-280-4331</strong>.</li></ul><p><strong>If you ordered on our website:</strong></p><ul><li>You should have received a tracking email with all the details about your shipment.</li><li><strong>Need further assistance?</strong> Please reach out to our Customer Service team either by email at cs@nuwattlighting.com or&nbsp;by phone at (862) 801-2006</li></ul>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_CpYMrM" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Does NuWatt ship internationally?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_CpYMrM" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>No we do not ship internationally.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div></div>
+        </main>
+    </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Help Hub",
+    "settings": [
+
+
+      
+    ],
+
+  "presets": [
+      {
+        "name": "Help Hub",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

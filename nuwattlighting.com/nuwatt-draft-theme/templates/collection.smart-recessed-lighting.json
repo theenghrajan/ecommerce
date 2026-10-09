@@ -1,0 +1,188 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "blocks": {
+        "collection_description_zgNjXg": {
+          "type": "collection_description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "collection_description_zgNjXg"
+      ],
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": true,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_7eBd9Q": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "Smart Recessed Lighting",
+        "collection_seo_description": "These retrofit (can) and canless (wafer) downlights connect with Amazon Alexa, Google Assistant, Bluetooth, and Wi-Fi for voice or app control. They offer color changing RGB+W (Red, Green, Blue, plus White) for both colorful and standard white lighting. Whether you’re swapping out an existing can light or installing a new downlight, these smart recessed lights give you flexible options for home lighting."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "collection_metafield_faq_zWJzLA": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_LkKAfR": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_Hgz79X": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_9Fg8L8": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_Ve8red": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_g9WmUj": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_FiNYVG": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_LkKAfR",
+        "question_Hgz79X",
+        "question_9Fg8L8",
+        "question_Ve8red",
+        "question_g9WmUj",
+        "question_FiNYVG"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "faq_QFHWBn": {
+      "type": "faq",
+      "blocks": {
+        "question_BLbBqc": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_mqWpMn": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_9hT8UK": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_BLbBqc",
+        "question_mqWpMn",
+        "question_9hT8UK"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_qBDzD3": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "Smart Recessed Lighting",
+        "collection_seo_description": "These retrofit (can) and canless (wafer) downlights connect with Amazon Alexa, Google Assistant, Bluetooth, and Wi-Fi for voice or app control. They offer color changing RGB+W (Red, Green, Blue, plus White) for both colorful and standard white lighting. Whether you’re swapping out an existing can light or installing a new downlight, these smart recessed lights give you flexible options for home lighting."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_7eBd9Q",
+    "main-collection",
+    "collection_metafield_faq_zWJzLA",
+    "faq_QFHWBn",
+    "recently-viewed",
+    "expandable_description_qBDzD3"
+  ]
+}

@@ -1,0 +1,473 @@
+{%- liquid
+  assign collection = collections[section.settings.home_featured_products]
+  assign product_limit = section.settings.count | plus: 1
+  if section.settings.mobile_scrollable
+    assign product_limit = section.settings.count
+  endif
+-%}
+
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+
+{% style %}
+  /* The theme's own markup adds a `text-right` class to .section-header whenever
+     view_all is false (see the `{% if view_all and title %}...{% else %}text-right
+     {% endif %}` below) — completely independent of heading_position. The eyebrow
+     <p> inherits that and renders right-aligned even though the h2 next to it is
+     centered, which is exactly the mismatch reported: eyebrow off to the right,
+     heading centered underneath it. */
+  #shopify-section-{{ section.id }} .section-header {
+    text-align: center !important;
+  }
+  #shopify-section-{{ section.id }} .section-header__eyebrow {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #202020;
+    margin: 0 0 6px;
+  }
+  #shopify-section-{{ section.id }} .section-header__title {
+    text-transform: none !important;
+    text-align: center;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+  }
+
+  /* Figma section background: a yellow-tinted band (#fcc833 at 20% opacity) behind
+     the whole "Top Best Sellers" block — I'd previously left this plain white. */
+  /* Top Categories (.text-with-iconsmd) and Shop By Space (.logo-list-cstm) both
+     widen .page-width to 1900px on large screens; this section was left on the
+     theme's default 1500px, so it looked narrower/misaligned against its neighbors. */
+  #shopify-section-{{ section.id }} .page-width {
+    max-width: 1900px;
+  }
+  #shopify-section-{{ section.id }} {
+    background: rgba(252, 200, 51, 0.2);
+    padding: 56px 0;
+  }
+
+  /* Figma's product cards sit in a bordered, rounded white card where the image AND
+     the text share the same ~20px inset from the card edge. The theme's default lets
+     the image bleed edge-to-edge (only the text has a margin), which is why content
+     looked "closest to border" and the title looked out of alignment with the image. */
+  #shopify-section-{{ section.id }} .grid-item__content {
+    border: 1.07px solid rgba(32, 32, 32, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  /* Figma spacing (measured from the node positions): 40px between the image and
+     the divider below it, then 18px more before the title. My first pass put the
+     divider flush against the image (0px gap) and left the title gap at 16px. */
+  #shopify-section-{{ section.id }} .grid-product__image-wrap {
+    margin: 0 0 40px !important;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .grid-product__image-wrap::after {
+    content: "";
+    position: absolute;
+    left: -20px;
+    right: -20px;
+    bottom: -40px;
+    border-bottom: 1px solid rgba(32, 32, 32, 0.1);
+  }
+  /* padding, not margin — an adjacent margin-top here collapses with the
+     image-wrap's margin-bottom above (CSS margin collapsing between block
+     siblings), silently swallowing this 18px into that 40px instead of adding to it. */
+  #shopify-section-{{ section.id }} .grid-item__meta {
+    padding-top: 18px;
+  }
+  /* IMPORTANT: `.grid-product__actions` is reused by the theme for TWO different
+     things — the floating quick-shop/quick-add icons (a direct child of
+     .grid-item__content, position:absolute) AND the wrapper around the bottom
+     "Add to Cart" button (which additionally carries a `collection-page-chart-action`
+     class). Targeting the bare class earlier also repositioned the Add to Cart
+     wrapper via `top/right` on its `position:relative`, shifting the button ~12px
+     off from the image/title column — the exact misalignment reported. Excluding
+     `.collection-page-chart-action` scopes this to only the real overlay icons. */
+  #shopify-section-{{ section.id }} .grid-product__actions:not(.collection-page-chart-action) {
+    top: 12px !important;
+    right: 12px !important;
+  }
+  /* The theme already grows these to scale(1.15) on hover — guarantee that explicitly
+     (never shrink) regardless of any other rule that might interfere. */
+  #shopify-section-{{ section.id }} .grid-product__actions:not(.collection-page-chart-action) > button {
+    transform: none;
+  }
+  #shopify-section-{{ section.id }} .grid-product__actions:not(.collection-page-chart-action) > button:hover,
+  #shopify-section-{{ section.id }} .grid-product__actions:not(.collection-page-chart-action) > button:focus {
+    transform: scale(1.1) !important;
+  }
+  /* .btn--circle is only a true circle when width==height — the theme's own
+     padding (asymmetric here: ~7.1px vertical vs ~5.1px horizontal, from
+     base .btn's line-height combined with .btn--icon's own padding) instead
+     produced a 31.6×43.5px vertical oval for both the search (quick-shop)
+     and plus (quick-add) icon buttons. Fixed size + flex-centering removes
+     the padding-driven sizing entirely instead of chasing exact padding
+     values. */
+  #shopify-section-{{ section.id }} .grid-product__actions:not(.collection-page-chart-action) .btn--circle {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(32, 32, 32, 0.15);
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Figma's card is a fixed 584px height with title/specs/price at fixed positions
+     regardless of title length. Clamping the title to 2 lines keeps every card's
+     specs and price starting at the same y position instead of drifting based on
+     how long each product's title happens to be. The theme also applies its brand
+     display font ("nw-medium") to this title by default; Figma uses plain Roboto
+     like the rest of the card's text. */
+  #shopify-section-{{ section.id }} .grid-product__title {
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.08px;
+    line-height: 24px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: 48px;
+  }
+  /* Figma stacks "FROM" above the price as two separate lines; the theme renders
+     them inline on one line ("From $22.91"). */
+  #shopify-section-{{ section.id }} .price_from {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1.35px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-bottom: 2px;
+  }
+  /* There are actually TWO `.nw-hr-collection-page-specs` elements in the markup:
+     one before the spec bullets (title→specs, which Figma does NOT have) and one in
+     the trailing "no_content" <ul> right before the price (which Figma DOES have).
+     Both are hidden site-wide by assets/custom.css. Only re-enable the second one,
+     scoped precisely so the first stays hidden and matches Figma exactly. */
+  /* The <hr> being display:block was never enough — assets/custom.css also hides
+     the *entire parent* <ul> via an adjacent-sibling rule:
+     `.product-specs-collection-page + ul.product-specs-collection-page { display: none }`
+     which matches this exact "no_content" ul (it always immediately follows the
+     real specs <ul>). A hidden ancestor means the <hr> inside it never renders no
+     matter what display value I give the <hr> itself — this is why the divider
+     never actually appeared despite the earlier fix. Un-hide the ul itself here. */
+  #shopify-section-{{ section.id }} .product-specs-collection-page.no_content {
+    display: block !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} .product-specs-collection-page.no_content .nw-hr-collection-page-specs {
+    display: block !important;
+    border: none;
+    border-top: 1px solid rgba(32, 32, 32, 0.1);
+    margin: 24px 0;
+  }
+  #shopify-section-{{ section.id }} .custm_lowest_price,
+  #shopify-section-{{ section.id }} .grid-product__price--current {
+    font-size: 24px;
+    font-weight: 700;
+    color: #202020;
+  }
+  /* Root cause of the button sitting flush against the bottom border: the theme
+     hard-codes `.grid-item__meta { height: 310px }`. Once the 58px image→title gap,
+     24px+24px dividers, and everything else this section actually needs is added up,
+     the real content is taller than that fixed 310px — so `.grid-item__meta-secondary`
+     (flex:1 0 auto, so it won't shrink) overflows past it, and that overflow gets
+     clipped by `.grid-item__content`'s `overflow: hidden`, landing the button flush
+     at the very bottom with no visible gap. The fix is letting the card grow to fit
+     its own content instead of capping it at a height that no longer matches what
+     this design actually needs — `.grid-item__content`'s own 20px padding (added
+     earlier for the image/title inset) then supplies the trailing gap on its own,
+     matching Figma's ~18px almost exactly. A separate padding-bottom on the price
+     flex container on top of that just stacked into ~39px of double spacing. */
+  #shopify-section-{{ section.id }} .grid-item__meta {
+    height: auto !important;
+  }
+  /* Figma's price is a plain "$22.91" string. The theme instead builds it as
+     "$22" + <sup>91</sup> (raised, smaller, no visible period) via a Liquid
+     `replace: '.', '<sup>'` — reconstruct the plain look purely in CSS rather than
+     touching that shared price-rendering logic: reset the sup back to normal
+     inline flow and re-insert the period the replace filter consumed. */
+  #shopify-section-{{ section.id }} .custm_lowest_price sup,
+  #shopify-section-{{ section.id }} .grid-product__price--current sup {
+    font-size: 1em;
+    vertical-align: baseline;
+    top: 0;
+    margin-left: 0;
+  }
+  #shopify-section-{{ section.id }} .custm_lowest_price sup::before,
+  #shopify-section-{{ section.id }} .grid-product__price--current sup::before {
+    content: ".";
+  }
+  #shopify-section-{{ section.id }} .nw-quick-add-btn {
+    display: block;
+    width: 100%;
+    background: #fcc833;
+    color: #202020;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  #shopify-section-{{ section.id }} .nw-quick-add-btn:hover {
+    background: #ffdb66;
+  }
+  {% unless section.settings.title == blank %}
+    {% if section.settings.heading_position == 'right' %}
+      #CollectionSection-{{ section.id }} .section-header__link {
+        padding-left: 20px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        #CollectionSection-{{ section.id }} .section-header__link {
+          padding-left: 10px;
+        }
+      }
+    {% elsif section.settings.heading_position == 'center' %}
+      #CollectionSection-{{ section.id }} .section-header {
+        position: relative;
+      }
+
+      #CollectionSection-{{ section.id }} .section-header__link {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      @media only screen and (max-width: 768px) {
+        #CollectionSection-{{ section.id }} .section-header__link {
+          position: relative;
+        }
+      }
+    {% endif %}
+  {% endunless%}
+
+  {%- if section.settings.view_all -%}
+    @media only screen and (max-width: 768px) {
+      #shopify-section-{{ section.id }} .section-header__title {
+        text-align: left !important;
+      }
+    }
+  {% endif %}
+{% endstyle %}
+
+<div
+  id="CollectionSection-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  data-section-type="collection-template">
+  {%- if section.settings.title != blank or section.settings.eyebrow != blank or section.settings.view_all -%}
+    <div class="page-width text-{{ section.settings.heading_position }}">
+      <div class="section-header{% if section.settings.view_all and section.settings.title != blank %} section-header--with-link{% else %} text-right{% endif %}">
+        {% if section.settings.eyebrow != blank %}
+          <p class="section-header__eyebrow">{{ section.settings.eyebrow }}</p>
+        {% endif %}
+        {% if section.settings.title != blank%}
+          <h2 class="section-header__title {{ section.settings.heading_size }}">
+            {{ section.settings.title }}
+          </h2>
+        {% endif %}
+        {%- if section.settings.view_all -%}
+          <a href="{{ collections[section.settings.home_featured_products].url }}" class="section-header__link">{{ 'collections.general.all_of_collection' | t }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- liquid
+    capture gridView
+      render 'products_per_row', products_per_row: section.settings.products_per_row
+    endcapture
+   -%}
+
+  {%- liquid
+    if section.settings.mobile_scrollable
+      assign fallback = '45vw'
+    else
+      assign fallback = 'variable'
+    endif
+  -%}
+
+  <div class="page-width{% if section.settings.mobile_scrollable %} page-width--flush-small{% endif %}">
+    <div
+      class="new-grid product-grid{% if section.settings.mobile_scrollable %} scrollable-grid--small{% endif %}"
+      data-view="{{ gridView }}">
+      {%- if section.settings.home_featured_products == blank or collections[section.settings.home_featured_products].empty? or collections[section.settings.home_featured_products].products_count == 0 -%}
+
+        {%- liquid
+          for i in (1..product_limit)
+            unless section.settings.mobile_scrollable
+              assign item_classes = ''
+              if forloop.index > section.settings.count
+                assign item_classes = 'hide'
+                assign mod = forloop.index | modulo: 2
+                if mod == 0
+                  assign item_classes = 'medium-up--hide'
+                endif
+              endif
+            endunless
+            render 'onboarding-product-grid-item', i: i, classes: item_classes
+          endfor
+        -%}
+
+      {%- else -%}
+
+        {%- liquid
+          for product in collections[section.settings.home_featured_products].products limit: product_limit
+            assign item_classes = ''
+            unless section.settings.mobile_scrollable
+              if forloop.index > section.settings.count
+                assign item_classes = 'hide'
+                assign mod = forloop.index | modulo: 2
+                if mod == 0
+                  assign item_classes = 'medium-up--hide'
+                endif
+              endif
+            endunless
+
+            render 'product-grid-item', product: product, collection: collection, classes: item_classes, sizeVariable: section.settings.products_per_row, fallback: fallback
+
+            if settings.quick_shop_enable
+              render 'quick-shop-modal', product: product
+            endif
+
+            
+          endfor
+
+        -%}
+
+        
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{%- if section.settings.divider -%}</div>{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.featured-collection.name",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.featured-collection.settings.title.label",
+      "default": "Featured collection"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "t:common.heading_size.label",
+      "default": "h2",
+      "options": [
+        {
+          "value": "h3",
+          "label": "t:common.heading_size.options.small.label"
+        },
+        {
+          "value": "h2",
+          "label": "t:common.heading_size.options.medium.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:common.heading_size.options.large.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:common.heading_size.options.extra_large.label"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "heading_position",
+      "label": "t:common.heading_position.label",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:common.heading_position.options.left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:common.heading_position.options.center.label"
+        },
+        {
+          "value": "right",
+          "label": "t:common.heading_position.options.right.label"
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "id": "home_featured_products",
+      "label": "t:sections.featured-collection.settings.home_featured_products.label"
+    },
+    {
+      "type": "range",
+      "id": "count",
+      "label": "t:sections.featured-collection.settings.count.label",
+      "default": 6,
+      "min": 5,
+      "max": 15,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "label": "t:sections.featured-collection.settings.products_per_row.label",
+      "default": 3,
+      "min": 2,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_scrollable",
+      "label": "t:sections.featured-collection.settings.mobile_scrollable.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "view_all",
+      "label": "t:sections.featured-collection.settings.view_all.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.featured-collection.settings.divider.label",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.featured_collection.name"
+    }
+  ],
+  "blocks": [],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}

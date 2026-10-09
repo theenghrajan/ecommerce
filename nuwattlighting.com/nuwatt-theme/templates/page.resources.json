@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "newsletter_gNMaaW": {
+      "type": "newsletter",
+      "blocks": {
+        "title_XQBMJF": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h2"
+          }
+        },
+        "text_WgbkV8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_mMGV9Y": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_XQBMJF",
+        "text_WgbkV8",
+        "form_mMGV9Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "2",
+        "align_text": "center",
+        "image_width": "33",
+        "image_mask": "none",
+        "image_position": "right",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true
+      }
+    },
+    "slideshow_DFFXrq": {
+      "type": "slideshow",
+      "blocks": {
+        "hero_ceAtnq": {
+          "type": "hero",
+          "settings": {
+            "top_subheading": "",
+            "title": "<p>Learning Lounge</p>",
+            "top_space": -20,
+            "bottom_space": 0,
+            "title_size": 50,
+            "subheading": "",
+            "text_font_size": 16,
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#ffffff",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/2x2-ft-back-lit-led-panel-4-pack-3-wattages-20w-30w-40w-3-kelvin-temperatures-3cct-120-277v-0-10v-dimmable-emergency-battery-back-up-installed-nw-bl-2x2-203040w-774520.jpg",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "hero_ceAtnq"
+      ],
+      "settings": {
+        "full_width": true,
+        "slide_width": 100,
+        "desktop_size": -90,
+        "mobile_size": -90,
+        "style": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "lazyload_images": true
+      }
+    },
+    "mini_nav_TBhb39": {
+      "type": "mini-nav",
+      "settings": {
+        "menufirst_title": "Warranty Registration",
+        "menusecond_title": "Help Center",
+        "menuthird_title": "Resources",
+        "menuforuth_title": "Request Quote"
+      }
+    },
+    "learning_lounge_TxLeri": {
+      "type": "learning-lounge",
+      "blocks": {
+        "faq_item_FbBf8q": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are Lumens?",
+            "answer": "<p>Lumens are a unit of measurement that tells you how much visible light a light emits. In simpler terms, the higher the lumens, the brighter the light. This is especially helpful when comparing different types of lighting, because it gives you a consistent way to gauge brightness regardless of the light fixtures energy consumption.<br/><br/>So next time you're shopping for lights, pay attention to the lumens to ensure you get the right brightness for your space!</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_VadRpC": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's Color Rendering Index (CRI)?",
+            "answer": "<p>Color Rendering Index, or CRI for short, is a measure of how accurately a light source reveals the true colors of objects compared to natural sunlight. Think of it as the quality of light in terms of color fidelity. CRI is rated on a scale from 0 to 100, with 100 being perfect color rendering, just like natural daylight. A higher CRI means colors will appear more vibrant and true to life under that light source. This is particularly important in settings like art studios, retail stores, or anywhere color accuracy is crucial. So, when choosing lighting, considering the CRI can help ensure that the colors in your environment look their best!</p>",
+            "related_link": "https://www.nuwattlighting.com/blogs/news/the-importance-of-cri-in-led-lighting"
+          }
+        },
+        "faq_item_K69j4d": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is Wattage?",
+            "answer": "<p>Wattage refers to the amount of electrical power a light fixture consumes to produce light, measured in watts (W). While many people used to equate higher wattage with brighter light, that's not necessarily the case with modern lighting like LEDs. Today, wattage is more about energy consumption than brightness. For example, an LED light might use only 10 watts but produce the same brightness (in lumens) as a traditional 60 watt incandescent bulb. So, when you're looking at wattage, you're essentially seeing how much electricity the light will use, which impacts your energy bill. It's a useful figure for understanding energy efficiency!</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_VrJGty": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's Kelvin and Color Temperature?",
+            "answer": "<p>Kelvin is the unit of measurement used to describe the color temperature of a light source. Color temperature tells you whether a light appears more yellow (warm) or blue (cool). The scale ranges from around<br/><br/>2700K Soft White<br/>3000K Warm White<br/>3500K Neutral White<br/>4000K Cool White<br/>5000K Daylight<br/><br/>Lower Kelvin numbers like 2,700K produce a warm, cozy light similar to traditional incandescent bulbs, great for living rooms and bedrooms. Higher Kelvin numbers like 5,000K offer a cool, daylight-like brightness, ideal for task lighting or workspaces. Understanding Kelvin can help you choose lighting that sets the right mood and function for your space. So, next time you're picking out LED lights, consider the Kelvin rating to get the ambiance just right!</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_dpQyEB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's Ingress Protection (IP) Rating?",
+            "answer": "<p>Ingress Protection, or IP Rating, is a standardized measure that indicates how well a light fixture or electrical device is protected against solids and liquids.<br/><br/>It's usually represented by two numbers, like IP65. The first digit indicates protection against solids like dust (on a scale from 0 to 6), and the second digit indicates protection against liquids like water (on a scale from 0 to 8).<br/><br/>For example, an IP65 rating means the device is dust tight and can withstand water jets. Knowing the IP Rating is crucial when installing lighting in environments where moisture or dust is a concern, such as bathrooms, outdoors, or industrial settings.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_be4eBe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Wattage Equivalent?",
+            "answer": "<p>Wattage Equivalent is a term used to compare the brightness of new energy-efficient LEDs to traditional incandescent bulbs.<br/><br/>Since LEDs use less power to produce the same amount of light, the wattage equivalent helps you understand how bright an LED light will be compared to what you're used to. For instance, a 10 watt LED might be labeled as having a \"60W equivalent\" because it produces the same brightness as a 60 watt incandescent bulb. This makes it easier for you to choose the right LED light without getting confused by the lower wattage numbers.</p>",
+            "related_link": ""
+          }
+        },
+        "faq_item_d4ifHJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Beam Angles?",
+            "answer": "<p>Beam angle refers to the spread of light emitted from a light source, measured in degrees.<br/><br/>It determines how wide or narrow the light disperses. A narrow beam angle, like 15 degrees, produces a focused, spotlight effect—great for highlighting artwork or architectural features. A wider beam angle, like 60 degrees, offers more general, dispersed lighting suitable for illuminating larger areas like living rooms or offices. Understanding beam angles helps you choose the right lighting for your needs, whether you want to spotlight something special or provide broad, general illumination in a space.</p>",
+            "related_link": ""
+          }
+        },
+        "sidebar_link_yWyxxB": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Learning Lounge",
+            "link_url": "https://www.nuwattlighting.com/pages/resources"
+          }
+        },
+        "sidebar_link_FkjEBC": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Help Center",
+            "link_url": "https://www.nuwattlighting.com/pages/customer-help-center"
+          }
+        },
+        "sidebar_link_dmqQrU": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Blog",
+            "link_url": "https://www.nuwattlighting.com/blogs/news"
+          }
+        },
+        "sidebar_link_CnHr8K": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Contact Us",
+            "link_url": "https://www.nuwattlighting.com/pages/contact-us"
+          }
+        },
+        "sidebar_link_tFmeyh": {
+          "type": "sidebar_link",
+          "settings": {
+            "link_text": "Terms of Service",
+            "link_url": "https://www.nuwattlighting.com/policies/terms-of-service"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_FbBf8q",
+        "faq_item_VadRpC",
+        "faq_item_K69j4d",
+        "faq_item_VrJGty",
+        "faq_item_dpQyEB",
+        "faq_item_be4eBe",
+        "faq_item_d4ifHJ",
+        "sidebar_link_yWyxxB",
+        "sidebar_link_FkjEBC",
+        "sidebar_link_dmqQrU",
+        "sidebar_link_CnHr8K",
+        "sidebar_link_tFmeyh"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "newsletter_gNMaaW",
+    "slideshow_DFFXrq",
+    "mini_nav_TBhb39",
+    "learning_lounge_TxLeri"
+  ]
+}

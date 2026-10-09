@@ -1,0 +1,135 @@
+<div class="page-width mobile-hak">
+
+<div class="accordion">
+    <div class="accordion-item">
+        <button class="accordion-toggle">
+<h3>Description</h3>
+<svg id="desc-arrow-product" class="sui-inline-block sui-align-baseline sui-fill-inherit sui-w-4 sui-h-4" viewBox="0 0 24 24" focusable="false" aria-hidden="true" data-testid="ArrowDownIcon" style="
+    height: 1em;
+    width: 1em;
+"><path d="M23.979 6.862 12 18.841.021 6.863l1.591-1.591L12 15.659 22.387 5.271l1.591 1.591Z"></path></svg>
+</button>
+        <div class="accordion-content">
+            <p>    {{ product.description }}</p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% stylesheet %}
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top:50px;
+  border: 0.125rem solid #999ea4;
+    border-radius: 0.50rem;
+    
+}
+
+.accordion-item {
+    border-radius: 0.50rem;
+  margin: 0;
+}
+
+  .accordion-toggle svg{
+    height: 1em;
+    width:1em;
+        margin-right: 15px;
+  }
+
+  .accordion-toggle h3{
+    font-family: 'nw-medium';
+    font-weight: 500;
+        text-transform: unset;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 1px;
+  }
+
+
+
+
+
+.accordion-toggle {
+    background-color: #fafbfb;
+    color: #333;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+display: flex;
+    justify-content: space-between;
+    align-items: baseline;  
+
+      border-radius: 0.50rem;
+
+}
+
+.accordion-toggle:hover {
+    background-color: #efefef;
+}
+
+.accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    background-color: #fff;
+      border-radius: 0.50rem;
+}
+
+
+  #desc-arrow-product {
+    transition: transform 0.2s ease;
+}
+
+  @media only screen and (max-width:769px){
+
+.accordion-content {
+font-size: 14px;
+}
+
+    
+
+
+}
+
+
+
+
+
+
+{% endstylesheet %}
+
+
+
+
+{% schema %}
+  {
+    "name": "Accordion Description",
+    "settings": [
+      {
+
+            "type": "checkbox",
+      "id": "accordion-enable",
+      "label": "Enable Description as Accordion",
+      "default": true
+        
+      }
+    ],
+
+        "presets": [
+      {
+        "name": "Accordion Description",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

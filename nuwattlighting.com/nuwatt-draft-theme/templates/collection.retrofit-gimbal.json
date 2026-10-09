@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_JqzmTY": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Gimball Retrofit Recessed Light Collection",
+        "collection_seo_description": "The LED gimbal retrofit recessed lights collection offers flexible lighting solutions with adjustable fixtures that allow you to direct light exactly where it’s needed. These lights are perfect for accent lighting, artwork, or angled ceilings, providing modern, energy efficient illumination."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_QLdcMj": {
+      "type": "jump-to",
+      "blocks": {
+        "question_bUimje": {
+          "type": "question",
+          "settings": {
+            "button": "All Retrofits",
+            "link": "https://www.nuwattlighting.com/collections/retrofit-recessed-lighting",
+            "image": "shopify://shop_images/NW-DL-R-6-18WC-5CCT-WH-01-195580_bfe29982-9888-4176-9cb4-07859d0100dd.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_3QfKzA": {
+          "type": "question",
+          "settings": {
+            "button": "Square Trim",
+            "link": "https://www.nuwattlighting.com/collections/square-retrofit-recessed-lights",
+            "image": "shopify://shop_images/4-inch-white-square-recessed-retrofit-led-downlight-5-kelvin-temperatures-5cct-11-watts-750-lumens-dimmable-nw-sq-c4-11w-5cct-wh-184833.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_W8d3ya": {
+          "type": "question",
+          "settings": {
+            "button": "4 Inch",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-retrofit-recessed-lights?filter.p.m.custom.size=4+Inch",
+            "image": "shopify://shop_images/adjustable_recessed_lighting_collection.webp",
+            "alt-text": ""
+          }
+        },
+        "question_XdYFAV": {
+          "type": "question",
+          "settings": {
+            "button": "6 Inch",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-retrofit-recessed-lights?filter.p.m.custom.size=5%2F6+Inch",
+            "image": "shopify://shop_images/adjustable_recessed_lighting_collection.webp",
+            "alt-text": ""
+          }
+        },
+        "question_B8nUyF": {
+          "type": "question",
+          "settings": {
+            "button": "5 Inch",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-retrofit-recessed-lights?filter.p.m.custom.size=5%2F6+Inch",
+            "image": "shopify://shop_images/adjustable_recessed_lighting_collection.webp",
+            "alt-text": ""
+          }
+        },
+        "question_37bfca": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-retrofit-recessed-lights?filter.p.m.custom.color=Black",
+            "image": "shopify://shop_images/NW-GMB-C6-16.5W-5CCT-BLK_1P.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_Fmn7mN": {
+          "type": "question",
+          "settings": {
+            "button": "White Trim",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-retrofit-recessed-lights?filter.p.m.custom.color=White",
+            "image": "shopify://shop_images/NW-GMB-C4-10W-5CCT-WH-722955.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_bUimje",
+        "question_3QfKzA",
+        "question_W8d3ya",
+        "question_XdYFAV",
+        "question_B8nUyF",
+        "question_37bfca",
+        "question_Fmn7mN"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_NXq4zA": {
+      "type": "faq",
+      "blocks": {
+        "question_i6cn8J": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_CNA3A9": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_dK3aXB": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_i6cn8J",
+        "question_CNA3A9",
+        "question_dK3aXB"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_QUTqDY": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_448ijV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_KJzz7r": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_QyX6da": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_yjbJJE": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_hrkKMW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_XxFFtA": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_448ijV",
+        "question_KJzz7r",
+        "question_QyX6da",
+        "question_yjbJJE",
+        "question_hrkKMW",
+        "question_XxFFtA"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_qw7RgB": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Gimball Retrofit Recessed Light Collection",
+        "collection_seo_description": "The LED gimbal retrofit recessed lights collection offers flexible lighting solutions with adjustable fixtures that allow you to direct light exactly where it’s needed. These lights are perfect for accent lighting, artwork, or angled ceilings, providing modern, energy efficient illumination."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_JqzmTY",
+    "main-collection",
+    "jump_to_QLdcMj",
+    "faq_NXq4zA",
+    "collection_metafield_faq_QUTqDY",
+    "recently-viewed",
+    "expandable_description_qw7RgB"
+  ]
+}

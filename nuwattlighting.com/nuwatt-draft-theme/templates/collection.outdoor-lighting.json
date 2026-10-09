@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_LEWh6b": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our led exterior lighting Collection",
+        "collection_seo_description": "Explore our Outdoor LED Lighting collection, featuring a wide range of durable, energy efficient fixtures designed to brighten any outdoor space. From security and landscape lighting to bullet lights, these waterproof lights for outside offer superior brightness and reliability. Built to withstand harsh weather conditions, they provide long-lasting performance for residential and commercial applications."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_whtazi": {
+      "type": "jump-to",
+      "blocks": {
+        "question_Y6XYAF": {
+          "type": "question",
+          "settings": {
+            "button": "Bullet Spotlights",
+            "link": "shopify://collections/bullet-lights",
+            "image": "shopify://shop_images/NW-BLT-25W-3CT-KN_AMZ_Listing_GFX-01.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_Dt7Dhn": {
+          "type": "question",
+          "settings": {
+            "button": "Flood Lights",
+            "link": "shopify://collections/led-flood-lights",
+            "image": "shopify://shop_images/NW-SFL-15W-3CT-KN-WH-157820.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_XV9V3P": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "button": "Commercial Flood Lights",
+            "link": "shopify://collections/commercial-led-flood-lights",
+            "image": "shopify://shop_images/NW-MFL-60W-3CT-PC-KN-BZ_06.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_xfCqni": {
+          "type": "question",
+          "settings": {
+            "button": "Canopy Lights",
+            "link": "shopify://collections/canopy-lights",
+            "image": "shopify://shop_images/led-canopy-lights-outdoor-150w-waterproof-led-gas-station-light-2cct-selectable-4000k5000k-21250lm-dimmable-120-277v-ip67-rated-led-parking-garage-lights-or-lig-413822.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_LJpYyd": {
+          "type": "question",
+          "settings": {
+            "button": "Wall Packs",
+            "link": "shopify://collections/led-wall-packs",
+            "image": "shopify://shop_images/wall.png",
+            "alt-text": ""
+          }
+        },
+        "question_cc8hhb": {
+          "type": "question",
+          "settings": {
+            "button": "Recessed Lights",
+            "link": "shopify://collections/recessed-lighting",
+            "image": "shopify://shop_images/NW-P-DL-6-15W-5CT-BLK-835394.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_Y6XYAF",
+        "question_Dt7Dhn",
+        "question_XV9V3P",
+        "question_xfCqni",
+        "question_LJpYyd",
+        "question_cc8hhb"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_AiPeLG": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_9PPRRF": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_wrih7R": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_MTxRdD": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_8rKBMR": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_KAiK6P": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_9PPRRF",
+        "question_wrih7R",
+        "question_MTxRdD",
+        "question_8rKBMR",
+        "question_KAiK6P"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_DJCWqj": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our led exterior lighting Collection",
+        "collection_seo_description": "Explore our Outdoor LED Lighting collection, featuring a wide range of durable, energy efficient fixtures designed to brighten any outdoor space. From security and landscape lighting to bullet lights, these waterproof lights for outside offer superior brightness and reliability. Built to withstand harsh weather conditions, they provide long-lasting performance for residential and commercial applications."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_LEWh6b",
+    "main-collection",
+    "jump_to_whtazi",
+    "collection_metafield_faq_AiPeLG",
+    "recently-viewed",
+    "expandable_description_DJCWqj"
+  ]
+}

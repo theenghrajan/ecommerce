@@ -1,0 +1,345 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_ALnPKr": {
+          "type": "image",
+          "name": "Sale",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "shopify://pages/comfort-sandals",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/website_banner_comfort_sale_30.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_qXcz78": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/hybrid_canva1_website.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_PDqUbQ": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/website_banner_country-boots_PJ_b393a107-fc9a-498c-8ae5-f02ddf401dcb.jpg",
+            "parallax_direction": "left",
+            "overlay_opacity": 0
+          }
+        },
+        "image_QebNrm": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/website_banner_sandals_84ffaa9b-a176-4a92-bbd6-01cfd20879f5.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_q6XwbL": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/website_banner_fashion-boots.jpg",
+            "parallax_direction": "left",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_ALnPKr",
+        "image_qXcz78",
+        "image_PDqUbQ",
+        "image_QebNrm",
+        "image_q6XwbL"
+      ],
+      "settings": {
+        "section_height": "650px",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "lazyload_images": true
+      }
+    },
+    "background_video_text_wgNEyz": {
+      "type": "background-video-text",
+      "disabled": true,
+      "name": "t:sections.background-video-text.presets.large_video_with_text_box.name",
+      "settings": {
+        "subtitle": "",
+        "title": "",
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/8129edc88b7e4768b385d806a78d067e.mp4",
+        "color_border": "#f4f4f4",
+        "layout": "left",
+        "height": 550
+      }
+    },
+    "1705241661f80f299d": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_xtBd6m": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_xtBd6m"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": false
+      }
+    },
+    "text_columns_YfdmcY": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_re7fWJ": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/w_com_strappy_black-leather.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Comfort Sandals",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://pages/comfort-sandals"
+          }
+        },
+        "text_block_z7U4iC": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/w_ult_boho-307_beige.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Sandals",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://pages/ultimate-womens-sandals"
+          }
+        },
+        "text_block_ThrzUm": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/w_ult_pixi_bright-red_front.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Fashion Boots",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://pages/ultimate-fashion-boots"
+          }
+        },
+        "text_block_HehBKN": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ultimate-womens-country-dance-boot-tan-leather-pro-zipper-7060947.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Country Boots",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://pages/ultimate-womens-country-boots"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_re7fWJ",
+        "text_block_z7U4iC",
+        "text_block_ThrzUm",
+        "text_block_HehBKN"
+      ],
+      "settings": {
+        "title": "Women's Dance Shoes",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "text_columns_LggTU7": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_MYCH8z": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_hybrid_bk_suede_front-page.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Hybrids",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/ultimate-hybrid"
+          }
+        },
+        "text_block_iq7aCi": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_mens_practice_bk-leather-low_front1_fcdf5b9f-d7c8-4fbe-8577-c54b7f220cce.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Men's Ballrooom",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://products/ultimate-mens-ballroom-black-leather-low-heel"
+          }
+        },
+        "text_block_jQ7Xyk": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/com_mens_low_lycra_front-page.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Comfort Men's Shoes",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://collections/comfort-mens-balmoral"
+          }
+        },
+        "text_block_EXdDfy": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ult_mens_4002_bk-lea_front-page_3ce60f6e-45b9-486b-b7b5-2dd67974c235.png",
+            "image_mask": "none",
+            "image_width": 650,
+            "title": "Ultimate Men's Country Boots",
+            "text": "",
+            "button_label": "click here",
+            "button_link": "shopify://products/ultimate-mens-pro-country-boot-black-leather"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_MYCH8z",
+        "text_block_iq7aCi",
+        "text_block_jQ7Xyk",
+        "text_block_EXdDfy"
+      ],
+      "settings": {
+        "title": "Men's Dance Shoes",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "newsletter_f3E8M9": {
+      "type": "newsletter",
+      "blocks": {
+        "title_pCbdTr": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h2"
+          }
+        },
+        "text_PLEqGa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_mJcznj": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_pCbdTr",
+        "text_PLEqGa",
+        "form_mJcznj"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".newsletter__input-group {margin: 0 auto 20px; max-width: 400px; min-width: 400px;}",
+        ".input-group .input-group-field {background-color: #fff; width: 100%; height: 45px;}"
+      ],
+      "settings": {
+        "align_text": "center",
+        "image_width": "33",
+        "image_mask": "none",
+        "image_position": "right",
+        "color_background": "#d7d7d7",
+        "color_text": "#1c1d1d",
+        "top_padding": true,
+        "bottom_padding": true
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "background_video_text_wgNEyz",
+    "1705241661f80f299d",
+    "text_columns_YfdmcY",
+    "text_columns_LggTU7",
+    "newsletter_f3E8M9"
+  ]
+}

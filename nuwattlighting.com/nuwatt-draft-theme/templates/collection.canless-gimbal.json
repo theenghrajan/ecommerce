@@ -1,0 +1,216 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_jUwiFL": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Gimbal Recessed Lighting Collection",
+        "collection_seo_description": "Our canless gimbal recessed lighting collection offers sleek, adjustable illumination perfect for modern interiors. Gimbal wafer lights are a popular choice of seamless, unobtrusive lighting solution."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_QLdcMj": {
+      "type": "jump-to",
+      "blocks": {
+        "question_3QfKzA": {
+          "type": "question",
+          "settings": {
+            "button": "View All Canless",
+            "link": "https://www.nuwattlighting.com/collections/canless-recessed-lighting",
+            "image": "shopify://shop_images/round_recessed_light.png",
+            "alt-text": "view all canless lighting"
+          }
+        },
+        "question_6YhmWq": {
+          "type": "question",
+          "settings": {
+            "button": "3 Inch",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights?filter.p.m.custom.size=3+Inch",
+            "image": "shopify://shop_images/NW-GMB-3-5CT-WH-R-_6_-Main-Image-745797.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_W8d3ya": {
+          "type": "question",
+          "settings": {
+            "button": "4 Inch",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights?filter.p.m.custom.size=4+Inch",
+            "image": "shopify://shop_images/NW-P-ADJDL-4-9W-5CT-WH_1P.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_XdYFAV": {
+          "type": "question",
+          "settings": {
+            "button": "6 Inch",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights?filter.p.m.custom.size=6+Inch",
+            "image": "shopify://shop_images/6-inch-white-adjustable-round-recessed-led-ceiling-light-5-kelvin-temperatures-5cct-12-watt-900-lumens-dimmable-nw-p-adjdl-6-12w-5ct-wh-323561.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_37bfca": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights?filter.p.m.custom.color=Black",
+            "image": "shopify://shop_images/NW-P-ADJDL-4-9W-5CT-BLK_MAIN_1P.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_Cnm9kq": {
+          "type": "question",
+          "settings": {
+            "button": "Square Trim",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights?filter.p.m.custom.shape=Square",
+            "image": "shopify://shop_images/NW-GMB-3-5CT-WH-SQ-16P_1.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_3QfKzA",
+        "question_6YhmWq",
+        "question_W8d3ya",
+        "question_XdYFAV",
+        "question_37bfca",
+        "question_Cnm9kq"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_aYmJNp": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_wY9Kcj": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_adnddC": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_H4zx83": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_GMgWdp": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_4h94LV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_BzrkYw": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_wY9Kcj",
+        "question_adnddC",
+        "question_H4zx83",
+        "question_GMgWdp",
+        "question_4h94LV",
+        "question_BzrkYw"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_mByTJX": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Gimbal Recessed Lighting Collection",
+        "collection_seo_description": "Our canless gimbal recessed lighting collection offers sleek, adjustable illumination perfect for modern interiors. Gimbal wafer lights are a popular choice of seamless, unobtrusive lighting solution."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_jUwiFL",
+    "main-collection",
+    "jump_to_QLdcMj",
+    "collection_metafield_faq_aYmJNp",
+    "recently-viewed",
+    "expandable_description_mByTJX"
+  ]
+}

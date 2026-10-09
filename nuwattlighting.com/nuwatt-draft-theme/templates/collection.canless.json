@@ -1,0 +1,230 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_bmxPJG": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Canless LED Lights",
+        "collection_seo_description": "Canless recessed lighting, also known as wafer lights or slim recessed lighting, is a modern alternative to traditional recessed can lights. These ultra thin LED lights gained popularity in the late 2010s when homeowners and builders wanted to install recessed lighting in places with limited space above the ceiling, where recessed cans would not fit. Canless recessed down light fixtures come with their own junction box. Canless lighting is usually wafer thin giving them the nick name ultra thin downlight. These energy efficient  canless lights are much easier to install than old school LED can lights. "
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/cct-color-temperature-recessed-lighting-icon.png?v=1724086946\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_WJRVHK": {
+      "type": "jump-to",
+      "blocks": {
+        "question_mdFmB4": {
+          "type": "question",
+          "settings": {
+            "button": "View All",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting",
+            "image": "shopify://shop_images/view-all-recessed-lighting-products.png",
+            "alt-text": "View All Recessed Lighting"
+          }
+        },
+        "question_yFAfMm": {
+          "type": "question",
+          "settings": {
+            "button": "Gimbals",
+            "link": "shopify://collections/canless-gimbal-recessed-lighting",
+            "image": "shopify://shop_images/canless_can_lights.png",
+            "alt-text": "Gimbal Recessed Light Collection Page"
+          }
+        },
+        "question_mwKwby": {
+          "type": "question",
+          "settings": {
+            "button": "Square Trim",
+            "link": "shopify://collections/square-canless-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-SQDL-4-9W-5CT-WH-727024.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_rzMRtw": {
+          "type": "question",
+          "settings": {
+            "button": "Fire Rated",
+            "link": "shopify://collections/fire-rated-recessed-light",
+            "image": "shopify://shop_images/NW-PB-DL-6-15W-5CT-FR-WH_LISTING_MAIN_1P-123523.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_TCpLFB": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/canless-recessed-lighting?filter.p.m.custom.color=Black",
+            "image": "shopify://shop_images/black_trim_canless_lights.png",
+            "alt-text": ""
+          }
+        },
+        "question_NaBcNU": {
+          "type": "question",
+          "settings": {
+            "button": " 120-277 Volt",
+            "link": "shopify://collections/277v-recessed-lighting",
+            "image": "shopify://shop_images/277V_canless_light.png",
+            "alt-text": "View 120V to 277 Volt Recessed Lights"
+          }
+        },
+        "question_3BXEDQ": {
+          "type": "question",
+          "settings": {
+            "button": "Round",
+            "link": "https://www.nuwattlighting.com/collections/round-recessed-lighting?filter.p.m.custom.installation_type=Canless",
+            "image": "shopify://shop_images/round_recessed_light.png",
+            "alt-text": "Round Slims"
+          }
+        },
+        "question_aBkiNH": {
+          "type": "question",
+          "settings": {
+            "button": "Baffle Trim",
+            "link": "shopify://collections/baffle-trim-recessed-lighting",
+            "image": "shopify://shop_images/NW-PB-DL-4-12W-5CT-FR-WH_LISTING_MAIN_1P_20fd31cf-20b9-4225-8d4a-2514853a5adf-828261.jpg",
+            "alt-text": "Canless Baffle Trim Lights"
+          }
+        }
+      },
+      "block_order": [
+        "question_mdFmB4",
+        "question_yFAfMm",
+        "question_mwKwby",
+        "question_rzMRtw",
+        "question_TCpLFB",
+        "question_NaBcNU",
+        "question_3BXEDQ",
+        "question_aBkiNH"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_w49ENV": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_9dbHQD": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_eTBfCx": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_Q3ww6R": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_ft3Jdr": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_zUg6qn": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_mdWKqG": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_9dbHQD",
+        "question_eTBfCx",
+        "question_Q3ww6R",
+        "question_ft3Jdr",
+        "question_zUg6qn",
+        "question_mdWKqG"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_TNKXmr": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Canless LED Lights",
+        "collection_seo_description": "Canless recessed lighting, also known as wafer lights or slim recessed lighting, is a modern alternative to traditional recessed can lights. These ultra thin LED lights gained popularity in the late 2010s when homeowners and builders wanted to install recessed lighting in places with limited space above the ceiling, where recessed cans would not fit. Canless recessed down light fixtures come with their own junction box. Canless lighting is usually wafer thin giving them the nick name ultra thin downlight. These energy efficient  canless lights are much easier to install than old school LED can lights. "
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_bmxPJG",
+    "main-collection",
+    "jump_to_WJRVHK",
+    "collection_metafield_faq_w49ENV",
+    "recently-viewed",
+    "expandable_description_TNKXmr"
+  ]
+}

@@ -1,0 +1,516 @@
+{% style %}
+  {% if section.settings.card_grid %}
+    /* Figma node 9229:466: a full-bleed backdrop rectangle (`#cacac9` at
+       20% opacity) spans behind the entire intro+cards area — 20% opacity
+       grey over white works out to roughly this flat color. Applied to the
+       outer section wrapper (not `.index-section`, which only has
+       margin — a background there wouldn't cover the gap above/below) with
+       its own padding so the band has the same breathing room Figma's
+       oversized rectangle gives it. */
+    #shopify-section-{{ section.id }} {
+      background: #f4f4f4;
+      padding: 64px 0;
+    }
+    /* Every other homepage section (Top Categories, Shop by Space, Best
+       Sellers, Why NuWatt) widens .page-width to 1900px — confirmed live
+       via getComputedStyle on each. This section was left at Figma's
+       literal 1280px (1440px frame minus 2×80px margins), the only one
+       on the page not matching that established convention. */
+    #shopify-section-{{ section.id }} .page-width {
+      max-width: 1900px;
+    }
+    /* Intro: eyebrow + heading + 2 paragraphs on the left, a photo on the
+       right (Figma node 9229:467 text col 598px / 9229:474 photo 623x380) —
+       previously just centered as one narrow text column since there was
+       no image setting at all to render a photo alongside it.
+       `flex-grow: 1` on both (not just the image) so the extra width from
+       the 1900px container above is split ~evenly between them, keeping
+       roughly Figma's 598:623 ratio rather than dumping all of it into the
+       image alone. */
+    #shopify-section-{{ section.id }} .richtext-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 64px;
+    }
+    #shopify-section-{{ section.id }} .richtext-intro__text {
+      flex: 1 1 598px;
+    }
+    /* The theme's own global `.theme-block { margin-bottom: 30px }` (only
+       zeroed via `:last-child`) leaks into both wrappers here — inside
+       `.richtext-intro__text` it fights the `gap` already handling
+       spacing; inside `.richtext-cards` it's worse: since only the single
+       literal LAST block on the whole page keeps `margin-bottom:0`, the
+       other 3 cards each carry an extra 30px margin that isn't part of
+       their measured height but IS part of what flex `stretch` sizes each
+       row to — so a card that happens not to be page-last (e.g.
+       Commercial, sitting next to Industrial which IS page-last) ends up
+       rendered 30px shorter than its row sibling to compensate. */
+    #shopify-section-{{ section.id }} .richtext-intro__text .theme-block,
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block {
+      margin-bottom: 0;
+    }
+    #shopify-section-{{ section.id }} .richtext-intro__text .theme-block:first-child h2 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: rgba(32, 32, 32, 0.6);
+      margin-bottom: 8px;
+    }
+    #shopify-section-{{ section.id }} .richtext-intro__text .theme-block:last-child h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    #shopify-section-{{ section.id }} .richtext-intro__text .theme-block:last-child p {
+      margin: 0 0 16px;
+      line-height: 30px;
+    }
+    #shopify-section-{{ section.id }} .richtext-intro__image {
+      flex: 1 1 623px;
+      height: 380px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    #shopify-section-{{ section.id }} .richtext-intro__image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #shopify-section-{{ section.id }} .richtext-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    /* Figma (9229:476 etc.) is explicitly `bg-white border border-[#e2e6ec]`
+       — the border was already here, but no background was ever set, so the
+       card sat fully transparent and let the section's own #f4f4f4 backdrop
+       show through instead of standing out as a distinct white card. */
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block {
+      flex: 1 1 calc(50% - 20px);
+      padding: 32px;
+      background: #fff;
+      border: 1px solid #e2e6ec;
+      border-radius: 18px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+    /* Only the linked category name is bold+underlined in Figma (the `<a>`
+       itself, already underlined via inline style in the block content) —
+       the trailing phrase after it ("— where design meets function" etc.)
+       stays regular weight. The previous CSS forced the WHOLE h2 bold,
+       incorrectly bolding that trailing phrase too. */
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block h2 {
+      font-size: 20px;
+      font-weight: 400;
+      color: #202020;
+      margin: 0 0 16px;
+    }
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block h2 a {
+      font-weight: 600;
+      color: inherit;
+    }
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block p {
+      margin: 0;
+      line-height: 31px;
+    }
+    /* Figma's tokens for this section are just grey/black/yellow — no blue
+       anywhere — but a plain `<a>` still needs an explicit color or it
+       falls back to the browser's default link blue. */
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block li a {
+      color: #202020;
+    }
+    /* Figma's divider (node 9229:484, e.g.) is a plain full-width line
+       between the intro paragraph and the bulleted list — drawn as a
+       border on the list itself rather than an extra markup element, since
+       the list content comes from the block's rich text and isn't
+       something we want to parse/inject into. */
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block ul {
+      list-style: none;
+      margin: 30px 0 0;
+      padding: 24px 0 0;
+      border-top: 1px solid #e2e6ec;
+    }
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block li {
+      position: relative;
+      padding: 0 0 24px 24px;
+    }
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block li:last-child {
+      padding-bottom: 0;
+    }
+    #shopify-section-{{ section.id }} .richtext-cards .theme-block li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: #fcc833;
+    }
+    @media screen and (max-width: 989px) {
+      #shopify-section-{{ section.id }} .richtext-intro {
+        flex-direction: column;
+      }
+      #shopify-section-{{ section.id }} .richtext-intro__text,
+      #shopify-section-{{ section.id }} .richtext-intro__image {
+        flex-basis: auto;
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #shopify-section-{{ section.id }} .richtext-cards .theme-block {
+        flex: 1 1 100%;
+      }
+    }
+  {% endif %}
+{% endstyle %}
+
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+
+<div class="index-section color-scheme-{{ section.settings.color_scheme }} text-{{ section.settings.align_text }}">
+  {%- if section.settings.color_scheme != 'none' -%}
+    {% assign color_scheme = section.settings.color_scheme %}
+{% comment %}
+  Images:
+    - space
+    - paper
+    - marble
+  SVG:
+    - swirl
+    - squiggle
+  CSS:
+    - darken
+{% endcomment %}
+{%- capture key -%}color_scheme_{{ color_scheme }}_texture{%- endcapture -%}
+{%- assign texture = settings[key] -%}
+
+{%- if texture == 'space.jpg' or
+        texture == 'paper.jpg' or
+        texture == 'marble.jpg' -%}
+  {% capture image_classes %}
+    scheme-image scheme-texture--{{ texture }}
+  {% endcapture %}
+  {%- render 'image-element',
+    asset: texture,
+    host: 'theme',
+    type: 'asset',
+    classes: image_classes,
+    data-name: 'texture',
+    data-value: texture,
+  -%}
+{%- else -%}
+  <div class="scheme-{{ texture }}"></div>
+{%- endif -%}
+
+
+  {%- endif -%}
+
+  <div class="page-width{% if section.settings.narrow_column %} page-width--narrow{% endif %}">
+    {%- assign card_grid = false -%}
+    {%- if section.settings.card_grid and section.blocks.size > 2 -%}{%- assign card_grid = true -%}{%- endif -%}
+    {%- if card_grid -%}<div class="richtext-intro"><div class="richtext-intro__text">{%- endif -%}
+    {%- for block in section.blocks -%}
+      {%- if card_grid and forloop.index == 3 -%}
+        </div>
+        {%- if section.settings.use_theme_intro_image -%}
+          <div class="richtext-intro__image">
+            <img
+              src="{{ 'figma-rich-text-intro.jpg' | asset_url }}"
+              alt="A modern bedroom lit by pendant lighting"
+              loading="lazy"
+              width="1600"
+              height="1070"
+            >
+          </div>
+        {%- elsif section.settings.intro_image != blank -%}
+          <div class="richtext-intro__image">
+            <img
+              src="{{ section.settings.intro_image | img_url: 'master' }}"
+              alt="{{ section.settings.intro_image.alt | escape }}"
+              loading="lazy"
+              width="{{ section.settings.intro_image.width }}"
+              height="{{ section.settings.intro_image.height }}"
+            >
+          </div>
+        {%- endif -%}
+        </div>
+        <div class="richtext-cards">
+      {%- endif -%}
+      <div class="theme-block" {{ block.shopify_attributes }}>
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h2 class="{{ block.settings.heading_size }}">{{ block.settings.title | escape }}</h2>
+          {%- when 'page' -%}
+            <div class="rte">
+              {%- if block.settings.page_text != blank -%}
+                {{ pages[block.settings.page_text].content }}
+              {%- else -%}
+                {{ 'home_page.onboarding.no_content' | t }}
+              {%- endif -%}
+            </div>
+          {%- when 'text' -%}
+            <div class="rte">
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.enlarge_text %}<div class="enlarge-text">{% endif -%}
+                {{ block.settings.text }}
+                {%- if block.settings.enlarge_text %}</div>{% endif -%}
+              {%- else -%}
+                {{ 'home_page.onboarding.no_content' | t }}
+              {%- endif -%}
+            </div>
+          {%- when 'button' -%}
+            <div class="rte">
+              <a href="{{ block.settings.link }}" class="btn">
+                {{ block.settings.link_text }}
+              </a>
+            </div>
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+    {%- if card_grid -%}</div>{%- endif -%}
+  </div>
+</div>
+
+{%- if section.settings.divider -%}</div>{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.rich-text.name",
+  "class": "richtext-cts",
+  "settings": [
+    {
+      "type": "select",
+      "id": "align_text",
+      "label": "t:sections.rich-text.settings.align_text.label",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.rich-text.settings.align_text.options.left.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.rich-text.settings.align_text.options.center.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.rich-text.settings.align_text.options.right.label"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "narrow_column",
+      "label": "t:sections.rich-text.settings.narrow_column.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.rich-text.settings.color_scheme.label",
+      "default": "1",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.rich-text.settings.color_scheme.options.none.label"
+        },
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.rich-text.settings.divider.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "card_grid",
+      "label": "Lay out blocks 3+ as a 2-column card grid",
+      "info": "Treats the first two blocks as an intro (eyebrow + heading) and every block after as a bordered card in a 2-column grid.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "use_theme_intro_image",
+      "label": "Use bundled Figma reference photo",
+      "info": "Overrides Intro image with the theme-bundled assets/figma-rich-text-intro.jpg reference photo.",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "intro_image",
+      "label": "Intro image",
+      "info": "Shown beside the intro text when the card grid layout is on."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:sections.rich-text.blocks.heading.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.rich-text.blocks.heading.settings.title.label",
+          "default": "Rich text"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "t:common.heading_size.label",
+          "default": "h2",
+          "options": [
+            {
+              "value": "h3",
+              "label": "t:common.heading_size.options.small.label"
+            },
+            {
+              "value": "h2",
+              "label": "t:common.heading_size.options.medium.label"
+            },
+            {
+              "value": "h1",
+              "label": "t:common.heading_size.options.large.label"
+            },
+            {
+              "value": "h0",
+              "label": "t:common.heading_size.options.extra_large.label"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:sections.rich-text.blocks.text.name",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enlarge_text",
+          "label": "t:sections.rich-text.blocks.text.settings.enlarge_text.label",
+          "default": true
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "t:sections.rich-text.blocks.text.settings.text.label",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.button.name",
+      "settings": [
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.rich-text.blocks.button.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "t:sections.rich-text.blocks.button.settings.link_text.label",
+          "default": "Button"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "t:sections.rich-text.blocks.page.name",
+      "settings": [
+        {
+          "id": "page_text",
+          "type": "page",
+          "label": "t:sections.rich-text.blocks.page.settings.page_text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["custom.popups"]
+  },
+  "locales": {
+    "de": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "Dieser Bereich hat zur Zeit keinen Inhalt. Füge diesem Bereich über die Seitenleiste Inhalte hinzu."
+        }
+      }
+    },
+    "en": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "This section doesn’t currently include any content. Add content to this section using the sidebar."
+        }
+      },
+      "snippet_name": "color-scheme-texture"
+    },
+    "es": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "Esta secção não inclui de momento qualquer conteúdo. Adicione conteúdo a esta secção através da barra lateral."
+        }
+      },
+      "snippet_name": "color-scheme-texture"
+    },
+    "fr": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "Cette section ne contient actuellement aucun contenu. Ajoutez-en en utilisant la barre latérale."
+        }
+      },
+      "snippet_name": "color-scheme-texture"
+    },
+    "it": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "Questa sezione non include attualmente alcun contenuto. Aggiungi contenuti a questa sezione utilizzando la barra laterale."
+        }
+      }
+    },
+    "pt-BR": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "Atualmente, esta seção não inclui nenhum conteúdo. Adicione conteúdo nesta seção usando a barra lateral."
+        }
+      }
+    },
+    "pt-PT": {
+      "home_page": {
+        "onboarding": {
+          "no_content": "Esta sección actualmente no incluye ningún contenido. Añade un contenido a esta sección utilizando la barra lateral."
+        }
+      }
+    }
+  }
+}
+{% endschema %}

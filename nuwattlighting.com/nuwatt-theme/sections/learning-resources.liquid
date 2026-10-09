@@ -1,0 +1,314 @@
+{% stylesheet %}
+
+  
+{% endstylesheet %}
+
+{% javascript %}
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const topics = document.querySelectorAll('.lighting101-topic');
+
+            topics.forEach(topic => {
+                const header = topic.querySelector('.lighting101-topic-header');
+                const content = topic.querySelector('.lighting101-topic-content');
+
+                header.addEventListener('click', () => {
+                    const isActive = topic.classList.contains('active');
+                    
+                    // Close all topics
+                    topics.forEach(t => {
+                        t.classList.remove('active');
+                        t.querySelector('.lighting101-topic-content').style.maxHeight = '0';
+                        t.querySelector('.lighting101-topic-content').style.paddingBottom = '0';
+                    });
+
+                    // If the clicked topic wasn't active, open it
+                    if (!isActive) {
+                        topic.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        content.style.paddingBottom = '15px';
+                    }
+                });
+            });
+        });
+{% endjavascript %}
+
+
+    <div class="lighting101-container">
+        <aside class="lighting101-sidebar">
+            <h2>Quick Links</h2>
+            <nav>
+                <ul>
+                    <li><a href="/pages/resources" class="active">Lighting for Beginners</a></li>
+                    <li><a href="/pages/customer-help-center">Help Hub</a></li>
+                    <li><a href="/blogs/news">Blog</a></li>
+                    <li><a href="/pages/contact-us">Contact Us</a></li>
+                    <li><a href="/pages/refund-policy">Refund Policy</a></li>
+                    <li><a href="/policies/terms-of-service">Terms of Service</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="lighting101-main-content">
+           <div class="page-width page-width--narrow nw-faq-section nw-faq-section-"><script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "What are Lumens?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eLumens are a unit of measurement that tells you how much visible light a light emits. In simpler terms, the higher the lumens, the brighter the light. This is especially helpful when comparing different types of lighting, because it gives you a consistent way to gauge brightness regardless of the light fixtures energy consumption.\u003cbr\/\u003e\u003cbr\/\u003eSo next time you're shopping for lights, pay attention to the lumens to ensure you get the right brightness for your space!\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "What's Color Rendering Index (CRI)?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eColor Rendering Index, or CRI for short, is a measure of how accurately a light source reveals the true colors of objects compared to natural sunlight. Think of it as the quality of light in terms of color fidelity. CRI is rated on a scale from 0 to 100, with 100 being perfect color rendering, just like natural daylight. A higher CRI means colors will appear more vibrant and true to life under that light source. This is particularly important in settings like art studios, retail stores, or anywhere color accuracy is crucial. So, when choosing lighting, considering the CRI can help ensure that the colors in your environment look their best!\u003cbr\/\u003e\u003cbr\/\u003eTo learn more about CRI, read our article \u003ca href=\"https:\/\/www.nuwattlighting.com\/blogs\/news\/the-importance-of-cri-in-led-lighting\" title=\"https:\/\/www.nuwattlighting.com\/blogs\/news\/the-importance-of-cri-in-led-lighting\"\u003eThe Importance of CRI in LED Lighting\u003c\/a\u003e.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "What is Wattage?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eWattage refers to the amount of electrical power a light fixture consumes to produce light, measured in watts (W). While many people used to equate higher wattage with brighter light, that's not necessarily the case with modern lighting like LEDs. Today, wattage is more about energy consumption than brightness. For example, an LED light might use only 10 watts but produce the same brightness (in lumens) as a traditional 60 watt incandescent bulb. So, when you're looking at wattage, you're essentially seeing how much electricity the light will use, which impacts your energy bill. It's a useful figure for understanding energy efficiency!\u003cbr\/\u003e\u003cbr\/\u003e\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "What's Kelvin and Color Temperature?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eKelvin is the unit of measurement used to describe the color temperature of a light source. Color temperature tells you whether a light appears more yellow (warm) or blue (cool). The scale ranges from around \u003cbr\/\u003e\u003cbr\/\u003e2700K Soft White\u003cbr\/\u003e3000K Warm White\u003cbr\/\u003e3500K Neutral White\u003cbr\/\u003e4000K Cool White\u003cbr\/\u003e5000K Daylight\u003cbr\/\u003e\u003cbr\/\u003eLower Kelvin numbers like 2,700K produce a warm, cozy light similar to traditional incandescent bulbs, great for living rooms and bedrooms. Higher Kelvin numbers like 5,000K offer a cool, daylight-like brightness, ideal for task lighting or workspaces. Understanding Kelvin can help you choose lighting that sets the right mood and function for your space. So, next time you're picking out LED lights, consider the Kelvin rating to get the ambiance just right!\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "What's Ingress Protection (IP) Rating?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eIngress Protection, or IP Rating, is a standardized measure that indicates how well a light fixture or electrical device is protected against solids and liquids.\u003cbr\/\u003e\u003cbr\/\u003eIt's usually represented by two numbers, like IP65. The first digit indicates protection against solids like dust (on a scale from 0 to 6), and the second digit indicates protection against liquids like water (on a scale from 0 to 8). \u003cbr\/\u003e\u003cbr\/\u003eFor example, an IP65 rating means the device is dust tight and can withstand water jets. Knowing the IP Rating is crucial when installing lighting in environments where moisture or dust is a concern, such as bathrooms, outdoors, or industrial settings.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Wattage Equivalent?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eWattage Equivalent is a term used to compare the brightness of new energy-efficient LEDs to traditional incandescent bulbs.\u003cbr\/\u003e\u003cbr\/\u003eSince LEDs use less power to produce the same amount of light, the wattage equivalent helps you understand how bright an LED light will be compared to what you're used to. For instance, a 10 watt LED might be labeled as having a \"60W equivalent\" because it produces the same brightness as a 60 watt incandescent bulb. This makes it easier for you to choose the right LED light without getting confused by the lower wattage numbers.\u003c\/p\u003e"
+                  }
+                },
+            
+          
+            
+                {
+                  "@type": "Question",
+                  "name": "Beam Angles?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u003cp\u003eBeam angle refers to the spread of light emitted from a light source, measured in degrees.\u003cbr\/\u003e\u003cbr\/\u003eIt determines how wide or narrow the light disperses. A narrow beam angle, like 15 degrees, produces a focused, spotlight effect—great for highlighting artwork or architectural features. A wider beam angle, like 60 degrees, offers more general, dispersed lighting suitable for illuminating larger areas like living rooms or offices. Understanding beam angles helps you choose the right lighting for your needs, whether you want to spotlight something special or provide broad, general illumination in a space.\u003cbr\/\u003e\u003cbr\/\u003e\u003cbr\/\u003e\u003cbr\/\u003e\u003cbr\/\u003e\u003cbr\/\u003e\u003cbr\/\u003e\u003c\/p\u003e"
+                  }
+                }
+            
+          
+        ]
+      }
+    </script><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_gFWK3w" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">What are Lumens?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_gFWK3w" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Lumens are a unit of measurement that tells you how much visible light a light emits. In simpler terms, the higher the lumens, the brighter the light. This is especially helpful when comparing different types of lighting, because it gives you a consistent way to gauge brightness regardless of the light fixtures energy consumption.<br><br>So next time you're shopping for lights, pay attention to the lumens to ensure you get the right brightness for your space!</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_pC8Bc7" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">What's Color Rendering Index (CRI)?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_pC8Bc7" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Color Rendering Index, or CRI for short, is a measure of how accurately a light source reveals the true colors of objects compared to natural sunlight. Think of it as the quality of light in terms of color fidelity. CRI is rated on a scale from 0 to 100, with 100 being perfect color rendering, just like natural daylight. A higher CRI means colors will appear more vibrant and true to life under that light source. This is particularly important in settings like art studios, retail stores, or anywhere color accuracy is crucial. So, when choosing lighting, considering the CRI can help ensure that the colors in your environment look their best!<br><br>To learn more about CRI, read our article <a href="https://www.nuwattlighting.com/blogs/news/the-importance-of-cri-in-led-lighting" title="https://www.nuwattlighting.com/blogs/news/the-importance-of-cri-in-led-lighting">The Importance of CRI in LED Lighting</a>.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_tJaeHP" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">What is Wattage?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_tJaeHP" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Wattage refers to the amount of electrical power a light fixture consumes to produce light, measured in watts (W). While many people used to equate higher wattage with brighter light, that's not necessarily the case with modern lighting like LEDs. Today, wattage is more about energy consumption than brightness. For example, an LED light might use only 10 watts but produce the same brightness (in lumens) as a traditional 60 watt incandescent bulb. So, when you're looking at wattage, you're essentially seeing how much electricity the light will use, which impacts your energy bill. It's a useful figure for understanding energy efficiency!<br><br></p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_wMR49f" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">What's Kelvin and Color Temperature?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_wMR49f" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Kelvin is the unit of measurement used to describe the color temperature of a light source. Color temperature tells you whether a light appears more yellow (warm) or blue (cool). The scale ranges from around <br><br>2700K Soft White<br>3000K Warm White<br>3500K Neutral White<br>4000K Cool White<br>5000K Daylight<br><br>Lower Kelvin numbers like 2,700K produce a warm, cozy light similar to traditional incandescent bulbs, great for living rooms and bedrooms. Higher Kelvin numbers like 5,000K offer a cool, daylight-like brightness, ideal for task lighting or workspaces. Understanding Kelvin can help you choose lighting that sets the right mood and function for your space. So, next time you're picking out LED lights, consider the Kelvin rating to get the ambiance just right!</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_JhNmyB" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">What's Ingress Protection (IP) Rating?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_JhNmyB" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Ingress Protection, or IP Rating, is a standardized measure that indicates how well a light fixture or electrical device is protected against solids and liquids.<br><br>It's usually represented by two numbers, like IP65. The first digit indicates protection against solids like dust (on a scale from 0 to 6), and the second digit indicates protection against liquids like water (on a scale from 0 to 8). <br><br>For example, an IP65 rating means the device is dust tight and can withstand water jets. Knowing the IP Rating is crucial when installing lighting in environments where moisture or dust is a concern, such as bathrooms, outdoors, or industrial settings.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_4LD4C8" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Wattage Equivalent?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_4LD4C8" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Wattage Equivalent is a term used to compare the brightness of new energy-efficient LEDs to traditional incandescent bulbs.<br><br>Since LEDs use less power to produce the same amount of light, the wattage equivalent helps you understand how bright an LED light will be compared to what you're used to. For instance, a 10 watt LED might be labeled as having a "60W equivalent" because it produces the same brightness as a 60 watt incandescent bulb. This makes it easier for you to choose the right LED light without getting confused by the lower wattage numbers.</p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div><div>
+        
+            <collapsible-elements>
+              <div>
+                <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders collapsible--auto-height" aria-controls="FAQ-content-question_9TXnKb" aria-expanded="false">
+                  <span class="collapsible-trigger__layout">
+                    <span>
+                      <span class="nw-faq-title">Beam Angles?</span>
+                    </span>
+                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg>
+                    </span>
+                  </span>
+                </button>
+                <div id="FAQ-content-question_9TXnKb" class="collapsible-content collapsible-content--all">
+                  <div class="collapsible-content__inner rte">
+                    <p>Beam angle refers to the spread of light emitted from a light source, measured in degrees.<br><br>It determines how wide or narrow the light disperses. A narrow beam angle, like 15 degrees, produces a focused, spotlight effect—great for highlighting artwork or architectural features. A wider beam angle, like 60 degrees, offers more general, dispersed lighting suitable for illuminating larger areas like living rooms or offices. Understanding beam angles helps you choose the right lighting for your needs, whether you want to spotlight something special or provide broad, general illumination in a space.<br><br><br><br><br><br><br></p>
+                  </div>
+                </div>
+              </div>
+          </collapsible-elements>
+        
+      </div></div>
+        </main>
+    </div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Learning Resources",
+    "settings": [
+
+
+      
+    ],
+
+  "presets": [
+      {
+        "name": "Learning Resources",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

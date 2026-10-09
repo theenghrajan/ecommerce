@@ -1,0 +1,235 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_fqgwG4": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Square LED Downlights Collection",
+        "collection_seo_description": "Our collection of fire-rated square recessed lights offers a clean, contemporary look along with the assurance of fire safety. Fire-rated square LED downlights enhance both style and functionality."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_CPUFVf": {
+      "type": "jump-to",
+      "blocks": {
+        "question_4AqVpz": {
+          "type": "question",
+          "settings": {
+            "button": "All Fire Rated",
+            "link": "shopify://collections/fire-rated-recessed-light",
+            "image": "shopify://shop_images/NW-PB-DL-6-15W-5CT-FR-WH_LISTING_MAIN_1P-123523.jpg",
+            "alt-text": "Go to all All Fire Rated Downlights"
+          }
+        },
+        "question_4naL7N": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "shopify://collections/fire-rated-recessed-lights-black",
+            "image": "shopify://shop_images/NW-P-SQDL-6-15W-5CT-FR-BLK_LISTING_1P-834929.jpg",
+            "alt-text": "Go to Black Trim Fire Rated Recessed Light Products"
+          }
+        },
+        "question_37qgBx": {
+          "type": "question",
+          "settings": {
+            "button": "Baffle Trim",
+            "link": "shopify://collections/baffle-trim-recessed-lighting",
+            "image": "shopify://shop_images/NW-PB-DL-4-12W-5CT-FR-WH_LISTING_MAIN_1P_20fd31cf-20b9-4225-8d4a-2514853a5adf-828261.jpg",
+            "alt-text": "Baffle Fire Rated Downlights"
+          }
+        },
+        "question_4EQtfq": {
+          "type": "question",
+          "settings": {
+            "button": "Square Canless",
+            "link": "https://www.nuwattlighting.com/collections/square-canless-recessed-light",
+            "image": "shopify://shop_images/NW-P-SQDL-4-9W-5CT-WH-727024.jpg",
+            "alt-text": "Go to all our square canless recessed lighting products"
+          }
+        }
+      },
+      "block_order": [
+        "question_4AqVpz",
+        "question_4naL7N",
+        "question_37qgBx",
+        "question_4EQtfq"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_PrTUJV": {
+      "type": "faq",
+      "blocks": {
+        "question_iW3iE4": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_kq4bki": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_YMxbMc": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_iW3iE4",
+        "question_kq4bki",
+        "question_YMxbMc"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_RiqFtC": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_MxVizD": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_4qtpyW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_48fPW7": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_AhAQik": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_x4w74z": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_LRLMG7": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_MxVizD",
+        "question_4qtpyW",
+        "question_48fPW7",
+        "question_AhAQik",
+        "question_x4w74z",
+        "question_LRLMG7"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_mdJiTL": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Square LED Downlights Collection",
+        "collection_seo_description": "Our collection of fire-rated square recessed lights offers a clean, contemporary look along with the assurance of fire safety. Fire-rated square LED downlights enhance both style and functionality."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_fqgwG4",
+    "main-collection",
+    "jump_to_CPUFVf",
+    "faq_PrTUJV",
+    "collection_metafield_faq_RiqFtC",
+    "recently-viewed",
+    "expandable_description_mdJiTL"
+  ]
+}

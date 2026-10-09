@@ -1,0 +1,247 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_g9Tf3e": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Ceiling Panels Collection",
+        "collection_seo_description": "The LED ceiling panels collection provides top of the line LED flat panel lights designed for maximum efficiency and brightness. Whether you need 2x2 or 2x4 LED panels, these lights offer a modern solution to your lighting needs, ensuring a well lit, energy efficient environment."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/cct-color-temperature-recessed-lighting-icon.png?v=1724086946\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_AjfmCe": {
+      "type": "jump-to",
+      "blocks": {
+        "question_MFVFBw": {
+          "type": "question",
+          "settings": {
+            "button": "Drop In Panels",
+            "link": "shopify://collections/drop-ceiling-light-panels",
+            "image": "shopify://shop_images/White-Trim-LED-Drop-in-Panels.png",
+            "alt-text": ""
+          }
+        },
+        "question_D6jiqg": {
+          "type": "question",
+          "settings": {
+            "button": "Surface Mount",
+            "link": "shopify://collections/led-flat-panel-surface-mount",
+            "image": "shopify://shop_images/SURFACE_MOUNTS.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_tGp8y8": {
+          "type": "question",
+          "settings": {
+            "button": "Square",
+            "link": "https://www.nuwattlighting.com/collections/led-ceiling-panel?filter.p.m.custom.shape=Square",
+            "image": "shopify://shop_images/White-Trim-Square-Surface-Mount-LED-Flat-Panels.png",
+            "alt-text": ""
+          }
+        },
+        "question_RYGbxG": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "https://www.nuwattlighting.com/collections/led-ceiling-panel?filter.p.m.custom.color=Black",
+            "image": "shopify://shop_images/Black-Trim-Surface-Mount-LED-Flat-Panels.png",
+            "alt-text": ""
+          }
+        },
+        "question_cmdxnj": {
+          "type": "question",
+          "settings": {
+            "button": "Suspension Kits",
+            "link": "https://www.nuwattlighting.com/collections/led-ceiling-panel?filter.p.m.custom.installation_type=Panel+Suspension+Kit",
+            "image": "shopify://shop_images/LEDCeilingPanelSuspensionKit_4f2a6aa5-7a3a-47ff-b94b-5a9aba7f967a-296526.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_fYcfaA": {
+          "type": "question",
+          "settings": {
+            "button": "Mounting Kits",
+            "link": "https://www.nuwattlighting.com/collections/led-ceiling-panel?filter.p.m.custom.installation_type=Mounting+Kit",
+            "image": "shopify://shop_images/surface_mount_Frame_2x4-_1_d_191c920d-e3ce-473c-aa15-0841e3167e9b.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_MFVFBw",
+        "question_D6jiqg",
+        "question_tGp8y8",
+        "question_RYGbxG",
+        "question_cmdxnj",
+        "question_fYcfaA"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_bzQQMa": {
+      "type": "faq",
+      "blocks": {
+        "question_b8nk8T": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_RCfNVe": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_w4nf3t": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_b8nk8T",
+        "question_RCfNVe",
+        "question_w4nf3t"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_AfdMdb": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_zNJfjc": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_kxdffV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_HTYAGN": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_V6e44P": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_eXPyBy": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_zNJfjc",
+        "question_kxdffV",
+        "question_HTYAGN",
+        "question_V6e44P",
+        "question_eXPyBy"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_MfANKz": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Ceiling Panels Collection",
+        "collection_seo_description": "The LED ceiling panels collection provides top of the line LED flat panel lights designed for maximum efficiency and brightness. Whether you need 2x2 or 2x4 LED panels, these lights offer a modern solution to your lighting needs, ensuring a well lit, energy efficient environment."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_g9Tf3e",
+    "main-collection",
+    "jump_to_AjfmCe",
+    "faq_bzQQMa",
+    "collection_metafield_faq_AfdMdb",
+    "recently-viewed",
+    "expandable_description_MfANKz"
+  ]
+}

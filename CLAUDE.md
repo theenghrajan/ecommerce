@@ -27,3 +27,11 @@ Shopify theme for Nadco Tapes & Labels. Repo: github.com/theenghrajan/ecommerce.
 - `SESSIONS.md` lists Claude Code session IDs per AC task. Resume with `cd D:\work` then `claude --resume <session-id>` (sessions are stored per launch folder, so launch from `D:\work`).
 - When starting work on a new AC task, add a row: date, site, task, topic, session ID, link to the task's `-log.md`.
 - If a session can't be resumed, read the task's `MM-DD-YYYY-<taskId>-log.md` and comment file to pick up where it left off.
+
+## danceconnection.com
+
+- `danceconnection.com/danceconnection-theme/`: Dance Connection, store `dance-connection-store.myshopify.com`, live theme "2024 Impulse x eCart" (**Impulse 7.4.0** by Archetype, not Hyper). Custom sections there: `custom-*.liquid`.
+
+## nuwattlighting.com
+
+- Store `nuwatt-lighting.myshopify.com`. Live "ITG Work Nuwatt Theme" #144428662858 → `nuwattlighting.com/nuwatt-theme/`; draft "Figma Match - 2026-09-04" #148630929482 → `nuwattlighting.com/nuwatt-draft-theme/`. Breadcrumbs: `snippets/breadcrumbs.liquid` (client-side trail from Meteor Mega Menu + sessionStorage).

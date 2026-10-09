@@ -1,0 +1,600 @@
+/* PDP Buy Box & Pack-Size Tile redesign — Figma "128 Audit Fixes" Product Page (node 9211:7).
+   Layered on top of the existing product-grid__container / cstm-brdr / variant-button system;
+   no existing selectors are redefined here, only new classes added by this redesign. */
+
+/* ---------- 3-column PDP grid ---------- */
+.product-grid__container--3col{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* theme.css.liquid's `.grid:after{content:"";display:table;clear:both}` is a
+   clearfix for the old float-based grid system - this container still
+   carries the base `.grid` class, so once it's switched to display:grid that
+   pseudo-element becomes a real, auto-placed grid item (generated content
+   isn't display:none) instead of the harmless no-op it used to be. It
+   consumed an extra implicit row, which is what was pushing the breadcrumb's
+   row (and everything after it) apart with a large, unaccounted-for gap. */
+.product-grid__container--3col::after{
+  display: none;
+}
+
+/* The breadcrumb sits above this grid (top of page-width, same as collection
+   pages), so its own margin:1.5rem 0 provides the spacing. */
+.page-content--product .breadcrumbs{
+  /* breadcrumbs.liquid's own padding-left:20px is meant for the collection
+     page (where it's already correctly flush per the client) - on the
+     product page it pushed the breadcrumb out of line with the title and
+     gallery/buy-box content below it. */
+  padding-left: 0;
+}
+
+/* theme.css.liquid's `.page-content--product` gives a flat 40px top padding
+   sized for a page with nothing above the fold but the buy box - stacked with
+   the breadcrumb's own 24px margin-top, that left ~64px of dead space under
+   the header on desktop (mobile has its own 15px rule and already reads fine,
+   left untouched). `body.template-product .page-content--product` (2 classes)
+   outranks responsives.css's plain `.page-content--product` (1 class) at every
+   breakpoint it redeclares, so this wins regardless of load order. */
+@media only screen and (min-width: 769px){
+  body.template-product .page-content--product{
+    padding-top: 8px;
+  }
+}
+
+/* The quick-add popup (theme.css.liquid's .quick-add-modal rules) hides every
+   direct .grid__item child of .product-grid__container and re-shows only
+   .product-grid__content as a plain block - a mechanism built for normal
+   flow layout. An empty CSS Grid track still reserves its width even when
+   the item inside it is display:none, so turning this same container into
+   a 3-column grid left two blank reserved columns beside the one visible
+   column in the popup. Reset it back to block there so the popup's own
+   hide/show approach works exactly as it did before this grid existed. */
+.quick-add-modal .product-grid__container--3col{
+  display: block;
+}
+
+.product-grid__container--3col .grid__item{
+  float: none;
+  padding-left: 0;
+}
+
+/* theme.css.liquid's/.responsives.css's float-grid system pairs `.grid`'s
+   negative margin-left (-22px desktop, -16px/-20.06px at narrower buckets)
+   with an equal padding-left on every `.grid__item` child, so the two cancel
+   out to a flush edge while still leaving a visual gutter between siblings.
+   Zeroing that child padding-left above (needed for blowout prevention)
+   broke that pairing container-wide: the container still carries the base
+   `.grid` class, so its negative margin now has nothing left to cancel it,
+   shoving the whole details/buy-box column left and off the right edge on
+   narrow screens. `.product-grid__container--3col.grid` (2 classes) outranks
+   the plain `.grid` selector everywhere it's redeclared, so this wins at
+   every breakpoint regardless of source order. */
+.product-grid__container--3col.grid{
+  margin-left: 0;
+}
+
+/* theme.css.liquid's mobile gallery bleed (.product__main-photos{margin-left:
+   -17px;margin-right:-17px}) was calibrated to exactly cancel out
+   .grid__item's own 22px/17px padding-left, landing the image flush with the
+   true page edge. Zeroing that padding-left above (for this grid's own
+   blowout-prevention, not the gallery) left the same -17px bleed with
+   nothing to cancel, so it overshoots the column on each side instead of
+   stopping at its edge - producing a misaligned peek of the adjacent slide.
+   Neutralize it here so the image fills its column cleanly with no bleed. */
+@media only screen and (max-width: 768px){
+  .product-grid__container--3col .product__main-photos{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.product-grid__container--3col .product-grid__item--gallery,
+.product-grid__container--3col .product-grid__item--details{
+  width: 100%;
+}
+
+/* CSS Grid items default to a min-width based on their content's max-content size;
+   a long title or an unwrapped flex row (payment buttons, qty row) can then force the
+   track wider than the viewport, which reads as the buy box "overlapping" other content
+   on narrow screens. Letting grid items shrink below their content size fixes it. */
+.product-grid__container--3col > .grid__item{
+  min-width: 0;
+}
+
+.product-grid__container--3col .product-grid__item--gallery{ order: 1; }
+.product-grid__container--3col .product-grid__item--details{ order: 2; }
+.product-grid__container--3col .product-grid__item--buybox{ order: 3; }
+
+/* Below 700px there's only room for one column at a time (gallery, then details,
+   then buy box — the base rule above already does this). From 700px up to the
+   1200px 3-column cutover, there's enough room for a "3-2-1" tablet layout: the
+   gallery spans the full width on its own row, with details and the buy box
+   sharing a second row as two columns — rather than jumping straight from one
+   column to three. */
+@media only screen and (min-width: 700px) and (max-width: 1199px){
+  .product-grid__container--3col{
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 32px;
+  }
+  .product-grid__container--3col .product-grid__item--gallery{
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .product-grid__container--3col .product-grid__item--details{
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .product-grid__container--3col .product-grid__item--buybox{
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .product-grid__container--3col{
+    /* Matches the Figma reference's actual column proportions (gallery ~38%,
+       details ~34%, buy box ~22% of content width) rather than an even split —
+       the buy box only needs room for price/qty/buttons, so the details column
+       (title, specs, variant picker) gets the space it needs. */
+    grid-template-columns: minmax(0, 1.75fr) minmax(0, 1.55fr) minmax(240px, 1fr);
+    align-items: start;
+    gap: 32px;
+  }
+  .product-grid__container--3col .product-grid__item--gallery{ grid-column: 1; }
+  .product-grid__container--3col .product-grid__item--details{ grid-column: 2; }
+  .product-grid__container--3col .product-grid__item--buybox{
+    grid-column: 3;
+    position: sticky;
+    top: 24px;
+  }
+}
+
+/* ---------- Header: SKU eyebrow above title ---------- */
+.product-single__meta .product-single__vendor-sku,
+.product-single__header--mobile .product-single__vendor-sku{
+  opacity: 1;
+  margin-bottom: 6px;
+}
+
+.product-single__meta .product-single__sku,
+.product-single__header--mobile .product-single__sku{
+  font-size: 13px;
+  font-weight: 700;
+  color: #c2760c;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Gallery: thumbnail border + desktop zoom icon ---------- */
+.product-grid__item--gallery .product__thumb-item a.is-active:before,
+.product-grid__item--gallery .product__thumb-item a:focus:before{
+  box-shadow: inset 0 0 0 2px #d4d4d4;
+}
+
+@media only screen and (min-width: 769px){
+  .product-grid__item--gallery .product__photo-zoom{
+    opacity: 1;
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+    bottom: 12px;
+    right: 12px;
+    margin: 0;
+    padding: 8px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  .product-grid__item--gallery .product__photo-zoom .icon,
+  .product-grid__item--gallery .product__photo-zoom svg{
+    display: block;
+    width: 21px;
+    height: 21px;
+  }
+}
+
+/* ---------- Header: mini-specs stay 2 columns even in the narrower details column ----------
+   The base .mini-specs{display:flex;flex-wrap:wrap} lets each <ul> size to its own content,
+   which drops to one per row once this column gets narrower (post 3-col redesign). Grid
+   guarantees an even 2-column split regardless of content width. */
+.product-grid__item--details .mini-specs{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---------- Buy box card ---------- */
+.product-single__buy-box{
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fafafa;
+}
+
+.product-single__buy-box .buybox__price-block{
+  margin-bottom: 12px;
+}
+
+.product-single__buy-box .buybox__price{
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.buybox__badges{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.buybox__badge{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #15803d;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.buybox__badge-icon{ flex-shrink: 0; }
+
+.buybox__seller-info{
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.buybox__quantity-block{ margin: 16px 0; }
+
+.buybox__quantity-wrap{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.buybox__quantity-label{
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* assets/chico.css has its own global .js-qty__wrapper override (min-width:
+   -webkit-fill-available, display:flex/flex-direction:row, position:unset) meant
+   for another context — here it stretched the stepper full-width and turned it
+   into a loose row instead of a compact spinner. Overriding every property it
+   touches, scoped to the buy box only, rather than changing that shared rule. */
+.buybox__quantity-wrap .js-qty__wrapper{
+  display: inline-flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  overflow: hidden;
+  justify-content: flex-start;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.buybox__quantity-wrap .js-qty__num{
+  width: 48px;
+  flex: 0 0 auto;
+  order: 2;
+  text-align: center;
+  padding: 10px 0;
+  border: none;
+}
+
+.buybox__quantity-wrap .js-qty__adjust{
+  position: static;
+  order: 1;
+  padding: 10px 14px;
+  background: #f2f2f2;
+}
+
+.buybox__quantity-wrap .js-qty__adjust--plus{
+  order: 3;
+}
+
+.buybox__buttons-block{ margin: 16px 0; }
+
+.buybox__buttons-block .payment-buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* product-form.liquid renders two separate .product__policies elements: the
+   store's shipping-policy message (locales/en.default.json
+   "shipping_policy_html": "FREE SHIPPING at checkout", shown whenever
+   Admin > Policies has a shipping policy set) right before the buttons, and
+   the Shop Pay installment text (.shopify-payment-terms.product__policies,
+   "Pay in 2 interest-free installments...") right after. The first
+   duplicates the FREE Shipping badge already shown higher up in the buy box
+   and isn't part of the Figma reference, so only that one is hidden here —
+   :not(.shopify-payment-terms) keeps the installment text, which Figma does
+   show. Scoped to the buy box; other product-form.liquid usages elsewhere
+   still render both normally. */
+.buybox__buttons-block .product__policies:not(.shopify-payment-terms){
+  display: none;
+}
+
+/* product-form.liquid downgrades Add to Cart to the outline (.btn--secondary) look
+   whenever Shop Pay/dynamic checkout is also shown, so it doesn't compete with it.
+   The buy box wants Add to Cart to stay the primary action — restore that look here
+   only, without touching product-form.liquid's shared conditional class logic.
+   Figma also uses a moderate ~8px corner radius rather than this theme's site-wide
+   pill-button style, so that's overridden here too, scoped to the buy box only. */
+.buybox__buttons-block .btn{
+  border-radius: 8px;
+}
+
+.buybox__buttons-block .btn.add-to-cart{
+  background-color: var(--colorBtnPrimary);
+  border-color: var(--colorBtnPrimary);
+  color: var(--colorBtnPrimaryText);
+}
+
+.buybox__buttons-block .btn.add-to-cart:hover:not([disabled]){
+  background-color: var(--colorBtnPrimaryDim, var(--colorBtnPrimary));
+  border-color: var(--colorBtnPrimaryDim, var(--colorBtnPrimary));
+}
+
+.buybox__buttons-block .shopify-payment-button__button--unbranded{
+  border-radius: 8px;
+}
+
+.buybox__secure{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Entry point into the lighting calculator (sections/pdp-lighting-calculator.liquid,
+   #lighting-layout-tool), matching the Figma reference's buy-box teaser card. */
+.buybox__calculator-teaser{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #fafafa;
+  text-decoration: none;
+  color: inherit;
+}
+
+.buybox__calculator-teaser:hover{
+  border-color: #d4d4d4;
+}
+
+.buybox__calculator-teaser-icon{
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--colorBtnPrimary, #FCC800);
+  color: #000;
+}
+
+.buybox__calculator-teaser-text{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.buybox__calculator-teaser-title{
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.buybox__calculator-teaser-subtitle{
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ---------- Pack-size tile layout ---------- */
+/* With 4+ pack-size options, nowrap squeezed every tile down until the
+   fixed-width price span (see the override below) no longer fit - wrap
+   lets extra tiles flow onto a second row at a readable minimum width
+   instead of continuing to compress indefinitely. */
+.variant-input-wrap[data-handle="pack-size"]{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+
+.variant-input-wrap[data-handle="pack-size"] .variant-input{
+  /* flex-grow: 0 - a lone tile wrapped onto its own row (e.g. a 4th option
+     when only 3 fit per row) should stay the same width as its siblings
+     above, not stretch to fill the rest of that row. */
+  flex: 0 1 108px;
+  min-width: 108px;
+}
+
+.pack-size-label .opt_value,
+.pack-size-unit-price{
+  overflow-wrap: break-word;
+}
+
+.pack-size-card{
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Several legacy rules (theme.css.liquid, responsives.css, custom.css - some
+   !important, at different specificities, some scoped to #QuickAddHolder or
+   .product-single__meta) fight over the padding of whichever pack-size card
+   is currently checked, so it ends up with different, asymmetric padding
+   from its unchecked siblings depending on which one happens to win in a
+   given context (main PDP vs. the quick-add modal) - visually reading as
+   the selected card's text sitting flush/cut off against its own border.
+   .pack-size-card is only ever used by this redesign, so forcing padding
+   here unconditionally (checked or not) is safe and settles the conflict
+   for good instead of relying on a fragile specificity/!important coincidence. */
+.pack-size-card,
+.variant-input input[type="radio"]:checked + .pack-size-card{
+  padding: 10px !important;
+  margin-right: 0 !important;
+}
+
+/* The quick-add modal's own wrapper sizes itself independently of its
+   content - a base rule floors it at 70vw (theme.css.liquid), and a more
+   specific per-breakpoint override floors it at ~422px (responsives.css) -
+   neither is driven by how wide the buy-box content inside it actually is,
+   so depending on which wins, the modal can end up considerably wider than
+   its content with dead space on both sides. Sizing to the content directly
+   removes the guesswork. */
+.quick-add-modal .modal__centered-content{
+  width: fit-content !important;
+  min-width: 0 !important;
+}
+
+.pack-size-label .opt_value{
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.pack-size-unit-price{
+  color: #15803d;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* theme.css.liquid's `span.lastvariant{width:100px;position:absolute}` (a
+   leftover from this same element's original role as a small floating price
+   badge) pins this to a flat width - 91.2px at some breakpoints per
+   responsives.css - regardless of how narrow its own tile actually is. The
+   earlier `position:static` override (custom.css) already took it out of
+   absolute positioning, but nothing had overridden the fixed width itself,
+   so once a tile shrank below ~91px the price text kept its old width and
+   was clipped by .pack-size-card's overflow:hidden instead of wrapping to
+   fit. `span.lastvariant.pack-size-unit-price` (type + 2 classes) outranks
+   the base rule's `span.lastvariant` (type + 1 class) regardless of source
+   order. */
+span.lastvariant.pack-size-unit-price{
+  width: 100%;
+}
+
+/* ---------- Responsive refinements ---------- */
+
+/* Below the 1200px 3-column desktop tier, the gallery column spans the full
+   page width (or half of it, in the 700-1199px tablet tier), which made the
+   main image render edge-to-edge and dominate the page. Capping it to a
+   reasonable max-width and centering keeps it proportionate at every
+   responsive size instead of scaling up to fill all the available room. */
+@media only screen and (max-width: 1199px){
+  .product-grid__item--gallery .product__photos{
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 749px){
+  .product-single__buy-box{
+    padding: 16px;
+  }
+  .product-single__buy-box .buybox__price{
+    font-size: 26px;
+  }
+  .product-grid__item--gallery .product__photos{
+    max-width: 360px;
+  }
+}
+
+/* Quick-add modal: intentionally left to the theme's own default behavior
+   (theme.css.liquid's `.quick-add-modal .product-grid__container>
+   .grid__item{display:none}` + `.product-grid__content{display:block;
+   width:500px}`), which only shows the details/variant-picker column and
+   hides the buy box card added by this redesign — a prior attempt to
+   reshape the buy box to fit inside the popup was reverted per request. */
+
+/* ---------- Mobile main-image prev/next arrows ---------- */
+/* The thumbnail row (and its own prev/next arrows) is hidden entirely on
+   small screens, so with mobile_layout: full leaving one image at a time
+   with no visible controls beyond swipe, these sit beside the main image
+   itself instead - snippets/product-images.liquid wires them straight to
+   the Flickity instance via Flickity.data(). */
+.product__main-arrow{
+  display: none;
+}
+
+@media only screen and (max-width: 768px){
+  .product__main-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .product__main-arrow svg{
+    width: 14px;
+    height: 14px;
+  }
+
+  .product__main-arrow--prev{
+    left: 12px;
+  }
+
+  .product__main-arrow--next{
+    right: 12px;
+  }
+}
+
+/* ---------- Quantity stepper ---------- */
+/* This was previously a per-section "Custom CSS" entry (theme editor field)
+   set only on templates/product.json's main section, so every other product
+   template rendered the browser-default/theme-default quantity stepper
+   instead of this redesign's bordered, single-outline version. Moving it
+   here makes it apply to every template automatically instead of needing
+   the same custom_css entry duplicated across 24 separate template files. */
+.product__quantity{
+  border: solid #838383 0.91px;
+  border-radius: 8px;
+  margin-top: 13.68px;
+  margin-bottom: 13.68px;
+}
+
+.buybox__quantity-wrap .js-qty__wrapper{
+  border: none;
+}
+
+.js-qty__adjust--plus{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-left: none;
+}
+
+.js-qty__adjust--minus{
+  border-left: none;
+}

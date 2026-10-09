@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_AiBbn7": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our led shop light fixtures Collection",
+        "collection_seo_description": "Our LED shop lights and wraparounds collection delivers practical, energy efficient lighting solutions for garages, workshops, and utility areas. These LED shop light fixtures offer bright, even illumination, making them ideal for task oriented spaces. Featuring 10 minute easy installation, they provide both functionality and efficiency for any workspace."
+      }
+    },
+    "expandable_description_VtE7hb": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our led shop light fixtures Collection",
+        "collection_seo_description": "Our LED shop lights and wraparounds collection delivers practical, energy efficient lighting solutions for garages, workshops, and utility areas. These LED shop light fixtures offer bright, even illumination, making them ideal for task oriented spaces. Featuring 10 minute easy installation, they provide both functionality and efficiency for any workspace."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_FzQdVT": {
+      "type": "jump-to",
+      "blocks": {
+        "question_xmf78D": {
+          "type": "question",
+          "settings": {
+            "button": "With Motion Sensor",
+            "link": "https://www.nuwattlighting.com/collections/shop-lights-wraparounds?filter.p.m.custom.special_feature=Motion+Sensor",
+            "image": "shopify://shop_images/shoplight_with_motion_sensor_installed.png",
+            "alt-text": ""
+          }
+        },
+        "question_qLpCdp": {
+          "type": "question",
+          "settings": {
+            "button": "4 Foot",
+            "link": "shopify://collections/4-foot-led-shop-lights",
+            "image": "shopify://shop_images/wraparound_shoplight.png",
+            "alt-text": ""
+          }
+        },
+        "question_a8VJwN": {
+          "type": "question",
+          "settings": {
+            "button": "2 Foot",
+            "link": "shopify://collections/2-foot-led-shop-lights",
+            "image": "shopify://shop_images/2_foot_shoplight_led.png",
+            "alt-text": ""
+          }
+        },
+        "question_qFUpqd": {
+          "type": "question",
+          "settings": {
+            "button": "All Commercial Lights",
+            "link": "shopify://collections/commercial-lighting",
+            "image": "shopify://shop_images/view-all-commercial-lighting-products.jpg",
+            "alt-text": "Go to all our commercial lighting products"
+          }
+        },
+        "question_JRNMhf": {
+          "type": "question",
+          "settings": {
+            "button": "Canopy Lights",
+            "link": "shopify://collections/canopy-lights",
+            "image": "shopify://shop_images/led-canopy-lights-outdoor-150w-waterproof-led-gas-station-light-2cct-selectable-4000k5000k-21250lm-dimmable-120-277v-ip67-rated-led-parking-garage-lights-or-lig-413822.jpg",
+            "alt-text": "Go to the canopy light collection page"
+          }
+        },
+        "question_rpKmJn": {
+          "type": "question",
+          "settings": {
+            "button": "High Bays",
+            "link": "shopify://collections/high-bay-led-lights",
+            "image": "shopify://shop_images/high-bay-lighting.webp",
+            "alt-text": "Go to the high bay lighting collection page"
+          }
+        },
+        "question_dqzCjr": {
+          "type": "question",
+          "settings": {
+            "button": "Panels",
+            "link": "shopify://collections/led-panel-light",
+            "image": "shopify://shop_images/nuwatt-2x4-led-panel-for-drop-in-ceiling-50w40w30w-selectable-5-color-select-3000k3500k4000k5000k6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fixture-e-274470.jpg",
+            "alt-text": "Go to the panel collection page"
+          }
+        }
+      },
+      "block_order": [
+        "question_xmf78D",
+        "question_qLpCdp",
+        "question_a8VJwN",
+        "question_qFUpqd",
+        "question_JRNMhf",
+        "question_rpKmJn",
+        "question_dqzCjr"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_B9jbKz": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_pcdDi6": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_7rWFPM": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_68FJiY": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_HXAxqB": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_R6U3Dd": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_pcdDi6",
+        "question_7rWFPM",
+        "question_68FJiY",
+        "question_HXAxqB",
+        "question_R6U3Dd"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_AiBbn7",
+    "expandable_description_VtE7hb",
+    "main-collection",
+    "jump_to_FzQdVT",
+    "collection_metafield_faq_B9jbKz",
+    "recently-viewed"
+  ]
+}

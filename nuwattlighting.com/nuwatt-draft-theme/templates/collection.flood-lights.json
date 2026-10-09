@@ -1,0 +1,196 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_UxVtVB": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Flood Lights Collection",
+        "collection_seo_description": "Explore our LED flood lights collection, designed to provide powerful, wide area illumination for outdoor spaces. These outdoor LED flood lights are perfect for security, landscape, and commercial applications, offering high brightness and energy efficiency. Built to withstand harsh weather, our flood lights ensure reliable performance in all conditions."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #914800;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_f6k36x": {
+      "type": "jump-to",
+      "blocks": {
+        "question_4HM37z": {
+          "type": "question",
+          "settings": {
+            "button": "Bullet Spotlights",
+            "link": "shopify://collections/bullet-lights",
+            "image": "shopify://shop_images/NW-BLT-25W-3CT-KN_AMZ_Listing_GFX-01.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_pLcEtU": {
+          "type": "question",
+          "settings": {
+            "button": "White Flood Lights",
+            "link": "https://www.nuwattlighting.com/collections/flood-lights?filter.p.m.custom.light_fixture_form=Flood+Light",
+            "image": "shopify://shop_images/NW-SFL-15W-3CT-KN-WH-157820.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_kG6dcc": {
+          "type": "question",
+          "settings": {
+            "button": "Bronze Flood Lights",
+            "link": "https://www.nuwattlighting.com/collections/flood-lights?filter.p.m.custom.color=Bronze",
+            "image": "shopify://shop_images/61UKuxbubOL.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_A7h4Mm": {
+          "type": "question",
+          "settings": {
+            "button": "Dawn to Dusk",
+            "link": "shopify://collections/commercial-led-flood-lights",
+            "image": "shopify://shop_images/NW-MFL-25W-3CT-PC-KN-BZ_02.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_4HM37z",
+        "question_pLcEtU",
+        "question_kG6dcc",
+        "question_A7h4Mm"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_T8qqV4": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_Y3zpJm": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_Y3G3fP": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_eKDyg7": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_yaAnxV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_7kKriW": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_mEQGxg": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_Y3zpJm",
+        "question_Y3G3fP",
+        "question_eKDyg7",
+        "question_yaAnxV",
+        "question_7kKriW",
+        "question_mEQGxg"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_Qh6aYD": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Flood Lights Collection",
+        "collection_seo_description": "Explore our LED flood lights collection, designed to provide powerful, wide area illumination for outdoor spaces. These outdoor LED flood lights are perfect for security, landscape, and commercial applications, offering high brightness and energy efficiency. Built to withstand harsh weather, our flood lights ensure reliable performance in all conditions."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_UxVtVB",
+    "main-collection",
+    "jump_to_f6k36x",
+    "collection_metafield_faq_T8qqV4",
+    "recently-viewed",
+    "expandable_description_Qh6aYD"
+  ]
+}

@@ -1,0 +1,49 @@
+{% comment %}
+  SS Anchor — inline icons.
+  Figma: arrow 12.25x10.5, small arrow 10.5x9, play badge 9x10.512 in a 32x32.
+
+  Dimensions are set explicitly rather than left to fill their container, so
+  each glyph keeps the geometry it was drawn at.
+
+  Usage:
+    {%- render 'ss-anchor-icon', icon: 'arrow' -%}
+    {%- render 'ss-anchor-icon', icon: 'arrow', size: 'sm' -%}
+    {%- render 'ss-anchor-icon', icon: 'play' -%}
+
+  Params:
+    - icon (required) 'arrow' | 'play'
+    - size (optional) 'sm' for the smaller arrow
+{% endcomment %}
+
+{%- liquid
+  assign cls = 'ss-anchor-icon ss-anchor-icon--' | append: icon
+  if size == 'sm'
+    assign cls = cls | append: ' ss-anchor-icon--sm'
+  endif
+-%}
+
+{%- case icon -%}
+  {%- when 'arrow' -%}
+    <svg
+      class="{{ cls }}"
+      viewBox="0 0 12.25 10.5"
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M6.7 0 5.64 1.06l3.44 3.44H0v1.5h9.08L5.64 9.44 6.7 10.5l5.25-5.25L6.7 0Z" fill="currentColor"/>
+    </svg>
+
+  {%- when 'play' -%}
+    <svg
+      class="{{ cls }}"
+      viewBox="0 0 9 10.512"
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 0v10.512L9 5.256 0 0Z" fill="currentColor"/>
+    </svg>
+{%- endcase -%}

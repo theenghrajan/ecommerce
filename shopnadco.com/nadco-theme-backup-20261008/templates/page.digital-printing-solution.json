@@ -1,0 +1,925 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_gFxggm": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_iTc9Q4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Digital Printing Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_RHYmUy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Digital printing services print images directly onto materials, allowing one to easily go from a PDF file to a printing press with less expense than traditional printing methods, which require special plates and inks. New technological advancements have greatly improved digital printing solutions, resulting in wider use across many industries. Specifically, image resolution and color accuracy improvements have made digital printing a practical alternative to other printing options, such as screen printing, flexographic printing, or offset printing.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iTc9Q4",
+        "text_RHYmUy"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/HP_Indigo_Digital_Press_Printing.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "enable_preload_image": false
+      }
+    },
+    "collapsible_tabs_cah6DP": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_zV4tYj": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/all_cans.jpg",
+            "image_ratio": "1/1",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_PEXmgM": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Digital Printing Solutions: Key Benefits",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p>In addition to cost-effectiveness, expedited turnaround times, and reduced waste, digital printing offers a wide variety of benefits to businesses in any industry. Key advantages of using digital printing include:</p>"
+          }
+        },
+        "collapsible_item_dyjPkN": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Expanded Color Options: Extended Gamut Printing & Faux-Foil",
+            "content": "<p>Limited color options have been an ongoing issue for digital printing, especially in the early days of digital printing presses. However, NADCO offers digital white ink which provides superior background coverage and extended gamut printing, adding orange, green, and violet (OGV) to the standard cyan, magenta, yellow, and black (CMYK) palette. Extended gamut printing enables us to match Pantone spot colors more accurately than just using CMYK. Pantone is a color system used in the flexo print world that standardizes color, and the addition of OGV ensures we can achieve a closer color match to specific Pantone color shades. Therefore, companies with specific brand colors can now use digital printing to stay consistent across their labels and packaging.</p><p>In addition to our expanded color options, NADCO can use digital printing to embellish labels with a foil-like effect without the negative environmental impact and higher cost of traditional cold and hot foiling techniques. We achieve this foil-like effect by printing CMYK on top of shiny silver foil-like labels or by printing digital metallic silver ink under specific graphics for a faux-foil color. These processes provide the similar quality and appearance as hot and cold foiling methods but with unlimited color options.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_WwgaNt": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Customized Storytelling",
+            "content": "<p>Digital printing provides unlimited opportunities for brands to utilize customized storytelling or unique, engaging campaigns on their product labels and packaging. A personalized brand story on the label can attract consumers and develop a relationship that likely results in repeat purchases and brand loyalty. Similarly, creating a “collect them all” game, treasure hunt, or hidden special offer by using invisible inks (available from us in blue or yellow) can result in consumers sharing your labels on social media, creating buzz around your brand via free advertising.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_hpMBFr": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Flexibility and Personalization",
+            "content": "<p>Brands have greater label and package design flexibility when using digital printing solutions, which allow them to personalize without additional costs. This is because digital printing enables <a href=\"/pages/variable-label-printing\" title=\"Variable Image Label Printing | Variable Data Label Printing\">variable content</a> and short-run printing cycles. Prototype sample digital printing quickly gives brands full-color sample labels for market research or new product launches.</p><p>With digital printing, brands can try out new package designs or use variable imagery and content for each label to align with current social trends, giving consumers a more engaging experience. Businesses can experiment with real-time marketing, customizing packaging designs targeted to certain geographic areas or other market segments without committing to large-volume minimum purchase orders, which are usually required with flexographic printing.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_JW4TyG": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Enhanced Security",
+            "content": "<p>With digital printing, more options exist for adding security measures to labels with minimal or no extra cost, resulting in more consumer confidence in brands that use these added quality control methods. Features like micro text, invisible ink, and variable data printing help verify product authenticity and traceability.</p><ul><li><strong>Microtext</strong> is very small printed text or barcodes strategically placed within the art design and used to authenticate the product’s packaging or label.</li><li><strong>Invisible ink</strong> can produce hidden messages only seen with UV/black light. It’s often used for printed security codes or serial numbers to verify product authenticity.</li><li><strong>Variable data printing (VDP)</strong> can add serial numbers for each individual label to help with inventory control and lot number traceability.</li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_zV4tYj",
+        "heading_PEXmgM",
+        "collapsible_item_dyjPkN",
+        "collapsible_item_WwgaNt",
+        "collapsible_item_hpMBFr",
+        "collapsible_item_JW4TyG"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "multicolumn_icon_h6fG4r": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_3bGMVW": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/calendar.png",
+            "max_width": 80,
+            "max_width_mb": 28,
+            "title": "Product Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_Jn4Amd": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/fi_4290722.png",
+            "max_width": 80,
+            "max_width_mb": 28,
+            "title": "Direct Marketing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_UBzEjx": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/Group_17ce4b38-dde8-4b50-af73-4ffb14c17001.png",
+            "max_width": 80,
+            "max_width_mb": 28,
+            "title": "Logos",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_YMUYe6": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/Artboard_04.png",
+            "max_width": 80,
+            "max_width_mb": 28,
+            "title": "Banner Advertising",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_QEpJD8": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/fi_9688654.png",
+            "max_width": 80,
+            "max_width_mb": 28,
+            "title": "Variable Data Printing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_nVe7PU": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/fi_7494238.png",
+            "max_width": 80,
+            "max_width_mb": 28,
+            "title": "Signs, Stickers, Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_3bGMVW",
+        "column_Jn4Amd",
+        "column_UBzEjx",
+        "column_YMUYe6",
+        "column_QEpJD8",
+        "column_nVe7PU"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Digital Printing Solutions: Applications",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>The efficient costs and ease of digital printing make it a viable solution for many applications. Digital printing solutions stretch beyond advertising; they also include the following:</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "scheme-info",
+        "content_alignment": "center",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "collapsible_tabs_ynF3YP": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_Py3Phj": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/Frame_1000008273.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_gQ3tFW": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Digital Printing Solutions: Industries",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "rich_text_cstm": "<p>With the numerous advantages of digital printing, various industries use this printing method for product and equipment labels and stickers, marketing, banners, and much more. Some of the industries we serve with our digital printing services include:</p>"
+          }
+        },
+        "collapsible_item_XNdPYn": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Digital Printing Solutions: Capabilities",
+            "content": "<p>At NADCO, our digital printing services can help your brand achieve a variety of objectives:</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_CV9rHM": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Cutting-Edge Technology",
+            "content": "<p>Utilizing the latest digital print technology, we can meet a wide range of digital printing needs. We offer things like digital white ink to provide superior backing coverage for graphics on clear labels, eliminating registration issues because we no longer print these labels with ink and flexo plates.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_GWjARj": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Customized Storytelling",
+            "content": "<p>We offer complete personalization of labels to fit brands’ unique needs. Our customized storytelling capabilities include mass customization,<a href=\"/pages/variable-label-printing\" title=\"Variable Image Label Printing | Variable Data Label Printing\">variable data printing</a>,<a href=\"/pages/variable-label-printing\" title=\"Variable Image Label Printing | Variable Data Label Printing\">variable image printing</a>, special edition packaging, seasonal variations, one-off production, personalization, versioning, and multiple SKUs.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_m3tjy8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Real-Time Marketing",
+            "content": "<p>Our digital printing customizations enhance flexibility, letting brands easily try new packaging designs or <a href=\"https://shopnadco.com/collections/labels\" title=\"https://shopnadco.com/collections/labels\">custom labels</a> for targeted geographic areas. Without making a commitment to large minimum orders, brands can benefit from real-time marketing.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_z6y4yg": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Security",
+            "content": "<p>We provide enhanced security options to ensure your labels accurately represent your products, give peace of mind to your customers, and allow for effortless tracking throughout the supply chain.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_RYmmV9": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Flexible Supply Chain",
+            "content": "<p>With our quick turnaround capabilities, NADCO can work with you as a flexible supply chain partner to ensure we meet your timelines for printed materials.<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_Py3Phj",
+        "heading_gQ3tFW",
+        "collapsible_item_XNdPYn",
+        "collapsible_item_CV9rHM",
+        "collapsible_item_GWjARj",
+        "collapsible_item_m3tjy8",
+        "collapsible_item_z6y4yg",
+        "collapsible_item_RYmmV9"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_N99KXJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aC4bkj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose Digital Printing Solutions With NADCO?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_L3DHGL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Digital printing can help efficiently increase consumer engagement, innovation, and brand reputation. This is because it creates customized labels and packaging that help products stand out and can easily be adjusted according to current marketing trends or personalization needs.</p><p>If you’re ready to enhance your brand with eye-catching graphics and labeling, digital printing can provide the high-quality images you need. NADCO’s experienced <a href=\"https://shopnadco.com/pages/custom-tape-solutions-for-engineers\" title=\"https://shopnadco.com/pages/custom-tape-solutions-for-engineers\">graphic design</a> team can help you design custom images or update your existing designs to create a unique display for your brand. Because we have extensive in-house capabilities, NADCO works with you <a href=\"https://shopnadco.com/pages/custom-tape-solutions-for-engineers\" title=\"https://shopnadco.com/pages/custom-tape-solutions-for-engineers\">every step of the way</a>, from start to finish, to produce the standard and custom labels and tapes you need.</p><p><a href=\"/pages/contact-us\" title=\"Contact us\">Contact us</a> or <a href=\"/pages/request-a-quote\" title=\"Request a Quote\">request a quote</a> for more information about our digital printing services.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_aC4bkj",
+        "text_L3DHGL"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/nad_coffee_lbls_on_press_faux_foils_2ef4b142-54fe-4c37-b505-9f46d6e399fe.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_slider_gtihEx": {
+      "type": "image-with-text-slider",
+      "blocks": {
+        "image_slide_BTbwXe": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "image": "shopify://shop_images/bottles_60b17561-9689-431a-9370-ffe05e733fb8.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "center",
+            "subheading": "",
+            "heading": "Food & Beverage",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/food-and-beverage",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_Adtjnh": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/20260302_1233_Roll_of_Tape_remix_01kjpqdn97fat9ntdtqw31dyz3.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "OEMs",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/oem-manufacturing-industry",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_eJFfXb": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/advert.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Advertising",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/retail",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_N7KeiR": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/nuclear.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Nuclear Energy",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/nuclear-industry",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_Bnen8w": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/20260124_1610_Enhanced_Tape_Therapy_remix_01kfqv44k9f08bmya7kana51qd.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Medical and Science",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/adhesive-tapes-medical-industry",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_HAGY7E": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/20260124_1723_Image_Generation_remix_01kfqza6cqevjt587zbs98jrse.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Safety",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/safety-industry",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_CU786M": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/electronics-tele_jpg.webp",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "center",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Electronics and Telecommunications",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "text": "<p> </p>",
+            "text_size": "text-base",
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/electronics",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_BTbwXe",
+        "image_slide_Adtjnh",
+        "image_slide_eJFfXb",
+        "image_slide_N7KeiR",
+        "image_slide_Bnen8w",
+        "image_slide_HAGY7E",
+        "image_slide_CU786M"
+      ],
+      "name": "t:sections.image-with-text-slider.presets.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "image_height": "small",
+        "image_width": 70,
+        "image_position": "right",
+        "show_controls": true,
+        "autoplay": false,
+        "autoplay_delay": 3,
+        "desktop_controls_position": "center",
+        "mobile_controls_position": "inherit",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "apps_mAH9Xq": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_99YYLm": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_99YYLm"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_HRmDLA": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_Rc7NmQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_DNG8PT": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Rc7NmQ",
+        "button_DNG8PT"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_RNcV6A": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_kBHyDb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_FJTj4L": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kBHyDb",
+        "button_FJTj4L"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_gFxggm",
+    "collapsible_tabs_cah6DP",
+    "multicolumn_icon_h6fG4r",
+    "collapsible_tabs_ynF3YP",
+    "image_with_text_N99KXJ",
+    "image_with_text_slider_gtihEx",
+    "apps_mAH9Xq",
+    "image_with_text_overlay_HRmDLA",
+    "image_with_text_overlay_RNcV6A"
+  ]
+}

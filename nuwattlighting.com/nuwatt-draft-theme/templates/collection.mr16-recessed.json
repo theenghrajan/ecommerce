@@ -1,0 +1,255 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_wzdtjz": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our MR16 LED Lights Collection",
+        "collection_seo_description": "MR16 retrofit recessed lights offer a quick, energy-efficient upgrade for your lighting. These easy-to-install fixtures fit into existing housings, making them perfect for modernizing your lighting setup.  MR16 LED lights offer bright, energy-saving illumination."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_z6McVd": {
+      "type": "jump-to",
+      "blocks": {
+        "question_qcBByQ": {
+          "type": "question",
+          "settings": {
+            "button": "View All",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting",
+            "image": "shopify://shop_images/view-all-recessed-lighting-products.png",
+            "alt-text": "Go to All Our Recessed Lighting Products"
+          }
+        },
+        "question_xd76iz": {
+          "type": "question",
+          "settings": {
+            "button": "Low Voltage Lighting",
+            "link": "shopify://collections/low-voltage-recessed-lighting",
+            "image": "shopify://shop_images/NW-P-DL-4-9W-5CT-WH-849238_ba932e60-55d9-421f-b7c2-d221ce505629-265332.jpg",
+            "alt-text": "low voltage lighting recessed"
+          }
+        },
+        "question_zCWyiE": {
+          "type": "question",
+          "settings": {
+            "button": "Retrofits",
+            "link": "shopify://collections/retrofit-recessed-lighting",
+            "image": "shopify://shop_images/NW-DL-R-6-18WC-5CCT-WH-01-195580_bfe29982-9888-4176-9cb4-07859d0100dd.jpg",
+            "alt-text": "View All Our Retrofit Products"
+          }
+        },
+        "question_cT8DXY": {
+          "type": "question",
+          "settings": {
+            "button": "Canless",
+            "link": "shopify://collections/canless-recessed-lighting",
+            "image": "shopify://shop_images/round_recessed_light.png",
+            "alt-text": "View Canless Slims Collection"
+          }
+        },
+        "question_bfL9d3": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "shopify://collections/black-recessed-lighting",
+            "image": "shopify://shop_images/4-inch-black-retrofit-adjustable-recessed-downlight-5-kelvin-temperatures-5cct-10-watts-750-lumens-dimmable-nw-gmb-c4-10w-5cct-blk-598010.jpg",
+            "alt-text": "View Black Recessed Lighting Collection"
+          }
+        },
+        "question_6fUNQB": {
+          "type": "question",
+          "settings": {
+            "button": "Adjustable",
+            "link": "shopify://collections/adjustable-recessed-lighting",
+            "image": "shopify://shop_images/6-inch-black-adjustable-round-slim-recessed-led-ceiling-light-5-kelvin-temperatures-5cct-12-watt-900-lumens-dimmable-nw-p-adjdl-6-12w-5ct-blk-578444.jpg",
+            "alt-text": "View Adjustable Lighting Collection"
+          }
+        }
+      },
+      "block_order": [
+        "question_qcBByQ",
+        "question_xd76iz",
+        "question_zCWyiE",
+        "question_cT8DXY",
+        "question_bfL9d3",
+        "question_6fUNQB"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_UtbyDJ": {
+      "type": "faq",
+      "blocks": {
+        "question_ykPgep": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_KzPjUX": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_U8EAXJ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_ykPgep",
+        "question_KzPjUX",
+        "question_U8EAXJ"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_CfBhqh": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_zctQEU": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_rJbNVK": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_fK4Vqz": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_JWFPkR": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_34RY8n": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_7mzTRV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_zctQEU",
+        "question_rJbNVK",
+        "question_fK4Vqz",
+        "question_JWFPkR",
+        "question_34RY8n",
+        "question_7mzTRV"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_BJDEpn": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our MR16 LED Lights Collection",
+        "collection_seo_description": "MR16 retrofit recessed lights offer a quick, energy-efficient upgrade for your lighting. These easy-to-install fixtures fit into existing housings, making them perfect for modernizing your lighting setup.  MR16 LED lights offer bright, energy-saving illumination."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_wzdtjz",
+    "main-collection",
+    "jump_to_z6McVd",
+    "faq_UtbyDJ",
+    "collection_metafield_faq_CfBhqh",
+    "recently-viewed",
+    "expandable_description_BJDEpn"
+  ]
+}

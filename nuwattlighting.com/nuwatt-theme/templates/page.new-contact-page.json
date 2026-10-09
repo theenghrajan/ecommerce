@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "newsletter_gNMaaW": {
+      "type": "newsletter",
+      "blocks": {
+        "title_XQBMJF": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h0"
+          }
+        },
+        "text_WgbkV8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_mMGV9Y": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_XQBMJF",
+        "text_WgbkV8",
+        "form_mMGV9Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "none",
+        "align_text": "center",
+        "image": "shopify://shop_images/image_fx__81.png",
+        "image_width": "66",
+        "image_mask": "landscape",
+        "image_position": "left",
+        "divider": false,
+        "top_padding": false,
+        "bottom_padding": false
+      }
+    },
+    "tab_section_b4YGJz": {
+      "type": "tab-section",
+      "blocks": {
+        "text_KkkLmB": {
+          "type": "text",
+          "settings": {
+            "tab_box": true,
+            "tab_heading": "Contact Page",
+            "url": "shopify://pages/return-policy",
+            "block_content": "",
+            "block_liquid_content": "<div class=\"powr-form-builder\" id=\"6691b75f_1683225380\"></div><script src=\"https://www.powr.io/powr.js?platform=shopify\"></script>"
+          }
+        },
+        "text_gVTEGC": {
+          "type": "text",
+          "settings": {
+            "tab_box": true,
+            "tab_heading": "WARRANTY REGISTRATION",
+            "url": "shopify://pages/shipping-policy",
+            "block_content": "",
+            "block_liquid_content": "<div class=\"powr-form-builder\" id=\"ed227ee8_1627503168\"></div><script src=\"https://www.powr.io/powr.js?platform=shopify\"></script>"
+          }
+        },
+        "text_WGhGPf": {
+          "type": "text",
+          "settings": {
+            "tab_box": true,
+            "tab_heading": "Returns form",
+            "url": "shopify://pages/about-us",
+            "block_content": "",
+            "block_liquid_content": "<div class=\"powr-form-builder\" id=\"0cc5b539_1738868707\"></div><script src=\"https://www.powr.io/powr.js?platform=shopify\"></script>"
+          }
+        },
+        "text_3fRKeL": {
+          "type": "text",
+          "settings": {
+            "tab_box": false,
+            "tab_heading": "Policy Fourth",
+            "url": "shopify://pages/contact-us",
+            "block_content": "",
+            "block_liquid_content": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_KkkLmB",
+        "text_gVTEGC",
+        "text_WGhGPf",
+        "text_3fRKeL"
+      ],
+      "name": "Tab Section",
+      "settings": {
+        "heading": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "newsletter_gNMaaW",
+    "tab_section_b4YGJz"
+  ]
+}

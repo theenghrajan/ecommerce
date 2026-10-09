@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article-template",
+      "settings": {
+        "blog_capitalize_first": false,
+        "blog_show_tags": false,
+        "blog_show_date": true,
+        "blog_show_comments": false,
+        "blog_show_author": true
+      }
+    },
+    "sidebar": {
+      "type": "blog-sidebar",
+      "blocks": {
+        "tags": {
+          "type": "tags",
+          "disabled": true,
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "tags",
+        "share"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "featured_product_CmihGA": {
+      "type": "featured-product",
+      "blocks": {
+        "price_KH3tME": {
+          "type": "price",
+          "settings": {}
+        },
+        "description_GyVn4J": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "variant_picker_3PfkFF": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "variant_labels": false,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": false,
+            "color_swatches": false
+          }
+        },
+        "buy_buttons_7GHJR3": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "surface_pickup_enable": true
+          }
+        }
+      },
+      "block_order": [
+        "price_KH3tME",
+        "description_GyVn4J",
+        "variant_picker_3PfkFF",
+        "buy_buttons_7GHJR3"
+      ],
+      "disabled": true,
+      "settings": {
+        "featured_product": "4-inch-2-hour-fire-rated-recessed-light-slim-canless-led-wafer-lights-wet-rated-5cct-2700k-5000k-900lm",
+        "divider": false,
+        "sku_enable": false,
+        "image_position": "left",
+        "image_container_size": "small",
+        "product_image_size": "square",
+        "product_zoom_enable": false,
+        "thumbnail_position": "beside",
+        "thumbnail_arrows": false,
+        "mobile_layout": "partial",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sidebar",
+    "featured_product_CmihGA"
+  ],
+  "wrapper": "div.page-width.page-content.blog-layout"
+}

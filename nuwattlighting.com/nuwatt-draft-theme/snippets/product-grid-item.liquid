@@ -1,0 +1,866 @@
+{%- liquid
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+
+  assign product_tags = product.tags | join: ','
+  assign has_custom_label = false
+  assign custom_labels = ''
+  if product.metafields.theme.label and product.metafields.theme.label != blank
+    assign has_custom_label = true
+    assign custom_labels = product.metafields.theme.label.value
+  elsif product_tags contains '_label_'
+    for tag in product.tags
+      if tag contains '_label_'
+        assign tag_starts_with = tag | slice: 0
+        if tag_starts_with == '_'
+          assign has_custom_label = true
+          assign custom_label = tag | replace: '_label_', ''
+          assign custom_labels = custom_labels | append: custom_label | append: ','
+        endif
+      endif
+    endfor
+  endif
+-%}
+{% if collection.handle == 'pdf-products' %} 
+<style>
+.grid-item__content{
+  justify-content: end;
+} 
+</style>
+{% endif %}
+
+          {% assign first_text =  product.metafields.custom.first.value %}
+          {% assign first_second =  product.metafields.custom.second.value %}
+          {% assign first_third =  product.metafields.custom.third.value %}
+          {% assign first_fourth =  product.metafields.custom.fourth.value %}
+
+<div class="grid-item grid-product {{ classes }}" data-product-handle="{{ product.handle }}" data-product-id="{{ product.id }}">
+  <div class="grid-item__content">
+
+    {%- unless no_actions -%}
+      {%- if settings.quick_add_enable or settings.quick_shop_enable -%}
+        <div class="grid-product__actions">
+          {%- if settings.quick_shop_enable and type != 'horizontal' -%}
+            <button class="btn btn--circle btn--icon quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-{{ product.id }} small--hide" title="{{ 'products.general.quick_shop' | t }}" data-handle="{{ product.handle }}">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42"/></svg>
+              <span class="icon__fallback-text">{{ 'products.general.quick_shop' | t }}</span>
+            </button>
+          {%- endif -%}
+          {%- if settings.quick_add_enable and product.available -%}
+            {% comment %}
+              Quick add feature:
+                - when a single variant option, product is immediately added
+                - when multiple variants, popup with product form appears
+            {% endcomment %}
+            {%- if product.variants.size > 1 -%}
+              <button type="button" class="text-link quick-add-btn js-quick-add-form js-modal-open-quick-add" title="{{ 'products.product.add_to_cart' | t }}">
+                <span class="btn btn--circle btn--icon">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" viewBox="0 0 64 64"><path class="cls-1" d="M32 9v46m23-23H9"/></svg>
+                  <span class="icon__fallback-text">{{ 'products.product.add_to_cart' | t }}</span>
+                </span>
+              </button>
+            {%- else -%}
+              <button type="button" class="text-link quick-add-btn js-quick-add-btn"
+                      title="{{ 'products.product.add_to_cart' | t }}"
+                      data-id="{{ product.selected_or_first_available_variant.id }}">
+                <span class="btn btn--circle btn--icon">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" viewBox="0 0 64 64"><path class="cls-1" d="M32 9v46m23-23H9"/></svg>
+                  <span class="icon__fallback-text">{{ 'products.product.add_to_cart' | t }}</span>
+                </span>
+              </button>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endunless -%}
+
+    {%- liquid
+      assign imageRatio = settings.product_grid_image_size
+      assign fixed_aspect_ratio = false
+      unless imageRatio == 'natural'
+        assign fixed_aspect_ratio = true
+      endunless
+
+      if image_style == 'circle'
+        assign fixed_aspect_ratio = true
+        assign imageRatio = 'square'
+      endif
+
+      assign preview_image = product.featured_media.preview_image
+    -%}
+<!-- itg html -->
+  {% assign lastProUrl = product.variants.last.url %}
+
+                    <!-- a93b1ac2-582d-4716-a3d9-d85ffd1385dd -->
+
+
+                {%- if recommendations.products_count > 0 -%}
+                
+                {% assign seoURL = product.url | split: "?" %}
+                                                
+                    <a href="{{ seoURL | slice: 0 }}" class="grid-item__link">
+                
+                {%- else -%}
+                
+                    <a href="{% if product.price_varies %}{{ product.url }}{% else %}{{ product.url }}{% endif %}" class="grid-item__link">
+                
+                {%- endif -%}
+
+
+                    <!-- a93b1ac2-582d-4716-a3d9-d85ffd1385dd -->
+
+
+<!-- FIX You may also like seo url -->
+                      
+<!-- FIX You may also like seo url -->
+
+      <div class="grid-product__image-wrap">
+        <div class="grid-product__tags">
+          {%- if has_custom_label -%}
+            {%- assign labels = custom_labels | split: ',' -%}
+            {%- for label in labels -%}
+              <div class="grid-product__tag grid-product__tag--custom">
+                {{ label }}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- unless product.available -%}
+            <div class="grid-product__tag grid-product__tag--sold-out">
+              {{ 'products.product.sold_out' | t }}
+            </div>
+          {%- endunless -%}
+          {%- if on_sale and product.available -%}
+            <div class="grid-product__tag grid-product__tag--sale">
+              {{ 'products.general.sale' | t }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if fixed_aspect_ratio -%}
+          <div
+            class="grid__image-ratio grid__image-ratio--{% if image_style == 'circle' %}square{% else %}{{ settings.product_grid_image_size }}{% endif %}">
+            {%- capture image_classes -%}
+              {% unless settings.product_grid_image_fill %} grid__image-contain{% endunless %} image-style--{{ image_style }}
+            {%- endcapture -%}
+            {%- if preview_image != blank -%}
+              {%- render 'image-element',
+                img: preview_image,
+                classes: image_classes,
+                sizes: sizes,
+                sizeVariable: sizeVariable,
+                fallback: fallback,
+                widths: '160, 200, 280, 360, 540, 720, 900',
+              -%}
+            {%- else -%}
+              {%- capture placeholder -%}product-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+              <div class="product-image--placeholder">{{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          {%- liquid
+            assign ratio = 1
+            if preview_image != blank
+              assign ratio = preview_image.aspect_ratio
+            endif
+          -%}
+          <div {% if preview_image != blank %}style="height: 0; padding-bottom: {{ 100 | divided_by: ratio }}%;"{% endif %}>
+            {%- if preview_image != blank -%}
+              {%- render 'image-element',
+                img: preview_image,
+                classes: 'grid-product__image',
+                sizes: sizes,
+                sizeVariable: sizeVariable,
+                fallback: fallback,
+                widths: '360, 540, 720, 900, 1080',
+              -%}
+            {%- else -%}
+              {%- capture placeholder -%}product-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+              <div class="product-image--placeholder">{{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if settings.product_hover_image and product.media.size > 1 -%}
+          {%- for media in product.media offset: 1 limit: 1 -%}
+            {%- assign second_image = media.preview_image -%}
+          {%- endfor -%}
+          <div class="grid-product__secondary-image small--hide">
+            {%- capture secondary_image_classes -%}
+              image-style--{{ image_style }}
+            {%- endcapture -%}
+            {%- render 'image-element',
+              img: second_image,
+              classes: secondary_image_classes,
+              sizes: sizes,
+              sizeVariable: sizeVariable,
+              fallback: fallback,
+              widths: '360, 540, 720, 1000',
+            -%}
+          </div>
+        {%- endif -%}
+
+        {%- if settings.enable_swatches -%}
+          {%- assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase -%}
+          {%- for option in product.options_with_values -%}
+            
+            {%- liquid
+              assign option_name = option.name | downcase
+              assign is_color = false
+              if option_name contains swatch_trigger
+                assign is_color = true
+              elsif swatch_trigger == 'color' and option_name contains 'colour'
+                assign is_color = true
+              endif
+            -%}
+            {%- if is_color -%}
+              {%- assign option_index = forloop.index0 -%}
+              {%- assign values = '' -%}
+              {%- for variant in product.variants -%}
+                {%- assign value = variant.options[option_index] %}
+                {%- unless values contains value -%}
+                  {%- assign values = values | join: ',' | append: ',' | append: value | split: ',' -%}
+
+                  {%- if variant.image -%}
+                    <div
+                      class="grid-product__color-image grid-product__color-image--{{ variant.id }}">
+                    </div>
+                  {%- endif -%}
+                {%- endunless -%}
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      <div class="grid-item__meta">
+        <div class="grid-item__meta-main">
+          {%- if settings.enable_swatches and type == blank -%}
+            {%- liquid
+              assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase
+              assign swatch_file_extension = 'png'
+              assign color_count = 0
+              assign max_colors_show = 4
+              assign more_than_max = false
+            -%}
+
+            {%- for option in product.options_with_values -%}
+              {%- liquid
+                assign option_name = option.name | downcase
+                assign is_color = false
+                if option_name contains swatch_trigger
+                  assign is_color = true
+                elsif swatch_trigger == 'color' and option_name contains 'colour'
+                  assign is_color = true
+                endif
+              -%}
+
+              {%- if is_color -%}
+                {%- assign option_index = forloop.index0 -%}
+                {%- assign values = '' -%}
+                <div class="grid-product__colors">
+                  {%- for variant in product.variants -%}
+                    {%- assign value = variant.options[option_index] %}
+                    {%- unless values contains value -%}
+                      {%- liquid
+                        assign values = values | join: ',' | append: ',' | append: value | split: ','
+
+                        assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
+                        assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' | split: '?' | first
+                        assign color_swatch_fallback = value | split: ' ' | last | handle
+                        assign color_count = color_count | plus: 1
+                      -%}
+
+                      {%- if color_count <= max_colors_show -%}
+                        <span
+                          class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.image %} color-swatch--with-image{% endif %}"
+                          data-url="{{ variant.url }}"
+                          {% if variant.image %}
+                            data-variant-id="{{ variant.id }}"
+                            data-variant-image="{{ variant.image | img_url: '400x' }}"
+                          {% endif %}
+                          style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}">
+                          <span class="visually-hidden">{{ value }}</span>
+                        </span>
+                      {%- else -%}
+                        {%- assign more_than_max = true -%}
+                      {%- endif -%}
+                    {%- endunless -%}
+                  {%- endfor -%}
+
+                  {%- if more_than_max -%}
+                    {%- assign more_colors = color_count | minus: max_colors_show -%}
+                    <small class="color-swatch__more">+{{ more_colors }}</small>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+
+          {% if template.name == "index" %}
+              <div class="grid-product__title v">{{ product.title | split:" - " | first  }}</div>
+                {%- if settings.vendor_enable -%}
+                  <div class="grid-product__vendor">{{ product.vendor }}</div>
+                {%- endif -%}
+              </div>
+              
+            {% else %}
+              {% if product.metafields.custom.color_temperature == "RGBW" %}
+                {% assign metacolor = product.metafields.custom.color %}
+                <div class="grid-product__title v">{{ product.metafields.custom.alternative_title }}</div>
+                {% else %}
+                     <div class="grid-product__title vbs">{{ product.title  }}.</div>
+                     {%  assign product_color_in = product.metafields.custom.color  %}
+                     {% if product_color_in %}
+                      <li style="font-style:Italic; font-size: 14px; padding-top: 5px;">{{ product.metafields.custom.color }} <span class="nw-item-color bb"> Trim</span></li>
+                     {% endif %}
+                    {% unless product.metafields.custom.color_temperature == "RGBW" %}
+                    {% comment %} <span class="nw-item-color"></span> {% endcomment %}
+                    {% endunless %}
+              {% endif %}
+            
+                {%- if settings.vendor_enable -%}
+                  <div class="grid-product__vendor">{{ product.vendor }}</div>
+                {%- endif -%}
+              </div>
+            {% endif %}
+
+        
+          <div class="grid-item__meta-secondary">
+           {% if collection.handle == 'pdf-products' %} 
+          
+            {% else %}
+              <!-- product info -->
+      {% comment %} {% if template.name == "collection" %} {% endcomment %}
+
+
+                        
+
+                      {% if product.metafields.custom.light_fixture_form == "Flood Light" %}
+
+
+                        
+                   <ul class="product-specs-collection-page 1">
+                    <hr class="nw-hr-collection-page-specs g">
+                    <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>    
+                    <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+                    <li>CCT: <span>
+                    {% if product.metafields.custom.color_temperature == "5CCT" %}
+                    27K, 30K, 35K, 40K, 50K
+                    {% elsif product.metafields.custom.color_temperature == "3CCT" %}
+                    30K, 40K, 50K
+                    {% else %}
+                    {{ product.metafields.custom.color_temperature }}
+                    {% endif %}
+                    </span></li>              
+                     <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+                      {% if first_text %}
+                        <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+                        {% endif %}
+                        {% if first_second %}
+                        <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+                        {% endif %}
+                        {% if first_third %}
+                        <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+                        {% endif %}
+                        {% if first_fourth %}
+                        <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+                        {% endif %}
+                    </ul>
+                     {% elsif product.metafields.custom.light_fixture_form == "Bullet Light" %}
+
+               <ul class="product-specs-collection-page 2">
+                 <hr class="nw-hr-collection-page-specs m">
+                 <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>               
+                 <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+                <li>CCT: <span>
+                  {% if product.metafields.custom.color_temperature == "5CCT" %}
+                    27K, 30K, 35K, 40K, 50K
+                  {% elsif product.metafields.custom.color_temperature == "3CCT" %}
+                    30K, 40K, 50K
+                  {% else %}
+                    {{ product.metafields.custom.color_temperature }}
+                  {% endif %}
+                </span></li>           
+                 <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+                               {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}
+             </ul>
+
+
+
+
+             {% elsif product.metafields.custom.light_fixture_form == "Wall Pack" %}
+
+             <ul class="product-specs-collection-page 3">
+               <hr class="nw-hr-collection-page-specs">
+               <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>               
+               <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+               <li>CCT: <span>{{ product.metafields.custom.color_temperature }}</span></li>
+               <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+                             {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}
+             </ul>
+
+
+
+            {% elsif product.metafields.custom.light_fixture_form == "Canopy Light" %}
+
+             <ul class="product-specs-collection-page 4">
+               <hr class="nw-hr-collection-page-specs">
+               <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>               
+               <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+               <li>CCT: <span>{{ product.metafields.custom.color_temperature }}</span></li>
+               <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+                             {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}
+             </ul>
+
+            {% elsif product.metafields.custom.light_fixture_form == "Highbay" and product.metafields.custom.shape == "Round" %}
+
+
+
+             <ul class="product-specs-collection-page 5">
+               <hr class="nw-hr-collection-page-specs">
+               <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>               
+               <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+               <li>CCT: <span>{{ product.metafields.custom.color_temperature }}</span></li>
+               <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+                             {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}
+             </ul>
+
+
+           {% elsif product.metafields.custom.light_fixture_form == "LED Panel" and product.metafields.custom.light_color contains "65" %}
+                        
+             <ul class="product-specs-collection-page 6">
+               <hr class="nw-hr-collection-page-specs">
+               <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+               <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>               
+              <li>CCT: <span>
+                {% if product.metafields.custom.color_temperature == "5CCT" %}
+                  30K, 35K, 40K, 50K, 65K
+                {% endif %}
+              </span></li>  
+               
+               <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+                             {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}
+             </ul>
+
+
+            {% elsif product.metafields.custom.bulb_type == "T5" or product.metafields.custom.bulb_type == "T8" %}
+
+
+                        
+                <ul class="product-specs-collection-page 7">
+               <hr class="nw-hr-collection-page-specs">
+               <li>Base: <span>{{ product.metafields.custom.base_type | split: ' ' | first }}</span></li>
+
+               <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+               <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>               
+               
+              <li>CCT: <span>
+                {% if product.metafields.custom.color_temperature == "5CCT" %}
+                  27K, 30K, 35K, 40K, 50K
+                {% elsif product.metafields.custom.color_temperature == "3CCT" %}
+                  30K, 40K, 50K
+                {% else %}
+                  {{ product.metafields.custom.color_temperature }}
+                {% endif %}
+              </span></li>   
+                            {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}      
+             </ul>      
+
+            {% elsif product.metafields.custom.hide_collection_page_bullets == true %}   
+                     {% else %}
+
+             <ul class="product-specs-collection-page 8">
+               <hr class="nw-hr-collection-page-specs">
+               {% assign custom_brihtness = product.metafields.custom.brightness %}
+               {% if custom_brihtness %}
+               <li>Brightness: <span>{{ product.metafields.custom.brightness }}</span></li>
+               {% endif %}
+               {% assign custom_watt = product.metafields.custom.wattage %}
+               {% if custom_watt %}
+               <li>Wattage: <span>{{ product.metafields.custom.wattage }}</span></li>    
+               {% endif %}  
+               {% assign custom_temprature = product.metafields.custom.color_temperature  %}     
+               {% if custom_temprature %}               
+              <li>CCT: <span>
+                {% if product.metafields.custom.color_temperature == "5CCT" %}
+                  27K, 30K, 35K, 40K, 50K
+                {% elsif product.metafields.custom.color_temperature == "3CCT" %}
+                  30K, 40K, 50K
+                {% else %}
+                  {{ product.metafields.custom.color_temperature }}
+                {% endif %}
+              </span></li>
+              {% if first_text %}
+              <li>{{ first_text | split:':' | first }}:<span>{{ first_text | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_second %}
+              <li>{{ first_second | split:':' | first }}:<span>{{ first_second | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_third %}
+              <li>{{ first_third | split:':' | first }}:<span>{{ first_third | split:':' | last }}</span></li>
+              {% endif %}
+              {% if first_fourth %}
+              <li>{{ first_fourth | split:':' | first }}:<span>{{ first_fourth | split:':' | last }}</span></li>
+              {% endif %}
+            {% endif %}
+            {% assign custom_dimmable = product.metafields.custom.dimmable %}
+            {% if custom_dimmable %}
+               <li>Dimmable: <span>{{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>
+            {% endif %}
+             </ul>
+                        
+                     {% endif %}
+
+                   {% comment %} {% endif %} {% endcomment %}
+                  <ul class="product-specs-collection-page no_content">
+                    <hr class="nw-hr-collection-page-specs">
+                  </ul>
+
+
+
+<!-- product info -->
+              
+            {% if option_name == 'pack size' %}
+              <div class="lowest_price">
+                   {% for variant in product.variants %}
+                    {% assign last_variant = variant %}
+                   {% endfor %}
+                  {% assign max_price = product.price_max  %}
+                  {% assign last_variant = product.variants.last.title  | split:'/' | last  %}
+                  {% assign lowestprice = max_price  %}
+                  <span class="custm_lowest_price">
+                    <span class="price_from">from</span> {{ lowestprice | divided_by: last_variant |  money_with_currency | remove: 'USD' | replace: '.','<sup>' }}</sup>
+                  </span>
+             </div>
+           {% else %}
+            <div class="grid-product__price nw-grid-product-price">
+                   {% for variant in product.variants %}
+                    {% assign last_variant = variant %}
+                   {% endfor %}
+                  {% assign max_price = product.price_max  %}
+                  {% assign last_variant = product.variants.last.title  | split:'/' | last  %}
+                  {% assign lowestprice = max_price  %}
+
+              
+              {%- if product.price_varies and last_variant contains 'Piece' -%}
+            <span class="grid-product__price--current">
+              {% if last_variant contains 'Piece' %} <!-- Check if the last variant exists -->
+                  <span class="custm_lowest_price htmlor">
+                    <span class="price_from">from</span> {{ lowestprice | divided_by: last_variant |  money_with_currency | remove: 'USD' | replace: '.','<sup>' }}</sup>
+                  </span>
+                </span>
+                {% else %}
+                  <p>other one</p>
+                  {% endif %}
+                {%- if on_sale != true -%}
+                  <div class="grid-product__actions collection-page-chart-action 1">
+                  <button type="button" class="text-link quick-add-btn js-quick-add-form js-modal-open-quick-add nw-quick-add-btn" title="Add to cart" aria-expanded="false">Add to Cart</button>
+                  </div>
+                {%- endif -%}
+                {%- else -%}
+                {%- if on_sale -%}
+                  <span class="visually-hidden">{{ 'products.general.sale_price' | t }}</span>
+                {%- endif -%}
+                  <span class="grid-product__price--current nw-grid-product-price price-varies-is-false">
+                  {% comment %} {% if product.price_varies %}
+                   <div class="lowest_price">
+                   {% for variant in product.variants %}
+                    {% assign last_variant = variant %}
+                   {% endfor %}
+                  {% assign max_price = product.price_max  %}
+                  {% assign last_variant = product.variants.last.title  | split:'/' | last  %}
+                  {% assign lowestprice = max_price  %}
+                  <span class="custm_lowest_price" data-last="{{ last_variant }}">
+                    {% comment %} <span class="price_from">from</span> {{ lowestprice | divided_by: last_variant |  money_with_currency | remove: 'USD' | replace: '.','<sup>' }}</sup> {% endcomment %}
+                      <span class="price_from">from</span>{%- render 'price' with product.price -%}
+                  </span>
+                   </div>
+                  {% else %}
+                   <span class="price_from">from</span> {%- render 'price' with product.price -%}
+              {% endif %}
+                   {% endcomment %}
+
+                      {% if product.price_varies %}
+
+                   <div class="lowest_price">
+
+                   {% for variant in product.variants %}
+
+                    {% assign last_variant = variant %}
+
+                   {% endfor %}
+
+                  {% assign max_price = product.price_max  %}
+
+                  {% assign last_variant = product.variants.last.title  | split:'/' | last  %}
+
+                  {% assign lowestprice = max_price  %}
+                   {%- for option in product.options_with_values -%}
+                    {% assign packsize = option.name | downcase | remove:" " %}    
+                   {% endfor %}
+                  <span class="custm_lowest_price 1">
+                   {% if packsize == 'packsize'  %}
+                     <span class="price_from">from</span> {{ lowestprice | divided_by: last_variant |  money_with_currency | remove: 'USD' | replace: '.','<sup>' }}</sup>
+                    {% else %}
+                      <span class="price_from">from</span> {{ product.price | money_with_currency | remove: 'USD' | replace: '.','<sup>' }}</sup>
+                  {% endif %}
+                  </span>
+
+                   </div>
+
+                  {% else %}
+
+                  {%- render 'price' with product.price -%}
+
+                    {% endif %}
+
+                  </span>
+                  {%- if on_sale != true -%}
+                  <div class="grid-product__actions collection-page-chart-action 2">
+                  <button type="button" class="text-link quick-add-btn js-quick-add-form js-modal-open-quick-add nw-quick-add-btn" title="Add to cart" aria-expanded="false">Add to Cart</button>
+                  </div>
+                  {%- endif -%}
+                {%- endif -%}
+
+              
+              {%- if on_sale -%}
+                <span class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+                  
+                                
+                <span class="grid-product__price--original">
+                  {%- render 'price' with product.compare_at_price -%}
+                </span>
+
+
+
+{%- liquid 
+  assign current_variant = product.selected_or_first_available_variant 
+-%}
+
+{%- assign discount_found = false -%}
+{%- assign highest_discount = 0 -%}
+
+{%- for variant in product.variants -%}
+  {%- if variant.compare_at_price > variant.price -%}
+    {%- assign discount_found = true -%}
+    {%- assign discount = variant.compare_at_price 
+        | minus: variant.price 
+        | times: 100.0 
+        | divided_by: variant.compare_at_price 
+        | round -%}
+    {%- if discount > highest_discount -%}
+      {%- assign highest_discount = discount -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if settings.product_save_amount and discount_found -%}
+  {%- if settings.product_save_type == 'dollar' and current_variant.compare_at_price > current_variant.price -%}
+    {%- capture saved_amount -%}
+      {{ current_variant.compare_at_price | minus: current_variant.price | money_without_trailing_zeros }}
+    {%- endcapture -%}
+  {%- else -%}
+    {%- capture saved_amount -%}
+      {{ highest_discount }}%
+    {%- endcapture -%}
+  {%- endif -%}
+
+  <span class="grid-product__price--savings">
+    {{ 'products.general.save_html' | t: saved_amount: saved_amount }}
+  </span>
+{%- endif -%}
+
+
+
+<div class="grid-product__actions collection-page-chart-action 3">
+<button type="button" class="text-link quick-add-btn js-quick-add-form js-modal-open-quick-add nw-quick-add-btn" title="Add to cart" aria-expanded="false">Add to Cart</button>
+</div>
+                
+              {%- endif -%}
+
+
+              {%- assign product_variant = product.selected_or_first_available_variant -%}
+              {%- if product_variant.unit_price_measurement -%}
+                <div class="product__unit-price">
+                  {%- capture unit_price_base_unit -%}
+                    {%- if product_variant.unit_price_measurement -%}
+                      {%- if product_variant.unit_price_measurement.reference_value != 1 -%}
+                        {{ product_variant.unit_price_measurement.reference_value }}
+                      {%- endif -%}
+                      {{ product_variant.unit_price_measurement.reference_unit }}
+                    {%- endif -%}
+                  {%- endcapture -%}
+
+                  {{ product_variant.unit_price | money }}/{{ unit_price_base_unit }}
+                </div>
+              {%- endif -%}
+            </div>
+      {% endif %}
+    {%- if settings.enable_product_reviews -%}
+     <!-- <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+   {%- endif -%} -->
+   {% endif %}
+
+
+                           <hr class="nw-hr-collection-page-specs">
+
+            
+          </div>
+
+
+<!-- product info -->
+
+
+<!-- product info -->
+
+
+
+          {%- if settings.enable_swatches and type == 'horizontal' -%}
+            {%- liquid
+              assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase
+              assign swatch_file_extension = 'png'
+              assign color_count = 0
+              assign max_colors_show = 4
+              assign more_than_max = false
+            -%}
+
+            {%- for option in product.options_with_values -%}
+              {%- liquid
+                assign option_name = option.name | downcase
+                assign is_color = false
+                if option_name contains swatch_trigger
+                  assign is_color = true
+                elsif swatch_trigger == 'color' and option_name contains 'colour'
+                  assign is_color = true
+                endif
+              -%}
+              {%- if is_color -%}
+                {%- assign option_index = forloop.index0 -%}
+                {%- assign values = '' -%}
+                <div class="grid-product__colors">
+                  {%- for variant in product.variants -%}
+                    {%- assign value = variant.options[option_index] %}
+                    {%- unless values contains value -%}
+                      {%- liquid
+                        assign values = values | join: ',' | append: ',' | append: value | split: ','
+
+                        assign color_file_name = value | handle | append: '.' | append: swatch_file_extension
+                        assign color_image = color_file_name | file_img_url: '50x50' | prepend: 'https:' | split: '?' | first
+                        assign color_swatch_fallback = value | split: ' ' | last | handle
+                        assign color_count = color_count | plus: 1
+                      -%}
+
+                      {%- if color_count <= max_colors_show -%}
+                        <span
+                          class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.image %} color-swatch--with-image{% endif %}"
+                          data-url="{{ variant.url }}"
+                          {% if variant.image %}
+                            data-variant-id="{{ variant.id }}"
+                            data-variant-image="{{ variant.image | img_url: '400x' }}"
+                          {% endif %}
+                          style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}">
+                          <span class="visually-hidden">{{ value }}</span>
+                        </span>
+                      {%- else -%}
+                        {%- assign more_than_max = true -%}
+                      {%- endif -%}
+                    {%- endunless -%}
+                  {%- endfor -%}
+
+                  {%- if more_than_max -%}
+                    {%- assign more_colors = color_count | minus: max_colors_show -%}
+                    <small class="color-swatch__more">+{{ more_colors }}</small>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+      </div>
+    </a>
+{% assign pdf_link = product.metafields.custom.pdf_link  %}
+   {% if collection.handle == 'pdf-products' %} 
+      <div class="pdf_download" data-flie="{{ pdf_link }}" data-filename="{{ product.title }}">
+       <a href="{{ product.metafields.custom.pdf_link }}" class="">
+         User Manual
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 109.33 122.88" style="enable-background:new 0 0 109.33 122.88" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#262626;} .st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FF0000;} .st2{fill:#FFFFFF;}</style><g><path class="st0" d="M82.28,105.33h-10.8V90.47H56.14v14.86H44.99l18.64,17.54L82.28,105.33L82.28,105.33z M102.4,33.95H83.61 c-1.98,0-4.73-1.06-6.03-2.36c-1.3-1.3-2.09-3.65-2.09-5.61V6.95l0,0H25.83c-0.16,0-0.29,0.08-0.37,0.16 c-0.14,0.09-0.18,0.21-0.18,0.38v87.73c0,0.12,0.09,0.29,0.16,0.37c0.09,0.13,0.26,0.16,0.38,0.16h12.96 c-1.03,2.16-1.79,4.49-2.23,6.91H23.7c-1.46,0-2.76-0.58-3.73-1.55c-0.96-0.96-1.54-2.26-1.54-3.73V5.32 c0-1.46,0.59-2.76,1.54-3.73c0.97-0.97,2.31-1.55,3.73-1.55h55.31C79.13,0,79.25,0,79.38,0c0.58,0,1.18,0.25,1.59,0.62h0.08 c0.09,0.05,0.13,0.09,0.21,0.16l27.27,27.6c0.46,0.46,0.8,1.09,0.8,1.8c0,0.21-0.04,0.37-0.08,0.6c0,25.22,0,41.39,0,66.61 c0,1.46-0.59,2.77-1.55,3.73c-0.97,0.96-2.27,1.55-3.73,1.55H90c-0.44-2.43-1.19-4.75-2.23-6.91h14.07c0.16,0,0.16-0.09,0.25-0.16 c0.13-0.09,0.3-0.26,0.3-0.37C102.39,71.78,102.4,57.39,102.4,33.95L102.4,33.95z M81.72,25.43V8.12l19.49,19.74H84.15 c-0.67,0-1.26-0.29-1.72-0.71C82.01,26.73,81.72,26.1,81.72,25.43L81.72,25.43L81.72,25.43z"/><polygon class="st1" points="0,38.51 88.9,38.51 88.9,81.22 0,81.22 0,38.51"/><path class="st2" d="M12.07,48.62h11.77c2.56,0,4.48,0.61,5.75,1.82c1.27,1.22,1.91,2.94,1.91,5.18c0,2.3-0.69,4.1-2.09,5.4 c-1.39,1.3-3.51,1.94-6.37,1.94h-3.87v8.46h-7.11V48.62L12.07,48.62z M19.18,58.34h1.73c1.37,0,2.33-0.23,2.87-0.71 c0.55-0.47,0.83-1.07,0.83-1.81c0-0.72-0.24-1.33-0.72-1.82c-0.47-0.5-1.38-0.75-2.7-0.75h-2.02V58.34L19.18,58.34z M34.99,48.62 H45.5c2.07,0,3.75,0.28,5.02,0.84c1.27,0.56,2.32,1.36,3.16,2.41c0.83,1.05,1.43,2.27,1.81,3.66c0.37,1.39,0.56,2.86,0.56,4.42 c0,2.44-0.28,4.33-0.84,5.67c-0.55,1.34-1.33,2.47-2.32,3.38c-0.99,0.91-2.05,1.51-3.18,1.81c-1.55,0.41-2.96,0.62-4.22,0.62H34.99 V48.62L34.99,48.62z M42.06,53.79v12.45h1.73c1.48,0,2.53-0.16,3.16-0.49c0.62-0.32,1.11-0.9,1.47-1.71 c0.35-0.81,0.53-2.13,0.53-3.96c0-2.42-0.39-4.07-1.18-4.96c-0.79-0.89-2.11-1.34-3.94-1.34H42.06L42.06,53.79z M59.49,48.62h17.5 v4.9H66.6v3.98h8.87v4.6H66.6v9.32h-7.11V48.62L59.49,48.62z"/></g></svg>    </div>
+
+  
+     
+     {% endif %}   
+     
+                    
+
+    
+  </div>
+</div>

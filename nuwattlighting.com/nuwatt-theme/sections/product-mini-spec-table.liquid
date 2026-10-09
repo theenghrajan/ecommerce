@@ -1,0 +1,80 @@
+<h2>Details</h2>
+<table class="product-specs-table">
+   <tbody class="tbody-table">
+
+{% if product.metafields.custom.brightness contains 'FPO' or product.metafields.custom.brightness == blank or product.metafields.custom.brightness == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Lumens</td>
+         <td class="text-left">{{ product.metafields.custom.brightness }}</td>
+      </tr>
+{% endif %}
+
+
+{% if product.metafields.custom.installation_type contains 'FPO' or product.metafields.custom.installation_type == blank or product.metafields.custom.installation_type == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Installation Type</td>
+         <td class="text-left">{{ product.metafields.custom.installation_type }}</td>
+      </tr>
+{% endif %}
+
+
+
+{% if product.metafields.custom.wattage contains 'FPO' or product.metafields.custom.wattage == blank or product.metafields.custom.wattage == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Wattage</td>
+         <td class="text-left">{{ product.metafields.custom.wattage }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.voltage contains 'FPO' or product.metafields.custom.voltage == blank or product.metafields.custom.voltage == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Voltage</td>
+         <td class="text-left">{{ product.metafields.custom.voltage }}</td>
+      </tr>
+{% endif %}
+
+{% if product.metafields.custom.special_features contains 'FPO' or product.metafields.custom.special_features == blank or product.metafields.custom.special_features == 'a' %}
+{% else %}
+      <tr>
+         <td class="text-left">Special Features</td>
+         <td class="text-left">{{ product.metafields.custom.special_features }}</td>
+      </tr>
+{% endif %}
+
+
+
+
+
+
+   </tbody>
+</table>
+
+
+
+
+{% schema %}
+  {
+    "name": "Mini Specifications",
+    "settings": [
+      {
+
+      "type": "checkbox",
+      "id": "product-mini-specs-enable",
+      "label": "Product Mini Specs Table",
+      "default": true
+        
+      }
+    ],
+
+        "presets": [
+      {
+        "name": "Mini Specifications",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

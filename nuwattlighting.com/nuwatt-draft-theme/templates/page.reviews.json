@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_KRLhpE": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_A3YRp4": {
+          "type": "heading",
+          "settings": {
+            "title": "Reviews",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_A3YRp4"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "color_scheme": "3",
+        "divider": false
+      }
+    },
+    "1714767344af46a4b0": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_reviews_KdmzeJ": {
+          "type": "shopify://apps/junip/blocks/junip-reviews/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "layout": "list",
+            "reviewsType": "all",
+            "showSummary": true,
+            "reviewsCount": 9,
+            "containerClass": ""
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_reviews_KdmzeJ"
+      ],
+      "settings": {
+        "full_width": true,
+        "space_around": false
+      }
+    },
+    "newsletter_gNMaaW": {
+      "type": "newsletter",
+      "blocks": {
+        "title_XQBMJF": {
+          "type": "title",
+          "settings": {
+            "title": "Sign up and save",
+            "heading_size": "h2"
+          }
+        },
+        "text_WgbkV8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>"
+          }
+        },
+        "form_mMGV9Y": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title_XQBMJF",
+        "text_WgbkV8",
+        "form_mMGV9Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "2",
+        "align_text": "center",
+        "image_width": "33",
+        "image_mask": "none",
+        "image_position": "right",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_KRLhpE",
+    "1714767344af46a4b0",
+    "newsletter_gNMaaW"
+  ]
+}

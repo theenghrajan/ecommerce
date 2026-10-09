@@ -1,0 +1,45 @@
+{% comment %}
+  SS Anchor — per-section heading case override.
+
+  The theme sets type_header_capitalize globally, which puts
+    [data-type_header_capitalize=true] h1..h6 { text-transform: uppercase }
+  on every heading in the store (assets/theme.css.liquid:2872).
+
+  The Anchor page needs to opt out per section, defaulting to sentence case.
+  That theme selector has specificity (0,1,1); an id selector scoped to the
+  section wrapper is (1,0,1), which wins without !important and without
+  touching the copied section's markup.
+
+  Usage:
+    {%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
+
+  Params:
+    - id   (required) section.id
+    - mode (required) 'sentence' | 'uppercase'
+{% endcomment %}
+
+{%- liquid
+  assign transform = ''
+  if mode == 'sentence'
+    assign transform = 'none'
+  elsif mode == 'uppercase'
+    assign transform = 'uppercase'
+  endif
+-%}
+
+{%- if transform != '' and id != blank -%}
+  {%- style -%}
+    #shopify-section-{{ id }} h1,
+    #shopify-section-{{ id }} h2,
+    #shopify-section-{{ id }} h3,
+    #shopify-section-{{ id }} h4,
+    #shopify-section-{{ id }} h5,
+    #shopify-section-{{ id }} h6,
+    #shopify-section-{{ id }} .h1,
+    #shopify-section-{{ id }} .h2,
+    #shopify-section-{{ id }} .h3,
+    #shopify-section-{{ id }} .h4 {
+      text-transform: {{ transform }};
+    }
+  {%- endstyle -%}
+{%- endif -%}

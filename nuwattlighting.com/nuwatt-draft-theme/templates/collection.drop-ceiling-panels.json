@@ -1,0 +1,225 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_fKeJdy": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Drop Ceiling Lights Panels Collection",
+        "collection_seo_description": "Explore our drop ceiling light panels for various high quality drop ceiling panel lights. From 1x4 to 2x4 options, these lights provide bright and uniform illumination, making them ideal for drop ceiling installations. Enjoy energy savings and enhanced lighting with our range of LED panels."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_gy3HfR": {
+      "type": "jump-to",
+      "blocks": {
+        "question_k4Ndty": {
+          "type": "question",
+          "settings": {
+            "button": "1x4 FT",
+            "link": "shopify://collections/1x4-led-drop-ceiling-lights",
+            "image": "shopify://shop_images/NW-BL-1X4-20.30.40W-5CCT_Listing_MAIN_4P.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_LtQfnX": {
+          "type": "question",
+          "settings": {
+            "button": "2x2 FT",
+            "link": "shopify://collections/2x2-led-drop-ceiling-lights",
+            "image": "shopify://shop_images/NW-BL-2X2-20.30.40W-5CCT_Listing_MAIN_4P-820324.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_nHKP4w": {
+          "type": "question",
+          "settings": {
+            "button": "2x4 FT",
+            "link": "shopify://collections/2x4-led-drop-ceiling-lights",
+            "image": "shopify://shop_images/NW-BL-2X4-30.40.50W-5CCT_Listing_MAIN_4P-398545.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_k4Ndty",
+        "question_LtQfnX",
+        "question_nHKP4w"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_Gim9Ng": {
+      "type": "faq",
+      "blocks": {
+        "question_MnMGfE": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_tT78Ww": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_tnDDy9": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_MnMGfE",
+        "question_tT78Ww",
+        "question_tnDDy9"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_L8EcM6": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_cJ7bfh": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_p8nU3a": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_FRYYh4": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_qrQpEQ": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_RrgDy4": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_VRhD3f": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_cJ7bfh",
+        "question_p8nU3a",
+        "question_FRYYh4",
+        "question_qrQpEQ",
+        "question_RrgDy4",
+        "question_VRhD3f"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_xpxtix": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Drop Ceiling Lights Panels Collection",
+        "collection_seo_description": "Explore our drop ceiling light panels for various high quality drop ceiling panel lights. From 1x4 to 2x4 options, these lights provide bright and uniform illumination, making them ideal for drop ceiling installations. Enjoy energy savings and enhanced lighting with our range of LED panels."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_fKeJdy",
+    "main-collection",
+    "jump_to_gy3HfR",
+    "faq_Gim9Ng",
+    "collection_metafield_faq_L8EcM6",
+    "recently-viewed",
+    "expandable_description_xpxtix"
+  ]
+}

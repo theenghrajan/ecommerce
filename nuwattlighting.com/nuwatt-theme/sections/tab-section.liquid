@@ -1,0 +1,103 @@
+<div class="tabs_section">
+  <div class="tab_section">
+    {% if section.settings.heading != blank %}
+    <h2 class="h2">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="tab_section_content">
+      <ul class="tab_section_unordered_list">
+        {% for block in section.blocks %}
+          {% if block.settings.url != blank %}
+          <li class="tab_section_list {% if block.settings.tab_box == true %}has_checked {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box == true %} data-index="tab-{{ forloop.index }}" {% endif %}>
+            <a  {% unless block.settings.tab_box == true %} href="{{ block.settings.url }}" {% endunless %}>
+            <span class="tab_link_text">{{ block.settings.tab_heading }}</span>
+            <span class="m-arrow-right"></span>
+            </a>
+          </li>
+          <div class="tabs_main_content hide_desktop">
+              <div class="wrap_content_block {% if block.settings.tab_box == true %}checked_content {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box == true %} data-index="tab-{{ forloop.index }}" {% endif %}>
+              {% if block.settings.block_content != blank %}
+              <div class="tabs_main_content_block">
+                {{ block.settings.block_content }}
+              </div>
+              {% endif %}
+             {% if block.settings.block_liquid_content != blank %}
+                <div class="tabs_main_content_block">
+                {{ block.settings.block_liquid_content }}
+                </div>
+             {% endif %}
+              </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      
+      <div class="tabs_main_content hide_mobile">
+        {% for block in section.blocks %}
+          <div class="wrap_content_block {% if block.settings.tab_box == true %}checked_content {% endif %} {% if forloop.index == 1 %}active {% endif %}" {% if block.settings.tab_box == true %} data-index="tab-{{ forloop.index }}" {% endif %}>
+          {% if block.settings.block_content != blank %}
+          <div class="tabs_main_content_block">
+            {{ block.settings.block_content }}
+          </div>
+          {% endif %}
+         {% if block.settings.block_liquid_content != blank %}
+            <div class="tabs_main_content_block">
+            {{ block.settings.block_liquid_content }}
+            </div>
+         {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Tab Section",
+    "settings": [
+      {
+        "type": "text",
+        "id":"heading",
+        "label": "Heading"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "tab_box",
+            "label": "Tab",
+            "info": "If you check the checkbox, the content will be shown in the accordion."
+          },
+          {
+            "type": "text",
+            "id": "tab_heading",
+            "label": "Heading"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Link"
+          },
+          {
+            "type": "richtext",
+            "id": "block_content",
+            "label": "Content"
+          },
+          {
+            "type": "liquid",
+            "id": "block_liquid_content",
+            "label": "Liquid Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Tab Section"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,351 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_i8j8zU": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">    {{ product.metafields.custom.dimmable | split: ' ' | first }}</span></li>\n                <li><span>Warranty:&nbsp;</span><span class=\"mini-spec-meta\">5 Year</span></li>\n              </ul>\n\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>\n\n<div class=\"product-info__image\">\n    <img alt=\"fire rated downlights icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Steel_Rated.png?v=1724081551\">\n\n    <img alt=\"fire rated recessed light, no fire rated cover needed icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/No_Tenmat_Fire_Rated_Icon_efa926cc-3161-4ba5-be09-32cba619f338.png?v=1724082318\">\n<img alt=\"canless lights icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Canless_BLK.png?v=1723836192\">\n    <img alt=\"recessed lighting 5CCT icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/5CCT_BLK.png?v=1723836191\">\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": true
+          }
+        },
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false
+          }
+        },
+        "4ec7592e-abc8-486b-a58c-5a9933c52c3e": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "sales_point": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "checkmark",
+            "text": "5-in-1 COLOR CHANGING: The 5-in-1 CCT Options allow you to toggle between 2700K, 3000K, 3500K, 4000K and 5000K with an ample 600 Lumens per light and rated at 50,000 hours of life."
+          }
+        },
+        "sales_point2": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "checkmark",
+            "text": "INSTALL IN A SNAP: This low-profile downlight comes with an electrical junction box and Snap In clips for easy installation. This ceiling light can be used with new construction mounting plates and is ideal for any canless job."
+          }
+        },
+        "sales_point3": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "checkmark",
+            "text": "CERTIFIED: Quality you can trust. NUWATT LED recessed lights are proudly ETL certified for top quality standards and safe operation. This device has IC rated housing and is approved to be installed into ceilings with insulated roof space, and can safely be in direct contact with insulation. Itâs also suitable for damp locations!"
+          }
+        },
+        "sales_point4": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "checkmark",
+            "text": "DIMMABLE: This light is compatible with most LED dimmers on the market and can smoothly dim from 10% to 100%, allowing it to fit a wide range of lighting applications such as in kitchens, living rooms, bedrooms and bathrooms."
+          }
+        },
+        "inventory_status": {
+          "type": "inventory_status",
+          "disabled": true,
+          "settings": {
+            "inventory_threshold": 10,
+            "inventory_transfers_enable": true
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "price",
+        "custom_i8j8zU",
+        "variant_picker",
+        "a60bf5cc-31e2-466a-9602-2e6f3b4adc84",
+        "buy_buttons",
+        "4ec7592e-abc8-486b-a58c-5a9933c52c3e",
+        "sales_point",
+        "sales_point2",
+        "sales_point3",
+        "sales_point4",
+        "inventory_status"
+      ],
+      "settings": {
+        "sku_enable": true,
+        "image_position": "left",
+        "image_container_size": "medium",
+        "product_image_size": "square",
+        "product_zoom_enable": true,
+        "thumbnail_position": "below",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "16769676867018dca5": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_review_MWWUca": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_review_MWWUca"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "more-products-collection": {
+      "type": "more-products-collection",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5
+      },
+      "disabled": true
+    },
+    "more-products-vendor": {
+      "type": "more-products-vendor",
+      "disabled": true,
+      "settings": {
+        "products_per_row": 3,
+        "max_products": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {
+        "color_scheme": "2"
+      }
+    },
+    "1714761246f61d7a21": {
+      "type": "apps",
+      "blocks": {
+        "junip_product_reviews_ugc_junip_product_review_4a8bYk": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "junip_product_reviews_ugc_junip_product_review_4a8bYk"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "pdp_tabs": {
+      "type": "pdp-tabs",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "specifications": {
+          "type": "specifications",
+          "settings": {
+            "title": "Specifications"
+          }
+        },
+        "warranty": {
+          "type": "warranty",
+          "settings": {
+            "title": "Warranty / Certifications",
+            "content": "<p><strong>[Demo content — confirm final copy with client]</strong></p><p>NuWatt Lighting products are backed by a standard manufacturer's limited warranty. This section will list the specific warranty term and any relevant certifications (UL, ETL, Energy Star, etc.) for this product once confirmed.</p>"
+          }
+        },
+        "faq": {
+          "type": "faq",
+          "settings": {
+            "title": "FAQ's",
+            "empty_state_text": "FAQs for this product have not been added yet."
+          }
+        },
+        "dimensions": {
+          "type": "dimensions",
+          "settings": {
+            "title": "Dimensions"
+          }
+        },
+        "manuals": {
+          "type": "manuals",
+          "settings": {
+            "title": "Manuals"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "specifications",
+        "warranty",
+        "faq",
+        "dimensions",
+        "manuals"
+      ],
+      "settings": {}
+    },
+    "pdp_image_rows": {
+      "type": "pdp-image-rows",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-1-spec-diagram.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-2-easy-install.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-3-use-cases.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-4-adjustable-lens.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-5-dimmability-cct.png",
+            "show_play_icon": false,
+            "caption": ""
+          }
+        },
+        "row_6": {
+          "type": "row",
+          "settings": {
+            "media_type": "image",
+            "image_asset": "pdp-row-6-install-guide-poster.png",
+            "show_play_icon": true,
+            "caption": "Video coming soon — this is a placeholder poster frame from the Figma reference until a real install-guide video is uploaded."
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5",
+        "row_6"
+      ],
+      "settings": {}
+    },
+    "pdp_lighting_calculator": {
+      "type": "pdp-lighting-calculator",
+      "settings": {
+        "heading": "",
+        "content": ""
+      }
+    },
+    "pdp_fbt": {
+      "type": "pdp-frequently-bought-together",
+      "settings": {
+        "heading": "Frequently Bought Together",
+        "collection": "",
+        "complementary_count": 4,
+        "products_per_row": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pdp_tabs",
+    "pdp_image_rows",
+    "pdp_lighting_calculator",
+    "pdp_fbt",
+    "16769676867018dca5",
+    "more-products-collection",
+    "recommendations",
+    "more-products-vendor",
+    "recently-viewed",
+    "collection-return",
+    "1714761246f61d7a21"
+  ]
+}

@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_64U6P3": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Highbays Collection",
+        "collection_seo_description": "Our LED highbay lighting collection is built for large spaces that demand powerful, high output lighting. Ideal for warehouses, gyms, and industrial settings, these fixtures provide bright, uniform light while maximizing energy efficiency. With easy installation and long lasting durability, they’re designed to perform in high ceiling environments."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_CEbzdK": {
+      "type": "jump-to",
+      "blocks": {
+        "question_djA9zV": {
+          "type": "question",
+          "settings": {
+            "button": "Round High Bay",
+            "link": "shopify://collections/ufo-led-lights",
+            "image": "shopify://shop_images/UFO_High_Bay_LED_Lights.png",
+            "alt-text": "round high bay lighting"
+          }
+        },
+        "question_YU6PVQ": {
+          "type": "question",
+          "settings": {
+            "button": "Linear High Bay",
+            "link": "shopify://collections/linear-high-bay-led-lights",
+            "image": "shopify://shop_images/linear_high_bay_light.png",
+            "alt-text": "Linear led high bay shop lights"
+          }
+        },
+        "question_CzDfED": {
+          "type": "question",
+          "settings": {
+            "button": "All Commercial Lights",
+            "link": "shopify://collections/commercial-lighting",
+            "image": "shopify://shop_images/view-all-commercial-lighting-products.jpg",
+            "alt-text": "Go to all commercial lighting products"
+          }
+        },
+        "question_6PfpbF": {
+          "type": "question",
+          "settings": {
+            "button": "Shop Lights",
+            "link": "shopify://collections/led-shop-lights",
+            "image": "shopify://shop_images/shop-lights-wraparounds-collection.png",
+            "alt-text": "led shop lights"
+          }
+        },
+        "question_8C6XWa": {
+          "type": "question",
+          "settings": {
+            "button": "Tubes",
+            "link": "shopify://collections/led-tube-lights",
+            "image": "shopify://shop_images/NW-T8F-4-18W-50K-30P-MAIN-464841.jpg",
+            "alt-text": "Go to led tube lights collection"
+          }
+        },
+        "question_UEBLFP": {
+          "type": "question",
+          "settings": {
+            "button": "Panels",
+            "link": "shopify://collections/led-panel-light",
+            "image": "shopify://shop_images/nuwatt-4-pack-2x4-led-panel-for-drop-in-ceiling-50w40w30w-selectable-5-color-select-3000k3500k4000k5000k6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fi-639226.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_zLRefK": {
+          "type": "question",
+          "settings": {
+            "button": "Canopy Lights",
+            "link": "shopify://collections/canopy-lights",
+            "image": "shopify://shop_images/led-canopy-lights-outdoor-150w-waterproof-led-gas-station-light-2cct-selectable-4000k5000k-21250lm-dimmable-120-277v-ip67-rated-led-parking-garage-lights-or-lig-413822.jpg",
+            "alt-text": "go to canopy light collection"
+          }
+        }
+      },
+      "block_order": [
+        "question_djA9zV",
+        "question_YU6PVQ",
+        "question_CzDfED",
+        "question_6PfpbF",
+        "question_8C6XWa",
+        "question_UEBLFP",
+        "question_zLRefK"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_BVaKLQ": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_jnAWRy": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_BF888i": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_C7Addz": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_FXPrdD": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_FynPmV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_jnAWRy",
+        "question_BF888i",
+        "question_C7Addz",
+        "question_FXPrdD",
+        "question_FynPmV"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_Hmt6wC": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Highbays Collection",
+        "collection_seo_description": "Our LED highbay lighting collection is built for large spaces that demand powerful, high output lighting. Ideal for warehouses, gyms, and industrial settings, these fixtures provide bright, uniform light while maximizing energy efficiency. With easy installation and long lasting durability, they’re designed to perform in high ceiling environments."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_64U6P3",
+    "main-collection",
+    "jump_to_CEbzdK",
+    "collection_metafield_faq_BVaKLQ",
+    "recently-viewed",
+    "expandable_description_Hmt6wC"
+  ]
+}

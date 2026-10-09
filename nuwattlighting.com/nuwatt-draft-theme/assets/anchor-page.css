@@ -1,0 +1,771 @@
+/* ==========================================================================
+   Anchor page  —  SEO category hub template
+   Figma: "128 Audit Fixes" / Anchor page (node 9172:31)
+   Used by: sections/anchor-*.liquid  +  templates/page.anchor.json
+   ========================================================================== */
+
+:root {
+  --anchor-ink: #202020;
+  --anchor-ink-soft: #333;
+  --anchor-muted: #4b5563;
+  --anchor-muted-alt: #6b7280;
+  --anchor-intro-ink: #1f2937;
+  --anchor-line: #e5e7eb;
+  --anchor-accent: #ffd100;
+  --anchor-surface: #fff;
+  --anchor-surface-alt: #f9fafb;
+  --anchor-icon-muted: #9ca3af;
+  --anchor-radius: 8px;
+  --anchor-radius-btn: 2px;
+  --anchor-gap: 16px;
+  --anchor-gap-lg: 24px;
+}
+
+/* ----- shared -------------------------------------------------------------- */
+
+.anchor-section {
+  font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+  color: var(--anchor-ink);
+  box-sizing: border-box;
+}
+
+.anchor-section *,
+.anchor-section *::before,
+.anchor-section *::after { box-sizing: inherit; }
+
+/* MainContent column: 1152 outer / 1120 inner (Figma x=64 on a 1280 frame) */
+.anchor-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 var(--anchor-gap);
+}
+
+/* Full-bleed bands (trust bar, reviews) run to 1280 */
+.anchor-inner--wide {
+  max-width: 1280px;
+}
+
+.anchor-heading {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: var(--anchor-ink);
+  letter-spacing: normal;
+}
+
+.anchor-subheading {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--anchor-muted);
+}
+
+/* Arrow link — "VIEW ALL", "SHOP NOW", "READ MORE" */
+.anchor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--anchor-ink-soft);
+  transition: opacity 0.2s ease;
+}
+
+.anchor-link:hover,
+.anchor-link:focus { opacity: 0.7; text-decoration: none; color: var(--anchor-ink-soft); }
+
+.anchor-link--accent,
+.anchor-link--accent:hover,
+.anchor-link--accent:focus { color: var(--anchor-accent); }
+
+.anchor-link--sm {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+}
+
+.anchor-link__icon {
+  flex: 0 0 auto;
+  display: block;
+  width: 12.25px;
+  height: 10.5px;
+  fill: currentColor;
+}
+
+.anchor-link--sm .anchor-link__icon {
+  width: 10.5px;
+  height: 9px;
+}
+
+/* ----- hero (node 9172:203) ----------------------------------------------- */
+
+.anchor-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 500px;
+  overflow: hidden;
+  background-color: var(--anchor-ink);
+}
+
+.anchor-hero__media,
+.anchor-hero__media image-element,
+.anchor-hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.anchor-hero__media img { object-fit: cover; object-position: center; }
+
+.anchor-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.anchor-hero__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 80px;
+}
+
+.anchor-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--anchor-gap);
+  max-width: 448px;
+}
+
+.anchor-hero__title {
+  margin: 0;
+  font-size: 60px;
+  line-height: 75px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: normal;
+}
+
+.anchor-hero__text {
+  margin: 0 0 var(--anchor-gap);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.anchor-hero__text > p { margin: 0; }
+
+.anchor-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border: 0;
+  border-radius: var(--anchor-radius-btn);
+  background-color: var(--anchor-accent);
+  color: var(--anchor-ink);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.anchor-btn:hover,
+.anchor-btn:focus { filter: brightness(0.92); color: var(--anchor-ink); text-decoration: none; }
+
+/* ----- trust bar (node 9172:88) ------------------------------------------- */
+
+.anchor-trust {
+  background-color: var(--anchor-surface);
+  border-bottom: 1px solid var(--anchor-line);
+}
+
+.anchor-trust__list {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--anchor-gap);
+  margin: 0;
+  padding: var(--anchor-gap-lg) var(--anchor-gap);
+  list-style: none;
+}
+
+.anchor-trust__item {
+  display: flex;
+  flex: 1 0 0;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--anchor-gap);
+  margin: 0;
+  padding: 0 var(--anchor-gap);
+}
+
+.anchor-trust__item + .anchor-trust__item {
+  border-left: 1px solid var(--anchor-line);
+}
+
+.anchor-trust__icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.anchor-trust__icon img,
+.anchor-trust__icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.anchor-trust__icon--flip img,
+.anchor-trust__icon--flip svg { transform: scaleX(-1); }
+
+.anchor-trust__title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+  color: var(--anchor-ink-soft);
+}
+
+.anchor-trust__sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--anchor-muted-alt);
+}
+
+/* ----- intro (node 9172:215) --------------------------------------------- */
+
+.anchor-intro__text {
+  max-width: 882px;
+  font-size: 18px;
+  line-height: 29.25px;
+  font-weight: 400;
+  color: var(--anchor-intro-ink);
+}
+
+.anchor-intro__text > p { margin: 0; }
+.anchor-intro__text > p + p { margin-top: 1em; }
+.anchor-intro__text strong,
+.anchor-intro__text b { font-weight: 700; }
+
+/* ----- category row (node 9172:217) -------------------------------------- */
+
+.anchor-category__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--anchor-gap);
+  margin-bottom: var(--anchor-gap-lg);
+}
+
+/* --anchor-cols is set inline by the section from the number of products it
+   actually rendered, so a collection with 2 products fills the row instead of
+   leaving empty grid tracks. Falls back to the 4 the design shows. */
+.anchor-category__grid {
+  display: grid;
+  grid-template-columns: 277px repeat(var(--anchor-cols, 4), minmax(0, 1fr));
+  gap: var(--anchor-gap);
+  align-items: stretch;
+}
+
+/* Feature card — the promo tile that leads each row */
+.anchor-feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 369px;
+  padding: var(--anchor-gap-lg);
+  border-radius: var(--anchor-radius);
+  overflow: hidden;
+  text-decoration: none;
+  background-color: var(--anchor-ink);
+}
+
+.anchor-feature__media,
+.anchor-feature__media image-element,
+.anchor-feature__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.anchor-feature__media img { object-fit: cover; object-position: center; }
+
+.anchor-feature__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.48);
+}
+
+.anchor-feature__body { position: relative; width: 100%; }
+
+.anchor-feature__title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.anchor-feature__text {
+  margin: 0 0 var(--anchor-gap);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* Product card */
+.anchor-product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 17px;
+  border: 1px solid var(--anchor-line);
+  border-radius: var(--anchor-radius);
+  background-color: var(--anchor-surface);
+}
+
+/* A fixed square box with the image pinned inside it. Sizing the <img> itself
+   leaves the row at the mercy of intrinsic dimensions, the width/height
+   attributes image_tag emits, and any theme-wide img rules; this does not. */
+.anchor-product__image {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin-bottom: var(--anchor-gap);
+}
+
+.anchor-product__image image-element,
+.anchor-product__image img,
+.anchor-product__image svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Real catalogue titles run far longer than the two lines the design shows.
+   Clamping keeps every card the designed height; --anchor-title-lines is set
+   inline from the section setting. */
+.anchor-product__title {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--anchor-title-lines, 2);
+  line-clamp: var(--anchor-title-lines, 2);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--anchor-ink-soft);
+}
+
+.anchor-product__title a { color: inherit; text-decoration: none; }
+.anchor-product__title a:hover { text-decoration: underline; }
+
+/* Wishlist / save toggle, top-right of the card */
+.anchor-product__save {
+  position: absolute;
+  top: var(--anchor-gap);
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.anchor-product__save svg {
+  display: block;
+  width: 16px;
+  height: 13.6632px;
+  fill: var(--anchor-icon-muted);
+  transition: fill 0.2s ease;
+}
+
+.anchor-product__save:hover svg,
+.anchor-product__save[aria-pressed="true"] svg { fill: var(--anchor-accent); }
+
+.anchor-product__foot { width: 100%; }
+
+.anchor-product__price {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  height: 28px;
+  margin: 0 0 12px;
+  font-weight: 700;
+  color: var(--anchor-ink);
+}
+
+.anchor-product__price-label {
+  align-self: center;
+  margin-right: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--anchor-muted-alt);
+}
+
+/* $ and cents sit raised against the dollar figure (Figma 13.5px vs 18px) */
+.anchor-product__price-symbol,
+.anchor-product__price-cents {
+  align-self: flex-start;
+  font-size: 13.5px;
+  line-height: 20px;
+}
+
+.anchor-product__price-amount {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.anchor-product__price--sold {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--anchor-muted-alt);
+}
+
+.anchor-product__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 2px;
+  border: 2px solid var(--anchor-accent);
+  border-radius: var(--anchor-radius-btn);
+  background: none;
+  color: var(--anchor-ink);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.anchor-product__cta:hover,
+.anchor-product__cta:focus {
+  background-color: var(--anchor-accent);
+  color: var(--anchor-ink);
+  text-decoration: none;
+}
+
+.anchor-product__cta[disabled] {
+  border-color: var(--anchor-line);
+  color: var(--anchor-muted-alt);
+  cursor: not-allowed;
+}
+
+.anchor-product__cta[disabled]:hover { background: none; }
+
+/* The card also carries .grid-product, purely so theme.QuickAdd can find it
+   via closest(). The theme hangs decorative overlays off that class under a
+   [data-grid-style*=grey|gridlines] body attribute; this store is on "simple"
+   today, but suppress them so changing the product grid style cannot bleed a
+   tint or gridline into this design. */
+.anchor-product::after,
+.anchor-product::before { display: none !important; }
+
+/* theme.QuickAdd does btn.querySelector('.btn').classList.add('btn--loading')
+   and throws without a .btn descendant. This hook satisfies that contract while
+   staying inert, so theme .btn colour/padding rules never reach this design. */
+.anchor-product__cta-hook { display: none !important; }
+
+.anchor-product__cta:has(.btn--loading) { opacity: 0.6; pointer-events: none; }
+
+/* ----- related content (node 9172:500) ----------------------------------- */
+
+.anchor-related__grid,
+.anchor-shopmore__grid {
+  display: grid;
+  gap: var(--anchor-gap-lg);
+  align-items: start;
+}
+
+/* Figma gap between the section heading and its card row */
+.anchor-related .anchor-heading,
+.anchor-shopmore .anchor-heading { margin-bottom: var(--anchor-gap-lg); }
+
+.anchor-related__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.anchor-related__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7.5px;
+  text-decoration: none;
+}
+
+.anchor-related__media {
+  position: relative;
+  width: 100%;
+  border-radius: var(--anchor-radius);
+  overflow: hidden;
+}
+
+.anchor-related__media image-element,
+.anchor-related__media img {
+  display: block;
+  width: 100%;
+  height: 165.38px;
+  object-fit: cover;
+}
+
+.anchor-related__play {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  background-color: var(--anchor-accent);
+}
+
+.anchor-related__play svg {
+  display: block;
+  width: 9px;
+  height: 10.512px;
+  fill: var(--anchor-ink);
+}
+
+.anchor-related__title {
+  margin: 8.49px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--anchor-ink-soft);
+}
+
+/* ----- shop more (node 9172:552) ----------------------------------------- */
+
+.anchor-shopmore__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.anchor-shopmore__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 256px;
+  padding: var(--anchor-gap-lg);
+  border-radius: var(--anchor-radius);
+  overflow: hidden;
+  text-decoration: none;
+  background-color: var(--anchor-ink);
+}
+
+.anchor-shopmore__media,
+.anchor-shopmore__media image-element,
+.anchor-shopmore__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.anchor-shopmore__media img { object-fit: cover; object-position: center; }
+
+.anchor-shopmore__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.anchor-shopmore__body { position: relative; width: 100%; }
+
+.anchor-shopmore__title {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* A span (block-level tags are avoided inside the card link), so it needs
+   blockifying — otherwise the SHOP NOW link runs on inline after it and the
+   bottom margin is dropped. */
+.anchor-shopmore__text {
+  display: block;
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* ----- reviews (node 9172:122) ------------------------------------------- */
+
+.anchor-reviews {
+  background-color: var(--anchor-surface-alt);
+  border-top: 1px solid var(--anchor-line);
+}
+
+.anchor-reviews .anchor-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.anchor-reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--anchor-gap-lg);
+  align-items: start;
+}
+
+.anchor-review {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 25px;
+  border: 1px solid var(--anchor-line);
+  border-radius: var(--anchor-radius);
+  background-color: var(--anchor-surface);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05));
+}
+
+.anchor-review__stars {
+  display: flex;
+  align-items: flex-start;
+  line-height: 0;
+}
+
+.anchor-review__stars svg {
+  display: block;
+  width: 14.4427px;
+  height: 14.0014px;
+  fill: var(--anchor-accent);
+}
+
+.anchor-review__stars svg.is-empty { fill: var(--anchor-line); }
+
+.anchor-review__quote {
+  margin: 0;
+  font-size: 14px;
+  line-height: 19.25px;
+  font-weight: 600;
+  color: var(--anchor-ink-soft);
+}
+
+.anchor-review__author {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  color: var(--anchor-ink-soft);
+}
+
+.anchor-review__role {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--anchor-muted-alt);
+}
+
+/* ==========================================================================
+   Responsive
+   The Figma frame is desktop-only (1280). Breakpoints below are the theme
+   breakpoints (768 / 1024) and reflow the same content without redesigning it.
+   ========================================================================== */
+
+@media screen and (max-width: 1024px) {
+  .anchor-hero__inner { padding: 48px 40px; }
+  .anchor-hero__title { font-size: 44px; line-height: 54px; }
+
+  /* Feature card leads the row full-width, products fall to a 4-up grid */
+  .anchor-category__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .anchor-feature { grid-column: 1 / -1; min-height: 220px; }
+  .anchor-feature__body { max-width: 420px; }
+
+  .anchor-related__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .anchor-reviews__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .anchor-trust__list { flex-wrap: wrap; }
+  .anchor-trust__item { flex: 1 0 40%; }
+  .anchor-trust__item:nth-child(odd) { border-left: 0; }
+}
+
+@media screen and (max-width: 768px) {
+  .anchor-hero { min-height: 380px; }
+  .anchor-hero__inner { padding: 40px 20px; }
+  .anchor-hero__title { font-size: 34px; line-height: 42px; }
+  .anchor-hero__text { font-size: 16px; line-height: 24px; }
+  .anchor-hero__content { max-width: none; }
+
+  .anchor-category__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .anchor-category__head { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  .anchor-shopmore__grid { grid-template-columns: 1fr; }
+  .anchor-related__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .anchor-reviews__grid { grid-template-columns: 1fr; }
+
+  /* Matches the sibling selector above, otherwise stacked items keep a
+     stray left border — a media query adds no specificity of its own. */
+  .anchor-trust__item,
+  .anchor-trust__item + .anchor-trust__item {
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    border-left: 0;
+    padding: 0;
+  }
+
+  .anchor-intro__text { font-size: 16px; line-height: 26px; }
+  .anchor-heading { font-size: 20px; line-height: 28px; }
+}
+
+@media screen and (max-width: 480px) {
+  .anchor-category__grid { grid-template-columns: 1fr; }
+  .anchor-related__grid { grid-template-columns: 1fr; }
+}

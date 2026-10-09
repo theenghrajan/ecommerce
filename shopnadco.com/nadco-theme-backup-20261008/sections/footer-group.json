@@ -1,0 +1,379 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "multicolumn_icon_rTKNUF": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_PnJ3NJ": {
+          "type": "column",
+          "settings": {
+            "icon": "chat",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Office Hours",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_font": "heading",
+            "text": "<p>Mon-Fri, 8:30am-5pm EST.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_xNjRtG": {
+          "type": "column",
+          "settings": {
+            "icon": "phone",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Give Us A Call",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_font": "heading",
+            "text": "<p>+1 800-8.9-9018 (tool-free)</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_69fN8n": {
+          "type": "column",
+          "settings": {
+            "icon": "paperplane",
+            "max_width": 28,
+            "max_width_mb": 28,
+            "title": "Get in Touch",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_font": "heading",
+            "text": "<p>sales@nadcoinc.com</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_ngN6XL": {
+          "type": "column",
+          "settings": {
+            "icon": "map-pin",
+            "max_width": 32,
+            "max_width_mb": 32,
+            "title": "Address",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "text-base",
+            "heading_font": "heading",
+            "text": "<p>2240 72nd Terrace E, Sarasota, FL 34243</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_PnJ3NJ",
+        "column_xNjRtG",
+        "column_69fN8n",
+        "column_ngN6XL"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".rich-text__text {--text-margin-top: 0.4rem;}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "",
+        "content_alignment": "left",
+        "image_position": "left",
+        "icon_color": "#1d349a",
+        "columns_desktop": 4,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "newsletter_pbec79": {
+      "type": "newsletter",
+      "name": "t:sections.newsletter.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-863d1973-e395-483e-85e0-bcf93d456395",
+        "layout": "horizontal",
+        "subheading": "",
+        "heading": "Let's Get Started!",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>*No Sales Tax on deliveries outside the State of Florida</p>",
+        "text_size": "text-base",
+        "alignment": "left",
+        "alignment_mobile": "inherit",
+        "width_settings": "custom",
+        "form_width": 480,
+        "newsletter_term": "",
+        "newsletter_term_size": "text-base",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "padding_top": 26,
+        "padding_bottom": 26,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "menu_DEKGYP": {
+          "type": "menu",
+          "settings": {
+            "block_width": 10,
+            "heading": "Shop",
+            "heading_size": "h6",
+            "menu": "shop",
+            "open_default": false,
+            "show_divider": false
+          }
+        },
+        "menu_KHxk9y": {
+          "type": "menu",
+          "settings": {
+            "block_width": 16,
+            "heading": "Industries",
+            "heading_size": "h6",
+            "menu": "industries-1",
+            "open_default": false,
+            "show_divider": false
+          }
+        },
+        "menu_4eCrBB": {
+          "type": "menu",
+          "settings": {
+            "block_width": 17,
+            "heading": "Services",
+            "heading_size": "h6",
+            "menu": "services-1",
+            "open_default": false,
+            "show_divider": false
+          }
+        },
+        "menu_YRWiYN": {
+          "type": "menu",
+          "settings": {
+            "block_width": 18,
+            "heading": "Legal",
+            "heading_size": "h6",
+            "menu": "legal",
+            "open_default": false,
+            "show_divider": false
+          }
+        },
+        "menu_TX8YCT": {
+          "type": "menu",
+          "settings": {
+            "block_width": 16,
+            "heading": "Resources",
+            "heading_size": "h6",
+            "menu": "resources",
+            "open_default": false,
+            "show_divider": false
+          }
+        },
+        "menu_MjgJEx": {
+          "type": "menu",
+          "disabled": true,
+          "settings": {
+            "block_width": 13,
+            "heading": "CUSTOM",
+            "heading_size": "h6",
+            "menu": "services",
+            "open_default": false,
+            "show_divider": false
+          }
+        },
+        "image_text_7Cpf6h": {
+          "type": "image_text",
+          "settings": {
+            "block_width": 23,
+            "layout": "image_top",
+            "heading": "Contact us",
+            "heading_size": "h6",
+            "image_width": 100,
+            "image_width_mobile": 100,
+            "overlay_opacity": 70,
+            "text": "<p><strong>Phone</strong><br/><a href=\"tel:9417516693\">800.839.9018</a><br/><br/><strong>Email</strong><br/><a href=\"mailto:sales@nadcoinc.com\" target=\"_blank\">sales@nadcoinc.com</a></p><p><br/><strong>Address</strong><br/>NADCO® Tapes & Labels, Inc.<br/>2240 72nd Terrace E., Sarasota, FL 34243</p><p></p><p><a href=\"/pages/nadco-secure-payments\" title=\"NADCO Secure Payments\">NADCO Secure Payments</a></p>",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "color_scheme": "scheme-inverse",
+            "content_alignment": "left",
+            "open_default": false,
+            "show_divider": false
+          }
+        }
+      },
+      "block_order": [
+        "menu_DEKGYP",
+        "menu_KHxk9y",
+        "menu_4eCrBB",
+        "menu_YRWiYN",
+        "menu_TX8YCT",
+        "menu_MjgJEx",
+        "image_text_7Cpf6h"
+      ],
+      "custom_css": [],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-863d1973-e395-483e-85e0-bcf93d456395",
+        "enable_follow_on_shop": false,
+        "show_social": false,
+        "social_button_style": "btn--icon",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "footer_layout": "standard",
+        "footer_bottom_menu": "",
+        "show_sperator_line": false,
+        "show_section_divider": true,
+        "divider_width": "fixed",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "footer_center_3H6Ccn": {
+      "type": "footer-center",
+      "blocks": {
+        "payment_tNKGwT": {
+          "type": "payment",
+          "settings": {}
+        },
+        "social_HE8iJB": {
+          "type": "social",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "payment_tNKGwT",
+        "social_HE8iJB"
+      ],
+      "name": "footer center",
+      "settings": {
+        "bg_color": "#ffffff",
+        "container_width": 1400,
+        "logo": "shopify://shop_images/nadco-jbc-llc.png",
+        "logo_height": 60,
+        "social_title": "Connect With Us:",
+        "text_color": "#000000",
+        "text_size": 14,
+        "payment_icon_height": 26,
+        "social_icon_size": 22,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "mobile_sticky_bar_aYhgJK": {
+      "type": "mobile-sticky-bar",
+      "blocks": {
+        "home_AP8mmy": {
+          "type": "home",
+          "settings": {
+            "text": "Home"
+          }
+        },
+        "cart_gnnwxQ": {
+          "type": "cart",
+          "settings": {
+            "text": "Cart"
+          }
+        },
+        "products_eYYkE8": {
+          "type": "products",
+          "settings": {
+            "text": "Products",
+            "collection": ""
+          }
+        },
+        "link_mJ6QMc": {
+          "type": "link",
+          "settings": {
+            "text": "About",
+            "url": "",
+            "icon": "map-pin"
+          }
+        }
+      },
+      "block_order": [
+        "home_AP8mmy",
+        "cart_gnnwxQ",
+        "products_eYYkE8",
+        "link_mJ6QMc"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky_bar": true,
+        "show_text": true
+      }
+    }
+  },
+  "order": [
+    "multicolumn_icon_rTKNUF",
+    "newsletter_pbec79",
+    "footer",
+    "footer_center_3H6Ccn",
+    "mobile_sticky_bar_aYhgJK"
+  ]
+}

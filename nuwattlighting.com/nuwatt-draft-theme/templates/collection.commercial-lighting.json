@@ -1,0 +1,275 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_4rEJtR": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our LED Commercial Lighting Collection",
+        "collection_seo_description": "Our LED commercial lighting collection offers high performance, energy efficient solutions for businesses of all sizes. From warehouses to office spaces, these fixtures are designed to provide consistent, bright illumination while reducing energy costs. This collection is ideal for any indoor or outdoor commercial environment."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/cct-color-temperature-recessed-lighting-icon.png?v=1724086946\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_LpMBx9": {
+      "type": "jump-to",
+      "blocks": {
+        "question_PwLKnT": {
+          "type": "question",
+          "settings": {
+            "button": "LED Tubes",
+            "link": "shopify://collections/led-tube-lights",
+            "image": "shopify://shop_images/NW-T8F-4-18W-50K-30P-MAIN-464841.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_LVUiDp": {
+          "type": "question",
+          "settings": {
+            "button": "Panels",
+            "link": "shopify://collections/led-panel-light",
+            "image": "shopify://shop_images/NW-SM-1X4-40W-3CT-UV-WH_Listing_MAIN_1P-545431.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_yMKMtD": {
+          "type": "question",
+          "settings": {
+            "button": "Highbays",
+            "link": "shopify://collections/high-bay-led-lights",
+            "image": "shopify://shop_images/high-bay-lighting.webp",
+            "alt-text": ""
+          }
+        },
+        "question_RiB4QB": {
+          "type": "question",
+          "settings": {
+            "button": "Flood Lights",
+            "link": "shopify://collections/led-flood-lights",
+            "image": "shopify://shop_images/NW-SFL-15W-3CT-KN-WH-157820.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_wQnKcW": {
+          "type": "question",
+          "settings": {
+            "button": "Strip Lights",
+            "link": "shopify://collections/led-shop-lights",
+            "image": "shopify://shop_images/51l2JXAtMJS_4ff7ed41-b734-4fed-abd4-25d8d1601c5e.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_A6ybDB": {
+          "type": "question",
+          "settings": {
+            "button": "Canopy Lights",
+            "link": "shopify://collections/canopy-lights",
+            "image": "shopify://shop_images/led-canopy-lights-outdoor-150w-waterproof-led-gas-station-light-2cct-selectable-4000k5000k-21250lm-dimmable-120-277v-ip67-rated-led-parking-garage-lights-or-lig-413822.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_8JDNTE": {
+          "type": "question",
+          "settings": {
+            "button": "Wall Packs",
+            "link": "shopify://collections/led-wall-packs",
+            "image": "shopify://shop_images/wall.png",
+            "alt-text": ""
+          }
+        },
+        "question_kTzBb3": {
+          "type": "question",
+          "settings": {
+            "button": "Commercial Downlights",
+            "link": "shopify://collections/commercial-recessed-lighting",
+            "image": "shopify://shop_images/LED-DLJBX-4RG-main-597242.jpg",
+            "alt-text": "Jump to the commercial recessed lights collection page"
+          }
+        }
+      },
+      "block_order": [
+        "question_PwLKnT",
+        "question_LVUiDp",
+        "question_yMKMtD",
+        "question_RiB4QB",
+        "question_wQnKcW",
+        "question_A6ybDB",
+        "question_8JDNTE",
+        "question_kTzBb3"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "faq_e7jWt9": {
+      "type": "faq",
+      "blocks": {
+        "question_6h98KB": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_jmXJjF": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_Gr68CE": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3 | metafield_tag }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_6h98KB",
+        "question_jmXJjF",
+        "question_Gr68CE"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "center"
+      }
+    },
+    "collection_metafield_faq_3jzPF3": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_8QE8kB": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_8TxWpG": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_Atj8GY": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_D8i9qV": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_rVxbtb": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        },
+        "question_nYcdAt": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_6.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_6 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_8QE8kB",
+        "question_8TxWpG",
+        "question_Atj8GY",
+        "question_D8i9qV",
+        "question_rVxbtb",
+        "question_nYcdAt"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_iNBPcq": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our LED Commercial Lighting Collection",
+        "collection_seo_description": "Our LED commercial lighting collection offers high performance, energy efficient solutions for businesses of all sizes. From warehouses to office spaces, these fixtures are designed to provide consistent, bright illumination while reducing energy costs. This collection is ideal for any indoor or outdoor commercial environment."
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "custom_expandable_discription_4rEJtR",
+    "main-collection",
+    "jump_to_LpMBx9",
+    "faq_e7jWt9",
+    "collection_metafield_faq_3jzPF3",
+    "recently-viewed",
+    "expandable_description_iNBPcq"
+  ]
+}

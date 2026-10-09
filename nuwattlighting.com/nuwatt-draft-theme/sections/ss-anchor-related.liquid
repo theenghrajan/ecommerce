@@ -1,0 +1,421 @@
+{% comment %}
+  ==============================================================================
+  SS Anchor Related Content
+  Figma: "128 Audit Fixes" / Anchor page — Section - Related Content (9172:500)
+
+  ARCHITECTURE:
+  Content is driven dynamically by Metaobjects referenced on the Anchor Page.
+  This removes the need for individual section blocks or code changes when
+  merchants add, reorder, or replace related articles/videos.
+
+  PLACEHOLDER DEFINITIONS (To be created in Shopify Admin):
+  ------------------------------------------------------------------------------
+  1. Metaobject Name: "Anchor Page Related Content"
+     Metaobject Type: "placeholder_anchor_page_related_content"
+     Fields:
+       - youtube_video_url : Single-line text (YouTube URL or Video ID)
+       - cover_image       : File / Image (Optional custom cover image)
+       - featured_title    : Single-line text (Card title & accessible name)
+       - short_blurb       : Multi-line text (Description text for Blog cards)
+       - blog_link         : URL (Destination URL for Blog cards)
+
+  2. Anchor Page Metafield:
+     Namespace & Key: page.metafields.custom.anchor_page_related_content
+     Type: List of Metaobject references (Anchor Page Related Content)
+
+  CONTENT TYPE DETERMINATION:
+    - If youtube_video_url is populated -> Video Card (opens on-page modal)
+    - Else if blog_link is populated   -> Blog Card (navigates to article)
+    - If neither is populated           -> Card is skipped
+    (Video takes priority if both are populated)
+
+  NOTE FOR DEVELOPERS:
+  Replace 'custom.anchor_page_related_content' with the live metafield key if
+  a different namespace or key is configured in Shopify Admin.
+  ==============================================================================
+{% endcomment %}
+
+{{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
+{%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
+{%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --ss-card-radius: {{ section.settings.card_radius }}px;
+    --ss-card-border: {{ section.settings.card_border_color }};
+  }
+
+  #shopify-section-{{ section.id }} .ss-anchor-related__blurb {
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--ss-muted, #4b5563);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .ss-anchor-related__link {
+    margin-top: auto;
+    padding-top: 4px;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  # Retrieve list of Metaobject entries from the Anchor Page's metafield
+  assign related_content_items = page.metafields.custom.anchor_page_related_content.value
+-%}
+
+<div
+  id="SsAnchorRelated-{{ section.id }}"
+  class="ss-anchor-section ss-anchor-related"
+  data-section-id="{{ section.id }}"
+  data-section-type="ss-anchor-related"
+>
+  <div class="ss-anchor-inner">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ss-anchor-heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- comment -%} V2: carousel. Native scroll-snap track; the arrows just scroll it by one card. {%- endcomment -%}
+    <div class="ss-anchor-related__carousel">
+      <button type="button" class="ss-anchor-related__arrow ss-anchor-related__arrow--prev" data-ss-related-prev aria-label="Previous" hidden>
+        {%- render 'ss-anchor-icon', icon: 'arrow' -%}
+      </button>
+    <div class="ss-anchor-related__grid" data-ss-related-track>
+      {%- for content in related_content_items -%}
+        {%- liquid
+          # Extract field values from the Metaobject entry (.value used where needed)
+          assign yt_raw = content.youtube_video_url.value | default: content.youtube_video_url | strip
+          assign blog_url = content.blog_link.value | default: content.blog_link | strip
+          assign cover_img = content.cover_image.value | default: content.cover_image
+          assign featured_title = content.featured_title.value | default: content.featured_title | strip
+          assign short_blurb = content.short_blurb.value | default: content.short_blurb | strip
+
+          # Determine content type:
+          # Video takes priority if youtube_video_url is populated.
+          # Otherwise, Blog if blog_link is populated.
+          assign is_video = false
+          assign is_blog = false
+
+          if yt_raw != blank
+            assign is_video = true
+          elsif blog_url != blank
+            assign is_blog = true
+          endif
+        -%}
+
+        {%- if is_video -%}
+          {%- liquid
+            # Extract YouTube Video ID from common formats:
+            # - https://www.youtube.com/watch?v=VIDEO_ID
+            # - https://youtu.be/VIDEO_ID
+            # - https://www.youtube.com/embed/VIDEO_ID
+            # - Raw VIDEO_ID
+            assign yt_id = yt_raw
+            if yt_id contains 'v='
+              assign yt_id = yt_id | split: 'v=' | last | split: '&' | first | split: '?' | first
+            elsif yt_id contains 'youtu.be/'
+              assign yt_id = yt_id | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first
+            elsif yt_id contains 'embed/'
+              assign yt_id = yt_id | split: 'embed/' | last | split: '?' | first | split: '&' | first
+            else
+              assign yt_id = yt_id | split: '?' | first | split: '&' | first
+            endif
+            assign yt_id = yt_id | strip
+          -%}
+
+          <div class="ss-anchor-related__card ss-anchor-related__card--video">
+            <button
+              type="button"
+              class="ss-anchor-related__media ss-anchor-related__media--video js-ss-anchor-video"
+              data-youtube-id="{{ yt_id | escape }}"
+              data-video-title="{{ featured_title | escape }}"
+              aria-haspopup="dialog"
+            >
+              {%- comment -%}
+                Thumbnail Resolution Priority:
+                  1. Metaobject cover_image (uploaded file)
+                  2. YouTube hqdefault fallback for the extracted video ID
+                  3. Standard placeholder SVG
+              {%- endcomment -%}
+              {%- if cover_img != blank -%}
+                {%- render 'image-element',
+                  img: cover_img,
+                  alt: '',
+                  widths: '300, 450, 600',
+                  sizes: '(min-width: 1025px) 262px, 50vw',
+                  ariaHidden: true
+                -%}
+              {%- elsif yt_id != blank -%}
+                <img
+                  src="https://img.youtube.com/vi/{{ yt_id | escape }}/hqdefault.jpg"
+                  alt=""
+                  width="480"
+                  height="360"
+                  loading="lazy"
+                  aria-hidden="true"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+
+              {%- comment -%} V2: YouTube's red play button, centred on the thumbnail {%- endcomment -%}
+              <span class="ss-anchor-related__play" aria-hidden="true">
+                <svg viewBox="0 0 68 48" width="68" height="48" focusable="false"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#f00"/><path d="M45 24 27 14v20" fill="#fff"/></svg>
+              </span>
+
+              <span class="visually-hidden">Play video: {{ featured_title | default: 'Video' | escape }}</span>
+            </button>
+
+            {%- if featured_title != blank -%}
+              <h3 class="ss-anchor-related__title">{{ featured_title | escape }}</h3>
+            {%- endif -%}
+          </div>
+
+        {%- elsif is_blog -%}
+          <div class="ss-anchor-related__card ss-anchor-related__card--blog">
+            <a
+              href="{{ blog_url }}"
+              class="ss-anchor-related__media ss-anchor-related__media--blog"
+              {% if featured_title != blank %}aria-label="{{ featured_title | escape }}"{% endif %}
+            >
+              {%- if cover_img != blank -%}
+                {%- render 'image-element',
+                  img: cover_img,
+                  alt: '',
+                  widths: '300, 450, 600',
+                  sizes: '(min-width: 1025px) 262px, 50vw',
+                  ariaHidden: true
+                -%}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </a>
+
+            {%- if featured_title != blank -%}
+              <h3 class="ss-anchor-related__title">
+                <a href="{{ blog_url }}">
+                  {{ featured_title | escape }}
+                </a>
+              </h3>
+            {%- endif -%}
+
+            {%- if short_blurb != blank -%}
+              <p class="ss-anchor-related__blurb">
+                {{ short_blurb | escape | newline_to_br }}
+              </p>
+            {%- endif -%}
+
+            <a class="ss-anchor-link ss-anchor-related__link" href="{{ blog_url }}">
+              Learn More
+              {%- render 'ss-anchor-icon', icon: 'arrow' -%}
+            </a>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+      <button type="button" class="ss-anchor-related__arrow ss-anchor-related__arrow--next" data-ss-related-next aria-label="Next" hidden>
+        {%- render 'ss-anchor-icon', icon: 'arrow' -%}
+      </button>
+    </div>
+
+    {%- if related_content_items == blank and request.design_mode -%}
+      <div class="ss-anchor-empty">
+        <p>No related content entries selected. Connect Metaobject entries using the <strong>Anchor Page Related Content</strong> metafield (<code>page.metafields.custom.anchor_page_related_content</code>) on this page.</p>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} On-page YouTube modal (one instance per section, shared by all video cards) {%- endcomment -%}
+  <div
+    class="ss-anchor-modal"
+    id="SsAnchorModal-{{ section.id }}"
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ section.settings.heading | escape }}"
+    hidden
+  >
+    <div class="ss-anchor-modal__backdrop" data-ss-modal-close></div>
+    <div class="ss-anchor-modal__panel">
+      <button
+        type="button"
+        class="ss-anchor-modal__close"
+        data-ss-modal-close
+        aria-label="{{ 'general.accessibility.close_modal' | t | default: 'Close' }}"
+      >&times;</button>
+      <div class="ss-anchor-modal__frame"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var sectionId = {{ section.id | json }};
+
+    function init() {
+      var root = document.getElementById('SsAnchorRelated-' + sectionId);
+      var modal = document.getElementById('SsAnchorModal-' + sectionId);
+      if (!root || !modal || root.getAttribute('data-ss-video-ready') === 'true') return;
+      root.setAttribute('data-ss-video-ready', 'true');
+
+      // Carousel arrows: scroll the track by one card; hide an arrow at its end
+      // (and both when everything fits, e.g. the stacked mobile layout).
+      var track = root.querySelector('[data-ss-related-track]');
+      var prev = root.querySelector('[data-ss-related-prev]');
+      var next = root.querySelector('[data-ss-related-next]');
+      function step(dir) {
+        var card = track.firstElementChild;
+        var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        track.scrollBy({ left: dir * ((card ? card.offsetWidth : track.clientWidth) + gap), behavior: 'smooth' });
+      }
+      function updateArrows() {
+        var max = track.scrollWidth - track.clientWidth - 1;
+        prev.hidden = track.scrollLeft <= 0;
+        next.hidden = track.scrollLeft >= max;
+      }
+      if (track && prev && next) {
+        prev.addEventListener('click', function () { step(-1); });
+        next.addEventListener('click', function () { step(1); });
+        track.addEventListener('scroll', updateArrows, { passive: true });
+        window.addEventListener('resize', updateArrows);
+        updateArrows();
+      }
+
+      var frame = modal.querySelector('.ss-anchor-modal__frame');
+      var lastFocus = null;
+
+      function open(id, title) {
+        if (!id) return;
+        lastFocus = document.activeElement;
+        // youtube-nocookie keeps the embed out of the ad-tracking cookie jar.
+        var src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute('src', src);
+        iframe.setAttribute('title', title || 'Video');
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        frame.appendChild(iframe);
+        modal.hidden = false;
+        document.documentElement.classList.add('ss-anchor-modal-open');
+        var closeBtn = modal.querySelector('.ss-anchor-modal__close');
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function close() {
+        modal.hidden = true;
+        document.documentElement.classList.remove('ss-anchor-modal-open');
+        // Removing the iframe is what actually stops playback.
+        frame.innerHTML = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      root.addEventListener('click', function (e) {
+        var trigger = e.target.closest ? e.target.closest('.js-ss-anchor-video') : null;
+        if (trigger) {
+          e.preventDefault();
+          open(trigger.getAttribute('data-youtube-id'), trigger.getAttribute('data-video-title'));
+          return;
+        }
+        if (e.target.closest && e.target.closest('[data-ss-modal-close]')) {
+          e.preventDefault();
+          close();
+        }
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.hidden) close();
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    document.addEventListener('shopify:section:load', function (evt) {
+      if (evt.detail && evt.detail.sectionId === sectionId) init();
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "SS Anchor Related",
+  "tag": "section",
+  "class": "ss-anchor-section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Learn About Lighting"
+    },
+    {
+      "type": "select",
+      "id": "text_case",
+      "label": "Heading case",
+      "info": "Overrides the theme-wide uppercase heading setting for this section only.",
+      "default": "sentence",
+      "options": [
+        { "value": "sentence", "label": "Sentence case" },
+        { "value": "uppercase", "label": "UPPERCASE" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "info": "The theme's border colour is currently white, which would be invisible.",
+      "default": "#e5e7eb"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS Anchor Related"
+    }
+  ]
+}
+{% endschema %}
