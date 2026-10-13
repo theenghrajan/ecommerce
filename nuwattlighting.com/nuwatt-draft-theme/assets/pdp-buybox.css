@@ -207,6 +207,19 @@
   grid-template-columns: 1fr 1fr;
 }
 
+/* AC #164: spec rows without bullets, packed closer together */
+.mini-specs ul{
+  list-style: none;
+  margin-left: 0;
+}
+.mini-specs ul li{
+  margin-bottom: 0;
+  line-height: 1.35;
+}
+.read-more-specs-wrap a{
+  margin-left: 0;
+}
+
 /* ---------- Buy box card ---------- */
 .product-single__buy-box{
   border: 1px solid #e5e5e5;

@@ -20,11 +20,11 @@
 <div id="lighting-layout-tool">
 
   {% if section.settings.heading != blank %}
-    <h1 style="text-align: center; margin-bottom: 20px;">{{ section.settings.heading }}</h1>
+    <h2 class="lighting-tool__title">{{ section.settings.heading }}</h2>
   {% endif %}
 
   {% if section.settings.content != blank %}
-    <div style="max-width: 1200px; margin: 0 auto 20px auto;">
+    <div class="lighting-tool__intro">
       {{ section.settings.content }}
     </div>
   {% endif %}
@@ -32,7 +32,9 @@
   <style>
     /* Scoped CSS to prevent interference with your Shopify theme's global styles */
     #lighting-layout-tool {
-      font-family: system-ui, sans-serif;
+      /* #150 mobile audit (3): theme font instead of the system font; (5): land below the sticky header */
+      font-family: inherit;
+      scroll-margin-top: 150px;
       background: #f4f5f7;
       color: #333;
       padding: 40px 20px;
@@ -71,14 +73,36 @@
     }
 
     #lighting-layout-tool .inline-checkbox-label {
-      display: inline-flex;
+      /* #150 mobile audit (6): checkbox right beside its label, in a 44px-tall tappable row */
+      display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 10px;
+      gap: 10px;
+      min-height: 44px;
+      margin-top: 6px;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
     }
+    #lighting-layout-tool .inline-checkbox-label input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      margin: 0;
+      padding: 0;
+    }
+    #lighting-layout-tool .lighting-tool__title {
+      margin: 0 0 8px;
+      text-align: center;
+    }
+    #lighting-layout-tool .lighting-tool__intro {
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+    /* #150 mobile audit (6): no spinner arrows on number fields */
+    #lighting-layout-tool input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+    #lighting-layout-tool input[type="number"]::-webkit-outer-spin-button,
+    #lighting-layout-tool input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
     #lighting-layout-tool input,
     #lighting-layout-tool select {
@@ -304,6 +328,14 @@
       #lighting-layout-tool .layout-container {
         flex-direction: column;
       }
+      /* #150 mobile audit (5): result area stays hidden until "View My Layout" produced a result */
+      #lighting-layout-tool:not(.has-layout) #visualisationStep {
+        display: none;
+      }
+      /* no empty space under "View My Layout" - the panel only needs to be as tall as its content */
+      #lighting-layout-tool .main-content {
+        min-height: 0;
+      }
       #lighting-layout-tool .sidebar {
         width: 100%;
         box-sizing: border-box;
@@ -351,7 +383,7 @@
 
       <div style="margin-top: 10px;">
           <label id="ceilingHeightLabel" style="margin-top: 0;">Ceiling Height (ft)</label>
-          <input id="ceilingHeight" type="number" placeholder="select ceiling height" min="8" max="16">
+          <input id="ceilingHeight" type="number" placeholder="e.g. 8" min="8" max="20" step="1" inputmode="numeric">
           <div id="heightWarning" class="validation-warning"></div>
 
           <label class="inline-checkbox-label">
@@ -360,7 +392,7 @@
       </div>
 
       <label>Brightness (Lumens)</label>
-      <input id="fixtureLumens" type="number" placeholder="fixture brightness" min="500" max="2100" step="50" value="{{ default_fixture_lumens }}">
+      <input id="fixtureLumens" type="number" placeholder="fixture brightness" min="500" max="2100" step="50" inputmode="numeric" value="{{ default_fixture_lumens }}">
       <div id="lumensWarning" class="validation-warning"></div>
 
       <label>Color</label>
@@ -375,11 +407,11 @@
         <h3 id="areaATitle">Area A</h3>
 
         <label id="lengthALabel">Length A (ft)</label>
-        <input id="lengthA" type="number" value="25" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <input id="lengthA" type="number" step="1" inputmode="numeric" value="25" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
         <div id="lengthAWarning" class="validation-warning"></div>
 
         <label id="widthALabel">Width A (ft)</label>
-        <input id="widthA" type="number" value="20" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <input id="widthA" type="number" step="1" inputmode="numeric" value="20" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
         <div id="widthAWarning" class="validation-warning"></div>
 
       </div>
@@ -389,11 +421,11 @@
         <h3>Area B</h3>
 
         <label>Length B (ft)</label>
-        <input id="lengthB" type="number" value="20" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <input id="lengthB" type="number" step="1" inputmode="numeric" value="20" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
         <div id="lengthBWarning" class="validation-warning"></div>
 
         <label>Width B (ft)</label>
-        <input id="widthB" type="number" value="15" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
+        <input id="widthB" type="number" step="1" inputmode="numeric" value="15" min="0" max="40" onkeydown="return event.key !== '-' && event.key !== '+' && event.key !== 'e' && event.key !== 'E';" oninput="if(this.value !== '' && parseFloat(this.value) < 0) this.value = Math.abs(this.value);">
         <div id="widthBWarning" class="validation-warning"></div>
 
         <label>Orientation</label>
@@ -734,6 +766,14 @@
               inputEl.value = 0;
           }
 
+          // #150 mobile audit (6): every numeric calculator field accepts whole numbers only
+          if (!Number.isInteger(rawVal)) {
+              inputEl.classList.add("input-error");
+              warningEl.innerText = "Please enter a whole number.";
+              warningEl.style.display = "block";
+              return { valid: false, value: NaN };
+          }
+
           if (rawVal > max || rawVal < min) {
               inputEl.classList.add("input-error");
               warningEl.innerText = `${rawVal} falls outside valid ${typeLabel} range (${min}-${max}). Calculations halted.`;
@@ -770,7 +810,7 @@
 
           const roomTypeLabel = document.getElementById("roomType").options[document.getElementById("roomType").selectedIndex].text;
 
-          const hValid = applyValidation(document.getElementById("ceilingHeight"), document.getElementById("heightWarning"), 8, 16, "ceiling height");
+          const hValid = applyValidation(document.getElementById("ceilingHeight"), document.getElementById("heightWarning"), 8, 20, "ceiling height");
           const laValid = applyValidation(document.getElementById("lengthA"), document.getElementById("lengthAWarning"), 0, 40, "dimension");
           const waValid = applyValidation(document.getElementById("widthA"), document.getElementById("widthAWarning"), 0, 40, "dimension");
           const lumValid = applyValidation(document.getElementById("fixtureLumens"), document.getElementById("lumensWarning"), 500, 2100, "lumens");
@@ -1059,6 +1099,13 @@
           document.getElementById("outputJSON").innerText = JSON.stringify({ shape, totalArea, lumensTotalMin, lumensTotalMax, layoutData }, null, 2);
       }
 
+      // #150 mobile audit (6): whole numbers only - block decimal points, exponents and signs while typing
+      document.querySelectorAll('#lighting-layout-tool input[type="number"]').forEach(el => {
+          el.addEventListener("keydown", e => {
+              if ([".", ",", "e", "E", "+", "-"].includes(e.key)) e.preventDefault();
+          });
+      });
+
       document.querySelectorAll("#lighting-layout-tool input, #lighting-layout-tool select").forEach(el => {
           el.addEventListener("input", runEngine);
           el.addEventListener("change", runEngine);
@@ -1080,6 +1127,7 @@
           }
 
           hasClickedViewLayout = true;
+          document.getElementById("lighting-layout-tool").classList.add("has-layout");
           document.getElementById("lumensOutput").style.display = "block";
 
           runEngine();

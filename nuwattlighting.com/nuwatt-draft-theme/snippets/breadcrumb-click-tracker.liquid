@@ -35,7 +35,27 @@
       }
     }
 
+    // Mobile drawer (#116 audit): its links carry no data-nest-level, but every
+    // drawer on the open path is flagged data-active="true", in parent-to-child
+    // DOM order, with its parent link in the drawer header. Chain = those
+    // headers, then the tapped link (or up to the tapped header itself).
+    function computeDrawerChain(anchorEl, drawerMenu) {
+      var chain = [];
+      var drawers = drawerMenu.querySelectorAll('.Meteor-Drawer[data-active="true"]');
+      for (var i = 0; i < drawers.length; i++) {
+        var header = drawers[i].querySelector('.Meteor-Drawer__Header a');
+        if (!header) continue;
+        chain.push({ title: header.textContent.trim(), url: header.getAttribute('href') });
+        if (header === anchorEl) return chain;
+      }
+      chain.push({ title: anchorEl.textContent.trim(), url: anchorEl.getAttribute('href') });
+      return chain;
+    }
+
     function computeClickedChain(anchorEl) {
+      var drawerMenu = anchorEl.closest('.Meteor-MobileMenu');
+      if (drawerMenu) return computeDrawerChain(anchorEl, drawerMenu);
+
       var levelAttr = anchorEl.getAttribute('data-nest-level');
 
       if (!levelAttr) {
@@ -86,7 +106,7 @@
         'click',
         function (e) {
           var anchor = e.target.closest(
-            'a[data-nest-level], a.Meteor-Navigation__Link__desktop, a.Meteor-Navigation__Link__mobile'
+            'a[data-nest-level], a.Meteor-Navigation__Link__desktop, a.Meteor-Navigation__Link__mobile, .Meteor-MobileMenu a'
           );
           if (!anchor || !anchor.getAttribute('href')) return;
 

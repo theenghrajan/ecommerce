@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
-          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
-          "settings": {
-            "product": "{{product}}",
-            "alignment": ""
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -72,10 +65,16 @@
             "padding_right": 0,
             "padding_left": 0
           }
+        },
+        "stamped_badge": {
+          "type": "custom",
+          "settings": {
+            "code": "<span class=\"stamped-product-reviews-badge stamped-main-badge\" data-id=\"{{ product.id }}\" data-product-sku=\"{{ product.handle }}\" data-product-type=\"{{ product.type | escape }}\" data-product-title=\"{{ product.title | escape }}\" style=\"display: inline-block;\"></span>"
+          }
         }
       },
       "block_order": [
-        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "stamped_badge",
         "price",
         "custom_i8j8zU",
         "variant_picker",
@@ -205,7 +204,7 @@
             "media_type": "image",
             "image_asset": "pdp-row-6-install-guide-poster.png",
             "show_play_icon": true,
-            "caption": "Video coming soon — this is a placeholder poster frame from the Figma reference until a real install-guide video is uploaded."
+            "caption": ""
           }
         }
       },
@@ -222,8 +221,8 @@
     "pdp_lighting_calculator": {
       "type": "pdp-lighting-calculator",
       "settings": {
-        "heading": "",
-        "content": ""
+        "heading": "Lighting Layout Calculator",
+        "content": "<p>Answer a few quick questions and we'll show how many lights your room needs.</p>"
       }
     },
     "pdp_fbt": {
@@ -245,10 +244,24 @@
             "title": "",
             "alignment": "",
             "sortOrder": "mostRecent"
+          },
+          "disabled": true
+        },
+        "stamped_reviews_main_widget": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
           }
         }
       },
       "block_order": [
+        "stamped_reviews_main_widget",
         "junip_product_reviews_ugc_junip_product_review_MWWUca"
       ],
       "settings": {

@@ -397,6 +397,11 @@ document.querySelectorAll('.alt-accordion-toggle').forEach((header, index) => {
   {{ 'pdp-tabs.css' | asset_url | stylesheet_tag }}
   {{ 'pdp-image-rows.css' | asset_url | stylesheet_tag }}
   {{ 'pdp-fbt.css' | asset_url | stylesheet_tag }}
+  {%- comment -%} Task #150 mobile product page audit {%- endcomment -%}
+  {%- if template.name == 'product' -%}
+    {{ 'pdp-mobile-audit.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'pdp-mobile-audit.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
 
   <script>
 
@@ -844,6 +849,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+{%- comment -%} Stamped.io reviews - same as the live theme (AC 490502 #61) {%- endcomment -%}
+<script>function myInit(){ StampedFn.init({ apiKey: '31f05899-3dc3-476c-91b8-375386ad6cfc', storeUrl: '363503' }); }</script>
+<script async onload="myInit()" type="text/javascript" src="https://cdn1.stamped.io/files/widget.min.js"></script>
 {%- render 'breadcrumb-click-tracker' -%}
 
 </body>

@@ -12,12 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
-          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
-          "settings": {
-            "product": "{{product}}"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -25,7 +19,7 @@
         "custom_i8j8zU": {
           "type": "custom",
           "settings": {
-            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Light Color:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">Yes</span></li>\n                <li><span>Warranty:&nbsp;</span><span class=\"mini-spec-meta\">5 Year</span></li>\n              </ul>\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>\n\n<div class=\"product-info__image\">\n\n    <img alt=\"retrofit base\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/retrofit-adapter-graphic.png?v=1723847271\">\n    <img alt=\"rgbw smart\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/rgbw-led-icon.png?v=1741376860\">\n    <img alt=\"alexa and google home compatible\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/works-with-alexa-and-google-home-icon.png?v=1741374040\">\n    <img alt=\"Triac Dimmable\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmable_blk.png?v=1723836192\">\n\n</div>"
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Light Color:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">Yes</span></li>\n                <li><span>Warranty:&nbsp;</span><span class=\"mini-spec-meta\">5 Year</span></li>\n              </ul>\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>"
           }
         },
         "variant_picker": {
@@ -47,10 +41,16 @@
             "show_dynamic_checkout": true,
             "surface_pickup_enable": false
           }
+        },
+        "stamped_badge": {
+          "type": "custom",
+          "settings": {
+            "code": "<span class=\"stamped-product-reviews-badge stamped-main-badge\" data-id=\"{{ product.id }}\" data-product-sku=\"{{ product.handle }}\" data-product-type=\"{{ product.type | escape }}\" data-product-title=\"{{ product.title | escape }}\" style=\"display: inline-block;\"></span>"
+          }
         }
       },
       "block_order": [
-        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "stamped_badge",
         "price",
         "custom_i8j8zU",
         "variant_picker",
@@ -78,10 +78,24 @@
           "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
           "settings": {
             "product": "{{product}}"
+          },
+          "disabled": true
+        },
+        "stamped_reviews_main_widget": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
           }
         }
       },
       "block_order": [
+        "stamped_reviews_main_widget",
         "junip_product_reviews_ugc_junip_product_review_MWWUca"
       ],
       "settings": {
@@ -250,7 +264,7 @@
             "media_type": "image",
             "image_asset": "pdp-row-6-install-guide-poster.png",
             "show_play_icon": true,
-            "caption": "Video coming soon — this is a placeholder poster frame from the Figma reference until a real install-guide video is uploaded."
+            "caption": ""
           }
         }
       },
@@ -267,8 +281,8 @@
     "pdp_lighting_calculator": {
       "type": "pdp-lighting-calculator",
       "settings": {
-        "heading": "",
-        "content": ""
+        "heading": "Lighting Layout Calculator",
+        "content": "<p>Answer a few quick questions and we'll show how many lights your room needs.</p>"
       }
     },
     "pdp_fbt": {

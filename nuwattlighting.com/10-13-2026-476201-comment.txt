@@ -1,0 +1,60 @@
+Gary Satanovsky  Eric Nairac
+
+As per comments #173 - #174,
+
+These changes are on the new draft theme only.
+Draft URL: https://www.nuwattlighting.com/collections/ufo-led-lights?preview_theme_id=148630929482
+
+Re: 1. Current page disappears - "I believe you guys already implemented this, can you confirm?"
+....
+Not before today. On Oct 9, as asked in #169 ("no scrollbar ever, truncate the product title"), the old scrolling row was replaced with truncation on both the live and draft themes. Option C has now been added to the draft theme, as explained in the next point.
+Screenshot (mobile): https://drive.google.com/file/d/1XU5O8uYywI_IVi7FI1Wm8xkq8id0RPUd/view?usp=sharing
+
+Re: 2. "Agreed, always scroll on mobile, don't truncate"
+....
+Done on every page with breadcrumbs. Nothing is shortened with "…" any more. If the trail is wider than the screen, the row can be swiped sideways. There is no visible scrollbar. The row opens scrolled to the end, so the current page always shows in full, and the left edge fades when earlier links are hidden there.
+Screenshot (mobile): https://drive.google.com/file/d/1tIVME_jO-Fs5QNG-66DIz-yT4Yp-Oq8Q/view?usp=sharing
+
+Re: 3. Mobile path - "adding the data nest level to mobile ... Is that right?"
+....
+Yes, that's right. It's the same idea as on desktop: record which parent the shopper actually tapped through, and replay that path on the next page. The mobile menu doesn't have those level attributes, but it does mark each open level, so we now record the path from that. Example: Recessed Lighting > Canless Recessed Lighting now shows "Home / Recessed Lighting / Canless Recessed Lighting" instead of "Residential Lighting". If someone lands on a collection directly (not from the menu), it still shows the default path.
+Screenshot (mobile): https://drive.google.com/file/d/1IxUPJ7qjRQudmhPa9DExyx8AeaJX7xx8/view?usp=sharing
+
+Re: 4. Product page breadcrumb - "Confirm that's the rule now?"
+....
+Confirmed. On product pages the breadcrumb sits above the product title, top left, in the same place as on collection pages. This has been on both live and draft since Oct 9. The same no-truncation rule now applies there too, and the "…" button has a larger 44x44px tap area.
+Screenshot (breadcrumb above the title): https://drive.google.com/file/d/1s_ytKuJGbEoMyo8hRep_ZekYnbj7h0OO/view?usp=sharing
+Screenshot (44x44px "…" tap area): https://drive.google.com/file/d/1rl0LQBdbc9ft1ZxG5ORCKHCqN4HmKL7a/view?usp=sharing
+
+Re: 5. Structured data doesn't match the visible breadcrumb
+....
+Understood, no change made. Showing the path the shopper took is the right call when collections sit under more than one parent.
+
+Re: 6. Breadcrumb appears late - "Good catch, please proceed"
+....
+Done. Collection pages now show their full default breadcrumb as soon as the page loads, instead of "Home" alone for 1-2 seconds. If the shopper came through the menu, it then switches to the path they took.
+Note: the default paths are a copy of the mega menu. When the mega menu changes, let us know so we can refresh that copy.
+Screenshot (breadcrumb in the page itself, shown with JavaScript turned off): https://drive.google.com/file/d/12iqDJqaT83cZKDqZGfypyGu6LREWtzA4/view?usp=sharing
+
+Re: Should-have: "Can you create a figma mockup showing your stylistic changes? Row height + separator contrast + font size."
+....
+We have made a mockup showing the current and proposed styles side by side on a mobile collection page:
+- Row height: 29px > 44px, so each link is an easy tap
+- Separator "/": 35% > 55% opacity
+- Font size: 16.8px > 14px
+Product pages on the draft theme already use these values, from the separate mobile product page audit task. The mockup also lists the changes made above. These styles have not been applied to collection pages yet; we will do that after the team reviews.
+
+Re: Duplicate of the H1 - "What option C?"
+....
+Option C is the scrolling breadcrumb from point 1 (the full trail scrolls sideways and opens at the end, with no truncation). We have kept the current page as the last crumb, as you described. No change made.
+
+Re: Anchor pages - "Home > Anchor page. They're top level destinations."
+....
+Done. The anchor page now shows "Home / Bedroom Lights" at the top left.
+Draft URL: https://www.nuwattlighting.com/pages/anchor?preview_theme_id=148630929482
+Screenshot (mobile): https://drive.google.com/file/d/1-iGJwEZ-_1ye9JhDEA1rsSiJBugmq_ji/view?usp=sharing
+Screenshot (desktop): https://drive.google.com/file/d/1CxVSOYUOI6otZ8egiOGSHRPbNj1ILRA5/view?usp=sharing
+
+Please review and let us know.
+
+Thanks!

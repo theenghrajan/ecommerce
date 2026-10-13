@@ -20,7 +20,8 @@
     for="ProductSelect-{{ section_id }}-{{ product.id }}-option-{{ forloop.index0 }}"
   >
     {%- if downcased_option == 'pack size' -%}
-      Select Pack Size
+      {%- comment -%} #150 mobile audit (8, comment #84): Sunco-style label "Pack Size: <selected>" {%- endcomment -%}
+      Pack Size: <span class="pack-size-selected" data-pack-size-selected>{{ option.selected_value }}</span>
     {%- else -%}
       {{ option.name }}
     {%- endif -%}
@@ -108,19 +109,7 @@
               class="variant__button-label{% unless product_available %} disabled{% endunless %}{% if optName == 'pack size' %} pack-size-label{% endif %}"
             >
               <span class="opt_value">{{- value | escape }}</span>
-              {% if optName == 'pack size' %}
-                {% for variant in product.variants %}
-                  {% if variant.title contains value %}
-                    {% assign varValue = value | remove: " Pieces" | remove: " Piece" | remove: " pieces" | remove: " piece" | strip %}
-                    {% assign number = varValue | plus: 0 %}
-                    {% if number <= 0 %}{% assign number = 1 %}{% endif %}
-                    <span class="lastvariant pack-size-unit-price">
-                      {{- variant.price | divided_by: number | money -}}/per piece
-                    </span>
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
-              {% endif %}
+              {%- comment -%} #150 mobile audit (8): per-piece price removed from the pack buttons (Sunco-style buttons show the pack name only). {%- endcomment -%}
             </label>
           </div>
         {%- endif -%}

@@ -289,59 +289,21 @@
     },
     "ss_reviews": {
       "type": "ss-anchor-reviews",
-      "blocks": {
-        "review_1": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>\"Top quality lights and amazing customer service!\"</p>",
-            "author": "David R.",
-            "author_info": "Verified Buyer"
-          }
-        },
-        "review_2": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>\"Easy to install and the brightness is perfect.\"</p>",
-            "author": "Emily T.",
-            "author_info": "Verified Buyer"
-          }
-        },
-        "review_3": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>\"Fast shipping and excellent products.\"</p>",
-            "author": "James L.",
-            "author_info": "Verified Buyer"
-          }
-        },
-        "review_4": {
-          "type": "testimonial",
-          "settings": {
-            "icon": "5-stars",
-            "testimonial": "<p>\"Great value and the finish looks premium.\"</p>",
-            "author": "Sarah M.",
-            "author_info": "Verified Buyer"
-          }
-        }
-      },
-      "block_order": [
-        "review_1",
-        "review_2",
-        "review_3",
-        "review_4"
-      ],
-      "disabled": true,
       "settings": {
         "padding_top": 80,
         "padding_bottom": 80,
         "text_case": "sentence",
         "title": "What Customers are Saying",
         "align_text": "left",
-        "round_images": true,
-        "color_scheme": "1"
+        "color_scheme": "none",
+        "collections": [
+          "canless-recessed-lighting",
+          "retrofit-recessed-lighting",
+          "ceiling-disk-led-lights",
+          "smart-recessed-lighting"
+        ],
+        "min_rating": 4,
+        "take": 12
       }
     },
     "1788233592cc5a915d": {
@@ -381,7 +343,8 @@
       "settings": {
         "full_width": false,
         "space_around": false
-      }
+      },
+      "disabled": true
     },
     "ss_browse": {
       "type": "text-with-icons",

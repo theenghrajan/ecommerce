@@ -12,12 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "junip_product_reviews_ugc_junip_product_summary_pqapFW": {
-          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
-          "settings": {
-            "product": "{{product}}"
-          }
-        },
         "price": {
           "type": "price",
           "settings": {}
@@ -25,7 +19,7 @@
         "custom_i8j8zU": {
           "type": "custom",
           "settings": {
-            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Voltage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.voltage }}</span></li>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">Triac</span></li>\n              </ul>\n\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>\n\n<div class=\"product-info__image\">\n\n    <img alt=\"MR16 12V Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/12v_MR16_Icon_b0379d45-42e7-498f-9235-722a9a1b5280.png?v=1724086039\">\n<img alt=\"MR16 Retrofit Adapter Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/MR16_Icon_321b2639-82d9-4fd3-a3e3-2887a07c0e4b.png?v=1724086039\">\n\n    <img alt=\"5CCT Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/5CCT_BLK.png?v=1723836191\">\n    <img alt=\"Triac Dimmable Icon\" src=\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/Dimmable_blk.png?v=1723836192\">\n</div>"
+            "code": "<div class=\"mini-specs\">          \n              <ul>\n                <li><span>Voltage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.voltage }}</span></li>\n                <li><span>Lumens:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.brightness }}</span></li>\n                 <li><span>Wattage:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.wattage }}</span></li>\n              </ul>\n              <ul>\n                <li><span>Color Temp:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.color_temperature }}</span></li>\n                <li><span>Moisture:&nbsp;</span><span class=\"mini-spec-meta\">{{ product.metafields.custom.damp_wet_rating }}</span></li>\n                <li><span>Dimming:&nbsp;</span><span class=\"mini-spec-meta\">Triac</span></li>\n              </ul>\n\n\n</div>\n<div class=\"read-more-specs-wrap\">\n<a href=\"#scroll-to-specs\">Read More</a>\n</div>"
           }
         },
         "variant_picker": {
@@ -54,10 +48,16 @@
           "settings": {
             "is_tab": false
           }
+        },
+        "stamped_badge": {
+          "type": "custom",
+          "settings": {
+            "code": "<span class=\"stamped-product-reviews-badge stamped-main-badge\" data-id=\"{{ product.id }}\" data-product-sku=\"{{ product.handle }}\" data-product-type=\"{{ product.type | escape }}\" data-product-title=\"{{ product.title | escape }}\" style=\"display: inline-block;\"></span>"
+          }
         }
       },
       "block_order": [
-        "junip_product_reviews_ugc_junip_product_summary_pqapFW",
+        "stamped_badge",
         "price",
         "custom_i8j8zU",
         "variant_picker",
@@ -186,7 +186,7 @@
             "media_type": "image",
             "image_asset": "pdp-row-6-install-guide-poster.png",
             "show_play_icon": true,
-            "caption": "Video coming soon — this is a placeholder poster frame from the Figma reference until a real install-guide video is uploaded."
+            "caption": ""
           }
         }
       },
@@ -203,8 +203,8 @@
     "pdp_lighting_calculator": {
       "type": "pdp-lighting-calculator",
       "settings": {
-        "heading": "",
-        "content": ""
+        "heading": "Lighting Layout Calculator",
+        "content": "<p>Answer a few quick questions and we'll show how many lights your room needs.</p>"
       }
     },
     "pdp_fbt": {
@@ -225,10 +225,24 @@
             "product": "{{product}}",
             "title": "",
             "alignment": ""
+          },
+          "disabled": true
+        },
+        "stamped_reviews_main_widget": {
+          "type": "shopify://apps/stamped-reviews/blocks/main-widget/a103faaf-2125-4b0e-89fa-de5149736723",
+          "settings": {
+            "animation": true,
+            "tags_exclude": "",
+            "tags_include": "",
+            "search": "",
+            "linkify": true,
+            "use_metafields": false,
+            "sku_tagtype": "sku"
           }
         }
       },
       "block_order": [
+        "stamped_reviews_main_widget",
         "junip_product_reviews_ugc_junip_product_review_MWWUca"
       ],
       "settings": {

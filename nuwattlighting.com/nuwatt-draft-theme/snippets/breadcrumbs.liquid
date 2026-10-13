@@ -4,6 +4,7 @@
 {% if settings.show_breadcrumbs %}
   {% style %}
   .breadcrumbs {
+    position: relative;
     font-size: 1.05rem;
     margin: 1.5rem 0;
     padding-left: 20px;
@@ -22,8 +23,23 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    /* Never scroll - the current-page crumb truncates instead (below). */
-    overflow: hidden;
+    /* Never truncate (#116 audit, Option C): a trail too long for the
+       screen scrolls sideways - no visible scrollbar - and opens scrolled
+       to the end so the current page always shows (see settleScroll). */
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .breadcrumbs__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Fade on the left edge once crumbs are hidden there (class set by settleScroll) */
+  .breadcrumbs.is-scrolled .breadcrumbs__list {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 28px);
+    mask-image: linear-gradient(to right, transparent 0, #000 28px);
   }
 
   .breadcrumbs__item {
@@ -59,7 +75,14 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0 0.2em;
+    /* 44x44 tap area for the "..." (#116 audit) */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin: -12px 0; /* bigger tap area without making the row taller */
+    padding: 0;
     line-height: 1;
   }
 
@@ -70,14 +93,6 @@
   .breadcrumbs__item[aria-current='page'] {
     color: rgba(var(--color-foreground, 0, 0, 0), 0.9);
     font-weight: 500;
-    /* The current-page crumb (often a long product title) is the one most
-       likely to overflow the line - shrink and ellipsis just this item
-       instead of the whole trail wrapping or needing to scroll. Ancestor
-       crumbs (collection names) stay their natural, usually-short width. */
-    flex-shrink: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   {% endstyle %}
   
@@ -173,14 +188,36 @@
 
 {% endif %}
 
-{% if request.page_type == 'collection' or request.page_type == 'product' %}
+{% if request.page_type == 'collection' or request.page_type == 'product' or template.suffix == 'anchor' %}
+
+{%- comment -%}
+  Collection pages: default trail rendered server-side (#116 audit) from the
+  generated menu map, so the row doesn't sit on "Home" alone until the
+  Meteor menu loads. The script below replaces it with the clicked path.
+{%- endcomment -%}
+{%- assign bc_default = '' -%}
+{%- if template contains 'collection' and collection -%}
+  {%- capture bc_default -%}{%- render 'breadcrumb-default-trail', handle: collection.handle -%}{%- endcapture -%}
+  {%- assign bc_default = bc_default | strip -%}
+{%- endif -%}
+{%- assign bc_crumbs = bc_default | split: '::' -%}
 
 <nav class="breadcrumbs" aria-label="breadcrumb" data-breadcrumbs>
   <ol class="breadcrumbs__list" data-breadcrumbs-list>
     <li class="breadcrumbs__item">
       <a href="{{ routes.root_url }}">{{ 'general.breadcrumbs.home' | t | default: 'Home' }}</a>
     </li>
-    {% comment %} Remaining crumbs are injected client-side by the script below {% endcomment %}
+    {%- if template contains 'collection' and collection -%}
+      {%- for crumb in bc_crumbs -%}
+        {%- assign crumb_parts = crumb | split: '|' -%}
+        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="{{ crumb_parts[1] }}">{{ crumb_parts[0] }}</a></li>
+      {%- endfor -%}
+      <li class="breadcrumbs__item" aria-current="page">{{ collection.title }}</li>
+    {%- elsif template.suffix == 'anchor' -%}
+      {%- comment -%} Anchor pages are top-level destinations: Home / Page {%- endcomment -%}
+      <li class="breadcrumbs__item" aria-current="page">{{ bc_page_title | default: page.title | escape }}</li>
+    {%- endif -%}
+    {% comment %} Product crumbs are injected client-side by the script below {% endcomment %}
   </ol>
 </nav>
 
@@ -198,7 +235,8 @@
       "type": "collection",
       "title": {{ collection.title | json }},
       "url": {{ collection.url | json }},
-      "metafieldParent": {% if mf_parent != blank %}{"title": {{ mf_parent.title | json }}, "url": {{ mf_parent.url | json }}}{% else %}null{% endif %}
+      "defaultTrail": {% if bc_default != blank %}[{% for crumb in bc_crumbs %}{% assign crumb_parts = crumb | split: '|' %}{"title": {{ crumb_parts[0] | json }}, "url": {{ crumb_parts[1] | json }}}{% unless forloop.last %}, {% endunless %}{% endfor %}]{% else %}null{% endif %},
+      "metafieldParent":{% if mf_parent != blank %}{"title": {{ mf_parent.title | json }}, "url": {{ mf_parent.url | json }}}{% else %}null{% endif %}
     }
   </script>
 {% endif %}
@@ -529,6 +567,27 @@
       list.appendChild(li);
     }
 
+    // Open scrolled to the end so the current page always shows; flag the
+    // nav while crumbs are hidden on the left (drives the fade in the CSS).
+    function settleScroll(list) {
+      var nav = list.closest('[data-breadcrumbs]');
+      function sync() {
+        nav.classList.toggle('is-scrolled', list.scrollLeft > 2);
+      }
+      list.scrollLeft = list.scrollWidth;
+      sync();
+      if (!list.hasAttribute('data-bc-scroll')) {
+        list.setAttribute('data-bc-scroll', '');
+        list.addEventListener('scroll', sync, { passive: true });
+      }
+    }
+
+    // Drop everything after the static "Home" crumb (the server-rendered
+    // default trail) before rendering the resolved one.
+    function clearCrumbs(list) {
+      while (list.children.length > 1) list.removeChild(list.lastElementChild);
+    }
+
     function handleCollectionPage(context, storage, list, tree) {
       var currentPath = normalizePath(window.location.pathname);
 
@@ -536,6 +595,9 @@
       var chain = getValidatedClickedChain(storage);
       if (chain) {
         usedClickChain = true;
+      } else if (context.defaultTrail) {
+        // Same deepest-match trail as the server-rendered default
+        chain = context.defaultTrail.concat([{ title: context.title, url: window.location.href }]);
       } else {
         chain = deepestTreeMatch(tree, currentPath);
       }
@@ -543,10 +605,12 @@
       var ancestors = chain ? chain.slice(0, -1) : [];
       var trail = buildDedupedTrail(ancestors, context.title, window.location.href);
 
+      clearCrumbs(list);
       for (var i = 0; i < trail.length - 1; i++) {
         addCrumb(list, trail[i].title, trail[i].url);
       }
       addCrumb(list, trail[trail.length - 1].title, null);
+      settleScroll(list);
 
       // Store the fully resolved trail (grandparent included) so a later
       // product page - this one or any other visited before the next
@@ -583,6 +647,7 @@
           });
         }
         addCrumb(list, context.title, null);
+        settleScroll(list);
         return;
       }
 
@@ -590,6 +655,7 @@
       // from the homepage or an external link) - product only, no
       // static/URL-derived fallback.
       addCrumb(list, context.title, null);
+      settleScroll(list);
     }
 
     // ---------------------------------------------------------------
@@ -601,6 +667,7 @@
 
       var list = document.querySelector('[data-breadcrumbs-list]');
       var context = getContext();
+      if (list) settleScroll(list); // server-rendered trail (collection default, anchor page)
       if (!list || !context) return;
 
       if (context.type === 'product') {
@@ -610,13 +677,18 @@
       }
 
       if (context.type === 'collection') {
+        // Clicked path or a mapped default: no need to wait for the menu
+        if (context.defaultTrail || getValidatedClickedChain(storage)) {
+          handleCollectionPage(context, storage, list, null);
+          return;
+        }
         fetchMenuTree(storage)
           .then(function (tree) {
             handleCollectionPage(context, storage, list, tree);
           })
           .catch(function (err) {
+            // The server-rendered "Home / current page" stays as is
             console.warn('[breadcrumbs] Falling back to current page only:', err);
-            addCrumb(list, context.title, null);
           });
       }
     }

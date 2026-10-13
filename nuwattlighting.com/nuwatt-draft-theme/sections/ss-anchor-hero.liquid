@@ -52,6 +52,8 @@
   data-section-id="{{ section.id }}"
   data-section-type="ss-anchor-hero"
 >
+  {%- comment -%} Home / Page, top left like other pages (#116 audit) {%- endcomment -%}
+  {%- render 'breadcrumbs', bc_page_title: section.settings.heading -%}
   <div class="ss-anchor-hero hero">
     <div class="ss-anchor-hero__media hero__image-wrapper">
       {%- if section.settings.image != blank -%}

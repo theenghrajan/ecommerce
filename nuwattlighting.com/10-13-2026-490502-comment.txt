@@ -1,0 +1,36 @@
+Gary Satanovsky  Eric Nairac
+
+As per comments #59 - #62,
+
+These changes are on the new draft theme.
+Draft URL: https://www.nuwattlighting.com/pages/anchor?preview_theme_id=148630929482
+
+Re: "This doesn't load on chrome, on desktop or on mobile. I also couldn't get it to load on safari mobile."
+....
+Sorry, that was our link. The draft link in our last comment had a typo, so browsers opened the live site, which doesn't have the new anchor page sections yet. It probably worked in Edge because that browser still had the draft preview open from an earlier visit. Please use the link above; it opens the draft on any browser.
+
+Re: "the browse by category is so much wider than the rest of the page ... Please fix."
+....
+Done. Browse by Category now uses the same width as the rest of the page, and the category cards are squarer, like in your design. The cards line up with the sections above and below at 100% zoom on any screen size.
+Screenshot: https://drive.google.com/file/d/1a1YWQS1YjHogtpV0Sn6LJLy7f3dKjnev/view?usp=sharing
+
+Re: "Keep the product collection carousels at 4, as you have it now, for the moment."
+....
+Noted, kept at 4 per row.
+
+Re: "Our reviews are now being handled by Stamped.io, please update the review section to pull from there ... show reviews only for relevant products."
+....
+Done. The reviews section now pulls from Stamped.io and replaces the old reviews widget on this page. It shows a carousel of reviews only for products in the 4 collections on the page: Canless, Retrofit, Ceiling and Smart Recessed Lights. It shows 4 and 5 star reviews only and doesn't fill in with reviews from other products.
+These can be changed in the theme editor for each anchor page:
+- Collections (which products' reviews to show)
+- Extra products (add individual products)
+- Review IDs (optional: show only hand-picked reviews)
+- Minimum star rating and number of reviews
+
+Note: some 4-5 star reviews include complaints (e.g. "Relamped my home"). If you'd like only selected reviews, send us the review IDs, or we can raise the minimum rating to 5 stars.
+Screenshot (desktop): https://drive.google.com/file/d/1MroAq2YsWJ6vNI86pIblR8JSa3vFqrOQ/view?usp=sharing
+Screenshot (mobile): https://drive.google.com/file/d/1uCLRiRpKNuZhc-0-j-IatgAA9ZiVBg1J/view?usp=sharing
+
+Please review and let us know.
+
+Thanks!

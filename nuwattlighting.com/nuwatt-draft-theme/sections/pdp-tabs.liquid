@@ -45,10 +45,13 @@
   <div class="pdp-tabs__panels">
     {%- for block in section.blocks -%}
       <div class="pdp-tabs__panel{% if forloop.first %} active{% endif %}" data-index="tab-{{ forloop.index }}">
+        {%- comment -%} #150 mobile audit (4): on phones the tabs show as stacked accordions; this header is hidden on desktop. {%- endcomment -%}
+        <button type="button" class="pdp-tabs__accordion-toggle" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" data-accordion-for="tab-{{ forloop.index }}">{{ block.settings.title }}</button>
+        <div class="pdp-tabs__panel-body">
         {%- case block.type -%}
 
           {%- when 'description' -%}
-            <div class="pdp-tab-description">
+            <div class="pdp-tab-description{% if product.metafields.custom.description_image == blank %} pdp-tab-description--no-image{% endif %}">
               <div class="pdp-tab-description__text-col">
                 {%- assign desc_text = product.description -%}
                 <div class="pdp-tab-description__text is-collapsed" data-pdp-description-text>
@@ -58,19 +61,13 @@
                   <button type="button" class="pdp-tab-description__toggle" data-pdp-description-toggle>Read more</button>
                 {%- endif -%}
               </div>
+              {%- comment -%} #150 mobile audit (1): the image column renders only when product.metafields.custom.description_image is set. {%- endcomment -%}
+              {%- if product.metafields.custom.description_image != blank -%}
               <div class="pdp-tab-description__image-col">
-                {%- if product.metafields.custom.description_image != blank -%}
-                  {{ product.metafields.custom.description_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '450,600,900', alt: product.title }}
-                {%- else -%}
-                  {%- comment -%}
-                    No description_image metafield set yet — show the exact lifestyle
-                    photo from the Figma reference as a placeholder until a real,
-                    per-product image is uploaded to that metafield.
-                  {%- endcomment -%}
-                  <img src="{{ 'pdp-description-placeholder.png' | asset_url }}" alt="" loading="lazy" width="1344" height="768">
-                  <p class="pdp-tab-description__placeholder-note">Placeholder image — set product.metafields.custom.description_image for a per-product photo.</p>
-                {%- endif -%}
-              </div>{% comment %} pdp-tab-description--no-image is intentionally unused now: an image (real or placeholder) always renders. {% endcomment %}
+                {%- assign desc_img = product.metafields.custom.description_image -%}
+                {{ desc_img | image_url: width: 900 | image_tag: loading: 'lazy', widths: '450,600,900', alt: desc_img.alt | default: product.title }}
+              </div>
+              {%- endif -%}
             </div>
 
           {%- when 'specifications' -%}
@@ -198,6 +195,7 @@
             </div>
 
         {%- endcase -%}
+        </div>
       </div>
     {%- endfor -%}
   </div>
@@ -235,12 +233,34 @@
     // The mini-specs "Read More" link lives outside this section (in the buy-box
     // column's custom block); wire it to activate the Specifications tab rather
     // than just anchor-scroll to it.
+    // #150 mobile audit (4): on phones each panel is an accordion (header button inside the panel).
+    var mobileTabs = window.matchMedia('(max-width: 749px)');
+    var accordionToggles = pdpTabs ? pdpTabs.querySelectorAll('.pdp-tabs__accordion-toggle') : [];
+    accordionToggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panel = btn.closest('.pdp-tabs__panel');
+        var open = !panel.classList.contains('is-open');
+        panel.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+    if (pdpTabs) {
+      // Description (first panel) starts open on phones.
+      var firstPanel = pdpTabs.querySelector('.pdp-tabs__panel');
+      if (firstPanel) firstPanel.classList.add('is-open');
+    }
     var specsJumpLinks = document.querySelectorAll('[data-pdp-jump-to-specs]');
     specsJumpLinks.forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var specsTab = document.getElementById('pdp-tab-trigger-specifications');
-        if (specsTab) {
+        if (!specsTab) return;
+        if (mobileTabs.matches) {
+          var specsPanel = pdpTabs.querySelector('.pdp-tabs__panel[data-index="' + specsTab.getAttribute('data-index') + '"]');
+          var specsBtn = specsPanel && specsPanel.querySelector('.pdp-tabs__accordion-toggle');
+          if (specsPanel && !specsPanel.classList.contains('is-open') && specsBtn) specsBtn.click();
+          (specsBtn || specsPanel).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
           specsTab.click();
           specsTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }

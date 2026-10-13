@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breadcrumb Style Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111;
+    --muted: #555;
+    --line: #e5e7eb;
+    --bg: #f3f4f6;
+    --card: #fff;
+    --accent: #ffc72c;
+    --mark: #e11d48;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 Roboto, Arial, sans-serif; }
+  main { max-width: 1120px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 28px; }
+  h2 { font-size: 18px; margin: 36px 0 12px; }
+
+  .compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+  .col h3 { font-size: 15px; margin: 0 0 10px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 6px; }
+  .tag--now { background: #e5e7eb; }
+  .tag--new { background: var(--accent); }
+
+  /* phone frame at 375px */
+  .phone { width: 100%; max-width: 375px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+  .phone__bar { height: 54px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); font-weight: 700; letter-spacing: .5px; }
+  .phone__body { padding: 8px 20px 20px; }
+  .phone h4 { margin: 6px 0 0; font-size: 22px; }
+
+  /* breadcrumb - current draft values */
+  .bc { display: flex; align-items: center; white-space: nowrap; overflow-x: auto; scrollbar-width: none; list-style: none; margin: 0; padding: 0; }
+  .bc::-webkit-scrollbar { display: none; }
+  .bc li { flex-shrink: 0; color: rgba(0,0,0,.7); }
+  .bc li + li::before { content: '/'; margin: 0 .3em; }
+  .bc a { color: inherit; text-decoration: none; }
+  .bc [aria-current] { color: rgba(0,0,0,.9); font-weight: 500; }
+
+  .bc--now { font-size: 16.8px; min-height: 29px; }
+  .bc--now li + li::before { color: rgba(0,0,0,.35); }
+
+  .bc--new { font-size: 14px; min-height: 44px; }
+  .bc--new li + li::before { color: rgba(0,0,0,.55); }
+  .bc--new a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  /* measurement guides */
+  .measure { outline: 2px dashed var(--mark); outline-offset: 0; }
+  .bc.is-scrolled { -webkit-mask-image: linear-gradient(to right, transparent 0, #000 28px); mask-image: linear-gradient(to right, transparent 0, #000 28px); }
+
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #fafafa; font-size: 13px; }
+  tr:last-child td { border-bottom: 0; }
+  .sep-sample { font-weight: 700; font-size: 18px; }
+  ul.done { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px 14px 34px; margin: 0; }
+  ul.done li { margin: 6px 0; }
+  .note { color: var(--muted); font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Breadcrumb style changes - mockup for review</h1>
+  <p class="sub">NuWatt · Breadcrumbs #116 (AC 476201) · mobile, 375px wide · Should-Have items: row height, separator contrast, font size</p>
+
+  <h2>Collection page</h2>
+  <div class="compare">
+    <div class="col">
+      <h3><span class="tag tag--now">NOW</span>16.8px text · 29px row · "/" at 35%</h3>
+      <div class="phone">
+        <div class="phone__bar">NUWATT</div>
+        <div class="phone__body">
+          <ol class="bc bc--now measure" data-h="29px">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Commercial Lighting</a></li>
+            <li><a href="#">Highbays</a></li>
+            <li aria-current="page">UFO LED High Bay Lights</li>
+          </ol>
+          <h4>UFO LED High Bay Lights</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h3><span class="tag tag--new">PROPOSED</span>14px text · 44px row · "/" at 55%</h3>
+      <div class="phone">
+        <div class="phone__bar">NUWATT</div>
+        <div class="phone__body">
+          <ol class="bc bc--new measure" data-h="44px">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Commercial Lighting</a></li>
+            <li><a href="#">Highbays</a></li>
+            <li aria-current="page">UFO LED High Bay Lights</li>
+          </ol>
+          <h4>UFO LED High Bay Lights</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Both rows scroll sideways when the trail is wider than the screen, opening at the end so the current page shows (swipe the rows above to see the rest). The proposed size fits more of the trail before it needs to scroll.</p>
+
+  <p class="note"><strong>Product pages:</strong> the draft theme already uses these proposed values there (14px text, 44px row, "/" at 55%), from the separate mobile product page audit task. The proposal brings collection pages in line with product pages.</p>
+
+  <h2>Values</h2>
+  <table>
+    <tr><th>Item</th><th>Now</th><th>Proposed</th><th>Why</th></tr>
+    <tr><td>Row height</td><td>29px</td><td>44px (each link 44px tall)</td><td>Each crumb is an easy tap target (44px is the common minimum).</td></tr>
+    <tr><td>Separator "/"</td><td><span class="sep-sample" style="color:rgba(0,0,0,.35)">/</span> 35% opacity</td><td><span class="sep-sample" style="color:rgba(0,0,0,.55)">/</span> 55% opacity</td><td>Easier to see on a phone outdoors.</td></tr>
+    <tr><td>Font size</td><td>16.8px (larger than the product title)</td><td>14px</td><td>Breadcrumb reads as secondary to the page title; more of the trail fits.</td></tr>
+  </table>
+
+  <h2>Already changed on the draft theme (#116 audit)</h2>
+  <ul class="done">
+    <li><strong>Never truncate:</strong> the full trail always shows. If it is wider than the screen it scrolls sideways (no scrollbar), opens scrolled to the end so the current page is visible, and fades on the left when earlier crumbs are hidden. All pages.</li>
+    <li><strong>Product pages:</strong> breadcrumb sits above the product title, same place as collection pages; the "…" button has a 44×44px tap area.</li>
+    <li><strong>Mobile menu path:</strong> taps through the mobile menu are now recorded level by level, so the breadcrumb shows the path the shopper actually took (e.g. Recessed Lighting → Canless, not Residential Lighting).</li>
+    <li><strong>No late breadcrumb:</strong> collection pages show their full default trail as soon as the page loads, instead of "Home" alone for 1-2 seconds.</li>
+    <li><strong>Anchor pages:</strong> Home / Bedroom Lights.</li>
+  </ul>
+</main>
+<script>
+  document.querySelectorAll(".bc").forEach(function (l) {
+    function sync() { l.classList.toggle("is-scrolled", l.scrollLeft > 2); }
+    l.scrollLeft = l.scrollWidth; sync();
+    l.addEventListener("scroll", sync, { passive: true });
+  });
+</script>
+</body>
+</html>

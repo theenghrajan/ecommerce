@@ -22,7 +22,7 @@
   {%- if mf_images != blank -%}
     {%- for img in mf_images -%}
       <div class="pdp-image-rows__row">
-        {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600' }}
+        {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600', alt: img.alt | default: product.title }}
       </div>
     {%- endfor -%}
     {%- if mf_video != blank -%}
@@ -39,6 +39,10 @@
         {%- assign has_media = true -%}
       {%- elsif block.settings.media_type != 'video' and block.settings.image_asset != blank -%}
         {%- assign has_media = true -%}
+      {%- endif -%}
+      {%- comment -%} #150 mobile audit (1): a still image standing in for a video (play-icon poster) no longer renders; a video row shows only when a real video is set. {%- endcomment -%}
+      {%- if block.settings.media_type != 'video' and block.settings.show_play_icon -%}
+        {%- assign has_media = false -%}
       {%- endif -%}
       {%- if has_media -%}
       <div class="pdp-image-rows__row{% if block.settings.show_play_icon %} pdp-image-rows__row--poster{% endif %}" {{ block.shopify_attributes }}>
@@ -57,9 +61,9 @@
               rows below. image_picker wins if both happen to be set.
             {%- endcomment -%}
             {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600' }}
+              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600', alt: block.settings.image.alt | default: product.title }}
             {%- else -%}
-              <img src="{{ block.settings.image_asset | asset_url }}" alt="" loading="lazy" width="1280" height="600">
+              <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="1280" height="600">
             {%- endif -%}
             {%- if block.settings.show_play_icon -%}
               <span class="pdp-image-rows__play" aria-hidden="true">

@@ -670,7 +670,7 @@
             becomes a dead click. Keep this list in sync with any template
             that has the calculator section removed.
           {%- endcomment -%}
-          {%- assign no_calculator_templates = 'accessory,flood-lights,drop-ceiling-light-panels,surface-mount-panels,tubes,canopy-lights,staging,wall-packs' | split: ',' -%}
+          {%- assign no_calculator_templates = 'accessory,flood-lights,drop-ceiling-light-panels,surface-mount-panels,tubes,canopy-lights,staging,wall-packs,no_calc' | split: ',' -%}
           {%- unless no_calculator_templates contains template.suffix -%}
           <a href="#lighting-layout-tool" class="buybox__calculator-teaser">
             <span class="buybox__calculator-teaser-icon" aria-hidden="true">
