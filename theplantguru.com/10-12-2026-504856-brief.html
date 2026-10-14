@@ -49,7 +49,26 @@ h2{font-size:1.3rem;margin:2.2em 0 .6em}
 .step{position:relative;padding:14px 14px 14px 52px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:.92rem}
 .step::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--line);color:var(--ink)}
 .step.done{border-color:var(--brand)} .step.done::before{content:"✓";background:var(--brand);color:var(--card)}
+.step.now{border:2px solid var(--hidden);background:var(--hidden-soft)} .step.now::before{background:var(--hidden);color:var(--card)}
 .step b{display:block}
+ol.how li{margin:.5em 0}
+.check label{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.check label:last-child{border-bottom:0}
+.check input{margin-top:5px;width:18px;height:18px;accent-color:var(--brand)}
+.check input:checked + span{text-decoration:line-through;color:var(--muted)}
+.check small{color:var(--muted)}
+.vg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
+.vg figure{margin:0;padding:12px}
+.vg .wide{grid-column:1/-1}
+.vg svg{width:100%;height:auto;display:block}
+.vg figcaption{font-size:.9rem;margin-top:8px}
+.u-bg{fill:var(--bg)} .u-box{fill:var(--card);stroke:var(--line)} .u-in{fill:var(--card);stroke:var(--muted);stroke-opacity:.5}
+.u-hd{fill:var(--brand-soft)} .u-ln{stroke:var(--line)}
+.mg-side{fill:#373330} .mg-or{fill:#eb5202}
+.hl{fill:none;stroke:#e02b27;stroke-width:3}
+.rowhl{fill:var(--hidden-soft)} .okhl{fill:var(--brand-soft)} .okbox{fill:var(--brand-soft);stroke:var(--brand)}
+svg text.w{fill:#fff} svg text.m{fill:var(--muted)} svg text.r{fill:var(--remove)} svg text.g,svg tspan.g{fill:var(--brand)} svg text.lk{fill:#1979c3}
+.note{background:var(--hidden-soft);border-left:5px solid var(--hidden);border-radius:8px;padding:10px 14px;font-size:.92rem;margin-top:12px}
 .step small{color:var(--muted)}
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:640px){.compare{grid-template-columns:1fr}}
@@ -64,7 +83,7 @@ svg text{fill:var(--ink)}
 </head>
 <body>
 <main>
-  <div class="eyebrow">AC task #603 (504856) · theplantguru.com · brief for 2026-10-12</div>
+  <div class="eyebrow">AC task #603 (504856) · theplantguru.com · brief, updated 2026-10-14 (sizes removed)</div>
   <h1>Remove a few bulk sizes from 6 products</h1>
   <div class="card goal">
     <strong>Objective:</strong> on each product page, the <em>Size</em> dropdown should no longer offer the sizes Diane listed. Customers can still buy every other size.
@@ -113,11 +132,11 @@ svg text{fill:var(--ink)}
   <div class="flow">
     <div class="step done"><b>Read the request</b><small>6 products, 7 sizes</small></div>
     <div class="step done"><b>Check the live site</b><small>4 sizes shown, 3 hidden</small></div>
-    <div class="step done"><b>Ask Diane to confirm</b><small>Links + questions, below</small></div>
-    <div class="step"><b>Wait for Diane&#39;s answers</b><small>Then log in to Magento admin</small></div>
-    <div class="step"><b>Disable each size</b><small>All 7, including the hidden 3</small></div>
-    <div class="step"><b>Re-check the site</b><small>Sizes gone from dropdowns</small></div>
-    <div class="step"><b>Tell Diane it's done</b><small>Follow-up comment</small></div>
+    <div class="step done"><b>Ask Diane to confirm</b><small>Comment #2633341, 10-12</small></div>
+    <div class="step done"><b>Get Diane&#39;s answers</b><small>Confirmed 10-13, remove all</small></div>
+    <div class="step done"><b>Disable each size in Magento</b><small>Done 10-14</small></div>
+    <div class="step done"><b>Re-check the site</b><small>4 visible sizes gone, rest unchanged</small></div>
+    <div class="step now"><b>Tell Diane it's done</b><small>Comment drafted, 4 screenshots missing</small></div>
   </div>
 
   <h2>Disable, don't delete</h2>
@@ -125,37 +144,227 @@ svg text{fill:var(--ink)}
     <div class="card good"><h3>✓ Disable the size</h3>It disappears from the website. Past orders and reports that include it keep working. Easy to switch back on if Diane changes her mind.</div>
     <div class="card bad"><h3>✗ Delete the size</h3>It can't be undone. Past orders lose their link to the product, and re-adding it later means setting it up from scratch.</div>
   </div>
-  <p style="color:var(--muted);font-size:.9rem">In Magento: Catalog → Products → open the product → <em>Configurations</em> → find the size row → set it to Disabled (or open that size's own product and switch "Enable Product" off). Save, then refresh the product page.</p>
 
-  <h2>Reply to Diane</h2>
+  <h2>Diane&#39;s answers (comment #2635236, 2026-10-13)</h2>
   <div class="card">
-    <div class="row"><strong>Ready to paste into AC</strong><button id="copy">Copy reply</button></div>
-<pre class="reply" id="reply">Hi Diane,
+    <ul class="q">
+      <li><strong>1. Are these the right listings and sizes?</strong> Yes, all correct.</li>
+      <li><strong>2. Remove the 3 sizes not shown right now (Citric 30/60 lbs, Beeswax 4 lbs)?</strong> Yes, remove them too.</li>
+    </ul>
+  </div>
+
+  <h2>Process: disable each size in Magento admin</h2>
+  <div class="card">
+    <ol class="how">
+      <li><b>Log in to Magento admin.</b> Get the admin URL and login from Passbolt (The Plant Guru).</li>
+      <li><b>Find the product.</b> Go to <em>Catalog → Products</em> and search the product name (e.g. "Menthol Crystals"). Open the main product, the one whose Type is <em>Configurable Product</em>.</li>
+      <li><b>Open Configurations.</b> Scroll down to the <em>Configurations</em> section. It lists every size as its own row, with SKU, quantity and status.</li>
+      <li><b>Disable the size.</b> On the row for the size, open the <em>Select</em> menu in the Actions column and choose <em>Disable Product</em>. Don't choose <em>Remove Product</em>, because that unlinks it.</li>
+      <li><b>Save</b> the product (top right). Wait for "You saved the product."</li>
+      <li><b>Repeat</b> for every row in the checklist below.</li>
+      <li><b>Clear the cache.</b> Go to <em>System → Cache Management</em> and click <em>Flush Magento Cache</em>. If <em>System → Index Management</em> shows "Reindex required", tell the dev team. It usually clears itself via cron.</li>
+      <li><b>Check the site.</b> Open each product link in a private window and open the Size dropdown. The size should be gone, and every other size should still be there.</li>
+      <li><b>Take screenshots.</b> Use Awesome Screenshot on the open Size dropdown and draw a red box where the removed size used to be. Use the same order as the checklist.</li>
+      <li><b>Hand back to Claude</b> to re-check the site, share the screenshots and draft the completion comment.</li>
+    </ol>
+    <div class="note"><b>Sizes that aren't shown right now</b> (Citric 30/60 lbs, Beeswax 4 lbs) should still appear as rows in <em>Configurations</em>, just with 0 quantity. If a row isn't there, search <em>Catalog → Products</em> for the product name to find the separate size product, open it, switch <em>Enable Product</em> to No and save. If it doesn't exist at all, there's nothing to disable. Note that in the log.</div>
+    <div class="note"><b>Other way, same result:</b> open the size's own product (click its SKU in the Configurations row, or search the SKU), switch <em>Enable Product</em> to No and save.</div>
+  </div>
+
+
+  <h2>Visual guide</h2>
+  <p style="color:var(--muted);font-size:.9rem;margin-top:-.3em">Drawings of the Magento 2 admin screens, not real screenshots. Labels and layout can differ a little on this store. <span style="color:var(--remove);font-weight:600">Red boxes</span> show where to click.</p>
+  <div class="vg">
+
+    <figure class="card">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Magento admin login screen">
+        <rect class="u-bg" x="0" y="0" width="640" height="300" rx="8"/>
+        <rect class="u-box" x="190" y="30" width="260" height="240" rx="6"/>
+        <text x="320" y="70" text-anchor="middle" font-size="20" font-weight="700">Magento</text>
+        <text x="320" y="92" text-anchor="middle" font-size="13" class="m">Welcome, please sign in</text>
+        <text x="215" y="125" font-size="12">Username</text>
+        <rect class="u-in" x="215" y="132" width="210" height="28" rx="3"/>
+        <text x="215" y="180" font-size="12">Password</text>
+        <rect class="u-in" x="215" y="187" width="210" height="28" rx="3"/>
+        <rect class="mg-or" x="335" y="230" width="90" height="28" rx="3"/>
+        <text x="380" y="249" text-anchor="middle" font-size="13" class="w">Sign in</text>
+        <rect class="hl" x="329" y="224" width="102" height="40" rx="5"/>
+        <text x="470" y="140" font-size="12" class="r">Login from</text>
+        <text x="470" y="156" font-size="12" class="r">Passbolt</text>
+      </svg>
+      <figcaption><b>Step 1.</b> Open the admin URL and sign in with the Passbolt login.</figcaption>
+    </figure>
+
+    <figure class="card">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Catalog menu and product grid search">
+        <rect class="u-bg" x="0" y="0" width="640" height="300" rx="8"/>
+        <rect class="mg-side" x="0" y="0" width="80" height="300" rx="8"/>
+        <text x="40" y="50" text-anchor="middle" font-size="11" class="w">DASHBOARD</text>
+        <text x="40" y="90" text-anchor="middle" font-size="11" class="w">SALES</text>
+        <rect x="6" y="110" width="68" height="34" rx="4" fill="#514943"/>
+        <text x="40" y="132" text-anchor="middle" font-size="11" class="w" font-weight="700">CATALOG</text>
+        <rect class="hl" x="3" y="107" width="74" height="40" rx="5"/>
+        <text x="40" y="175" text-anchor="middle" font-size="11" class="w">CUSTOMERS</text>
+        <text x="40" y="215" text-anchor="middle" font-size="11" class="w">SYSTEM</text>
+        <rect x="80" y="100" width="130" height="80" fill="#4a4542"/>
+        <text x="95" y="125" font-size="12" class="w" font-weight="700">Catalog</text>
+        <text x="95" y="152" font-size="13" class="w">Products</text>
+        <rect class="hl" x="88" y="136" width="110" height="24" rx="4"/>
+        <text x="235" y="40" font-size="18" font-weight="700">Products</text>
+        <rect class="u-in" x="235" y="58" width="250" height="28" rx="3"/>
+        <text x="245" y="77" font-size="13">Menthol Crystals</text>
+        <rect class="hl" x="231" y="54" width="258" height="36" rx="5"/>
+        <rect class="u-hd" x="235" y="110" width="385" height="26"/>
+        <text x="245" y="128" font-size="11" font-weight="700">Name</text>
+        <text x="420" y="128" font-size="11" font-weight="700">Type</text>
+        <text x="575" y="128" font-size="11" font-weight="700">Action</text>
+        <line class="u-ln" x1="235" y1="166" x2="620" y2="166"/>
+        <text x="245" y="156" font-size="12">Menthol Crystals USP…</text>
+        <text x="420" y="156" font-size="12" font-weight="700">Configurable Product</text>
+        <text x="575" y="156" font-size="12" class="lk">Edit</text>
+        <rect class="hl" x="412" y="140" width="208" height="24" rx="4"/>
+        <text x="245" y="186" font-size="12" class="m">Menthol Crystals… 25 kg</text>
+        <text x="420" y="186" font-size="12" class="m">Simple Product</text>
+        <text x="245" y="212" font-size="12" class="m">Menthol Crystals… 1 oz</text>
+        <text x="420" y="212" font-size="12" class="m">Simple Product</text>
+        <text x="245" y="255" font-size="12" class="r">Open the Configurable Product row,</text>
+        <text x="245" y="271" font-size="12" class="r">not the single sizes.</text>
+      </svg>
+      <figcaption><b>Step 2.</b> Go to Catalog → Products, search the name, and open the row whose Type is <em>Configurable Product</em>.</figcaption>
+    </figure>
+
+    <figure class="card wide">
+      <svg viewBox="0 0 900 300" role="img" aria-label="Configurations section with Select menu open on the size row, Disable Product highlighted">
+        <rect class="u-bg" x="0" y="0" width="900" height="300" rx="8"/>
+        <text x="20" y="34" font-size="17" font-weight="700">Configurations</text>
+        <text x="20" y="54" font-size="12" class="m">Scroll down the product page to this section. Each size is its own row.</text>
+        <rect class="u-hd" x="20" y="70" width="860" height="26"/>
+        <g font-size="11" font-weight="700">
+          <text x="30" y="88">Name</text><text x="270" y="88">SKU</text><text x="420" y="88">Quantity</text>
+          <text x="510" y="88">Status</text><text x="610" y="88">Attributes</text><text x="790" y="88">Actions</text>
+        </g>
+        <g font-size="12">
+          <text x="30" y="120" class="m">Menthol Crystals – 10 lbs</text><text x="270" y="120" class="m">MEN-10LB</text><text x="420" y="120" class="m">12</text><text x="510" y="120" class="m">Enabled</text><text x="610" y="120" class="m">Size: 10 lbs</text><text x="790" y="120" class="m">Select ▾</text>
+          <line class="u-ln" x1="20" y1="132" x2="880" y2="132"/>
+          <text x="30" y="154" class="m">Menthol Crystals – 15 lbs</text><text x="270" y="154" class="m">MEN-15LB</text><text x="420" y="154" class="m">8</text><text x="510" y="154" class="m">Enabled</text><text x="610" y="154" class="m">Size: 15 lbs</text><text x="790" y="154" class="m">Select ▾</text>
+          <line class="u-ln" x1="20" y1="166" x2="880" y2="166"/>
+          <rect class="rowhl" x="20" y="168" width="860" height="30"/>
+          <text x="30" y="188" font-weight="700">Menthol Crystals – 25 kg</text><text x="270" y="188">MEN-25KG</text><text x="420" y="188">5</text><text x="510" y="188">Enabled</text><text x="610" y="188" font-weight="700">Size: 25 kg / 55 lbs</text>
+          <rect class="u-in" x="780" y="172" width="90" height="22" rx="3"/>
+          <text x="790" y="188" font-weight="700">Select ▾</text>
+          <rect class="hl" x="776" y="168" width="98" height="30" rx="4"/>
+        </g>
+        <rect class="u-box" x="660" y="204" width="215" height="86" rx="4"/>
+        <text x="672" y="226" font-size="12" class="m">Choose a different Product</text>
+        <rect class="okhl" x="664" y="234" width="207" height="24" rx="3"/>
+        <text x="672" y="251" font-size="13" font-weight="700">Disable Product</text>
+        <rect class="hl" x="661" y="231" width="213" height="30" rx="4"/>
+        <text x="672" y="279" font-size="12" class="r">Remove Product  ✗ don't</text>
+        <text x="30" y="240" font-size="13" font-weight="700">1. Find the row for the size (check the Attributes column).</text>
+        <text x="30" y="262" font-size="13" font-weight="700">2. Actions → Select → <tspan class="g">Disable Product</tspan>.</text>
+        <text x="30" y="284" font-size="12" class="m">Out-of-stock sizes (Citric 30/60 lbs, Beeswax 4 lbs) still show here, just with Quantity 0.</text>
+      </svg>
+      <figcaption><b>Steps 3–4.</b> In <em>Configurations</em>, open <em>Select</em> on the size's row and choose <em>Disable Product</em>. <em>Remove Product</em> unlinks the size instead, so don't use it.</figcaption>
+    </figure>
+
+    <figure class="card">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Status shows Disabled, then Save and success message">
+        <rect class="u-bg" x="0" y="0" width="640" height="300" rx="8"/>
+        <text x="20" y="38" font-size="17" font-weight="700">Menthol Crystals USP…</text>
+        <rect class="u-in" x="390" y="18" width="70" height="30" rx="3"/>
+        <text x="425" y="38" text-anchor="middle" font-size="12">Back</text>
+        <rect class="mg-or" x="530" y="18" width="90" height="30" rx="3"/>
+        <text x="575" y="38" text-anchor="middle" font-size="13" class="w" font-weight="700">Save</text>
+        <rect class="hl" x="524" y="12" width="102" height="42" rx="5"/>
+        <rect class="okbox" x="20" y="70" width="600" height="34" rx="4"/>
+        <text x="36" y="92" font-size="13" class="g" font-weight="700">✓ You saved the product.</text>
+        <text x="20" y="140" font-size="12" class="m">The row now reads:</text>
+        <rect class="u-hd" x="20" y="150" width="600" height="24"/>
+        <g font-size="11" font-weight="700"><text x="30" y="167">Name</text><text x="300" y="167">Status</text><text x="430" y="167">Attributes</text></g>
+        <text x="30" y="200" font-size="12">Menthol Crystals – 25 kg</text>
+        <text x="300" y="200" font-size="12" class="r" font-weight="700">Disabled</text>
+        <rect class="hl" x="292" y="184" width="80" height="24" rx="4"/>
+        <text x="430" y="200" font-size="12">Size: 25 kg / 55 lbs</text>
+        <text x="20" y="250" font-size="13" font-weight="700">Click Save, wait for the green message,</text>
+        <text x="20" y="270" font-size="13" font-weight="700">then do the next product.</text>
+      </svg>
+      <figcaption><b>Steps 5–6.</b> The row shows <em>Disabled</em>. Click <em>Save</em>, wait for the green message, then repeat for the next product.</figcaption>
+    </figure>
+
+    <figure class="card">
+      <svg viewBox="0 0 640 300" role="img" aria-label="System Cache Management, Flush Magento Cache button">
+        <rect class="u-bg" x="0" y="0" width="640" height="300" rx="8"/>
+        <rect class="mg-side" x="0" y="0" width="80" height="300" rx="8"/>
+        <text x="40" y="50" text-anchor="middle" font-size="11" class="w">CATALOG</text>
+        <rect x="6" y="110" width="68" height="34" rx="4" fill="#514943"/>
+        <text x="40" y="132" text-anchor="middle" font-size="11" class="w" font-weight="700">SYSTEM</text>
+        <rect class="hl" x="3" y="107" width="74" height="40" rx="5"/>
+        <text x="100" y="38" font-size="17" font-weight="700">Cache Management</text>
+        <rect class="mg-or" x="430" y="18" width="190" height="30" rx="3"/>
+        <text x="525" y="38" text-anchor="middle" font-size="13" class="w" font-weight="700">Flush Magento Cache</text>
+        <rect class="hl" x="424" y="12" width="202" height="42" rx="5"/>
+        <rect class="u-hd" x="100" y="80" width="520" height="24"/>
+        <g font-size="11" font-weight="700"><text x="110" y="97">Cache Type</text><text x="520" y="97">Status</text></g>
+        <g font-size="12">
+          <text x="110" y="128">Configuration</text><text x="520" y="128" class="g" font-weight="700">ENABLED</text>
+          <text x="110" y="156">Page Cache</text><text x="520" y="156" class="r" font-weight="700">INVALIDATED</text>
+          <text x="110" y="184">Blocks HTML output</text><text x="520" y="184" class="g" font-weight="700">ENABLED</text>
+        </g>
+        <text x="100" y="240" font-size="12" class="m">Menu: System → Cache Management.</text>
+        <text x="100" y="260" font-size="12" class="m">After flushing, every row should say ENABLED.</text>
+      </svg>
+      <figcaption><b>Step 7.</b> Go to System → Cache Management and click <em>Flush Magento Cache</em> once, after all 8 sizes are done.</figcaption>
+    </figure>
+
+    <figure class="card">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Product page Size dropdown without the removed size, boxed in red for the screenshot">
+        <rect class="u-bg" x="0" y="0" width="640" height="300" rx="8"/>
+        <rect class="u-hd" x="0" y="0" width="640" height="26" rx="8"/>
+        <text x="16" y="18" font-size="11" class="m">Private window · theplantguru.com/shop/herbs-botanicals/menthol-crystals…</text>
+        <rect class="u-in" x="30" y="50" width="200" height="200" rx="6"/>
+        <text x="130" y="155" text-anchor="middle" font-size="12" class="m">product image</text>
+        <text x="260" y="70" font-size="16" font-weight="700">Menthol Crystals USP</text>
+        <text x="260" y="100" font-size="12">Size</text>
+        <rect class="u-box" x="260" y="108" width="240" height="160" rx="4"/>
+        <g font-size="12">
+          <text x="272" y="130" class="m">…</text>
+          <text x="272" y="152">5 lbs</text>
+          <text x="272" y="176">10 lbs</text>
+          <text x="272" y="200">15 lbs</text>
+        </g>
+        <text x="272" y="232" font-size="12" class="g" font-weight="700">25 kg / 55 lbs is gone ✓</text>
+        <rect class="hl" x="254" y="102" width="252" height="172" rx="6"/>
+        <text x="520" y="160" font-size="12" class="r">Awesome</text>
+        <text x="520" y="176" font-size="12" class="r">Screenshot:</text>
+        <text x="520" y="192" font-size="12" class="r">red box here</text>
+      </svg>
+      <figcaption><b>Steps 8–9.</b> Open each product link in a private window, open <em>Size</em>, and confirm the size is gone. Take an Awesome Screenshot with a red box around the dropdown.</figcaption>
+    </figure>
+
+  </div>
+  <h2>Checklist</h2>
+  <div class="card check" id="checklist">
+    <label><input type="checkbox"><span>Citric Acid Powder: <b>30 lbs</b> <small>(not shown now)</small></span></label>
+    <label><input type="checkbox"><span>Citric Acid Powder: <b>60 lbs</b> <small>(not shown now)</small></span></label>
+    <label><input type="checkbox"><span>Beeswax (White): <b>4 lbs</b> <small>(not shown now)</small></span></label>
+    <label><input type="checkbox"><span>Beeswax (Yellow): <b>4 lbs</b> <small>(not shown now)</small></span></label>
+    <label><input type="checkbox"><span>Bentonite Clay Powder (Calcium): <b>50 lbs</b></span></label>
+    <label><input type="checkbox"><span>Bentonite Clay Powder (Sodium): <b>50 lbs</b></span></label>
+    <label><input type="checkbox"><span>Menthol Crystals: <b>25 kg / 55 lbs</b></span></label>
+    <label><input type="checkbox"><span>Blue Poppy Seeds: <b>40 lbs</b></span></label>
+    <label><input type="checkbox"><span>Flush Magento cache</span></label>
+    <label><input type="checkbox"><span>Front end re-checked, all 8 sizes gone</span></label>
+    <label><input type="checkbox"><span>Screenshots uploaded to Awesome Screenshot folder</span></label>
+  </div>
+
+  <h2>Our question to Diane (comment #2633341, 2026-10-12)</h2>
+  <div class="card">
+<pre class="reply">As per the task descriptions,
 
 Thank you for sending the list. Before we remove these sizes, we would like to confirm a few details.
 
 1. Please confirm these are the correct product listings and sizes:
-
-- Citric Acid Powder: 30 lbs and 60 lbs
-https://www.theplantguru.com/shop/solvents-preservatives/citric-acid-powder.html
-
-- Beeswax (White): 4 lbs
-https://www.theplantguru.com/shop/waxes/beeswax-white.html
-
-- Beeswax (Yellow): 4 lbs
-https://www.theplantguru.com/shop/waxes/beeswax-yellow.html
-
-- Bentonite Clay Powder (Calcium): 50 lbs
-https://www.theplantguru.com/shop/clays/bentonite-clay-powder-100-pure-natural-calcium-montmorillonite-indian-healing-mask.html
-
-- Bentonite Clay Powder (Sodium): 50 lbs
-https://www.theplantguru.com/shop/clays/bentonite-clay-powder-100-pure-natural-sodium-montmorillonite-indian-healing-mask.html
-
-- Menthol Crystals: 25 kg
-https://www.theplantguru.com/shop/herbs-botanicals/menthol-crystals-usp-food-grade-bulk-wholesale.html
-
-- Blue Poppy Seeds: 40 lbs
-https://www.theplantguru.com/shop/herbs-botanicals/blue-poppy-seeds-bulk-wholesale.html
+   Citric Acid Powder 30 + 60 lbs, Beeswax White 4 lbs, Beeswax Yellow 4 lbs, Bentonite Clay Calcium 50 lbs, Bentonite Clay Sodium 50 lbs, Menthol Crystals 25 kg, Blue Poppy Seeds 40 lbs (links in the product cards above).
 
 2. The 30 lbs and 60 lbs Citric Acid sizes and the 4 lbs Beeswax size do not show on the website right now, most likely because they are out of stock. Would you still like us to remove them, so they do not come back if they are restocked?
 Reference screenshot: https://drive.google.com/file/d/1bCAtRDjXb4UA5bWXRUDiXtCgAd2NiemM/view?usp=sharing
@@ -197,10 +406,10 @@ document.getElementById("products").innerHTML = P.map(p => {
     <div class="ask">${esc(p.ask)}</div>
     <div class="dropdown"><div class="head">Size ▾</div><div class="opts">${chips}</div></div>${status}</div>`;
 }).join("");
-document.getElementById("copy").onclick = async e => {
-  try { await navigator.clipboard.writeText(document.getElementById("reply").textContent); e.target.textContent = "Copied ✓"; }
-  catch { e.target.textContent = "Select the text and copy it"; }
-};
+// Remember ticked checklist rows in this browser
+const boxes = [...document.querySelectorAll("#checklist input")], KEY = "504856-checklist";
+try { JSON.parse(localStorage.getItem(KEY) || "[]").forEach((v, i) => boxes[i] && (boxes[i].checked = v)); } catch {}
+boxes.forEach(b => b.onchange = () => { try { localStorage.setItem(KEY, JSON.stringify(boxes.map(x => x.checked))); } catch {} });
 </script>
 </body>
 </html>

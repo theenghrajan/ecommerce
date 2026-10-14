@@ -35,3 +35,7 @@ Shopify theme for Nadco Tapes & Labels. Repo: github.com/theenghrajan/ecommerce.
 ## nuwattlighting.com
 
 - Store `nuwatt-lighting.myshopify.com`. Live "ITG Work Nuwatt Theme" #144428662858 → `nuwattlighting.com/nuwatt-theme/`; draft "Figma Match - 2026-09-04" #148630929482 → `nuwattlighting.com/nuwatt-draft-theme/`. Breadcrumbs: `snippets/breadcrumbs.liquid` (client-side trail from Meteor Mega Menu + sessionStorage).
+
+## thevaultluxuryresale.com
+
+- Store `vault-luxury-resale.myshopify.com` on `shop.` (CNAME shops.myshopify.com). No local theme; work is URL redirects (AC #97 / 468595, monthly 4xx check). Root and www use GoDaddy forwarding (homepage only, deep paths 404). DNS at GoDaddy, MX = Proofpoint. The monthly sheets are readable via the SS Google Suite connector.

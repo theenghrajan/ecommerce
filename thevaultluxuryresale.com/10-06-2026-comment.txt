@@ -1,0 +1,40 @@
+As per comment #N,
+
+For the site: https://shop.thevaultluxuryresale.com/
+
+Re: redirections
+...
+We reviewed the site. The store runs on Shopify (shop.thevaultluxuryresale.com). The main domain (thevaultluxuryresale.com and www) is set up in GoDaddy to forward to the store, but this only works for the homepage. Any other page on the main domain currently shows a "page not found" error.
+
+To set up the redirections, we need the following access:
+1. Redirect sheet: the Google Sheet is private, so we couldn't open it. Please share it with web@smartsites.com (view access is enough).
+2. Shopify: a collaborator or staff account for web@smartsites.com, with access to Online Store > Navigation (where the redirects are added), products/collections/pages (view), and Domains.
+3. GoDaddy: Delegate Access for web@smartsites.com with "Products, Domains & DNS" permission. This is needed if the old URLs in the sheet are on the main domain (thevaultluxuryresale.com). We would connect the main domain to Shopify so that old links reach the store and redirect to the right pages. The email (MX) records would stay unchanged.
+
+Once we have access to the sheet, we will confirm whether the GoDaddy access is needed.
+
+Thanks!
+
+#####################################################
+
+As per comment #35,
+
+We have added the redirects for the 404 product URLs in IBM's October sheet, following IBM's suggested collection for each one and the client's standing instruction that these one-off items are not restocked.
+
+Sheet: https://docs.google.com/spreadsheets/d/1M4wxOdHNpxcgE49kHKIWPgMQBeAtj6vLsf6GKbT303Q/edit?gid=1409546460#gid=1409546460
+
+The 910 product rows marked "on PM to review" came down to 886 unique redirects, since 24 rows were the same URL with a different query string. Before adding them we checked that every one of these URLs still returned 404 and that all 20 target collections load. After adding them we checked all 886 on the live site, and each now redirects to its collection.
+
+A few rows we have not actioned and need IBM's call on:
+
+Re: Video (.mp4) URLs, rows 912 to 940 (except 918)
+...
+These 28 URLs are .mp4 files at paths the store has never used (/assets/video/, /public/video/, /v/media/storage/ and similar), many with placeholder parameters such as t={seek_to_start_number}. They show in the GSC 404 report because Google found links to them elsewhere, not because they were ever pages on the site. Since they never existed, a 404 is the correct response and Google will drop them on its own, while redirecting them to the homepage would mark them as valid URLs. We suggest leaving these as 404. Please confirm.
+
+Re: Blog post, row 918
+...
+/blogs/news/how-to-measure-eu-shoe-size-before-buying-pre-owned-online is suggested to redirect to the homepage. Since this was a real blog post, would a closer page such as the blog or the Shoes collection be a better target?
+
+Please review and let us know.
+
+Thank you.
