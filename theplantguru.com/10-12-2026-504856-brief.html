@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Guru Sizes</title>
+<style>
+:root{
+  --bg:#f6f5f1; --card:#fff; --ink:#1d1f1c; --muted:#62675f; --line:#e2e0d8;
+  --brand:#2f6b3a; --brand-soft:#e5efe3;
+  --remove:#b3261e; --remove-soft:#fbe7e5;
+  --hidden:#8a5a00; --hidden-soft:#fbf0d9;
+  --keep:#3b4a3d;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#141613; --card:#1d201c; --ink:#ebece7; --muted:#a3a89f; --line:#30342e;
+    --brand:#7fc08a; --brand-soft:#22301f;
+    --remove:#ff8a80; --remove-soft:#3a1d1a;
+    --hidden:#f0c060; --hidden-soft:#352a12;
+    --keep:#c9cfc6;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:1.9rem;margin:.2em 0}
+h2{font-size:1.3rem;margin:2.2em 0 .6em}
+.eyebrow{color:var(--muted);font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.goal{border-left:6px solid var(--brand);font-size:1.1rem}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--muted);font-size:.9rem;margin-top:8px}
+.meta a{color:var(--brand)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.9rem;margin:6px 0 14px}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.85rem;border:1px solid var(--line)}
+.chip.remove{background:var(--remove-soft);color:var(--remove);border-color:transparent;text-decoration:line-through;font-weight:600}
+.chip.hidden{background:var(--hidden-soft);color:var(--hidden);border:1px dashed var(--hidden);font-weight:600}
+.chip.keep{color:var(--keep)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.prod h3{margin:0 0 4px;font-size:1.05rem}
+.prod h3 a{color:inherit}
+.prod .ask{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+.dropdown{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.dropdown .head{background:var(--brand-soft);padding:6px 10px;font-size:.8rem;font-weight:600;color:var(--brand)}
+.dropdown .opts{display:flex;flex-wrap:wrap;gap:6px;padding:10px}
+.status{margin-top:10px;font-size:.88rem;font-weight:600}
+.status.live{color:var(--remove)} .status.hid{color:var(--hidden)} .status.na{color:var(--muted)}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;counter-reset:s}
+.step{position:relative;padding:14px 14px 14px 52px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:.92rem}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--line);color:var(--ink)}
+.step.done{border-color:var(--brand)} .step.done::before{content:"✓";background:var(--brand);color:var(--card)}
+.step b{display:block}
+.step small{color:var(--muted)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.compare{grid-template-columns:1fr}}
+.compare .card h3{margin-top:0}
+.good{border-top:5px solid var(--brand)} .bad{border-top:5px solid var(--remove)}
+pre.reply{white-space:pre-wrap;font:15px/1.6 ui-monospace,Consolas,monospace;margin:0}
+button{font:inherit;background:var(--brand);color:var(--card);border:0;border-radius:8px;padding:8px 14px;cursor:pointer}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+ul.q li{margin:.4em 0}
+svg text{fill:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">AC task #603 (504856) · theplantguru.com · brief for 2026-10-12</div>
+  <h1>Remove a few bulk sizes from 6 products</h1>
+  <div class="card goal">
+    <strong>Objective:</strong> on each product page, the <em>Size</em> dropdown should no longer offer the sizes Diane listed. Customers can still buy every other size.
+    <div class="meta">
+      <span>Requested by: Diane Ynojosa (client), 2026-10-09</span>
+      <span>Platform: Magento 2</span>
+      <a href="https://login.smartsites.com/projects/597/tasks/504856" target="_blank" rel="noopener">Open AC task ↗</a>
+      <a href="https://www.theplantguru.com/" target="_blank" rel="noopener">Open site ↗</a>
+    </div>
+  </div>
+
+  <h2>How it looks for a customer</h2>
+  <div class="card">
+    <svg viewBox="0 0 760 210" width="100%" role="img" aria-label="Before and after: the Size dropdown loses the removed option">
+      <g font-family="system-ui,sans-serif" font-size="14">
+        <text x="20" y="24" font-weight="700">Today</text>
+        <rect x="20" y="36" width="300" height="160" rx="8" fill="none" stroke="currentColor" opacity=".25"/>
+        <text x="34" y="62">Size: Menthol Crystals ▾</text>
+        <text x="34" y="92" opacity=".7">… 5 lbs</text>
+        <text x="34" y="116" opacity=".7">10 lbs</text>
+        <text x="34" y="140" opacity=".7">15 lbs</text>
+        <rect x="28" y="152" width="284" height="28" rx="5" fill="#b3261e" opacity=".15"/>
+        <text x="34" y="171" fill="#b3261e" font-weight="700">25 kg / 55 lbs  ← remove</text>
+        <path d="M350 116 h60" stroke="currentColor" stroke-width="2" opacity=".5" marker-end="url(#a)"/>
+        <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor" opacity=".5"/></marker></defs>
+        <text x="440" y="24" font-weight="700">After the change</text>
+        <rect x="440" y="36" width="300" height="160" rx="8" fill="none" stroke="#2f6b3a" stroke-width="2"/>
+        <text x="454" y="62">Size: Menthol Crystals ▾</text>
+        <text x="454" y="92" opacity=".7">… 5 lbs</text>
+        <text x="454" y="116" opacity=".7">10 lbs</text>
+        <text x="454" y="140" opacity=".7">15 lbs</text>
+        <text x="454" y="171" fill="#2f6b3a" font-weight="700">✓ 25 kg is gone</text>
+      </g>
+    </svg>
+  </div>
+
+  <h2>Every product, with the real size list from the live site</h2>
+  <div class="legend">
+    <span><span class="chip remove">50 lbs</span> shown now, remove it</span>
+    <span><span class="chip hidden">30 lbs</span> requested, but not shown (probably out of stock)</span>
+    <span><span class="chip keep">5 lbs</span> keep</span>
+  </div>
+  <div class="grid" id="products"></div>
+
+  <h2>What needs to be done</h2>
+  <div class="flow">
+    <div class="step done"><b>Read the request</b><small>6 products, 7 sizes</small></div>
+    <div class="step done"><b>Check the live site</b><small>4 sizes shown, 3 hidden</small></div>
+    <div class="step done"><b>Ask Diane to confirm</b><small>Links + questions, below</small></div>
+    <div class="step"><b>Wait for Diane&#39;s answers</b><small>Then log in to Magento admin</small></div>
+    <div class="step"><b>Disable each size</b><small>All 7, including the hidden 3</small></div>
+    <div class="step"><b>Re-check the site</b><small>Sizes gone from dropdowns</small></div>
+    <div class="step"><b>Tell Diane it's done</b><small>Follow-up comment</small></div>
+  </div>
+
+  <h2>Disable, don't delete</h2>
+  <div class="compare">
+    <div class="card good"><h3>✓ Disable the size</h3>It disappears from the website. Past orders and reports that include it keep working. Easy to switch back on if Diane changes her mind.</div>
+    <div class="card bad"><h3>✗ Delete the size</h3>It can't be undone. Past orders lose their link to the product, and re-adding it later means setting it up from scratch.</div>
+  </div>
+  <p style="color:var(--muted);font-size:.9rem">In Magento: Catalog → Products → open the product → <em>Configurations</em> → find the size row → set it to Disabled (or open that size's own product and switch "Enable Product" off). Save, then refresh the product page.</p>
+
+  <h2>Reply to Diane</h2>
+  <div class="card">
+    <div class="row"><strong>Ready to paste into AC</strong><button id="copy">Copy reply</button></div>
+<pre class="reply" id="reply">Hi Diane,
+
+Thank you for sending the list. Before we remove these sizes, we would like to confirm a few details.
+
+1. Please confirm these are the correct product listings and sizes:
+
+- Citric Acid Powder: 30 lbs and 60 lbs
+https://www.theplantguru.com/shop/solvents-preservatives/citric-acid-powder.html
+
+- Beeswax (White): 4 lbs
+https://www.theplantguru.com/shop/waxes/beeswax-white.html
+
+- Beeswax (Yellow): 4 lbs
+https://www.theplantguru.com/shop/waxes/beeswax-yellow.html
+
+- Bentonite Clay Powder (Calcium): 50 lbs
+https://www.theplantguru.com/shop/clays/bentonite-clay-powder-100-pure-natural-calcium-montmorillonite-indian-healing-mask.html
+
+- Bentonite Clay Powder (Sodium): 50 lbs
+https://www.theplantguru.com/shop/clays/bentonite-clay-powder-100-pure-natural-sodium-montmorillonite-indian-healing-mask.html
+
+- Menthol Crystals: 25 kg
+https://www.theplantguru.com/shop/herbs-botanicals/menthol-crystals-usp-food-grade-bulk-wholesale.html
+
+- Blue Poppy Seeds: 40 lbs
+https://www.theplantguru.com/shop/herbs-botanicals/blue-poppy-seeds-bulk-wholesale.html
+
+2. The 30 lbs and 60 lbs Citric Acid sizes and the 4 lbs Beeswax size do not show on the website right now, most likely because they are out of stock. Would you still like us to remove them, so they do not come back if they are restocked?
+Reference screenshot: https://drive.google.com/file/d/1bCAtRDjXb4UA5bWXRUDiXtCgAd2NiemM/view?usp=sharing
+
+Please confirm, and we will proceed accordingly.
+
+Thanks!</pre>
+  </div>
+
+  </main>
+<script>
+const P = [
+  {name:"Citric Acid Powder", url:"https://www.theplantguru.com/shop/solvents-preservatives/citric-acid-powder.html", ask:"Remove 30 lbs and 60 lbs",
+   sizes:["1 oz","2 oz","4 oz","8 oz","1 lbs","3 lbs","5 lbs","10 lbs","18 lbs"], hidden:["30 lbs","60 lbs"]},
+  {name:"Beeswax (White)", url:"https://www.theplantguru.com/shop/waxes/beeswax-white.html", ask:"Remove 4 lbs",
+   sizes:["1 oz","2 oz","4 oz","8 oz","32 oz","1 lbs","3 lbs","5 lbs","10 lbs","15 lbs"], hidden:["4 lbs"]},
+  {name:"Beeswax (Yellow)", url:"https://www.theplantguru.com/shop/waxes/beeswax-yellow.html", ask:"Remove 4 lbs",
+   sizes:["1 oz","2 oz","4 oz","8 oz","32 oz","1 lbs","3 lbs","5 lbs","10 lbs","15 lbs"], hidden:["4 lbs"]},
+  {name:"Bentonite Clay (Calcium)", url:"https://www.theplantguru.com/shop/clays/bentonite-clay-powder-100-pure-natural-calcium-montmorillonite-indian-healing-mask.html", ask:"Remove 50 lbs",
+   sizes:["4 oz","8 oz","1 lb","2 lbs","3 lbs","5 lbs","10 lbs","15 lbs","25 lbs","50 lbs"], remove:["50 lbs"]},
+  {name:"Bentonite Clay (Sodium)", url:"https://www.theplantguru.com/shop/clays/bentonite-clay-powder-100-pure-natural-sodium-montmorillonite-indian-healing-mask.html", ask:"Remove 50 lbs",
+   sizes:["4 oz","8 oz","1 lb","2 lbs","3 lbs","5 lbs","10 lbs","15 lbs","25 lbs","50 lbs"], remove:["50 lbs"]},
+  {name:"Menthol Crystals", url:"https://www.theplantguru.com/shop/herbs-botanicals/menthol-crystals-usp-food-grade-bulk-wholesale.html", ask:"Remove 25 kg",
+   sizes:["1 oz","2 oz","4 oz","8 oz","1 lb","2 lbs","3 lbs","5 lbs","10 lbs","15 lbs","25 kg / 55 lbs"], remove:["25 kg / 55 lbs"]},
+  {name:"Blue Poppy Seeds", url:"https://www.theplantguru.com/shop/herbs-botanicals/blue-poppy-seeds-bulk-wholesale.html", ask:"Remove 40 lbs",
+   sizes:["1 oz","2 oz","4 oz","8 oz","1 lb","2 lbs","3 lbs","5 lbs","10 lbs","15 lbs","20 lbs","40 lbs"], remove:["40 lbs"]},
+  {name:"Indian Healing Clay 1 lb (Calcium & Sodium)", url:"https://www.theplantguru.com/shop/clays/indian-healing-clay-1-lb-100-natural-calcium-bentonite-clay-powder-deep-pore-cleansing-facial-and-body-mask-detox-clay-for-face-hair-acne-and-bath.html", ask:"Part of \"Bentonite Clay (all types)\"",
+   sizes:["1 lb only"], na:true},
+];
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("products").innerHTML = P.map(p => {
+  const rm = p.remove || [], hid = p.hidden || [];
+  const chips = p.sizes.map(s => `<span class="chip ${rm.includes(s) ? "remove" : "keep"}">${esc(s)}</span>`)
+    .concat(hid.map(s => `<span class="chip hidden">${esc(s)}</span>`)).join("");
+  const status = p.na ? `<div class="status na">No size dropdown, nothing to remove</div>`
+    : hid.length ? `<div class="status hid">Not on the site now, still disable it in admin</div>`
+    : `<div class="status live">Shown on the site now, needs removing</div>`;
+  return `<div class="card prod"><h3><a href="${p.url}" target="_blank" rel="noopener">${esc(p.name)} ↗</a></h3>
+    <div class="ask">${esc(p.ask)}</div>
+    <div class="dropdown"><div class="head">Size ▾</div><div class="opts">${chips}</div></div>${status}</div>`;
+}).join("");
+document.getElementById("copy").onclick = async e => {
+  try { await navigator.clipboard.writeText(document.getElementById("reply").textContent); e.target.textContent = "Copied ✓"; }
+  catch { e.target.textContent = "Select the text and copy it"; }
+};
+</script>
+</body>
+</html>
