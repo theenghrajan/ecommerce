@@ -341,6 +341,105 @@
   }
 </style>
 
+<style>
+  /* Task #151 mobile audit (5): the phone header (logo row + full search bar) took 139px,
+     21% of an iPhone 14 screen, on every page. Scrolling down folds it to the 60px
+     logo/icons row with a search icon; scrolling up, or tapping the icon, brings the bar back. */
+  @media only screen and (max-width: 768px) {
+    .header-section .site-header__search-container {
+      max-height: 80px;
+      overflow: hidden;
+      transition: max-height 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
+    }
+    .header-section.hm-header-compact {
+      padding-bottom: 0 !important;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+    }
+    .header-section.hm-header-compact .site-header__search-container {
+      max-height: 0;
+      margin-top: 0;
+      opacity: 0;
+    }
+    .header-section.hm-header-compact #the-search-ting {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0;
+    }
+    /* the Meteor menu app injects `.Meteor-MobileNavigation a:hover { color: #fcc833 !important }`;
+       on touch screens that left the tapped item yellow ("Highbays") */
+    @media (hover: none) {
+      body .Meteor-MobileNavigation a:hover {
+        color: inherit !important;
+      }
+    }
+    /* content no longer scrolls under the header without a separator */
+    .header-section.sticky_header {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+    }
+  }
+  /* phones in landscape get the desktop header (logo row + nav row, ~210px of a 390px
+     screen); while scrolling down only the logo row stays */
+  @media only screen and (orientation: landscape) and (max-height: 500px) {
+    .header-section.hm-header-compact {
+      padding-bottom: 0 !important;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+    }
+    .header-section.hm-header-compact .site-header__element--sub[data-type="nav"],
+    .header-section.hm-header-compact .site-header__element--sub[data-type="search"] {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    // phones in portrait, and phones in landscape (desktop header layout, ~390px tall screen)
+    var phone = window.matchMedia('(max-width: 768px), (orientation: landscape) and (max-height: 500px)');
+    var lastY = window.scrollY;
+    var lockedUntil = 0;
+    var ticking = false;
+
+    function section() { return document.querySelector('.header-section'); }
+
+    function setCompact(on) {
+      var el = section();
+      if (!el || el.classList.contains('hm-header-compact') === on) return;
+      el.classList.toggle('hm-header-compact', on);
+      // folding changes the page height; ignore the scroll events that causes
+      lockedUntil = Date.now() + 350;
+    }
+
+    function update() {
+      ticking = false;
+      var y = window.scrollY;
+      if (!phone.matches || y < 140) { setCompact(false); lastY = y; return; }
+      if (Date.now() < lockedUntil) { lastY = y; return; }
+      if (y - lastY > 10) setCompact(true);
+      else if (lastY - y > 10) setCompact(false);
+      if (Math.abs(y - lastY) > 10) lastY = y;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+
+    // the search icon only shows while folded: unfold and put the cursor in the bar
+    document.addEventListener('click', function (e) {
+      var icon = e.target.closest && e.target.closest('#the-search-ting');
+      var el = section();
+      if (!icon || !el || !el.classList.contains('hm-header-compact')) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      setCompact(false);
+      var input = el.querySelector('.site-header__search-container input[type="search"]');
+      if (input) input.focus();
+    }, true);
+  })();
+</script>
+
 <div data-section-id="{{ section.id }}" data-section-type="header">
   <div id="HeaderWrapper" class="header-wrapper{% if overlay_header %} header-wrapper--overlay is-light{% endif %}">
     <header

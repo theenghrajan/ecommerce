@@ -3,12 +3,17 @@
 {%- assign base_font_bold = base_font | font_modify: 'weight', '600' -%}
 {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
 {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
+{%- comment -%} Task #151 mobile audit (6): sections ask for 500 and 700, which fell back to 400 / jumped to 900 {%- endcomment -%}
+{%- assign base_font_medium = base_font | font_modify: 'weight', '500' -%}
+{%- assign base_font_700 = base_font | font_modify: 'weight', '700' -%}
 
 {%- style -%}
   {{ header_font | font_face: font_display: 'swap' }}
   {{ base_font | font_face: font_display: 'swap' }}
 
+  {{ base_font_medium | font_face: font_display: 'swap' }}
   {{ base_font_bold | font_face: font_display: 'swap' }}
+  {{ base_font_700 | font_face: font_display: 'swap' }}
   {{ base_font_italic | font_face: font_display: 'swap' }}
   {{ base_font_bold_italic | font_face: font_display: 'swap' }}
 {%- endstyle -%}

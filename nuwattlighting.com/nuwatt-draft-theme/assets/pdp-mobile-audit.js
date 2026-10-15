@@ -17,24 +17,6 @@
     updateStickyBar();
   });
 
-  /* (3) Breadcrumb: open scrolled to the end so the current page always shows; fade on the left once scrolled */
-  function initBreadcrumbs() {
-    var nav = document.querySelector('.template-product [data-breadcrumbs]');
-    var list = nav && nav.querySelector('[data-breadcrumbs-list]');
-    if (!list) return;
-    function sync() {
-      nav.classList.toggle('is-scrolled', list.scrollLeft > 2);
-    }
-    function toEnd() {
-      list.scrollLeft = list.scrollWidth;
-      sync();
-    }
-    list.addEventListener('scroll', sync, { passive: true });
-    // crumbs are added client-side by snippets/breadcrumbs.liquid - follow them to the end as they arrive
-    new MutationObserver(toEnd).observe(list, { childList: true });
-    toEnd();
-  }
-
   /* (2) Sticky Add to Cart on mobile, shown once the main Add to Cart button has scrolled away */
   var bar, barPack, barPrice, barButton, mainButton;
 
@@ -53,7 +35,7 @@
   function initStickyBar() {
     mainButton = document.querySelector('.product-grid__item--buybox button[name="add"]') ||
       document.querySelector('.page-content--product form[action*="/cart/add"] button[name="add"]');
-    if (!mainButton || !('IntersectionObserver' in window)) return;
+    if (!mainButton) return;
 
     bar = document.createElement('div');
     bar.className = 'nw-sticky-atc';
@@ -70,25 +52,30 @@
       mainButton.click();
     });
 
-    var mainVisible = true;
-    var pastButton = false;
+    // Position check on scroll (not an IntersectionObserver): a jump link such as the calculator teaser
+    // moves straight past the button without it ever intersecting, which an observer would never report.
+    var ticking = false;
     function show() {
-      var on = mobile.matches && !mainVisible && pastButton;
+      ticking = false;
+      // only once the shopper is past the button, not while it is still below the fold
+      var on = mobile.matches && mainButton.getBoundingClientRect().bottom < 0;
+      if (on === bar.classList.contains('is-visible')) return;
+      if (on) updateStickyBar();
       bar.classList.toggle('is-visible', on);
       bar.setAttribute('aria-hidden', on ? 'false' : 'true');
       barButton.tabIndex = on ? 0 : -1;
       document.body.classList.toggle('nw-sticky-atc-on', on);
     }
-    new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        mainVisible = entry.isIntersecting;
-        // only after the shopper has scrolled past the button, not while it is still below the fold
-        pastButton = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-      });
-      updateStickyBar();
-      show();
-    }).observe(mainButton);
-    if (mobile.addEventListener) mobile.addEventListener('change', show);
+    function requestShow() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(show);
+      }
+    }
+    window.addEventListener('scroll', requestShow, { passive: true });
+    window.addEventListener('resize', requestShow);
+    if (mobile.addEventListener) mobile.addEventListener('change', requestShow);
+    requestShow();
 
     // price, availability and button text change with the variant - keep the bar in step
     var buyBox = document.querySelector('.product-single__buy-box');
@@ -122,7 +109,6 @@
   }
 
   function init() {
-    initBreadcrumbs();
     initStickyBar();
     initReviews();
   }

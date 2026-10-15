@@ -186,12 +186,16 @@
         {%- for block in section.blocks -%}
           <div class="grid-item grid-product" {{ block.shopify_attributes }}>
             <div class="logo-bar__item{% if block.settings.image == blank %} logo-bar__item-svg{% endif %}">
+              {%- comment -%} #151 mobile audit: the images had no alt, so fall back to the tile's own title {%- endcomment -%}
+              {%- assign tile_alt = block.settings.logo-heading | split: '|' | last | strip -%}
+              {%- assign tile_alt = block.settings.image.alt | default: tile_alt -%}
               {%- if block.settings.link != blank -%}
-                <a href="{{ block.settings.link }}" class="logo-bar__link" aria-label="{{ block.settings.image.alt }}">
+                <a href="{{ block.settings.link }}" class="logo-bar__link" aria-label="{{ tile_alt | escape }}">
               {%- endif -%}
               {%- if block.settings.image != blank -%}
                 {%- render 'image-element',
                   img: block.settings.image,
+                  alt: tile_alt,
                   sizeVariable: '6',
                   fallback: '50vw',
                   widths: '360, 540, 720, 1020',

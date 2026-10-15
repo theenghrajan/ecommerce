@@ -878,6 +878,46 @@ html.ss-anchor-modal-open { overflow: hidden; }
   }
 }
 
+/* AC #64: below desktop the homepage-only (.template-index) wrap rules don't
+   apply here, so the cards stacked 1 per row, left-aligned. Even grid instead:
+   4 per row on tablets, 2 per row on phones. The theme's negative row margin
+   is dropped at every width (it pushed the row 14px off-screen at 1024px). */
+[id$="__ss_browse"].text-with-iconsmd .text-with-icons__blocks {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media screen and (max-width: 1023px) {
+  [id$="__ss_browse"].text-with-iconsmd .page-width {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  [id$="__ss_browse"].text-with-iconsmd .text-with-icons__blocks {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  [id$="__ss_browse"].text-with-iconsmd .text-with-icons__blocks .text-with-icons__block {
+    width: auto !important;
+    max-width: none !important;
+    flex: none !important;
+    margin: 0 !important;
+    padding: 16px 8px !important;
+    text-align: center;
+  }
+  [id$="__ss_browse"] .text-with-icons__block-icon img {
+    width: 64px;
+    height: 64px;
+  }
+  [id$="__ss_browse"] .text-with-icons__block-title h3 {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 599px) {
+  [id$="__ss_browse"].text-with-iconsmd .text-with-icons__blocks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* ============================================================
    Reviews: Stamped.io carousel (AC #61). Our section heading replaces
    Stamped's default "Real Reviews from Real Customers" title; the stars,

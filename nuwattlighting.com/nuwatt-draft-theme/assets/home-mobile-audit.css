@@ -1,0 +1,176 @@
+/* Task #151 - mobile home page audit (designer PDF and Gary's notes, AC comments #45/#46; Stamped #47).
+   Loaded on the home template only, after custom.css / responsives.css (layout/theme.liquid).
+   Numbers in brackets refer to the audit point each rule implements. Section-specific
+   fixes (hero, cards, tiles, reviews) live in their own section files. */
+
+/* ---------- (6) One type family: section titles that used nw-medium use the theme's Roboto ---------- */
+.template-index .section-header__title,
+.template-index .why-nuwatt-heading,
+.template-index .text-with-icons__title h2 {
+  font-family: var(--typeBasePrimary), var(--typeBaseFallback) !important;
+  font-weight: 600 !important;
+}
+
+@media screen and (max-width: 767px) {
+  /* (6) mobile scale: every section title 28px, card titles 20px */
+  .template-index .section-header__title,
+  .template-index .why-nuwatt-heading,
+  .template-index .text-with-icons__title h2,
+  .template-index .richtext-intro__text .theme-block:last-child .rte h2 {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+  }
+  .template-index .richtext-cards .theme-block h2 {
+    font-size: 20px !important;
+    line-height: 1.3 !important;
+  }
+
+  /* ---------- (8) Top Categories: all 8 tiles on one screen (4 x 2), smaller tiles ---------- */
+  .template-index .text-with-icons {
+    padding: 32px 0 !important;
+  }
+  .template-index .text-with-icons__title {
+    margin-bottom: 16px !important;
+  }
+  .template-index .text-with-icons__blocks {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 !important;
+  }
+  .template-index .text-with-icons__block {
+    width: auto !important;
+    max-width: none !important;
+    flex: none !important;
+    margin: 0 !important;
+    padding: 10px 4px 8px !important;
+    border-radius: 8px !important;
+  }
+  .template-index .text-with-icons__block > a {
+    display: block;
+  }
+  .template-index .text-with-icons__block-icon {
+    margin: 0 auto 6px !important;
+  }
+  .template-index .text-with-icons__block-icon img,
+  .template-index .text-with-icons__block-icon .icon {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .template-index .text-with-icons__block-title h3 {
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* ---------- (7) SEO text: category copy collapses behind "Read more" (copy stays in the HTML) ---------- */
+  .template-index .hm-more__body[hidden] {
+    display: none !important;
+  }
+  .template-index .hm-more__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #202020;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .template-index .hm-more__toggle::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+  .template-index .hm-more__toggle[aria-expanded="true"]::after {
+    transform: translateY(2px) rotate(-135deg);
+  }
+  .template-index .richtext-cards {
+    gap: 16px !important;
+  }
+  .template-index .richtext-cards .theme-block {
+    padding: 20px !important;
+  }
+  .template-index .richtext-cards .theme-block p {
+    line-height: 1.6 !important;
+  }
+
+  /* ---------- Tap targets (should-have): 44px minimum ---------- */
+  .template-index .quick-add-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .template-index .why-nuwatt-view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .template-index .richtext-cards .theme-block li a {
+    display: inline-block;
+    padding: 10px 0;
+  }
+  .template-index .richtext-cards .theme-block li {
+    padding-bottom: 4px !important;
+  }
+  .template-index .richtext-cards .theme-block li::before {
+    top: 17px !important;
+  }
+}
+
+/* (8) phones in landscape: one row of 8 */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .template-index .text-with-icons {
+    padding: 24px 0 !important;
+  }
+  .template-index .text-with-icons__blocks {
+    display: grid !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0 !important;
+  }
+  .template-index .text-with-icons__block {
+    width: auto !important;
+    max-width: none !important;
+    flex: none !important;
+    margin: 0 !important;
+    padding: 10px 4px 8px !important;
+  }
+  .template-index .text-with-icons__block-icon {
+    margin: 0 auto 6px !important;
+  }
+  .template-index .text-with-icons__block-icon img,
+  .template-index .text-with-icons__block-icon .icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .template-index .text-with-icons__block-title h3 {
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* (7) the collapse is mobile only: desktop keeps the full copy and no toggles */
+@media screen and (min-width: 768px) {
+  .template-index .hm-more__body[hidden] {
+    display: block !important;
+  }
+  .template-index .hm-more__toggle {
+    display: none !important;
+  }
+}

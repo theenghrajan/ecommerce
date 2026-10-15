@@ -1,10 +1,3 @@
-<script type="text/javascript" async="true" src="https://scripts.juniphq.com/v1/junip_shopify.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap" rel="stylesheet">
-<!-- The "Why NuWatt" eyebrow uses IBM Plex Mono per Figma, but that font was never
-     actually loaded anywhere in this theme — the CSS `font-family: 'IBM Plex Mono', ...`
-     was silently falling back to Courier New the whole time. -->
 
 <div class="image-with-review">
     <div class="page-width">
@@ -12,7 +5,7 @@
             <div class="why-nuwatt-card">
                 <div class="image_wrapper">
                     {% if section.settings.main_image != blank %}
-                    <img src="{{ section.settings.main_image | img_url:'master' }}">
+                    <img src="{{ section.settings.main_image | img_url:'master' }}" alt="{{ section.settings.main_image.alt | default: 'NuWatt Lighting headquarters' | escape }}" loading="lazy">
                     {% endif %}
                 </div>
                 <div class="why-nuwatt-content">
@@ -49,139 +42,26 @@
                 </div>
             </div>
             <div class="review_section">
-                 <span class="junip-store-key" data-store-key="Le1jN8TTeVzxxRUqTk2bMa2T"></span>
+                 {%- comment -%}
+                   #151 (AC comment #47): reviews now come from Stamped.io, not Junip.
+                   Store-wide carousel; StampedFn.init is loaded in layout/theme.liquid.
+                 {%- endcomment -%}
                  <div
-  class="junip-review-carousel"
-  data-title=""
-  data-reviews-type="product_reviews"
-  data-product-id=""
-  data-review-tag=""
-  data-show-summary="true">
-</div>
+                   id="stamped-reviews-widget"
+                   data-widget-type="carousel"
+                   data-title=""
+                   data-take="12"
+                   data-min-rating="4"
+                   data-fill-empty="false"
+                   data-random="false"
+                   data-show-avatar="true"></div>
                 <div class="why-nuwatt-review-footer">
-                    <!-- Junip's own widget doesn't render a working "view all reviews"
-                         link to the merchant's own reviews page (it's a JS-driven
-                         carousel with no such control), so this is a real link added
-                         directly in our markup rather than relying on Junip for it. -->
                     <a href="/pages/reviews?page=reviews" class="why-nuwatt-view-all-btn">Read All Reviews</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-  (function () {
-    // Junip's own summary markup (data-show-summary="true") renders a single
-    // line — "4.96 [one star] | 546 reviews" — centered, with no room for
-    // Figma's 5-star row or a second "Rated across the full catalog" line.
-    // Rather than fight that structure with CSS, we read the live rating/count
-    // Junip already fetched and render our own left-aligned summary from it,
-    // then hide (not remove) Junip's original so its own logic keeps working.
-    // Same star glyph Junip itself uses for the review-card star rows
-    // (its "#junipFilledStar" SVG symbol, viewBox 0 0 16 16) — reused here
-    // instead of a hand-picked path so the rating summary's stars are
-    // pixel-identical in shape to the cards' stars below, rather than a
-    // visibly different (fatter/blockier) custom star.
-    var STAR_PATH = '<path d="M8 1L10.0636 5.75252L15 6.34753L11.339 9.87976L12.3263 15L8 12.4305L3.67376 15L4.661 9.87976L1 6.34753L5.93638 5.75252L8 1Z"/>';
-
-    function starsHtml(rating) {
-      var filled = Math.round(rating);
-      var html = '';
-      for (var i = 0; i < 5; i++) {
-        html += '<svg viewBox="0 0 16 16" aria-hidden="true" style="opacity:' + (i < filled ? '1' : '0.25') + '">' + STAR_PATH + '</svg>';
-      }
-      return html;
-    }
-
-    // Junip redraws this widget on its own after the initial load (lazy-
-    // loading more reviews, reacting to a resize, etc.), which recreates a
-    // fresh, visible, centered summary — a one-time "build it and stop
-    // watching" fix would get silently undone whenever that happens. So
-    // this re-syncs on every relevant DOM change instead of running once.
-    function sync() {
-      var section = document.querySelector('.image-with-review .review_section');
-      if (!section) return;
-
-      var summary = section.querySelector('.junip-review-carousel-summary');
-      var ratingEl = section.querySelector('.junip-review-carousel-rating-average');
-      var countEl = section.querySelector('.junip-review-carousel-summary-review-count');
-      if (!summary || !ratingEl || !countEl) return;
-
-      // Re-hide every time — Junip may have recreated this element visible.
-      summary.style.display = 'none';
-
-      var ratingText = ratingEl.textContent.trim();
-      var countMatch = countEl.textContent.match(/[\d,]+/);
-      if (!ratingText || !countMatch) return;
-
-      var html =
-        '<p class="why-nuwatt-rating-number">' + ratingText + '</p>' +
-        '<div class="why-nuwatt-rating-side">' +
-          '<div class="why-nuwatt-rating-stars">' + starsHtml(parseFloat(ratingText)) + '</div>' +
-          '<p class="why-nuwatt-rating-count">' + countMatch[0] + ' verified reviews</p>' +
-          '<p class="why-nuwatt-rating-tagline">Rated across the full catalog</p>' +
-        '</div>';
-
-      var wrapper = section.querySelector('.why-nuwatt-rating-summary');
-      if (!wrapper) {
-        wrapper = document.createElement('div');
-        wrapper.className = 'why-nuwatt-rating-summary';
-        summary.insertAdjacentElement('beforebegin', wrapper);
-      } else if (!summary.previousElementSibling || summary.previousElementSibling !== wrapper) {
-        // Junip re-rendered and our wrapper got orphaned/detached elsewhere
-        // in the DOM — reattach it right before the (newly recreated)
-        // summary instead of leaving a stale duplicate lying around.
-        summary.insertAdjacentElement('beforebegin', wrapper);
-      }
-      // Skip the DOM write when nothing actually changed, so this doesn't
-      // needlessly re-render (and re-trigger the observer) on every mutation.
-      if (wrapper.dataset.content !== html) {
-        wrapper.innerHTML = html;
-        wrapper.dataset.content = html;
-      }
-    }
-
-    // The rating summary and footer need to start at the same left edge as
-    // the actual review cards — but exactly how deep Junip nests the card
-    // grid (how much padding its own wrapper divs add) has turned out to
-    // differ between environments in ways a hardcoded CSS padding-left
-    // couldn't reliably match (confirmed: 40px measured exactly correct in
-    // one browser, reported as visibly wrong in another, for the same
-    // markup/CSS — see PROGRESS.md). Rather than guess at another fixed
-    // number, measure the real gap directly from the rendered card and
-    // apply it live, so this is correct regardless of what Junip's actual
-    // internal padding turns out to be for a given viewer.
-    function alignToCards() {
-      var section = document.querySelector('.image-with-review .review_section');
-      if (!section) return;
-      var firstCard = section.querySelector('.junip-review-carousel-item');
-      var summary = section.querySelector('.why-nuwatt-rating-summary');
-      var footer = section.querySelector('.why-nuwatt-review-footer');
-      if (!firstCard || (!summary && !footer)) return;
-
-      var contentLeft = section.getBoundingClientRect().left + parseFloat(getComputedStyle(section).paddingLeft || 0);
-      var offset = Math.round(firstCard.getBoundingClientRect().left - contentLeft);
-      // A transient 0/negative reading (Junip mid-layout) or an implausibly
-      // large one (something else entirely) isn't a real alignment value —
-      // skip rather than shove the summary/footer somewhere wrong.
-      if (offset < 0 || offset > 200) return;
-
-      if (summary) summary.style.paddingLeft = offset + 'px';
-      if (footer) footer.style.paddingLeft = offset + 'px';
-    }
-
-    sync();
-    alignToCards();
-    var section = document.querySelector('.image-with-review .review_section');
-    if (section) {
-      new MutationObserver(function () { sync(); alignToCards(); }).observe(section, { childList: true, subtree: true, characterData: true });
-    }
-    // Cards can reflow (e.g. a breakpoint changing .review_section's width)
-    // without any DOM mutation for the observer above to catch.
-    window.addEventListener('resize', alignToCards);
-  })();
-</script>
 
 {% schema %}
 {
@@ -295,7 +175,7 @@
   }
   .image-with-review .why-nuwatt-eyebrow {
     color: #fcc833;
-    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback); /* #151 (6): was IBM Plex Mono */
     font-weight: 600;
     font-size: 12px;
     letter-spacing: 2.2px;
@@ -702,4 +582,99 @@
     }
     }
 
+
+  /* #151: Stamped carousel in place of Junip. Section heading/eyebrow replace
+     Stamped's own title; text follows the dark card's colours. */
+  .image-with-review #stamped-reviews-widget[data-widget-type=carousel] {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .image-with-review #stamped-reviews-widget .stamped-carousel-scroll {
+    width: 100% !important;
+  }
+  .image-with-review #stamped-reviews-widget .stamped-carousel-title {
+    display: none;
+  }
+  .image-with-review #stamped-reviews-widget,
+  .image-with-review #stamped-reviews-widget * {
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback) !important;
+  }
+  .image-with-review #stamped-reviews-widget .stamped-carousel-button-left,
+  .image-with-review #stamped-reviews-widget .stamped-carousel-button-right {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Rating + count, then the arrows, centred above the cards. Each review is thumbnail +
+     product name in a row with the text full width below: Stamped's own layout puts the
+     image absolutely and indents the text 100px, which left a ~40px text column here. */
+  .image-with-review .review_section #stamped-reviews-widget .stamped-carousel-subtitle,
+  .image-with-review .review_section #stamped-reviews-widget .stamped-carousel-buttons {
+    float: none !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100% !important;
+    margin: 0 0 8px !important;
+    text-align: center;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .stamped-carousel-scroll {
+    clear: both;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-image {
+    position: static !important;
+    float: none !important;
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 8px 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-image > a {
+    display: block;
+    flex: 0 0 56px;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-image img {
+    position: static !important;
+    display: block !important;
+    width: 56px !important;
+    height: 56px !important;
+    margin: 0 !important;
+    object-fit: contain;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-product-title {
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-product-title a {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-message,
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-author {
+    float: none !important;
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-message {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+  }
+  .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-author {
+    margin-top: 8px !important;
+  }
 </style>

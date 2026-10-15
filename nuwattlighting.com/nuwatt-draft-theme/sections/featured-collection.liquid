@@ -224,8 +224,10 @@
     cursor: pointer;
     margin-top: 12px;
   }
-  #shopify-section-{{ section.id }} .nw-quick-add-btn:hover {
-    background: #ffdb66;
+  @media (hover: hover) {
+    #shopify-section-{{ section.id }} .nw-quick-add-btn:hover {
+      background: #ffdb66;
+    }
   }
   {% unless section.settings.title == blank %}
     {% if section.settings.heading_position == 'right' %}

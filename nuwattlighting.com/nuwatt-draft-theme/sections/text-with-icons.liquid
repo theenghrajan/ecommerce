@@ -123,7 +123,7 @@
                 <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-tcwi-wallet" viewBox="0 0 100 100"><defs><style>.a{fill:none;stroke:#000;stroke-width:2px}</style></defs><path class="a" d="M69.36 55.8a2.45 2.45 0 1 1-2.45 2.45 2.45 2.45 0 0 1 2.45-2.45z"/><path class="a" d="M61.77 58.24a7.92 7.92 0 0 0 7.94 7.94H85V85H18.49a6 6 0 0 1-6-6V28a4.64 4.64 0 0 0 4.67 4.66H85v17.65H69.71a7.93 7.93 0 0 0-7.94 7.93z"/><path class="a" d="M86 50.31H69.71a7.94 7.94 0 1 0 0 15.87H86a1.53 1.53 0 0 0 1.53-1.52V51.84A1.54 1.54 0 0 0 86 50.31zM12.5 28a4.66 4.66 0 0 1 4.67-4.66H47M68.65 23.32h10.82v9.33"/><path class="a" d="M72.99 32.65H27l20.01-9.33 17.78-8.28 3.86 8.28 4.34 9.33z"/></svg>
               {% when 'none' %}
                 {% if block.settings.icon_image != blank %}
-                <img src="{{ block.settings.icon_image | img_url:'master' }}">
+                <img src="{{ block.settings.icon_image | img_url:'master' }}" alt="{{ block.settings.icon_image.alt | default: block.settings.title | escape }}" width="62" height="62">
                 {% endif %}
               {% endcase %}
             
@@ -177,7 +177,19 @@
   /* Figma shows one tile in its hover state as a mock, not a permanently-highlighted
      first item — so this is a real :hover treatment applied to every tile, not a
      per-block "featured" flag. */
-  #shopify-section-{{ section.id }} .text-with-icons__block:hover,
+  /* #151 mobile audit: :hover only where a real pointer can hover, so the tile under
+     a finger on iOS doesn't stay yellow after the tap. */
+  @media (hover: hover) {
+    #shopify-section-{{ section.id }} .text-with-icons__block:hover {
+      background: #fcc833;
+      border-color: transparent;
+      border-radius: 8px;
+      box-shadow: 0px 10px 22px -14px rgba(200, 150, 10, 0.85);
+    }
+    #shopify-section-{{ section.id }} .text-with-icons__block:hover .text-with-icons__block-icon img {
+      mix-blend-mode: multiply;
+    }
+  }
   #shopify-section-{{ section.id }} .text-with-icons__block--featured {
     background: #fcc833;
     border-color: transparent;
@@ -201,7 +213,6 @@
     background: transparent !important;
   }
 
-  #shopify-section-{{ section.id }} .text-with-icons__block:hover .text-with-icons__block-icon img,
   #shopify-section-{{ section.id }} .text-with-icons__block--featured .text-with-icons__block-icon img {
     mix-blend-mode: multiply;
   }

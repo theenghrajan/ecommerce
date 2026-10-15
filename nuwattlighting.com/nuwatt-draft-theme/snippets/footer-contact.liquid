@@ -13,7 +13,7 @@
         {%- if block.settings.contact != blank -%}
           <li><a href="{{ pages[block.settings.contact].url }}?page=contact-us">
             <span class="icon-and-text">
-              <img class="icon icon-email" src="{{ 'figma-footer-icon-email.svg' | asset_url }}" width="40" height="40" alt="" loading="lazy">
+              <img class="icon icon-email" src="{{ 'figma-footer-icon-email.svg' | asset_url }}" width="40" height="40" alt="Email" loading="lazy">
                {%  if block.settings.contact_title != blank %}
                 <span>{{ block.settings.contact_title }}</span>
                {%  else %}
@@ -25,7 +25,7 @@
         {%- if block.settings.phone != blank -%}
           <li><a href="tel:{{ block.settings.phone }}">
             <span class="icon-and-text">
-              <img class="icon icon-phone" src="{{ 'figma-footer-icon-phone.svg' | asset_url }}" width="40" height="40" alt="" loading="lazy">
+              <img class="icon icon-phone" src="{{ 'figma-footer-icon-phone.svg' | asset_url }}" width="40" height="40" alt="Phone" loading="lazy">
               <span>{{ block.settings.phone }}</span>
             </span>
           </a></li>

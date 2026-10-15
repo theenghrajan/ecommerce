@@ -402,6 +402,11 @@ document.querySelectorAll('.alt-accordion-toggle').forEach((header, index) => {
     {{ 'pdp-mobile-audit.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'pdp-mobile-audit.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
+  {%- comment -%} Task #151 mobile home page audit {%- endcomment -%}
+  {%- if template.name == 'index' -%}
+    {{ 'home-mobile-audit.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'home-mobile-audit.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
 
   <script>
 

@@ -161,7 +161,7 @@
   }
 
   #shopify-section-{{ section.id }} .two-image-row__title {
-    font-family: sans-serif;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback); /* #151 (6): was generic sans-serif (SF Pro / Roboto by device) */
     margin: 0;
     max-width: 100%;
     font-weight: 800;
@@ -172,7 +172,7 @@
   }
 
   #shopify-section-{{ section.id }} .two-image-row__description {
-    font-family: sans-serif;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback); /* #151 (6): was generic sans-serif (SF Pro / Roboto by device) */
     color: white;
     margin: 0;
     max-width: 100%;
@@ -189,7 +189,7 @@
     text-decoration: none;
     padding: 10px 18px;
     border-radius: 6px;
-    font-family: 'nw-medium';
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback); /* #151 (6): was nw-medium */
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
@@ -200,8 +200,24 @@
     max-width: fit-content;
   }
 
-  #shopify-section-{{ section.id }} .two-image-row__button:hover {
-    background-color: #ffa600;
+  @media (hover: hover) {
+    #shopify-section-{{ section.id }} .two-image-row__button:hover {
+      background-color: #ffa600;
+    }
+  }
+  /* image 0, scrim 1, cover link 1 (later in the DOM, so above the scrim), text 2.
+     The text layer lets taps through to the cover link; only the CTA takes its own taps. */
+  #shopify-section-{{ section.id }} .two-image-row__cover {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: 20px;
+  }
+  #shopify-section-{{ section.id }} .two-image-row__overlay {
+    pointer-events: none;
+  }
+  #shopify-section-{{ section.id }} .two-image-row__button {
+    pointer-events: auto;
   }
 
   /* Laptop and Mobile (<=1024px): the container stacks to a column. The
@@ -237,10 +253,36 @@
   /* Mobile (<768px) */
   @media screen and (max-width: 767px) {
     #shopify-section-{{ section.id }} .two-image-row__container {
-      gap: 15px;
+      gap: 12px;
+    }
+    /* #151 mobile audit (Gary's note): both cards plus the gap should take about
+       the same height as the 1:1 hero above, so the tiles size to their text. */
+    #shopify-section-{{ section.id }} .two-image-row__tile {
+      min-height: 0;
     }
     #shopify-section-{{ section.id }} .two-image-row__overlay {
-      padding: 1rem;
+      gap: 4px;
+      padding: 14px 16px;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__eyebrow {
+      margin: 0;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__title {
+      font-size: 18px;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__description {
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__button {
+      margin-top: 6px;
+      padding: 8px 14px;
+      font-size: 12px;
+    }
+    #shopify-section-{{ section.id }} .two-image-row__image,
+    #shopify-section-{{ section.id }} .two-image-row__tile::before,
+    #shopify-section-{{ section.id }} .two-image-row__cover {
+      border-radius: 9px;
     }
   }
 
@@ -279,10 +321,15 @@
       endif
     -%}
     {%- unless tile_1_blank -%}
-    <a
-      href="{% if section.settings.image_1_link %}{{ section.settings.image_1_link }}{% else %}https://www.nuwattlighting.com{% endif %}"
-      class="two-image-row__tile two-image-row__tile--1"
-    >
+    {%- comment -%} Task #151 mobile audit (1): the tile was an <a> wrapping a <button> (invalid, two controls for one action).
+      The CTA is now the link. A cover link (hidden from screen readers) keeps the rest of the card tappable. {%- endcomment -%}
+    {%- capture tile_1_href -%}{% if section.settings.image_1_link %}{{ section.settings.image_1_link }}{% else %}https://www.nuwattlighting.com{% endif %}{%- endcapture -%}
+    <div class="two-image-row__tile two-image-row__tile--1">
+      {%- if section.settings.button_text_1 != blank -%}
+        <a href="{{ tile_1_href }}" class="two-image-row__cover" aria-hidden="true" tabindex="-1"></a>
+      {%- else -%}
+        <a href="{{ tile_1_href }}" class="two-image-row__cover" aria-label="{{ section.settings.header_title_1 | default: section.settings.image_1_alt | escape }}"></a>
+      {%- endif -%}
       <div class="two-image-row__overlay">
         {% if section.settings.eyebrow_1 != blank %}
           <p class="two-image-row__eyebrow">{{ section.settings.eyebrow_1 }}</p>
@@ -294,7 +341,7 @@
           <p class="two-image-row__description">{{ section.settings.sub_header_text_1 }}</p>
         {% endif %}
         {% if section.settings.button_text_1 != blank %}
-          <button class="two-image-row__button">{{ section.settings.button_text_1 }}</button>
+          <a href="{{ tile_1_href }}" class="two-image-row__button">{{ section.settings.button_text_1 }}</a>
         {% endif %}
       </div>
 
@@ -306,7 +353,7 @@
         height="380"
         loading="lazy"
       >
-    </a>
+    </div>
     {%- endunless -%}
     {%- liquid
       assign tile_2_blank = true
@@ -315,10 +362,15 @@
       endif
     -%}
     {%- unless tile_2_blank -%}
-    <a
-      href="{% if section.settings.image_2_link %}{{ section.settings.image_2_link }}{% else %}https://www.nuwattlighting.com{% endif %}"
-      class="two-image-row__tile two-image-row__tile--2"
-    >
+    {%- comment -%} Task #151 mobile audit (1): the tile was an <a> wrapping a <button> (invalid, two controls for one action).
+      The CTA is now the link. A cover link (hidden from screen readers) keeps the rest of the card tappable. {%- endcomment -%}
+    {%- capture tile_2_href -%}{% if section.settings.image_2_link %}{{ section.settings.image_2_link }}{% else %}https://www.nuwattlighting.com{% endif %}{%- endcapture -%}
+    <div class="two-image-row__tile two-image-row__tile--2">
+      {%- if section.settings.button_text_2 != blank -%}
+        <a href="{{ tile_2_href }}" class="two-image-row__cover" aria-hidden="true" tabindex="-1"></a>
+      {%- else -%}
+        <a href="{{ tile_2_href }}" class="two-image-row__cover" aria-label="{{ section.settings.header_title_2 | default: section.settings.image_2_alt | escape }}"></a>
+      {%- endif -%}
       <div class="two-image-row__overlay">
         {% if section.settings.eyebrow_2 != blank %}
           <p class="two-image-row__eyebrow">{{ section.settings.eyebrow_2 }}</p>
@@ -330,7 +382,7 @@
           <p class="two-image-row__description">{{ section.settings.sub_header_text_2 }}</p>
         {% endif %}
         {% if section.settings.button_text_2 != blank %}
-          <button class="two-image-row__button">{{ section.settings.button_text_2 }}</button>
+          <a href="{{ tile_2_href }}" class="two-image-row__button">{{ section.settings.button_text_2 }}</a>
         {% endif %}
       </div>
 
@@ -342,7 +394,7 @@
         height="380"
         loading="lazy"
       >
-    </a>
+    </div>
     {%- endunless -%}
   </div>
 </div>

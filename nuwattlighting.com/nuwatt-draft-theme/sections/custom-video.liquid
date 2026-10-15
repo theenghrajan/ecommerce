@@ -558,6 +558,75 @@ font-size: 2em;
      max-width:100%;
    }
 }
+
+  /* #151 mobile audit (4): 1:1 mobile hero with live headline + CTA */
+  .headr-gallery__mobile {
+    display: none;
+  }
+  @media screen and (max-width: 767px) {
+    .headr-gallery__main-link {
+      display: none !important;
+    }
+    .headr-gallery__mobile {
+      display: block;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 9px;
+      background: #202020;
+    }
+    .headr-gallery__mobile-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .headr-gallery__mobile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 40%, rgba(0, 0, 0, 0) 65%);
+    }
+    .headr-gallery__mobile-content {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 20px;
+    }
+    .headr-gallery__mobile-title {
+      margin: 0;
+      color: #fff;
+      font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: 0;
+      text-transform: none !important;
+    }
+    .headr-gallery__mobile-btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 20px;
+      border-radius: 6px;
+      background: #fcc833;
+      color: #202020;
+      font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
 {% endstylesheet %}
 
 {% style %}
@@ -614,11 +683,15 @@ font-size: 2em;
         <div class="hero__media hero__media--template--16663488364618__hero_video_Edip8Y">
           <div class="hero__media-container nextstepb">
 
+            {%- comment -%} #151 mobile audit (4): no autoplay/preload in the markup so phones never fetch
+              the 26 MB file; the script below starts it at 768px and up. {%- endcomment -%}
             {{ section.settings.videoex | video_tag:
               controls: false,
-              autoplay: true,
+              autoplay: false,
               loop: true,
-              muted: true
+              muted: true,
+              preload: 'none',
+              class: 'headr-gallery__video'
             }}
 
             {% comment %} <video
@@ -657,7 +730,60 @@ font-size: 2em;
 
     {%  endif %}
   </a>
+
+  {%- comment -%}
+    #151 mobile audit (4): phones get a 1:1 image with the headline and CTA as live text
+    instead of the desktop video (Gary: keep the image 1:1, placeholder image for now).
+    Falls back to the video's own preview frame until a mobile image is chosen.
+  {%- endcomment -%}
+  {%- liquid
+    assign mobile_img = section.settings.mobile_image
+    if mobile_img == blank and section.settings.videoex != blank
+      assign mobile_img = section.settings.videoex.preview_image
+    endif
+  -%}
+  {%- if mobile_img != blank -%}
+    <div class="headr-gallery__mobile">
+      {{ mobile_img | image_url: width: 1080 | image_tag:
+        widths: '400, 600, 800, 1080',
+        sizes: 'calc(100vw - 34px)',
+        class: 'headr-gallery__mobile-image',
+        alt: section.settings.mobile_image_alt,
+        loading: 'eager',
+        fetchpriority: 'high'
+      }}
+      {%- if section.settings.mobile_heading != blank or section.settings.mobile_button_text != blank -%}
+        <div class="headr-gallery__mobile-content">
+          {%- if section.settings.mobile_heading != blank -%}
+            <h2 class="headr-gallery__mobile-title">{{ section.settings.mobile_heading | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.mobile_button_text != blank -%}
+            <a href="{{ section.settings.mobile_button_link | default: routes.all_products_collection_url }}" class="headr-gallery__mobile-btn">{{ section.settings.mobile_button_text | escape }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
 </div>
+
+<script>
+  (function () {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    var video = section && section.querySelector('.headr-gallery__video');
+    if (!video) return;
+    var desktop = window.matchMedia('(min-width: 768px)');
+    function start() {
+      if (!desktop.matches || video.dataset.started) return;
+      video.dataset.started = 'true';
+      video.preload = 'auto';
+      video.autoplay = true;
+      var play = video.play();
+      if (play && play.catch) play.catch(function () {});
+    }
+    start();
+    if (desktop.addEventListener) desktop.addEventListener('change', start);
+  })();
+</script>
 
 {% schema %}
 {
@@ -712,6 +838,36 @@ font-size: 2em;
       "step": 10,
       "unit": "px",
       "default": 630
+    },
+    {
+      "type": "header",
+      "content": "Mobile (under 768px)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image",
+      "info": "Shown square (1:1) on phones instead of the video. Uses the video's preview frame when empty."
+    },
+    {
+      "type": "text",
+      "id": "mobile_image_alt",
+      "label": "Mobile image alt text"
+    },
+    {
+      "type": "text",
+      "id": "mobile_heading",
+      "label": "Mobile heading"
+    },
+    {
+      "type": "text",
+      "id": "mobile_button_text",
+      "label": "Mobile button text"
+    },
+    {
+      "type": "url",
+      "id": "mobile_button_link",
+      "label": "Mobile button link"
     },
     {
       "type": "image_picker",

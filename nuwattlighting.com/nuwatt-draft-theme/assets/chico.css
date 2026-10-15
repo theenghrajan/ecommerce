@@ -1470,9 +1470,11 @@ transform: unset;
   margin-bottom: 0 !important;
   width: 100%;
 }
-.nw-quick-add-btn:hover{
-           background-color: #fcc833;
-  
+/* #151 mobile audit: hover colour only where a pointer can hover (no sticky yellow after a tap on iOS) */
+@media (hover: hover) {
+  .nw-quick-add-btn:hover{
+    background-color: #fcc833;
+  }
 }
 
 

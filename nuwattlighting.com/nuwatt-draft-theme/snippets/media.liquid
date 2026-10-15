@@ -23,6 +23,7 @@
 
   assign image_set = false
   assign image_set_group = ''
+  assign media_alt = media.alt | default: product_title
   if media.alt contains '#'
     assign image_set_full = media.alt | split: '#' | last
     if image_set_full contains '_'
@@ -83,7 +84,7 @@
         {%- capture image_classes -%}
           hide {% if product_zoom_enable %}photoswipe__image{% endif %}
         {%- endcapture -%}
-        {%- render 'image-element', img: media.preview_image, type: 'photoswipe', classes: image_classes, alt: media.alt, split: '#', widths: '900', product_zoom_size: product_zoom_size, loopIndex: loopIndex, media: media, media_width: media_width, media_height: media_height, sizes: sizes, loading: loading, sizeVariable: sizeVariable, fallback: fallback -%}
+        {%- render 'image-element', img: media.preview_image, type: 'photoswipe', classes: image_classes, alt: media_alt, split: '#', widths: '900', product_zoom_size: product_zoom_size, loopIndex: loopIndex, media: media, media_width: media_width, media_height: media_height, sizes: sizes, loading: loading, sizeVariable: sizeVariable, fallback: fallback -%}
       </div>
       <button class="hide btn btn--circle btn--static product-single__close-media">
         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><defs><style>.cls-1{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:2px}</style></defs><path class="cls-1" d="M19 17.61l27.12 27.13m0-27.13L19 44.74"/></svg>
@@ -107,7 +108,7 @@
             assign fallback = '75vw'
           endif
         -%}
-        {%- render 'image-element', img: media.preview_image, type: 'photoswipe', classes: image_classes, alt: media.alt, split: '#', widths: '360, 540, 720, 900, 1080', product_zoom_size: product_zoom_size, loopIndex: loopIndex, media: media, media_width: media_width, media_height: media_height, sizes: sizes, loading: loading, sizeVariable: sizeVariable, fallback: fallback -%}
+        {%- render 'image-element', img: media.preview_image, type: 'photoswipe', classes: image_classes, alt: media_alt, split: '#', widths: '360, 540, 720, 900, 1080', product_zoom_size: product_zoom_size, loopIndex: loopIndex, media: media, media_width: media_width, media_height: media_height, sizes: sizes, loading: loading, sizeVariable: sizeVariable, fallback: fallback -%}
         </a>
         {%- if product_zoom_enable and media.media_type == 'image' -%}
           <button type="button" class="btn btn--secondary btn--circle js-photoswipe__zoom product__photo-zoom" aria-label="Zoom">

@@ -348,10 +348,18 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     transition: background-color 0.15s ease, border-color 0.15s ease;
   }
-  .site-footer .footer__social--circular a:hover,
   .site-footer .footer__social--circular a:focus-visible {
     background: #fcc833;
     border-color: #fff;
+  }
+  @media (hover: hover) {
+    .site-footer .footer__social--circular a:hover {
+      background: #fcc833;
+      border-color: #fff;
+    }
+    .site-footer .footer__social--circular a:hover .icon {
+      fill: #202020;
+    }
   }
   .site-footer .footer__social--circular .icon {
     width: 16px;
@@ -359,7 +367,6 @@
     fill: #fff;
     transition: fill 0.15s ease;
   }
-  .site-footer .footer__social--circular a:hover .icon,
   .site-footer .footer__social--circular a:focus-visible .icon {
     fill: #202020;
   }
@@ -386,7 +393,110 @@
     font-size: 14px !important;
     text-transform: none !important;
   }
+  /* Task #151 mobile audit: the footer ran ~1,585px on phones. Company and Help Center
+     fold into accordions (script below); links get 44px tap targets. */
+  @media only screen and (max-width: 767px) {
+    .site-footer .footer__blocks {
+      gap: 0 !important;
+    }
+    .site-footer .footer__block[data-type="menu"] {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .site-footer .footer__block[data-type="menu"] .footer__title {
+      margin: 0 !important;
+    }
+    .site-footer .footer__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 56px;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .site-footer .footer__toggle::after {
+      content: "";
+      width: 9px;
+      height: 9px;
+      margin-right: 4px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-3px) rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+    .site-footer .footer__toggle[aria-expanded="true"]::after {
+      transform: translateY(2px) rotate(-135deg);
+    }
+    .site-footer .footer__block[data-type="menu"] .footer__menu[hidden] {
+      display: none !important;
+    }
+    .site-footer .footer__block[data-type="menu"] .footer__menu {
+      padding-bottom: 12px;
+    }
+    .site-footer .footer__menu a {
+      display: block;
+      padding: 12px 0;
+    }
+    .site-footer .footer__section--menus {
+      padding-top: 40px !important;
+    }
+    .site-footer .footer__block[data-type="image"] {
+      padding-bottom: 16px;
+    }
+    .site-footer .footer__block[data-type="contact"] {
+      padding-top: 24px;
+    }
+  }
 {% endstyle %}
+
+<script>
+  (function () {
+    // accordions on phones only; wider screens keep plain headings with open menus
+    var phone = window.matchMedia('(max-width: 767px)');
+
+    function apply() {
+      var blocks = document.querySelectorAll('.site-footer .footer__block[data-type="menu"]');
+      Array.prototype.forEach.call(blocks, function (block, i) {
+        var title = block.querySelector('.footer__title');
+        var menu = block.querySelector('.footer__menu');
+        if (!title || !menu) return;
+        var toggle = title.querySelector('.footer__toggle');
+
+        if (phone.matches && !toggle) {
+          menu.id = menu.id || 'FooterMenu-' + i;
+          toggle = document.createElement('button');
+          toggle.type = 'button';
+          toggle.className = 'footer__toggle';
+          toggle.setAttribute('aria-controls', menu.id);
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = title.textContent.trim();
+          title.textContent = '';
+          title.appendChild(toggle);
+          menu.hidden = true;
+          toggle.addEventListener('click', function () {
+            var open = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!open));
+            menu.hidden = open;
+          });
+        } else if (!phone.matches && toggle) {
+          title.textContent = toggle.textContent;
+          menu.hidden = false;
+        }
+      });
+    }
+
+    if (phone.addEventListener) phone.addEventListener('change', apply);
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
+    else apply();
+  })();
+</script>
 
 {% comment %}
   Main navigation is copied here with JS for mobile users

@@ -381,6 +381,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// Task #151 mobile audit (1): "Get a Quote" links here with #quote-form. Bring the
+// heading + form up under the sticky header. The POWR form can take several seconds to
+// render, so room is reserved for it and the position is corrected as it grows, until
+// the visitor scrolls on their own.
+function scrollToQuoteForm(contentBox) {
+  if (window.location.hash !== '#quote-form') return;
+  var userMoved = false;
+  var stop = function () { userMoved = true; };
+  ['touchstart', 'wheel', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, stop, { once: true, passive: true });
+  });
+  contentBox.style.minHeight = '900px';
+
+  function place() {
+    if (userMoved) return;
+    var target = contentBox.querySelector('h1, h2') || contentBox;
+    var header = document.querySelector('.header-section');
+    var headerH = header ? header.getBoundingClientRect().height : 0;
+    window.scrollTo({ top: Math.max(0, window.scrollY + target.getBoundingClientRect().top - headerH - 12), behavior: 'auto' });
+  }
+
+  place();
+  // the header folds once the page has scrolled, so place again with its new height
+  setTimeout(place, 400);
+
+  var lastH = -1, stable = 0, tries = 0;
+  var timer = setInterval(function () {
+    var form = contentBox.querySelector('.powr-form-builder');
+    var h = form ? Math.round(form.getBoundingClientRect().height) : 0;
+    if (h !== lastH) { stable = 0; lastH = h; place(); } else if (h > 100) { stable++; }
+    if (stable >= 3 || ++tries > 60 || userMoved) {
+      clearInterval(timer);
+      contentBox.style.minHeight = '';
+      // drop the hash so switching tabs afterwards doesn't scroll again
+      history.replaceState(history.state, '', window.location.pathname + window.location.search);
+    }
+  }, 500);
+}
+
 function loadTabContent(handle, contentBox) {
   contentBox.innerHTML = '<span class="loader"></span>';
 
@@ -393,6 +432,7 @@ function loadTabContent(handle, contentBox) {
 
       if (mainContent) {
         contentBox.innerHTML = mainContent.innerHTML;
+        scrollToQuoteForm(contentBox);
       } else {
         contentBox.innerHTML = '<p>Content not found.</p>';
       }
