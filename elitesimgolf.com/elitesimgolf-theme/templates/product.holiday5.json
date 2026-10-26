@@ -1,0 +1,200 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "junip_junip_product_summary_Nn7k76": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "custom_liquid_MTrpUb": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- Holiday Discount Highlight Box (paste anywhere in product description) -->\n<div style=\"\n  margin:18px 0;\n  padding:16px 18px;\n  border-radius:14px;\n  border:1px solid #e6c56f;\n  background: linear-gradient(135deg, #fff7f7 0%, #ffffff 55%, #f3fff7 100%);\n  box-shadow: 0 10px 24px rgba(0,0,0,0.06);\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n\">\n  <!-- Header row -->\n  <div style=\"display:flex; align-items:center; gap:10px; margin-bottom:10px;\">\n    <div style=\"\n      width:38px; height:38px; border-radius:12px;\n      display:flex; align-items:center; justify-content:center;\n      background:#0f5132;\n      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.35);\n      flex:0 0 auto;\n      font-size:20px;\n    \">🎄</div>\n\n    <div style=\"flex:1 1 auto;\">\n      <div style=\"font-weight:800; font-size:16px; letter-spacing:0.2px; line-height:1.2;\">\n        Extra Holiday Savings In Cart\n      </div>\n      <div style=\"font-size:13px; color:#6b7280; margin-top:2px;\">\n        Apply the coupon at checkout to unlock an additional discount.\n      </div>\n    </div>\n\n    <div style=\"\n      padding:6px 10px;\n      border-radius:999px;\n      background:#b91c1c;\n      color:#ffffff;\n      font-weight:800;\n      font-size:12px;\n      letter-spacing:0.6px;\n      text-transform:uppercase;\n      flex:0 0 auto;\n      box-shadow: 0 8px 18px rgba(185,28,28,0.18);\n    \">Holiday Deal</div>\n  </div>\n\n  <!-- Code row -->\n  <div style=\"\n    display:flex;\n    flex-wrap:wrap;\n    align-items:center;\n    gap:10px;\n    padding:12px 12px;\n    border-radius:12px;\n    background: rgba(255,255,255,0.78);\n    border: 1px dashed #d1d5db;\n  \">\n    <div style=\"font-size:14px; font-weight:700;\">\n      Use code:\n      <span style=\"\n        display:inline-block;\n        margin-left:6px;\n        padding:6px 10px;\n        border-radius:10px;\n        background:#111827;\n        color:#ffffff;\n        font-weight:900;\n        letter-spacing:0.8px;\n        font-size:13px;\n      \">HOLIDAY5</span>\n    </div>\n\n    <div style=\"font-size:13px; color:#6b7280;\">\n      Discount applies <strong>in cart</strong> when the coupon is entered.\n    </div>\n  </div>\n\n  <!-- Tiny festive footer -->\n  <div style=\"margin-top:10px; font-size:12px; color:#6b7280;\">\n    🎁 Limited-time holiday promotion. Coupon must be applied before checkout.\n  </div>\n</div>\n<!-- Small Shipping Note (Christmas-themed, compact) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🚚</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Ships in 3–5 business days\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Processing time may vary slightly during peak holiday volume.\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "custom_liquid_xE74Bb": {
+          "type": "custom-liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div style=\"\n  background-color: #FFEB3B;\n  border: 2px solid #000000;\n  padding: 16px 20px;\n  border-radius: 8px;\n  max-width: 800px;\n  margin: 20px auto;\n\">\n  <h4 class=\"g6-text-title g6-title-lg t-white\" style=\"margin: 0 0 8px 0; text-align: center; color: #000000;\">\n    Current Shipping ETA: <strong>3-5 Business Days</strong>\n  </h4>\n  <p class=\"t-white\" style=\"margin: 0; text-align: center; font-size: 0.95rem; color: #000000;\">\n    Due to exceptionally high order volumes from our recent promotions,\n    orders are currently expected to ship within <strong>3–5 business days</strong>.\n    We appreciate your patience and support while our team works to fulfill\n    all orders as quickly as possible.\n  </p>\n</div>"
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "always",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "w3_product_accessories_widget_Nw99yW": {
+          "type": "shopify://apps/w3-product-accessories/blocks/widget/cebf1474-e4fa-4cb4-a91e-d313690bf6f1",
+          "settings": {}
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "junip_junip_product_summary_Nn7k76",
+        "price",
+        "custom_liquid_MTrpUb",
+        "custom_liquid_xE74Bb",
+        "divider-0",
+        "variant-picker",
+        "buy-buttons",
+        "richtext_3t6BjV",
+        "w3_product_accessories_widget_Nw99yW",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "small",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "1",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "easify_attachments_product_attachments_PbbqhP": {
+          "type": "shopify://apps/easify-attachments/blocks/product-attachments/cc218f93-dff3-4a2d-af6e-04e2bc66e693",
+          "settings": {}
+        },
+        "junip_junip_product_review_CzDnXp": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "easify_attachments_product_attachments_PbbqhP",
+        "junip_junip_product_review_CzDnXp"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

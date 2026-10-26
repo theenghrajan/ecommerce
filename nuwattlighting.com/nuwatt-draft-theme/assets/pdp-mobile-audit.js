@@ -15,6 +15,84 @@
     var label = wrapper && wrapper.querySelector('[data-pack-size-selected]');
     if (label) label.textContent = input.value;
     updateStickyBar();
+    updateUnitPrice();
+  });
+
+  /* (Gary, AC #90) Per-unit price under the total price, e.g. "$4.17 / piece" for "6 Pieces" ($24.99 total).
+     Shown on mobile and desktop (AC #106). The pack count comes from the selected pack ("6 Pieces" = 6), the total from the
+     buy-box price, so it follows every variant change. */
+  var unitEl, variantPrices = null;
+
+  function selectedVariantId() {
+    var form = document.querySelector('.product-single__buy-box form[action*="/cart/add"], form[action*="/cart/add"][id^="AddToCartForm"]');
+    var id = form && form.querySelector('[name="id"]');
+    return id ? String(id.value) : '';
+  }
+
+  function updateUnitPrice() {
+    if (!unitEl || !variantPrices) return;
+    var pack = document.querySelector('.variant-input-wrap[data-handle="pack-size"] input[type="radio"]:checked');
+    var count = pack ? parseInt(pack.value, 10) : NaN;
+    var cents = variantPrices[selectedVariantId()];
+    // only touch the DOM when something changed: the buy-box observer below would otherwise re-trigger itself
+    if (!count || cents == null) {
+      if (!unitEl.hidden) unitEl.hidden = true;
+      return;
+    }
+    var unit = Math.round(cents / count) / 100;
+    var label = '$' + unit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' / piece';
+    if (unitEl.textContent !== label) unitEl.textContent = label;
+    if (unitEl.hidden) unitEl.hidden = false;
+  }
+
+  function initUnitPrice() {
+    var priceBlock = document.querySelector('.product-single__buy-box .product-price');
+    if (!priceBlock || !document.querySelector('.variant-input-wrap[data-handle="pack-size"]')) return;
+    unitEl = document.createElement('div');
+    unitEl.className = 'nw-unit-price';
+    unitEl.hidden = true;
+    priceBlock.appendChild(unitEl);
+    // variant prices (cents) from the product JSON, so the unit price never depends on how the theme formats the total
+    var handle = window.location.pathname.split('/products/')[1];
+    if (!handle) return;
+    fetch('/products/' + handle.split('/')[0].split('?')[0] + '.js')
+      .then(function (r) { return r.json(); })
+      .then(function (product) {
+        variantPrices = {};
+        product.variants.forEach(function (v) { variantPrices[String(v.id)] = v.price; });
+        updateUnitPrice();
+      })
+      .catch(function () {});
+    // the theme updates the hidden variant id and the price after a pack change
+    var buyBox = document.querySelector('.product-single__buy-box');
+    if (buyBox) new MutationObserver(updateUnitPrice).observe(buyBox, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ['value'] });
+    document.addEventListener('change', function () { setTimeout(updateUnitPrice, 50); });
+  }
+
+  /* (Gary, AC #90) "Not Sure How Many You Need?" lands the calculator exactly under the sticky header: the fixed
+     scroll-margin (150px) was taller than the mobile header and left a strip of the section above showing. */
+  function headerBottom() {
+    var header = document.querySelector('.header-section');
+    if (!header) return 0;
+    var r = header.getBoundingClientRect();
+    return r.bottom > 0 ? Math.floor(r.bottom) : 0;
+  }
+
+  function scrollToCalculator(smooth) {
+    var target = document.getElementById('lighting-layout-tool');
+    if (!target) return;
+    // +1px: the section's top edge tucks just under the header, so no sub-pixel strip of the section above can show
+    var y = target.getBoundingClientRect().top + window.pageYOffset - headerBottom() + 1;
+    window.scrollTo({ top: Math.max(0, y), behavior: smooth ? 'smooth' : 'auto' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a[href="#lighting-layout-tool"]');
+    if (!link || !document.getElementById('lighting-layout-tool')) return;
+    e.preventDefault();
+    scrollToCalculator(true);
+    // the header can change height while scrolling (announcement bar, sticky state): settle on the exact position
+    setTimeout(function () { scrollToCalculator(false); }, 900);
   });
 
   /* (2) Sticky Add to Cart on mobile, shown once the main Add to Cart button has scrolled away */
@@ -109,6 +187,7 @@
   }
 
   function init() {
+    initUnitPrice();
     initStickyBar();
     initReviews();
   }

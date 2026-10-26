@@ -1,0 +1,165 @@
+/*
+  Elite Collection Info — shared presentation rules
+  These rules standardize typography, breadcrumbs/icons, and CTA treatment
+  across collection descriptions without changing the collection layouts.
+*/
+
+/* Keep the existing collection-description containers transparent. */
+.elite-hero-wrap .esg-collection-header,
+.elite-hero-wrap .esg-col-header,
+.elite-hero-wrap .esg-pkg-header,
+.elite-hero-wrap [class^="esg-"] {
+  background: transparent !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+/* ---------------------------------------------------------
+   ONE HEADING STYLE — ALL COLLECTIONS
+   --------------------------------------------------------- */
+.elite-hero-wrap .elite-collection-description h1,
+.elite-hero-wrap .elite-collection-description h2,
+.elite-hero-wrap .elite-collection-description h3,
+.elite-hero-wrap .elite-collection-description h4,
+.elite-hero-wrap .elite-collection-description h5,
+.elite-hero-wrap .elite-collection-description h6,
+.elite-hero-wrap .elite-collection-description [class*="__title"],
+.elite-hero-wrap .elite-collection-description [class*="-title"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  font-style: normal !important;
+  line-height: 1.02 !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  color: #091836 !important;
+}
+
+/* Keep headings uppercase where the existing collection content already uses uppercase. */
+.elite-hero-wrap .elite-collection-description h1,
+.elite-hero-wrap .elite-collection-description h2,
+.elite-hero-wrap .elite-collection-description h3,
+.elite-hero-wrap .elite-collection-description h4,
+.elite-hero-wrap .elite-collection-description h5,
+.elite-hero-wrap .elite-collection-description h6 {
+  text-transform: uppercase !important;
+}
+
+/* ---------------------------------------------------------
+   HIDE BREADCRUMBS / DECORATIVE COLLECTION ICONS
+   --------------------------------------------------------- */
+.elite-hero-wrap .elite-collection-description .breadcrumb,
+.elite-hero-wrap .elite-collection-description [class*="breadcrumb"],
+.elite-hero-wrap .elite-collection-description [class*="Breadcrumb"],
+.elite-hero-wrap .elite-collection-description [class*="collection-icon"],
+.elite-hero-wrap .elite-collection-description [class*="Collection-icon"] {
+  display: none !important;
+}
+
+/* ---------------------------------------------------------
+   ONE CTA BACKGROUND — NAVY #091836
+   Keep each collection's existing button size, position,
+   radius and layout; only standardize presentation.
+   --------------------------------------------------------- */
+.elite-hero-wrap .elite-collection-description a[class*="button"],
+.elite-hero-wrap .elite-collection-description a[class*="Button"],
+.elite-hero-wrap .elite-collection-description a[class*="btn"],
+.elite-hero-wrap .elite-collection-description a[class*="Btn"],
+.elite-hero-wrap .elite-collection-description a[class*="cta"],
+.elite-hero-wrap .elite-collection-description a[class*="CTA"],
+.elite-hero-wrap .elite-collection-description a[class*="compare"],
+.elite-hero-wrap .elite-collection-description a[class*="Compare"],
+.elite-hero-wrap .elite-collection-description button,
+.elite-hero-wrap .elite-collection-description [role="button"],
+.elite-hero-wrap .elite-collection-description .button,
+.elite-hero-wrap .elite-collection-description .btn,
+.elite-hero-wrap .elite-collection-description a[style*="background"],
+.elite-hero-wrap .elite-collection-description a[style*="background:"] {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  border-color: #091836 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Standard CTA text treatment without changing dimensions. */
+.elite-hero-wrap .elite-collection-description a[class*="button"],
+.elite-hero-wrap .elite-collection-description a[class*="Button"],
+.elite-hero-wrap .elite-collection-description a[class*="btn"],
+.elite-hero-wrap .elite-collection-description a[class*="Btn"],
+.elite-hero-wrap .elite-collection-description a[class*="cta"],
+.elite-hero-wrap .elite-collection-description a[class*="CTA"],
+.elite-hero-wrap .elite-collection-description a[class*="compare"],
+.elite-hero-wrap .elite-collection-description a[class*="Compare"],
+.elite-hero-wrap .elite-collection-description button,
+.elite-hero-wrap .elite-collection-description [role="button"],
+.elite-hero-wrap .elite-collection-description .button,
+.elite-hero-wrap .elite-collection-description .btn,
+.elite-hero-wrap .elite-collection-description a[style*="background"],
+.elite-hero-wrap .elite-collection-description a[style*="background:"] {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+}
+
+/* Prevent existing collection hover CSS from turning the CTA transparent. */
+.elite-hero-wrap .elite-collection-description a[class*="button"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="Button"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="btn"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="Btn"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="cta"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="CTA"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="compare"]:hover,
+.elite-hero-wrap .elite-collection-description a[class*="Compare"]:hover,
+.elite-hero-wrap .elite-collection-description button:hover,
+.elite-hero-wrap .elite-collection-description [role="button"]:hover,
+.elite-hero-wrap .elite-collection-description .button:hover,
+.elite-hero-wrap .elite-collection-description .btn:hover,
+.elite-hero-wrap .elite-collection-description a[style*="background"]:hover,
+.elite-hero-wrap .elite-collection-description a[style*="background:"]:hover {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  border-color: #091836 !important;
+  color: #ffffff !important;
+}
+
+/* Ensure CTA icons/arrows remain white. */
+.elite-hero-wrap .elite-collection-description a[class*="button"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="Button"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="btn"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="Btn"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="cta"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="CTA"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="compare"] svg,
+.elite-hero-wrap .elite-collection-description a[class*="Compare"] svg,
+.elite-hero-wrap .elite-collection-description button svg,
+.elite-hero-wrap .elite-collection-description [role="button"] svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Explicit fix for the original ESG comparison button. */
+.elite-hero-wrap .elite-collection-description .esg-ch-compare,
+.elite-hero-wrap .elite-collection-description .esg-ch-compare:hover,
+.elite-hero-wrap .elite-collection-description .esg-ch-compare:focus,
+.elite-hero-wrap .elite-collection-description .esg-ch-compare:active {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  border-color: #091836 !important;
+  color: #ffffff !important;
+}
+
+/* Explicit fix for the projector guide CTA. */
+.elite-hero-wrap .elite-collection-description .esg-projector-header__cta,
+.elite-hero-wrap .elite-collection-description .esg-projector-header__cta:hover,
+.elite-hero-wrap .elite-collection-description .esg-projector-header__cta:focus,
+.elite-hero-wrap .elite-collection-description .esg-projector-header__cta:active {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  border-color: #091836 !important;
+  color: #ffffff !important;
+}
+
+.elite-hero-wrap .elite-collection-description .esg-projector-header__cta svg {
+  stroke: #ffffff !important;
+}

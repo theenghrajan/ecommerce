@@ -116,6 +116,13 @@
   }
 }
 
+/* (Gary, AC #95) no description image: the text runs across the full width of the tab */
+@media only screen and (min-width: 750px){
+  .pdp-tab-description.pdp-tab-description--no-image{
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Specifications / Dimensions tables */
 .pdp-tabs__panel .product-specs-table{
   margin-top: 0;

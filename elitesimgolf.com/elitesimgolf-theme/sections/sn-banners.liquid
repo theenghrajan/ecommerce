@@ -1,0 +1,221 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+
+    .sn-banner-wrap{
+      display: flex;
+      flex-wrap: nowrap;
+      vertical-align:
+    }
+
+    .sn-banner-wrap img{
+      flex-basis: fit-content;
+      max-height: auto;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+          background-attachment: scroll;
+      }
+      .sn-banner-wrap{
+        flex-wrap: wrap;
+      }
+      .sn-banner-wrap img{
+        flex-basis: 100%;
+      }
+    }
+  {% endstyle %}
+
+  {% if section.settings.heading != '' %}
+    <div class="sn-container hcenter text-center">
+      <div class="sn-col-1 sn-heading mb-2">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="sn-banner-wrap">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'image' %}
+          <a href="{{ block.settings.url }}">
+            <img
+              src="{{ block.settings.image | image_url: width: 2000 }}"
+              class="sn-img"
+              width="100%"
+              height="auto"
+              {{ block.shopify_attributes }}
+            >
+          </a>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom: Banners",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-banners"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Image",
+      "type": "image",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        },
+        {
+          "type": "url",
+          "label": "URL",
+          "id": "url"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom: Banners"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

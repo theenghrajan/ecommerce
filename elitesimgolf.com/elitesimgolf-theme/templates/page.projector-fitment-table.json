@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "disabled": true,
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "enable_bg": false,
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#eeeeee",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 20,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": false
+      }
+    },
+    "custom_liquid_prWK3n": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0692/9698/0162/files/projector-fitment-throw-calculator-tool.png\" alt=\"Elite Sim Golf projector fitment tool with a screen displaying a golf simulator setup.\">",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "custom_liquid_tykMKR": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "{{page.content}}",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "custom_liquid_czHJwy": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "",
+        "full_width": true,
+        "show_space": true,
+        "boundary_effect": ""
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "custom_liquid_prWK3n",
+    "custom_liquid_tykMKR",
+    "custom_liquid_czHJwy",
+    "main"
+  ]
+}

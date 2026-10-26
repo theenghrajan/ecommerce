@@ -1,0 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "disabled": true,
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "enable_bg": false,
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#eeeeee",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 20,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": false
+      }
+    },
+    "main": {
+      "type": "main-cart",
+      "custom_css": [
+        "cart-terms input#cart-terms {accent-color: #0a1a3c !important; width: 18px; height: 18px; cursor: pointer;}"
+      ],
+      "settings": {
+        "show_backorder_text": false,
+        "show_order_note": true,
+        "show_tax_and_shipping": true,
+        "show_additional_checkout_buttons": true,
+        "cart_terms_page": "",
+        "show_continue_shopping": true,
+        "continue_shopping_url": "",
+        "show_shipping_calculator": true,
+        "shipping_calculator_default_country": "United States"
+      }
+    },
+    "recommendations": {
+      "type": "cart-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 6
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "recommendations"
+  ]
+}

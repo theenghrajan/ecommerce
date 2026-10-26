@@ -1,0 +1,231 @@
+
+<script>
+(function () {
+  'use strict';
+
+  var CONTACT_PAGE = '/pages/contact-us';
+  var SUCCESS_SELECTOR = '.after_form_submit';
+  var SUCCESS_TEXT = 'Thank you for your support reques';
+  var MIN_VISIBILITY = 0.5;
+  var DEBUG = true;
+
+  var leadTracked = false;
+  var observedElements = new WeakSet();
+
+  function log(message, data) {
+    if (DEBUG) {
+      console.log('[Meta Tracking]', message, data || '');
+    }
+  }
+
+  /*
+   * Publish events to Shopify Customer Events.
+   *
+   * This does not initialize a second Meta Pixel.
+   */
+  function publishEvent(eventName, data) {
+    if (
+      !window.Shopify ||
+      !Shopify.analytics ||
+      typeof Shopify.analytics.publish !== 'function'
+    ) {
+      console.warn(
+        '[Meta Tracking] Shopify.analytics.publish unavailable'
+      );
+      return false;
+    }
+
+    try {
+      var result = Shopify.analytics.publish(eventName, data);
+
+      if (result && typeof result.catch === 'function') {
+        result.catch(function(error) {
+          console.error('[Meta Tracking] Publish failed:', error);
+        });
+      }
+
+      log('Published: ' + eventName, data);
+      return true;
+    } catch (error) {
+      console.error('[Meta Tracking] Publish error:', error);
+      return false;
+    }
+  }
+
+  /*
+   * 1. Contact - Phone Click (all tel: links)
+   * 2. Contact - SMS Click (all sms: links)
+   */
+  document.addEventListener('click', function(event) {
+    var target = event.target;
+
+    if (!target) return;
+
+    if (target.nodeType !== 1) {
+      target = target.parentElement;
+    }
+
+    if (!target || !target.closest) return;
+
+    var link = target.closest('a[href]');
+    if (!link) return;
+
+    var href = (link.getAttribute('href') || '').trim();
+
+    if (/^tel:/i.test(href)) {
+      publishEvent('ss_meta_phone_click', {
+        content_name: 'Phone Click',
+        link_url: href
+      });
+    }
+
+    else if (/^sms:/i.test(href)) {
+      publishEvent('ss_meta_sms_click', {
+        content_name: 'SMS Click',
+        link_url: href
+      });
+    }
+  }, true);
+
+  /*
+   * 3. Lead - Contact Form Success
+   */
+  if (
+    window.location.pathname.replace(/\/$/, '') !== CONTACT_PAGE
+  ) {
+    log('Phone and SMS tracking initialized');
+    return;
+  }
+
+  var visibilityObserver = new IntersectionObserver(
+    function(entries) {
+      entries.forEach(function(entry) {
+        if (leadTracked) return;
+
+        if (
+          entry.isIntersecting &&
+          entry.intersectionRatio >= MIN_VISIBILITY &&
+          hasSuccessMessage(entry.target)
+        ) {
+          fireLeadEvent();
+        }
+      });
+    },
+    {
+      threshold: [0, 0.5, 1]
+    }
+  );
+
+  function hasSuccessMessage(element) {
+    if (!element || !element.isConnected) return false;
+
+    var style = window.getComputedStyle(element);
+
+    if (
+      style.display === 'none' ||
+      style.visibility === 'hidden' ||
+      parseFloat(style.opacity) === 0
+    ) return false;
+
+    var message = (element.textContent || '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    return message.toLowerCase().includes(
+      SUCCESS_TEXT.toLowerCase()
+    );
+  }
+
+  function fireLeadEvent() {
+    if (leadTracked) return;
+
+    if (publishEvent('ss_meta_contact_form_lead', {
+      content_name: 'Contact Form'
+    })) {
+      leadTracked = true;
+      visibilityObserver.disconnect();
+      mutationObserver.disconnect();
+      log('Lead event published');
+    }
+  }
+
+  /*
+   * Observe matching elements.
+   */
+  function observeSuccessElements() {
+    document.querySelectorAll(SUCCESS_SELECTOR)
+      .forEach(function(element) {
+        if (observedElements.has(element)) return;
+
+        observedElements.add(element);
+        visibilityObserver.observe(element);
+      });
+  }
+
+  /*
+   * Recheck element visibility after DOM changes.
+   */
+  function checkCurrentVisibility() {
+    if (leadTracked) return;
+
+    document.querySelectorAll(SUCCESS_SELECTOR)
+      .forEach(function(element) {
+        if (leadTracked || !hasSuccessMessage(element)) return;
+
+        var rect = element.getBoundingClientRect();
+        if (rect.width <= 0 || rect.height <= 0) return;
+
+        var visibleWidth = Math.max(
+          0,
+          Math.min(rect.right, window.innerWidth) -
+          Math.max(rect.left, 0)
+        );
+
+        var visibleHeight = Math.max(
+          0,
+          Math.min(rect.bottom, window.innerHeight) -
+          Math.max(rect.top, 0)
+        );
+
+        var ratio = (
+          visibleWidth * visibleHeight
+        ) / (rect.width * rect.height);
+
+        if (ratio >= MIN_VISIBILITY) {
+          fireLeadEvent();
+        }
+      });
+  }
+
+  var mutationObserver = new MutationObserver(function() {
+    if (leadTracked) return;
+
+    observeSuccessElements();
+    checkCurrentVisibility();
+  });
+
+  function initializeFormTracking() {
+    observeSuccessElements();
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      characterData: true
+    });
+
+    checkCurrentVisibility();
+    log('Contact form observer initialized');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initializeFormTracking
+    );
+  } else {
+    initializeFormTracking();
+  }
+
+})();
+</script>

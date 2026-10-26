@@ -1,0 +1,1508 @@
+{%- comment -%}
+================================================================
+  SECTION: HEADER WITH MEGA MENUS
+  File: sections/custom-header.liquid
+================================================================
+{%- endcomment -%}
+
+{%- assign expert_phone_raw = section.settings.expert_phone | default: '865-657-1028' -%}
+{%- assign expert_phone_link = expert_phone_raw | remove: '-' | remove: ' ' | remove: '(' | remove: ')' | remove: '.' -%}
+{%- assign expert_email = section.settings.expert_email | default: 'info@elitesimgolf.com' -%}
+
+<div class="hdr hdr--{{ section.id }}"
+     data-sticky="{{ section.settings.sticky }}"
+     style="
+            background: {{ section.settings.header_bg }};
+       color: {{ section.settings.header_text }};
+       --hdr-bg: {{ section.settings.header_bg }};
+       --hdr-text: {{ section.settings.header_text }};
+       --hdr-accent: {{ section.settings.accent }};
+       --hdr-accent-text: {{ section.settings.accent_text }};
+       --hdr-card: {{ section.settings.card_bg }};
+       --hdr-card-text: {{ section.settings.card_text }};
+       --hdr-muted: {{ section.settings.muted_text }};
+       --hdr-border: {{ section.settings.border_color }};
+       --hdr-mega-accent: #091836;
+       --hdr-navbar-bg: {{ section.settings.navbar_bg }};
+       --hdr-navbar-text: {{ section.settings.navbar_text }};
+       --hdr-announce-bg: {{ section.settings.announce_bg }};
+       --hdr-announce-text: {{ section.settings.announce_text_color }};
+       --hdr-max: {{ section.settings.container_width }}px;
+     ">
+
+  {%- if section.settings.show_announcement and section.settings.announce_text != blank -%}
+    <div class="hdr__announce">
+      <div class="hdr__announce-inner">
+        {%- if section.settings.announce_link != blank -%}
+          <a href="{{ section.settings.announce_link }}">{{ section.settings.announce_text }}</a>
+        {%- else -%}
+          <span>{{ section.settings.announce_text }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <header class="hdr__main">
+
+    {%- comment -%} ================= UTILITY BAR (Row 1) ================= {%- endcomment -%}
+    <div class="hdr__utility">
+      <div class="hdr__utility-inner">
+
+        <a href="{{ routes.root_url }}" class="hdr__logo">
+          {%- if section.settings.logo != blank -%}
+            <img
+  src="{{ section.settings.logo | image_url: width: 500 }}"
+  alt="{{ shop.name | escape }}"
+  width="{{ section.settings.logo.width }}"
+  height="{{ section.settings.logo.height }}"
+  loading="eager"
+  style="width:{{ section.settings.logo_width }}px;height:auto;">
+          {%- else -%}
+            <span class="hdr__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+
+        <button class="hdr__burger" aria-label="Open menu" aria-expanded="false" data-mobile-toggle>
+          <span></span><span></span><span></span>
+        </button>
+
+        {%- if section.settings.show_search_bar -%}
+          <form class="hdr__search" action="{{ routes.search_url }}" method="get" role="search">
+            <input type="search" name="q" placeholder="{{ section.settings.search_placeholder | default: 'Search for golf simulators, launch monitors, and more...' }}" aria-label="Search">
+            <button type="submit" aria-label="Search">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            </button>
+          </form>
+        {%- endif -%}
+
+        <div class="hdr__expert">
+          <span class="hdr__expert-avatar">
+            {%- if section.settings.expert_avatar != blank -%}
+              <img src="{{ section.settings.expert_avatar | image_url: width: 120 }}" alt="Expert" width="52" height="52" loading="lazy">
+            {%- else -%}
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+            {%- endif -%}
+          </span>
+          <div class="hdr__expert-info">
+            <span class="hdr__expert-title">{{ section.settings.expert_title | default: 'Expert Sim Builders' }}</span>
+            <a href="tel:{{ expert_phone_link }}" class="hdr__expert-line hdr__expert-phone">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.34 1.77.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.47-1.27a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+              <span>{{ expert_phone_raw }}</span>
+            </a>
+            <a href="mailto:{{ expert_email }}" class="hdr__expert-line hdr__expert-email">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+              <span>{{ expert_email }}</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hdr__icons">
+          {%- if section.settings.show_account -%}
+            <a href="{{ routes.account_url }}" class="hdr__icon" aria-label="Account">
+              <span class="hdr__icon-graphic">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+              </span>
+              <span class="hdr__icon-label">ACCOUNT</span>
+            </a>
+          {%- endif -%}
+          {%- if section.settings.show_cart -%}
+            <a href="{{ routes.cart_url }}" class="hdr__icon hdr__cart" aria-label="Cart">
+              <span class="hdr__icon-graphic">
+                <img src="https://cdn.shopify.com/s/files/1/0692/9698/0162/files/projecter_Accessoroies_6.png?v=1785008276"
+                     alt="Cart" class="hdr__cart-img" width="26" height="26" loading="lazy">
+              </span>
+<span class="hdr__cart-count"
+      id="CartCount"
+      {% if cart.item_count == 0 %}style="display:none"{% endif %}>
+    {{ cart.item_count }}
+</span>
+              <span class="hdr__icon-label">CART</span>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {%- comment -%} ================= NAV BAR (Row 2) ================= {%- endcomment -%}
+    <div class="hdr__nav-bar">
+      <div class="hdr__nav-bar-inner">
+        <nav class="hdr__nav" aria-label="Main navigation" data-nav>
+          <div class="hdr__nav-top" style="display:none;">
+            <a href="{{ routes.root_url }}" class="hdr__nav-logo">
+              {%- if section.settings.logo != blank -%}
+                <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="{{ shop.name | escape }}" loading="lazy">
+              {%- else -%}
+                <span class="hdr__nav-logo-text">{{ shop.name }}</span>
+              {%- endif -%}
+            </a>
+            <button class="hdr__nav-close" aria-label="Close menu" data-mobile-close type="button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <ul class="hdr__nav-list">
+            {%- for link in section.settings.main_menu.links -%}
+              {%- assign mega = null -%}
+              {%- for block in section.blocks -%}
+                {%- if block.type == 'mega' and block.settings.enabled and block.settings.target_handle == link.handle -%}
+                  {%- assign mega = block -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+
+              <li class="hdr__nav-item{% if mega %} has-mega{% endif %}{% if link.current %} is-active{% endif %}" data-nav-item>
+                <a href="{{ link.url }}"
+                   class="hdr__nav-link"
+                   {% if mega %}aria-haspopup="true" aria-expanded="false" data-mega-trigger{% endif %}>
+                  {{ link.title }}
+                  {%- if mega -%}
+                    <svg class="hdr__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+                      <path d="M1 1l4 4 4-4" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                    </svg>
+                  {%- endif -%}
+                </a>
+
+                {%- if mega -%}
+                  <div class="hdr__mega" data-mega-panel style="opacity:0;visibility:hidden;pointer-events:none;">
+                    <div class="hdr__mega-inner">
+                      <div class="hdr__mega-card">
+                      {%- assign mega_content_cols = mega.settings.columns_count | default: 3 | plus: 0 -%}
+                      {%- assign mega_cols = mega_content_cols -%}
+                      {%- assign has_featured = false -%}
+                      {%- if mega.settings.feat_heading != blank or mega.settings.feat_product != blank or mega.settings.feat_image != blank -%}
+                        {%- assign has_featured = true -%}
+                        {%- assign mega_cols = mega_cols | plus: 1 -%}
+                      {%- endif -%}
+                      <div class="hdr__mega-grid{% if has_featured %} hdr__mega-grid--has-featured{% endif %}" style="--mega-cols: {{ mega_cols }}; --mega-content-cols: {{ mega_content_cols }};">
+
+                        {%- for c in (1..3) -%}
+                          {%- assign col_h_key   = 'col' | append: c | append: '_heading' -%}
+                          {%- assign col_ic_key  = 'col' | append: c | append: '_icon' -%}
+                          {%- assign col_ft_key  = 'col' | append: c | append: '_footer_text' -%}
+                          {%- assign col_fl_key  = 'col' | append: c | append: '_footer_link' -%}
+                          {%- assign col_heading = mega.settings[col_h_key] -%}
+
+                          {%- if col_heading != blank -%}
+                            <div class="hdr__mega-col">
+                              <div class="hdr__mega-col-head">
+                                {%- if mega.settings[col_ic_key] != blank -%}
+                                  <span class="hdr__mega-col-icon">
+                                    <img src="{{ mega.settings[col_ic_key] | image_url: width: 44 }}" alt="" width="22" height="22" loading="lazy">
+                                  </span>
+                                {%- endif -%}
+                                <span class="hdr__mega-col-title">{{ col_heading }}</span>
+                              </div>
+
+                              <ul class="hdr__mega-items">
+                                {%- for i in (1..10) -%}
+                                  {%- assign it_ic = 'col' | append: c | append: '_item' | append: i | append: '_icon' -%}
+                                  {%- assign it_t  = 'col' | append: c | append: '_item' | append: i | append: '_title' -%}
+                                  {%- assign it_s  = 'col' | append: c | append: '_item' | append: i | append: '_subtitle' -%}
+                                  {%- assign it_l  = 'col' | append: c | append: '_item' | append: i | append: '_link' -%}
+                                  {%- assign item_title = mega.settings[it_t] -%}
+                                  {%- if item_title != blank -%}
+                                    <li class="hdr__mega-item">
+                                      <a href="{{ mega.settings[it_l] | default: '#' }}" class="hdr__mega-link">
+                                        {%- if mega.settings[it_ic] != blank -%}
+                                          <span class="hdr__mega-icon">
+                                            <img src="{{ mega.settings[it_ic] | image_url: width: 40 }}" alt="" width="20" height="20" loading="lazy">
+                                          </span>
+                                        {%- endif -%}
+                                        <span class="hdr__mega-body">
+                                          <span class="hdr__mega-title">{{ item_title }}</span>
+                                          {%- if mega.settings[it_s] != blank -%}
+                                            <span class="hdr__mega-sub">{{ mega.settings[it_s] }}</span>
+                                          {%- endif -%}
+                                        </span>
+                                        <span class="hdr__mega-arrow" aria-hidden="true">›</span>
+                                      </a>
+                                    </li>
+                                  {%- endif -%}
+                                {%- endfor -%}
+                              </ul>
+
+                              {%- if mega.settings[col_ft_key] != blank -%}
+                                <a href="{{ mega.settings[col_fl_key] | default: '#' }}" class="hdr__mega-col-footer">
+                                  {{ mega.settings[col_ft_key] }} <span aria-hidden="true">→</span>
+                                </a>
+                              {%- endif -%}
+                            </div>
+                          {%- endif -%}
+                        {%- endfor -%}
+
+                        {%- if has_featured -%}
+                          {%- assign fp = mega.settings.feat_product -%}
+                          {%- assign feat_img = mega.settings.feat_image -%}
+                          {%- if feat_img == blank and fp.featured_image != blank -%}
+                            {%- assign feat_img = fp.featured_image -%}
+                          {%- endif -%}
+                          {%- assign feat_url = mega.settings.feat_link -%}
+                          {%- if feat_url == blank and fp != blank -%}
+                            {%- assign feat_url = fp.url -%}
+                          {%- endif -%}
+                          {%- assign feat_price = mega.settings.feat_price -%}
+                          {%- if feat_price == blank and fp != blank -%}
+                            {%- assign feat_price = fp.price | money -%}
+                          {%- endif -%}
+
+                          <div class="hdr__feat">
+                            {%- if mega.settings.feat_eyebrow != blank -%}
+                              <span class="hdr__feat-eyebrow">{{ mega.settings.feat_eyebrow }}</span>
+                            {%- endif -%}
+                            {%- if mega.settings.feat_heading != blank -%}
+                              <h3 class="hdr__feat-title">{{ mega.settings.feat_heading }}</h3>
+                            {%- endif -%}
+
+                            {%- if mega.settings.feat_show_rating and mega.settings.feat_rating > 0 -%}
+                              <div class="hdr__feat-rating">
+                                <span class="hdr__stars" aria-label="Rated {{ mega.settings.feat_rating }} of 5">
+                                  {%- for s in (1..5) -%}{% if s <= mega.settings.feat_rating %}★{% else %}☆{% endif %}{%- endfor -%}
+                                </span>
+                                {%- if mega.settings.feat_rating_count > 0 -%}
+                                  <span class="hdr__feat-rc">({{ mega.settings.feat_rating_count }})</span>
+                                {%- endif -%}
+                              </div>
+                            {%- endif -%}
+
+                            {%- if feat_img != blank -%}
+                              <a href="{{ feat_url | default: '#' }}" class="hdr__feat-img">
+                                <img src="{{ feat_img | image_url: width: 600 }}"
+                                     alt="{{ mega.settings.feat_heading | escape }}"
+                                     width="300" height="200" loading="lazy">
+                              </a>
+                            {%- endif -%}
+
+                            {%- if feat_price != blank -%}
+                              <div class="hdr__feat-price">{{ feat_price }}</div>
+                            {%- endif -%}
+
+                            {%- if mega.settings.feat_btn_text != blank -%}
+                              <a href="{{ feat_url | default: '#' }}" class="hdr__feat-btn">
+                                {{ mega.settings.feat_btn_text }}
+                              </a>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      </div>
+
+                      {%- assign has_brand_row = false -%}
+                      {%- assign has_feature_row = false -%}
+                      {%- for i in (1..5) -%}
+                        {%- assign brand_img_key = 'brand' | append: i | append: '_image' -%}
+                        {%- assign brand_text_key = 'brand' | append: i | append: '_text' -%}
+                        {%- if mega.settings[brand_img_key] != blank or mega.settings[brand_text_key] != blank -%}
+                          {%- assign has_brand_row = true -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      {%- for i in (1..4) -%}
+                        {%- assign usp_icon_key = 'usp' | append: i | append: '_icon' -%}
+                        {%- assign usp_title_key = 'usp' | append: i | append: '_title' -%}
+                        {%- assign usp_text_key = 'usp' | append: i | append: '_text' -%}
+                        {%- if mega.settings[usp_icon_key] != blank or mega.settings[usp_title_key] != blank or mega.settings[usp_text_key] != blank -%}
+                          {%- assign has_feature_row = true -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+
+                      {%- if has_brand_row or has_feature_row -%}
+                        <div class="hdr__mega-extras">
+                          {%- if has_brand_row -%}
+                            <div class="hdr__mega-brands">
+                              <div class="hdr__mega-brands-title">
+                                {%- if mega.settings.brands_icon != blank -%}
+                                  <img src="{{ mega.settings.brands_icon | image_url: width: 44 }}" alt="" width="22" height="22" loading="lazy">
+                                {%- endif -%}
+                                <span>{{ mega.settings.brands_title | default: 'Popular Brands' }}</span>
+                              </div>
+
+                              <div class="hdr__mega-brands-list">
+                                {%- for i in (1..5) -%}
+                                  {%- assign brand_img_key = 'brand' | append: i | append: '_image' -%}
+                                  {%- assign brand_link_key = 'brand' | append: i | append: '_link' -%}
+                                  {%- assign brand_text_key = 'brand' | append: i | append: '_text' -%}
+                                  {%- assign brand_img = mega.settings[brand_img_key] -%}
+                                  {%- assign brand_text = mega.settings[brand_text_key] -%}
+                                  {%- if brand_img != blank or brand_text != blank -%}
+                                    <a href="{{ mega.settings[brand_link_key] | default: '#' }}" class="hdr__mega-brand">
+                                      {%- if brand_img != blank -%}
+                                        <img src="{{ brand_img | image_url: width: 240 }}" alt="{{ brand_text | default: 'Brand' | escape }}" loading="lazy">
+                                      {%- else -%}
+                                        <span class="hdr__mega-brand-text">{{ brand_text }}</span>
+                                      {%- endif -%}
+                                    </a>
+                                  {%- endif -%}
+                                {%- endfor -%}
+
+                                {%- if mega.settings.brands_footer_text != blank -%}
+                                  <a href="{{ mega.settings.brands_footer_link | default: '#' }}" class="hdr__mega-brands-footer">
+                                    {{ mega.settings.brands_footer_text }} <span aria-hidden="true">→</span>
+                                  </a>
+                                {%- endif -%}
+                              </div>
+                            </div>
+                          {%- endif -%}
+
+                          {%- if has_feature_row -%}
+                            <div class="hdr__mega-usps">
+                              {%- for i in (1..4) -%}
+                                {%- assign usp_icon_key = 'usp' | append: i | append: '_icon' -%}
+                                {%- assign usp_title_key = 'usp' | append: i | append: '_title' -%}
+                                {%- assign usp_text_key = 'usp' | append: i | append: '_text' -%}
+                                {%- assign usp_icon = mega.settings[usp_icon_key] -%}
+                                {%- assign usp_title = mega.settings[usp_title_key] -%}
+                                {%- assign usp_text = mega.settings[usp_text_key] -%}
+                                {%- if usp_icon != blank or usp_title != blank or usp_text != blank -%}
+                                  <div class="hdr__mega-usp">
+                                    {%- if usp_icon != blank -%}
+                                      <span class="hdr__mega-usp-icon">
+                                        <img src="{{ usp_icon | image_url: width: 52 }}" alt="" width="26" height="26" loading="lazy">
+                                      </span>
+                                    {%- endif -%}
+                                    <span class="hdr__mega-usp-body">
+                                      {%- if usp_title != blank -%}
+                                        <span class="hdr__mega-usp-title">{{ usp_title }}</span>
+                                      {%- endif -%}
+                                      {%- if usp_text != blank -%}
+                                        <span class="hdr__mega-usp-text">{{ usp_text }}</span>
+                                      {%- endif -%}
+                                    </span>
+                                  </div>
+                                {%- endif -%}
+                              {%- endfor -%}
+                            </div>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+
+          <div class="hdr__mobile-meta" style="display:none;">
+            <a href="{{ routes.account_url }}" class="hdr__mobile-meta-link">
+              <span class="hdr__mobile-meta-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+              </span>
+              <span>Login</span>
+            </a>
+
+            <a href="tel:{{ expert_phone_link }}" class="hdr__mobile-meta-link">
+              <span class="hdr__mobile-meta-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.89.34 1.77.65 2.61a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.47-1.27a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.61.65A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <span>Call us now: {{ expert_phone_raw }}</span>
+            </a>
+
+            <a href="mailto:{{ expert_email }}" class="hdr__mobile-meta-link">
+              <span class="hdr__mobile-meta-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+              </span>
+              <span>{{ expert_email }}</span>
+            </a>
+
+            <div class="hdr__mobile-socials">
+              <a href="https://www.facebook.com/people/ELITE-Sim-Golf/61579712016641/" class="hdr__mobile-social" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6H17V4.8c-.4-.1-1.6-.2-2.9-.2-2.9 0-4.8 1.8-4.8 5V11H6.5v3h2.8v8h4.2z"/></svg>
+              </a>
+              <a href="https://youtube.com/@elitesimgolf" class="hdr__mobile-social" aria-label="YouTube">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@elitesimgolf?_r=1&_t=ZS-98MDP0w8lbs" class="hdr__mobile-social" aria-label="TikTok" target="_blank" rel="noopener">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.24V2h-3.12v13.22a2.66 2.66 0 1 1-2.66-2.66c.23 0 .46.03.68.09V9.47a5.78 5.78 0 1 0 5.1 5.75V8.54a7.9 7.9 0 0 0 4.62 1.48V6.9c-.29 0-.57-.07-.85-.21z"/>
+  </svg>
+</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+  </header>
+
+  <nav class="hdr__mobile-bottom-nav" aria-label="Mobile quick navigation">
+    <button class="hdr__mobile-bottom-nav-item" type="button" aria-label="Open menu" data-mobile-toggle>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <span>Menu</span>
+    </button>
+    <a href="{{ routes.search_url }}" class="hdr__mobile-bottom-nav-item" aria-label="Search">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+      <span>Search</span>
+    </a>
+    <a href="{{ routes.root_url }}" class="hdr__mobile-bottom-nav-item{% if request.page_type == 'index' %} is-active{% endif %}" aria-label="Home">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10Z"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="{{ routes.cart_url }}" class="hdr__mobile-bottom-nav-item hdr__mobile-bottom-nav-cart{% if request.page_type == 'cart' %} is-active{% endif %}" aria-label="Cart">
+      <img src="https://cdn.shopify.com/s/files/1/0692/9698/0162/files/projecter_Accessoroies_6.png?v=1785008276" alt="" class="hdr__mobile-bottom-nav-cart-img" width="24" height="24" loading="lazy">
+      <span class="hdr__mobile-bottom-nav-count" {% if cart.item_count == 0 %}hidden{% endif %}>{{ cart.item_count }}</span>
+      <span>Cart</span>
+    </a>
+    <a href="{{ routes.account_url }}" class="hdr__mobile-bottom-nav-item{% if request.page_type == 'customers/account' %} is-active{% endif %}" aria-label="Account">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+      <span>Account</span>
+    </a>
+  </nav>
+</div>
+
+<style>
+  .hdr--{{ section.id }} { background: var(--hdr-bg); color: var(--hdr-text); position: relative; z-index: 50; }
+  .hdr--{{ section.id }} { position: relative; }
+
+  .hdr--{{ section.id }} .hdr__main { position: relative; }
+  .hdr--{{ section.id }} .hdr__main.is-sticky {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    width: 100%;
+    z-index: 999;
+    background: var(--hdr-bg);
+    box-shadow: 0 2px 12px rgba(0,0,0,.15);
+  }
+
+  /* Announcement */
+  .hdr--{{ section.id }} .hdr__announce { background: var(--hdr-announce-bg); color: var(--hdr-announce-text); font-size: 14px; text-align: center; padding: 10px 16px; }
+  .hdr--{{ section.id }} .hdr__announce-inner { width: 100%; padding: 0 40px; }
+  .hdr--{{ section.id }} .hdr__announce a { color: inherit; text-decoration: none; }
+
+  /* ===== UTILITY BAR (Row 1) ===== */
+  .hdr--{{ section.id }} .hdr__utility {
+    background: var(--hdr-bg);
+    color: var(--hdr-text);
+  }
+.hdr--{{ section.id }} .hdr__utility-inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 40px;
+}
+
+.hdr--{{ section.id }} .hdr__logo { margin-right: auto; }
+.hdr--{{ section.id }} .hdr__search { margin: 0 auto; }
+.hdr--{{ section.id }} .hdr__expert { margin-left: 0; margin-right: 24px; }
+.hdr--{{ section.id }} .hdr__icons { margin-left: 8px; }
+
+  /* Logo */
+  .hdr--{{ section.id }} .hdr__logo { display: flex; align-items: center; text-decoration: none; color: inherit; flex-shrink: 0; }
+  .hdr--{{ section.id }} .hdr__logo img { display: block; height: auto; width: auto; max-width: 160px; transition: max-width .25s ease; }
+  .hdr--{{ section.id }} .hdr__logo-text { font-size: 22px; font-weight: 700; }
+
+  /* Burger (mobile only) */
+  .hdr--{{ section.id }} .hdr__burger { display: none; background: none; border: 0; padding: 4px; cursor: pointer; margin-left: auto; }
+  .hdr--{{ section.id }} .hdr__burger span { display: block; width: 22px; height: 2px; background: var(--hdr-text); margin: 4px 0; transition: transform .2s; }
+
+  /* Search bar */
+  .hdr--{{ section.id }} .hdr__search {
+    flex: 1;
+    max-width: 460px;
+    display: flex;
+    align-items: stretch;
+    height: 42px;
+  }
+  .hdr--{{ section.id }} .hdr__search input {
+    flex: 1;
+    min-width: 0;
+    padding: 0 14px;
+    border: none;
+    background: #ffffff;
+    color: #0f1c2e;
+    border-radius: 6px 0 0 6px;
+    font-size: 14px;
+    font-family: inherit;
+  }
+  .hdr--{{ section.id }} .hdr__search input::placeholder { color: #8a94a3; }
+  .hdr--{{ section.id }} .hdr__search input:focus { outline: none; box-shadow: inset 0 0 0 2px var(--hdr-accent); }
+  .hdr--{{ section.id }} .hdr__search button {
+    background: var(--hdr-mega-accent);
+    color: #ffffff;
+    border: none;
+    padding: 0 18px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter .15s;
+  }
+  .hdr--{{ section.id }} .hdr__search button:hover { filter: brightness(1.15); }
+
+  /* Expert card */
+  .hdr--{{ section.id }} .hdr__expert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .hdr--{{ section.id }} .hdr__expert-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--hdr-accent);
+    background: rgba(255,255,255,0.08);
+    color: var(--hdr-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .hdr--{{ section.id }} .hdr__expert-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hdr--{{ section.id }} .hdr__expert-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    gap: 1px;
+  }
+  .hdr--{{ section.id }} .hdr__expert-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.3px;
+  }
+  .hdr--{{ section.id }} .hdr__expert-line {
+    color: var(--hdr-text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity .15s;
+  }
+  .hdr--{{ section.id }} .hdr__expert-line:hover { opacity: 0.8; }
+  .hdr--{{ section.id }} .hdr__expert-phone { font-size: 17px; font-weight: 700; margin-top: 2px; }
+  .hdr--{{ section.id }} .hdr__expert-email { font-size: 12px; color: rgba(255,255,255,0.85); }
+
+  /* Utility icons (Account + Cart with labels) */
+  .hdr--{{ section.id }} .hdr__icons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
+  }
+  .hdr--{{ section.id }} .hdr__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--hdr-text);
+    text-decoration: none;
+    transition: opacity .15s;
+  }
+  .hdr--{{ section.id }} .hdr__icon:hover { opacity: 0.8; }
+  .hdr--{{ section.id }} .hdr__icon-graphic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+  }
+  .hdr--{{ section.id }} .hdr__icon-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+  }
+  .hdr--{{ section.id }} .hdr__cart-img {
+    display: block;
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  /* Elements only shown in mobile drawer */
+  .hdr--{{ section.id }} .hdr__mobile-meta { display: none; }
+  .hdr--{{ section.id }} .hdr__nav-top { display: none; }
+  .hdr--{{ section.id }} .hdr__mobile-bottom-nav { display: none; }
+
+  /* ===== NAV BAR (Row 2) ===== */
+  .hdr--{{ section.id }} .hdr__nav-bar {
+    background: var(--hdr-navbar-bg);
+    position: relative;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  .hdr--{{ section.id }} .hdr__nav-bar-inner {
+    width: 100%;
+    max-width: var(--hdr-max);
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .hdr--{{ section.id }} .hdr__nav { }
+  .hdr--{{ section.id }} .hdr__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+  .hdr--{{ section.id }} .hdr__nav-item { position: static; }
+  .hdr--{{ section.id }} .hdr__nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 16px;
+    color: var(--hdr-navbar-text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border-bottom: 3px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+    white-space: nowrap;
+  }
+  .hdr--{{ section.id }} .hdr__nav-link:hover,
+  .hdr--{{ section.id }} .hdr__nav-item.is-active .hdr__nav-link {
+    color: var(--hdr-navbar-text);
+    border-bottom-color: var(--hdr-navbar-text);
+  }
+  .hdr--{{ section.id }} .hdr__caret { opacity: .7; transition: transform .2s; color: var(--hdr-navbar-text); }
+  .hdr--{{ section.id }} .hdr__nav-item.is-open .hdr__caret { transform: rotate(180deg); }
+
+  /* ===== Mega Menu Panel ===== */
+  .hdr--{{ section.id }} .hdr__mega {
+    position: absolute; left: 0; right: 0; top: 100%;
+    background: transparent;
+    opacity: 0; visibility: hidden; transform: translateY(-8px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
+    z-index: 60;
+    padding: 0 16px 24px;
+  }
+  .hdr--{{ section.id }} .hdr__nav-item.is-open .hdr__mega {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+  .hdr--{{ section.id }} .hdr__mega-inner {
+    width: 80%;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .hdr--{{ section.id }} .hdr__mega-card {
+    background: var(--hdr-card);
+    color: var(--hdr-card-text);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    overflow: hidden;
+  }
+  .hdr--{{ section.id }} .hdr__mega-grid {
+    background: transparent; color: var(--hdr-card-text);
+    border-radius: 0; padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(var(--mega-cols, 4), minmax(0,1fr));
+    gap: 16px;
+  }
+  .hdr--{{ section.id }} .hdr__mega-grid--has-featured {
+    grid-template-columns: repeat(var(--mega-content-cols, 3), minmax(0,1fr)) minmax(260px, .9fr);
+    align-items: stretch;
+  }
+
+  .hdr--{{ section.id }} .hdr__mega-col { padding: 4px 8px; border-right: 1px solid var(--hdr-border); display: flex; flex-direction: column; height: 100%; }
+  .hdr--{{ section.id }} .hdr__mega-col:last-child { border-right: none; }
+  .hdr--{{ section.id }} .hdr__mega-col-head { display: flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--hdr-mega-accent); margin-bottom: 12px; }
+  .hdr--{{ section.id }} .hdr__mega-col-title { font-size: 13px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; margin: 0; }
+
+  .hdr--{{ section.id }} .hdr__mega-items { list-style: none; margin: 0; padding: 0; flex: 1; }
+  .hdr--{{ section.id }} .hdr__mega-link { display: flex; align-items: center; gap: 12px; padding: 10px 8px; border-radius: 8px; color: var(--hdr-card-text); text-decoration: none; transition: background .15s ease; }
+  .hdr--{{ section.id }} .hdr__mega-link:hover { background: rgba(0,0,0,.04); }
+  .hdr--{{ section.id }} .hdr__mega-icon { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.04); border-radius: 6px; }
+  .hdr--{{ section.id }} .hdr__mega-body { flex: 1; display: flex; flex-direction: column; }
+  .hdr--{{ section.id }} .hdr__mega-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .hdr--{{ section.id }} .hdr__mega-sub { font-size: 12px; color: var(--hdr-muted); margin-top: 2px; }
+  .hdr--{{ section.id }} .hdr__mega-arrow { color: var(--hdr-muted); font-size: 18px; }
+
+  .hdr--{{ section.id }} .hdr__mega-col-footer { margin-top: auto; padding-top: 12px; color: var(--hdr-mega-accent); font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; }
+  .hdr--{{ section.id }} .hdr__mega-col-footer:hover { text-decoration: underline; }
+
+  .hdr--{{ section.id }} .hdr__feat { background: rgba(0,0,0,.03); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 8px; align-self: start; }
+  .hdr--{{ section.id }} .hdr__feat-eyebrow { color: var(--hdr-mega-accent); font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+  .hdr--{{ section.id }} .hdr__feat-title { margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700; }
+  .hdr--{{ section.id }} .hdr__feat-rating { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--hdr-muted); }
+  .hdr--{{ section.id }} .hdr__stars { color: #f5b301; letter-spacing: 1px; }
+  .hdr--{{ section.id }} .hdr__feat-img { display: block; border-radius: 8px; overflow: hidden; }
+  .hdr--{{ section.id }} .hdr__feat-img img { display: block; width: 100%; height: auto; }
+  .hdr--{{ section.id }} .hdr__feat-price { font-size: 20px; font-weight: 700; }
+  .hdr--{{ section.id }} .hdr__feat-btn { display: inline-flex; align-items: center; justify-content: center; background: var(--hdr-mega-accent); color: #ffffff; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .5px; transition: filter .15s ease; }
+  .hdr--{{ section.id }} .hdr__feat-btn:hover { filter: brightness(.92); }
+
+  .hdr--{{ section.id }} .hdr__mega-extras { display: flex; flex-direction: column; gap: 12px; padding: 0 20px 20px; }
+  .hdr--{{ section.id }} .hdr__mega-brands,
+  .hdr--{{ section.id }} .hdr__mega-usps { background: transparent; color: var(--hdr-card-text); border: 1px solid var(--hdr-border); border-radius: 12px; padding: 14px 16px; }
+  .hdr--{{ section.id }} .hdr__mega-brands { display: grid; grid-template-columns: 160px minmax(0,1fr); gap: 16px; align-items: center; }
+  .hdr--{{ section.id }} .hdr__mega-brands-title { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+  .hdr--{{ section.id }} .hdr__mega-brands-title img { display: block; }
+  .hdr--{{ section.id }} .hdr__mega-brands-list { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; align-items: center; }
+  .hdr--{{ section.id }} .hdr__mega-brand { min-height: 58px; border: 1px solid var(--hdr-border); border-radius: 8px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 10px 12px; text-decoration: none; color: var(--hdr-card-text); }
+  .hdr--{{ section.id }} .hdr__mega-brand img { max-width: 100%; max-height: 34px; display: block; }
+  .hdr--{{ section.id }} .hdr__mega-brand-text { font-weight: 700; font-size: 14px; text-align: center; }
+  .hdr--{{ section.id }} .hdr__mega-brands-footer { display: inline-flex; align-items: center; justify-content: center; min-height: 58px; color: var(--hdr-mega-accent); text-decoration: none; font-size: 14px; font-weight: 600; white-space: nowrap; }
+
+  .hdr--{{ section.id }} .hdr__mega-usps { display: none !important; }
+
+  /* Shrink on scroll */
+  .hdr--{{ section.id }} .hdr__utility-inner{
+    transition:none !important;
+}
+  .hdr--{{ section.id }}.is-scrolled .hdr__utility-inner { padding-top: 8px !important; padding-bottom: 8px !important; }
+  .hdr--{{ section.id }}.is-scrolled .hdr__logo img { max-width: 120px !important; }
+  .hdr--{{ section.id }}.is-scrolled .hdr__expert-avatar { width: 42px !important; height: 42px !important; }
+  .hdr--{{ section.id }}.is-scrolled .hdr__nav-link { padding-top: 12px !important; padding-bottom: 12px !important; }
+
+  /* Body class helper */
+  body.custom-nav-open [id*="__announcement"],
+  body.custom-nav-open [id*="announcement-bar"],
+  body.custom-nav-open .announcement-bar { display: none !important; }
+
+  /* ===== MOBILE (unchanged behavior) ===== */
+  @media (max-width: 1024px) {
+    /* Bottom quick navigation — mobile only */
+    .hdr--{{ section.id }} .hdr__mobile-bottom-nav {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      min-height: 60px;
+      padding: 5px 8px calc(5px + env(safe-area-inset-bottom));
+      background: #091836;
+      border-top: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 -2px 10px rgba(0,0,0,.18);
+    }
+    .hdr--{{ section.id }} .hdr__mobile-bottom-nav-item {
+      position: relative;
+      display: flex;
+      min-width: 0;
+      min-height: 50px;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2px;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.78);
+      font: inherit;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .hdr--{{ section.id }} .hdr__mobile-bottom-nav-item svg { flex-shrink: 0; }
+    .hdr--{{ section.id }} .hdr__mobile-bottom-nav-cart-img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    .hdr--{{ section.id }} .hdr__mobile-bottom-nav-item.is-active { color: #7ac142; }
+    .hdr--{{ section.id }} .hdr__mobile-bottom-nav-count {
+      position: absolute;
+      top: 1px;
+      left: calc(50% + 6px);
+      display: inline-flex;
+      min-width: 15px;
+      height: 15px;
+      padding: 0 3px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: #ff3b30;
+      color: #fff;
+      font-size: 9px;
+      line-height: 1;
+    }
+
+    /* Utility bar: burger | logo | icons */
+.hdr--{{ section.id }} .hdr__utility-inner{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    position:relative;
+}
+
+    /* Hide search and expert on mobile */
+    .hdr--{{ section.id }} .hdr__search { display: none; }
+    .hdr--{{ section.id }} .hdr__expert { display: none; }
+
+    /* Smaller 3-line hamburger */
+    .hdr--{{ section.id }} .hdr__burger {
+      display: none;
+      width: 36px; height: 36px; padding: 4px;
+      align-items: center; justify-content: center; flex-direction: column;
+    }
+    .hdr--{{ section.id }} .hdr__burger span {
+      display: block; width: 18px; height: 2px;
+      background: var(--hdr-text); margin: 2px 0;
+      border-radius: 2px;
+    }
+
+.hdr--{{ section.id }} .hdr__logo{
+    position:static;
+    transform:none;
+    margin:0;
+    z-index:5;
+}
+
+.hdr--{{ section.id }} .hdr__logo img{
+    max-width:110px !important;
+    display:block;
+}
+    .hdr--{{ section.id }} .hdr__logo img { max-width: 110px !important; }
+
+    /* Icons on mobile: only cart, no label */
+    .hdr--{{ section.id }} .hdr__icons { display: none; }
+    .hdr--{{ section.id }} .hdr__icon { flex-direction: row; width: 36px; height: 36px; align-items: center; justify-content: center; gap: 0; }
+    .hdr--{{ section.id }} .hdr__icon-label { display: none; }
+    .hdr--{{ section.id }} .hdr__icons .hdr__icon:first-child { display: none; }
+    .hdr--{{ section.id }} .hdr__cart-img { width: 22px; height: 22px; }
+
+    /* Hide nav-bar on mobile (nav becomes drawer via .hdr__nav) */
+    .hdr--{{ section.id }} .hdr__nav-bar { display: contents; }
+    .hdr--{{ section.id }} .hdr__nav-bar-inner { display: contents; }
+
+    /* Force-hide announcement when mobile menu is open */
+    .hdr--{{ section.id }}.is-mobile-open .hdr__announce {
+      display: none !important;
+      visibility: hidden !important;
+    }
+
+    /* WHITE drawer, BLACK text */
+    .hdr--{{ section.id }} .hdr__nav {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      color: #0f1c2e;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateX(-100%);
+      transition: transform .28s ease, opacity .28s ease, visibility .28s ease;
+      padding: 0;
+      overflow-y: auto;
+    }
+    .hdr--{{ section.id }} .hdr__nav.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(0); }
+
+    /* Drawer top bar */
+    .hdr--{{ section.id }} .hdr__nav-top {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--hdr-bg);
+      padding: 12px 16px;
+      border-bottom: 0;
+      z-index: 10;
+      margin-bottom: 8px;
+    }
+    .hdr--{{ section.id }} .hdr__nav-logo { display: flex; align-items: center; text-decoration: none; color: #0f1c2e; }
+    .hdr--{{ section.id }} .hdr__nav-logo img { display: block; max-width: 120px; height: auto; }
+    .hdr--{{ section.id }} .hdr__nav-logo-text { font-size: 18px; font-weight: 700; }
+    .hdr--{{ section.id }} .hdr__nav-close {
+      background: rgba(255,255,255,.15);
+      border: 0; padding: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hdr--{{ section.id }} .hdr__nav-list { flex-direction: column; align-items: stretch; gap: 0; padding: 0 16px; }
+    .hdr--{{ section.id }} .hdr__nav-item { border-bottom: 1px solid #e5e7eb; }
+    .hdr--{{ section.id }} .hdr__nav-link { width: 100%; justify-content: space-between; padding: 18px 4px; border-bottom: 0; font-size: 16px; font-weight: 700; color: #0f1c2e !important; }
+    .hdr--{{ section.id }} .hdr__nav-link:hover { border-bottom-color: transparent !important; color: #0f1c2e !important; }
+    .hdr--{{ section.id }} .hdr__nav-item.is-active .hdr__nav-link { color: #0f1c2e !important; border-bottom-color: transparent !important; }
+    .hdr--{{ section.id }} .hdr__caret { margin-left: auto; color: #0f1c2e; }
+
+    .hdr--{{ section.id }} .hdr__mega { position: static; left: auto; right: auto; top: auto; padding: 0; opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: none; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: transparent; }
+    .hdr--{{ section.id }} .hdr__nav-item.is-open .hdr__mega { max-height: 5000px; opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+    .hdr--{{ section.id }} .hdr__mega-inner,
+    .hdr--{{ section.id }} .hdr__mega-card { width: 100%; max-width: 100%; background: transparent; box-shadow: none; border-radius: 0; overflow: visible; }
+    .hdr--{{ section.id }} .hdr__mega-grid,
+    .hdr--{{ section.id }} .hdr__mega-grid--has-featured { grid-template-columns: 1fr; padding: 6px 0 8px; gap: 6px; }
+
+    .hdr--{{ section.id }} .hdr__mega-col { border-right: none; border-bottom: 1px solid #e5e7eb; padding: 0; }
+    .hdr--{{ section.id }} .hdr__mega-col-head { position: relative; padding: 14px 30px 14px 4px; margin-bottom: 0; border-bottom: 0; color: #0f1c2e; cursor: pointer; }
+    .hdr--{{ section.id }} .hdr__mega-col-head::after { content: '+'; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-size: 22px; font-weight: 400; line-height: 1; color: #0f1c2e; transition: transform .2s ease; }
+    .hdr--{{ section.id }} .hdr__mega-col.is-open .hdr__mega-col-head::after { content: '−'; }
+    .hdr--{{ section.id }} .hdr__mega-col-title { color: #0f1c2e; }
+    .hdr--{{ section.id }} .hdr__mega-items,
+    .hdr--{{ section.id }} .hdr__mega-col-footer { display: none; }
+    .hdr--{{ section.id }} .hdr__mega-col.is-open .hdr__mega-items { display: block; padding-bottom: 8px; }
+    .hdr--{{ section.id }} .hdr__mega-col.is-open .hdr__mega-col-footer { display: inline-flex; padding-top: 4px; padding-bottom: 10px; }
+
+    .hdr--{{ section.id }} .hdr__mega-title,
+    .hdr--{{ section.id }} .hdr__feat-title,
+    .hdr--{{ section.id }} .hdr__feat-price,
+    .hdr--{{ section.id }} .hdr__mega-brands-title { color: #0f1c2e; }
+    .hdr--{{ section.id }} .hdr__mega-link { color: #0f1c2e; padding: 12px 4px; }
+    .hdr--{{ section.id }} .hdr__mega-link:hover { background: rgba(0,0,0,.03); }
+    .hdr--{{ section.id }} .hdr__mega-icon { background: rgba(0,0,0,.05); }
+    .hdr--{{ section.id }} .hdr__mega-sub,
+    .hdr--{{ section.id }} .hdr__feat-rating { color: #6b7280; }
+    .hdr--{{ section.id }} .hdr__mega-arrow { color: #6b7280; }
+    .hdr--{{ section.id }} .hdr__mega-col-footer { color: var(--hdr-mega-accent); }
+
+    .hdr--{{ section.id }} .hdr__feat { background: #f6f7f9; border: 1px solid #e5e7eb; margin-top: 8px; }
+
+    .hdr--{{ section.id }} .hdr__mega-extras { padding: 8px 0; gap: 10px; }
+    .hdr--{{ section.id }} .hdr__mega-brands { border-color: #e5e7eb; padding: 12px; background: #fff; grid-template-columns: 1fr; }
+    .hdr--{{ section.id }} .hdr__mega-brands-list { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .hdr--{{ section.id }} .hdr__mega-brand { background: #fff; border-color: #e5e7eb; }
+    .hdr--{{ section.id }} .hdr__mega-brand-text,
+    .hdr--{{ section.id }} .hdr__mega-brands-footer { color: #0f1c2e; }
+
+    /* Mobile meta at bottom of drawer */
+    .hdr--{{ section.id }} .hdr__mobile-meta {
+      display: flex !important;
+      flex-direction: column;
+      gap: 14px;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 22px;
+      padding: 22px 16px 20px;
+    }
+    .hdr--{{ section.id }} .hdr__mobile-meta-link { display: flex; align-items: center; gap: 12px; color: #0f1c2e; text-decoration: none; font-size: 15px; font-weight: 600; }
+    .hdr--{{ section.id }} .hdr__mobile-meta-icon { width: 38px; height: 38px; border-radius: 999px; background: rgba(0,0,0,.05); color: #0f1c2e; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hdr--{{ section.id }} .hdr__mobile-socials { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+    .hdr--{{ section.id }} .hdr__mobile-social { width: 42px; height: 42px; border-radius: 999px; background: rgba(0,0,0,.05); color: #0f1c2e; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+  }
+  /* Desktop Mega Menu */
+@media (min-width: 1025px) {
+
+  .hdr__nav-item {
+    position: static;
+  }
+
+.hdr__mega{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    width:auto;
+
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+
+    transform:translateY(8px);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease,
+        visibility .2s ease;
+}
+
+.hdr--{{ section.id }} .hdr__nav-item.is-open .hdr__mega{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:none;
+    transform:translateY(0);
+}
+
+.hdr--{{ section.id }} .hdr__mega-inner{
+    pointer-events:none;
+}
+
+.hdr--{{ section.id }} .hdr__mega-card{
+    pointer-events:auto;
+}
+
+}
+.hdr__cart{
+    position:relative;
+}
+
+.hdr__cart-count{
+    position:absolute;
+    top:-6px;
+    right:-5px;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:#ff3b30;
+    color:#fff;
+    font-size:11px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+    z-index:10;
+}
+</style>
+
+<script>
+  (function() {
+    var root = document.querySelector('.hdr--{{ section.id }}');
+    if (!root) return;
+
+    var header = root.querySelector('.hdr__main');
+
+function updateHeader() {
+  if (root.dataset.sticky !== 'true') return;
+
+  var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (scrolled > 50) {
+    root.classList.add('is-scrolled');
+    header.classList.add('is-sticky');
+  } else {
+    root.classList.remove('is-scrolled');
+    header.classList.remove('is-sticky');
+  }
+}
+
+updateHeader(); // Run immediately on page load
+window.addEventListener('scroll', updateHeader, { passive: true });
+
+    // Mobile toggle
+    var burgers = root.querySelectorAll('[data-mobile-toggle]');
+    var nav = root.querySelector('[data-nav]');
+    var closeBtn = root.querySelector('[data-mobile-close]');
+
+    function setMobileMenu(open) {
+      if (!nav) return;
+      nav.classList.toggle('is-open', open);
+      root.classList.toggle('is-mobile-open', open);
+      document.body.classList.toggle('custom-nav-open', open);
+      burgers.forEach(function(burger) {
+        burger.setAttribute('aria-expanded', open);
+        burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+      if (!open) {
+        root.querySelectorAll('.hdr__nav-item.is-open, .hdr__mega-col.is-open').forEach(function(el) {
+          el.classList.remove('is-open');
+        });
+      }
+    }
+
+    burgers.forEach(function(burger) {
+      burger.addEventListener('click', function() {
+        setMobileMenu(!nav.classList.contains('is-open'));
+      });
+    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() { setMobileMenu(false); });
+    }
+    if (nav) {
+      nav.querySelectorAll('a[href]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.matchMedia('(max-width: 1024px)').matches && !link.hasAttribute('data-mega-trigger')) {
+            setMobileMenu(false);
+          }
+        });
+      });
+      window.addEventListener('resize', function() {
+        if (!window.matchMedia('(max-width: 1024px)').matches) setMobileMenu(false);
+      });
+    }
+
+    // Mobile: nav-item accordion
+    root.querySelectorAll('.hdr__nav-item.has-mega').forEach(function(item) {
+      var link = item.querySelector('.hdr__nav-link');
+      if (!link) return;
+      link.addEventListener('click', function(e) {
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+          e.preventDefault();
+          var willOpen = !item.classList.contains('is-open');
+          root.querySelectorAll('.hdr__nav-item.is-open').forEach(function(o) {
+            if (o !== item) {
+              o.classList.remove('is-open');
+              var l = o.querySelector('.hdr__nav-link');
+              if (l) l.setAttribute('aria-expanded', 'false');
+              o.querySelectorAll('.hdr__mega-col.is-open').forEach(function(c) { c.classList.remove('is-open'); });
+            }
+          });
+          item.classList.toggle('is-open', willOpen);
+          link.setAttribute('aria-expanded', willOpen);
+        }
+      });
+    });
+
+    // Mobile: per-column accordion
+    root.querySelectorAll('.hdr__mega-col-head').forEach(function(head) {
+      head.addEventListener('click', function(e) {
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+          e.preventDefault();
+          e.stopPropagation();
+          var col = head.closest('.hdr__mega-col');
+          if (col) col.classList.toggle('is-open');
+        }
+      });
+    });
+
+// Desktop: hover any nav item closes other megas; mouse outside nav/mega closes all
+// ===== Desktop Mega Menu =====
+if (!window.matchMedia('(max-width: 1024px)').matches) {
+
+  let closeTimer;
+
+  root.querySelectorAll('.hdr__nav-item.has-mega').forEach(function(item){
+
+    const mega = item.querySelector('.hdr__mega');
+
+    item.addEventListener('mouseenter',function(){
+
+      clearTimeout(closeTimer);
+
+      root.querySelectorAll('.hdr__nav-item.has-mega.is-open').forEach(function(open){
+        if(open!==item){
+          open.classList.remove('is-open');
+        }
+      });
+
+      item.classList.add('is-open');
+
+    });
+
+    item.addEventListener('mouseleave',function(){
+
+      closeTimer = setTimeout(function(){
+
+        if(!mega.matches(':hover')){
+          item.classList.remove('is-open');
+        }
+
+      },80);
+
+    });
+
+    if(mega){
+
+      mega.addEventListener('mouseenter',function(){
+        clearTimeout(closeTimer);
+      });
+
+      mega.addEventListener('mouseleave',function(){
+        item.classList.remove('is-open');
+      });
+
+    }
+
+  });
+
+  document.addEventListener('click',function(e){
+
+    if(!e.target.closest('.hdr__nav-item') &&
+       !e.target.closest('.hdr__mega')){
+
+      root.querySelectorAll('.hdr__nav-item.is-open').forEach(function(item){
+        item.classList.remove('is-open');
+      });
+
+    }
+
+  });
+
+}
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        root.querySelectorAll('.hdr__nav-item.is-open').forEach(function(el) {
+          el.classList.remove('is-open');
+        });
+        setMobileMenu(false);
+      }
+    });
+  })();
+  function updateCartCount() {
+
+    fetch('/cart.js')
+        .then(response => response.json())
+        .then(cart => {
+
+            const badge = document.getElementById('CartCount');
+
+            if (!badge) return;
+
+            badge.textContent = cart.item_count;
+
+            if (cart.item_count > 0) {
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+
+        });
+
+}
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "container_width", "label": "Container max width", "min": 1000, "max": 1600, "step": 20, "default": 1240, "unit": "px" },
+    { "type": "checkbox", "id": "sticky", "label": "Sticky header on scroll", "default": true },
+
+    { "type": "header", "content": "Logo" },
+    { "type": "image_picker", "id": "logo", "label": "Logo image" },
+    { "type": "range", "id": "logo_width", "label": "Logo width (desktop)", "min": 80, "max": 300, "step": 10, "default": 160, "unit": "px" },
+
+    { "type": "header", "content": "Search Bar" },
+    { "type": "checkbox", "id": "show_search_bar", "label": "Show search bar (desktop)", "default": true },
+    { "type": "text", "id": "search_placeholder", "label": "Search placeholder", "default": "Search for golf simulators, launch monitors, and more..." },
+
+    { "type": "header", "content": "Expert Contact Card" },
+    { "type": "image_picker", "id": "expert_avatar", "label": "Expert photo (round)" },
+    { "type": "text", "id": "expert_title", "label": "Card title", "default": "Expert Sim Builders" },
+    { "type": "text", "id": "expert_phone", "label": "Phone number", "default": "865-657-1028" },
+    { "type": "text", "id": "expert_email", "label": "Email", "default": "info@elitesimgolf.com" },
+
+    { "type": "header", "content": "Main Menu" },
+    { "type": "link_list", "id": "main_menu", "label": "Menu", "default": "main-menu" },
+
+    { "type": "header", "content": "Utility Icons (right side)" },
+    { "type": "checkbox", "id": "show_account", "label": "Show account icon", "default": true },
+    { "type": "checkbox", "id": "show_cart", "label": "Show cart icon", "default": true },
+
+    { "type": "header", "content": "Announcement Bar" },
+    { "type": "checkbox", "id": "show_announcement", "label": "Show announcement bar", "default": true },
+    { "type": "text", "id": "announce_text", "label": "Announcement text", "default": "Free shipping on orders over $500 — Use code FREESHIP" },
+    { "type": "url", "id": "announce_link", "label": "Announcement link (optional)" },
+    { "type": "color", "id": "announce_bg", "label": "Announcement background", "default": "#c8102e" },
+    { "type": "color", "id": "announce_text_color", "label": "Announcement text color", "default": "#ffffff" },
+
+    { "type": "header", "content": "Utility Bar Colors (top row)" },
+    { "type": "color", "id": "header_bg", "label": "Utility bar background", "default": "#0f1c2e" },
+    { "type": "color", "id": "header_text", "label": "Utility bar text", "default": "#ffffff" },
+    { "type": "color", "id": "accent", "label": "Accent (avatar ring, active)", "default": "#7ac142" },
+    { "type": "color", "id": "accent_text", "label": "Accent text", "default": "#ffffff" },
+
+    { "type": "header", "content": "Nav Bar Colors (menu row)" },
+    { "type": "color", "id": "navbar_bg", "label": "Nav bar background", "default": "#f5f5f5" },
+    { "type": "color", "id": "navbar_text", "label": "Nav bar text", "default": "#0f1c2e" },
+
+    { "type": "header", "content": "Mega Menu Card Colors" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "card_text", "label": "Card text", "default": "#0f1c2e" },
+    { "type": "color", "id": "muted_text", "label": "Muted text", "default": "#6b7280" },
+    { "type": "color", "id": "border_color", "label": "Border / divider", "default": "#e5e7eb" }
+  ],
+
+  "blocks": [
+    {
+      "type": "mega",
+      "name": "Mega Menu",
+      "limit": 10,
+      "settings": [
+        { "type": "header", "content": "Attach to nav item" },
+        { "type": "paragraph", "content": "Enter the handle of the menu item this mega menu should attach to. Find handles in Online Store > Navigation." },
+        { "type": "text", "id": "target_handle", "label": "Target menu item handle", "info": "e.g. golf-simulator-kits" },
+        { "type": "checkbox", "id": "enabled", "label": "Enable this mega menu", "default": true },
+        { "type": "range", "id": "columns_count", "label": "Content columns", "min": 1, "max": 3, "step": 1, "default": 3 },
+
+        { "type": "header", "content": "▸ Column 1" },
+        { "type": "image_picker", "id": "col1_icon", "label": "Heading icon" },
+        { "type": "text", "id": "col1_heading", "label": "Heading", "default": "Build Your Own" },
+        { "type": "image_picker", "id": "col1_item1_icon", "label": "Item 1 – Icon" },
+        { "type": "text", "id": "col1_item1_title", "label": "Item 1 – Title" },
+        { "type": "text", "id": "col1_item1_subtitle", "label": "Item 1 – Subtitle" },
+        { "type": "url", "id": "col1_item1_link", "label": "Item 1 – Link" },
+        { "type": "image_picker", "id": "col1_item2_icon", "label": "Item 2 – Icon" },
+        { "type": "text", "id": "col1_item2_title", "label": "Item 2 – Title" },
+        { "type": "text", "id": "col1_item2_subtitle", "label": "Item 2 – Subtitle" },
+        { "type": "url", "id": "col1_item2_link", "label": "Item 2 – Link" },
+        { "type": "image_picker", "id": "col1_item3_icon", "label": "Item 3 – Icon" },
+        { "type": "text", "id": "col1_item3_title", "label": "Item 3 – Title" },
+        { "type": "text", "id": "col1_item3_subtitle", "label": "Item 3 – Subtitle" },
+        { "type": "url", "id": "col1_item3_link", "label": "Item 3 – Link" },
+        { "type": "image_picker", "id": "col1_item4_icon", "label": "Item 4 – Icon" },
+        { "type": "text", "id": "col1_item4_title", "label": "Item 4 – Title" },
+        { "type": "text", "id": "col1_item4_subtitle", "label": "Item 4 – Subtitle" },
+        { "type": "url", "id": "col1_item4_link", "label": "Item 4 – Link" },
+        { "type": "image_picker", "id": "col1_item5_icon", "label": "Item 5 – Icon" },
+        { "type": "text", "id": "col1_item5_title", "label": "Item 5 – Title" },
+        { "type": "text", "id": "col1_item5_subtitle", "label": "Item 5 – Subtitle" },
+        { "type": "url", "id": "col1_item5_link", "label": "Item 5 – Link" },
+        { "type": "image_picker", "id": "col1_item6_icon", "label": "Item 6 – Icon" },
+        { "type": "text", "id": "col1_item6_title", "label": "Item 6 – Title" },
+        { "type": "text", "id": "col1_item6_subtitle", "label": "Item 6 – Subtitle" },
+        { "type": "url", "id": "col1_item6_link", "label": "Item 6 – Link" },
+        { "type": "image_picker", "id": "col1_item7_icon", "label": "Item 7 – Icon" },
+        { "type": "text", "id": "col1_item7_title", "label": "Item 7 – Title" },
+        { "type": "text", "id": "col1_item7_subtitle", "label": "Item 7 – Subtitle" },
+        { "type": "url", "id": "col1_item7_link", "label": "Item 7 – Link" },
+        { "type": "image_picker", "id": "col1_item8_icon", "label": "Item 8 – Icon" },
+        { "type": "text", "id": "col1_item8_title", "label": "Item 8 – Title" },
+        { "type": "text", "id": "col1_item8_subtitle", "label": "Item 8 – Subtitle" },
+        { "type": "url", "id": "col1_item8_link", "label": "Item 8 – Link" },
+        { "type": "image_picker", "id": "col1_item9_icon", "label": "Item 9 – Icon" },
+        { "type": "text", "id": "col1_item9_title", "label": "Item 9 – Title" },
+        { "type": "text", "id": "col1_item9_subtitle", "label": "Item 9 – Subtitle" },
+        { "type": "url", "id": "col1_item9_link", "label": "Item 9 – Link" },
+        { "type": "image_picker", "id": "col1_item10_icon", "label": "Item 10 – Icon" },
+        { "type": "text", "id": "col1_item10_title", "label": "Item 10 – Title" },
+        { "type": "text", "id": "col1_item10_subtitle", "label": "Item 10 – Subtitle" },
+        { "type": "url", "id": "col1_item10_link", "label": "Item 10 – Link" },
+        { "type": "text", "id": "col1_footer_text", "label": "Column 1 – Footer text", "default": "View All" },
+        { "type": "url", "id": "col1_footer_link", "label": "Column 1 – Footer link" },
+
+        { "type": "header", "content": "▸ Column 2" },
+        { "type": "image_picker", "id": "col2_icon", "label": "Heading icon" },
+        { "type": "text", "id": "col2_heading", "label": "Heading", "default": "Shop by Price" },
+        { "type": "image_picker", "id": "col2_item1_icon", "label": "Item 1 – Icon" },
+        { "type": "text", "id": "col2_item1_title", "label": "Item 1 – Title" },
+        { "type": "text", "id": "col2_item1_subtitle", "label": "Item 1 – Subtitle" },
+        { "type": "url", "id": "col2_item1_link", "label": "Item 1 – Link" },
+        { "type": "image_picker", "id": "col2_item2_icon", "label": "Item 2 – Icon" },
+        { "type": "text", "id": "col2_item2_title", "label": "Item 2 – Title" },
+        { "type": "text", "id": "col2_item2_subtitle", "label": "Item 2 – Subtitle" },
+        { "type": "url", "id": "col2_item2_link", "label": "Item 2 – Link" },
+        { "type": "image_picker", "id": "col2_item3_icon", "label": "Item 3 – Icon" },
+        { "type": "text", "id": "col2_item3_title", "label": "Item 3 – Title" },
+        { "type": "text", "id": "col2_item3_subtitle", "label": "Item 3 – Subtitle" },
+        { "type": "url", "id": "col2_item3_link", "label": "Item 3 – Link" },
+        { "type": "image_picker", "id": "col2_item4_icon", "label": "Item 4 – Icon" },
+        { "type": "text", "id": "col2_item4_title", "label": "Item 4 – Title" },
+        { "type": "text", "id": "col2_item4_subtitle", "label": "Item 4 – Subtitle" },
+        { "type": "url", "id": "col2_item4_link", "label": "Item 4 – Link" },
+        { "type": "image_picker", "id": "col2_item5_icon", "label": "Item 5 – Icon" },
+        { "type": "text", "id": "col2_item5_title", "label": "Item 5 – Title" },
+        { "type": "text", "id": "col2_item5_subtitle", "label": "Item 5 – Subtitle" },
+        { "type": "url", "id": "col2_item5_link", "label": "Item 5 – Link" },
+        { "type": "image_picker", "id": "col2_item6_icon", "label": "Item 6 – Icon" },
+        { "type": "text", "id": "col2_item6_title", "label": "Item 6 – Title" },
+        { "type": "text", "id": "col2_item6_subtitle", "label": "Item 6 – Subtitle" },
+        { "type": "url", "id": "col2_item6_link", "label": "Item 6 – Link" },
+        { "type": "image_picker", "id": "col2_item7_icon", "label": "Item 7 – Icon" },
+        { "type": "text", "id": "col2_item7_title", "label": "Item 7 – Title" },
+        { "type": "text", "id": "col2_item7_subtitle", "label": "Item 7 – Subtitle" },
+        { "type": "url", "id": "col2_item7_link", "label": "Item 7 – Link" },
+        { "type": "image_picker", "id": "col2_item8_icon", "label": "Item 8 – Icon" },
+        { "type": "text", "id": "col2_item8_title", "label": "Item 8 – Title" },
+        { "type": "text", "id": "col2_item8_subtitle", "label": "Item 8 – Subtitle" },
+        { "type": "url", "id": "col2_item8_link", "label": "Item 8 – Link" },
+        { "type": "image_picker", "id": "col2_item9_icon", "label": "Item 9 – Icon" },
+        { "type": "text", "id": "col2_item9_title", "label": "Item 9 – Title" },
+        { "type": "text", "id": "col2_item9_subtitle", "label": "Item 9 – Subtitle" },
+        { "type": "url", "id": "col2_item9_link", "label": "Item 9 – Link" },
+        { "type": "image_picker", "id": "col2_item10_icon", "label": "Item 10 – Icon" },
+        { "type": "text", "id": "col2_item10_title", "label": "Item 10 – Title" },
+        { "type": "text", "id": "col2_item10_subtitle", "label": "Item 10 – Subtitle" },
+        { "type": "url", "id": "col2_item10_link", "label": "Item 10 – Link" },
+        { "type": "text", "id": "col2_footer_text", "label": "Column 2 – Footer text" },
+        { "type": "url", "id": "col2_footer_link", "label": "Column 2 – Footer link" },
+
+        { "type": "header", "content": "▸ Column 3" },
+        { "type": "image_picker", "id": "col3_icon", "label": "Heading icon" },
+        { "type": "text", "id": "col3_heading", "label": "Heading", "default": "Shop by Brand" },
+        { "type": "image_picker", "id": "col3_item1_icon", "label": "Item 1 – Icon" },
+        { "type": "text", "id": "col3_item1_title", "label": "Item 1 – Title" },
+        { "type": "text", "id": "col3_item1_subtitle", "label": "Item 1 – Subtitle" },
+        { "type": "url", "id": "col3_item1_link", "label": "Item 1 – Link" },
+        { "type": "image_picker", "id": "col3_item2_icon", "label": "Item 2 – Icon" },
+        { "type": "text", "id": "col3_item2_title", "label": "Item 2 – Title" },
+        { "type": "text", "id": "col3_item2_subtitle", "label": "Item 2 – Subtitle" },
+        { "type": "url", "id": "col3_item2_link", "label": "Item 2 – Link" },
+        { "type": "image_picker", "id": "col3_item3_icon", "label": "Item 3 – Icon" },
+        { "type": "text", "id": "col3_item3_title", "label": "Item 3 – Title" },
+        { "type": "text", "id": "col3_item3_subtitle", "label": "Item 3 – Subtitle" },
+        { "type": "url", "id": "col3_item3_link", "label": "Item 3 – Link" },
+        { "type": "image_picker", "id": "col3_item4_icon", "label": "Item 4 – Icon" },
+        { "type": "text", "id": "col3_item4_title", "label": "Item 4 – Title" },
+        { "type": "text", "id": "col3_item4_subtitle", "label": "Item 4 – Subtitle" },
+        { "type": "url", "id": "col3_item4_link", "label": "Item 4 – Link" },
+        { "type": "image_picker", "id": "col3_item5_icon", "label": "Item 5 – Icon" },
+        { "type": "text", "id": "col3_item5_title", "label": "Item 5 – Title" },
+        { "type": "text", "id": "col3_item5_subtitle", "label": "Item 5 – Subtitle" },
+        { "type": "url", "id": "col3_item5_link", "label": "Item 5 – Link" },
+        { "type": "image_picker", "id": "col3_item6_icon", "label": "Item 6 – Icon" },
+        { "type": "text", "id": "col3_item6_title", "label": "Item 6 – Title" },
+        { "type": "text", "id": "col3_item6_subtitle", "label": "Item 6 – Subtitle" },
+        { "type": "url", "id": "col3_item6_link", "label": "Item 6 – Link" },
+        { "type": "image_picker", "id": "col3_item7_icon", "label": "Item 7 – Icon" },
+        { "type": "text", "id": "col3_item7_title", "label": "Item 7 – Title" },
+        { "type": "text", "id": "col3_item7_subtitle", "label": "Item 7 – Subtitle" },
+        { "type": "url", "id": "col3_item7_link", "label": "Item 7 – Link" },
+        { "type": "image_picker", "id": "col3_item8_icon", "label": "Item 8 – Icon" },
+        { "type": "text", "id": "col3_item8_title", "label": "Item 8 – Title" },
+        { "type": "text", "id": "col3_item8_subtitle", "label": "Item 8 – Subtitle" },
+        { "type": "url", "id": "col3_item8_link", "label": "Item 8 – Link" },
+        { "type": "image_picker", "id": "col3_item9_icon", "label": "Item 9 – Icon" },
+        { "type": "text", "id": "col3_item9_title", "label": "Item 9 – Title" },
+        { "type": "text", "id": "col3_item9_subtitle", "label": "Item 9 – Subtitle" },
+        { "type": "url", "id": "col3_item9_link", "label": "Item 9 – Link" },
+        { "type": "image_picker", "id": "col3_item10_icon", "label": "Item 10 – Icon" },
+        { "type": "text", "id": "col3_item10_title", "label": "Item 10 – Title" },
+        { "type": "text", "id": "col3_item10_subtitle", "label": "Item 10 – Subtitle" },
+        { "type": "url", "id": "col3_item10_link", "label": "Item 10 – Link" },
+        { "type": "text", "id": "col3_footer_text", "label": "Column 3 – Footer text" },
+        { "type": "url", "id": "col3_footer_link", "label": "Column 3 – Footer link" },
+
+        { "type": "header", "content": "▸ Featured Card (right side)" },
+        { "type": "text", "id": "feat_eyebrow", "label": "Eyebrow", "default": "FEATURED PACKAGE" },
+        { "type": "text", "id": "feat_heading", "label": "Heading" },
+        { "type": "product", "id": "feat_product", "label": "Product (auto-fills image, price, link)" },
+        { "type": "image_picker", "id": "feat_image", "label": "Image override" },
+        { "type": "text", "id": "feat_price", "label": "Price override" },
+        { "type": "url", "id": "feat_link", "label": "Link override" },
+        { "type": "checkbox", "id": "feat_show_rating", "label": "Show rating", "default": true },
+        { "type": "range", "id": "feat_rating", "label": "Rating", "min": 0, "max": 5, "step": 1, "default": 5 },
+        { "type": "number", "id": "feat_rating_count", "label": "Review count", "default": 45 },
+        { "type": "text", "id": "feat_btn_text", "label": "Button text", "default": "Shop Now" },
+
+        { "type": "header", "content": "▸ Popular brands row" },
+        { "type": "image_picker", "id": "brands_icon", "label": "Brands heading icon" },
+        { "type": "text", "id": "brands_title", "label": "Brands heading", "default": "Popular Brands" },
+        { "type": "image_picker", "id": "brand1_image", "label": "Brand 1 image" },
+        { "type": "text", "id": "brand1_text", "label": "Brand 1 text fallback" },
+        { "type": "url", "id": "brand1_link", "label": "Brand 1 link" },
+        { "type": "image_picker", "id": "brand2_image", "label": "Brand 2 image" },
+        { "type": "text", "id": "brand2_text", "label": "Brand 2 text fallback" },
+        { "type": "url", "id": "brand2_link", "label": "Brand 2 link" },
+        { "type": "image_picker", "id": "brand3_image", "label": "Brand 3 image" },
+        { "type": "text", "id": "brand3_text", "label": "Brand 3 text fallback" },
+        { "type": "url", "id": "brand3_link", "label": "Brand 3 link" },
+        { "type": "image_picker", "id": "brand4_image", "label": "Brand 4 image" },
+        { "type": "text", "id": "brand4_text", "label": "Brand 4 text fallback" },
+        { "type": "url", "id": "brand4_link", "label": "Brand 4 link" },
+        { "type": "image_picker", "id": "brand5_image", "label": "Brand 5 image" },
+        { "type": "text", "id": "brand5_text", "label": "Brand 5 text fallback" },
+        { "type": "url", "id": "brand5_link", "label": "Brand 5 link" },
+        { "type": "text", "id": "brands_footer_text", "label": "Brands footer text", "default": "View All Brands" },
+        { "type": "url", "id": "brands_footer_link", "label": "Brands footer link" },
+
+        { "type": "header", "content": "▸ Bottom features row" },
+        { "type": "image_picker", "id": "usp1_icon", "label": "Feature 1 icon" },
+        { "type": "text", "id": "usp1_title", "label": "Feature 1 title", "default": "Free & Fast Shipping" },
+        { "type": "text", "id": "usp1_text", "label": "Feature 1 text", "default": "On all simulator kits" },
+        { "type": "image_picker", "id": "usp2_icon", "label": "Feature 2 icon" },
+        { "type": "text", "id": "usp2_title", "label": "Feature 2 title", "default": "Expert Support" },
+        { "type": "text", "id": "usp2_text", "label": "Feature 2 text", "default": "Talk to our golf experts" },
+        { "type": "image_picker", "id": "usp3_icon", "label": "Feature 3 icon" },
+        { "type": "text", "id": "usp3_title", "label": "Feature 3 title", "default": "0% Financing" },
+        { "type": "text", "id": "usp3_text", "label": "Feature 3 text", "default": "Flexible payment options" },
+        { "type": "image_picker", "id": "usp4_icon", "label": "Feature 4 icon" },
+        { "type": "text", "id": "usp4_title", "label": "Feature 4 title", "default": "Price Match Guarantee" },
+        { "type": "text", "id": "usp4_text", "label": "Feature 4 text", "default": "We match authorized dealers" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header",
+      "blocks": [
+        { "type": "mega" }
+      ]
+    }
+  ]
+}
+{% endschema %}

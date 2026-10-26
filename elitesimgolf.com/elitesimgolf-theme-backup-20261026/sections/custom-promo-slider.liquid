@@ -1,0 +1,677 @@
+{% comment %}
+  Elite Sim Golf — Promo Slider (Square Cards)
+  File: sections/custom-promo-slider.liquid
+{% endcomment %}
+
+{%- assign slide_blocks = section.blocks | where: "type", "slide" -%}
+{%- assign total = slide_blocks | size -%}
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap');
+
+    .esg-promo *,
+  .esg-promo *::before,
+  .esg-promo *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Section Shell ── */
+  .esg-promo {
+    position: relative;
+    overflow: hidden;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+    background: {{ section.settings.bg_color }};
+    /* NO top padding — flush to section above */
+    padding: 0 0 {{ section.settings.padding_bottom }}px;
+    margin-top: 0 !important;
+  }
+
+  /* ── Parallax BG ── */
+  .esg-promo__bg {
+    position: absolute;
+    inset: 0;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 0;
+    pointer-events: none;
+  }
+  @media (max-width: 768px) {
+    .esg-promo__bg { background-attachment: scroll; }
+  }
+
+  .esg-promo__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5,12,24,{{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .esg-promo__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  /* ── Top Bar — matches collections heading style ── */
+  .esg-promo__topbar {
+    {%- if section.settings.topbar_align == 'right' -%}
+    text-align: right;
+    {%- elsif section.settings.topbar_align == 'center' -%}
+    text-align: center;
+    {%- else -%}
+    text-align: left;
+    {%- endif -%}
+    padding: {{ section.settings.topbar_padding_top }}px 52px {{ section.settings.topbar_padding_bottom }}px;
+  }
+
+  /* Eyebrow — lines + text like collections section */
+  .esg-promo__eyebrow {
+    display: flex;
+    align-items: center;
+    {%- if section.settings.topbar_align == 'center' -%}
+    justify-content: center;
+    {%- elsif section.settings.topbar_align == 'right' -%}
+    justify-content: flex-end;
+    {%- else -%}
+    justify-content: flex-start;
+    {%- endif -%}
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .esg-promo__eyebrow-line {
+    width: 52px; height: 1px;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  .esg-promo__eyebrow-text {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+  }
+
+  /* Big bold italic title */
+  .esg-promo__topbar-title {
+    font-size: {{ section.settings.title_size_desktop }}px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: {{ section.settings.topbar_title_color }};
+    margin-bottom: 0;
+    line-height: 1.08;
+    font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+  }
+
+  .esg-promo__topbar-title em {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  /* Title bar underline */
+  .esg-promo__title-bar {
+    width: 56px; height: 3px;
+    background: {{ section.settings.accent_color }};
+    border-radius: 2px;
+    margin-top: 14px;
+  }
+
+  .esg-promo__topbar--center .esg-promo__title-bar { margin-left: auto; margin-right: auto; }
+  .esg-promo__topbar--right .esg-promo__title-bar { margin-left: auto; margin-right: 0; }
+  .esg-promo__topbar--right .esg-promo__eyebrow { flex-direction: row-reverse; }
+
+  /* Subtitle (optional smaller text) */
+  .esg-promo__topbar-sub {
+    display: none; /* hidden by default — use title only like screenshot */
+  }
+
+  /* ── Slider Wrap ── */
+  .esg-promo__slider-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 52px;
+  }
+
+  .esg-promo__track-outer {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .esg-promo__track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change: transform;
+    gap: {{ section.settings.card_gap }}px;
+    align-items: stretch;
+  }
+
+  /* ── Card — SQUARE ── */
+  .esg-promo__card {
+    flex: 0 0 calc(33.333% - {{ section.settings.card_gap | times: 2 | divided_by: 3 }}px);
+    aspect-ratio: 1 / 1;
+    border-radius: {{ section.settings.card_radius }}px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    background: #111;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .esg-promo__card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 20px 56px rgba(0,0,0,0.5);
+  }
+
+  /* Card image — fills entire square */
+  .esg-promo__card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .esg-promo__card:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Placeholder */
+  .esg-promo__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+    flex-direction: column;
+    gap: 12px;
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .esg-promo__placeholder svg {
+    width: 48px; height: 48px;
+  }
+
+  /* ── Nav Arrows ── */
+  .esg-promo__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: #ffffff;
+    z-index: 3;
+    transition: background 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .esg-promo__arrow:hover {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  .esg-promo__arrow svg { width: 18px; height: 18px; }
+  .esg-promo__arrow--prev { left: 8px; }
+  .esg-promo__arrow--next { right: 8px; }
+
+  /* ── Dots ── */
+  .esg-promo__dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 20px;
+    padding-bottom: 4px;
+  }
+
+  .esg-promo__dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    border: none; cursor: pointer; padding: 0;
+    transition: background 0.2s, transform 0.2s, width 0.3s, border-radius 0.3s;
+  }
+
+  .esg-promo__dot.is-active {
+    background: {{ section.settings.accent_color }};
+    transform: scale(1.2);
+    width: 20px;
+    border-radius: 4px;
+  }
+
+  /* ══ TABLET ══ */
+  @media (max-width: 900px) {
+    .esg-promo__slider-wrap { padding: 0 44px; }
+    .esg-promo__card {
+      flex: 0 0 calc(50% - {{ section.settings.card_gap | divided_by: 2 }}px);
+    }
+  }
+
+  /* ══ MOBILE ══ */
+  @media (max-width: 600px) {
+    .esg-promo__slider-wrap {
+      padding: 0;
+    }
+    .esg-promo__card {
+      flex: 0 0 100%;
+      border-radius: 0;
+      aspect-ratio: 1 / 1;
+    }
+    .esg-promo__arrow {
+      width: 34px; height: 34px;
+      z-index: 4;
+    }
+    .esg-promo__arrow--prev { left: 8px; }
+    .esg-promo__arrow--next { right: 8px; }
+    .esg-promo__topbar {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .esg-promo__topbar-title { font-size: {{ section.settings.title_size_mobile }}px; }
+    .esg-promo__eyebrow { gap: 10px; }
+    .esg-promo__eyebrow-line { width: 32px; }
+  }
+</style>
+
+<section class="esg-promo" id="esg-promo-{{ section.id }}">
+
+  {%- if section.settings.bg_image != blank -%}
+    <div class="esg-promo__bg"
+         style="background-image:url('{{ section.settings.bg_image | image_url: width: 1800 }}');
+                background-position:{{ section.settings.bg_position }};"></div>
+    <div class="esg-promo__overlay"></div>
+  {%- endif -%}
+
+  <div class="esg-promo__inner">
+
+    <!-- Top Bar -->
+    {%- if section.settings.show_topbar -%}
+      <div class="esg-promo__topbar esg-promo__topbar--{{ section.settings.topbar_align }}">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="esg-promo__eyebrow">
+            <span class="esg-promo__eyebrow-line"></span>
+            <span class="esg-promo__eyebrow-text">{{ section.settings.eyebrow }}</span>
+            <span class="esg-promo__eyebrow-line"></span>
+          </div>
+        {%- endif -%}
+        {%- if section.settings.topbar_title != blank -%}
+          <h2 class="esg-promo__topbar-title">
+            {{ section.settings.topbar_title }}
+            {%- if section.settings.topbar_title_accent != blank %}
+              <em>{{ section.settings.topbar_title_accent }}</em>
+            {%- endif %}
+          </h2>
+          <div class="esg-promo__title-bar"></div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <!-- Slider -->
+    <div class="esg-promo__slider-wrap">
+
+      <button class="esg-promo__arrow esg-promo__arrow--prev" id="esg-promo-prev-{{ section.id }}" aria-label="Previous">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="esg-promo__track-outer">
+        <div class="esg-promo__track" id="esg-promo-track-{{ section.id }}">
+          {%- for block in slide_blocks -%}
+            <a href="{{ block.settings.link | default: '#' }}"
+               class="esg-promo__card"
+               {% if block.settings.link == blank %}onclick="return false;"{% endif %}
+               {{ block.shopify_attributes }}>
+
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: 900 }}"
+                     alt="{{ block.settings.image.alt | default: 'Promo' | escape }}"
+                     width="600" height="600" loading="lazy">
+              {%- else -%}
+                <div class="esg-promo__placeholder">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                  Add image in Theme Editor
+                </div>
+              {%- endif -%}
+
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <button class="esg-promo__arrow esg-promo__arrow--next" id="esg-promo-next-{{ section.id }}" aria-label="Next">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="esg-promo__dots" id="esg-promo-dots-{{ section.id }}"></div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sid    = '{{ section.id }}';
+  var track  = document.getElementById('esg-promo-track-' + sid);
+  var dotsEl = document.getElementById('esg-promo-dots-' + sid);
+  var btnP   = document.getElementById('esg-promo-prev-' + sid);
+  var btnN   = document.getElementById('esg-promo-next-' + sid);
+  if (!track) return;
+
+  var cards  = Array.from(track.querySelectorAll('.esg-promo__card'));
+  var total  = cards.length;
+  var cur    = 0;
+
+  function perView() {
+    var w = window.innerWidth;
+    if (w <= 600) return 1;
+    if (w <= 900) return 2;
+    return 3;
+  }
+
+  function gap() { return {{ section.settings.card_gap }}; }
+
+  function maxIdx() { return Math.max(0, total - perView()); }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    for (var d = 0; d <= maxIdx(); d++) {
+      var dot = document.createElement('button');
+      dot.className = 'esg-promo__dot';
+      dot.setAttribute('aria-label', 'Slide ' + (d + 1));
+      (function(i) { dot.addEventListener('click', function() { goTo(i); }); })(d);
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  function goTo(idx) {
+    cur = Math.max(0, Math.min(idx, maxIdx()));
+    var offset = 0;
+    for (var i = 0; i < cur; i++) {
+      offset += cards[i].offsetWidth + gap();
+    }
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    var dots = dotsEl.querySelectorAll('.esg-promo__dot');
+    dots.forEach(function(d, i) { d.classList.toggle('is-active', i === cur); });
+    btnP.style.opacity = cur === 0 ? '0.4' : '1';
+    btnN.style.opacity = cur >= maxIdx() ? '0.4' : '1';
+  }
+
+  btnP.addEventListener('click', function() { goTo(cur - 1); });
+  btnN.addEventListener('click', function() { goTo(cur + 1); });
+
+  /* Touch swipe */
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
+  });
+
+  {%- if section.settings.autoplay -%}
+  var timer = setInterval(function() {
+    goTo(cur >= maxIdx() ? 0 : cur + 1);
+  }, {{ section.settings.autoplay_speed | times: 1000 }});
+  track.addEventListener('touchstart', function() { clearInterval(timer); }, { passive: true });
+  {%- endif -%}
+
+  window.addEventListener('resize', function() { buildDots(); goTo(Math.min(cur, maxIdx())); });
+
+  buildDots();
+  goTo(0);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ESG Promo Slider",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#050c18"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (parallax)"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay darkness %",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "default": 55
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image position",
+      "default": "center center",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top",    "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Top Bar Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_topbar",
+      "label": "Show top bar text",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "topbar_padding_top",
+      "label": "Top bar — padding top (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "topbar_padding_bottom",
+      "label": "Top bar — padding bottom (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text (small line above title)",
+      "default": "Limited-Time Offer"
+    },
+    {
+      "type": "text",
+      "id": "topbar_title",
+      "label": "Title — white part",
+      "default": "Freedom 250"
+    },
+    {
+      "type": "text",
+      "id": "topbar_title_accent",
+      "label": "Title — accent color part",
+      "default": "Sale"
+    },
+    {
+      "type": "select",
+      "id": "topbar_align",
+      "label": "Text alignment",
+      "default": "left",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title font size — desktop (px)",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title font size — mobile (px)",
+      "min": 16,
+      "max": 52,
+      "step": 2,
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "topbar_title_color",
+      "label": "Title text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "label": "Gap between cards (px)",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius (px)",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-advance slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Seconds between slides",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "text",
+      "id": "heading_font",
+      "label": "Heading font (title & eyebrow)",
+      "default": "Barlow"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Body font",
+      "default": "Inter"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding (px)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Promo Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Promo image (square works best)"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG Promo Slider",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
+      ]
+    }
+  ]
+}
+{% endschema %}

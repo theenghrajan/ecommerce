@@ -1,0 +1,659 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_YjxFiw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_Y4NHb7": {
+          "type": "custom-liquid",
+          "name": "Spica3",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — Vendor Trigger\nTrigger: product.vendor = \"GolfJoy\" (case-insensitive)\nRequires code: GOLFJOY10\nAuto-hide after: March 30, 2026\nCompact styling to match ESG shipping box\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-03-30' | date: '%s' -%}\n{%- assign vendor_downcase = product.vendor | strip | downcase -%}\n\n{%- if today_ts <= cutoff_ts and vendor_downcase == 'golfjoy' -%}\n<div class=\"esg-promo-code-box\">\n  <div class=\"esg-promo-code-box__top\">\n    <div class=\"esg-promo-code-box__title\">\n      <span class=\"esg-promo-code-box__title-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M20.59 13.41 11 23l-2.5-2.5\"></path>\n          <path d=\"M17 7h.01\"></path>\n          <path d=\"M3 11V3h8l10 10-8 8L3 11z\"></path>\n        </svg>\n      </span>\n      <span>Extra Savings Available</span>\n    </div>\n\n    <div class=\"esg-promo-code-box__ends\">\n      Ends Mar 30, 2026\n    </div>\n  </div>\n\n  <div class=\"esg-promo-code-box__text\">\n    Use code below for <strong>up to 10% off</strong> at cart or checkout.\n  </div>\n\n  <div class=\"esg-promo-code-box__row\">\n    <div id=\"esg-promo-code\" class=\"esg-promo-code-box__code\">GOLFJOY10</div>\n\n    <button type=\"button\" id=\"esg-promo-copy\" class=\"esg-promo-code-box__button\">\n      Copy Code\n    </button>\n\n    <div id=\"esg-promo-copied\" class=\"esg-promo-code-box__copied\">\n      Copied\n    </div>\n  </div>\n\n  <div class=\"esg-promo-code-box__note\">\n    Tap the code or button to copy instantly.\n  </div>\n</div>\n\n<style>\n  .esg-promo-code-box {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #23923d;\n    border-radius: 12px;\n    background: linear-gradient(180deg, #f7fcf7 0%, #eef8ef 100%);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,.75),\n      0 1px 2px rgba(16,42,67,.05);\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-promo-code-box__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    margin-bottom: 7px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__title {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #168232;\n    letter-spacing: .1px;\n    line-height: 1.2;\n  }\n\n  .esg-promo-code-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #168232;\n    flex: 0 0 16px;\n  }\n\n  .esg-promo-code-box__title-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-promo-code-box__ends {\n    display: inline-block;\n    padding: 5px 8px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.28);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);\n  }\n\n  .esg-promo-code-box__text {\n    font-size: 13px;\n    color: #102a43;\n    margin-bottom: 9px;\n  }\n\n  .esg-promo-code-box__text strong {\n    font-weight: 800;\n  }\n\n  .esg-promo-code-box__row {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__code {\n    display: inline-flex;\n    align-items: center;\n    padding: 8px 11px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px dashed rgba(35,146,61,.45);\n    color: #168232;\n    font-weight: 900;\n    font-size: 12.5px;\n    letter-spacing: .12em;\n    line-height: 1;\n    user-select: all;\n    cursor: pointer;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.85);\n  }\n\n  .esg-promo-code-box__button {\n    appearance: none;\n    border: 1px solid #23923d;\n    border-radius: 999px;\n    padding: 8px 12px;\n    background: #168232;\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 12.5px;\n    line-height: 1;\n    cursor: pointer;\n    box-shadow: 0 1px 2px rgba(16,42,67,.08);\n    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;\n  }\n\n  .esg-promo-code-box__button:hover {\n    background: #136f2b;\n    transform: translateY(-1px);\n  }\n\n  .esg-promo-code-box__copied {\n    display: none;\n    align-items: center;\n    padding: 7px 10px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.35);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .esg-promo-code-box__note {\n    margin-top: 8px;\n    font-size: 12px;\n    color: #35506b;\n  }\n\n  @media (max-width: 749px) {\n    .esg-promo-code-box {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-promo-code-box__title {\n      font-size: 13.5px;\n    }\n\n    .esg-promo-code-box__title-icon {\n      width: 15px;\n      height: 15px;\n      min-width: 15px;\n      flex-basis: 15px;\n    }\n\n    .esg-promo-code-box__title-icon svg {\n      width: 15px;\n      height: 15px;\n    }\n\n    .esg-promo-code-box__ends,\n    .esg-promo-code-box__text,\n    .esg-promo-code-box__button,\n    .esg-promo-code-box__code {\n      font-size: 12px;\n    }\n\n    .esg-promo-code-box__note {\n      font-size: 11.5px;\n    }\n  }\n</style>\n\n<script>\n(function () {\n  var btn = document.getElementById('esg-promo-copy');\n  var codeEl = document.getElementById('esg-promo-code');\n  var badge = document.getElementById('esg-promo-copied');\n  if (!btn || !codeEl) return;\n\n  function showCopied() {\n    if (!badge) return;\n    badge.style.display = 'inline-flex';\n    setTimeout(function () {\n      badge.style.display = 'none';\n    }, 1400);\n  }\n\n  async function copyCode() {\n    var code = (codeEl.textContent || '').trim();\n\n    try {\n      if (navigator.clipboard && navigator.clipboard.writeText) {\n        await navigator.clipboard.writeText(code);\n        showCopied();\n        return;\n      }\n    } catch (e) {}\n\n    var ta = document.createElement('textarea');\n    ta.value = code;\n    ta.setAttribute('readonly', '');\n    ta.style.position = 'absolute';\n    ta.style.left = '-9999px';\n    document.body.appendChild(ta);\n    ta.select();\n\n    try {\n      document.execCommand('copy');\n      showCopied();\n    } catch (e) {}\n\n    document.body.removeChild(ta);\n  }\n\n  btn.addEventListener('click', copyCode);\n  codeEl.addEventListener('click', copyCode);\n  codeEl.title = 'Click to copy';\n})();\n</script>\n{%- endif -%}{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'spica 3' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>GolfJoy Spica 3</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_WTm6Q9": {
+          "type": "custom-liquid",
+          "name": "Eye Mini Lite Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'eye mini lite' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>UNEEKOR Eye Mini Lite</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_FKVhxB": {
+          "type": "custom-liquid",
+          "name": "Garmin R50 Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'garmin r50' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>Garmin Approach R50</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_fMCmMX": {
+          "type": "custom-liquid",
+          "name": "New Universal Ship Box",
+          "settings": {
+            "custom_liquid": "{%- assign total_inventory = 0 -%}\n{%- for variant in product.variants -%}\n  {%- assign total_inventory = total_inventory | plus: variant.inventory_quantity -%}\n{%- endfor -%}\n\n{%- if total_inventory > 0 -%}\n<div class=\"esg-shipbox-universal\">\n  <div class=\"esg-shipbox-universal__top\">\n    <div class=\"esg-shipbox-universal__title\">\n      <span class=\"esg-shipbox-universal__title-icon\" aria-hidden=\"true\">\n        <!-- Shield Check Icon -->\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path>\n          <path d=\"M9 12l2 2 4-4\"></path>\n        </svg>\n      </span>\n      <span>Elite Sim Golf Advantage</span>\n    </div>\n  </div>\n\n  <div class=\"esg-shipbox-universal__status\">\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n      <path d=\"M20 6L9 17l-5-5\"></path>\n    </svg>\n    IN STOCK • READY TO SHIP\n  </div>\n\n  <div class=\"esg-shipbox-universal__text\">\n    We stock this item so you can expect fast fulfillment and real post-purchase support if you need help.\n  </div>\n\n  <div id=\"esg-2pm-countdown-wrap\" class=\"esg-shipbox-universal__countdown-wrap\">\n    <div class=\"esg-shipbox-universal__countdown-copy\">\n      <div class=\"esg-shipbox-universal__cutoff-label\">Same-Day Shipping Cutoff</div>\n      <div class=\"esg-shipbox-universal__cutoff-subtext\">\n        Order by <strong>2:00 PM ET</strong>\n      </div>\n    </div>\n    <div id=\"esg-2pm-time\" class=\"esg-shipbox-universal__clock\">--:--:--</div>\n  </div>\n</div>\n\n<style>\n  .esg-shipbox-universal {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 16px 18px;\n    border: 1px solid #bbf7d0; /* Soft mint green border */\n    border-radius: 10px;\n    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); /* Fresh green gradient */\n    box-shadow: 0 3px 6px rgba(34, 197, 94, 0.05); /* Gentle green shadow */\n    color: #334155;\n    line-height: 1.4;\n  }\n  .esg-shipbox-universal__top {\n    margin-bottom: 8px;\n  }\n  .esg-shipbox-universal__title {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    font-size: 15px;\n    font-weight: 800;\n    color: #064e3b; /* Deep forest green text */\n    letter-spacing: .2px;\n  }\n  .esg-shipbox-universal__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 18px;\n    height: 18px;\n    color: #16a34a; /* Vibrant emerald green icon */\n  }\n  .esg-shipbox-universal__title-icon svg {\n    width: 18px;\n    height: 18px;\n    display: block;\n  }\n  .esg-shipbox-universal__status {\n    display: inline-flex;\n    align-items: center;\n    gap: 6px;\n    padding: 6px 12px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid #86efac; /* Green status border */\n    color: #15803d; /* Stronger green for status */\n    font-size: 12px;\n    font-weight: 900;\n    letter-spacing: .05em;\n    white-space: nowrap;\n    box-shadow: 0 2px 4px rgba(22, 163, 74, 0.1);\n    margin-bottom: 10px;\n  }\n  .esg-shipbox-universal__status svg {\n    width: 12px;\n    height: 12px;\n  }\n  .esg-shipbox-universal__text {\n    font-size: 13.5px;\n    color: #3f6212;\n    margin-bottom: 14px;\n  }\n  .esg-shipbox-universal__countdown-wrap {\n    margin: 0;\n    padding: 12px 14px;\n    border-radius: 12px;\n    border: 1px solid #bbf7d0; /* Soft green border for inner box */\n    background: #ffffff; /* Clean white inner box */\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 12px;\n    flex-wrap: wrap;\n    box-shadow: 0 2px 4px rgba(34, 197, 94, 0.05);\n  }\n  .esg-shipbox-universal__countdown-copy {\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n  }\n  .esg-shipbox-universal__cutoff-label {\n    font-size: 11px;\n    font-weight: 900;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    color: #16a34a; /* Emerald green */\n  }\n  .esg-shipbox-universal__cutoff-subtext {\n    font-size: 13px;\n    color: #3f6212;\n    font-weight: 700;\n  }\n  .esg-shipbox-universal__cutoff-subtext strong {\n    color: #064e3b;\n    font-weight: 800;\n  }\n  .esg-shipbox-universal__clock {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    min-width: 150px;\n    padding: 8px 14px;\n    border-radius: 8px;\n    background: #064e3b; /* Deep forest green clock background */\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 20px;\n    letter-spacing: .12em;\n    line-height: 1;\n    font-variant-numeric: tabular-nums;\n    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;\n    box-shadow: inset 0 2px 4px rgba(0,0,0,.2);\n  }\n\n  @media (max-width: 749px) {\n    .esg-shipbox-universal {\n      padding: 14px;\n    }\n    .esg-shipbox-universal__title {\n      font-size: 14.5px;\n    }\n    .esg-shipbox-universal__status {\n      font-size: 11.5px;\n    }\n    .esg-shipbox-universal__text {\n      font-size: 13px;\n    }\n    .esg-shipbox-universal__countdown-wrap {\n      padding: 10px 12px;\n    }\n    .esg-shipbox-universal__cutoff-label {\n      font-size: 10.5px;\n    }\n    .esg-shipbox-universal__cutoff-subtext {\n      font-size: 12px;\n    }\n    .esg-shipbox-universal__clock {\n      min-width: 130px;\n      font-size: 17px;\n      padding: 8px 12px;\n    }\n  }\n</style>\n\n<script>\n(function () {\n  var wrap = document.getElementById('esg-2pm-countdown-wrap');\n  var timeEl = document.getElementById('esg-2pm-time');\n  if (!wrap || !timeEl) return;\n\n  function getETParts(date) {\n    var parts = new Intl.DateTimeFormat('en-US', {\n      timeZone: 'America/New_York',\n      year: 'numeric',\n      month: '2-digit',\n      day: '2-digit',\n      hour: '2-digit',\n      minute: '2-digit',\n      second: '2-digit',\n      hour12: false\n    }).formatToParts(date);\n\n    var out = {};\n    parts.forEach(function(p) { out[p.type] = p.value; });\n    return out;\n  }\n\n  function pad(n) {\n    return String(n).padStart(2, '0');\n  }\n\n  function update() {\n    var now = new Date();\n    var p = getETParts(now);\n    var hh = parseInt(p.hour, 10);\n    var mm = parseInt(p.minute, 10);\n    var ss = parseInt(p.second, 10);\n\n    var nowSec = hh * 3600 + mm * 60 + ss;\n    var cutoffSec = 14 * 3600;\n    var remaining = cutoffSec - nowSec;\n\n    if (remaining <= 0) {\n      wrap.style.display = 'none';\n      return;\n    }\n\n    var rH = Math.floor(remaining / 3600);\n    var rM = Math.floor((remaining % 3600) / 60);\n    var rS = remaining % 60;\n\n    timeEl.textContent = pad(rH) + \":\" + pad(rM) + \":\" + pad(rS);\n  }\n\n  update();\n  setInterval(update, 1000);\n})();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_kfD3Ya": {
+          "type": "custom-liquid",
+          "name": "Project fitment",
+          "settings": {
+            "custom_liquid": "{%- if product.type == 'Projector' -%}\n<div class=\"esg-projector-fit-box\">\n  <div class=\"esg-projector-fit-box__top\">\n    <div class=\"esg-projector-fit-box__title\">\n      <span class=\"esg-projector-fit-box__title-icon\" aria-hidden=\"true\">\n        <!-- Expand / Fitment Icon -->\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M15 3h6v6\"></path>\n          <path d=\"M9 21H3v-6\"></path>\n          <path d=\"M21 3l-7 7\"></path>\n          <path d=\"M3 21l7-7\"></path>\n        </svg>\n      </span>\n      <span>Will This Projector Fit My Space?</span>\n    </div>\n  </div>\n  <div class=\"esg-projector-fit-box__text\">\n    Use our projector fitment tool to check screen size, aspect ratio, and mounting distance before you buy.\n  </div>\n  <div class=\"esg-projector-fit-box__action\">\n    <a href=\"/blogs/faq/golf-simulator-projector-fitment-tool\" class=\"esg-projector-fit-box__button\">\n      Check Fitment\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M5 12h14\"></path>\n        <path d=\"m12 5 7 7-7 7\"></path>\n      </svg>\n    </a>\n  </div>\n</div>\n\n<style>\n  .esg-projector-fit-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 16px 18px;\n    border: 1px solid #bae6fd; /* Soft sky blue border */\n    border-radius: 10px;\n    background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%); /* Fresh, soft blue gradient */\n    box-shadow: 0 3px 6px rgba(14, 165, 233, 0.05); /* Gentle colored shadow */\n    color: #334155;\n    line-height: 1.4;\n  }\n  .esg-projector-fit-box__top {\n    margin-bottom: 6px;\n  }\n  .esg-projector-fit-box__title {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    font-size: 15px;\n    font-weight: 800;\n    color: #0f172a; /* Deep navy text for high legibility */\n    letter-spacing: .2px;\n  }\n  .esg-projector-fit-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 18px;\n    height: 18px;\n    color: #2563eb; /* Vibrant royal blue icon */\n  }\n  .esg-projector-fit-box__title-icon svg {\n    width: 18px;\n    height: 18px;\n    display: block;\n  }\n  .esg-projector-fit-box__text {\n    font-size: 13.5px;\n    color: #475569;\n    margin-bottom: 14px;\n  }\n  .esg-projector-fit-box__action {\n    display: flex;\n  }\n  .esg-projector-fit-box__button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 6px;\n    text-decoration: none;\n    border: none;\n    border-radius: 999px; /* Pill shape for a friendly CTA */\n    padding: 10px 18px;\n    background: #2563eb; /* Energetic royal blue button */\n    color: #ffffff;\n    font-weight: 700;\n    font-size: 13.5px;\n    line-height: 1;\n    box-shadow: 0 3px 6px rgba(37, 99, 235, 0.25);\n    transition: all 0.2s ease;\n  }\n  .esg-projector-fit-box__button:hover {\n    background: #1d4ed8; /* Deeper blue on hover */\n    transform: translateY(-1px);\n    box-shadow: 0 5px 8px rgba(37, 99, 235, 0.35);\n    color: #ffffff;\n  }\n  .esg-projector-fit-box__button svg {\n    width: 14px;\n    height: 14px;\n    transition: transform 0.2s ease;\n  }\n  .esg-projector-fit-box__button:hover svg {\n    transform: translateX(3px); /* Small nudge animation */\n  }\n\n  @media (max-width: 749px) {\n    .esg-projector-fit-box {\n      padding: 14px;\n    }\n    .esg-projector-fit-box__title {\n      font-size: 14.5px;\n    }\n    .esg-projector-fit-box__text {\n      font-size: 13px;\n      margin-bottom: 12px;\n    }\n    .esg-projector-fit-box__button {\n      width: 100%;\n      padding: 12px 16px;\n    }\n  }\n</style>\n{%- endif -%}"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "disabled": true,
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        },
+        "selleasy_lb_upsell_widget_pal_zTTaKe": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-pal/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "custom_liquid_iD9iTc": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"esg-why-buy-box\">\n  <div class=\"esg-why-buy-header\">\n    <span class=\"esg-why-buy-header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"></path>\n      </svg>\n    </span>\n    <span>Why Buy from Elite Sim Golf</span>\n  </div>\n\n  <div class=\"esg-why-buy-grid\">\n    <!-- Item 1: Authorized Dealer -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path>\n          <path d=\"M22 4L12 14.01l-3-3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Authorized {{ product.vendor }} Dealer</div>\n        <div class=\"esg-why-buy-text\">Premier {{ product.vendor }} Partner.</div>\n      </div>\n    </div>\n\n    <!-- Item 2: Fast Shipping -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n          <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n          <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n          <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Ships Same Business Day*</div>\n        <div class=\"esg-why-buy-text\">Orders placed before <strong>2PM EST.</strong></div>\n      </div>\n    </div>\n\n    <!-- Item 3: Free Shipping -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path>\n          <polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"></polyline>\n          <line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"></line>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Free Shipping on Most Orders</div>\n        <div class=\"esg-why-buy-text\">Ships free, may qualify for no sales tax.</div>\n      </div>\n    </div>\n\n    <!-- Item 4: Real Experts -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Real Golf Experts, Not Bots</div>\n        <div class=\"esg-why-buy-text\">Call <strong>866-4-SIM-GOLF</strong> anytime.</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n  .esg-why-buy-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 12px 16px;\n    border: 1px solid #e2e8f0;\n    border-radius: 10px;\n    background: #ffffff;\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    color: #334155;\n    line-height: 1.35;\n  }\n  .esg-why-buy-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11.5px;\n    font-weight: 800;\n    color: #64748b;\n    text-transform: uppercase;\n    letter-spacing: .05em;\n    margin-bottom: 12px;\n  }\n  .esg-why-buy-header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 14px;\n    height: 14px;\n    color: #086ed3; /* Keeps your signature blue accent for headers */\n  }\n  .esg-why-buy-header-icon svg {\n    width: 14px;\n    height: 14px;\n    display: block;\n  }\n  .esg-why-buy-grid {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 12px 16px; /* Replaces messy borders with clean gaps */\n  }\n  .esg-why-buy-item {\n    display: flex;\n    align-items: flex-start; /* Aligns icon with top line of text */\n    gap: 8px;\n  }\n  .esg-why-buy-icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    min-width: 26px;\n    border-radius: 6px;\n    background: #eff6ff; /* Soft blue background to match the style */\n    color: #2563eb; /* Vibrant blue SVG */\n    flex: 0 0 auto;\n    margin-top: 2px; /* Slight nudge down to center with title */\n  }\n  .esg-why-buy-icon svg {\n    width: 14px;\n    height: 14px;\n  }\n  .esg-why-buy-content {\n    min-width: 0;\n  }\n  .esg-why-buy-title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #0f172a;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; /* Prevents long vendor names from breaking layout */\n  }\n  .esg-why-buy-text {\n    font-size: 12px;\n    color: #64748b;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  .esg-why-buy-text strong {\n    color: #334155;\n    font-weight: 800;\n  }\n\n  @media (max-width: 749px) {\n    .esg-why-buy-box {\n      padding: 12px 14px;\n    }\n    .esg-why-buy-grid {\n      grid-template-columns: 1fr; /* Stacks to single column on mobile */\n      gap: 12px;\n    }\n    .esg-why-buy-title,\n    .esg-why-buy-text {\n      white-space: normal; /* Lets text wrap naturally on tiny screens */\n    }\n  }\n</style>"
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_YjxFiw",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_Y4NHb7",
+        "custom_liquid_WTm6Q9",
+        "custom_liquid_FKVhxB",
+        "buy-buttons",
+        "custom_liquid_fMCmMX",
+        "custom_liquid_kfD3Ya",
+        "richtext_3t6BjV",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description",
+        "selleasy_lb_upsell_widget_pal_zTTaKe",
+        "custom_liquid_iD9iTc"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "details",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ngWkaP": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ngWkaP"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "sn_product_description_QXUJAw": {
+      "type": "sn-product-description",
+      "blocks": {
+        "tag_3ULYda": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>3000 Lumens</strong>",
+            "class": ""
+          }
+        },
+        "tag_NyFPYC": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>1080p</strong>",
+            "class": ""
+          }
+        },
+        "tag_iAizxF": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Short-Throw</strong>",
+            "class": ""
+          }
+        },
+        "tag_GMcWYj": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>BENQ Screen fill</strong>",
+            "class": ""
+          }
+        },
+        "tag_UChnGm": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Golf-mode Color tuning</strong>",
+            "class": ""
+          }
+        },
+        "text_37BRNF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Product Description</p>",
+            "class": "sn-uppercase"
+          }
+        },
+        "text_dLtfq9": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>BenQ AH30ST 3000-Lumen Short-Throw 1080P LED Golf Simulator Projector</h2><p>The <strong>BenQ AH30ST</strong> is a dedicated <strong>1080P short-throw LED golf simulator projector</strong> built for smaller sim rooms and low ceilings. With <strong>3,000 ANSI lumens</strong>, <strong>Full HD (1920×1080)</strong> resolution, and a golf-tuned 4LED light engine, it delivers bright, accurate course visuals while keeping heat, noise, and maintenance low. :contentReference</p><p>A <strong>0.69–0.83:1 short-throw ratio</strong>, <strong>low 102.5% offset</strong>, and BenQ’s <strong>Screen Fill</strong> (Auto Screen Fill) make it easy to mount the projector safely behind and above the hitting area—even in tight garage bays—while still filling your impact screen. Pair that with a <strong>4LED light source rated up to 20,000–30,000 hours</strong> and BenQ’s <strong>Golf Mode</strong> color tuning, and the AH30ST becomes a killer value for 1080p golf sims that don’t need 4K or laser pricing.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "tag_3ULYda",
+        "tag_NyFPYC",
+        "tag_iAizxF",
+        "tag_GMcWYj",
+        "tag_UChnGm",
+        "text_37BRNF",
+        "text_dLtfq9"
+      ],
+      "name": "Product: Description",
+      "settings": {
+        "id": "sn-product-desc",
+        "quote": "<h4><em>\"the AH30ST becomes a killer value for 1080p golf sims that don’t need 4K or laser pricing.\"</em></h4>",
+        "background_color": "#ffffff",
+        "heading_color": "#020202",
+        "accent_color": "#2953b9",
+        "text_color": "#282828",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_benefits_GXtkrM": {
+      "type": "sn-benefits",
+      "blocks": {
+        "benefit_4rJzMK": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/001-ceiling.svg",
+            "title": "Is optimized for <strong>smaller rooms and low ceilings</strong> with a short-throw, low-offset lens",
+            "text": "",
+            "class": ""
+          }
+        },
+        "benefit_yiABce": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/002-resolution.svg",
+            "title": "Delivers <strong>clean, accurate 1080P visuals</strong> without jumping to 4K or laser pricing",
+            "text": "",
+            "class": ""
+          }
+        },
+        "benefit_LAbTqi": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/003-clock.svg",
+            "title": "Uses a <strong>long-life 4LED light source</strong> with minimal maintenance and no bulb changes",
+            "text": "",
+            "class": ""
+          }
+        },
+        "benefit_FJD6qf": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/004-scheme.svg",
+            "title": "Plays nicely in a <strong>multi-use space</strong> that doubles as a movie or gaming room",
+            "text": "",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_4rJzMK",
+        "benefit_yiABce",
+        "benefit_LAbTqi",
+        "benefit_FJD6qf"
+      ],
+      "name": "Custom: Benefits",
+      "settings": {
+        "id": "sn-benefits",
+        "text": "<h2>Who the BenQ AH30ST Is For</h2><p>Choose the <strong>BenQ AH30ST</strong> if you want a <strong>dedicated 1080P golf simulator projector</strong> that:</p>",
+        "columns": "4",
+        "align": "left",
+        "background_color": "#2953b9",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "accent_color": "#ffffff",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "#6dd8ff",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "background": "shopify://shop_images/ah30st-15-2.avif",
+        "overlay": "#161616",
+        "opacity": 17
+      }
+    },
+    "sn_product_includes_6qaEcj": {
+      "type": "sn-product-includes",
+      "blocks": {
+        "card_RTdkg8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1.png",
+            "title": "1080P 4LED Engine for Smaller Bays",
+            "text": "<p>The AH30ST gives you true 1080P with a long-life 4LED light source that’s ideal for daily sim sessions.</p><ul><li> <strong>Resolution:</strong> Full HD 1080P (1920×1080) for sharp sim UI and shot data</li><li> <strong>Brightness:</strong> 3,000 ANSI lumens – great for single-stall bays and controlled light rooms </li><li> <strong>Contrast:</strong> 20,000:1 (FOFO) for solid separation between fairways, greens, and shadows </li><li> <strong>Light Source:</strong> 4LED, rated up to <strong>20,000–30,000 hours</strong> (Normal/Eco) </li><li> <strong>Golf Mode:</strong> BenQ’s golf-tuned color profile for realistic turf, sand, and sky </li></ul>",
+            "class": ""
+          }
+        },
+        "card_zpWcdV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/2.png",
+            "title": "Short-Throw, Low-Offset Golf Design",
+            "text": "<p>The AH30ST is built specifically for low ceilings and tight golf sim installs.</p><ul><li> <strong>Throw Ratio:</strong> 0.69–0.83:1 for big images from a short distance </li><li> <strong>Projection Offset:</strong> ~102.5% to keep the image low on the wall without extreme tilt </li><li> <strong>Zoom:</strong> 1.2× optical zoom for fine-tuning screen width without moving the mount </li><li>Optimized to sit <strong>behind and above the golfer</strong>, reducing shadows and shank risk </li></ul>",
+            "class": ""
+          }
+        },
+        "card_EUqg8c": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/3.png",
+            "title": "Screen Fill for Faster Setup",
+            "text": "<p>BenQ’s setup tools help you get a clean, screen-filling image without endless trial and error.</p><ul><li> <strong>Screen Fill (Auto Screen Fill):</strong> automatically fills 16:9, 16:10, 4:3, or 1:1 screens</li><li>Designed to reduce wasted pixels and keep image geometry tight on golf impact screens</li><li> <strong>3D Keystone:</strong> vertical, horizontal, and rotation adjustment for squaring the image in tricky rooms </li><li>Perfect for first-time sim builders who want a <strong>simpler setup experience</strong></li></ul>",
+            "class": ""
+          }
+        },
+        "card_gtGWwr": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/4.png",
+            "title": "Sim-Ready Performance for Multi-Use Rooms",
+            "text": "<p>The AH30ST is tuned for golf but doubles nicely for movies, sports, and casual gaming.</p><ul><li> <strong>Input lag ~16–17 ms</strong> in Game Mode – responsive enough for sim and console play </li><li>Full HD 1080P pairs well with 1080P sim PCs and streaming devices</li><li>Supports <strong>16:9, 16:10, 4:3, and 1:1</strong> aspect ratios for different screen setups </li><li>Great fit if you want <strong>one projector</strong> for golf, Netflix, and game nights</li></ul>",
+            "class": ""
+          }
+        },
+        "card_H6r7MA": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/5.png",
+            "title": "Long-Life 4LED for Sim Reliability",
+            "text": "<p>The 4LED engine is built for long-term use with minimal maintenance.</p><ul><li> <strong>Light source life:</strong> up to 20,000 hours (Normal) / 30,000 hours (Eco) </li><li> <strong>Filter-free, dust-resistant design</strong> keeps upkeep simple for garage and basement sims </li><li>No traditional lamp replacements, less brightness drop-off over time vs bulb-based projectors</li><li>Ideal for heavy practice schedules and family use where the projector gets turned on a lot</li></ul>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_RTdkg8",
+        "card_zpWcdV",
+        "card_EUqg8c",
+        "card_gtGWwr",
+        "card_H6r7MA"
+      ],
+      "name": "Product: what's included",
+      "settings": {
+        "id": "sn-includes",
+        "text": "<p>KEY FEATURES</p><h2>WHAT MAKES BENQ AH30ST A GREAT CHOICE</h2>",
+        "align": "left",
+        "background_color": "#ffffff",
+        "heading_color": "#161616",
+        "text_color": "#282828",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#f8f8f8",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_reviews_kThK6p": {
+      "type": "sn-reviews",
+      "blocks": {
+        "review_amd83c": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I had a floor-based unit for two years and was constantly nervous about clipping it on a fat shot. Switched to the VTrack overhead setup and that stress is completely gone. The data is actually better too — spin numbers feel more consistent. The Eagle 12 enclosure makes my garage look like a real sim room. Took a weekend to set up but the instructions are solid.\"</em>",
+            "name": "<strong>Mark T.</strong> · Verified Buyer · Henderson, NV",
+            "class": ""
+          }
+        },
+        "review_gYphWP": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"Spent months convincing my wife to let me convert half the garage. She agreed on the condition it looked clean and not like a \"science experiment.\" The Eagle 12 + overhead VTrack combo genuinely looks finished. No wires everywhere, nothing sitting on the floor near the mat. She's actually used it a few times herself. The 4K image is noticeably sharper than what I had before — courses look real.\"</em>",
+            "name": "<em><strong>Brian L. </strong></em><em>· Verified Buyer · Columbus, OH</em>",
+            "class": ""
+          }
+        },
+        "review_PQ97FM": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I'd always used radar-based floor units so I was nervous about switching to an overhead camera system. What sold me was no stickers and no special balls. Just drop a ball and swing — and it works. Shot feedback is fast, the impact video is genuinely useful for finding bad contact, and I haven't had a misread in weeks of regular use. Worth the price for a permanent garage build.\"</em>",
+            "name": "<strong>Ryan C.</strong> · Verified Buyer · Scottsdale, AZ",
+            "class": ""
+          }
+        },
+        "review_hHCecP": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I'm not a tech guy. I didn't want to research projectors, figure out throw distances, or guess which mat fits a 12ft enclosure. That's exactly why I bought the bundle. Everything arrived, everything fit, and Elite Sim Golf walked me through the VTrack calibration over the phone. If you want a complete setup without the homework, this is the way to go.\"</em>",
+            "name": "<strong>Derek M.</strong> · Verified Buyer · Charlotte, NC",
+            "class": ""
+          }
+        },
+        "review_PEhB8f": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"My two boys (15 and 12) use the simulator as much as I do. With my old floor monitor I was always nervous about them standing too close or knocking it over. The VTrack being up on the ceiling completely solved that. They just step in and swing. The lefty/righty thing is huge too — my younger son is left-handed and we don't have to move anything. Best feature nobody talks about.\"</em>",
+            "name": "<strong>Jason W.</strong> · Verified Buyer · Denver, CO",
+            "class": ""
+          }
+        },
+        "review_qXNc9a": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I had a 1080P setup for a couple years and thought it was fine. Upgraded to this bundle and the difference in the 4K image on GSPro is immediately obvious — text is sharp, greens actually look like greens. The VTrack data is deep enough that I've started doing proper practice sessions instead of just playing rounds. Carry distance, spin, attack angle — it's all there. Solid investment for a serious home setup.\"</em>",
+            "name": "<strong>Paul H.</strong> · Verified Buyer · Nashville, TN",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_amd83c",
+        "review_gYphWP",
+        "review_PQ97FM",
+        "review_hHCecP",
+        "review_PEhB8f",
+        "review_qXNc9a"
+      ],
+      "name": "Custom: Reviews",
+      "settings": {
+        "id": "sn-reviews",
+        "text": "<p>Customer Reviews</p><h2>Hear from <em>real</em> golfers.</h2>",
+        "background_color": "#f8f8f8",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 48,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 24,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_product_specs_9EhxxF": {
+      "type": "sn-product-specs",
+      "blocks": {
+        "col1_heading_YjW3GQ": {
+          "type": "col1-heading",
+          "settings": {
+            "text": "<strong>BenQ AH30ST 3000-Lumen Short-Throw 1080P LED Golf Simulator Projector</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_R9k8Mn": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Resolution: ",
+            "text": "<strong>Full HD 1080P (1920×1080)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_HkYbqN": {
+          "type": "col1-row",
+          "settings": {
+            "feature": " Brightness: ",
+            "text": "<strong>3,000 ANSI lumens</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_RGMAPC": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Contrast: ",
+            "text": "<strong>20,000:1 (FOFO)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_pKRhUG": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Light Source: ",
+            "text": "<strong>4LED, 20,000–30,000 hr rated life</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_9yqETT": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Throw Ratio:",
+            "text": "<strong>0.69–0.83:1</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_KDGz8L": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Zoom:",
+            "text": "<strong>1.2X optical</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_FfwNE8": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Projection Offset: ",
+            "text": "<strong>102.5%</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_6jzDGP": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Aspect Ratios: ",
+            "text": "<strong>Native 16:9; supports 16:10, 4:3, 1:1</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_3Yi4PB": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Inputs: ",
+            "text": "<strong>HDMI x2, USB-A, audio out, RS-232 (varies by region)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_pijUdP": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Light Source Type: ",
+            "text": "<strong>4LED, filter-free design</strong>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "col1_heading_YjW3GQ",
+        "col1_row_R9k8Mn",
+        "col1_row_HkYbqN",
+        "col1_row_RGMAPC",
+        "col1_row_pKRhUG",
+        "col1_row_9yqETT",
+        "col1_row_KDGz8L",
+        "col1_row_FfwNE8",
+        "col1_row_6jzDGP",
+        "col1_row_3Yi4PB",
+        "col1_row_pijUdP"
+      ],
+      "name": "Product: Specifications",
+      "settings": {
+        "id": "sn-specs",
+        "text": "<p>AT A GLANCE</p><h2>Key Specifications</h2>",
+        "columns": "1",
+        "align": "center",
+        "background_color": "#ffffff",
+        "heading_color": "#161616",
+        "text_color": "#333333",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#f8f8f8",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "sn_product_description_QXUJAw",
+    "sn_benefits_GXtkrM",
+    "sn_product_includes_6qaEcj",
+    "sn_reviews_kThK6p",
+    "sn_product_specs_9EhxxF",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

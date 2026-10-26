@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_YjxFiw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "custom_liquid_VBnm6g": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- ESG SimKit Builder CTA — place in theme template AFTER the entire payment-buttons block (Add to Cart, Buy with Shop Pay, More payment options) -->\n<!-- Reusable across any product PDP: product name pulls from {{ product.title }} -->\n<style>\n.esg-simkit-cta-box { border:1px solid #0A1A3A; background:#F0F3F8; border-radius:6px; padding:22px 24px; margin-top:16px; }\n.esg-simkit-cta-box h4 { font-family:'Barlow Condensed', sans-serif; font-style:normal; font-size:19px; font-weight:800; letter-spacing:0.02em; text-transform:uppercase; color:#0A1A3A; margin:0 0 8px; line-height:1.15; text-align:center; }\n.esg-simkit-cta-box p { font-family:'Inter', system-ui, -apple-system, sans-serif; font-size:14px; line-height:1.5; color:#2a3756; margin:0 0 16px; text-align:center; }\n.esg-simkit-cta-box a.esg-simkit-cta-link { display:block; width:100%; box-sizing:border-box; text-align:center; background:#0A1A3A; color:#ffffff !important; text-decoration:none; font-family:'Inter', system-ui, -apple-system, sans-serif; font-weight:700; font-size:15px; padding:14px 16px; border-radius:4px; letter-spacing:0.01em; }\n.esg-simkit-cta-box a.esg-simkit-cta-link:hover { background:#132a5c; }\n@media (max-width: 480px) {\n  .esg-simkit-cta-box { padding:18px; }\n  .esg-simkit-cta-box h4 { font-size:17px; }\n}\n</style>\n\n<div class=\"esg-simkit-cta-box\">\n  <h4>Build Your Dream Home Golf Simulator</h4>\n  <p>Pair the {{ product.title }} with a launch monitor, projector, and hitting mat in the SimKit Builder.</p>\n  <a class=\"esg-simkit-cta-link\" href=\"https://elitesimgolf.com/pages/golf-simkit-bundle-builder\">Start Building in the SimKit Builder &rarr;</a>\n</div>"
+          }
+        },
+        "custom_liquid_zWXpen": {
+          "type": "custom-liquid",
+          "name": "Fathers Day Sale Block",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\n  Elite Sim Golf — Father's Day Sale Mini PDP Box\n  - Renders only for products tagged \"fathers-day\" (or \"dad-sale\")\n  - Auto-hides server-side after the cutoff (no JS hide needed)\n  - Matches VTrack PDP design language: Barlow Condensed, #0A1A3A navy, #086ED3 blue\n{%- endcomment -%}\n\n{%- assign sale_end_str = '2026-06-24 00:00:00' -%}\n{%- assign sale_end_ts  = sale_end_str | date: '%s' -%}\n{%- assign now_ts       = 'now' | date: '%s' -%}\n\n{%- assign is_dad_product = false -%}\n{%- assign tags_downcase = product.tags | join: '|' | downcase | split: '|' -%}\n{%- if tags_downcase contains 'dad' or tags_downcase contains 'dad-sale' or tags_downcase contains 'fathers-day' or tags_downcase contains \"father's day\" or tags_downcase contains 'fathers day' -%}\n  {%- assign is_dad_product = true -%}\n{%- endif -%}\n\n{%- if is_dad_product and now_ts < sale_end_ts -%}\n<div class=\"esg-dad-sale\">\n  <div class=\"esg-dad-sale__accent\"></div>\n\n  <div class=\"esg-dad-sale__eyebrow\">\n    <span class=\"esg-dad-sale__eyebrow-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <rect x=\"3\" y=\"8\" width=\"18\" height=\"13\" rx=\"1.5\"></rect>\n        <path d=\"M3 12h18\"></path>\n        <path d=\"M12 8v13\"></path>\n        <path d=\"M12 8c-2.5 0-4-1.2-4-3a2 2 0 0 1 4-2c2 0 4 2.5 4 5\"></path>\n        <path d=\"M12 8c2.5 0 4-1.2 4-3a2 2 0 0 0-4-2c-2 0-4 2.5-4 5\"></path>\n      </svg>\n    </span>\n    Father's Day Sale\n  </div>\n\n  <h3 class=\"esg-dad-sale__title\">Give Dad the Ultimate Golf Gift.</h3>\n\n  <div class=\"esg-dad-sale__coupon\">\n    <div class=\"esg-dad-sale__coupon-label\">Coupon Code</div>\n    <div class=\"esg-dad-sale__coupon-code\">DADSDAY</div>\n  </div>\n\n  <div class=\"esg-dad-sale__copy\">\n    Save on simulator packages, launch monitors, enclosures, projectors, mats, and accessories. For the best deal, text <a href=\"sms:+18652482729\" class=\"esg-dad-sale__phone\">865-248-2729</a>.\n  </div>\n</div>\n\n<style>\n  .esg-dad-sale {\n    max-width: 600px;\n    margin: 12px 0;\n    position: relative;\n    overflow: hidden;\n    padding: 12px 14px 13px;\n    border: 1px solid rgba(255, 255, 255, .14);\n    border-radius: 14px;\n    background: linear-gradient(135deg, #020617 0%, #071a33 55%, #0A1A3A 100%);\n    color: #C9D6F2;\n    font-family: inherit;\n    line-height: 1.4;\n    box-shadow: 0 10px 24px rgba(15, 23, 42, .18);\n  }\n\n  .esg-dad-sale__accent {\n    position: absolute;\n    inset: 0 0 auto;\n    height: 3px;\n    background: linear-gradient(90deg, #086ED3 0%, #ffffff 100%);\n  }\n\n  .esg-dad-sale__eyebrow {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    margin-bottom: 8px;\n    color: #C9D6F2;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 12px;\n    font-weight: 700;\n    letter-spacing: .16em;\n    text-transform: uppercase;\n    line-height: 1;\n  }\n\n  .esg-dad-sale__eyebrow-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    color: #086ED3;\n  }\n\n  .esg-dad-sale__eyebrow-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-dad-sale__title {\n    margin: 0 0 10px;\n    color: #ffffff;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: clamp(18px, 2vw, 22px);\n    font-weight: 800;\n    letter-spacing: -.01em;\n    line-height: 1.05;\n    text-transform: uppercase;\n  }\n\n  .esg-dad-sale__coupon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 10px;\n    margin-bottom: 10px;\n    padding: 8px 12px;\n    border-radius: 10px;\n    background: #ffffff;\n    border: 1px solid rgba(8, 110, 211, .25);\n  }\n\n  .esg-dad-sale__coupon-label {\n    color: #2a3756;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 11px;\n    font-weight: 700;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    line-height: 1;\n  }\n\n  .esg-dad-sale__coupon-code {\n    color: #086ED3;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 20px;\n    font-weight: 800;\n    letter-spacing: .12em;\n    line-height: 1;\n  }\n\n  .esg-dad-sale__copy {\n    color: #C9D6F2;\n    font-size: 12.5px;\n    line-height: 1.4;\n  }\n\n  .esg-dad-sale__phone {\n    color: #ffffff;\n    font-weight: 800;\n    white-space: nowrap;\n    text-decoration: underline;\n    text-decoration-color: rgba(255, 255, 255, .35);\n    text-underline-offset: 2px;\n  }\n\n  .esg-dad-sale__phone:hover {\n    text-decoration-color: #ffffff;\n  }\n\n  @media (max-width: 749px) {\n    .esg-dad-sale {\n      padding: 11px 12px 12px;\n      border-radius: 12px;\n    }\n\n    .esg-dad-sale__title {\n      font-size: 18px;\n    }\n\n    .esg-dad-sale__coupon {\n      flex-direction: column;\n      gap: 2px;\n      padding: 7px 10px;\n    }\n\n    .esg-dad-sale__coupon-code {\n      font-size: 18px;\n    }\n\n    .esg-dad-sale__copy {\n      font-size: 12px;\n    }\n  }\n</style>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_wGLRcA": {
+          "type": "custom-liquid",
+          "name": "Freedom Sale Block",
+          "settings": {
+            "custom_liquid": "<!-- FREEDOM 250 SALE — PDP Callout Section -->\n<!-- Elite Sim Golf | June 24 – July 31, 2026 -->\n<!--\n  USAGE: Paste into your product .liquid theme file.\n  Tag products with:\n    FREEDOM                           → required to show callout\n    FREE5 / FREE10 / FREE15 / FREE20  → shows that % off (optional)\n  Date gate is server-side — auto-shows June 24 and auto-hides August 1.\n-->\n\n{% assign f250_now   = 'now'                  | date: '%s' | plus: 0 %}\n{% assign f250_start = '2026-06-24T00:00:00Z' | date: '%s' | plus: 0 %}\n{% assign f250_end   = '2026-08-01T00:00:00Z' | date: '%s' | plus: 0 %}\n\n{% if product.tags contains 'FREEDOM' and f250_now >= f250_start and f250_now < f250_end %}\n\n{% assign f250_pct = '' %}\n{% if product.tags contains 'FREE20' %}{% assign f250_pct = '20' %}\n{% elsif product.tags contains 'FREE15' %}{% assign f250_pct = '15' %}\n{% elsif product.tags contains 'FREE10' %}{% assign f250_pct = '10' %}\n{% elsif product.tags contains 'FREE5'  %}{% assign f250_pct = '5'  %}\n{% endif %}\n\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .esg-f250-callout *,\n  .esg-f250-callout *::before,\n  .esg-f250-callout *::after {\n    box-sizing: border-box;\n  }\n\n  .esg-f250-callout {\n    background-color: #0A1A3A;\n    font-family: 'Barlow Condensed', sans-serif;\n    position: relative;\n    overflow: hidden;\n  }\n\n  /* Red/white stripe top accent */\n  .esg-f250-callout::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    height: 4px;\n    background: repeating-linear-gradient(\n      to right,\n      #C8102E 0px,\n      #C8102E 50px,\n      #ffffff 50px,\n      #ffffff 100px\n    );\n    opacity: 0.85;\n  }\n\n  .esg-f250-callout__inner {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 28px 48px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 32px;\n    flex-wrap: wrap;\n  }\n\n  .esg-f250-callout__left {\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n  }\n\n  .esg-f250-callout__lockup {\n    display: flex;\n    flex-direction: column;\n    gap: 2px;\n  }\n\n  .esg-f250-callout__eyebrow {\n    font-size: 11px;\n    font-weight: 700;\n    letter-spacing: 0.22em;\n    text-transform: uppercase;\n    color: #C8102E;\n    line-height: 1;\n  }\n\n  .esg-f250-callout__title {\n    font-size: clamp(22px, 3vw, 32px);\n    font-weight: 900;\n    text-transform: uppercase;\n    letter-spacing: -0.01em;\n    color: #ffffff;\n    line-height: 1;\n  }\n\n  .esg-f250-callout__divider {\n    width: 1px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.15);\n    flex-shrink: 0;\n  }\n\n  .esg-f250-callout__details {\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n  }\n\n  .esg-f250-callout__savings {\n    font-size: 15px;\n    font-weight: 700;\n    color: #ffffff;\n    letter-spacing: 0.04em;\n    text-transform: uppercase;\n  }\n\n  .esg-f250-callout__savings em {\n    color: #C8102E;\n    font-style: normal;\n  }\n\n  .esg-f250-callout__date {\n    font-family: 'Inter', system-ui, sans-serif;\n    font-size: 12px;\n    font-weight: 500;\n    color: rgba(255, 255, 255, 0.55);\n    letter-spacing: 0.03em;\n  }\n\n  .esg-f250-callout__date strong {\n    color: #ffffff;\n    font-family: 'Barlow Condensed', sans-serif;\n    font-size: 15px;\n    font-weight: 800;\n    letter-spacing: 0.12em;\n    background: rgba(255, 255, 255, 0.1);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    padding: 2px 10px;\n    border-radius: 3px;\n    margin-left: 4px;\n  }\n\n  .esg-f250-callout__ends {\n    font-family: 'Inter', system-ui, sans-serif;\n    font-size: 12px;\n    font-weight: 500;\n    color: rgba(255, 255, 255, 0.38);\n    white-space: nowrap;\n    flex-shrink: 0;\n  }\n\n  @media (max-width: 900px) {\n    .esg-f250-callout__inner {\n      padding: 24px;\n      gap: 20px;\n    }\n\n    .esg-f250-callout__divider {\n      display: none;\n    }\n\n    .esg-f250-callout__ends {\n      display: none;\n    }\n  }\n\n  @media (max-width: 560px) {\n    .esg-f250-callout__left {\n      gap: 12px;\n    }\n  }\n</style>\n\n<div class=\"esg-f250-callout\">\n  <div class=\"esg-f250-callout__inner\">\n\n    <div class=\"esg-f250-callout__left\">\n      <div class=\"esg-f250-callout__lockup\">\n        <div class=\"esg-f250-callout__eyebrow\">Limited-Time Offer</div>\n        <div class=\"esg-f250-callout__title\">Freedom 250 Sale</div>\n      </div>\n      <div class=\"esg-f250-callout__divider\"></div>\n      <div class=\"esg-f250-callout__details\">\n        {% if f250_pct != '' %}\n          <div class=\"esg-f250-callout__savings\">Save <em>{{ f250_pct }}%</em> at checkout</div>\n          <div class=\"esg-f250-callout__date\">Use code<strong>FREE</strong> at checkout &mdash; Sale ends July 31, 2026</div>\n        {% else %}\n          <div class=\"esg-f250-callout__savings\"></div>\n          <div class=\"esg-f250-callout__date\">Use code<strong>FREE</strong> at checkout &mdash; Sale ends July 31, 2026</div>\n        {% endif %}\n      </div>\n    </div>\n\n\n  </div>\n</div>\n\n{% endif %}"
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_NQH4XB": {
+          "type": "custom-liquid",
+          "name": "SimKit Builder",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\n  ESG SIMKIT BUILDER PROMO BOX (restyled to match ESG design system)\n  Trigger: Product Type contains \"Launch Monitor\" (ignores tags)\n  Purpose: Upsell the SIMKIT Builder on standalone launch monitor PDPs.\n  Design language:\n    - Barlow Condensed eyebrow + title (uppercase, navy)\n    - #086ED3 blue accent, #0A1A3A navy ink, #2a3756 body\n    - 16px radius, 3px gradient top accent\n    - White-chip icon with blue border + inset (matches VTrack PDP)\n    - Pill CTA, primary blue\n{%- endcomment -%}\n\n{%- assign is_launch_monitor = false -%}\n{%- assign prod_type_dc = product.type | downcase -%}\n{%- if prod_type_dc contains 'launch monitor' -%}\n  {%- assign is_launch_monitor = true -%}\n{%- endif -%}\n\n{%- if is_launch_monitor -%}\n<div class=\"esg-simkit\">\n  <div class=\"esg-simkit__accent\"></div>\n\n  <div class=\"esg-simkit__content\">\n    <div class=\"esg-simkit__icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <circle cx=\"12\" cy=\"8.5\" r=\"4\"></circle>\n        <path d=\"M9.5 11.2c.2.4.5.7.9.9\"></path>\n        <path d=\"M14.5 6.8c-.2-.4-.5-.7-.9-.9\"></path>\n        <path d=\"M12 12.5v7.5\"></path>\n        <path d=\"M8 20h8\"></path>\n      </svg>\n    </div>\n\n    <div class=\"esg-simkit__text-group\">\n      <div class=\"esg-simkit__eyebrow\">Save up to 15% on a Full Setup</div>\n      <h3 class=\"esg-simkit__title\">Build Your Dream Home Golf Simulator</h3>\n      <div class=\"esg-simkit__text\">\n        Turn the <strong>{{ product.title }}</strong> into a complete setup. Custom-fit your enclosure, projector, and hitting mat with the <strong>Elite Sim Golf SIMKIT Builder</strong> &mdash; save up to <strong>15% off bundles</strong>.\n        <span class=\"esg-simkit__note\">(Excludes launch monitors)</span>\n      </div>\n    </div>\n  </div>\n\n  <a href=\"/pages/golf-simkit-bundle-builder\" class=\"esg-simkit__button\">\n    Open SIMKIT Builder\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\">\n      <path d=\"M5 12h14\"></path>\n      <path d=\"m12 5 7 7-7 7\"></path>\n    </svg>\n  </a>\n</div>\n\n<style>\n  .esg-simkit {\n    max-width: 1100px;\n    margin: 14px 0;\n    position: relative;\n    overflow: hidden;\n    padding: 14px 16px;\n    border: 1px solid #e5e7eb;\n    border-radius: 16px;\n    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);\n    box-shadow: 0 8px 20px rgba(15, 23, 42, .05);\n    color: #2a3756;\n    font-family: inherit;\n    line-height: 1.4;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    flex-wrap: wrap;\n  }\n\n  .esg-simkit__accent {\n    position: absolute;\n    inset: 0 0 auto;\n    height: 3px;\n    background: linear-gradient(90deg, #086ED3 0%, #0A1A3A 100%);\n  }\n\n  .esg-simkit__content {\n    display: flex;\n    align-items: flex-start;\n    gap: 12px;\n    flex: 1 1 320px;\n    min-width: 0;\n  }\n\n  .esg-simkit__icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 38px;\n    height: 38px;\n    min-width: 38px;\n    border-radius: 10px;\n    background: #ffffff;\n    color: #086ED3;\n    border: 1px solid rgba(8, 110, 211, .18);\n    box-shadow: 0 2px 6px rgba(8, 110, 211, .08);\n    flex: 0 0 auto;\n    margin-top: 2px;\n  }\n  .esg-simkit__icon svg { width: 20px; height: 20px; display: block; }\n\n  .esg-simkit__text-group {\n    display: flex;\n    flex-direction: column;\n    gap: 3px;\n    min-width: 0;\n  }\n\n  .esg-simkit__eyebrow {\n    color: #086ED3;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 12px;\n    font-weight: 700;\n    letter-spacing: .14em;\n    text-transform: uppercase;\n    line-height: 1;\n  }\n\n  .esg-simkit__title {\n    margin: 0;\n    color: #0A1A3A;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 18px;\n    font-weight: 800;\n    letter-spacing: .02em;\n    text-transform: uppercase;\n    line-height: 1.1;\n  }\n\n  .esg-simkit__text {\n    font-size: 13px;\n    color: #2a3756;\n    line-height: 1.45;\n  }\n  .esg-simkit__text strong {\n    color: #0A1A3A;\n    font-weight: 700;\n  }\n  .esg-simkit__note {\n    color: #6B7390;\n    font-size: 12px;\n  }\n\n  .esg-simkit__button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 6px;\n    padding: 10px 18px;\n    border-radius: 999px;\n    background: #086ED3;\n    color: #ffffff;\n    border: 1px solid #086ED3;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 13px;\n    font-weight: 800;\n    letter-spacing: .08em;\n    text-transform: uppercase;\n    line-height: 1;\n    text-decoration: none;\n    white-space: nowrap;\n    flex-shrink: 0;\n    transition: background-color .15s ease, border-color .15s ease, transform .15s ease;\n  }\n  .esg-simkit__button:hover {\n    background: #0A1A3A;\n    border-color: #0A1A3A;\n    color: #ffffff;\n    transform: translateY(-1px);\n  }\n  .esg-simkit__button svg {\n    width: 14px;\n    height: 14px;\n    transition: transform .15s ease;\n  }\n  .esg-simkit__button:hover svg { transform: translateX(2px); }\n\n  @media (max-width: 749px) {\n    .esg-simkit {\n      padding: 13px 14px;\n      border-radius: 14px;\n      flex-direction: column;\n      align-items: stretch;\n      gap: 12px;\n    }\n    .esg-simkit__title { font-size: 16px; }\n    .esg-simkit__text { font-size: 12.5px; }\n    .esg-simkit__button {\n      width: 100%;\n      padding: 11px 16px;\n      font-size: 12.5px;\n    }\n  }\n</style>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "selleasy_lb_upsell_widget_ba_kC46mj": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-ba/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "selleasy_lb_upsell_widget_bac_wJwDyX": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-bac/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "selleasy_lb_upsell_widget_bl_B3DRh9": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-bl/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "selleasy_lb_upsell_widget_pal_N7NDgy": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-pal/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "custom_liquid_mwjkGb": {
+          "type": "custom-liquid",
+          "name": "Trust Badge V3",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"esg-why-buy-box\">\n  <div class=\"esg-why-buy-header\">\n    <span class=\"esg-why-buy-header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"></path>\n      </svg>\n    </span>\n    <span>Why Buy from Elite Sim Golf</span>\n  </div>\n\n  <div class=\"esg-why-buy-grid\">\n    <!-- Item 1: Authorized Dealer -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path>\n          <path d=\"M22 4L12 14.01l-3-3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Authorized {{ product.vendor }} Dealer</div>\n        <div class=\"esg-why-buy-text\">Premier {{ product.vendor }} Partner.</div>\n      </div>\n    </div>\n\n    <!-- Item 2: Fast Shipping -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n          <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n          <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n          <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Ships Same Business Day*</div>\n        <div class=\"esg-why-buy-text\">Orders placed before <strong>2PM EST.</strong></div>\n      </div>\n    </div>\n\n    <!-- Item 3: Free Shipping -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path>\n          <polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"></polyline>\n          <line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"></line>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Free Shipping on Most Orders</div>\n        <div class=\"esg-why-buy-text\">Ships free, may qualify for no sales tax.</div>\n      </div>\n    </div>\n\n    <!-- Item 4: Real Experts -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Real Golf Experts, Not Bots</div>\n        <div class=\"esg-why-buy-text\">Call <strong>866-4-SIM-GOLF</strong> anytime.</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n  .esg-why-buy-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 12px 16px;\n    border: 1px solid #e2e8f0;\n    border-radius: 10px;\n    background: #ffffff;\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    color: #334155;\n    line-height: 1.35;\n  }\n  .esg-why-buy-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11.5px;\n    font-weight: 800;\n    color: #64748b;\n    text-transform: uppercase;\n    letter-spacing: .05em;\n    margin-bottom: 12px;\n  }\n  .esg-why-buy-header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 14px;\n    height: 14px;\n    color: #086ed3; /* Keeps your signature blue accent for headers */\n  }\n  .esg-why-buy-header-icon svg {\n    width: 14px;\n    height: 14px;\n    display: block;\n  }\n  .esg-why-buy-grid {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 12px 16px; /* Replaces messy borders with clean gaps */\n  }\n  .esg-why-buy-item {\n    display: flex;\n    align-items: flex-start; /* Aligns icon with top line of text */\n    gap: 8px;\n  }\n  .esg-why-buy-icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    min-width: 26px;\n    border-radius: 6px;\n    background: #eff6ff; /* Soft blue background to match the style */\n    color: #2563eb; /* Vibrant blue SVG */\n    flex: 0 0 auto;\n    margin-top: 2px; /* Slight nudge down to center with title */\n  }\n  .esg-why-buy-icon svg {\n    width: 14px;\n    height: 14px;\n  }\n  .esg-why-buy-content {\n    min-width: 0;\n  }\n  .esg-why-buy-title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #0f172a;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; /* Prevents long vendor names from breaking layout */\n  }\n  .esg-why-buy-text {\n    font-size: 12px;\n    color: #64748b;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  .esg-why-buy-text strong {\n    color: #334155;\n    font-weight: 800;\n  }\n\n  @media (max-width: 749px) {\n    .esg-why-buy-box {\n      padding: 12px 14px;\n    }\n    .esg-why-buy-grid {\n      grid-template-columns: 1fr; /* Stacks to single column on mobile */\n      gap: 12px;\n    }\n    .esg-why-buy-title,\n    .esg-why-buy-text {\n      white-space: normal; /* Lets text wrap naturally on tiny screens */\n    }\n  }\n</style>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_YjxFiw",
+        "price",
+        "custom_liquid_VBnm6g",
+        "custom_liquid_zWXpen",
+        "custom_liquid_wGLRcA",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_NQH4XB",
+        "buy-buttons",
+        "selleasy_lb_upsell_widget_ba_kC46mj",
+        "selleasy_lb_upsell_widget_bac_wJwDyX",
+        "selleasy_lb_upsell_widget_bl_B3DRh9",
+        "selleasy_lb_upsell_widget_pal_N7NDgy",
+        "custom_liquid_mwjkGb",
+        "richtext_3t6BjV",
+        "share",
+        "description"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "1",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "details",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "custom_liquid_xz3Bbp": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Trust Strip",
+      "settings": {
+        "custom_liquid": "{%- comment -%}\n  Elite Sim Golf — Full-Width Trust Bar (Flat, Configurable)\n  ---------------------------------------------------------------\n  Default 4 items, in order:\n    1. Live Chat + Call/Text (combined)\n    2. Price Match Guarantee\n    3. Authorized {{ product.vendor }} Dealer\n    4. Financing Available\n\n  Available item slugs:\n    chat_call, price_match, authorized, financing,\n    shipping, guarantee, family_owned\n\n  \"guarantee\" only renders if product is tagged\n    30-day-guarantee / 30-day-trial / 30day / 30-day\n\n  Bar auto-flows between 4 / 3 / 2 / 1 columns based on item count.\n  Default: light. Add class \"esg-trust-bar--dark\" for navy variant.\n{%- endcomment -%}\n\n{%- comment -%} ====== EDIT THIS LIST TO CHANGE ITEMS ====== {%- endcomment -%}\n{%- assign items = 'authorized,chat_call,price_match,financing' | split: ',' -%}\n\n{%- comment -%} 30-Day guarantee tag check {%- endcomment -%}\n{%- assign tags_dc = product.tags | join: '|' | downcase | split: '|' -%}\n{%- assign show_guarantee = false -%}\n{%- if tags_dc contains '30-day-guarantee' or tags_dc contains '30-day-trial' or tags_dc contains '30day' or tags_dc contains '30-day' -%}\n  {%- assign show_guarantee = true -%}\n{%- endif -%}\n\n{%- assign vendor_name = product.vendor | default: 'Top Brands' -%}\n\n{%- comment -%} Build active list, filtering guarantee when ineligible {%- endcomment -%}\n{%- assign active = '' -%}\n{%- for slug in items -%}\n  {%- assign s = slug | strip -%}\n  {%- if s == 'guarantee' and show_guarantee == false -%}{%- continue -%}{%- endif -%}\n  {%- if active == '' -%}\n    {%- assign active = s -%}\n  {%- else -%}\n    {%- assign active = active | append: ',' | append: s -%}\n  {%- endif -%}\n{%- endfor -%}\n{%- assign active_items = active | split: ',' -%}\n{%- assign item_count = active_items.size -%}\n\n<div class=\"esg-trust-bar esg-trust-bar--cols-{{ item_count }}\">\n  <div class=\"esg-trust-bar__accent\"></div>\n  <div class=\"esg-trust-bar__inner\">\n\n    {%- for slug in active_items -%}\n\n      {%- if slug == 'chat_call' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <path d=\"M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z\"></path>\n              <circle cx=\"9\" cy=\"11.5\" r=\".9\" fill=\"currentColor\"></circle>\n              <circle cx=\"12.5\" cy=\"11.5\" r=\".9\" fill=\"currentColor\"></circle>\n              <circle cx=\"16\" cy=\"11.5\" r=\".9\" fill=\"currentColor\"></circle>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">Golf Sim Pros</div>\n            <div class=\"esg-trust-bar__text\">Questions? Chat or call to speak with a real golf pro.</div>\n            <div class=\"esg-trust-bar__actions\">\n              <a href=\"/?chat\"\n                 class=\"esg-trust-bar__btn esg-trust-bar__btn--primary esg-trust-bar__chat-btn\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z\"></path></svg>\n                Live Chat\n              </a>\n              <a href=\"tel:+18652482729\"\n                 class=\"esg-trust-bar__btn esg-trust-bar__btn--secondary\">\n                <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path></svg>\n                Call or Text 865-248-2729\n              </a>\n            </div>\n          </div>\n        </div>\n\n      {%- elsif slug == 'price_match' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <path d=\"M20.59 13.41 11.17 22a2 2 0 0 1-2.83 0L2 15.66a2 2 0 0 1 0-2.83L11.41 3.41A2 2 0 0 1 12.83 3H20a2 2 0 0 1 2 2v7.17a2 2 0 0 1-.59 1.24z\"></path>\n              <circle cx=\"7.5\" cy=\"7.5\" r=\".9\" fill=\"currentColor\"></circle>\n              <path d=\"m9 14 2 2 4-4\"></path>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">Price Match Guarantee</div>\n            <div class=\"esg-trust-bar__text\">Find a lower price and we'll match or beat it — no questions asked.</div>\n          </div>\n        </div>\n\n      {%- elsif slug == 'authorized' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <path d=\"M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z\"></path>\n              <path d=\"m9 12 2 2 4-4\"></path>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">Authorized {{ vendor_name | escape }} Dealer</div>\n            <div class=\"esg-trust-bar__text\">Premier {{ vendor_name | escape }} partner with full warranty support.</div>\n          </div>\n        </div>\n\n      {%- elsif slug == 'financing' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"2\"></rect>\n              <line x1=\"2\" y1=\"10\" x2=\"22\" y2=\"10\"></line>\n              <line x1=\"6\" y1=\"15\" x2=\"10\" y2=\"15\"></line>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">Financing Available</div>\n            <div class=\"esg-trust-bar__text\">Pay over time with Shop Pay, Affirm, or Klarna.</div>\n          </div>\n        </div>\n\n      {%- elsif slug == 'shipping' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n              <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n              <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n              <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">Fast &amp; Free Shipping</div>\n            <div class=\"esg-trust-bar__text\">Free expedited delivery on most orders (exclusions apply).</div>\n          </div>\n        </div>\n\n      {%- elsif slug == 'guarantee' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <path d=\"M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3z\"></path>\n              <path d=\"m9 12 2 2 4-4\"></path>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">30-Day Risk-Free Guarantee</div>\n            <div class=\"esg-trust-bar__text\">Not happy? Send it back — no hassle.</div>\n          </div>\n        </div>\n\n      {%- elsif slug == 'family_owned' -%}\n        <div class=\"esg-trust-bar__item\">\n          <div class=\"esg-trust-bar__icon\" aria-hidden=\"true\">\n            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n              <path d=\"M3 11.5 12 4l9 7.5\"></path>\n              <path d=\"M5 10v10h14V10\"></path>\n              <path d=\"M12 20v-6\"></path>\n            </svg>\n          </div>\n          <div class=\"esg-trust-bar__content\">\n            <div class=\"esg-trust-bar__title\">Family-Owned, U.S. Based</div>\n            <div class=\"esg-trust-bar__text\">Real inventory, real people — not a dropshipper.</div>\n          </div>\n        </div>\n\n      {%- endif -%}\n\n    {%- endfor -%}\n\n  </div>\n</div>\n\n<script>\n(function () {\n  'use strict';\n  // Intercept clicks on /?chat links and open Shopify Inbox in-place when present.\n  // If the widget isn't loaded yet, the link falls through to navigation, which\n  // Shopify Inbox handles automatically on the next page load.\n  document.addEventListener('click', function (e) {\n    var a = e.target.closest && e.target.closest('a[href=\"/?chat\"]');\n    if (!a) return;\n    try {\n      var host = document.querySelector('inbox-online-store-chat');\n      var btn = host && host.shadowRoot && host.shadowRoot.querySelector('button.chat-toggle');\n      if (btn) {\n        e.preventDefault();\n        btn.click();\n      }\n    } catch (err) { /* fall back to default link navigation */ }\n  });\n})();\n</script>\n\n<style>\n  .esg-trust-bar {\n    position: relative;\n    width: 100%;\n    margin: 0;\n    padding: 0;\n    background: #ffffff;\n    border-top: 1px solid #e5e7eb;\n    border-bottom: 1px solid #e5e7eb;\n    color: #2a3756;\n    font-family: inherit;\n    line-height: 1.4;\n    overflow: hidden;\n  }\n\n  .esg-trust-bar__accent {\n    position: absolute;\n    inset: 0 0 auto;\n    height: 5px;\n    background: #086ED3;\n    z-index: 1;\n  }\n\n  .esg-trust-bar__inner {\n    max-width: 1500px;\n    margin: 0 auto;\n    padding: 28px 32px;\n    display: grid;\n    gap: 24px 28px;\n    align-items: center;\n  }\n\n  .esg-trust-bar--cols-4 .esg-trust-bar__inner { grid-template-columns: repeat(4, minmax(0, 1fr)); }\n  .esg-trust-bar--cols-3 .esg-trust-bar__inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }\n  .esg-trust-bar--cols-2 .esg-trust-bar__inner { grid-template-columns: repeat(2, minmax(0, 1fr)); }\n  .esg-trust-bar--cols-1 .esg-trust-bar__inner { grid-template-columns: 1fr; }\n\n  .esg-trust-bar__item {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    gap: 10px;\n    min-width: 0;\n    position: relative;\n    padding: 0 8px;\n  }\n\n  .esg-trust-bar__item + .esg-trust-bar__item::before {\n    content: '';\n    position: absolute;\n    left: -14px;\n    top: 10%;\n    bottom: 10%;\n    width: 1px;\n    background: rgba(8, 110, 211, .18);\n  }\n\n  .esg-trust-bar__icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 64px;\n    height: 64px;\n    min-width: 64px;\n    border-radius: 16px;\n    background: #ffffff;\n    color: #086ED3;\n    flex: 0 0 auto;\n    border: 1px solid rgba(8, 110, 211, .18);\n  }\n\n  .esg-trust-bar__icon svg { width: 32px; height: 32px; display: block; }\n\n  .esg-trust-bar__content { min-width: 0; width: 100%; }\n\n  .esg-trust-bar__title {\n    color: #0A1A3A;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 18px;\n    font-weight: 800;\n    letter-spacing: .04em;\n    text-transform: uppercase;\n    line-height: 1.1;\n    margin-bottom: 3px;\n  }\n\n  .esg-trust-bar__text {\n    color: #2a3756;\n    font-size: 13.5px;\n    line-height: 1.45;\n  }\n\n  .esg-trust-bar__link {\n    color: #086ED3;\n    font-weight: 700;\n    text-decoration: none;\n    border-bottom: 1px solid rgba(8, 110, 211, .35);\n    white-space: nowrap;\n    cursor: pointer;\n  }\n\n  .esg-trust-bar__link:hover { border-bottom-color: #086ED3; }\n\n  .esg-trust-bar__sep {\n    margin: 0 6px;\n    color: rgba(8, 110, 211, .45);\n  }\n\n  /* ---------- Action buttons ---------- */\n  .esg-trust-bar__actions {\n    display: flex;\n    flex-wrap: nowrap;\n    justify-content: center;\n    gap: 5px;\n    margin-top: 6px;\n  }\n\n  .esg-trust-bar__btn {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 4px;\n    padding: 6px 9px;\n    border-radius: 999px;\n    font-family: 'Barlow Condensed', 'Barlow', sans-serif;\n    font-size: 11.5px;\n    font-weight: 700;\n    letter-spacing: .05em;\n    text-transform: uppercase;\n    line-height: 1;\n    text-decoration: none;\n    border: 1px solid transparent;\n    cursor: pointer;\n    white-space: nowrap;\n    transition: background-color .15s ease, color .15s ease, border-color .15s ease;\n  }\n  .esg-trust-bar__btn svg { width: 11px; height: 11px; display: block; flex: 0 0 auto; }\n\n  .esg-trust-bar__btn--primary {\n    background: #086ED3;\n    color: #ffffff;\n    border-color: #086ED3;\n  }\n  .esg-trust-bar__btn--primary:hover {\n    background: #0A1A3A;\n    border-color: #0A1A3A;\n    color: #ffffff;\n  }\n\n  .esg-trust-bar__btn--secondary {\n    background: #ffffff;\n    color: #086ED3;\n    border-color: rgba(8, 110, 211, .35);\n  }\n  .esg-trust-bar__btn--secondary:hover {\n    background: #f0f7ff;\n    border-color: #086ED3;\n    color: #086ED3;\n  }\n\n  /* ---------- Dark variant ---------- */\n  .esg-trust-bar--dark {\n    background: #0A1A3A;\n    border-top-color: rgba(255, 255, 255, .08);\n    border-bottom-color: rgba(255, 255, 255, .08);\n    color: #C9D6F2;\n  }\n  .esg-trust-bar--dark .esg-trust-bar__accent { background: #086ED3; }\n  .esg-trust-bar--dark .esg-trust-bar__icon {\n    background: rgba(255, 255, 255, .06);\n    color: #ffffff;\n    border-color: rgba(255, 255, 255, .14);\n  }\n  .esg-trust-bar--dark .esg-trust-bar__title { color: #ffffff; }\n  .esg-trust-bar--dark .esg-trust-bar__text { color: #C9D6F2; }\n  .esg-trust-bar--dark .esg-trust-bar__link {\n    color: #ffffff;\n    border-bottom-color: rgba(255, 255, 255, .35);\n  }\n  .esg-trust-bar--dark .esg-trust-bar__link:hover { border-bottom-color: #ffffff; }\n  .esg-trust-bar--dark .esg-trust-bar__sep { color: rgba(255, 255, 255, .35); }\n  .esg-trust-bar--dark .esg-trust-bar__btn--primary {\n    background: #086ED3; color: #ffffff; border-color: #086ED3;\n  }\n  .esg-trust-bar--dark .esg-trust-bar__btn--primary:hover {\n    background: #ffffff; color: #0A1A3A; border-color: #ffffff;\n  }\n  .esg-trust-bar--dark .esg-trust-bar__btn--secondary {\n    background: transparent; color: #ffffff;\n    border-color: rgba(255, 255, 255, .35);\n  }\n  .esg-trust-bar--dark .esg-trust-bar__btn--secondary:hover {\n    background: rgba(255, 255, 255, .08);\n    border-color: #ffffff; color: #ffffff;\n  }\n  .esg-trust-bar--dark .esg-trust-bar__item + .esg-trust-bar__item::before {\n    background: rgba(255, 255, 255, .14);\n  }\n\n  /* ---------- Breakpoints ---------- */\n  @media (max-width: 1024px) {\n    .esg-trust-bar--cols-4 .esg-trust-bar__inner,\n    .esg-trust-bar--cols-3 .esg-trust-bar__inner {\n      grid-template-columns: repeat(2, minmax(0, 1fr));\n      gap: 20px 24px;\n      padding: 22px 24px;\n    }\n    .esg-trust-bar__item + .esg-trust-bar__item::before { display: none; }\n  }\n\n  @media (max-width: 600px) {\n    .esg-trust-bar--cols-4 .esg-trust-bar__inner,\n    .esg-trust-bar--cols-3 .esg-trust-bar__inner,\n    .esg-trust-bar--cols-2 .esg-trust-bar__inner {\n      grid-template-columns: 1fr;\n      gap: 16px;\n      padding: 18px 18px;\n    }\n    .esg-trust-bar__icon { width: 56px; height: 56px; min-width: 56px; border-radius: 14px; }\n    .esg-trust-bar__icon svg { width: 28px; height: 28px; }\n    .esg-trust-bar__title { font-size: 16px; }\n    .esg-trust-bar__text { font-size: 13px; }\n    .esg-trust-bar__actions { flex-wrap: wrap; }\n    .esg-trust-bar__btn { font-size: 12px; padding: 7px 12px; }\n    .esg-trust-bar__btn svg { width: 12px; height: 12px; }\n  }\n</style>",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "custom_liquid_nAicQ3": {
+      "type": "custom-liquid",
+      "name": "Description",
+      "settings": {
+        "custom_liquid": "{{product.description}}",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ngWkaP": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ngWkaP"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_xz3Bbp",
+    "custom_liquid_nAicQ3",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

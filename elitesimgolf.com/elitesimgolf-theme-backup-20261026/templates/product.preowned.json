@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_BjdF6a": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_HxQeAC": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nPREOWNED STATUS BOX\nHow to trigger:\n- Add product tag: open-box\n(Optional) You can change the tag name below.\n{%- endcomment -%}\n\n{%- assign show_open_box_box = false -%}\n{%- if product.tags contains 'preowned' -%}\n  {%- assign show_open_box_box = true -%}\n{%- endif -%}\n\n{%- if show_open_box_box -%}\n<div style=\"\n  margin:14px 0 0;\n  padding:14px 16px;\n  border-radius:16px;\n  border:2px solid #f59e0b;\n  background:linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#0f172a;\n  display:flex;\n  align-items:flex-start;\n  gap:12px;\n  box-shadow:0 10px 24px rgba(0,0,0,.06);\n\">\n  <div style=\"\n    width:34px; height:34px; border-radius:12px;\n    background:#ffedd5;\n    display:flex; align-items:center; justify-content:center;\n    font-size:18px; flex:0 0 auto;\n    border:1px solid rgba(245,158,11,.25);\n  \">🟡</div>\n\n  <div style=\"line-height:1.25; flex:1;\">\n    <!-- Header row -->\n    <div style=\"\n      display:flex;\n      align-items:center;\n      justify-content:space-between;\n      gap:10px;\n      margin:0 0 8px;\n    \">\n      <div style=\"font-weight:900; font-size:13px; letter-spacing:.02em;\">\n        Item Condition\n      </div>\n\n      <div style=\"\n        display:inline-flex;\n        align-items:center;\n        gap:8px;\n        padding:6px 10px;\n        border-radius:999px;\n        background:#f59e0b;\n        color:#ffffff;\n        font-weight:900;\n        font-size:12px;\n        letter-spacing:.02em;\n        white-space:nowrap;\n        box-shadow:0 8px 18px rgba(245,158,11,.25);\n      \">\n        ✅ USED - LIKE NEW\n      </div>\n    </div>\n\n    <!-- Main notice -->\n    <div style=\"\n      background:#ffffff;\n      border:1px solid rgba(15,23,42,.10);\n      border-radius:12px;\n      padding:10px 12px;\n      font-size:12.5px;\n      color:#334155;\n    \">\n      <div style=\"font-weight:900; color:#0f172a; margin:0 0 6px;\">\n        This listing is for a <span style=\"color:#b45309;\">USED - LIKE NEW</span> projector.\n      </div>\n\n      <ul style=\"margin:0; padding-left:18px; line-height:1.45;\">\n        <li>\n          See product listing for complete details on usage. \n        </li>\n        <li>\n          Fully tested by <span style=\"font-weight:900;\">Elite Sim Golf</span>\n        </li>\n        <li>\n          Original box, manual, and accessories <span style=\"font-weight:900;\">included</span>\n        </li>\n      </ul>\n    </div>\n\n    <!-- Small reassurance line -->\n    <div style=\"\n      margin-top:8px;\n      font-size:12px;\n      color:#64748b;\n    \">\n      Questions about condition or compatibility? Contact us and we’ll help confirm fit for your simulator setup.\n    </div>\n  </div>\n</div>\n{%- endif -%}\n\n{%- comment -%}\nNEW OPEN BOX / OPEN BOX STATUS BOX\nHow to trigger:\n- Add product tag: open-box\n(Optional) You can change the tag name below.\n{%- endcomment -%}\n\n{%- assign show_open_box_box = false -%}\n{%- if product.tags contains 'open-box' -%}\n  {%- assign show_open_box_box = true -%}\n{%- endif -%}\n\n{%- if show_open_box_box -%}\n<div style=\"\n  margin:14px 0 0;\n  padding:14px 16px;\n  border-radius:16px;\n  border:2px solid #f59e0b;\n  background:linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#0f172a;\n  display:flex;\n  align-items:flex-start;\n  gap:12px;\n  box-shadow:0 10px 24px rgba(0,0,0,.06);\n\">\n  <div style=\"\n    width:34px; height:34px; border-radius:12px;\n    background:#ffedd5;\n    display:flex; align-items:center; justify-content:center;\n    font-size:18px; flex:0 0 auto;\n    border:1px solid rgba(245,158,11,.25);\n  \">🟡</div>\n\n  <div style=\"line-height:1.25; flex:1;\">\n    <!-- Header row -->\n    <div style=\"\n      display:flex;\n      align-items:center;\n      justify-content:space-between;\n      gap:10px;\n      margin:0 0 8px;\n    \">\n      <div style=\"font-weight:900; font-size:13px; letter-spacing:.02em;\">\n        Item Condition\n      </div>\n\n      <div style=\"\n        display:inline-flex;\n        align-items:center;\n        gap:8px;\n        padding:6px 10px;\n        border-radius:999px;\n        background:#f59e0b;\n        color:#ffffff;\n        font-weight:900;\n        font-size:12px;\n        letter-spacing:.02em;\n        white-space:nowrap;\n        box-shadow:0 8px 18px rgba(245,158,11,.25);\n      \">\n        ✅ NEW OPEN BOX\n      </div>\n    </div>\n\n    <!-- Main notice -->\n    <div style=\"\n      background:#ffffff;\n      border:1px solid rgba(15,23,42,.10);\n      border-radius:12px;\n      padding:10px 12px;\n      font-size:12.5px;\n      color:#334155;\n    \">\n      <div style=\"font-weight:900; color:#0f172a; margin:0 0 6px;\">\n        This listing is for a <span style=\"color:#b45309;\">New Open Box</span> projector.\n      </div>\n\n      <ul style=\"margin:0; padding-left:18px; line-height:1.45;\">\n        <li>\n          Mounted and returned within <span style=\"font-weight:900;\">30 days</span> of delivery\n        </li>\n        <li>\n          Fully tested by <span style=\"font-weight:900;\">Elite Sim Golf</span>\n        </li>\n        <li>\n          Retains the <span style=\"font-weight:900;\">full 3-year BenQ factory warranty</span>\n        </li>\n        <li>\n          <span style=\"font-weight:900;\">2 hours or less</span> bulb time to qualify as New Open Box\n        </li>\n        <li>\n          Original box, manual, and accessories <span style=\"font-weight:900;\">included</span>\n        </li>\n      </ul>\n    </div>\n\n    <!-- Small reassurance line -->\n    <div style=\"\n      margin-top:8px;\n      font-size:12px;\n      color:#64748b;\n    \">\n      Questions about condition or compatibility? Contact us and we’ll help confirm fit for your simulator setup.\n    </div>\n  </div>\n</div>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "never",
+            "inventory_threshold": 10
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- Price Match Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🏷️</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Price Match Promise\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      See a better price from another authorized seller? Tell us—we’ll do our best to match it (or beat it).\n    </div>\n  </div>\n</div>\n\n<!-- No Sales Tax + Free Shipping Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">📦</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      No Sales Tax + Free Shipping on Most Orders\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Keep more in your pocket—most orders ship free and may qualify for no sales tax (some exclusions apply).\n    </div>\n  </div>\n</div>\n\n<!-- Real Human Support Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">👤</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Real Golf Experts (Not Bots)\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Have questions? Call us to talk to a real human: <strong>866-4-SIM-GOLF</strong>.\n    </div>\n  </div>\n</div>\n\n<!-- Small Shipping Note (Christmas-themed, compact) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🚚</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Ships in 3–5 business days\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Processing time may vary slightly during peak holiday volume.\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_BjdF6a",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_HxQeAC",
+        "buy-buttons",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_V6hMnV": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_V6hMnV"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

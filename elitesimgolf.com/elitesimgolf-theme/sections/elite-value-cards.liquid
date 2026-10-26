@@ -1,0 +1,256 @@
+<section
+  class="elite-collection elite-cards"
+  style="
+    --section-bg: {{ section.settings.background }};
+    --heading-color: {{ section.settings.heading_color }};
+    --heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --section-space: {{ section.settings.space }}px;
+    --card-columns: {{ section.settings.columns }};
+    --kicker-size: {{ section.settings.kicker_size }}px;
+    --kicker-color: {{ section.settings.kicker_color }};
+    --card-title-size: {{ section.settings.card_title_size }}px;
+    --card-title-color: {{ section.settings.card_title_color }};
+    --card-text-size: {{ section.settings.card_text_size }}px;
+    --card-text-color: {{ section.settings.card_text_color }};
+    --icon-color: {{ section.settings.icon_color }};
+    --icon-size: {{ section.settings.icon_size }}px;
+  "
+>
+  <div class="elite-wrap">
+
+    <div class="elite-vc-head">
+      <div class="elite-vc-kicker">{{ section.settings.kicker }}</div>
+      <h2 class="elite-vc-title">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="elite-vc-grid">
+      {% for block in section.blocks %}
+        <article class="elite-vc-card" {{ block.shopify_attributes }}>
+          <div class="elite-vc-icon">
+            {% case forloop.index %}
+              {% when 1 %}
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="24" cy="13" r="7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 40c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M29 34l-5 4-5-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              {% when 2 %}
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 19V9h10l22 22-10 10L8 19z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="15" cy="15" r="2.5" fill="currentColor"/></svg>
+              {% when 3 %}
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="4" y="12" width="26" height="22" rx="2" stroke="currentColor" stroke-width="2"/><path d="M30 18h8l6 7v7H30V18z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="14" cy="38" r="5" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="38" r="5" stroke="currentColor" stroke-width="2"/></svg>
+            {% endcase %}
+          </div>
+          <div class="elite-vc-body">
+            <h3 class="elite-vc-card-title">{{ block.settings.title }}</h3>
+            <p class="elite-vc-card-text">{{ block.settings.text }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+.elite-cards {
+  padding: var(--section-space, 90px) 0;
+  background: var(--section-bg, #f4f6f8);
+  overflow: hidden;
+}
+
+/* HEADER */
+.elite-vc-head {
+  margin-bottom: 52px;
+}
+
+.elite-vc-kicker {
+  margin-bottom: 10px;
+  color: var(--kicker-color, #1677d2);
+  font-size: var(--kicker-size, 10px);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.elite-vc-title {
+  margin: 0;
+  color: var(--heading-color, #071a3a);
+  font-family: Barlow, Arial, sans-serif;
+  font-size: var(--heading-size-desktop, 54px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+/* DESKTOP GRID */
+.elite-vc-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--card-columns, 3), 1fr);
+  gap: 1px;
+  background: #dce4ef;
+  border: 1px solid #dce4ef;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* CARD */
+.elite-vc-card {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 36px 32px;
+  background: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.elite-vc-card:hover {
+  background: #f8faff;
+}
+
+/* ICON */
+.elite-vc-icon {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f1fc;
+  border-radius: 10px;
+  color: var(--icon-color, #1677d2);
+  margin-top: 2px;
+}
+
+.elite-vc-icon svg {
+  width: 26px;
+  height: 26px;
+  display: block;
+  color: inherit;
+}
+
+/* BODY */
+.elite-vc-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.elite-vc-card-title {
+  margin: 0 0 8px;
+  font-family: Barlow, Arial, sans-serif;
+  font-size: var(--card-title-size, 13px);
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--card-title-color, #071a3a);
+}
+
+.elite-vc-card-text {
+  margin: 0;
+  font-size: var(--card-text-size, 14px);
+  line-height: 1.7;
+  color: var(--card-text-color, #536176);
+}
+
+/* MOBILE — horizontal slider */
+@media screen and (max-width: 749px) {
+
+  .elite-vc-title {
+    font-size: var(--heading-size-mobile, 40px) !important;
+  }
+
+  .elite-vc-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0 -16px;
+    padding: 0 16px 16px;
+    scrollbar-width: none;
+  }
+
+  .elite-vc-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .elite-vc-card {
+    flex: 0 0 80vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    flex-direction: column;
+    gap: 16px;
+    border: 1px solid #dce4ef;
+    border-radius: 8px;
+    margin-right: 12px;
+    padding: 28px 24px;
+  }
+
+  .elite-vc-card:last-child {
+    margin-right: 0;
+  }
+
+  .elite-vc-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Elite value cards",
+  "settings": [
+    { "type": "header", "content": "Section content" },
+    { "type": "text", "id": "kicker", "label": "Eyebrow text", "default": "WHY CHOOSE US" },
+    { "type": "range", "id": "kicker_size", "label": "Eyebrow font size", "min": 8, "max": 40, "step": 1, "default": 10, "unit": "px" },
+    { "type": "color", "id": "kicker_color", "label": "Eyebrow color", "default": "#1677D2" },
+    { "type": "text", "id": "heading", "label": "Main heading", "default": "BUILT FOR YOUR BEST ROUND" },
+    { "type": "color", "id": "background", "label": "Section background", "default": "#F4F6F8" },
+    { "type": "color", "id": "heading_color", "label": "Main heading color", "default": "#071A3A" },
+    { "type": "range", "id": "heading_size_desktop", "label": "Desktop heading size", "min": 30, "max": 80, "step": 2, "default": 54, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Mobile heading size", "min": 26, "max": 54, "step": 2, "default": 40, "unit": "px" },
+    { "type": "range", "id": "space", "label": "Top and bottom spacing", "min": 40, "max": 140, "step": 10, "default": 90, "unit": "px" },
+    { "type": "select", "id": "columns", "label": "Desktop columns", "default": "3", "options": [{"value": "2", "label": "2"},{"value": "3", "label": "3"}] },
+    { "type": "header", "content": "Icons" },
+    { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#1677D2" },
+    { "type": "range", "id": "icon_size", "label": "Icon background size", "min": 40, "max": 80, "step": 2, "default": 48, "unit": "px" },
+    { "type": "header", "content": "Card typography" },
+    { "type": "range", "id": "card_title_size", "label": "Card title font size", "min": 10, "max": 24, "step": 1, "default": 13, "unit": "px" },
+    { "type": "color", "id": "card_title_color", "label": "Card title color", "default": "#071A3A" },
+    { "type": "range", "id": "card_text_size", "label": "Card description font size", "min": 12, "max": 20, "step": 1, "default": 14, "unit": "px" },
+    { "type": "color", "id": "card_text_color", "label": "Card description color", "default": "#536176" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Value card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Card title", "default": "GUIDANCE THAT GETS IT RIGHT" },
+        { "type": "textarea", "id": "text", "label": "Card description", "default": "Our golf experts are here to help you choose the perfect simulator for your space, goals, and budget." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Elite value cards",
+      "blocks": [
+        { "type": "card", "settings": { "title": "EXPERT GUIDANCE, EVERY STEP", "text": "Our golf experts are here to help you choose the perfect simulator for your space, goals, and budget. We make the process simple from start to swing." } },
+        { "type": "card", "settings": { "title": "PREMIUM GEAR, HONEST PRICES", "text": "We partner with top brands to bring you high-performance golf simulators and accessories at the best possible prices, with no hidden fees." } },
+        { "type": "card", "settings": { "title": "FAST SHIPPING & REAL SUPPORT", "text": "From order to the course, we've got you covered. Enjoy quick, reliable shipping and real support from a team that golfers trust." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

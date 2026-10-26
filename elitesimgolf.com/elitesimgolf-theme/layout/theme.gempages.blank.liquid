@@ -1,0 +1,160 @@
+{%- liquid
+  assign rtl_langs = 'ar,arc,dv,fa,ha,he,khw,ks,ku,ps,ur,yi' | split: ','
+  assign current_lang = localization.language.iso_code | split: '-' | first
+  if rtl_langs contains current_lang
+    assign lang_dir = 'rtl'
+  else
+    assign lang_dir = 'ltr'
+  endif
+
+  assign body_font_bold = settings.body_font | font_modify: 'weight', 'bolder'
+  assign body_font_italic = settings.body_font | font_modify: 'style', 'italic'
+  assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+-%}
+
+<!doctype html>
+<html class="h-full no-js" lang="{{ request.locale.iso_code }}" dir="{{ lang_dir }}">
+  <head>
+    <script
+      nowprocket
+      nitro-exclude
+      type="text/javascript"
+      id="sa-dynamic-optimization"
+      data-uuid="1aa19bec-50a7-4f7f-8e2a-fb891a9e07b4"
+      src="data:text/javascript;base64,dmFyIHNjcmlwdCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO3NjcmlwdC5zZXRBdHRyaWJ1dGUoIm5vd3Byb2NrZXQiLCAiIik7c2NyaXB0LnNldEF0dHJpYnV0ZSgibml0cm8tZXhjbHVkZSIsICIiKTtzY3JpcHQuc3JjID0gImh0dHBzOi8vZGFzaGJvYXJkLnNlYXJjaGF0bGFzLmNvbS9zY3JpcHRzL2R5bmFtaWNfb3B0aW1pemF0aW9uLmpzIjtzY3JpcHQuZGF0YXNldC51dWlkID0gIjFhYTE5YmVjLTUwYTctNGY3Zi04ZTJhLWZiODkxYTllMDdiNCI7c2NyaXB0LmlkID0gInNhLWR5bmFtaWMtb3B0aW1pemF0aW9uLWxvYWRlciI7ZG9jdW1lbnQuaGVhZC5hcHBlbmRDaGlsZChzY3JpcHQpOw=="
+    ></script>
+    {%- render 'doc-head-core' -%}
+    {%- render 'doc-head-social' -%}
+
+    {%- style %}
+      {{ settings.body_font | font_face: font_display: 'swap' -}}
+      {{ body_font_bold | font_face: font_display: 'swap' -}}
+      {{ body_font_italic | font_face: font_display: 'swap' -}}
+      {{ body_font_bold_italic | font_face: font_display: 'swap' -}}
+      {{ settings.heading_font | font_face: font_display: 'swap' -}}
+
+      {% render 'doc-head-styles' %}
+    {%- endstyle %}
+
+    <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
+    <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
+
+    {%- unless settings.body_font.system? -%}
+      <link
+        rel="preload"
+        href="{{ settings.body_font | font_url }}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+        fetchpriority="high"
+      >
+    {%- endunless -%}
+
+    {%- unless settings.heading_font.system? -%}
+      <link
+        rel="preload"
+        href="{{ settings.heading_font | font_url }}"
+        as="font"
+        type="font/woff2"
+        crossorigin
+        fetchpriority="high"
+      >
+    {%- endunless -%}
+
+    {%- if request.page_type contains 'customers' -%}
+      <link rel="stylesheet" href="{{ 'customer.css' | asset_url }}">
+    {%- endif -%}
+
+    <link rel="stylesheet" href="{{ 'menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ 'menu-drawer.css' | asset_url }}"></noscript>
+
+    {%- if settings.swatch_source == 'theme' and settings.swatch_colors != blank -%}
+      <link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript><link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}"></noscript>
+    {%- endif -%}
+
+    {%- if settings.enable_search -%}
+      {%- if settings.enable_predictive_search or settings.enable_search_suggestions -%}
+        <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'tabs.js' | asset_url }}" defer="defer"></script>
+      {%- endif -%}
+    {%- endif -%}
+
+    {{ content_for_header }}
+
+    {%- if request.design_mode -%}
+      <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer" data-contact="{{ shop.email | escape }}"></script>
+    {%- endif -%}
+
+    {%- if settings.animations_enabled -%}
+      <script src="{{ 'animate-on-scroll.js' | asset_url }}" defer="defer"></script>
+      <link rel="stylesheet" href="{{ 'animate-on-scroll.css' | asset_url }}">
+    {%- endif -%}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    {%- if settings.custom_html_head -%}
+      <!-- CC Custom Head Start -->
+      {{- settings.custom_html_head -}}
+      <!-- CC Custom Head End -->
+    {%- endif -%}
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Elite Sim Golf",
+        "url": "https://elitesimgolf.com/",
+        "logo": "https://elitesimgolf.com/cdn/shop/files/IMG_5490.png?v=1756082718&width=330",
+        "sameAs": ["https://www.facebook.com/profile.php?id=61579712016641"],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-866-474-6465",
+            "contactType": "Customer Service",
+            "areaServed": "US",
+            "availableLanguage": "English"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-865-248-2729",
+            "contactType": "Text Support",
+            "areaServed": "US",
+            "availableLanguage": "English"
+          }
+        ],
+        "email": "sales@elitesimgolf.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "743 Jacksonian Way",
+          "addressLocality": "Lenoir City",
+          "addressRegion": "TN",
+          "postalCode": "37772",
+          "addressCountry": "US"
+        }
+      }
+    </script>
+
+    {% if template == 'index' or template contains 'custom-' or template == 'page.bundle-builder' %}
+      {% render 'sn-styles' %}
+    {% endif %}
+    {% include 'hulk_po_vd' %}
+  </head>
+
+  <body class="{% if settings.bg_color != settings.card_bg_color and settings.card_bg_color.alpha != 0 %}pad-card-info{% endif %}{% if settings.animations_enabled %} cc-animate-enabled{% endif %}{% if settings.content_boundary_style != blank %} content-boundary-enabled{% endif %}"><main class="relative" id="main-content">
+      {%- if template.name == 'article' -%}
+        <article>
+      {%- endif -%}
+
+      <div class="main-content">
+        {{ content_for_layout }}
+      </div>
+
+      {%- if template.name == 'article' -%}
+        </article>
+      {%- endif -%}
+    </main></body>
+</html>

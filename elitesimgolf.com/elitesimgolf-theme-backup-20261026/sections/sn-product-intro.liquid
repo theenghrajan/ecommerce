@@ -1,0 +1,428 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --background_color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --accent_color: {{ section.settings.accent_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      --card_bg: {{ section.settings.card_bg }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+    .sn-intro-content, .sn-intro-reviews{
+        padding: 20px;
+    }
+    .sn-intro-content{
+        flex-basis: 55%;
+    }
+    .sn-intro-reviews{
+        flex-basis: 45%;
+    }
+    .sn-intro-review{
+        padding: 20px;
+        background: var(--card_bg);
+        border-radius: 10px;
+    }
+    .sn-thumb{
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text_color);
+        border-radius: 50%;
+        background: var(--background_color);
+    }
+    .sn-stats-wrap{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    .sn-review-info{
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        gap: 20px;
+    }
+    .sn-stat-col{
+        padding: 10px 20px;
+        text-align: center;
+        border-right: 1px solid rgba(0,0,0,0.5);
+    }
+    .sn-stat-col:last-child{
+        border: none;
+    }
+    .sn-stat-col h4{
+        font-size: 28px;
+        margin: 0;
+        color: var(--accent_color);
+    }
+    .sn-stat-col p{
+        margin: 0;
+        font-size: 14px;
+    }
+    .landing .sn-highlight{
+        background: var(--accent_color);
+        padding: 5px 10px;
+        display: inline-block;
+    }
+
+    .landing .sn-highlight p{
+      color: #fff;
+    }
+
+    .landing .sn-highlight p{
+        margin-bottom: 0;
+    }
+    .sn-name p{
+        margin: 0;
+    }
+    .sn-review-stars{
+      margin-bottom: 10px;
+    }
+    .sn-review-stars ion-icon{
+      color: var(--accent_color);
+    }
+    @media screen and (max-width: 767px) {
+        #{{section.settings.id}} {
+            padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+            background-attachment: scroll;
+        }
+        .sn-intro-content, .sn-intro-reviews{
+            flex-basis: 100%;
+        }
+        .sn-stat-col{
+            border: none;
+        }
+        .sn-stat-col:first-child, .sn-stat-col:nth-child(3){
+            border-right: 1px solid rgba(255,255,255,0.5);
+        }
+        .sn-stat-col:first-child, .sn-stat-col:nth-child(2){
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+    }
+  {% endstyle %}
+
+  <div class="sn-container">
+    <div class="sn-intro-content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'text' %}
+            <div class="sn-text {{ block.settings.class }}" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+
+          {% when 'stats' %}
+            <div class="sn-stats-wrap {{ block.settings.class }}" {{ block.shopify_attributes }}>
+              <div class="sn-stat-col">
+                <h4>{{ block.settings.title1 }}</h4>
+                <p>{{ block.settings.text1 }}</p>
+              </div>
+              <div class="sn-stat-col">
+                <h4>{{ block.settings.title2 }}</h4>
+                <p>{{ block.settings.text2 }}</p>
+              </div>
+              <div class="sn-stat-col">
+                <h4>{{ block.settings.title3 }}</h4>
+                <p>{{ block.settings.text3 }}</p>
+              </div>
+              <div class="sn-stat-col">
+                <h4>{{ block.settings.title4 }}</h4>
+                <p>{{ block.settings.text4 }}</p>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+    <div class="sn-intro-reviews">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'review' %}
+            <div class="sn-intro-review {{ block.settings.class }}" {{ block.shopify_attributes }}>
+              <div class="sn-review-stars">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+              </div>
+              <p>{{ block.settings.message }}</p>
+              <div class="sn-review-info">
+                <div class="sn-thumb">
+                  {{ block.settings.letters }}
+                </div>
+                <div class="sn-name">
+                  <p>{{ block.settings.name }}</p>
+                  <p>
+                    <small>{{ block.settings.info }}</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product: Intro",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-product-info"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "accent_color",
+      "type": "color",
+      "label": "Accent color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "card_bg",
+      "type": "color",
+      "label": "Card background color"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "Text",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Stats",
+      "type": "stats",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Column 1"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Title",
+          "id": "title1"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "text1"
+        },
+        {
+          "type": "header",
+          "content": "Column 2"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Title",
+          "id": "title2"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "text2"
+        },
+        {
+          "type": "header",
+          "content": "Column 3"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Title",
+          "id": "title3"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "text3"
+        },
+        {
+          "type": "header",
+          "content": "Column 4"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Title",
+          "id": "title4"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "text4"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Review",
+      "type": "review",
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "Review message",
+          "id": "message"
+        },
+        {
+          "type": "text",
+          "label": "Letters",
+          "id": "letters"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Review name",
+          "id": "name"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Info",
+          "id": "info"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product: Intro"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

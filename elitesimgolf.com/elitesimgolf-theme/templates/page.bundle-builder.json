@@ -1,0 +1,90 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "disabled": true,
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "enable_bg": false,
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#eeeeee",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 20,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "bundle_header_EGw7b3": {
+      "type": "bundle-header",
+      "disabled": true,
+      "name": "Custom: Bundle header",
+      "settings": {
+        "id": "sn-bundle-header",
+        "text": "<h1>656464</h1>",
+        "columns": "3",
+        "align": "center",
+        "background_color": "#f8f8f8",
+        "heading_color": "#161616",
+        "text_color": "#ffffff",
+        "accent_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "",
+        "vp-desktop": 20,
+        "hp-desktop": 20,
+        "vp-mobile": 20,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 0
+      }
+    },
+    "custom_liquid_KH8fdc": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"simkit-header-logo-wrap\">\n  <img \n    src=\"https://cdn.shopify.com/s/files/1/0692/9698/0162/files/SIMKIT-HeaderFull.png\" \n    alt=\"SimKit Builder\" \n    class=\"simkit-header-logo\"\n  >\n</div>\n\n<style>\n  .simkit-header-logo-wrap {\n    max-width: 100%;\n    margin: 0 auto;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    line-height: 0;\n    box-sizing: border-box;\n    background: #FFFFFF;\n  }\n\n  .simkit-header-logo {\n    display: block;\n    width: 100%;\n    height: auto;\n    margin: 0;\n    padding: 0;\n    background: #FFFFFF;\n  }\n\n  @media screen and (max-width: 749px) {\n    .simkit-header-logo-wrap {\n      width: 360px;\n      max-width: 100%;\n      margin: 0 auto;\n      padding: 0;\n      background: #FFFFFF;\n    }\n\n    .simkit-header-logo {\n      width: 100%;\n      max-width: 360px;\n      height: auto;\n      margin: 0;\n      padding: 0;\n      background: #FFFFFF;\n    }\n  }\n</style>",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "bundle_builder_bVXrra": {
+      "type": "bundle-builder",
+      "name": "5-Step Bundle Builder",
+      "settings": {
+        "collection_1": "step-1-choose-your-launch-monitor",
+        "collection_2": "step-2-choose-your-enclosure",
+        "collection_3": "step-3-select-your-projector",
+        "collection_4": "step-4-select-your-hitting-mat",
+        "collection_5": "step-5-select-landing-turf",
+        "collection_6": "step-3b-select-project-mounting",
+        "collection_7": "step-7-simulator-accessories"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "bundle_header_EGw7b3",
+    "custom_liquid_KH8fdc",
+    "bundle_builder_bVXrra"
+  ]
+}

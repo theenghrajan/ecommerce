@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "hero_height_desktop": 360,
+        "hero_height_mobile": 240,
+        "enable_bg": true,
+        "boundary_effect": "bottom",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#eeeeee",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "image": "shopify://shop_images/47EFFF5E-AE6F-4FBE-A9E2-3153CFCA6723.png",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 20,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "featured_blog_79d67M": {
+      "type": "featured-blog",
+      "name": "Blog posts",
+      "settings": {
+        "heading": "Product Reviews",
+        "blog": "product-reviews",
+        "show_view_all": true,
+        "image_ratio": "shortest",
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured_blog_A9tgYw": {
+      "type": "featured-blog",
+      "name": "Blog posts",
+      "settings": {
+        "heading": "Product Install",
+        "blog": "product-install",
+        "show_view_all": true,
+        "image_ratio": "1.33",
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured_blog_XwFXMW": {
+      "type": "featured-blog",
+      "name": "Blog posts",
+      "settings": {
+        "heading": "",
+        "blog": "news",
+        "show_view_all": true,
+        "image_ratio": "1.33",
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured_blog_CmTwi9": {
+      "type": "featured-blog",
+      "name": "Blog posts",
+      "settings": {
+        "heading": "",
+        "blog": "new-product-releases",
+        "show_view_all": true,
+        "image_ratio": "1.33",
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "featured_blog_79d67M",
+    "featured_blog_A9tgYw",
+    "featured_blog_XwFXMW",
+    "featured_blog_CmTwi9"
+  ]
+}

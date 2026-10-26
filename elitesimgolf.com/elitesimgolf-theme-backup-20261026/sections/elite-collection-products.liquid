@@ -1,0 +1,99 @@
+{{ 'elite-pagination.css' | asset_url | stylesheet_tag }}
+{{ 'elite-filter-spacing.css' | asset_url | stylesheet_tag }}
+{% paginate collection.products by section.settings.products_per_page %}
+
+
+  {% if request.page_type == 'collection' and current_tags.size > 0 %}
+    <h1 class="sr-only">{{ collection.title }} – Tagged "{{ current_tags | join: ', ' | escape }}"</h1>
+  {% elsif collection.template_suffix == blank %}
+    <h1 class="sr-only">{{ collection.title }}</h1>
+  {% endif %}
+
+<section id="collection-products" class="elite-collection elite-collection-main" style="--desktop-columns:{{ section.settings.desktop_columns }};--mobile-columns:{{ section.settings.mobile_columns }}">
+  <div class="elite-wrap">
+
+    <div class="elite-collection-main__top">
+      <button class="elite-mobile-filter" type="button" data-elite-filter-open="EliteFilterDrawer-{{ section.id }}">Filter &amp; refine</button>
+      {% if section.settings.enable_sort %}
+        <div class="elite-sort">
+          <select form="EliteFilters-{{ section.id }}" onchange="this.form.submit()" name="sort_by">
+            {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+            {% for option in collection.sort_options %}
+              <option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      {% endif %}
+    </div>
+
+    <form id="EliteFilters-{{ section.id }}" action="{{ collection.url }}" method="get">
+      <div class="elite-layout">
+        <aside class="elite-filters">
+          {% render 'elite-filter-list', results: collection %}
+        </aside>
+        <div class="elite-products">
+          {% for product in collection.products %}
+            {% render 'elite-product-card', product: product %}
+          {% else %}
+            <p>No products match these filters.</p>
+          {% endfor %}
+          {% if paginate.pages > 1 %}
+            <nav class="elite-pagination">{{ paginate | default_pagination }}</nav>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+
+    <details class="elite-drawer" id="EliteFilterDrawer-{{ section.id }}">
+      <div class="elite-drawer__panel">
+        <div class="elite-drawer__top">
+          <strong>FILTERS</strong>
+          <button type="button" class="elite-drawer__close" data-elite-filter-close="EliteFilterDrawer-{{ section.id }}">×</button>
+        </div>
+        <form action="{{ collection.url }}" method="get">
+          {% render 'elite-filter-list', results: collection %}
+        </form>
+      </div>
+    </details>
+
+  </div>
+</section>
+{% endpaginate %}
+
+<style>
+/* Mobile top bar - filter left, sort right */
+@media (max-width: 749px) {
+  .elite-collection-main__top {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+  }
+  .elite-mobile-filter {
+    flex: 0 0 auto;
+    width: auto !important;
+    margin-bottom: 0 !important;
+  }
+  .elite-sort {
+    flex: 0 0 auto;
+    width: auto !important;
+  }
+  .elite-sort select {
+    width: auto !important;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Elite collection products",
+  "settings": [
+    { "type": "checkbox", "id": "enable_sort", "label": "Show sorting", "default": true },
+    { "type": "range", "id": "products_per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 24 },
+    { "type": "select", "id": "desktop_columns", "label": "Desktop columns", "default": "3", "options": [{"value": "2", "label": "2"},{"value": "3", "label": "3"},{"value": "4", "label": "4"}] },
+    { "type": "select", "id": "mobile_columns", "label": "Mobile columns", "default": "2", "options": [{"value": "1", "label": "1"},{"value": "2", "label": "2"}] }
+  ],
+  "presets": [{"name": "Elite collection products"}]
+}
+{% endschema %}

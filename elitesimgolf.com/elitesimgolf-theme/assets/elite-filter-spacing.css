@@ -1,0 +1,72 @@
+/* Filter item bottom spacing */
+.elite-filter__values { padding-bottom: 20px !important; }
+.elite-price-filter { padding-bottom: 20px !important; }
+
+/* Reduce top gap */
+.elite-collection-main { padding-top: 20px !important; }
+
+/* Remove top border line above FILTERS */
+.elite-filters {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  position: relative;
+}
+
+/* FILTERS label */
+.elite-filters::before {
+  content: 'FILTERS';
+  display: block;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #10284b;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--elite-line, #d8dfeb);
+}
+
+.elite-filter--first {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Hide any injected heading elements */
+.elite-filters > *:not(details):not(.elite-filter) {
+  display: none !important;
+}
+
+/* Sort dropdown font size */
+.elite-sort select { font-size: 14px !important; }
+
+/* Mobile filter button font size */
+.elite-mobile-filter { font-size: 13px !important; letter-spacing: 0.06em !important; padding: 13px 18px !important; }
+
+/* Mobile top bar sort size */
+@media (max-width: 749px) {
+  .elite-sort select { font-size: 14px !important; height: 44px !important; padding: 0 16px !important; }
+}
+
+/* Drawer */
+.elite-drawer__top { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+.elite-drawer__panel > form { margin: 0 !important; padding: 0 !important; }
+.elite-drawer__panel > form > details:first-child { padding-top: 0 !important; margin-top: 0 !important; border-top: none !important; }
+.elite-drawer__panel > form > details:first-child > .elite-filter__summary { padding-top: 8px !important; min-height: 0 !important; }
+
+/* Force description HTML internal layout to full width */
+.elite-collection-info__desc-html > *,
+.elite-collection-info__desc-html [class*="col"],
+.elite-collection-info__desc-html [class*="grid"],
+.elite-collection-info__desc-html [class*="row"],
+.elite-collection-info__desc-html [class*="flex"],
+.elite-collection-info__desc-html [class*="layout"],
+.elite-collection-info__desc-html [class*="wrap"],
+.elite-collection-info__desc-html [class*="container"],
+.elite-collection-info__desc-html [class*="inner"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  flex: none !important;
+  grid-template-columns: none !important;
+}

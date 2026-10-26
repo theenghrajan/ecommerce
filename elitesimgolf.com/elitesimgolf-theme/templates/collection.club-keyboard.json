@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner-coll",
+      "settings": {
+        "hero_height_desktop": 260,
+        "hero_height_mobile": 150,
+        "bg_style": "image",
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#f8f8f8",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "image_align": "object-center",
+        "image": "shopify://shop_images/E2-ESG.jpg",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 50,
+        "hero_tint_text_color": "#ffffff",
+        "show_description": false,
+        "show_breadcrumbs": true
+      }
+    },
+    "custom_liquid_PeXMnD": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<!-- =========================================================\nElite Sim Golf Landing Page — Partnership Announcement (Club Keyboard)\nPaste into Shopify page / custom liquid / rich text HTML\n========================================================== -->\n\n<div style=\"max-width: 1080px; margin: 0 auto; padding: 6px 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color:#1f2937;\">\n\n  <!-- Hero -->\n  <div style=\"margin: 18px 0; padding: 22px 22px; border:1px solid #e6e6e6; border-radius:16px; box-shadow:0 12px 28px rgba(0,0,0,.06); background:linear-gradient(135deg, #ffffff 0%, #f6fbff 55%, #ffffff 100%);\">\n    <div style=\"display:inline-block; font-size:12px; letter-spacing:.10em; text-transform:uppercase; color:#086ed3; font-weight:900;\">\n      New Partnership Announcement\n    </div>\n\n    <h1 style=\"margin:10px 0 10px; font-size:32px; letter-spacing:-0.4px; line-height:1.15;\">\n      Elite Sim Golf × Club Keyboard\n    </h1>\n\n    <p style=\"margin:0; font-size:16px; color:#4b5563;\">\n      We’re excited to announce a new partnership with <strong>Club Keyboard</strong>—the makers of premium\n      <strong>GSPro controller boxes</strong> built to simplify and elevate your simulator experience. Starting now,\n      you can shop <strong>Elite Sim Golf Edition</strong> controllers that are <strong>custom branded</strong> and\n      built specifically for our customers.\n    </p>\n\n    <!-- Badges -->\n    <div style=\"display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;\">\n      <span style=\"display:inline-flex; align-items:center; padding:9px 12px; border-radius:999px; background:#e7f2ff; color:#086ed3; font-weight:800; font-size:13px; border:1px solid rgba(8,110,211,.18);\">\n        Elite Sim Golf Edition\n      </span>\n      <span style=\"display:inline-flex; align-items:center; padding:9px 12px; border-radius:999px; background:#ffffff; color:#111827; font-weight:800; font-size:13px; border:1px solid #e6e6e6;\">\n        Built for GSPro\n      </span>\n      <span style=\"display:inline-flex; align-items:center; padding:9px 12px; border-radius:999px; background:#ffffff; color:#111827; font-weight:800; font-size:13px; border:1px solid #e6e6e6;\">\n        Wireless + Wired Options\n      </span>\n      <span style=\"display:inline-flex; align-items:center; padding:9px 12px; border-radius:999px; background:#ffffff; color:#111827; font-weight:800; font-size:13px; border:1px solid #e6e6e6;\">\n        Clean Sim-Bay Aesthetic\n      </span>\n    </div>\n  </div>\n\n  <!-- Two-column content -->\n  <div style=\"display:grid; grid-template-columns: 1.15fr .85fr; gap:14px; align-items:start; margin: 18px 0;\">\n\n    <!-- Left column -->\n    <div style=\"padding: 20px 20px; border:1px solid #e6e6e6; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.06); background:#ffffff;\">\n      <h2 style=\"margin:0 0 10px; font-size:22px; letter-spacing:-0.2px;\">\n        Faster rounds. Less fumbling. More fun.\n      </h2>\n\n      <p style=\"margin:0 0 12px; color:#4b5563;\">\n        If you’ve ever paused a round to walk over to a laptop, hunt for the right key, or click through menus,\n        you already know the problem. Club Keyboard controllers solve it by giving you <strong>dedicated, tactile\n        controls</strong> for the actions you use most—right from your hitting area.\n      </p>\n\n      <div style=\"display:grid; grid-template-columns: 1fr; gap:10px; margin-top:12px;\">\n        <div style=\"padding:12px 14px; border:1px solid #e6e6e6; border-radius:14px; background:#ffffff;\">\n          <div style=\"font-weight:900; margin-bottom:4px;\">Purpose-built for GSPro</div>\n          <div style=\"color:#4b5563;\">\n            Dedicated button layouts designed around common in-round controls—simple, intuitive, and quick to learn.\n          </div>\n        </div>\n\n        <div style=\"padding:12px 14px; border:1px solid #e6e6e6; border-radius:14px; background:#ffffff;\">\n          <div style=\"font-weight:900; margin-bottom:4px;\">Premium build quality</div>\n          <div style=\"color:#4b5563;\">\n            Clean finishes, quality switches, and a polished look that matches high-end enclosures and simulator rooms.\n          </div>\n        </div>\n\n        <div style=\"padding:12px 14px; border:1px solid #e6e6e6; border-radius:14px; background:#ffffff;\">\n          <div style=\"font-weight:900; margin-bottom:4px;\">Designed for real sim spaces</div>\n          <div style=\"color:#4b5563;\">\n            Wireless and wired options help keep your bay tidy, with layouts you can see and use comfortably from the mat.\n          </div>\n        </div>\n      </div>\n\n      <div style=\"margin-top:14px; padding:14px 14px; border-radius:14px; border:1px solid rgba(8,110,211,.18); background:#f3f8ff;\">\n        <div style=\"font-weight:900; color:#086ed3; margin-bottom:4px;\">Why we partnered with Club Keyboard</div>\n        <div style=\"color:#4b5563;\">\n          At Elite Sim Golf, we care about the details that make a simulator feel truly “finished.” Club Keyboard shares that same\n          obsession with quality—so we teamed up to bring you controllers that look great, feel great, and make GSPro easier to run.\n        </div>\n      </div>\n    </div>\n\n    <!-- Right column -->\n    <div style=\"padding: 20px 20px; border:1px solid #e6e6e6; border-radius:16px; box-shadow:0 10px 24px rgba(0,0,0,.06); background:#ffffff;\">\n      <h2 style=\"margin:0 0 10px; font-size:22px; letter-spacing:-0.2px;\">\n        What is the Elite Sim Golf Edition?\n      </h2>\n\n      <p style=\"margin:0 0 12px; color:#4b5563;\">\n        These are select Club Keyboard controllers that are <strong>custom branded</strong> and built specifically for\n        Elite Sim Golf customers. The goal: a cleaner look and a more seamless experience inside premium sim bays.\n      </p>\n\n      <ul style=\"margin:0; padding-left:18px; color:#374151;\">\n        <li style=\"margin:8px 0;\"><strong>Custom Elite Sim Golf branding</strong> with a clean, pro-grade finish</li>\n        <li style=\"margin:8px 0;\"><strong>Simple plug-and-play operation</strong> (works like a keyboard)</li>\n        <li style=\"margin:8px 0;\"><strong>Wireless + wired options</strong> depending on model</li>\n        <li style=\"margin:8px 0;\"><strong>Designed for visibility</strong> in simulator lighting</li>\n      </ul>\n\n      <!-- CTA buttons -->\n      <div style=\"margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;\">\n        <a href=\"/collections/simulator-control-boxes\" style=\"display:inline-block; padding:12px 18px; border-radius:999px; background:#086ed3; color:#ffffff; text-decoration:none; font-weight:800;\">\n          Shop Elite Sim Golf Edition Controllers\n        </a>\n        <a href=\"/pages/contact\" style=\"display:inline-block; padding:12px 18px; border-radius:999px; background:#e7f2ff; color:#086ed3; text-decoration:none; font-weight:800;\">\n          Need help choosing?\n        </a>\n      </div>\n\n      <div style=\"margin-top:12px; color:#6b7280; font-size:13px;\">\n        <strong style=\"color:#374151;\">Pro tip:</strong> Pair a controller with your GSPro setup so you can change settings, take mulligans,\n        move pin locations, and navigate rounds without leaving the hitting area.\n      </div>\n    </div>\n\n  </div>\n\n  <!-- Bottom reassurance -->\n  <div style=\"margin: 18px 0 6px; padding: 18px 18px; border:1px solid #e6e6e6; border-radius:16px; background:#ffffff;\">\n    <h2 style=\"margin:0 0 8px; font-size:20px;\">A more complete simulator experience</h2>\n    <p style=\"margin:0; color:#4b5563;\">\n      Elite Sim Golf is all about building premium, turn-key simulator bays—enclosures, launch monitors, projectors, and the\n      finishing touches that make the room feel effortless to use. This partnership with Club Keyboard brings one more\n      “quality-of-life” upgrade to your setup: <strong>clean, tactile control of GSPro</strong> that looks as good as it performs.\n    </p>\n  </div>\n\n</div>",
+        "full_width": false,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 24,
+        "card_size": "small",
+        "show_prod_totals": true,
+        "enable_filtering": true,
+        "show_filter_counts": true,
+        "filters_open": "some",
+        "max_filter_options": 7,
+        "enable_sorting": true,
+        "sort_show_featured": false,
+        "sort_show_best": true,
+        "sort_show_alpha": true,
+        "sort_show_price": true,
+        "sort_show_date": true
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Trending",
+        "collection": "",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 12,
+        "show_view_all": false,
+        "full_width": true,
+        "color_scheme": "2",
+        "boundary_effect": ""
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Collection description",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Describe your collection, share information about your brand and products.</p>",
+            "text_size": 100
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_alignment": "center",
+        "full_width_content": false,
+        "full_width": true,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "custom_liquid_PeXMnD",
+    "main",
+    "featured_collection",
+    "rich_text"
+  ]
+}

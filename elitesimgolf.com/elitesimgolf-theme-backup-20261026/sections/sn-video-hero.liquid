@@ -1,0 +1,209 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: 0;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      height: 80vh;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+    .video-content-wrap{
+        height: 80vh;
+        align-items: flex-end;
+        display: flex;
+        padding: 20px;
+    }
+    .video-bg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80vh;
+        z-index: -1;
+    }
+    .video-bg video{
+        width: 100%;
+        height: 80vh;
+        object-fit: cover;
+    }
+    .hero-in{
+        margin-bottom: 20px;
+    }
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: 0;
+          background-attachment: scroll;
+      }
+      .video-content-wrap{
+        padding: 0;
+      }
+    }
+  {% endstyle %}
+
+  <div class="video-bg">
+    <video autoplay muted loop playsinline disablePictureInPicture>
+      <source src="{{ section.settings.video }}" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="sn-container video-content-wrap">
+    <div class="hero-in sn-col-2 p-2">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'text' %}
+            <div class="sn-text {{ block.settings.class }}" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+          {% when 'button' %}
+            <a
+              href="{{ block.settings.url }}"
+              class="button button--primary{{ block.settings.class }}"
+              {{ block.shopify_attributes }}
+            >
+              {{- block.settings.btn -}}
+            </a>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom: Video Hero",
+  "class": "banner-candidate",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-video-hero"
+    },
+    {
+      "id": "video",
+      "type": "text",
+      "label": "Video URL (shopify)"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "Text",
+          "id": "text",
+          "default": "<p>Text goes here</p>"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "btn",
+          "default": "Button label"
+        },
+        {
+          "type": "url",
+          "label": "URL",
+          "id": "url"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom: Video Hero"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

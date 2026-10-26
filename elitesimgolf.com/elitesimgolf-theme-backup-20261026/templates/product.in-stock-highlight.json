@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_9UDYrR": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": false
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_MVemU4": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- assign total_on_hand = 0 -%}\n{%- assign saw_any_qty_field = false -%}\n\n{%- for v in product.variants -%}\n  {%- if v.inventory_quantity != blank -%}\n    {%- assign saw_any_qty_field = true -%}\n    {%- assign total_on_hand = total_on_hand | plus: v.inventory_quantity -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- assign incoming_qty = product.metafields.custom.incoming_po_qty | default: 0 -%}\n\n{%- assign show_incoming = false -%}\n{%- if saw_any_qty_field and total_on_hand <= 0 and incoming_qty > 0 -%}\n  {%- assign show_incoming = true -%}\n{%- endif -%}\n\n{%- assign show_box = false -%}\n{%- if saw_any_qty_field and total_on_hand > 0 -%}\n  {%- assign show_box = true -%}\n{%- elsif show_incoming -%}\n  {%- assign show_box = true -%}\n{%- endif -%}\n\n{%- if show_box -%}\n\n<div style=\"\n  margin:14px 0 0;\n  padding:14px 16px;\n  border-radius:16px;\n  border:1px solid #086ed3;\n  background:linear-gradient(180deg, #ffffff 0%, #ffffff 100%);\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#0f172a;\n  display:flex;\n  align-items:flex-start;\n  gap:12px;\n  box-shadow:0 10px 24px rgba(0,0,0,.06);\n\">\n  <div style=\"\n    width:34px; height:34px; border-radius:12px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:18px; flex:0 0 auto;\n    border:1px solid rgba(8,110,211,.18);\n  \">📦</div>\n\n  <div style=\"line-height:1.25; flex:1;\">\n    <!-- Header row -->\n    <div style=\"\n      display:flex;\n      align-items:center;\n      justify-content:space-between;\n      gap:10px;\n      margin:0 0 8px;\n    \">\n      <div style=\"font-weight:900; font-size:13px; letter-spacing:.02em;\">\n        Inventory Status\n      </div>\n\n      {%- if saw_any_qty_field and total_on_hand > 0 -%}\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          gap:8px;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#086ed3;\n          color:#ffffff;\n          font-weight:900;\n          font-size:12px;\n          letter-spacing:.02em;\n          box-shadow:0 8px 18px rgba(8,110,211,.25);\n          white-space:nowrap;\n        \">✅ AVAILABLE</div>\n      {%- elsif show_incoming -%}\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          gap:8px;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#0b2a55;\n          color:#ffffff;\n          font-weight:900;\n          font-size:12px;\n          letter-spacing:.02em;\n          box-shadow:0 8px 18px rgba(11,42,85,.20);\n          white-space:nowrap;\n        \">🚚 INCOMING</div>\n      {%- endif -%}\n    </div>\n\n    {%- if saw_any_qty_field and total_on_hand > 0 -%}\n      <!-- On-hand -->\n      <div style=\"\n        display:flex;\n        align-items:baseline;\n        justify-content:space-between;\n        gap:12px;\n        flex-wrap:wrap;\n        margin:0 0 10px;\n      \">\n        <div style=\"display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;\">\n          <div style=\"\n            font-weight:1000;\n            font-size:26px;\n            line-height:1;\n            color:#0b2a55;\n          \">{{ total_on_hand }}</div>\n\n          <div style=\"font-size:14px; font-weight:800; color:#1f2937;\">\n            ON-HAND (in building)\n          </div>\n        </div>\n\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          padding:4px 10px;\n          border-radius:999px;\n          background:#ffffff;\n          border:1px solid rgba(15,23,42,.10);\n          font-size:12px;\n          font-weight:900;\n          color:#0f172a;\n          white-space:nowrap;\n        \">\n          SHIPS SAME BUSINESS DAY\n        </div>\n      </div>\n\n      <div style=\"\n        font-size:12.5px;\n        color:#334155;\n        background:#ffffff;\n        border:1px solid rgba(15,23,42,.10);\n        border-radius:12px;\n        padding:10px 12px;\n      \">\n          This is <span style=\"color:#086ed3; font-weight:900;\">real inventory in our building</span> and ships the <span style=\"font-weight:900;\">same business day if ordered by noon</span> (most days) unless we are experiencing heavier than normal order volumes.\n        </div>\n      </div>\n    {%- endif -%}\n\n    {%- if show_incoming -%}\n      <!-- Divider -->\n      <div style=\"margin:12px 0 10px; height:1px; background:rgba(8,110,211,.18);\"></div>\n\n      <!-- Incoming -->\n      <div style=\"\n        display:flex;\n        align-items:flex-start;\n        justify-content:space-between;\n        gap:12px;\n        flex-wrap:wrap;\n        padding:10px 12px;\n        border-radius:12px;\n        border:1px dashed rgba(8,110,211,.35);\n        background:#ffffff;\n      \">\n        <div style=\"min-width:220px;\">\n          <div style=\"font-weight:900; font-size:12px; color:#0f172a; letter-spacing:.02em; text-transform:uppercase;\">\n            Quantity in Production\n          </div>\n          <div style=\"font-size:12.5px; color:#475569; margin-top:2px;\">\n            Incoming on open purchase orders (auto-updates as POs change)\n          </div>\n          <div style=\"font-size:12.5px; color:#0f172a; margin-top:6px; font-weight:900;\">\n            Typical lead time: <span style=\"color:#086ed3;\">2–3 weeks</span>\n          </div>\n        </div>\n\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          gap:8px;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#f1f5f9;\n          border:1px solid rgba(15,23,42,.12);\n          font-weight:1000;\n          font-size:13px;\n          color:#0f172a;\n          white-space:nowrap;\n        \">\n          🚚 <span style=\"color:#086ed3;\">{{ incoming_qty }}</span> incoming\n        </div>\n      </div>\n    {%- endif -%}\n\n  </div>\n</div>\n\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "never",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- Price Match Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🏷️</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Price Match Promise\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      See a better price from another authorized seller? Tell us—we’ll do our best to match it (or beat it).\n    </div>\n  </div>\n</div>\n\n<!-- No Sales Tax + Free Shipping Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">📦</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      No Sales Tax + Free Shipping on Most Orders\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Keep more in your pocket—most orders ship free and may qualify for no sales tax (some exclusions apply).\n    </div>\n  </div>\n</div>\n\n<!-- Real Human Support Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">👤</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Real Golf Experts (Not Bots)\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Have questions? Call us to talk to a real human: <strong>866-4-SIM-GOLF</strong>.\n    </div>\n  </div>\n</div>\n\n<!-- Small Shipping Note (Christmas-themed, compact) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🚚</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Ships in 3–5 business days\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Processing time may vary slightly during peak holiday volume.\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "w3_product_accessories_widget_Nw99yW": {
+          "type": "shopify://apps/w3-product-accessories/blocks/widget/cebf1474-e4fa-4cb4-a91e-d313690bf6f1",
+          "settings": {}
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_9UDYrR",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_MVemU4",
+        "buy-buttons",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "w3_product_accessories_widget_Nw99yW",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "1",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_rTCbJR": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        },
+        "easify_attachments_product_attachments_PbbqhP": {
+          "type": "shopify://apps/easify-attachments/blocks/product-attachments/cc218f93-dff3-4a2d-af6e-04e2bc66e693",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_rTCbJR",
+        "easify_attachments_product_attachments_PbbqhP"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    },
+    "17724900034ff3e6cf": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_kDe9WT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_kDe9WT"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd",
+    "17724900034ff3e6cf"
+  ]
+}

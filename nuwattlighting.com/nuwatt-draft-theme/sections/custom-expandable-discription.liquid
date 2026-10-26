@@ -29,6 +29,14 @@
     line-height: normal;
 }
 @media only screen and (max-width:767px){
+    /* (Gary, AC #94) mobile: the subhead is no longer pushed in by the empty floated grid column above it, and the
+       text below starts at the same left edge as the subhead */
+    .collection-page-expandable-description .nw-faq-title{
+        clear: both;
+    }
+    .collection-page-expandable-description .custom-expandale-content{
+        padding-left: 0;
+    }
     .custom-section-expand .page-width.collection-page-expandable-description__container{
         min-height: 100%;
         max-height: 100%;

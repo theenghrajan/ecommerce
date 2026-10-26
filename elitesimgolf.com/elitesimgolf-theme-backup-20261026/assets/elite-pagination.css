@@ -1,0 +1,57 @@
+.elite-pagination {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 40px;
+}
+
+.elite-pagination a,
+.elite-pagination span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #d8dfeb;
+  border-right: none;
+  color: var(--elite-navy);
+  background: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .2s, color .2s;
+}
+
+.elite-pagination a:last-child,
+.elite-pagination span:last-child {
+  border-right: 1px solid #d8dfeb;
+}
+
+.elite-pagination .current {
+  background: var(--elite-navy) !important;
+  color: #fff !important;
+  border-color: var(--elite-navy) !important;
+}
+
+.elite-pagination a:hover {
+  background: var(--elite-navy);
+  color: #fff;
+  border-color: var(--elite-navy);
+}
+
+/* Arrow icons for prev/next */
+.elite-pagination a[rel="prev"] { font-size: 0; }
+.elite-pagination a[rel="prev"]::before { content: '←'; font-size: 1rem; line-height: 1; }
+
+.elite-pagination a[rel="next"] { font-size: 0; }
+.elite-pagination a[rel="next"]::after { content: '→'; font-size: 1rem; line-height: 1; }
+
+@media (max-width: 749px) {
+  .elite-pagination a,
+  .elite-pagination span { min-width: 32px; height: 34px; padding: 0 8px; font-size: .75rem; }
+}

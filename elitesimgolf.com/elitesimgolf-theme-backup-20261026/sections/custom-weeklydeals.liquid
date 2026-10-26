@@ -1,0 +1,1119 @@
+{% comment %}
+  Elite Sim Golf — Weekly Deals with Countdown
+  File: sections/custom-weekly-deals.liquid
+  Paste directly into: Online Store → Themes → Edit Code → sections/
+{% endcomment %}
+
+{%- assign deal_blocks = section.blocks | where: "type", "deal" -%}
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&display=swap');
+
+.esg-wd *,
+.esg-wd *::before,
+.esg-wd *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Section ── */
+.esg-wd {
+  background: {{ section.settings.bg_color }};
+  padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional bg image */
+.esg-wd__bg {
+  position: absolute;
+  inset: 0;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+@media (max-width: 768px) { .esg-wd__bg { background-attachment: scroll; } }
+
+.esg-wd__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba({{ section.settings.bg_color | color_to_rgb | remove: 'rgb(' | remove: ')' }},{{ section.settings.overlay_opacity | divided_by: 100.0 }});
+  z-index: 1;
+  pointer-events: none;
+}
+
+.esg-wd__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Header ── */
+.esg-wd__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.esg-wd__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.esg-wd__eyebrow-line {
+  width: 52px; height: 1px;
+  background: {{ section.settings.eyebrow_color }};
+  opacity: 0.6;
+}
+
+.esg-wd__eyebrow-text {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: {{ section.settings.eyebrow_color }};
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+.esg-wd__title {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900; font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.08;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+.esg-wd__title .esg-wd__title-plain { color: {{ section.settings.title_color }}; }
+
+.esg-wd__title em {
+  font-style: normal;
+  color: {{ section.settings.title_accent_color }};
+}
+
+.esg-wd__title-bar {
+  width: 56px; height: 3px;
+  background: {{ section.settings.accent_color }};
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+/* ── Global Countdown (above cards) ── */
+.esg-wd__global-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.esg-wd__global-timer-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: {{ section.settings.title_color }};
+  opacity: 0.6;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+.esg-wd__global-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.esg-wd__global-num {
+  font-size: 22px;
+  font-weight: 900;
+  color: {{ section.settings.accent_color }};
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+  min-width: 36px;
+  text-align: center;
+  line-height: 1;
+}
+
+.esg-wd__global-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: {{ section.settings.title_color }};
+  opacity: 0.45;
+}
+
+.esg-wd__global-sep {
+  font-size: 20px;
+  font-weight: 900;
+  color: {{ section.settings.accent_color }};
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+/* ── Cards Grid ── */
+.esg-wd__grid {
+  display: grid;
+  grid-template-columns: repeat({{ deal_blocks.size }}, 1fr);
+  gap: 24px;
+}
+
+/* ── Deal Card ── */
+.esg-wd__card {
+  background: {{ section.settings.card_bg }};
+  border: 1px solid {{ section.settings.card_border }};
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.esg-wd__card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  transform: translateY(-4px);
+  border-color: {{ section.settings.accent_color }};
+}
+
+/* Badges */
+.esg-wd__badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.esg-wd__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+.esg-wd__badge--deal {
+  background: {{ section.settings.accent_color }};
+  color: #fff;
+}
+
+.esg-wd__badge--save {
+  background: #e53e3e;
+  color: #fff;
+}
+
+/* Image */
+.esg-wd__img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: {{ section.settings.img_bg }};
+  flex-shrink: 0;
+}
+
+.esg-wd__img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  padding: 16px;
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.esg-wd__card:hover .esg-wd__img-wrap img { transform: scale(1.05); }
+
+/* Accent line sweep */
+.esg-wd__img-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: {{ section.settings.accent_color }};
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.esg-wd__card:hover .esg-wd__img-wrap::after { transform: scaleX(1); }
+
+/* Body */
+.esg-wd__body {
+  padding: 20px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.esg-wd__vendor {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: {{ section.settings.accent_color }};
+}
+
+.esg-wd__product-title {
+  font-size: 16px; font-weight: 800;
+  font-style: italic; text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: {{ section.settings.title_color }};
+  line-height: 1.3;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+  transition: color 0.2s;
+}
+
+.esg-wd__card:hover .esg-wd__product-title { color: {{ section.settings.accent_color }}; }
+
+.esg-wd__desc {
+  font-size: 13.5px;
+  color: {{ section.settings.muted_color }};
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Price row */
+.esg-wd__price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.esg-wd__price {
+  font-size: 22px; font-weight: 900;
+  color: {{ section.settings.title_color }};
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+.esg-wd__price-compare {
+  font-size: 14px;
+  color: {{ section.settings.muted_color }};
+  text-decoration: line-through;
+}
+
+.esg-wd__discount-pill {
+  background: #e53e3e;
+  color: #fff;
+  font-size: 12px; font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+/* Savings line */
+.esg-wd__savings {
+  font-size: 12px; font-weight: 700;
+  color: #38a169;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Per-card countdown */
+.esg-wd__timer {
+  background: {{ section.settings.timer_bg }};
+  border-radius: 6px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.esg-wd__timer-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: {{ section.settings.title_color }};
+  opacity: 0.55;
+  white-space: nowrap;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+.esg-wd__timer-units {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.esg-wd__unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.esg-wd__unit-num {
+  font-size: 20px; font-weight: 900;
+  color: {{ section.settings.accent_color }};
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+  line-height: 1;
+  min-width: 30px;
+  text-align: center;
+}
+
+.esg-wd__unit-lbl {
+  font-size: 8px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: {{ section.settings.muted_color }};
+}
+
+.esg-wd__sep {
+  font-size: 18px; font-weight: 900;
+  color: {{ section.settings.accent_color }};
+  opacity: 0.4;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+/* CTA Button */
+.esg-wd__cta {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  background: {{ section.settings.accent_color }};
+  color: #fff;
+  font-size: 13px; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+  transition: opacity 0.2s;
+  margin-top: auto;
+  border-top: 1px solid {{ section.settings.card_border }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.esg-wd__cta:hover { opacity: 0.88; }
+.esg-wd__cta svg { width: 14px; height: 14px; }
+
+/* Expired state */
+.esg-wd__expired {
+  display: none;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: #e53e3e;
+  background: rgba(229,62,62,0.08);
+  border-radius: 6px;
+  font-family: {{ section.settings.heading_font }}, system-ui, sans-serif;
+}
+
+/* ── Slider wrap ── */
+.esg-wd__slider-wrap {
+  position: relative;
+}
+
+.esg-wd__track-outer {
+  overflow: hidden;
+}
+
+/* ── Arrows (hidden on desktop) ── */
+.esg-wd__arrow {
+  display: none;
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid {{ section.settings.card_border }};
+  background: {{ section.settings.card_bg }};
+  color: {{ section.settings.title_color }};
+  align-items: center; justify-content: center;
+  cursor: pointer; z-index: 4;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.esg-wd__arrow:hover {
+  background: {{ section.settings.accent_color }};
+  border-color: {{ section.settings.accent_color }};
+  color: #fff;
+}
+.esg-wd__arrow--prev { left: -18px; }
+.esg-wd__arrow--next { right: -18px; }
+
+/* ── Dots (hidden on desktop) ── */
+.esg-wd__dots {
+  display: none;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 18px;
+}
+.esg-wd__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: {{ section.settings.muted_color }};
+  opacity: 0.35;
+  border: none; cursor: pointer; padding: 0;
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+}
+.esg-wd__dot.is-active {
+  background: {{ section.settings.accent_color }};
+  opacity: 1; transform: scale(1.35);
+}
+
+/* ══ TABLET ══ */
+@media (max-width: 900px) {
+  .esg-wd__grid { grid-template-columns: repeat(2, 1fr); }
+  .esg-wd__inner { padding: 0 20px; }
+}
+
+/* ══ MOBILE — Slider ══ */
+@media (max-width: 560px) {
+  .esg-wd__inner { padding: 0 32px; }
+
+  .esg-wd__track-outer { overflow: hidden; }
+
+  .esg-wd__grid {
+    display: flex !important;
+    flex-wrap: nowrap;
+    gap: 0;
+    transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change: transform;
+  }
+
+  .esg-wd__card {
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  .esg-wd__arrow { display: flex; }
+  .esg-wd__dots  { display: flex; }
+
+  .esg-wd__product-title { font-size: 15px; }
+  .esg-wd__price { font-size: 20px; }
+}
+</style>
+
+<section class="esg-wd" id="esg-wd-{{ section.id }}">
+
+  {%- if section.settings.bg_image != blank -%}
+    <div class="esg-wd__bg" style="background-image:url('{{ section.settings.bg_image | image_url: width: 1800 }}');"></div>
+    <div class="esg-wd__overlay"></div>
+  {%- endif -%}
+
+  <div class="esg-wd__inner">
+
+    <!-- Header -->
+    <div class="esg-wd__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="esg-wd__eyebrow">
+          <span class="esg-wd__eyebrow-line"></span>
+          <span class="esg-wd__eyebrow-text">{{ section.settings.eyebrow }}</span>
+          <span class="esg-wd__eyebrow-line"></span>
+        </div>
+      {%- endif -%}
+      <h2 class="esg-wd__title">
+        <span class="esg-wd__title-plain">{{ section.settings.title_plain }}</span>
+        {%- if section.settings.title_accent != blank %}
+          <em>{{ section.settings.title_accent }}</em>
+        {%- endif %}
+      </h2>
+      <div class="esg-wd__title-bar"></div>
+
+      <!-- Global countdown -->
+      {%- if section.settings.show_global_timer and section.settings.expiry_date != blank -%}
+        <div class="esg-wd__global-timer">
+          <span class="esg-wd__global-timer-label">Deals end in</span>
+          <div class="esg-wd__global-unit">
+            <span class="esg-wd__global-num" data-wd-days-{{ section.id }}>--</span>
+            <span class="esg-wd__global-lbl">Days</span>
+          </div>
+          <span class="esg-wd__global-sep">:</span>
+          <div class="esg-wd__global-unit">
+            <span class="esg-wd__global-num" data-wd-hrs-{{ section.id }}>--</span>
+            <span class="esg-wd__global-lbl">Hrs</span>
+          </div>
+          <span class="esg-wd__global-sep">:</span>
+          <div class="esg-wd__global-unit">
+            <span class="esg-wd__global-num" data-wd-min-{{ section.id }}>--</span>
+            <span class="esg-wd__global-lbl">Min</span>
+          </div>
+          <span class="esg-wd__global-sep">:</span>
+          <div class="esg-wd__global-unit">
+            <span class="esg-wd__global-num" data-wd-sec-{{ section.id }}>--</span>
+            <span class="esg-wd__global-lbl">Sec</span>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Cards -->
+    <div class="esg-wd__slider-wrap">
+      <button class="esg-wd__arrow esg-wd__arrow--prev" id="esg-wd-prev-{{ section.id }}" aria-label="Previous">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="esg-wd__track-outer">
+        <div class="esg-wd__grid" id="esg-wd-track-{{ section.id }}">
+      {%- for block in deal_blocks -%}
+        {%- assign prod = all_products[block.settings.product] -%}
+        {%- assign savings = prod.compare_at_price | minus: prod.price -%}
+        {%- assign discount_pct = savings | times: 100 | divided_by: prod.compare_at_price -%}
+        {%- assign card_expiry = block.settings.expiry_override | default: section.settings.expiry_date -%}
+
+        <div class="esg-wd__card" {{ block.shopify_attributes }}>
+
+          <!-- Badges -->
+          {%- if block.settings.show_badge -%}
+          <div class="esg-wd__badges">
+            {%- if block.settings.deal_label != blank -%}
+              <span class="esg-wd__badge esg-wd__badge--deal">🔥 {{ block.settings.deal_label }}</span>
+            {%- endif -%}
+            {%- if prod != blank and prod.compare_at_price > prod.price -%}
+              <span class="esg-wd__badge esg-wd__badge--save">Save {{ discount_pct }}%</span>
+            {%- endif -%}
+          </div>
+          {%- endif -%}
+
+          <!-- Image -->
+          <a href="{{ prod.url | default: block.settings.custom_url | default: '#' }}" class="esg-wd__img-wrap">
+            {%- if prod != blank and prod.featured_image -%}
+              <img src="{{ prod.featured_image | image_url: width: 700 }}"
+                   alt="{{ prod.featured_image.alt | default: prod.title | escape }}"
+                   width="350" height="263" loading="lazy">
+            {%- elsif block.settings.custom_image != blank -%}
+              <img src="{{ block.settings.custom_image | image_url: width: 700 }}"
+                   alt="{{ block.settings.custom_title | escape }}"
+                   width="350" height="263" loading="lazy">
+            {%- else -%}
+              <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="{{ section.settings.muted_color }}" stroke-width="0.8" opacity="0.3">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+            {%- endif -%}
+          </a>
+
+          <!-- Body -->
+          <div class="esg-wd__body">
+
+            {%- if prod != blank -%}
+              {%- if prod.vendor != blank -%}
+                <div class="esg-wd__vendor">{{ prod.vendor }}</div>
+              {%- endif -%}
+              <div class="esg-wd__product-title">{{ prod.title }}</div>
+              {%- if section.settings.show_desc and prod.description != blank -%}
+                <p class="esg-wd__desc">{{ prod.description | strip_html }}</p>
+              {%- endif -%}
+              <div class="esg-wd__price-row">
+                <span class="esg-wd__price">{{ prod.price | money }}</span>
+                {%- if prod.compare_at_price > prod.price -%}
+                  <span class="esg-wd__price-compare">{{ prod.compare_at_price | money }}</span>
+                  <span class="esg-wd__discount-pill">-{{ discount_pct }}%</span>
+                {%- endif -%}
+              </div>
+              {%- if savings > 0 -%}
+                <div class="esg-wd__savings">✓ You save {{ savings | money }}</div>
+              {%- endif -%}
+            {%- else -%}
+              {%- if block.settings.custom_title != blank -%}
+                <div class="esg-wd__product-title">{{ block.settings.custom_title }}</div>
+              {%- else -%}
+                <div class="esg-wd__product-title">Select a product above</div>
+              {%- endif -%}
+              {%- if block.settings.custom_price != blank -%}
+                <div class="esg-wd__price-row">
+                  <span class="esg-wd__price">{{ block.settings.custom_price }}</span>
+                  {%- if block.settings.custom_compare != blank -%}
+                    <span class="esg-wd__price-compare">{{ block.settings.custom_compare }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
+            <!-- Per-card countdown -->
+            {%- if section.settings.show_card_timer and card_expiry != blank -%}
+              <div class="esg-wd__timer">
+                <span class="esg-wd__timer-label">Ends in</span>
+                <div class="esg-wd__timer-units">
+                  <div class="esg-wd__unit">
+                    <span class="esg-wd__unit-num" data-wdc-days="{{ card_expiry }}-{{ forloop.index }}">--</span>
+                    <span class="esg-wd__unit-lbl">Days</span>
+                  </div>
+                  <span class="esg-wd__sep">:</span>
+                  <div class="esg-wd__unit">
+                    <span class="esg-wd__unit-num" data-wdc-hrs="{{ card_expiry }}-{{ forloop.index }}">--</span>
+                    <span class="esg-wd__unit-lbl">Hrs</span>
+                  </div>
+                  <span class="esg-wd__sep">:</span>
+                  <div class="esg-wd__unit">
+                    <span class="esg-wd__unit-num" data-wdc-min="{{ card_expiry }}-{{ forloop.index }}">--</span>
+                    <span class="esg-wd__unit-lbl">Min</span>
+                  </div>
+                  <span class="esg-wd__sep">:</span>
+                  <div class="esg-wd__unit">
+                    <span class="esg-wd__unit-num" data-wdc-sec="{{ card_expiry }}-{{ forloop.index }}">--</span>
+                    <span class="esg-wd__unit-lbl">Sec</span>
+                  </div>
+                </div>
+              </div>
+              <div class="esg-wd__expired" data-wdc-expired="{{ card_expiry }}-{{ forloop.index }}">
+                ⚠ Deal Expired
+              </div>
+            {%- endif -%}
+
+          </div>
+
+          <!-- CTA -->
+          {%- assign cta_url = prod.url | default: block.settings.custom_url | default: '#' -%}
+          {%- assign cta_text = block.settings.btn_text | default: 'Shop This Deal' -%}
+          <a href="{{ cta_url }}" class="esg-wd__cta">
+            {{ cta_text }}
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+
+        </div>
+      {%- endfor -%}
+    </div><!-- /.esg-wd__grid -->
+      </div><!-- /.esg-wd__track-outer -->
+      <button class="esg-wd__arrow esg-wd__arrow--next" id="esg-wd-next-{{ section.id }}" aria-label="Next">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div><!-- /.esg-wd__slider-wrap -->
+    <div class="esg-wd__dots" id="esg-wd-dots-{{ section.id }}"></div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sid = '{{ section.id }}';
+
+  /* ── Helper: pad number ── */
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  /* ── Countdown engine ── */
+  function startCountdown(expiry, onTick, onExpire) {
+    var end = new Date(expiry).getTime();
+    function tick() {
+      var now  = Date.now();
+      var diff = end - now;
+      if (diff <= 0) { onExpire(); return; }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000)  / 60000);
+      var s = Math.floor((diff % 60000)    / 1000);
+      onTick(d, h, m, s);
+      setTimeout(tick, 1000);
+    }
+    tick();
+  }
+
+  /* ── Global header timer ── */
+  {%- if section.settings.show_global_timer and section.settings.expiry_date != blank -%}
+  (function() {
+    var expiry = '{{ section.settings.expiry_date }}';
+    var dEl = document.querySelector('[data-wd-days-{{ section.id }}]');
+    var hEl = document.querySelector('[data-wd-hrs-{{ section.id }}]');
+    var mEl = document.querySelector('[data-wd-min-{{ section.id }}]');
+    var sEl = document.querySelector('[data-wd-sec-{{ section.id }}]');
+    if (!dEl) return;
+    startCountdown(expiry,
+      function(d,h,m,s) {
+        dEl.textContent = pad(d);
+        hEl.textContent = pad(h);
+        mEl.textContent = pad(m);
+        sEl.textContent = pad(s);
+      },
+      function() {
+        dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = '00';
+      }
+    );
+  })();
+  {%- endif -%}
+
+  /* ── Per-card timers ── */
+  {%- if section.settings.show_card_timer -%}
+  {%- for block in deal_blocks -%}
+  {%- assign card_expiry = block.settings.expiry_override | default: section.settings.expiry_date -%}
+  {%- if card_expiry != blank -%}
+  (function() {
+    var key     = '{{ card_expiry }}-{{ forloop.index }}';
+    var expiry  = '{{ card_expiry }}';
+    var dEls    = document.querySelectorAll('[data-wdc-days="' + key + '"]');
+    var hEls    = document.querySelectorAll('[data-wdc-hrs="'  + key + '"]');
+    var mEls    = document.querySelectorAll('[data-wdc-min="'  + key + '"]');
+    var sEls    = document.querySelectorAll('[data-wdc-sec="'  + key + '"]');
+    var expEls  = document.querySelectorAll('[data-wdc-expired="' + key + '"]');
+
+    function set(els, val) { els.forEach(function(e){ e.textContent = val; }); }
+
+    startCountdown(expiry,
+      function(d,h,m,s) {
+        set(dEls, pad(d));
+        set(hEls, pad(h));
+        set(mEls, pad(m));
+        set(sEls, pad(s));
+      },
+      function() {
+        set(dEls, '00'); set(hEls, '00'); set(mEls, '00'); set(sEls, '00');
+        expEls.forEach(function(e){
+          e.style.display = 'block';
+          e.previousElementSibling.style.display = 'none';
+        });
+      }
+    );
+  })();
+  {%- endif -%}
+  {%- endfor -%}
+  {%- endif -%}
+
+
+  /* ── Mobile slider ── */
+  (function() {
+    var track  = document.getElementById('esg-wd-track-{{ section.id }}');
+    var dotsEl = document.getElementById('esg-wd-dots-{{ section.id }}');
+    var btnP   = document.getElementById('esg-wd-prev-{{ section.id }}');
+    var btnN   = document.getElementById('esg-wd-next-{{ section.id }}');
+    if (!track || !btnP) return;
+
+    var cards = Array.from(track.querySelectorAll('.esg-wd__card'));
+    var total = cards.length;
+    var cur   = 0;
+
+    function isMobile() { return window.innerWidth <= 560; }
+
+    /* Build dots */
+    cards.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'esg-wd__dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Card ' + (i + 1));
+      (function(idx){ dot.addEventListener('click', function(){ if(isMobile()) goTo(idx); }); })(i);
+      dotsEl.appendChild(dot);
+    });
+
+    function goTo(idx) {
+      if (!isMobile()) return;
+      cur = Math.max(0, Math.min(idx, total - 1));
+      var w = cards[0].offsetWidth;
+      track.style.transform = 'translateX(-' + (cur * w) + 'px)';
+      dotsEl.querySelectorAll('.esg-wd__dot').forEach(function(d, i) {
+        d.classList.toggle('is-active', i === cur);
+      });
+    }
+
+    btnP.addEventListener('click', function() { goTo(cur - 1); });
+    btnN.addEventListener('click', function() { goTo(cur + 1); });
+
+    /* Touch swipe */
+    var startX = 0;
+    track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   function(e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? cur + 1 : cur - 1);
+    });
+
+    /* Reset on resize */
+    window.addEventListener('resize', function() {
+      track.style.transform = '';
+      cur = 0;
+      dotsEl.querySelectorAll('.esg-wd__dot').forEach(function(d, i) {
+        d.classList.toggle('is-active', i === 0);
+      });
+    });
+  })();
+
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ESG Weekly Deals",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Limited Time Only"
+    },
+    {
+      "type": "text",
+      "id": "title_plain",
+      "label": "Title — white part",
+      "default": "Weekly"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title — accent color part",
+      "default": "Deals"
+    },
+    {
+      "type": "header",
+      "content": "Countdown Timer"
+    },
+    {
+      "type": "text",
+      "id": "expiry_date",
+      "label": "Default expiry date & time",
+      "info": "Format: YYYY-MM-DDTHH:MM:SS e.g. 2026-08-31T23:59:59",
+      "default": "2026-08-31T23:59:59"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_global_timer",
+      "label": "Show countdown above cards (header)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_card_timer",
+      "label": "Show countdown inside each card",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_desc",
+      "label": "Show product description",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity %",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#f7f8fa"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color — main word (white/dark)",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "color",
+      "id": "title_accent_color",
+      "label": "Title color — accent word",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow text & line color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color (buttons, badges, timer)",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card border",
+      "default": "#e8eaed"
+    },
+    {
+      "type": "color",
+      "id": "img_bg",
+      "label": "Image background",
+      "default": "#f0f2f5"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted text color",
+      "default": "#718096"
+    },
+    {
+      "type": "color",
+      "id": "timer_bg",
+      "label": "Countdown background",
+      "default": "#f0f4f8"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "Barlow"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Body font",
+      "default": "Inter"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "deal",
+      "name": "Deal Card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "header",
+          "content": "Manual override (if no product selected)"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom title"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom image"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Custom price (e.g. $3,799.00)"
+        },
+        {
+          "type": "text",
+          "id": "custom_compare",
+          "label": "Custom compare price"
+        },
+        {
+          "type": "url",
+          "id": "custom_url",
+          "label": "Custom URL"
+        },
+        {
+          "type": "header",
+          "content": "Badge & Button"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badge",
+          "label": "Show deal badge on card",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "deal_label",
+          "label": "Deal badge label",
+          "default": "Weekly Deal"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button text",
+          "default": "Shop This Deal"
+        },
+        {
+          "type": "header",
+          "content": "Timer Override"
+        },
+        {
+          "type": "text",
+          "id": "expiry_override",
+          "label": "Override expiry for this card only",
+          "info": "Leave blank to use section default. Format: YYYY-MM-DDTHH:MM:SS"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG Weekly Deals",
+      "blocks": [
+        {
+          "type": "deal",
+          "settings": { "deal_label": "Deal of the Week", "btn_text": "Shop This Deal" }
+        },
+        {
+          "type": "deal",
+          "settings": { "deal_label": "Hot Deal", "btn_text": "Shop This Deal" }
+        },
+        {
+          "type": "deal",
+          "settings": { "deal_label": "Flash Sale", "btn_text": "Shop This Deal" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

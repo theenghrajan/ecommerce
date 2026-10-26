@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "disabled": true,
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "enable_bg": false,
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#eeeeee",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 20,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "custom_liquid_FtLQAP": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<!-- VTRACK WHOLESALE PROGRAM INTRO PAGE - CLEAN STYLE -->\n<section style=\"max-width:1100px;margin:0 auto;padding:0 16px 36px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#111827;line-height:1.6;\">\n\n  <div style=\"background:#ffffff;border:1px solid #e5e7eb;border-radius:26px;padding:42px 30px;box-shadow:0 18px 45px rgba(15,23,42,.08);\">\n    <div style=\"max-width:850px;\">\n      <div style=\"display:inline-flex;align-items:center;background:#eff6ff;color:#086ED3;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;\">\n        VTrack Wholesale Program\n      </div>\n\n      <h1 style=\"margin:0 0 14px;font-size:clamp(34px,5vw,58px);line-height:1;font-weight:950;letter-spacing:-.05em;color:#0f172a;\">\n        Become a VTrack Wholesale Partner\n      </h1>\n\n      <p style=\"margin:0 0 24px;font-size:clamp(17px,2vw,21px);max-width:780px;color:#4b5563;\">\n        Partner with <strong>Elite Sim Golf</strong> for wholesale access to VTrack Launch Monitors, residential and commercial-grade golf simulator enclosures, and purpose-built VTrack Protective Cases manufactured right here in Tennessee.\n      </p>\n\n      <div style=\"display:flex;flex-wrap:wrap;gap:10px;\">\n        <span style=\"background:#086ED3;color:#fff;border-radius:999px;padding:10px 14px;font-weight:900;font-size:14px;\">Wholesale Pricing</span>\n        <span style=\"background:#f8fafc;border:1px solid #e5e7eb;color:#111827;border-radius:999px;padding:10px 14px;font-weight:800;font-size:14px;\">Demo Program Available</span>\n        <span style=\"background:#f8fafc;border:1px solid #e5e7eb;color:#111827;border-radius:999px;padding:10px 14px;font-weight:800;font-size:14px;\">U.S.-Stocked Inventory</span>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:24px 0;\">\n    <div style=\"background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:24px;\">\n      <h2 style=\"margin:0 0 10px;font-size:23px;color:#0f172a;\">Who We Are</h2>\n      <p style=\"margin:0;color:#4b5563;\">\n        <strong>Elite Sim Golf</strong> is a U.S.-based golf simulator retailer, wholesale partner, and support resource focused on premium launch monitors, complete simulator packages, enclosures, projectors, hitting mats, and full indoor golf solutions.\n      </p>\n    </div>\n\n    <div style=\"background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:24px;\">\n      <h2 style=\"margin:0 0 10px;font-size:23px;color:#0f172a;\">Why VTrack?</h2>\n      <p style=\"margin:0;color:#4b5563;\">\n        VTrack by Laon Swingcraft is a ceiling-mounted, camera-based overhead launch monitor built for home simulators, teaching studios, club fitters, commercial indoor golf facilities, and full simulator installations.\n      </p>\n    </div>\n\n    <div style=\"background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:24px;\">\n      <h2 style=\"margin:0 0 10px;font-size:23px;color:#0f172a;\">Built for Dealers</h2>\n      <p style=\"margin:0;color:#4b5563;\">\n        Our program is designed for golf simulator installers, indoor golf facilities, teaching professionals, club fitters, golf retailers, AV installers, and commercial recreation dealers.\n      </p>\n    </div>\n  </div>\n\n  <div style=\"background:#f8fafc;border:1px solid #e5e7eb;border-radius:26px;padding:30px;margin-bottom:24px;\">\n    <h2 style=\"margin:0 0 8px;font-size:32px;line-height:1.1;color:#0f172a;\">Wholesale Partner Benefits</h2>\n    <p style=\"margin:0 0 20px;color:#64748b;font-size:17px;\">\n      Approved partners receive access to preferred pricing, product support, and additional wholesale opportunities through Elite Sim Golf.\n    </p>\n\n    <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;\">\n      <div style=\"background:#fff;border-radius:18px;padding:18px;border:1px solid #e5e7eb;\">\n        <strong style=\"color:#086ED3;\">Competitive Wholesale Pricing</strong>\n        <p style=\"margin:8px 0 0;color:#4b5563;\">Access preferred partner pricing on VTrack and eligible simulator products.</p>\n      </div>\n\n      <div style=\"background:#fff;border-radius:18px;padding:18px;border:1px solid #e5e7eb;\">\n        <strong style=\"color:#086ED3;\">U.S.-Stocked Inventory</strong>\n        <p style=\"margin:8px 0 0;color:#4b5563;\">Work with a U.S.-based partner focused on fast fulfillment and reliable support.</p>\n      </div>\n\n      <div style=\"background:#fff;border-radius:18px;padding:18px;border:1px solid #e5e7eb;\">\n        <strong style=\"color:#086ED3;\">Dealer Support</strong>\n        <p style=\"margin:8px 0 0;color:#4b5563;\">Get support before and after the sale, including product guidance and setup resources.</p>\n      </div>\n\n      <div style=\"background:#fff;border-radius:18px;padding:18px;border:1px solid #e5e7eb;\">\n        <strong style=\"color:#086ED3;\">Enclosure Wholesale Access</strong>\n        <p style=\"margin:8px 0 0;color:#4b5563;\">Access wholesale pricing on residential and commercial-grade golf simulator enclosures.</p>\n      </div>\n\n      <div style=\"background:#fff;border-radius:18px;padding:18px;border:1px solid #e5e7eb;\">\n        <strong style=\"color:#086ED3;\">VTrack Protective Cases</strong>\n        <p style=\"margin:8px 0 0;color:#4b5563;\">Purpose-built protective cases manufactured by Elite Sim Golf in Tennessee.</p>\n      </div>\n\n      <div style=\"background:#fff;border-radius:18px;padding:18px;border:1px solid #e5e7eb;\">\n        <strong style=\"color:#086ED3;\">MAP/MRP Structure</strong>\n        <p style=\"margin:8px 0 0;color:#4b5563;\">A structured program designed to protect brand value and support dealer success.</p>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background:#ffffff;border:1px solid #e5e7eb;border-radius:26px;padding:30px;margin-bottom:24px;\">\n    <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;align-items:start;\">\n      <div>\n        <div style=\"display:inline-flex;background:#eff6ff;color:#086ED3;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;\">\n          Demo Program\n        </div>\n        <h2 style=\"margin:0 0 12px;font-size:32px;line-height:1.1;color:#0f172a;\">Evaluate VTrack Before Fully Committing</h2>\n        <p style=\"margin:0 0 14px;color:#4b5563;font-size:17px;\">\n          We offer a demo program for qualified partners. Elite Sim Golf can ship out a <strong>brand-new VTrack unit</strong> for demonstration purposes.\n        </p>\n        <p style=\"margin:0;color:#4b5563;font-size:17px;\">\n          If you choose not to keep the unit, you may return it for a full refund, making it easier to evaluate VTrack before joining the program.\n        </p>\n      </div>\n\n      <div style=\"background:#f8fafc;border:1px solid #e5e7eb;border-radius:22px;padding:22px;\">\n        <h3 style=\"margin:0 0 12px;color:#0f172a;font-size:22px;\">Demo Program Includes</h3>\n        <ul style=\"margin:0;padding-left:20px;color:#4b5563;\">\n          <li>Brand-new VTrack unit</li>\n          <li>Hands-on product evaluation</li>\n          <li>Dealer support resources</li>\n          <li>Full refund option if returned</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n\n  <div style=\"background:#fff;border:1px solid #dbeafe;border-radius:26px;padding:30px;margin-bottom:24px;\">\n    <h2 style=\"margin:0 0 8px;font-size:32px;line-height:1.1;color:#0f172a;\">VTrack Product Highlights</h2>\n    <p style=\"margin:0 0 20px;color:#64748b;font-size:17px;\">\n      A clean overhead launch monitor solution built for modern simulator installations.\n    </p>\n\n    <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;\">\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">Overhead ceiling-mounted design</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">Right and left-handed player friendly</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">No club stickers required</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">Large hitting zone</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">Ball and club data</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">Slow-motion impact video</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">GSPro compatible</div>\n      <div style=\"padding:14px 16px;border-radius:16px;background:#eff6ff;color:#1e3a8a;font-weight:800;\">E6 compatible</div>\n    </div>\n  </div>\n\n  <div style=\"background:#086ED3;border-radius:26px;padding:30px;color:#fff;text-align:center;margin-bottom:20px;\">\n    <h2 style=\"margin:0 0 10px;font-size:34px;line-height:1.1;color:#fff;\">Apply for VTrack Wholesale Access</h2>\n    <p style=\"margin:0 auto 18px;max-width:760px;color:rgba(255,255,255,.92);font-size:18px;\">\n      Complete the wholesale request form below. We will review your application and follow up with program details, demo availability, enclosure wholesale options, and next steps.\n    </p>\n\n    <div style=\"display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#086ED3;border-radius:999px;padding:13px 22px;font-weight:950;font-size:16px;\">\n      Wholesale Request Form Below\n    </div>\n  </div>\n\n</section>",
+        "full_width": false,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "177947092755be9357": {
+      "type": "apps",
+      "blocks": {
+        "hulk_form_builder_form_block_mr9Mcg": {
+          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+          "settings": {
+            "form_uuid": "1Y6sCGXiODT2lJSx7AHoPA",
+            "form_settings": true,
+            "font_color": "#000000",
+            "size": 14,
+            "input_background_color": "#fff",
+            "input_background_color_focus": "#738cc8",
+            "input_border_radius": 1,
+            "input_border_color": "#ebe9e9",
+            "input_border_color_focus": "#2d2727",
+            "input_font_color": "#3d3131",
+            "input_size": 14,
+            "border_color": "#121212",
+            "border_radius": 2,
+            "border": 1,
+            "fill_color": "#f8f8f8",
+            "padding": 35,
+            "form_width": 1000,
+            "btn_text": "Submit",
+            "sub_btn_txt_color": "#f3f3f3",
+            "sub_btn_bg_color": "#3f3333",
+            "sub_btn_font_size": 14,
+            "sub_btn_bdr_color": "#ffffff",
+            "sub_btn_bdr_rad": 3,
+            "sub_btn_bdr_width": 1,
+            "fonts": "Times New Roman"
+          }
+        }
+      },
+      "block_order": [
+        "hulk_form_builder_form_block_mr9Mcg"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "custom_liquid_FtLQAP",
+    "177947092755be9357"
+  ]
+}

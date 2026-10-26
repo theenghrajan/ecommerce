@@ -1,0 +1,556 @@
+{%- comment -%}
+  Section: Mega Menu (Elite-style)
+  Drop this file into: sections/mega-menu.liquid
+  Then add it to any template via Theme Editor > Add section > Mega Menu.
+
+  Blocks:
+    - Column         : Category column with up to 8 menu items (icon + title + subtitle)
+    - Featured Card  : Right-side featured package (product picker or manual)
+    - Brands Bar     : Popular brands row with logos
+    - Trust Badges   : Bottom row of shipping / support badges
+{%- endcomment -%}
+
+<div class="mm mm--{{ section.id }}">
+  <div class="mm__wrap page-width">
+
+    {%- comment -%} ===== TOP GRID: Columns + Featured ===== {%- endcomment -%}
+    <div class="mm__grid">
+      {%- for block in section.blocks -%}
+
+        {%- if block.type == 'column' -%}
+          <div class="mm__col" {{ block.shopify_attributes }}>
+            <div class="mm__col-head">
+              {%- if block.settings.head_icon != blank -%}
+                <span class="mm__col-head-icon">
+                  <img src="{{ block.settings.head_icon | image_url: width: 60 }}"
+                       alt="" width="22" height="22" loading="lazy">
+                </span>
+              {%- endif -%}
+              <h3 class="mm__col-title">{{ block.settings.heading | escape }}</h3>
+            </div>
+
+            <ul class="mm__list">
+              {%- for i in (1..8) -%}
+                {%- assign t_key  = 'item_' | append: i | append: '_title' -%}
+                {%- assign s_key  = 'item_' | append: i | append: '_subtitle' -%}
+                {%- assign ic_key = 'item_' | append: i | append: '_icon' -%}
+                {%- assign l_key  = 'item_' | append: i | append: '_link' -%}
+                {%- assign b_key  = 'item_' | append: i | append: '_badge' -%}
+
+                {%- assign it_title = block.settings[t_key] -%}
+                {%- assign it_sub   = block.settings[s_key] -%}
+                {%- assign it_icon  = block.settings[ic_key] -%}
+                {%- assign it_link  = block.settings[l_key] -%}
+                {%- assign it_badge = block.settings[b_key] -%}
+
+                {%- if it_title != blank -%}
+                  <li class="mm__item">
+                    <a href="{{ it_link | default: '#' }}" class="mm__link">
+                      {%- if it_icon != blank -%}
+                        <span class="mm__link-icon">
+                          <img src="{{ it_icon | image_url: width: 60 }}"
+                               alt="" width="20" height="20" loading="lazy">
+                        </span>
+                      {%- endif -%}
+                      <span class="mm__link-body">
+                        <span class="mm__link-title">
+                          {{ it_title }}
+                          {%- if it_badge != blank -%}
+                            <span class="mm__badge">{{ it_badge }}</span>
+                          {%- endif -%}
+                        </span>
+                        {%- if it_sub != blank -%}
+                          <span class="mm__link-sub">{{ it_sub }}</span>
+                        {%- endif -%}
+                      </span>
+                      <span class="mm__chev" aria-hidden="true">›</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+
+            {%- if block.settings.footer_text != blank -%}
+              <a href="{{ block.settings.footer_link | default: '#' }}" class="mm__col-footer">
+                {{ block.settings.footer_text }} <span aria-hidden="true">→</span>
+              </a>
+            {%- endif -%}
+          </div>
+
+        {%- elsif block.type == 'featured' -%}
+          <div class="mm__feat" {{ block.shopify_attributes }}>
+            {%- if block.settings.eyebrow != blank -%}
+              <span class="mm__feat-eyebrow">{{ block.settings.eyebrow }}</span>
+            {%- endif -%}
+
+            {%- if block.settings.heading != blank -%}
+              <h3 class="mm__feat-title">{{ block.settings.heading }}</h3>
+            {%- endif -%}
+
+            {%- assign fp = block.settings.product -%}
+
+            {%- if block.settings.show_rating -%}
+              {%- assign r_val = 0 -%}
+              {%- assign r_count = 0 -%}
+              {%- if fp != blank and fp.metafields.reviews.rating.value != blank -%}
+                {%- assign r_val = fp.metafields.reviews.rating.value.rating | plus: 0 -%}
+                {%- assign r_count = fp.metafields.reviews.rating_count | plus: 0 -%}
+              {%- else -%}
+                {%- assign r_val = block.settings.manual_rating | plus: 0 -%}
+                {%- assign r_count = block.settings.manual_rating_count | plus: 0 -%}
+              {%- endif -%}
+
+              {%- if r_val > 0 -%}
+                <div class="mm__feat-rating">
+                  <span class="mm__stars" aria-label="Rated {{ r_val }} of 5">
+                    {%- for s in (1..5) -%}
+                      {%- if s <= r_val -%}★{%- else -%}☆{%- endif -%}
+                    {%- endfor -%}
+                  </span>
+                  {%- if r_count > 0 -%}<span class="mm__stars-count">({{ r_count }})</span>{%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- assign feat_img = block.settings.image -%}
+            {%- if feat_img == blank and fp.featured_image != blank -%}
+              {%- assign feat_img = fp.featured_image -%}
+            {%- endif -%}
+
+            {%- assign feat_url = block.settings.link -%}
+            {%- if feat_url == blank and fp != blank -%}
+              {%- assign feat_url = fp.url -%}
+            {%- endif -%}
+
+            {%- if feat_img != blank -%}
+              <a href="{{ feat_url | default: '#' }}" class="mm__feat-img">
+                <img src="{{ feat_img | image_url: width: 600 }}"
+                     alt="{{ block.settings.heading | escape }}"
+                     width="300" height="200" loading="lazy">
+              </a>
+            {%- endif -%}
+
+            {%- assign feat_price = block.settings.manual_price -%}
+            {%- if feat_price == blank and fp != blank -%}
+              {%- assign feat_price = fp.price | money -%}
+            {%- endif -%}
+
+            {%- if feat_price != blank -%}
+              <div class="mm__feat-price">{{ feat_price }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.button_text != blank -%}
+              <a href="{{ feat_url | default: '#' }}" class="mm__feat-btn">
+                {%- if block.settings.button_icon -%}<span aria-hidden="true">🛒</span>{%- endif -%}
+                {{ block.settings.button_text }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} ===== BRANDS BAR ===== {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'brands' -%}
+        <div class="mm__brands" {{ block.shopify_attributes }}>
+          {%- if block.settings.heading != blank -%}
+            <div class="mm__brands-head">
+              {%- if block.settings.head_icon != blank -%}
+                <img src="{{ block.settings.head_icon | image_url: width: 40 }}"
+                     alt="" width="18" height="18" loading="lazy">
+              {%- endif -%}
+              <span>{{ block.settings.heading }}</span>
+            </div>
+          {%- endif -%}
+
+          <div class="mm__brands-logos">
+            {%- for i in (1..6) -%}
+              {%- assign lg_key = 'logo_' | append: i -%}
+              {%- assign lk_key = 'link_' | append: i -%}
+              {%- assign lg = block.settings[lg_key] -%}
+              {%- assign lk = block.settings[lk_key] -%}
+              {%- if lg != blank -%}
+                <a href="{{ lk | default: '#' }}" class="mm__brand">
+                  <img src="{{ lg | image_url: width: 240 }}"
+                       alt="Brand {{ i }}" width="110" height="40" loading="lazy">
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          {%- if block.settings.view_all_text != blank -%}
+            <a href="{{ block.settings.view_all_link | default: '#' }}" class="mm__brands-all">
+              {{ block.settings.view_all_text }} <span aria-hidden="true">→</span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- comment -%} ===== TRUST BADGES ===== {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'trust' -%}
+        <div class="mm__trust" {{ block.shopify_attributes }}>
+          {%- for i in (1..4) -%}
+            {%- assign ic_key = 'badge_' | append: i | append: '_icon' -%}
+            {%- assign t_key  = 'badge_' | append: i | append: '_title' -%}
+            {%- assign s_key  = 'badge_' | append: i | append: '_subtitle' -%}
+            {%- assign b_ic = block.settings[ic_key] -%}
+            {%- assign b_t  = block.settings[t_key] -%}
+            {%- assign b_s  = block.settings[s_key] -%}
+            {%- if b_t != blank -%}
+              <div class="mm__trust-item">
+                {%- if b_ic != blank -%}
+                  <span class="mm__trust-icon">
+                    <img src="{{ b_ic | image_url: width: 80 }}"
+                         alt="" width="32" height="32" loading="lazy">
+                  </span>
+                {%- endif -%}
+                <div>
+                  <div class="mm__trust-title">{{ b_t }}</div>
+                  {%- if b_s != blank -%}<div class="mm__trust-sub">{{ b_s }}</div>{%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+  </div>
+</div>
+
+<style>
+  .mm--{{ section.id }} {
+    --mm-bg: {{ section.settings.section_bg }};
+    --mm-card: {{ section.settings.card_bg }};
+    --mm-text: {{ section.settings.text_color }};
+    --mm-muted: {{ section.settings.muted_color }};
+    --mm-accent: {{ section.settings.accent_color }};
+    --mm-accent-text: {{ section.settings.accent_text_color }};
+    --mm-border: {{ section.settings.border_color }};
+    --mm-radius: {{ section.settings.card_radius }}px;
+
+    background: var(--mm-bg);
+    color: var(--mm-text);
+    padding: {{ section.settings.padding_top }}px 16px {{ section.settings.padding_bottom }}px;
+  }
+  .mm--{{ section.id }} .mm__wrap { max-width: 1240px; margin: 0 auto; }
+
+  .mm--{{ section.id }} .mm__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, minmax(0,1fr));
+    gap: 16px;
+    background: var(--mm-card);
+    border: 1px solid var(--mm-border);
+    border-radius: var(--mm-radius);
+    padding: 20px;
+  }
+
+  .mm--{{ section.id }} .mm__col { display: flex; flex-direction: column; padding: 4px 8px; border-right: 1px solid var(--mm-border); }
+  .mm--{{ section.id }} .mm__col:last-child { border-right: none; }
+  .mm--{{ section.id }} .mm__col-head { display: flex; align-items: center; gap: 10px; padding-bottom: 8px; border-bottom: 2px solid var(--mm-accent); margin-bottom: 12px; }
+  .mm--{{ section.id }} .mm__col-head-icon img { display: block; }
+  .mm--{{ section.id }} .mm__col-title { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--mm-text); }
+
+  .mm--{{ section.id }} .mm__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .mm--{{ section.id }} .mm__link {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 8px;
+    text-decoration: none; color: var(--mm-text);
+    border-radius: 8px;
+    transition: background .15s ease, transform .15s ease;
+  }
+  .mm--{{ section.id }} .mm__link:hover { background: rgba(0,0,0,.04); }
+  .mm--{{ section.id }} .mm__link-icon { flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,.04); border-radius: 6px; }
+  .mm--{{ section.id }} .mm__link-icon img { display: block; }
+  .mm--{{ section.id }} .mm__link-body { flex: 1; display: flex; flex-direction: column; }
+  .mm--{{ section.id }} .mm__link-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+  .mm--{{ section.id }} .mm__link-sub { font-size: 12px; color: var(--mm-muted); margin-top: 2px; }
+  .mm--{{ section.id }} .mm__chev { color: var(--mm-muted); font-size: 18px; }
+
+  .mm--{{ section.id }} .mm__badge {
+    display: inline-block; margin-left: 6px;
+    background: var(--mm-accent); color: var(--mm-accent-text);
+    font-size: 10px; font-weight: 700; letter-spacing: .5px;
+    padding: 2px 6px; border-radius: 4px; vertical-align: middle;
+  }
+
+  .mm--{{ section.id }} .mm__col-footer {
+    margin-top: auto; padding-top: 12px;
+    color: var(--mm-accent); font-size: 13px; font-weight: 600;
+    text-decoration: none;
+  }
+  .mm--{{ section.id }} .mm__col-footer:hover { text-decoration: underline; }
+
+  /* Featured card */
+  .mm--{{ section.id }} .mm__feat {
+    background: {{ section.settings.featured_bg }};
+    border-radius: var(--mm-radius);
+    padding: 16px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .mm--{{ section.id }} .mm__feat-eyebrow { color: var(--mm-accent); font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+  .mm--{{ section.id }} .mm__feat-title { margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700; color: var(--mm-text); }
+  .mm--{{ section.id }} .mm__feat-rating { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--mm-muted); }
+  .mm--{{ section.id }} .mm__stars { color: #f5b301; letter-spacing: 1px; }
+  .mm--{{ section.id }} .mm__feat-img { display: block; border-radius: 8px; overflow: hidden; }
+  .mm--{{ section.id }} .mm__feat-img img { display: block; width: 100%; height: auto; }
+  .mm--{{ section.id }} .mm__feat-price { font-size: 20px; font-weight: 700; color: var(--mm-text); }
+  .mm--{{ section.id }} .mm__feat-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--mm-accent); color: var(--mm-accent-text);
+    padding: 12px 20px; border-radius: 8px;
+    text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: .5px;
+    transition: filter .15s ease;
+  }
+  .mm--{{ section.id }} .mm__feat-btn:hover { filter: brightness(.92); }
+
+  /* Brands bar */
+  .mm--{{ section.id }} .mm__brands {
+    margin-top: 12px;
+    background: var(--mm-card);
+    border: 1px solid var(--mm-border);
+    border-radius: var(--mm-radius);
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .mm--{{ section.id }} .mm__brands-head { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; letter-spacing: .5px; text-transform: uppercase; }
+  .mm--{{ section.id }} .mm__brands-logos { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; flex: 1; justify-content: center; }
+  .mm--{{ section.id }} .mm__brand {
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px 16px;
+    border: 1px solid var(--mm-border); border-radius: 8px;
+    min-width: 130px; min-height: 56px;
+    transition: border-color .15s ease;
+  }
+  .mm--{{ section.id }} .mm__brand:hover { border-color: var(--mm-accent); }
+  .mm--{{ section.id }} .mm__brand img { max-height: 32px; width: auto; }
+  .mm--{{ section.id }} .mm__brands-all { color: var(--mm-accent); font-weight: 600; font-size: 13px; text-decoration: none; }
+
+  /* Trust badges */
+  .mm--{{ section.id }} .mm__trust {
+    margin-top: 12px;
+    background: var(--mm-card);
+    border: 1px solid var(--mm-border);
+    border-radius: var(--mm-radius);
+    padding: 14px 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  }
+  .mm--{{ section.id }} .mm__trust-item { display: flex; align-items: center; gap: 12px; }
+  .mm--{{ section.id }} .mm__trust-icon { color: var(--mm-accent); flex-shrink: 0; }
+  .mm--{{ section.id }} .mm__trust-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .3px; }
+  .mm--{{ section.id }} .mm__trust-sub { font-size: 12px; color: var(--mm-muted); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .mm--{{ section.id }} .mm__grid { grid-template-columns: repeat(2, 1fr); }
+    .mm--{{ section.id }} .mm__col { border-right: none; border-bottom: 1px solid var(--mm-border); padding-bottom: 12px; }
+    .mm--{{ section.id }} .mm__trust { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .mm--{{ section.id }} .mm__grid { grid-template-columns: 1fr; padding: 12px; }
+    .mm--{{ section.id }} .mm__brands { flex-direction: column; align-items: flex-start; }
+    .mm--{{ section.id }} .mm__trust { grid-template-columns: 1fr; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Mega Menu",
+  "tag": "section",
+  "class": "section-mega-menu",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "range", "id": "columns_desktop", "label": "Desktop columns",
+      "min": 2, "max": 5, "step": 1, "default": 4
+    },
+    {
+      "type": "range", "id": "card_radius", "label": "Card corner radius",
+      "min": 0, "max": 24, "step": 2, "default": 12, "unit": "px"
+    },
+    {
+      "type": "range", "id": "padding_top", "label": "Top padding",
+      "min": 0, "max": 100, "step": 4, "default": 20, "unit": "px"
+    },
+    {
+      "type": "range", "id": "padding_bottom", "label": "Bottom padding",
+      "min": 0, "max": 100, "step": 4, "default": 20, "unit": "px"
+    },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "section_bg", "label": "Section background", "default": "#0f1c2e" },
+    { "type": "color", "id": "card_bg", "label": "Card background", "default": "#ffffff" },
+    { "type": "color", "id": "featured_bg", "label": "Featured card background", "default": "#f6f7f9" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#0f1c2e" },
+    { "type": "color", "id": "muted_color", "label": "Muted text", "default": "#6b7280" },
+    { "type": "color", "id": "accent_color", "label": "Accent (buttons, badges)", "default": "#7ac142" },
+    { "type": "color", "id": "accent_text_color", "label": "Accent text", "default": "#ffffff" },
+    { "type": "color", "id": "border_color", "label": "Border / divider", "default": "#e5e7eb" }
+  ],
+
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Column heading", "default": "Shop by Category" },
+        { "type": "image_picker", "id": "head_icon", "label": "Heading icon (SVG/PNG)" },
+
+        { "type": "header", "content": "Item 1" },
+        { "type": "image_picker", "id": "item_1_icon", "label": "Icon" },
+        { "type": "text", "id": "item_1_title", "label": "Title" },
+        { "type": "text", "id": "item_1_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_1_badge", "label": "Badge (e.g. NEW)" },
+        { "type": "url", "id": "item_1_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 2" },
+        { "type": "image_picker", "id": "item_2_icon", "label": "Icon" },
+        { "type": "text", "id": "item_2_title", "label": "Title" },
+        { "type": "text", "id": "item_2_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_2_badge", "label": "Badge" },
+        { "type": "url", "id": "item_2_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 3" },
+        { "type": "image_picker", "id": "item_3_icon", "label": "Icon" },
+        { "type": "text", "id": "item_3_title", "label": "Title" },
+        { "type": "text", "id": "item_3_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_3_badge", "label": "Badge" },
+        { "type": "url", "id": "item_3_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 4" },
+        { "type": "image_picker", "id": "item_4_icon", "label": "Icon" },
+        { "type": "text", "id": "item_4_title", "label": "Title" },
+        { "type": "text", "id": "item_4_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_4_badge", "label": "Badge" },
+        { "type": "url", "id": "item_4_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 5" },
+        { "type": "image_picker", "id": "item_5_icon", "label": "Icon" },
+        { "type": "text", "id": "item_5_title", "label": "Title" },
+        { "type": "text", "id": "item_5_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_5_badge", "label": "Badge" },
+        { "type": "url", "id": "item_5_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 6" },
+        { "type": "image_picker", "id": "item_6_icon", "label": "Icon" },
+        { "type": "text", "id": "item_6_title", "label": "Title" },
+        { "type": "text", "id": "item_6_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_6_badge", "label": "Badge" },
+        { "type": "url", "id": "item_6_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 7" },
+        { "type": "image_picker", "id": "item_7_icon", "label": "Icon" },
+        { "type": "text", "id": "item_7_title", "label": "Title" },
+        { "type": "text", "id": "item_7_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_7_badge", "label": "Badge" },
+        { "type": "url", "id": "item_7_link", "label": "Link" },
+
+        { "type": "header", "content": "Item 8" },
+        { "type": "image_picker", "id": "item_8_icon", "label": "Icon" },
+        { "type": "text", "id": "item_8_title", "label": "Title" },
+        { "type": "text", "id": "item_8_subtitle", "label": "Subtitle (optional)" },
+        { "type": "text", "id": "item_8_badge", "label": "Badge" },
+        { "type": "url", "id": "item_8_link", "label": "Link" },
+
+        { "type": "header", "content": "Column footer link" },
+        { "type": "text", "id": "footer_text", "label": "Footer text", "default": "View All" },
+        { "type": "url", "id": "footer_link", "label": "Footer link" }
+      ]
+    },
+    {
+      "type": "featured",
+      "name": "Featured Package",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow / label", "default": "FEATURED PACKAGE" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Premium Package Deal" },
+        { "type": "product", "id": "product", "label": "Product (auto-fills image, price, link)" },
+
+        { "type": "header", "content": "OR use manual content" },
+        { "type": "image_picker", "id": "image", "label": "Image (overrides product image)" },
+        { "type": "text", "id": "manual_price", "label": "Price (overrides product price)" },
+        { "type": "url", "id": "link", "label": "Link (overrides product link)" },
+
+        { "type": "header", "content": "Rating" },
+        { "type": "checkbox", "id": "show_rating", "label": "Show rating", "default": true },
+        { "type": "range", "id": "manual_rating", "label": "Manual rating", "min": 0, "max": 5, "step": 1, "default": 5 },
+        { "type": "number", "id": "manual_rating_count", "label": "Manual rating count", "default": 45 },
+
+        { "type": "header", "content": "Button" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Shop Now" },
+        { "type": "checkbox", "id": "button_icon", "label": "Show cart icon", "default": true }
+      ]
+    },
+    {
+      "type": "brands",
+      "name": "Brands Bar",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "POPULAR BRANDS" },
+        { "type": "image_picker", "id": "head_icon", "label": "Heading icon" },
+
+        { "type": "header", "content": "Brand Logos (up to 6)" },
+        { "type": "image_picker", "id": "logo_1", "label": "Logo 1" },
+        { "type": "url", "id": "link_1", "label": "Link 1" },
+        { "type": "image_picker", "id": "logo_2", "label": "Logo 2" },
+        { "type": "url", "id": "link_2", "label": "Link 2" },
+        { "type": "image_picker", "id": "logo_3", "label": "Logo 3" },
+        { "type": "url", "id": "link_3", "label": "Link 3" },
+        { "type": "image_picker", "id": "logo_4", "label": "Logo 4" },
+        { "type": "url", "id": "link_4", "label": "Link 4" },
+        { "type": "image_picker", "id": "logo_5", "label": "Logo 5" },
+        { "type": "url", "id": "link_5", "label": "Link 5" },
+        { "type": "image_picker", "id": "logo_6", "label": "Logo 6" },
+        { "type": "url", "id": "link_6", "label": "Link 6" },
+
+        { "type": "text", "id": "view_all_text", "label": "View all text", "default": "View All Brands" },
+        { "type": "url", "id": "view_all_link", "label": "View all link" }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust Badges",
+      "limit": 1,
+      "settings": [
+        { "type": "header", "content": "Badge 1" },
+        { "type": "image_picker", "id": "badge_1_icon", "label": "Icon" },
+        { "type": "text", "id": "badge_1_title", "label": "Title", "default": "FREE & FAST SHIPPING" },
+        { "type": "text", "id": "badge_1_subtitle", "label": "Subtitle", "default": "On all orders" },
+
+        { "type": "header", "content": "Badge 2" },
+        { "type": "image_picker", "id": "badge_2_icon", "label": "Icon" },
+        { "type": "text", "id": "badge_2_title", "label": "Title", "default": "EXPERT SUPPORT" },
+        { "type": "text", "id": "badge_2_subtitle", "label": "Subtitle", "default": "Talk to our team" },
+
+        { "type": "header", "content": "Badge 3" },
+        { "type": "image_picker", "id": "badge_3_icon", "label": "Icon" },
+        { "type": "text", "id": "badge_3_title", "label": "Title", "default": "0% FINANCING" },
+        { "type": "text", "id": "badge_3_subtitle", "label": "Subtitle", "default": "Flexible payments" },
+
+        { "type": "header", "content": "Badge 4" },
+        { "type": "image_picker", "id": "badge_4_icon", "label": "Icon" },
+        { "type": "text", "id": "badge_4_title", "label": "Title", "default": "PRICE MATCH" },
+        { "type": "text", "id": "badge_4_subtitle", "label": "Subtitle", "default": "We match dealers" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Mega Menu",
+      "blocks": [
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "column" },
+        { "type": "featured" },
+        { "type": "brands" },
+        { "type": "trust" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,269 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+    .sn-heading{
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+    .best-seller-row{
+      justify-content: space-around;
+      gap: 10px;
+    }
+    .sn-best-seller-wrap{
+      flex-basis: calc(100% / 3 - 10px);
+      background: {{ section.settings.card_bg }};
+    }
+    .sn-best-seller-wrap a{
+      display: block;
+      width: 100%;
+    }
+    .sn-best-seller-wrap img{
+      width: 100%;
+      height: calc(100vw / 4 - 20px);
+      object-fit: cover;
+    }
+    .best-seller-content{
+      padding: 20px;
+      width: 100%;
+      flex-basis: 100%;
+    }
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+          background-attachment: scroll;
+      }
+      .sn-best-seller-wrap{
+        flex-basis: calc(100% / 2 - 10px);
+      }
+      .sn-best-seller-wrap img{
+        height: calc(100vw / 2 - 20px);
+      }
+      .best-seller-content{
+        padding: 10px;
+      }
+    }
+  {% endstyle %}
+
+  {% if section.settings.heading != '' %}
+    <div class="sn-container hcenter text-center">
+      <div class="sn-col-1 sn-heading mb-1">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="sn-container full best-seller-row">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'block' %}
+          {% assign collection = block.settings.collection %}
+          <div
+            class="sn-best-seller-wrap {{ block.settings.class }}"
+            {{ block.shopify_attributes }}
+          >
+            <a href="{{ collection.url }}">
+              <img
+                src="{% if block.settings.image %}{{ block.settings.image | image_url: width: 1260 }} {% else %}{{ collection.featured_image | image_url: width: 1260 }} {% endif %}"
+                class="sn-img"
+                width="100%"
+                height="auto"
+              >
+              <div class="best-seller-content p-1">
+                <h4>
+                  {% if block.settings.title != '' -%}
+                    {{- block.settings.title }}
+                  {% else %}
+                    {{ collection.title }}
+                  {% endif %}
+                </h4>
+                {% if block.settings.text != '' %}
+                  <div class="sn-text">
+                    {{ block.settings.text }}
+                  </div>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom: Collections",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-collections"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "card_bg",
+      "type": "color",
+      "label": "Card background"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Block",
+      "type": "block",
+      "settings": [
+        {
+          "type": "collection",
+          "label": "Collection",
+          "id": "collection"
+        },
+        {
+          "type": "header",
+          "content": "Custom content"
+        },
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Title",
+          "id": "title"
+        },
+        {
+          "type": "richtext",
+          "label": "Text",
+          "id": "text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom: Collections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

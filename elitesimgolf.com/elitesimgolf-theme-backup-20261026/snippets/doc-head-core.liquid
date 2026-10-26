@@ -1,0 +1,70 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>
+  {%- if template == 'search' -%}
+    Search – Elite Sim Golf
+  {%- elsif request.page_type == 'password' -%}
+    {{- shop.name -}}
+  {% elsif shop.metafields.custom.ss_collection_title != blank and request.path == '/collections/all' %}  
+    {{ shop.metafields.custom.ss_collection_title | escape }}
+  {%- else -%}
+    {{- page_title -}}
+    {%- if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif -%}
+    {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- endif -%}
+</title>
+
+{%- if collection.current_vendor == 'benq' -%}
+  <link rel="canonical" href="{{ shop.url }}/collections/benq-projectors">
+
+{%- elsif collection.current_vendor == 'club keyboard' -%}
+  <link rel="canonical" href="{{ shop.url }}/collections/club-keyboard-simulator-control-boxes">
+
+{%- elsif collection.current_vendor == 'uneekor' -%}
+  <link rel="canonical" href="{{ shop.url }}/collections/uneekor-golf-launch-monitors">
+
+{%- elsif current_tags and collection -%}
+  <link rel="canonical" href="{{ shop.url }}{{ collection.url }}">
+
+{%- elsif canonical_url != blank -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+
+{%- endif -%}
+
+{%- if settings.favicon != blank -%}
+  {%- liquid
+    assign image_type = settings.favicon | split: '?' | first | split: '.' | last | downcase
+    if image_type == 'svg'
+      assign image_type = 'svg+xml'
+    endif
+  -%}
+  <link rel="icon" href="{{ settings.favicon | image_url: width: 48, height: 48 }}" type="image/{{ image_type }}">
+  <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180, height: 180 }}">
+{%- endif -%}
+
+  {%- if template == 'search' -%}
+    <meta name="description" content="Search Elite Sim Golf to find golf simulators, launch monitors, projectors, and gear. Enter a keyword to quickly locate the products you need for your bay.">
+  {% elsif shop.metafields.custom.cart_page != blank and request.path == '/cart' %}  
+    <meta name="description" content="{{ shop.metafields.custom.cart_page | escape }}">
+  {% elsif shop.metafields.custom.cart_page != blank and request.path == '/cart' %}  
+    <meta name="description" content="{{ shop.metafields.custom.cart_page | escape }}">
+  {% elsif shop.metafields.custom.ss_privacy_policy != blank and request.path == '/policies/privacy-policy' %}
+    <meta name="description" content="{{ shop.metafields.custom.ss_privacy_policy | escape }}">
+  {% elsif shop.metafields.custom.ss_refund_policy != blank and request.path == '/policies/refund-policy' %}
+    <meta name="description" content="{{ shop.metafields.custom.ss_refund_policy | escape }}">
+  {% elsif shop.metafields.custom.ss_shipping_policy != blank and request.path == '/policies/shipping-policy' %}   
+    <meta name="description" content="{{ shop.metafields.custom.ss_shipping_policy | escape }}"> 
+  {% elsif shop.metafields.custom.ss_terms_of_service != blank and request.path == '/policies/terms-of-service' %}
+    <meta name="description" content="{{ shop.metafields.custom.ss_terms_of_service | escape }}">  
+  {% elsif shop.metafields.custom.ss_collection_all != blank and request.path == '/collections/all' %}  
+    <meta name="description" content="{{ shop.metafields.custom.ss_collection_all | escape }}">
+  {% elsif shop.metafields.custom.ss_tag_meta_description != blank and request.page_type == 'collection' and current_tags %}
+    {% assign ss_placeholder = '{{TagName}}' %}
+    {% assign ss_tag_names = current_tags | join: ' ' %}
+    <meta name="description" content="{{ shop.metafields.custom.ss_tag_meta_description | replace: ss_placeholder, ss_tag_names | escape }}">
+  {% elsif request.page_type == 'collection' and current_page > 1 %}
+    <meta name="description" content="Browse page {{ current_page }} of the {{ collection.title | escape }} collection. Shop premium golf simulator gear from top brands with free US shipping and expert support.">
+  {%- elsif page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+{%- endif -%}

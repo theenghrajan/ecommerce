@@ -1,0 +1,253 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_YjxFiw": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "globo_product_options_app_block_rJ7Cfp": {
+          "type": "shopify:\/\/apps\/globo-product-options\/blocks\/app-block\/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+          "settings": {}
+        },
+        "custom_liquid_pzbbWW": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.type == 'Projector' -%}\n<div style=\"margin:12px 0 0; padding:12px 14px; border:1px solid #dbe3ea; border-radius:14px; background:#f8fbff; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; box-shadow:0 6px 16px rgba(15,23,42,.04);\">\n  <div style=\"display:flex; align-items:flex-start; gap:10px; min-width:0; flex:1;\">\n    <div style=\"width:30px; height:30px; border-radius:10px; background:#e7f2ff; border:1px solid rgba(8,110,211,.16); display:flex; align-items:center; justify-content:center; font-size:15px; flex:0 0 auto;\">\n      📐\n    <\/div>\n    <div style=\"min-width:0;\">\n      <div style=\"font-size:14px; font-weight:800; color:#0f172a; margin:0 0 3px;\">\n        Will This Projector Fit My Space?\n      <\/div>\n      <div style=\"font-size:13px; line-height:1.5; color:#475569;\">\n        Use our projector fitment tool to check screen size, aspect ratio, and mounting distance before you buy.\n      <\/div>\n    <\/div>\n  <\/div>\n\n  <a href=\"\/blogs\/faq\/golf-simulator-projector-fitment-tool\" style=\"display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:10px; background:#086ed3; color:#ffffff; text-decoration:none; font-size:13px; font-weight:800; white-space:nowrap; box-shadow:0 8px 18px rgba(8,110,211,.16);\">\n    Check Fitment\n  <\/a>\n<\/div>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_YdCQek": {
+          "type": "custom-liquid",
+          "name": "Optoma Deals",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — Vendor Trigger\nTrigger: product.vendor = \"Optoma\" (case-insensitive)\nRequires code: OPTOMA10\nAuto-hide after: April 30, 2026\nCompact styling to match ESG shipping box\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-04-30' | date: '%s' -%}\n{%- assign vendor_downcase = product.vendor | strip | downcase -%}\n\n{%- if today_ts <= cutoff_ts and vendor_downcase == 'optoma' -%}\n<div class=\"esg-promo-code-box\">\n  <div class=\"esg-promo-code-box__top\">\n    <div class=\"esg-promo-code-box__title\">\n      <span class=\"esg-promo-code-box__title-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M20.59 13.41 11 23l-2.5-2.5\"><\/path>\n          <path d=\"M17 7h.01\"><\/path>\n          <path d=\"M3 11V3h8l10 10-8 8L3 11z\"><\/path>\n        <\/svg>\n      <\/span>\n      <span>Extra Savings Available<\/span>\n    <\/div>\n\n    <div class=\"esg-promo-code-box__ends\">\n      Ends Apr 30, 2026\n    <\/div>\n  <\/div>\n\n  <div class=\"esg-promo-code-box__text\">\n    Use code below for <strong>up to 10% off<\/strong> at checkout.\n  <\/div>\n\n  <div class=\"esg-promo-code-box__row\">\n    <div id=\"esg-promo-code\" class=\"esg-promo-code-box__code\">OPTOMA10<\/div>\n\n    <button type=\"button\" id=\"esg-promo-copy\" class=\"esg-promo-code-box__button\">\n      Copy Code\n    <\/button>\n\n    <div id=\"esg-promo-copied\" class=\"esg-promo-code-box__copied\">\n      Copied\n    <\/div>\n  <\/div>\n\n  <div class=\"esg-promo-code-box__note\">\n    Tap the code or button to copy instantly.\n  <\/div>\n<\/div>\n\n<style>\n  .esg-promo-code-box {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #23923d;\n    border-radius: 12px;\n    background: linear-gradient(180deg, #f7fcf7 0%, #eef8ef 100%);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,.75),\n      0 1px 2px rgba(16,42,67,.05);\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-promo-code-box__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    margin-bottom: 7px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__title {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #168232;\n    letter-spacing: .1px;\n    line-height: 1.2;\n  }\n\n  .esg-promo-code-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #168232;\n    flex: 0 0 16px;\n  }\n\n  .esg-promo-code-box__title-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-promo-code-box__ends {\n    display: inline-block;\n    padding: 5px 8px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.28);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);\n  }\n\n  .esg-promo-code-box__text {\n    font-size: 13px;\n    color: #102a43;\n    margin-bottom: 9px;\n  }\n\n  .esg-promo-code-box__text strong {\n    font-weight: 800;\n  }\n\n  .esg-promo-code-box__row {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__code {\n    display: inline-flex;\n    align-items: center;\n    padding: 8px 11px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px dashed rgba(35,146,61,.45);\n    color: #168232;\n    font-weight: 900;\n    font-size: 12.5px;\n    letter-spacing: .12em;\n    line-height: 1;\n    user-select: all;\n    cursor: pointer;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.85);\n  }\n\n  .esg-promo-code-box__button {\n    appearance: none;\n    border: 1px solid #23923d;\n    border-radius: 999px;\n    padding: 8px 12px;\n    background: #168232;\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 12.5px;\n    line-height: 1;\n    cursor: pointer;\n    box-shadow: 0 1px 2px rgba(16,42,67,.08);\n    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;\n  }\n\n  .esg-promo-code-box__button:hover {\n    background: #136f2b;\n    transform: translateY(-1px);\n  }\n\n  .esg-promo-code-box__copied {\n    display: none;\n    align-items: center;\n    padding: 7px 10px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.35);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .esg-promo-code-box__note {\n    margin-top: 8px;\n    font-size: 12px;\n    color: #35506b;\n  }\n\n  @media (max-width: 749px) {\n    .esg-promo-code-box {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-promo-code-box__title {\n      font-size: 13.5px;\n    }\n\n    .esg-promo-code-box__title-icon {\n      width: 15px;\n      height: 15px;\n      min-width: 15px;\n      flex-basis: 15px;\n    }\n\n    .esg-promo-code-box__title-icon svg {\n      width: 15px;\n      height: 15px;\n    }\n\n    .esg-promo-code-box__ends,\n    .esg-promo-code-box__text,\n    .esg-promo-code-box__button,\n    .esg-promo-code-box__code {\n      font-size: 12px;\n    }\n\n    .esg-promo-code-box__note {\n      font-size: 11.5px;\n    }\n  }\n<\/style>\n\n<script>\n(function () {\n  var btn = document.getElementById('esg-promo-copy');\n  var codeEl = document.getElementById('esg-promo-code');\n  var badge = document.getElementById('esg-promo-copied');\n  if (!btn || !codeEl) return;\n\n  function showCopied() {\n    if (!badge) return;\n    badge.style.display = 'inline-flex';\n    setTimeout(function () {\n      badge.style.display = 'none';\n    }, 1400);\n  }\n\n  async function copyCode() {\n    var code = (codeEl.textContent || '').trim();\n\n    try {\n      if (navigator.clipboard && navigator.clipboard.writeText) {\n        await navigator.clipboard.writeText(code);\n        showCopied();\n        return;\n      }\n    } catch (e) {}\n\n    var ta = document.createElement('textarea');\n    ta.value = code;\n    ta.setAttribute('readonly', '');\n    ta.style.position = 'absolute';\n    ta.style.left = '-9999px';\n    document.body.appendChild(ta);\n    ta.select();\n\n    try {\n      document.execCommand('copy');\n      showCopied();\n    } catch (e) {}\n\n    document.body.removeChild(ta);\n  }\n\n  btn.addEventListener('click', copyCode);\n  codeEl.addEventListener('click', copyCode);\n  codeEl.title = 'Click to copy';\n})();\n<\/script>\n{%- endif -%}{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'spica 3' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns<\/div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>GolfJoy Spica 3<\/strong> by 2PM ET for same-day shipping.\n  <\/div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins<\/span>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n<\/style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America\/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff \/ (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) \/ (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n<\/script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_Y4NHb7": {
+          "type": "custom-liquid",
+          "name": "Spica3",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — Vendor Trigger\nTrigger: product.vendor = \"GolfJoy\" (case-insensitive)\nRequires code: GOLFJOY10\nAuto-hide after: April 30, 2026\nCompact styling to match ESG shipping box\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-04-30' | date: '%s' -%}\n{%- assign vendor_downcase = product.vendor | strip | downcase -%}\n\n{%- if today_ts <= cutoff_ts and vendor_downcase == 'golfjoy' -%}\n<div class=\"esg-promo-code-box\">\n  <div class=\"esg-promo-code-box__top\">\n    <div class=\"esg-promo-code-box__title\">\n      <span class=\"esg-promo-code-box__title-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M20.59 13.41 11 23l-2.5-2.5\"><\/path>\n          <path d=\"M17 7h.01\"><\/path>\n          <path d=\"M3 11V3h8l10 10-8 8L3 11z\"><\/path>\n        <\/svg>\n      <\/span>\n      <span>Extra Savings Available<\/span>\n    <\/div>\n\n    <div class=\"esg-promo-code-box__ends\">\n      Ends Apr 30, 2026\n    <\/div>\n  <\/div>\n\n  <div class=\"esg-promo-code-box__text\">\n    Use code below for <strong>up to 10% off<\/strong> at cart or checkout.\n  <\/div>\n\n  <div class=\"esg-promo-code-box__row\">\n    <div id=\"esg-promo-code\" class=\"esg-promo-code-box__code\">GOLFJOY10<\/div>\n\n    <button type=\"button\" id=\"esg-promo-copy\" class=\"esg-promo-code-box__button\">\n      Copy Code\n    <\/button>\n\n    <div id=\"esg-promo-copied\" class=\"esg-promo-code-box__copied\">\n      Copied\n    <\/div>\n  <\/div>\n\n  <div class=\"esg-promo-code-box__note\">\n    Tap the code or button to copy instantly.\n  <\/div>\n<\/div>\n\n<style>\n  .esg-promo-code-box {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #23923d;\n    border-radius: 12px;\n    background: linear-gradient(180deg, #f7fcf7 0%, #eef8ef 100%);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,.75),\n      0 1px 2px rgba(16,42,67,.05);\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-promo-code-box__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    margin-bottom: 7px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__title {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #168232;\n    letter-spacing: .1px;\n    line-height: 1.2;\n  }\n\n  .esg-promo-code-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #168232;\n    flex: 0 0 16px;\n  }\n\n  .esg-promo-code-box__title-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-promo-code-box__ends {\n    display: inline-block;\n    padding: 5px 8px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.28);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);\n  }\n\n  .esg-promo-code-box__text {\n    font-size: 13px;\n    color: #102a43;\n    margin-bottom: 9px;\n  }\n\n  .esg-promo-code-box__text strong {\n    font-weight: 800;\n  }\n\n  .esg-promo-code-box__row {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__code {\n    display: inline-flex;\n    align-items: center;\n    padding: 8px 11px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px dashed rgba(35,146,61,.45);\n    color: #168232;\n    font-weight: 900;\n    font-size: 12.5px;\n    letter-spacing: .12em;\n    line-height: 1;\n    user-select: all;\n    cursor: pointer;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.85);\n  }\n\n  .esg-promo-code-box__button {\n    appearance: none;\n    border: 1px solid #23923d;\n    border-radius: 999px;\n    padding: 8px 12px;\n    background: #168232;\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 12.5px;\n    line-height: 1;\n    cursor: pointer;\n    box-shadow: 0 1px 2px rgba(16,42,67,.08);\n    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;\n  }\n\n  .esg-promo-code-box__button:hover {\n    background: #136f2b;\n    transform: translateY(-1px);\n  }\n\n  .esg-promo-code-box__copied {\n    display: none;\n    align-items: center;\n    padding: 7px 10px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.35);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .esg-promo-code-box__note {\n    margin-top: 8px;\n    font-size: 12px;\n    color: #35506b;\n  }\n\n  @media (max-width: 749px) {\n    .esg-promo-code-box {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-promo-code-box__title {\n      font-size: 13.5px;\n    }\n\n    .esg-promo-code-box__title-icon {\n      width: 15px;\n      height: 15px;\n      min-width: 15px;\n      flex-basis: 15px;\n    }\n\n    .esg-promo-code-box__title-icon svg {\n      width: 15px;\n      height: 15px;\n    }\n\n    .esg-promo-code-box__ends,\n    .esg-promo-code-box__text,\n    .esg-promo-code-box__button,\n    .esg-promo-code-box__code {\n      font-size: 12px;\n    }\n\n    .esg-promo-code-box__note {\n      font-size: 11.5px;\n    }\n  }\n<\/style>\n\n<script>\n(function () {\n  var btn = document.getElementById('esg-promo-copy');\n  var codeEl = document.getElementById('esg-promo-code');\n  var badge = document.getElementById('esg-promo-copied');\n  if (!btn || !codeEl) return;\n\n  function showCopied() {\n    if (!badge) return;\n    badge.style.display = 'inline-flex';\n    setTimeout(function () {\n      badge.style.display = 'none';\n    }, 1400);\n  }\n\n  async function copyCode() {\n    var code = (codeEl.textContent || '').trim();\n\n    try {\n      if (navigator.clipboard && navigator.clipboard.writeText) {\n        await navigator.clipboard.writeText(code);\n        showCopied();\n        return;\n      }\n    } catch (e) {}\n\n    var ta = document.createElement('textarea');\n    ta.value = code;\n    ta.setAttribute('readonly', '');\n    ta.style.position = 'absolute';\n    ta.style.left = '-9999px';\n    document.body.appendChild(ta);\n    ta.select();\n\n    try {\n      document.execCommand('copy');\n      showCopied();\n    } catch (e) {}\n\n    document.body.removeChild(ta);\n  }\n\n  btn.addEventListener('click', copyCode);\n  codeEl.addEventListener('click', copyCode);\n  codeEl.title = 'Click to copy';\n})();\n<\/script>\n{%- endif -%}{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'spica 3' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns<\/div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>GolfJoy Spica 3<\/strong> by 2PM ET for same-day shipping.\n  <\/div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins<\/span>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n<\/style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America\/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff \/ (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) \/ (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n<\/script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_WTm6Q9": {
+          "type": "custom-liquid",
+          "name": "Eye Mini Lite Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'eye mini lite' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns<\/div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>UNEEKOR Eye Mini Lite<\/strong> by 2PM ET for same-day shipping.\n  <\/div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins<\/span>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n<\/style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America\/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff \/ (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) \/ (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n<\/script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_FKVhxB": {
+          "type": "custom-liquid",
+          "name": "Garmin R50 Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'garmin r50' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns<\/div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>Garmin Approach R50<\/strong> by 2PM ET for same-day shipping.\n  <\/div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins<\/span>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n<\/style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America\/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff \/ (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) \/ (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n<\/script>\n{%- endif -%}"
+          }
+        },
+        "selleasy_lb_upsell_widget_pal_N7NDgy": {
+          "type": "shopify:\/\/apps\/selleasy\/blocks\/lb-upsell-widget-pal\/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "name": "Trust Badge",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"esg-trust-listbox\">\n  <div class=\"esg-trust-listbox__header\">\n    <span class=\"esg-trust-listbox__header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"><\/path>\n      <\/svg>\n    <\/span>\n    <span>Why Buy from Elite Sim Golf<\/span>\n  <\/div>\n\n  <div class=\"esg-trust-lines\">\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">✅<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Authorized {{ product.vendor }} Dealer<\/div>\n        <div class=\"esg-trust-line__text\">\n          Elite Sim Golf is a Premier {{ product.vendor }} Partner.\n        <\/div>\n      <\/div>\n    <\/div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">🚚<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Ships Same Business Day<\/div>\n        <div class=\"esg-trust-line__text\">\n          Orders placed before <strong>2PM EST<\/strong> typically ship same day.\n        <\/div>\n      <\/div>\n    <\/div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">📦<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Free Shipping on Most Orders<\/div>\n        <div class=\"esg-trust-line__text\">\n          Most orders ship free and may qualify for no sales tax.\n        <\/div>\n      <\/div>\n    <\/div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">👤<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Real Golf Experts, Not Bots<\/div>\n        <div class=\"esg-trust-line__text\">\n          Call <strong>866-4-SIM-GOLF<\/strong> to speak with a real human.\n        <\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-trust-listbox {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #e5e7eb;\n    border-radius: 12px;\n    background: #ffffff;\n    box-shadow:\n      0 1px 2px rgba(15, 23, 42, .04),\n      inset 0 1px 0 rgba(255,255,255,.8);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n    color: #1f2937;\n  }\n\n  .esg-trust-listbox__header {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #0f172a;\n    line-height: 1.2;\n    letter-spacing: .1px;\n    margin-bottom: 10px;\n  }\n\n  .esg-trust-listbox__header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #086ed3;\n    flex: 0 0 16px;\n  }\n\n  .esg-trust-listbox__header-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-trust-lines {\n    display: grid;\n    gap: 8px;\n  }\n\n  .esg-trust-line {\n    display: flex;\n    align-items: flex-start;\n    gap: 10px;\n    padding: 2px 0;\n  }\n\n  .esg-trust-line + .esg-trust-line {\n    border-top: 1px solid #eef2f7;\n    padding-top: 10px;\n    margin-top: 2px;\n  }\n\n  .esg-trust-line__icon {\n    width: 28px;\n    height: 28px;\n    min-width: 28px;\n    border-radius: 9px;\n    background: #f4f8ff;\n    border: 1px solid rgba(8,110,211,.10);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 15px;\n    line-height: 1;\n  }\n\n  .esg-trust-line__content {\n    min-width: 0;\n    line-height: 1.35;\n  }\n\n  .esg-trust-line__title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #111827;\n    margin: 0 0 2px;\n  }\n\n  .esg-trust-line__text {\n    font-size: 12px;\n    color: #6b7280;\n  }\n\n  .esg-trust-line__text strong {\n    color: #1f2937;\n    font-weight: 800;\n  }\n\n  @media (max-width: 749px) {\n    .esg-trust-listbox {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-trust-listbox__header {\n      font-size: 13.5px;\n    }\n\n    .esg-trust-line__title,\n    .esg-trust-line__text {\n      font-size: 12px;\n    }\n  }\n<\/style>"
+          }
+        },
+        "custom_liquid_dTArF3": {
+          "type": "custom-liquid",
+          "name": "Trust Badge V2",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"esg-trust-listbox\">\n  <div class=\"esg-trust-listbox__header\">\n    <span class=\"esg-trust-listbox__header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"><\/path>\n      <\/svg>\n    <\/span>\n    <span>Why Buy from Elite Sim Golf<\/span>\n  <\/div>\n\n  <div class=\"esg-trust-lines\">\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">✅<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Authorized {{ product.vendor }} Dealer<\/div>\n        <div class=\"esg-trust-line__text\">\n          Elite Sim Golf is a Premier {{ product.vendor }} Partner.\n        <\/div>\n      <\/div>\n    <\/div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">🚚<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Ships Same Business Day<\/div>\n        <div class=\"esg-trust-line__text\">\n          Orders placed before <strong>2PM EST<\/strong> typically ship same day.\n        <\/div>\n      <\/div>\n    <\/div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">📦<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Free Shipping on Most Orders<\/div>\n        <div class=\"esg-trust-line__text\">\n          Most orders ship free and may qualify for no sales tax.\n        <\/div>\n      <\/div>\n    <\/div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">👤<\/div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Real Golf Experts, Not Bots<\/div>\n        <div class=\"esg-trust-line__text\">\n          Call <strong>866-4-SIM-GOLF<\/strong> to speak with a real human.\n        <\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-trust-listbox {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 10px 12px;\n    border: 1px solid #e5e7eb;\n    border-radius: 12px;\n    background: #ffffff;\n    box-shadow:\n      0 1px 2px rgba(15, 23, 42, .04),\n      inset 0 1px 0 rgba(255,255,255,.8);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n    color: #1f2937;\n  }\n\n  .esg-trust-listbox__header {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #0f172a;\n    line-height: 1.2;\n    letter-spacing: .1px;\n    margin-bottom: 8px;\n  }\n\n  .esg-trust-listbox__header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #086ed3;\n    flex: 0 0 16px;\n  }\n\n  .esg-trust-listbox__header-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-trust-lines {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 8px 16px;\n  }\n\n  .esg-trust-line {\n    display: flex;\n    align-items: flex-start;\n    gap: 10px;\n    padding: 2px 0;\n  }\n\n  .esg-trust-line:nth-child(odd) {\n    border-right: 1px solid #eef2f7;\n    padding-right: 16px;\n  }\n\n  .esg-trust-line__icon {\n    width: 26px;\n    height: 26px;\n    min-width: 26px;\n    border-radius: 9px;\n    background: #f4f8ff;\n    border: 1px solid rgba(8,110,211,.10);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 15px;\n    line-height: 1;\n  }\n\n  .esg-trust-line__content {\n    min-width: 0;\n    line-height: 1.35;\n  }\n\n  .esg-trust-line__title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #111827;\n    margin: 0 0 2px;\n  }\n\n  .esg-trust-line__text {\n    font-size: 12px;\n    color: #6b7280;\n  }\n\n  .esg-trust-line__text strong {\n    color: #1f2937;\n    font-weight: 800;\n  }\n\n  @media (max-width: 749px) {\n    .esg-trust-listbox {\n      padding: 10px 12px;\n      border-radius: 10px;\n    }\n\n    .esg-trust-listbox__header {\n      font-size: 13.5px;\n    }\n\n    .esg-trust-lines {\n      grid-template-columns: 1fr;\n    }\n\n    .esg-trust-line:nth-child(odd) {\n      border-right: none;\n      padding-right: 0;\n    }\n\n    .esg-trust-line__title,\n    .esg-trust-line__text {\n      font-size: 12px;\n    }\n  }\n<\/style>"
+          }
+        },
+        "custom_liquid_mwjkGb": {
+          "type": "custom-liquid",
+          "name": "Trust Badge V3",
+          "settings": {
+            "custom_liquid": "<div class=\"esg-trust-listbox\">\n  <div class=\"esg-trust-listbox__header\">\n    <span class=\"esg-trust-listbox__header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"><\/path>\n      <\/svg>\n    <\/span>\n    <span>Why Buy from Elite Sim Golf<\/span>\n  <\/div>\n\n  <div class=\"esg-trust-lines\">\n    <div class=\"esg-trust-line\">\n      <span class=\"esg-trust-line__icon\">✅<\/span>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Authorized {{ product.vendor }} Dealer<\/div>\n        <div class=\"esg-trust-line__text\">Premier {{ product.vendor }} Partner.<\/div>\n      <\/div>\n    <\/div>\n    <div class=\"esg-trust-line\">\n      <span class=\"esg-trust-line__icon\">🚚<\/span>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Ships Same Business Day*<\/div>\n        <div class=\"esg-trust-line__text\">Orders placed before <strong>2PM EST.<\/strong><\/div>\n      <\/div>\n    <\/div>\n    <div class=\"esg-trust-line\">\n      <span class=\"esg-trust-line__icon\">📦<\/span>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Free Shipping on Most Orders<\/div>\n        <div class=\"esg-trust-line__text\">Ships free, may qualify for no sales tax.<\/div>\n      <\/div>\n    <\/div>\n    <div class=\"esg-trust-line\">\n      <span class=\"esg-trust-line__icon\">👤<\/span>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Real Golf Experts, Not Bots<\/div>\n        <div class=\"esg-trust-line__text\">Call <strong>866-4-SIM-GOLF<\/strong> anytime.<\/div>\n      <\/div>\n    <\/div>\n  <\/div>\n<\/div>\n\n<style>\n  .esg-trust-listbox {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 8px 12px;\n    border: 1px solid #e5e7eb;\n    border-radius: 10px;\n    background: #fff;\n    box-shadow: 0 1px 2px rgba(15,23,42,.04);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n    color: #1f2937;\n  }\n\n  .esg-trust-listbox__header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11px;\n    font-weight: 700;\n    color: #6b7280;\n    text-transform: uppercase;\n    letter-spacing: .6px;\n    margin-bottom: 7px;\n  }\n\n  .esg-trust-listbox__header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 13px;\n    height: 13px;\n    min-width: 13px;\n    color: #086ed3;\n    flex: 0 0 13px;\n  }\n\n  .esg-trust-listbox__header-icon svg {\n    width: 13px;\n    height: 13px;\n    display: block;\n  }\n\n  .esg-trust-lines {\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n    gap: 5px 0;\n  }\n\n  .esg-trust-line {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    padding: 3px 10px 3px 0;\n  }\n\n  .esg-trust-line:nth-child(odd) {\n    border-right: 1px solid #e5e7eb;\n    padding-right: 14px;\n  }\n\n  .esg-trust-line:nth-child(even) {\n    padding-left: 14px;\n  }\n\n  .esg-trust-line__icon {\n    font-size: 14px;\n    line-height: 1;\n    flex-shrink: 0;\n  }\n\n  .esg-trust-line__content {\n    min-width: 0;\n    line-height: 1.25;\n  }\n\n  .esg-trust-line__title {\n    font-size: 12px;\n    font-weight: 700;\n    color: #111827;\n    white-space: nowrap;\n  }\n\n  .esg-trust-line__text {\n    font-size: 11px;\n    color: #9ca3af;\n    white-space: nowrap;\n  }\n\n  .esg-trust-line__text strong {\n    color: #374151;\n    font-weight: 700;\n  }\n\n  @media (max-width: 749px) {\n    .esg-trust-lines {\n      grid-template-columns: 1fr;\n    }\n    .esg-trust-line:nth-child(odd) {\n      border-right: none;\n      padding-right: 0;\n      border-bottom: 1px solid #e5e7eb;\n      padding-bottom: 5px;\n    }\n    .esg-trust-line:nth-child(even) {\n      padding-left: 0;\n    }\n    .esg-trust-line__title,\n    .esg-trust-line__text {\n      white-space: normal;\n    }\n  }\n<\/style>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS<\/h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "w3_product_accessories_widget_Nw99yW": {
+          "type": "shopify:\/\/apps\/w3-product-accessories\/blocks\/widget\/cebf1474-e4fa-4cb4-a91e-d313690bf6f1",
+          "settings": {}
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify:\/\/apps\/bundly\/blocks\/product_bundles\/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_YjxFiw",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "globo_product_options_app_block_rJ7Cfp",
+        "custom_liquid_pzbbWW",
+        "custom_liquid_YdCQek",
+        "custom_liquid_Y4NHb7",
+        "custom_liquid_WTm6Q9",
+        "custom_liquid_FKVhxB",
+        "selleasy_lb_upsell_widget_pal_N7NDgy",
+        "buy-buttons",
+        "custom_liquid_tbWYJT",
+        "custom_liquid_dTArF3",
+        "custom_liquid_mwjkGb",
+        "richtext_3t6BjV",
+        "w3_product_accessories_widget_Nw99yW",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "1",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ngWkaP": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ngWkaP"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

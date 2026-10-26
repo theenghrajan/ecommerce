@@ -1,0 +1,125 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner-art",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "bg_style": "none",
+        "boundary_effect": "",
+        "show_contrast_logo": true,
+        "hero_bg_color": "#e4e4e4",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#3f3f3f",
+        "image_align": "object-center",
+        "hero_tint_color": "#141414",
+        "hero_tint_opacity": 50,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": true,
+        "show_author": false,
+        "show_date": false
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "custom_css": [],
+      "settings": {
+        "show_tags": true,
+        "show_featured_products": true,
+        "share_twitter": true,
+        "share_facebook": true,
+        "share_pinterest": false,
+        "more_stories_image_ratio": "shortest",
+        "more_stories_show_author": false,
+        "more_stories_show_date": false,
+        "more_stories_color_scheme": "none"
+      }
+    },
+    "featured_product_AJcPQy": {
+      "type": "featured-product",
+      "blocks": {
+        "title_8bGFxX": {
+          "type": "title",
+          "settings": {}
+        },
+        "price_9d9zyq": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "buy_buttons_bHj6Ga": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "never",
+            "inventory_threshold": 10
+          }
+        },
+        "divider_MB9NiJ": {
+          "type": "divider",
+          "settings": {}
+        },
+        "description_UtjVPf": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": false,
+            "icon": "none",
+            "open": false
+          }
+        },
+        "variant_picker_8tRCCa": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "buttons",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_8bGFxX",
+        "price_9d9zyq",
+        "buy_buttons_bHj6Ga",
+        "divider_MB9NiJ",
+        "description_UtjVPf",
+        "variant_picker_8tRCCa"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "product": "vtrack-golf-launch-monitor",
+        "enable_sticky_columns": true,
+        "media_size": "small",
+        "media_ratio": "1",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": false,
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "featured_product_AJcPQy"
+  ]
+}

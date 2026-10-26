@@ -1,0 +1,865 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_pbqFER": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_KUiXgf": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/SimKitSale.jpg",
+            "tint_color": "#000000",
+            "tint_opacity": 0,
+            "overlay_position": "justify-end items-end",
+            "overlay_text_align": "right",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h3",
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": true,
+            "button_1_label": "shop deals",
+            "button_1_link": "shopify://collections/spring-sale-on-golf-simulators-equipment",
+            "button_1_style": "btn--secondary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn--hollow"
+          }
+        },
+        "slide_nPgLHq": {
+          "type": "slide",
+          "name": "Vtrack",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Vtrack-Banner.png",
+            "tint_color": "#ffffff",
+            "tint_opacity": 0,
+            "overlay_position": "justify-end items-end",
+            "overlay_text_align": "left",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": false,
+            "button_1_label": "shop vtrack packages",
+            "button_1_link": "shopify://collections/vtrack-golf-launch-monitor-sim-kit-bundles",
+            "button_1_style": "btn--secondary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn--hollow"
+          }
+        },
+        "slide_qHRYpp": {
+          "type": "slide",
+          "name": "Simulators",
+          "settings": {
+            "image_desktop": "shopify://shop_images/0319E03E-148A-4F8B-A1E7-438951558A8E.png",
+            "tint_color": "#ffffff",
+            "tint_opacity": 0,
+            "overlay_position": "justify-end items-end",
+            "overlay_text_align": "left",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": false,
+            "button_1_label": "",
+            "button_1_link": "shopify://collections/golf-simulator-enclosures",
+            "button_1_style": "btn--hollow",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn--hollow"
+          }
+        },
+        "slide_bEVDmN": {
+          "type": "slide",
+          "name": "BenQ",
+          "settings": {
+            "image_desktop": "shopify://shop_images/BenQASeries.png",
+            "tint_color": "#000000",
+            "tint_opacity": 0,
+            "overlay_position": "justify-center items-end",
+            "overlay_text_align": "center",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h2",
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": true,
+            "button_1_label": "",
+            "button_1_link": "shopify://collections/spring-sale-on-golf-simulators-equipment",
+            "button_1_style": "btn--secondary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn--primary"
+          }
+        },
+        "slide_V4QKyF": {
+          "type": "slide",
+          "name": "R50",
+          "settings": {
+            "image_desktop": "shopify://shop_images/r50.png",
+            "tint_color": "#ffffff",
+            "tint_opacity": 0,
+            "overlay_position": "justify-end items-end",
+            "overlay_text_align": "left",
+            "subheading": "",
+            "heading": "",
+            "heading_size": "h0",
+            "heading_h1": false,
+            "text": "",
+            "enlarge_text": false,
+            "button_1_label": "shop garmin r50 packages",
+            "button_1_link": "shopify://collections/garmin-r50-golf-simulator-packages",
+            "button_1_style": "btn--secondary",
+            "button_2_label": "",
+            "button_2_link": "",
+            "button_2_style": "btn--hollow"
+          }
+        }
+      },
+      "block_order": [
+        "slide_KUiXgf",
+        "slide_nPgLHq",
+        "slide_qHRYpp",
+        "slide_bEVDmN",
+        "slide_V4QKyF"
+      ],
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 450,
+        "fixed_height_mobile": 250,
+        "full_width": true,
+        "mobile_center_text": true,
+        "mobile_stacked": false,
+        "enable_split": true,
+        "nav_style": "arrows",
+        "nav_position": "justify-center",
+        "transition": "slide-fade",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "text_border_width": 0,
+        "text_border_color": "#ffffff",
+        "text_border_radius": 0,
+        "text_bg_opacity": 100,
+        "color_scheme": "none",
+        "text_color_without_scheme": "#ffffff",
+        "boundary_effect": "",
+        "bg_color": "rgba(0,0,0,0)",
+        "accessibility_info": "Featured collections and new arrivals"
+      }
+    },
+    "scrolling_banner_6RXbfQ": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "text_4fkU9a": {
+          "type": "text",
+          "settings": {
+            "text": "Uniting people to our movement",
+            "link": "",
+            "font": "heading",
+            "heading_size": "h4"
+          }
+        },
+        "text_YDNLtm": {
+          "type": "text",
+          "settings": {
+            "text": "JOIN THE REVOLUTION",
+            "link": "",
+            "font": "body",
+            "heading_size": "h4"
+          }
+        },
+        "image_k9WgJi": {
+          "type": "image",
+          "settings": {
+            "image_height": 56,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_4fkU9a",
+        "text_YDNLtm",
+        "image_k9WgJi"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "",
+        "spacing": 32,
+        "speed": 24,
+        "direction": "normal",
+        "pausable": true,
+        "color_scheme": "3",
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "rich_text_TxDnYr": {
+      "type": "rich-text",
+      "blocks": {
+        "text_iwMPma": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<h1>Affordable Premium Golf Simulators & Accessories Sale</h1>",
+            "text_size": 100
+          }
+        }
+      },
+      "block_order": [
+        "text_iwMPma"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "text_alignment": "center",
+        "full_width_content": false,
+        "full_width": true,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "collection_list_eHYPFQ": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_pAiEgW": {
+          "type": "collection",
+          "settings": {
+            "collection": "golf-simulator-enclosures",
+            "image": "shopify://shop_images/E12-Angle.png"
+          }
+        },
+        "collection_L6VNRQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "golf-simulator-packages-sim-in-a-box",
+            "image": "shopify://shop_images/EML-B10-Ak700.png"
+          }
+        },
+        "collection_7APBjY": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitors",
+            "image": "shopify://shop_images/shopping_6996434a-6dc2-45e9-89f6-14075eab6d18.webp"
+          }
+        },
+        "collection_JMHWqr": {
+          "type": "collection",
+          "settings": {
+            "collection": "golf-simulator-projectors",
+            "image": "shopify://shop_images/AK700_5f9c5a28-08e6-4d21-8772-d0fa6f485625.png"
+          }
+        },
+        "collection_MpmpLx": {
+          "type": "collection",
+          "settings": {
+            "collection": "hitting-mats-strips",
+            "image": "shopify://shop_images/EPT455-Side.heic"
+          }
+        },
+        "collection_aPt7xe": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_pAiEgW",
+        "collection_L6VNRQ",
+        "collection_7APBjY",
+        "collection_JMHWqr",
+        "collection_MpmpLx",
+        "collection_aPt7xe"
+      ],
+      "settings": {
+        "heading": "SHOP POPULAR CATEGORIES",
+        "show_view_all": false,
+        "layout": "carousel",
+        "card_size": "small",
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Golf Simulator Enclosures",
+        "collection": "golf-simulator-enclosures",
+        "layout": "carousel",
+        "card_size": "medium",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "full_width": false,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured_collection_piKTw3": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "Best selling Launch Monitors",
+        "collection": "launch-monitors",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 6,
+        "show_view_all": true,
+        "full_width": false,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured_collection_XDUhqQ": {
+      "type": "featured-collection",
+      "settings": {
+        "heading": "Golf Simulator Projectors",
+        "collection": "golf-simulator-projectors",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 10,
+        "show_view_all": true,
+        "full_width": false,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "featured_collection_ypihd7": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "heading": "GOLF SIMULATOR PACKAGES",
+        "collection": "golf-simulator-packages-sim-in-a-box",
+        "layout": "grid",
+        "card_size": "small",
+        "products_to_show": 10,
+        "show_view_all": true,
+        "full_width": true,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    },
+    "6cf8709f-b5f0-42f6-be5f-a4a73a575431": {
+      "type": "video",
+      "blocks": {
+        "subheading_LJX8Fm": {
+          "type": "subheading",
+          "settings": {
+            "text": "WE HAVE A VISION"
+          }
+        },
+        "045a3482-49c9-444c-9ec9-d1d9a7da43d4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Uniting people<br>to our movement",
+            "heading_size": "h0",
+            "heading_h1": false
+          }
+        },
+        "07e91bef-8e5e-4912-9808-b23aa3e2873e": {
+          "type": "text",
+          "settings": {
+            "text": "<p>To produce the best performance wear on the planet.</p>",
+            "enlarge_text": true
+          }
+        },
+        "button_CrYGXQ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read more",
+            "button_link": "",
+            "button_style": "btn--hollow"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_LJX8Fm",
+        "045a3482-49c9-444c-9ec9-d1d9a7da43d4",
+        "07e91bef-8e5e-4912-9808-b23aa3e2873e",
+        "button_CrYGXQ"
+      ],
+      "disabled": true,
+      "settings": {
+        "video_external": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "video_description": "",
+        "video_size": "full",
+        "video_autoplay": true,
+        "overlay_text_align": "center",
+        "overlay_position": "justify-center items-center",
+        "text_border_width": 0,
+        "text_border_color": "#000000",
+        "text_border_radius": 0,
+        "tint_color": "#000000",
+        "tint_opacity": 45,
+        "color_scheme": "1",
+        "text_color_without_scheme": "#ffffff",
+        "full_width_bg": false,
+        "text_bg_opacity": 0,
+        "boundary_effect": "top-flipped"
+      }
+    },
+    "slideshow_with_text_Qq8mpj": {
+      "type": "slideshow-with-text",
+      "blocks": {
+        "slide_LQLDAd": {
+          "type": "slide",
+          "settings": {}
+        },
+        "slide_GWLQhH": {
+          "type": "slide",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "slide_LQLDAd",
+        "slide_GWLQhH"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "We aim to use the best materials possible",
+        "text": "<p>Sustainability and performance, we believe they go hand-in-hand. Reducing our carbon footprint is a core philosophy at Rockay, and one of the biggest factors is the materials we use in our socks, sleeves, apparel and accessories. Wherever we can, we use recycled and sustainable materials and technologies.</p>",
+        "button_text": "About Us",
+        "button_link": "",
+        "button_style": "feature-link",
+        "layout": "left",
+        "text_alignment": "left",
+        "text_center_mobile": true,
+        "bg_style": "section",
+        "color_scheme": "3",
+        "boundary_effect": "top-flipped",
+        "nav_style": "dots",
+        "nav_position": "justify-center",
+        "transition": "slide-fade",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "accessibility_info": "Featured collections and new arrivals"
+      }
+    },
+    "multi_column_w9xBVR": {
+      "type": "multi-column",
+      "blocks": {
+        "column_8mKWKN": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/tubing.png",
+            "heading": "heavywall tubing",
+            "heading_size": "h4",
+            "text": "<p>All our ELITE SIM GOLF Enclosures use 1-1/4\" Powder Coated Steel tubing for the frame. The system snaps together using snap clips in minutes, most enclosures can be assembled in 30 minutes or less. </p>",
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "feature-link"
+          }
+        },
+        "column_YtdiNd": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/thumbnail_IMG_5470.jpg",
+            "heading": "MATERIALS & TECHNOLOGY",
+            "heading_size": "h4",
+            "text": "<p>All our ELITE SIM GOLF Enclosures have a 360 Hook and Loops Velcro system around the impact screen to keep errant golf balls from contacting the frame and at the front of the enclosure to keep the fabric tight.</p>",
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "feature-link"
+          }
+        },
+        "column_TcgJMf": {
+          "type": "column",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Screenshot_2025-08-25_092324.png",
+            "heading": "4K ULTRA impact screens",
+            "heading_size": "h4",
+            "text": "<p>All our ELITE SIM GOLF Enclosures use 4K ULTRA Premium 3D/Triple Layer Impact Screens to ensure a long life of the impact screen and the highest quality 4K picture imaginable. Blackout screen optional with all sims.</p>",
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "feature-link"
+          }
+        }
+      },
+      "block_order": [
+        "column_8mKWKN",
+        "column_YtdiNd",
+        "column_TcgJMf"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "The elite Way...",
+        "button_label": "",
+        "button_link": "#",
+        "layout": "grid",
+        "column_align": "center",
+        "image_ratio": "1",
+        "full_width": true,
+        "bg_style": "none",
+        "color_scheme": "2",
+        "boundary_effect": ""
+      }
+    },
+    "d628428a-df66-4878-837a-7028713c9d08": {
+      "type": "testimonials",
+      "blocks": {
+        "template--16909755089123__d628428a-df66-4878-837a-7028713c9d08-testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>Coming Soon</h3>",
+            "author": "Lulu, CA.",
+            "image_shape": "round",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "template--16909755089123__d628428a-df66-4878-837a-7028713c9d08-testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>COMING SOON</h3>",
+            "author": "Jeff, WA.",
+            "image_shape": "round",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "5f941adf-9e08-403a-a647-dc525c6bddb3": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<h3>COMING SOON</h3>",
+            "author": "Stacey, PA.",
+            "image_shape": "round",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--16909755089123__d628428a-df66-4878-837a-7028713c9d08-testimonial-1",
+        "template--16909755089123__d628428a-df66-4878-837a-7028713c9d08-testimonial-2",
+        "5f941adf-9e08-403a-a647-dc525c6bddb3"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "CUSTOMER REVIEWS",
+        "nav_style": "dots",
+        "transition": "slide-fade",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "full_width": true,
+        "color_scheme": "2",
+        "boundary_effect": ""
+      }
+    },
+    "image_banner_dBHKcn": {
+      "type": "image-banner",
+      "blocks": {
+        "subheading_YQcHDh": {
+          "type": "subheading",
+          "settings": {
+            "text": "Time is Running Out..."
+          }
+        },
+        "heading_BLjCCi": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shop Flash Sale!",
+            "heading_size": "h0",
+            "heading_h1": false
+          }
+        },
+        "countdown_aagYtH": {
+          "type": "countdown",
+          "settings": {
+            "end_date": "",
+            "end_time": "",
+            "end_text": "",
+            "hide_on_end": false,
+            "number_size": 48,
+            "number_font": "base",
+            "show_dividers": true,
+            "divider_color": "#d2ff28",
+            "show_timer_labels": true
+          }
+        },
+        "button_ejxDKW": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "",
+            "button_style": "btn--hollow"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_YQcHDh",
+        "heading_BLjCCi",
+        "countdown_aagYtH",
+        "button_ejxDKW"
+      ],
+      "disabled": true,
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 560,
+        "fixed_height_mobile": 500,
+        "full_width": true,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "left",
+        "mobile_center_text": true,
+        "mobile_stacked": false,
+        "text_border_width": 0,
+        "text_border_color": "#ffffff",
+        "text_border_radius": 0,
+        "text_bg_opacity": 100,
+        "color_scheme": "none",
+        "text_color_without_scheme": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 30,
+        "boundary_effect": ""
+      }
+    },
+    "95e37522-bf81-4793-920a-81f1e9ffbaad": {
+      "type": "featured-product",
+      "blocks": {
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-title-1": {
+          "type": "title",
+          "settings": {}
+        },
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-price-1": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": false,
+            "show_rating": true
+          }
+        },
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-divider-2": {
+          "type": "divider",
+          "settings": {}
+        },
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-variant-picker-1": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "buttons",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-buy-buttons-1": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_backorder_text": true,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "always",
+            "show_inventory_count": "low",
+            "inventory_threshold": 10
+          }
+        }
+      },
+      "block_order": [
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-title-1",
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-price-1",
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-divider-2",
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-variant-picker-1",
+        "template--16909755089123__95e37522-bf81-4793-920a-81f1e9ffbaad-buy-buttons-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "product": "",
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "c1169fa9-36cc-40ec-870e-156c8f475960": {
+      "type": "image-banner",
+      "blocks": {
+        "subheading_QGiYJD": {
+          "type": "subheading",
+          "settings": {
+            "text": "Our promise to the environment"
+          }
+        },
+        "template--16909755089123__c1169fa9-36cc-40ec-870e-156c8f475960-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's stop senseless<br>waste and pollution...",
+            "heading_size": "h1",
+            "heading_h1": false
+          }
+        },
+        "text_PhUGET": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We never compromise, no matter how long it takes, no matter the restraints, until we truly believe we have produced the ultimate in Sports Performance and sustainability. Our vision is to produce incredible Performance Wear and to protect our phenomenal Planet.</p>",
+            "enlarge_text": false
+          }
+        },
+        "template--16909755089123__c1169fa9-36cc-40ec-870e-156c8f475960-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "About Us",
+            "button_link": "",
+            "button_style": "btn--hollow"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_QGiYJD",
+        "template--16909755089123__c1169fa9-36cc-40ec-870e-156c8f475960-heading-1",
+        "text_PhUGET",
+        "template--16909755089123__c1169fa9-36cc-40ec-870e-156c8f475960-button-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 720,
+        "fixed_height_mobile": 650,
+        "full_width": false,
+        "overlay_position": "justify-start items-center",
+        "overlay_text_align": "left",
+        "mobile_center_text": true,
+        "mobile_stacked": false,
+        "text_border_width": 0,
+        "text_border_color": "#ffffff",
+        "text_border_radius": 0,
+        "text_bg_opacity": 20,
+        "color_scheme": "1",
+        "text_color_without_scheme": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "boundary_effect": ""
+      }
+    },
+    "1759415466965f5f6d": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_cards_carousel_pT8fjG": {
+          "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "show_sample_reviews": false,
+            "reviews_selection": "store_reviews",
+            "products": [],
+            "star_rating": "all",
+            "show_review_media": true,
+            "display_order": "media_first",
+            "no_image_fallback": "review_text_only",
+            "max_reviews": 20,
+            "review_length": "small",
+            "text_size": "medium",
+            "image_ratio": "1",
+            "reviews_shown": 5,
+            "show_reviewer_name": true,
+            "show_product_name": true,
+            "hide_arrows_mobile": true,
+            "arrows_position": "sides",
+            "max_width": 1600,
+            "corner_styling": "soft",
+            "header_text_color": "#000000",
+            "text_color": "#000000",
+            "card_color": "#F9F9F9",
+            "stars_color": "#2953b9",
+            "arrows_color": "#2953b9",
+            "transition_speed": 5,
+            "header_text": "what our Customers are saying",
+            "show_average_rating": true
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_cards_carousel_pT8fjG"
+      ],
+      "custom_css": [],
+      "settings": {
+        "full_width": true
+      }
+    },
+    "featured_blog_3VNLcD": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "elite sim golf Blog",
+        "blog": "product-reviews",
+        "show_view_all": true,
+        "image_ratio": "shortest",
+        "color_scheme": "2",
+        "boundary_effect": "top-flipped"
+      }
+    },
+    "newsletter_FJWAwC": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_k9XXbH": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our newsletter",
+            "heading_size": "h3"
+          }
+        },
+        "text_Wi9XTz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be the first to know about new products and exclusive offers.</p>",
+            "enlarge_text": true
+          }
+        },
+        "form_ABJDin": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_k9XXbH",
+        "text_Wi9XTz",
+        "form_ABJDin"
+      ],
+      "settings": {
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "text_position": "justify-center",
+        "text_alignment": "center",
+        "text_border_width": 0,
+        "text_border_color": "#000000",
+        "text_border_radius": 0,
+        "text_bg_opacity": 0,
+        "full_width": true,
+        "color_scheme": "none",
+        "boundary_effect": "top-flipped"
+      }
+    }
+  },
+  "order": [
+    "slideshow_pbqFER",
+    "scrolling_banner_6RXbfQ",
+    "rich_text_TxDnYr",
+    "collection_list_eHYPFQ",
+    "featured-collection",
+    "featured_collection_piKTw3",
+    "featured_collection_XDUhqQ",
+    "featured_collection_ypihd7",
+    "6cf8709f-b5f0-42f6-be5f-a4a73a575431",
+    "slideshow_with_text_Qq8mpj",
+    "multi_column_w9xBVR",
+    "d628428a-df66-4878-837a-7028713c9d08",
+    "image_banner_dBHKcn",
+    "95e37522-bf81-4793-920a-81f1e9ffbaad",
+    "c1169fa9-36cc-40ec-870e-156c8f475960",
+    "1759415466965f5f6d",
+    "featured_blog_3VNLcD",
+    "newsletter_FJWAwC"
+  ]
+}

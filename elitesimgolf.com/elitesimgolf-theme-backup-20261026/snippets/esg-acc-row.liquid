@@ -1,0 +1,139 @@
+{%- comment -%}
+============================================================
+  ESG ACCESSORIES — single row
+  File: snippets/esg-acc-row.liquid
+
+  Params:
+    p        (product) required
+    subtitle (string)  optional
+
+  Reads price, compare-at, image, stock, and variant spread
+  live from the product record.
+
+  QUICK VIEW
+    The card is a div carrying data-product-url, data-esg-handle,
+    and data-esg-desc. Clicking the card body or the "Add" button
+    opens the popup built by the parent block, which reads
+    /products/<handle>.js and posts to /cart/add.js.
+
+    Alchemy's <quick-add-drawer> is deliberately NOT used: it
+    copies the fetched page's product-form markup and calls
+    Shopify.PaymentButton.init(), and a throw anywhere in that
+    chain silently kills the rest of the render.
+
+    data-esg-desc carries a 45 word trim for the popup, built
+    server side so no CSS from the scoped style block leaks in.
+
+    The title remains a real <a> so the link stays crawlable
+    and keyboard-reachable.
+
+  SUBTITLE FALLBACK
+    subtitle param -> custom.short_pitch -> auto-trimmed product
+    description.
+
+    product.type is deliberately NOT in the chain: it is empty on
+    most accessories and returns the bare word "Computer" on the
+    PC products, which reads as noise.
+
+    The description is split on the LAST </style> before stripping
+    tags. ESG PDPs open with a scoped <style> block, and relying on
+    strip_html alone to discard stylesheet contents would risk
+    printing raw CSS into the row.
+============================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign v = p.selected_or_first_available_variant
+
+  # subtitle: block override, then metafield, then trimmed description.
+  # Compare against '' after a default filter, never against blank: an
+  # unpassed render param is Undefined, not nil, and the two are not
+  # interchangeable across Liquid engines.
+  #
+  # Never write a percent-brace tag inside these comment lines. Liquid
+  # closes the enclosing liquid tag at the first closing brace pair, so
+  # the rest of the block would leak onto the page as literal text.
+  # ESG PDPs open with a scoped style block. Split it off before any tag
+  # stripping: relying on strip_html alone to discard stylesheet contents
+  # would risk printing raw CSS into the row.
+  assign raw = p.description | default: ''
+  if raw contains '</style>'
+    assign raw = raw | split: '</style>' | last
+  endif
+
+  # strip_html joins adjacent tags with no separator, gluing a heading onto
+  # the paragraph after it, so a space is inserted at every tag boundary
+  # first. Runs of whitespace collapse when the browser renders them.
+  assign sub = subtitle | default: ''
+  if sub == ''
+    assign sub = p.metafields.custom.short_pitch.value | default: ''
+  endif
+  if sub == ''
+    assign sub = raw | replace: '><', '> <' | strip_html | replace: '&nbsp;', ' ' | strip | truncatewords: 10
+  endif
+
+  # Longer copy for the quick-view popup. Prefer the first real paragraph
+  # over the opening heading: everything before the first closing p tag,
+  # then from the last opening p tag inside it. The opening tag is pinned
+  # back on so strip_html has something to strip.
+  assign dfrag = raw | split: '</p>' | first
+  if dfrag contains '<p'
+    assign dfrag = dfrag | split: '<p' | last
+    assign dfrag = '<p' | append: dfrag
+  endif
+  assign dtext = dfrag | replace: '><', '> <' | strip_html | replace: '&nbsp;', ' ' | strip | truncatewords: 45
+
+  # savings only when there is a real compare-at above the price
+  assign on_sale = false
+  if v.compare_at_price != blank and v.compare_at_price > v.price
+    assign on_sale = true
+    assign saved = v.compare_at_price | minus: v.price
+  endif
+-%}
+
+<div class="esg-acc-card" data-esg-row
+     data-product-url="{{ p.url }}"
+     data-esg-handle="{{ p.handle }}"
+     data-esg-desc="{{ dtext | escape }}">
+  <span class="esg-acc-card__thumb">
+    {%- if p.featured_image != blank -%}
+      <img src="{{ p.featured_image | image_url: width: 140 }}"
+           srcset="{{ p.featured_image | image_url: width: 70 }} 70w, {{ p.featured_image | image_url: width: 140 }} 140w"
+           sizes="58px"
+           width="{{ p.featured_image.width }}"
+           height="{{ p.featured_image.height }}"
+           alt="{{ p.featured_image.alt | default: p.title | escape }}"
+           loading="lazy">
+    {%- endif -%}
+  </span>
+
+  <span class="esg-acc-card__info">
+    <a class="esg-acc-card__title" href="{{ p.url }}">{{ p.title | escape }}</a>
+
+    {%- if sub != '' -%}
+      <span class="esg-acc-card__meta">{{ sub | escape }}</span>
+    {%- endif -%}
+
+    <span class="esg-acc-card__price">
+      {%- if p.available == false -%}
+        <span class="esg-acc-card__out">Sold out</span>
+
+      {%- elsif p.price_varies -%}
+        <span class="esg-acc-card__unit">From</span>
+        <span class="esg-acc-card__now">{{ p.price_min | money }}</span>
+
+      {%- else -%}
+        <span class="esg-acc-card__now">{{ p.price | money }}</span>
+        {%- if on_sale -%}
+          <span class="esg-acc-card__was">{{ v.compare_at_price | money }}</span>
+          <span class="esg-acc-card__save">Save {{ saved | money_without_trailing_zeros }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </span>
+  </span>
+
+  <button type="button"
+          class="esg-acc-card__add esg-qv-open"
+          data-product-url="{{ p.url }}"
+          aria-label="Quick view {{ p.title | escape }}">Add</button>
+</div>

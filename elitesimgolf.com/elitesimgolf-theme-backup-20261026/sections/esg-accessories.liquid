@@ -1,0 +1,232 @@
+{%- comment -%}
+============================================================
+  ESG ACCESSORIES — snippet
+  File: snippets/esg-accessories.liquid
+
+  Renders a collapsible accessories block. All product data
+  (title, image, price, compare-at, savings, stock) is read
+  live from the product record. Nothing is hardcoded.
+
+  WHERE THIS GOES
+  Theme editor > product template > Product details section >
+  Add block > Custom Liquid > paste a render call.
+
+  RECOMMENDED USAGE -- identical on every product page. Products come
+  from Search & Discovery complementary products, heading from tags:
+    {% render 'esg-accessories' %}
+
+  ALTERNATE -- pin specific products by handle:
+    {% render 'esg-accessories',
+       handles: 'proteevx-protective-case,gspro-golf-simulator-software-1-year-subscription' %}
+
+  HEADING IS AUTOMATIC
+  The heading builds itself from the product, so one identical render
+  call works on every PDP. Resolution order for the model name:
+    1. label param             -- render 'esg-accessories', label: 'VX'
+    2. tag 'acc-label:<value>' -- e.g.  acc-label:ProTee VX
+    3. longest existing tag that is a leading substring of the title,
+       e.g. title 'ProTee VX Overhead Golf Launch Monitor'
+            + tag 'ProTee VX'  ->  'ProTee VX'
+    4. product vendor
+    5. none found -> heading is just 'Popular Accessories'
+  The resolved name is injected into `pattern`.
+
+  PARAMS (all optional)
+    label      string  model name to inject into pattern.
+    pattern    string  heading template, '[label]' is replaced.
+                       Default 'Popular [label] Accessories'.
+    heading    string  hardcoded heading, bypasses all of the above.
+    subheading string  small line under heading. Tokens:
+                         [count] number of products shown
+                         [label] resolved model name
+                         [s]     plural suffix, empty when count is 1
+                       Default '[count] add-on[s] [label] buyers order most'
+                       -> '3 add-ons ProTee VX buyers order most'
+                       Pass ' ' to hide the line entirely.
+    handles    string  comma separated product handles. If omitted,
+                       falls back to complementary products.
+    limit      number  max products in complementary mode. Default 3.
+    open       boolean expanded on load. Default true.
+
+  Requires: snippets/esg-acc-row.liquid
+============================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign uid = 'esgacc-' | append: product.id
+
+  assign esg_label = label | default: ''
+
+  if esg_label == ''
+    for t in product.tags
+      assign t_low = t | downcase
+      if t_low contains 'acc-label:'
+        assign esg_label = t | split: ':' | last | strip
+        break
+      endif
+    endfor
+  endif
+
+  if esg_label == ''
+    assign best = ''
+    assign title_len = product.title | size
+    for t in product.tags
+      assign t_len = t | size
+      if t_len > 0 and t_len <= title_len
+        assign head = product.title | slice: 0, t_len
+        if head == t
+          assign best_len = best | size
+          if t_len > best_len
+            assign best = t
+          endif
+        endif
+      endif
+    endfor
+    assign esg_label = best
+  endif
+
+  if esg_label == ''
+    assign esg_label = product.vendor | default: ''
+  endif
+
+  assign heading_pattern = pattern | default: 'Popular [label] Accessories'
+
+  if esg_label == ''
+    assign heading_text = 'Popular Accessories'
+  else
+    assign heading_text = heading_pattern | replace: '[label]', esg_label
+  endif
+
+  assign heading_override = heading | default: ''
+  if heading_override != ''
+    assign heading_text = heading_override
+  endif
+
+  assign sub_text = subheading | default: ''
+  if sub_text == ''
+    if esg_label == ''
+      assign sub_text = '[count] add-on[s] buyers order most'
+    else
+      assign sub_text = '[count] add-on[s] [label] buyers order most'
+    endif
+  endif
+  assign handles_str = handles | default: ''
+  assign max = limit | default: 3
+  assign is_open = true
+  if open == false
+    assign is_open = false
+  endif
+-%}
+
+{%- comment -%} Resolve which products to show {%- endcomment -%}
+{%- capture rows -%}
+  {%- if handles_str != '' -%}
+    {%- assign handle_list = handles_str | split: ',' -%}
+    {%- for h in handle_list -%}
+      {%- assign key = h | strip -%}
+      {%- assign p = all_products[key] -%}
+      {%- if p != blank and p.id != blank and p.handle != product.handle -%}
+        {%- render 'esg-acc-row', p: p -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- assign complementary = product.metafields.shopify--discovery--product_recommendation.complementary_products.value -%}
+    {%- for p in complementary limit: max -%}
+      {%- if p != blank and p.handle != product.handle -%}
+        {%- render 'esg-acc-row', p: p -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- assign row_count = rows | split: 'data-esg-row' | size | minus: 1 -%}
+
+{%- if debug -%}
+<div style="border:2px solid #b00;background:#fff;padding:12px;font:12px/1.6 monospace;color:#111;margin:16px 0">
+  <strong>INSIDE THE SNIPPET</strong><br>
+  A. product reachable here: <strong>{% if product.title != blank %}YES{% else %}NO -- THIS IS THE BUG{% endif %}</strong><br>
+  B. product.title = [{{ product.title }}]<br>
+  C. product.tags size = [{{ product.tags | size }}]<br>
+  D. product.vendor = [{{ product.vendor }}]<br>
+  E. esg_label = [{{ esg_label }}]<br>
+  F. heading_text = [{{ heading_text }}]<br>
+  G. handles_str = [{{ handles_str }}]<br>
+  H. complementary size = [{{ product.metafields["shopify--discovery--product_recommendation"]["complementary_products"].value | size }}]<br>
+  I. row_count = [{{ row_count }}]<br>
+  J. raw rows length = [{{ rows | size }}]<br>
+  K. raw rows output (first 300 chars):<br>
+  <span style="color:#b00">{{ rows | strip | truncate: 300 | escape }}</span>
+</div>
+{%- endif -%}
+
+{%- if row_count > 0 -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .esg-acc-wrap{container-type:inline-size;margin:0;box-sizing:border-box}
+  .esg-acc-wrap *,.esg-acc-wrap *::before,.esg-acc-wrap *::after{box-sizing:border-box}
+  .esg-acc-wrap .esg-acc{border:1px solid #E6E9F0;border-top:3px solid #0A1A3A;background:#fff;margin:0}
+  .esg-acc-wrap .esg-acc__sum{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;cursor:pointer;list-style:none;background:#F8F8F8;transition:background .15s ease}
+  .esg-acc-wrap .esg-acc__sum::-webkit-details-marker{display:none}
+  .esg-acc-wrap .esg-acc__sum::marker{content:""}
+  .esg-acc-wrap .esg-acc__sum:hover{background:#F1F3F7}
+  .esg-acc-wrap .esg-acc__sum-txt{min-width:0}
+  .esg-acc-wrap .esg-acc__label{display:block;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:17px;font-weight:800;line-height:1.15;letter-spacing:.01em;text-transform:uppercase;color:#0A1A3A}
+  .esg-acc-wrap .esg-acc__count{display:block;font-family:'Inter',system-ui,sans-serif;font-size:11px;font-weight:400;line-height:1.4;color:#6B7390;margin-top:3px;text-transform:none}
+  .esg-acc-wrap .esg-acc__chev{flex:0 0 auto;width:20px;height:20px;position:relative}
+  .esg-acc-wrap .esg-acc__chev::before,.esg-acc-wrap .esg-acc__chev::after{content:"";position:absolute;top:9px;width:11px;height:2px;background:#0A1A3A;transition:transform .2s ease}
+  .esg-acc-wrap .esg-acc__chev::before{left:1px;transform:rotate(45deg)}
+  .esg-acc-wrap .esg-acc__chev::after{right:1px;transform:rotate(-45deg)}
+  .esg-acc-wrap .esg-acc[open] .esg-acc__chev::before{transform:rotate(-45deg)}
+  .esg-acc-wrap .esg-acc[open] .esg-acc__chev::after{transform:rotate(45deg)}
+  .esg-acc-wrap .esg-acc__body{border-top:1px solid #E6E9F0}
+  .esg-acc-wrap .esg-acc__grid{display:grid;grid-template-columns:1fr;gap:0}
+  .esg-acc-wrap .esg-acc-card{display:flex;align-items:center;gap:12px;padding:12px 16px;text-decoration:none;border-bottom:1px solid #E6E9F0;transition:background .15s ease}
+  .esg-acc-wrap .esg-acc-card:last-child{border-bottom:0}
+  .esg-acc-wrap .esg-acc-card:hover,.esg-acc-wrap .esg-acc-card:focus{background:#F8F8F8;text-decoration:none}
+  .esg-acc-wrap .esg-acc-card__thumb{flex:0 0 58px;width:58px;height:58px;background:#fff;border:1px solid #E6E9F0}
+  .esg-acc-wrap .esg-acc-card__thumb img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;padding:5px;margin:0}
+  .esg-acc-wrap .esg-acc-card__info{flex:1 1 auto;min-width:0}
+  .esg-acc-wrap .esg-acc-card__title{display:block;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:15px;font-weight:700;line-height:1.2;letter-spacing:.02em;text-transform:uppercase;color:#0A1A3A;margin:0 0 3px}
+  .esg-acc-wrap .esg-acc-card__meta{display:block;font-family:'Inter',system-ui,sans-serif;font-size:11px;font-weight:400;line-height:1.35;color:#6B7390;margin:0 0 5px}
+  .esg-acc-wrap .esg-acc-card__price{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px}
+  .esg-acc-wrap .esg-acc-card__now{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:17px;font-weight:800;line-height:1;color:#0A1A3A}
+  .esg-acc-wrap .esg-acc-card__was{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:#6B7390;text-decoration:line-through}
+  .esg-acc-wrap .esg-acc-card__save{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0A1A3A;border:1px solid #0A1A3A;padding:1px 5px}
+  .esg-acc-wrap .esg-acc-card__out{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7390;border:1px solid #C9CEDB;padding:1px 5px}
+  .esg-acc-wrap .esg-acc-card__unit{font-family:'Inter',system-ui,sans-serif;font-size:11px;color:#6B7390}
+  .esg-acc-wrap .esg-acc-card__arrow{flex:0 0 auto;font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-size:17px;font-weight:700;color:#0A1A3A;line-height:1}
+  @container (min-width: 860px){
+    .esg-acc-wrap .esg-acc__grid{grid-template-columns:repeat(3,1fr)}
+    .esg-acc-wrap .esg-acc-card{border-bottom:0;border-right:1px solid #E6E9F0}
+    .esg-acc-wrap .esg-acc-card:last-child{border-right:0}
+    .esg-acc-wrap .esg-acc__sum{padding:15px 18px}
+  }
+</style>
+
+<div class="esg-acc-wrap" id="{{ uid }}">
+  <details class="esg-acc"{% if is_open %} open{% endif %}>
+    <summary class="esg-acc__sum">
+      <span class="esg-acc__sum-txt">
+        <span class="esg-acc__label">{{ heading_text | escape }}</span>
+        {%- liquid
+          assign plural = 's'
+          if row_count == 1
+            assign plural = ''
+          endif
+          assign sub_final = sub_text | replace: '[count]', row_count | replace: '[s]', plural | replace: '[label]', esg_label | strip
+        -%}
+        {%- if sub_final != blank -%}
+          <span class="esg-acc__count">{{ sub_final | escape }}</span>
+        {%- endif -%}
+      </span>
+      <span class="esg-acc__chev" aria-hidden="true"></span>
+    </summary>
+    <div class="esg-acc__body">
+      <div class="esg-acc__grid">{{ rows }}</div>
+    </div>
+  </details>
+</div>
+{%- endif -%}

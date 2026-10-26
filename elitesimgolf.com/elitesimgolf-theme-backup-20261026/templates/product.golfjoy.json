@@ -1,0 +1,229 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_Bj6mqq": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_46PHE6": {
+          "type": "custom-liquid",
+          "name": "Sale Item Block",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — Sim Kit Super Sale\nTrigger: product tag \"simkitsupersale\"\nMessage: Extra 10% OFF this item (auto-applied in cart)\nAuto-hide after: Feb 28, 2026\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-03-30' | date: '%s' -%}\n\n{%- if today_ts <= cutoff_ts and product.tags contains 'simkitsupersale' -%}\n  <div style=\"\n    margin:14px 0 0;\n    padding:16px 16px;\n    border-radius:16px;\n    border:1px solid #086ed3;\n    background:linear-gradient(180deg, #ffffff 0%, #ffffff 100%);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;\n    color:#0f172a;\n    box-shadow:0 10px 24px rgba(0,0,0,.06);\n  \">\n    <div style=\"display:flex; gap:12px; align-items:flex-start;\">\n      <div style=\"\n        width:34px; height:34px; border-radius:12px;\n        background:#e7f2ff;\n        border:1px solid rgba(8,110,211,.18);\n        display:flex; align-items:center; justify-content:center;\n        font-size:18px; flex:0 0 auto;\n      \">🏷️</div>\n\n      <div style=\"flex:1; min-width:0;\">\n        <div style=\"\n          font-size:12px;\n          letter-spacing:.12em;\n          text-transform:uppercase;\n          font-weight:900;\n          color:#086ed3;\n          margin:0 0 6px;\n        \">Sim Kit Super Sale</div>\n\n        <div style=\"font-weight:900; font-size:18px; line-height:1.2; margin:0 0 6px;\">\n          Extra <span style=\"color:#f59e0b;\">10% OFF</span> this item\n        </div>\n\n        <div style=\"margin:0; font-size:13px; line-height:1.45; color:#1f2937;\">\n          <strong>No code needed.</strong> The <strong>10% discount is automatically deducted</strong> when this item is added to cart.\n        </div>\n\n        <div style=\"margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;\">\n          <span style=\"\n            display:inline-flex; align-items:center; gap:6px;\n            padding:6px 10px;\n            border-radius:999px;\n            background:#ffffff;\n            border:1px solid #e5e7eb;\n            font-size:12px;\n            color:#111827;\n            font-weight:800;\n          \">✅ Auto-applied in cart</span>\n\n          <span style=\"\n            display:inline-flex; align-items:center; gap:6px;\n            padding:6px 10px;\n            border-radius:999px;\n            background:#ffffff;\n            border:1px solid #e5e7eb;\n            font-size:12px;\n            color:#111827;\n            font-weight:800;\n          \">📅 SALE EXTENDED now Ends March 30, 2026</span>\n        </div>\n      </div>\n    </div>\n  </div>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_dJbeLf": {
+          "type": "custom-liquid",
+          "name": "Sale Item Block V2",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — BenQ Super Sale\nTrigger: product tag \"simkitsupersale\"\nRequires code: GOLFJOY10 (customer must enter at checkout/cart)\nAuto-hide after: March 30, 2026\nIncludes 1-click copy button\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-03-30' | date: '%s' -%}\n\n{%- if today_ts <= cutoff_ts and product.tags contains 'simkitsupersale' -%}\n<div style=\"\n  margin:14px 0 0;\n  padding:12px 14px;\n  border-radius:16px;\n  border:1px solid rgba(8,110,211,.35);\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;\n  color:#0f172a;\n  box-shadow:0 10px 22px rgba(8,110,211,.08);\n\">\n  <div style=\"display:flex; gap:10px; align-items:flex-start;\">\n    <div style=\"\n      width:32px; height:32px; border-radius:12px;\n      background:#e7f2ff;\n      border:1px solid rgba(8,110,211,.18);\n      display:flex; align-items:center; justify-content:center;\n      font-size:16px; flex:0 0 auto;\n    \">🏷️</div>\n\n    <div style=\"flex:1; min-width:0;\">\n      <div style=\"\n        display:flex;\n        align-items:flex-start;\n        justify-content:space-between;\n        gap:10px;\n        flex-wrap:wrap;\n        margin:0 0 6px;\n      \">\n        <div style=\"\n          font-size:14px;\n          letter-spacing:.12em;\n          text-transform:uppercase;\n          font-weight:950;\n          color:#086ed3;\n          margin:0;\n        \">SIM KIT SUPER SALE</div>\n\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          padding:4px 8px;\n          border-radius:999px;\n          background:#0b2a55;\n          color:#ffffff;\n          font-size:11px;\n          font-weight:900;\n          letter-spacing:.06em;\n          white-space:nowrap;\n        \">Ends Mar 30, 2026</div>\n      </div>\n\n      <div style=\"font-weight:950; font-size:15px; line-height:1.25; margin:0 0 8px;\">\n        Get <span style=\"color:#f59e0b;\">extra savings up to 10% off</span> with code:\n      </div>\n\n      <div style=\"\n        display:flex;\n        align-items:center;\n        gap:8px;\n        flex-wrap:wrap;\n      \">\n        <div id=\"esg-benq-code\" style=\"\n          display:inline-flex;\n          align-items:center;\n          padding:9px 12px;\n          border-radius:12px;\n          border:1px dashed rgba(8,110,211,.35);\n          background:#f8fbff;\n          font-weight:1000;\n          letter-spacing:.08em;\n          color:#0b2a55;\n          font-size:13px;\n          user-select:all;\n        \">GOLFJOY10</div>\n\n        <button type=\"button\" id=\"esg-benq-copy\" style=\"\n          appearance:none;\n          border:none;\n          border-radius:12px;\n          padding:9px 12px;\n          background:#086ed3;\n          color:#ffffff;\n          font-weight:950;\n          font-size:12.5px;\n          cursor:pointer;\n          box-shadow:0 10px 18px rgba(8,110,211,.18);\n        \">Copy</button>\n\n        <div id=\"esg-benq-copied\" style=\"\n          display:none;\n          padding:7px 10px;\n          border-radius:999px;\n          background:#ecfdf5;\n          border:1px solid #10b981;\n          color:#065f46;\n          font-weight:900;\n          font-size:12px;\n          white-space:nowrap;\n        \">✅ Copied</div>\n      </div>\n\n      <div style=\"margin-top:8px; font-size:12.5px; color:#475569;\">\n        Enter this code in your cart/checkout to apply the discount.\n      </div>\n    </div>\n  </div>\n</div>\n\n<script>\n(function () {\n  var btn = document.getElementById('esg-benq-copy');\n  var codeEl = document.getElementById('esg-benq-code');\n  var badge = document.getElementById('esg-benq-copied');\n  if (!btn || !codeEl) return;\n\n  function showCopied() {\n    if (!badge) return;\n    badge.style.display = 'inline-flex';\n    setTimeout(function () {\n      badge.style.display = 'none';\n    }, 1400);\n  }\n\n  btn.addEventListener('click', async function () {\n    var code = (codeEl.textContent || '').trim();\n    try {\n      if (navigator.clipboard && navigator.clipboard.writeText) {\n        await navigator.clipboard.writeText(code);\n        showCopied();\n        return;\n      }\n    } catch (e) {}\n\n    // Fallback copy (older browsers)\n    var ta = document.createElement('textarea');\n    ta.value = code;\n    ta.setAttribute('readonly', '');\n    ta.style.position = 'absolute';\n    ta.style.left = '-9999px';\n    document.body.appendChild(ta);\n    ta.select();\n    try { document.execCommand('copy'); showCopied(); } catch (e) {}\n    document.body.removeChild(ta);\n  });\n\n  // Optional: click the code itself to copy\n  codeEl.style.cursor = 'pointer';\n  codeEl.title = 'Click to copy';\n  codeEl.addEventListener('click', function () {\n    btn.click();\n  });\n})();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_AHL74C": {
+          "type": "custom-liquid",
+          "name": "Item Condition Variable",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nCONDITION STATUS BOX (Open Box vs Manufacturer Refurbished)\nRules:\n- If product has tag \"refurbished\" -> show MANUFACTURER REFURBISHED box (and do NOT show open-box)\n- Else if product has tag \"open-box\" -> show OPEN BOX box\n{%- endcomment -%}\n\n{%- assign is_refurbished = false -%}\n{%- assign is_open_box = false -%}\n\n{%- if product.tags contains 'refurbished' -%}\n  {%- assign is_refurbished = true -%}\n{%- endif -%}\n\n{%- if product.tags contains 'open-box' -%}\n  {%- assign is_open_box = true -%}\n{%- endif -%}\n\n{%- if is_refurbished -%}\n  <!-- MANUFACTURER REFURBISHED BOX -->\n  <div style=\"\n    margin:14px 0 0;\n    padding:14px 16px;\n    border-radius:16px;\n    border:2px solid #0b2a55;\n    background:linear-gradient(180deg, #ffffff 0%, #f2f6ff 100%);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n    color:#0f172a;\n    display:flex;\n    align-items:flex-start;\n    gap:12px;\n    box-shadow:0 10px 24px rgba(0,0,0,.06);\n  \">\n    <div style=\"\n      width:34px; height:34px; border-radius:12px;\n      background:#e7f2ff;\n      display:flex; align-items:center; justify-content:center;\n      font-size:18px; flex:0 0 auto;\n      border:1px solid rgba(11,42,85,.18);\n    \">🔧</div>\n\n    <div style=\"line-height:1.25; flex:1;\">\n      <div style=\"\n        display:flex;\n        align-items:center;\n        justify-content:space-between;\n        gap:10px;\n        margin:0 0 8px;\n      \">\n        <div style=\"font-weight:900; font-size:13px; letter-spacing:.02em;\">\n          Item Condition\n        </div>\n\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          gap:8px;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#0b2a55;\n          color:#ffffff;\n          font-weight:900;\n          font-size:12px;\n          letter-spacing:.02em;\n          white-space:nowrap;\n          box-shadow:0 8px 18px rgba(11,42,85,.20);\n        \">\n          ✅ MANUFACTURER REFURBISHED\n        </div>\n      </div>\n\n      <div style=\"\n        background:#ffffff;\n        border:1px solid rgba(15,23,42,.10);\n        border-radius:12px;\n        padding:10px 12px;\n        font-size:12.5px;\n        color:#334155;\n      \">\n        <div style=\"font-weight:900; color:#0f172a; margin:0 0 6px;\">\n          This listing is for a <span style=\"color:#0b2a55;\">Manufacturer Refurbished</span> projector.\n        </div>\n\n        <ul style=\"margin:0; padding-left:18px; line-height:1.45;\">\n          <li>\n            Includes a <span style=\"font-weight:900;\">12-month warranty</span> from the date of purchase\n          </li>\n          <li>\n            Original box/manual/accessories may vary by unit (contact us if you need confirmation)\n          </li>\n        </ul>\n      </div>\n\n      <div style=\"margin-top:8px; font-size:12px; color:#64748b;\">\n        Questions about condition or compatibility? Contact us and we’ll help confirm fit for your simulator setup.\n      </div>\n    </div>\n  </div>\n\n{%- elsif is_open_box -%}\n  <!-- OPEN BOX BOX -->\n  <div style=\"\n    margin:14px 0 0;\n    padding:14px 16px;\n    border-radius:16px;\n    border:2px solid #f59e0b;\n    background:linear-gradient(180deg, #ffffff 0%, #fff7ed 100%);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n    color:#0f172a;\n    display:flex;\n    align-items:flex-start;\n    gap:12px;\n    box-shadow:0 10px 24px rgba(0,0,0,.06);\n  \">\n    <div style=\"\n      width:34px; height:34px; border-radius:12px;\n      background:#ffedd5;\n      display:flex; align-items:center; justify-content:center;\n      font-size:18px; flex:0 0 auto;\n      border:1px solid rgba(245,158,11,.25);\n    \">🟡</div>\n\n    <div style=\"line-height:1.25; flex:1;\">\n      <div style=\"\n        display:flex;\n        align-items:center;\n        justify-content:space-between;\n        gap:10px;\n        margin:0 0 8px;\n      \">\n        <div style=\"font-weight:900; font-size:13px; letter-spacing:.02em;\">\n          Item Condition\n        </div>\n\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          gap:8px;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#f59e0b;\n          color:#ffffff;\n          font-weight:900;\n          font-size:12px;\n          letter-spacing:.02em;\n          white-space:nowrap;\n          box-shadow:0 8px 18px rgba(245,158,11,.25);\n        \">\n          ✅ NEW OPEN BOX\n        </div>\n      </div>\n\n      <div style=\"\n        background:#ffffff;\n        border:1px solid rgba(15,23,42,.10);\n        border-radius:12px;\n        padding:10px 12px;\n        font-size:12.5px;\n        color:#334155;\n      \">\n        <div style=\"font-weight:900; color:#0f172a; margin:0 0 6px;\">\n          This listing is for a <span style=\"color:#b45309;\">New Open Box</span> projector.\n        </div>\n\n        <ul style=\"margin:0; padding-left:18px; line-height:1.45;\">\n          <li>\n            Mounted and returned within <span style=\"font-weight:900;\">30 days</span> of delivery\n          </li>\n          <li>\n            Fully tested by <span style=\"font-weight:900;\">Elite Sim Golf</span>\n          </li>\n          <li>\n            Retains the <span style=\"font-weight:900;\">full 3-year BenQ factory warranty</span>\n          </li>\n          <li>\n            <span style=\"font-weight:900;\">2 hours or less</span> bulb time to qualify as New Open Box\n          </li>\n          <li>\n            Original box, manual, and accessories <span style=\"font-weight:900;\">included</span>\n          </li>\n        </ul>\n      </div>\n\n      <div style=\"margin-top:8px; font-size:12px; color:#64748b;\">\n        Questions about condition or compatibility? Contact us and we’ll help confirm fit for your simulator setup.\n      </div>\n    </div>\n  </div>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_MVemU4": {
+          "type": "custom-liquid",
+          "name": "Stock Availability",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG Compact Inventory + Advantage Box (No quantities shown)\nIncludes:\n- Stock vs direct-ship status\n- Same-day shipping digital countdown (2:00 PM ET) when stocked (not direct ship)\n- Polished shipping pills for tags: free2day / freenextday\nHidden for: open-box / refurbished\n{%- endcomment -%}\n\n{%- assign total_on_hand = 0 -%}\n{%- assign saw_any_qty_field = false -%}\n\n{%- for v in product.variants -%}\n  {%- if v.inventory_quantity != blank -%}\n    {%- assign saw_any_qty_field = true -%}\n    {%- assign total_on_hand = total_on_hand | plus: v.inventory_quantity -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- assign incoming_qty = product.metafields.custom.incoming_po_qty | default: 0 | plus: 0 -%}\n{%- assign vendor_name = product.vendor | default: 'Vendor' -%}\n\n{%- assign total_available = total_on_hand | plus: incoming_qty -%}\n\n{%- assign has_inventory = false -%}\n{%- if saw_any_qty_field and total_available > 0 -%}\n  {%- assign has_inventory = true -%}\n{%- endif -%}\n\n{%- assign direct_ship = false -%}\n{%- if saw_any_qty_field and total_available <= 0 -%}\n  {%- assign direct_ship = true -%}\n{%- endif -%}\n\n{%- comment -%} Hide this box entirely for Open Box or Refurbished listings {%- endcomment -%}\n{%- assign is_refurbished = false -%}\n{%- assign is_open_box = false -%}\n{%- if product.tags contains 'refurbished' -%}{%- assign is_refurbished = true -%}{%- endif -%}\n{%- if product.tags contains 'open-box' -%}{%- assign is_open_box = true -%}{%- endif -%}\n{%- assign hide_inventory_box = false -%}\n{%- if is_refurbished or is_open_box -%}{%- assign hide_inventory_box = true -%}{%- endif -%}\n\n{%- assign show_box = false -%}\n{%- if saw_any_qty_field and hide_inventory_box == false -%}\n  {%- assign show_box = true -%}\n{%- endif -%}\n\n{%- if show_box -%}\n<div style=\"\n  margin:14px 0 0;\n  padding:12px 14px;\n  border-radius:16px;\n  border:1px solid rgba(8,110,211,.35);\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#0f172a;\n  display:flex;\n  align-items:flex-start;\n  gap:12px;\n  box-shadow:0 10px 22px rgba(8,110,211,.08);\n  position:relative;\n  overflow:hidden;\n\">\n  <div style=\"\n    position:absolute;\n    inset:0 auto 0 0;\n    width:5px;\n    background:linear-gradient(180deg,#086ed3 0%,#38bdf8 100%);\n  \"></div>\n\n  <div style=\"\n    width:32px; height:32px; border-radius:12px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n    border:1px solid rgba(8,110,211,.18);\n    margin-left:2px;\n  \">✅</div>\n\n  <div style=\"line-height:1.25; flex:1; min-width:0;\">\n    <div style=\"\n      display:flex;\n      align-items:center;\n      justify-content:space-between;\n      gap:10px;\n      margin:0 0 8px;\n      flex-wrap:wrap;\n    \">\n      <div style=\"font-weight:950; font-size:13px; letter-spacing:.02em;\">\n        Elite Sim Golf Advantage\n      </div>\n\n      {%- if direct_ship -%}\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#0b2a55;\n          color:#ffffff;\n          font-weight:950;\n          font-size:11px;\n          letter-spacing:.06em;\n          white-space:nowrap;\n        \">DIRECT SHIP</div>\n      {%- else -%}\n        <div style=\"\n          display:inline-flex;\n          align-items:center;\n          padding:6px 10px;\n          border-radius:999px;\n          background:#086ed3;\n          color:#ffffff;\n          font-weight:950;\n          font-size:11px;\n          letter-spacing:.06em;\n          white-space:nowrap;\n          box-shadow:0 8px 18px rgba(8,110,211,.20);\n        \">✅ IN STOCK • READY TO SHIP</div>\n      {%- endif -%}\n    </div>\n\n    {%- if has_inventory -%}\n      <div style=\"font-size:13px; color:#334155; margin:0 0 10px;\">\n        We <strong>stock this item</strong> so you can expect <strong>fast fulfillment</strong> and <strong>real post-purchase support</strong> if you need help.\n      </div>\n    {%- endif -%}\n\n    {%- if direct_ship -%}\n      <div style=\"font-size:13px; color:#334155; margin:0 0 10px;\">\n        This item is fulfilled via <strong>direct ship</strong> from <strong>{{ vendor_name | escape }}</strong>. We’re still here to help with questions and support after delivery.\n      </div>\n    {%- endif -%}\n\n    {%- if has_inventory and direct_ship == false -%}\n      <!-- DIGITAL CLOCK COUNTDOWN (2:00 PM ET) -->\n      <div id=\"esg-2pm-countdown-wrap\" style=\"\n        margin:0 0 10px;\n        padding:10px 12px;\n        border-radius:14px;\n        border:2px solid rgba(8,110,211,.22);\n        background:linear-gradient(180deg,#ffffff 0%,#f4f9ff 100%);\n        display:flex;\n        align-items:center;\n        justify-content:space-between;\n        gap:10px;\n        flex-wrap:wrap;\n      \">\n        <div style=\"display:flex; flex-direction:column; gap:6px;\">\n          <div style=\"font-size:11px; font-weight:950; letter-spacing:.10em; text-transform:uppercase; color:#086ed3;\">\n            Same-Day Shipping Cutoff\n          </div>\n          <div style=\"font-size:12.5px; color:#334155; font-weight:800;\">\n            Order by <strong>2:00 PM ET</strong>\n          </div>\n        </div>\n\n        <div id=\"esg-2pm-time\" style=\"\n          display:inline-flex;\n          align-items:center;\n          justify-content:center;\n          min-width:142px;\n          padding:8px 12px;\n          border-radius:12px;\n          background:#0b2a55;\n          color:#ffffff;\n          border:1px solid rgba(11,42,85,.35);\n          box-shadow:0 14px 24px rgba(11,42,85,.18);\n          font-weight:1000;\n          font-size:18px;\n          letter-spacing:.18em;\n          font-variant-numeric: tabular-nums;\n          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;\n        \">--:--:--</div>\n      </div>\n\n      <script>\n      (function () {\n        var wrap = document.getElementById('esg-2pm-countdown-wrap');\n        var timeEl = document.getElementById('esg-2pm-time');\n        if (!wrap || !timeEl) return;\n\n        function getETParts(date) {\n          var parts = new Intl.DateTimeFormat('en-US', {\n            timeZone: 'America/New_York',\n            year: 'numeric',\n            month: '2-digit',\n            day: '2-digit',\n            hour: '2-digit',\n            minute: '2-digit',\n            second: '2-digit',\n            hour12: false\n          }).formatToParts(date);\n\n          var out = {};\n          parts.forEach(function(p){ out[p.type] = p.value; });\n          return out;\n        }\n\n        function pad(n){ return String(n).padStart(2,'0'); }\n\n        function update() {\n          var now = new Date();\n          var p = getETParts(now);\n\n          var hh = parseInt(p.hour, 10);\n          var mm = parseInt(p.minute, 10);\n          var ss = parseInt(p.second, 10);\n\n          var nowSec = hh*3600 + mm*60 + ss;\n          var cutoffSec = 14*3600; // 2:00 PM ET\n          var remaining = cutoffSec - nowSec;\n\n          if (remaining <= 0) {\n            wrap.style.display = 'none';\n            return;\n          }\n\n          var rH = Math.floor(remaining / 3600);\n          var rM = Math.floor((remaining % 3600) / 60);\n          var rS = remaining % 60;\n\n          timeEl.textContent = pad(rH) + \":\" + pad(rM) + \":\" + pad(rS);\n        }\n\n        update();\n        setInterval(update, 1000);\n      })();\n      </script>\n    {%- endif -%}\n\n    <!-- Polished shipping pills -->\n    {%- if product.tags contains 'free2day' or product.tags contains 'freenextday' -%}\n      <div style=\"display:flex; flex-wrap:wrap; gap:10px; margin:0;\">\n        {%- if product.tags contains 'free2day' -%}\n          <span style=\"\n            display:inline-flex;\n            align-items:center;\n            gap:8px;\n            padding:7px 10px;\n            border-radius:999px;\n            background:linear-gradient(180deg,#ffffff 0%,#f4f9ff 100%);\n            border:2px solid rgba(8,110,211,.45);\n            color:#0b2a55;\n            font-size:12px;\n            font-weight:950;\n            letter-spacing:.02em;\n            white-space:nowrap;\n            box-shadow:0 10px 18px rgba(8,110,211,.10);\n          \">\n            <span style=\"\n              width:22px; height:22px;\n              border-radius:999px;\n              background:#086ed3;\n              color:#ffffff;\n              display:inline-flex;\n              align-items:center;\n              justify-content:center;\n              font-size:12px;\n              font-weight:1000;\n              line-height:1;\n              box-shadow:0 8px 14px rgba(8,110,211,.18);\n              flex:0 0 auto;\n            \">✈️</span>\n            FREE UPS 2ND DAY AIR\n          </span>\n        {%- endif -%}\n\n        {%- if product.tags contains 'freenextday' -%}\n          <span style=\"\n            display:inline-flex;\n            align-items:center;\n            gap:8px;\n            padding:7px 10px;\n            border-radius:999px;\n            background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);\n            border:2px solid rgba(15,23,42,.38);\n            color:#0f172a;\n            font-size:12px;\n            font-weight:950;\n            letter-spacing:.02em;\n            white-space:nowrap;\n            box-shadow:0 10px 18px rgba(15,23,42,.10);\n          \">\n            <span style=\"\n              width:22px; height:22px;\n              border-radius:999px;\n              background:#0b2a55;\n              color:#ffffff;\n              display:inline-flex;\n              align-items:center;\n              justify-content:center;\n              font-size:12px;\n              font-weight:1000;\n              line-height:1;\n              box-shadow:0 8px 14px rgba(11,42,85,.18);\n              flex:0 0 auto;\n            \">🚀</span>\n            FREE UPS NEXT DAY AIR\n          </span>\n        {%- endif -%}\n      </div>\n    {%- endif -%}\n\n  </div>\n</div>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "never",
+            "inventory_threshold": 1
+          }
+        },
+        "epa_easy_product_addons_spice_addons_a9c6nB": {
+          "type": "shopify://apps/epa-easy-product-addons/blocks/spice_addons/0099190e-a0cb-49e7-8d26-026c9d26f337",
+          "settings": {}
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- Price Match Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🏷️</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Price Match Promise\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      See a better price from another authorized seller? Tell us—we’ll do our best to match it (or beat it).\n    </div>\n  </div>\n</div>\n\n<!-- No Sales Tax + Free Shipping Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">📦</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      No Sales Tax + Free Shipping on Most Orders\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Keep more in your pocket—most orders ship free and may qualify for no sales tax (some exclusions apply).\n    </div>\n  </div>\n</div>\n\n<!-- Real Human Support Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">👤</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Real Golf Experts (Not Bots)\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Have questions? Call us to talk to a real human: <strong>866-4-SIM-GOLF</strong>.\n    </div>\n  </div>\n</div>\n\n<!-- Small Shipping Note (Christmas-themed, compact) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🚚</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Ships in 3–5 business days\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Processing time may vary slightly during peak holiday volume.\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "w3_product_accessories_widget_Nw99yW": {
+          "type": "shopify://apps/w3-product-accessories/blocks/widget/cebf1474-e4fa-4cb4-a91e-d313690bf6f1",
+          "disabled": true,
+          "settings": {}
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_Bj6mqq",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_46PHE6",
+        "custom_liquid_dJbeLf",
+        "custom_liquid_AHL74C",
+        "custom_liquid_MVemU4",
+        "buy-buttons",
+        "epa_easy_product_addons_spice_addons_a9c6nB",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "w3_product_accessories_widget_Nw99yW",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_H4bn7p": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        },
+        "easify_attachments_product_attachments_PbbqhP": {
+          "type": "shopify://apps/easify-attachments/blocks/product-attachments/cc218f93-dff3-4a2d-af6e-04e2bc66e693",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_H4bn7p",
+        "easify_attachments_product_attachments_PbbqhP"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

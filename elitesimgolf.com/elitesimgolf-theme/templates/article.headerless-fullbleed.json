@@ -1,0 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner-art",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "bg_style": "image",
+        "boundary_effect": "",
+        "show_contrast_logo": true,
+        "hero_bg_color": "#e4e4e4",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#3f3f3f",
+        "image_align": "object-center",
+        "hero_tint_color": "#141414",
+        "hero_tint_opacity": 50,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": true,
+        "show_author": false,
+        "show_date": false
+      }
+    },
+    "main": {
+      "type": "main-article",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "show_tags": true,
+        "show_featured_products": true,
+        "share_twitter": true,
+        "share_facebook": true,
+        "share_pinterest": false,
+        "more_stories_image_ratio": "shortest",
+        "more_stories_show_author": false,
+        "more_stories_show_date": false,
+        "more_stories_color_scheme": "none"
+      }
+    },
+    "custom_liquid_DiFbAh": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "{{article.content}}",
+        "full_width": true,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "custom_liquid_DiFbAh"
+  ]
+}

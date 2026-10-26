@@ -1,89 +1,71 @@
 {% comment %}
-  PDP Image Rows + Video — Figma "128 Audit Fixes" Product Page (node 9211:7), the
-  stacked full-width marketing image/diagram bands below the tabs, ending in an
-  install-guide video.
-
-  Precedence: if product.metafields.custom.image_rows (a list-of-files metafield)
-  is populated, its images render — plus product.metafields.custom.image_rows_video
-  at the end if that's also set — and this section's own blocks are ignored
-  entirely. Only when that metafield is blank do the blocks below render instead,
-  as the fallback/default (each block independently chooses image or video, so a
-  merchant can put a video anywhere, typically last, matching the Figma reference).
-
-  Metafields expected (create these in Shopify Admin):
-  - product.metafields.custom.image_rows        (list of files, images only)
-  - product.metafields.custom.image_rows_video  (file reference, validated to Video)
+  PDP infographic (below the tabs) + optional video rows. See the comment below for how the image is chosen.
 {% endcomment %}
 
-{%- assign mf_images = product.metafields.custom.image_rows.value -%}
-{%- assign mf_video = product.metafields.custom.image_rows_video.value -%}
+{%- comment -%}
+  #150 (Gary, AC #90): ONE infographic instead of the 5 separate image frames. The image keeps its own height (it scales
+  to its content), with padding around it. A separate mobile-only image can be set; phones (up to 749px) get that image,
+  everything wider gets the desktop image.
+  Source, first match wins:
+  1. product.metafields.custom.infographic_desktop / custom.infographic_mobile (per product, file/image)
+  2. this section's "Default desktop / mobile infographic" settings (same image for every product on the template)
+  Nothing set -> no infographic. Video blocks (a real uploaded video) still render below it.
+{%- endcomment -%}
+{%- liquid
+  assign ig_desktop = product.metafields.custom.infographic_desktop.value
+  assign ig_mobile = product.metafields.custom.infographic_mobile.value
+  if ig_desktop == blank and ig_mobile == blank
+    assign ig_desktop = section.settings.desktop_image
+    assign ig_mobile = section.settings.mobile_image
+  endif
+  assign ig_alt = product.title | escape
+-%}
 
-<div class="pdp-image-rows page-width">
-  {%- if mf_images != blank -%}
-    {%- for img in mf_images -%}
-      <div class="pdp-image-rows__row">
-        {{ img | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600', alt: img.alt | default: product.title }}
+<div class="pdp-image-rows">
+  {%- if ig_desktop != blank or ig_mobile != blank -%}
+    {%- comment -%} AC #109: same .page-width wrapper as every other block, so the edges line up {%- endcomment -%}
+    <div class="page-width">
+    <div class="pdp-infographic{% if ig_desktop == blank %} pdp-infographic--mobile-only{% elsif ig_mobile == blank %} pdp-infographic--single{% endif %}">
+      <picture>
+        {%- if ig_mobile != blank and ig_desktop != blank -%}
+          {%- comment -%} only offer widths the uploaded image really has (a 600px-wide file must not be listed as 750/1100/1500w) {%- endcomment -%}
+          {%- capture ig_mobile_srcset -%}
+            {%- for w in (1..4) -%}
+              {%- case w -%}{%- when 1 -%}{%- assign sw = 400 -%}{%- when 2 -%}{%- assign sw = 750 -%}{%- when 3 -%}{%- assign sw = 1100 -%}{%- else -%}{%- assign sw = 1500 -%}{%- endcase -%}
+              {%- if sw < ig_mobile.width -%}{{ ig_mobile | image_url: width: sw }} {{ sw }}w, {% endif -%}
+            {%- endfor -%}
+            {{ ig_mobile | image_url: width: ig_mobile.width }} {{ ig_mobile.width }}w
+          {%- endcapture -%}
+          <source media="(max-width: 749px)" srcset="{{ ig_mobile_srcset | strip }}"
+            sizes="calc(100vw - 34px)" width="{{ ig_mobile.width }}" height="{{ ig_mobile.height }}">
+        {%- endif -%}
+        {%- assign ig_img = ig_desktop | default: ig_mobile -%}
+        {{ ig_img | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '400,750,1100,1500,2000', sizes: '(min-width: 1280px) 1100px, (min-width: 750px) 85vw, calc(100vw - 34px)', alt: ig_alt, class: 'pdp-infographic__img' }}
+      </picture>
+    </div>
+    </div>
+  {%- endif -%}
+
+  {%- for block in section.blocks -%}
+    {%- if block.settings.media_type == 'video' and block.settings.video != blank -%}
+      <div class="page-width">
+      <div class="pdp-image-rows__row pdp-image-rows__row--video" {{ block.shopify_attributes }}>
+        {{ block.settings.video | video_tag: image_size: '1600x', controls: true }}
+        {%- if block.settings.caption != blank -%}<p class="pdp-image-rows__caption">{{ block.settings.caption }}</p>{%- endif -%}
       </div>
-    {%- endfor -%}
-    {%- if mf_video != blank -%}
-      <div class="pdp-image-rows__row pdp-image-rows__row--video">
-        {{ mf_video | media_tag: image_size: '1600x', controls: true }}
       </div>
     {%- endif -%}
-  {%- else -%}
-    {%- for block in section.blocks -%}
-      {%- assign has_media = false -%}
-      {%- if block.settings.media_type == 'video' and block.settings.video != blank -%}
-        {%- assign has_media = true -%}
-      {%- elsif block.settings.media_type != 'video' and block.settings.image != blank -%}
-        {%- assign has_media = true -%}
-      {%- elsif block.settings.media_type != 'video' and block.settings.image_asset != blank -%}
-        {%- assign has_media = true -%}
-      {%- endif -%}
-      {%- comment -%} #150 mobile audit (1): a still image standing in for a video (play-icon poster) no longer renders; a video row shows only when a real video is set. {%- endcomment -%}
-      {%- if block.settings.media_type != 'video' and block.settings.show_play_icon -%}
-        {%- assign has_media = false -%}
-      {%- endif -%}
-      {%- if has_media -%}
-      <div class="pdp-image-rows__row{% if block.settings.show_play_icon %} pdp-image-rows__row--poster{% endif %}" {{ block.shopify_attributes }}>
-        {%- case block.settings.media_type -%}
-          {%- when 'video' -%}
-            <div class="pdp-image-rows__row--video">
-              {{ block.settings.video | video_tag: image_size: '1600x', controls: true }}
-            </div>
-          {%- else -%}
-            {%- comment -%}
-              image_picker (block.settings.image) is the merchant-facing option — it
-              references a file already uploaded to this store's Files library via
-              Shopify Admin. image_asset is a theme-asset fallback (a filename in
-              this theme's assets/ folder) for content that ships with the theme
-              itself rather than being uploaded per-store, e.g. the Figma reference
-              rows below. image_picker wins if both happen to be set.
-            {%- endcomment -%}
-            {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '750,1000,1500,1600', alt: block.settings.image.alt | default: product.title }}
-            {%- else -%}
-              <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="1280" height="600">
-            {%- endif -%}
-            {%- if block.settings.show_play_icon -%}
-              <span class="pdp-image-rows__play" aria-hidden="true">
-                <svg viewBox="0 0 64 64" width="28" height="28"><circle cx="32" cy="32" r="31" fill="#fff" opacity="0.9"/><path d="M25 19l22 13-22 13V19z" fill="#202020"/></svg>
-              </span>
-            {%- endif -%}
-        {%- endcase -%}
-        {%- if block.settings.caption != blank -%}
-          <p class="pdp-image-rows__caption">{{ block.settings.caption }}</p>
-        {%- endif -%}
-      </div>
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endif -%}
+  {%- endfor -%}
 </div>
 
 {% schema %}
 {
   "name": "PDP Image Rows",
-  "settings": [],
+  "settings": [
+    { "type": "paragraph", "content": "One infographic per product: set the product metafields custom.infographic_desktop and custom.infographic_mobile. The images below are only used for products that have neither." },
+    { "type": "image_picker", "id": "desktop_image", "label": "Default desktop infographic" },
+    { "type": "image_picker", "id": "mobile_image", "label": "Default mobile infographic", "info": "Shown on phones (up to 749px wide)" }
+  ],
   "blocks": [
     {
       "type": "row",

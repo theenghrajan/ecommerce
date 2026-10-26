@@ -1,0 +1,301 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --accent_color: {{ section.settings.accent_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+    .sn-benefit-wrap{
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(3px);
+        background: rgba(0,0,0,0.1);
+        height: stretch;
+    }
+    #{{section.settings.id}} .sn-benefit-icon{
+        width: 90px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        {% if section.settings.align == 'center' %}
+        margin-inline: auto;
+        {% endif %}
+        background: {{section.settings.icon_bg}};
+    }
+    .sn-benefit-icon img{
+        width: 60px;
+        height: 60px;
+    }
+    .landing .sn-benefit-wrap p strong{
+      color: var(--accent_color);
+    }
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+          background-attachment: scroll;
+      }
+    }
+  {% endstyle %}
+
+  {% if section.settings.heading != '' %}
+    <div class="sn-container hcenter text-center">
+      <div class="sn-col-1 sn-heading mb-2">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="sn-container {%if section.settings.align == 'center' %}text-center{% else %}text-left{% endif %} hcenter">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'benefit' %}
+          <div class="{% if section.settings.columns == '3' %}sn-col-3{% elsif section.settings.columns == '4' %}sn-col-4{% endif %} p-1">
+            <div
+              class="sn-benefit-wrap p-1 {{ block.settings.class }}"
+              {{ block.shopify_attributes }}
+            >
+              {% if block.settings.image %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1200 }}"
+                  width="100%"
+                  height="auto"
+                  class="sn-img"
+                >
+              {% elsif block.settings.icon %}
+                <div class="sn-benefit-icon">
+                  <img
+                    src="{{ block.settings.icon | image_url: width: 120 }}"
+                    class="sn-img"
+                    width="100%"
+                    height="auto"
+                  >
+                </div>
+              {% endif %}
+
+              <div class="sn-benefit-content">
+                <h4 class="mb-1">{{ block.settings.title }}</h4>
+                <div class="sn-text">{{ block.settings.text }}</div>
+              </div>
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom: Benefits",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-benefits"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "id": "columns",
+      "type": "select",
+      "options": [
+        {
+          "label": "3 columns",
+          "value": "3"
+        },
+        {
+          "label": "4 Columns",
+          "value": "4"
+        }
+      ],
+      "label": "# of columns",
+      "default": "3"
+    },
+    {
+      "id": "align",
+      "type": "select",
+      "options": [
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        }
+      ],
+      "label": "Align text (card content)",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "accent_color",
+      "type": "color",
+      "label": "Accent color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "icon_bg",
+      "type": "color",
+      "label": "Icon background color"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Benefit",
+      "type": "benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Icon",
+          "id": "icon"
+        },
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Title",
+          "id": "title"
+        },
+        {
+          "type": "richtext",
+          "label": "Description",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom: Benefits"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

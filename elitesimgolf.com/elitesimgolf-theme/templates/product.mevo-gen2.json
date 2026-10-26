@@ -1,0 +1,201 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "junip_junip_product_summary_Nn7k76": {
+          "type": "shopify://apps/junip/blocks/junip-product-summary/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "alignment": ""
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_iG3btb": {
+          "type": "custom-liquid",
+          "name": "ORDER DELAY NOTICE",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nMEVO GEN2 DIRECT-SHIP / REQUIRED ACKNOWLEDGEMENT (NO MutationObserver)\nTrigger: product tag \"mevo gen2\"\n{%- endcomment -%}\n\n{%- if product.tags contains 'mevo gen2' -%}\n{%- assign ack_id = 'esg-mevo-ack-' | append: product.id -%}\n\n<div data-esg-mevo-ack-wrap=\"{{ product.id }}\" style=\"\n  margin:14px 0 0;\n  padding:14px 16px;\n  border-radius:16px;\n  border:2px solid #0b2a55;\n  background:linear-gradient(180deg, #ffffff 0%, #f2f6ff 100%);\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#0f172a;\n  display:flex;\n  align-items:flex-start;\n  gap:12px;\n  box-shadow:0 10px 24px rgba(0,0,0,.06);\n\">\n  <div style=\"\n    width:34px; height:34px; border-radius:12px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:18px; flex:0 0 auto;\n    border:1px solid rgba(11,42,85,.18);\n  \">🚚</div>\n\n  <div style=\"line-height:1.35; flex:1;\">\n    <div style=\"\n      display:flex;\n      align-items:center;\n      justify-content:space-between;\n      gap:10px;\n      margin:0 0 8px;\n    \">\n      <div style=\"font-weight:900; font-size:13px; letter-spacing:.02em;\">\n        Direct Ship Notice — MEVO GEN2\n      </div>\n\n      <div style=\"\n        display:inline-flex;\n        align-items:center;\n        gap:8px;\n        padding:6px 10px;\n        border-radius:999px;\n        background:#0b2a55;\n        color:#ffffff;\n        font-weight:900;\n        font-size:12px;\n        letter-spacing:.02em;\n        white-space:nowrap;\n        box-shadow:0 8px 18px rgba(11,42,85,.20);\n      \">\n        Ships Direct\n      </div>\n    </div>\n\n    <div style=\"\n      background:#ffffff;\n      border:1px solid rgba(15,23,42,.10);\n      border-radius:12px;\n      padding:10px 12px;\n      font-size:12.5px;\n      color:#334155;\n      margin:0 0 10px;\n    \">\n      <div style=\"font-weight:900; color:#0f172a; margin:0 0 6px;\">\n        The MEVO GEN2 ships direct from <span style=\"color:#086ed3;\">FlightScope</span>.\n      </div>\n\n      <ul style=\"margin:0; padding-left:18px; line-height:1.5;\">\n        <li>Ordering from <span style=\"font-weight:900;\">Elite Sim Golf</span> will <span style=\"font-weight:900;\">not</span> get the item to you sooner. By placing your order, you acknowledge it will be fulfilled within the <span style=\"font-weight:900;\">time frame specified by the vendor</span>.</li>\n      </ul>\n    </div>\n\n    <!-- REQUIRED ACK CHECKBOX -->\n    <div style=\"\n      background:#ffffff;\n      border:1px solid rgba(15,23,42,.10);\n      border-radius:12px;\n      padding:10px 12px;\n    \">\n      <label for=\"{{ ack_id }}\" style=\"\n        display:flex;\n        align-items:flex-start;\n        gap:10px;\n        cursor:pointer;\n        user-select:none;\n      \">\n        <input id=\"{{ ack_id }}\" type=\"checkbox\" data-esg-mevo-ack style=\"\n          margin-top:2px;\n          width:18px; height:18px;\n          accent-color:#086ed3;\n          flex:0 0 auto;\n        \">\n        <span style=\"font-size:12.5px; color:#0f172a; line-height:1.45;\">\n          <span style=\"font-weight:900;\">Acknowledgement required:</span>\n          I understand this MEVO GEN2 order ships direct from FlightScope, will be fulfilled in the vendor’s stated timeframe,\n          and <span style=\"font-weight:900;\">cannot be cancelled</span> once placed.\n        </span>\n      </label>\n\n      <div data-esg-mevo-ack-help style=\"\n        margin-top:8px;\n        font-size:12px;\n        color:#b91c1c;\n        display:none;\n      \">\n        Please check the acknowledgement box to enable checkout.\n      </div>\n    </div>\n  </div>\n</div>\n\n<script>\n(function () {\n  var wrap = document.querySelector('[data-esg-mevo-ack-wrap=\"{{ product.id }}\"]');\n  if (!wrap) return;\n\n  var checkbox = wrap.querySelector('[data-esg-mevo-ack]');\n  if (!checkbox) return;\n\n  // Nearest section container (scopes impact to this product area)\n  var scope =\n    wrap.closest('.shopify-section') ||\n    wrap.closest('[data-section-id]') ||\n    document;\n\n  function getForms() {\n    // Product add-to-cart forms (scoped)\n    return Array.prototype.slice.call(\n      scope.querySelectorAll('form[action^=\"/cart/add\"], form[action=\"/cart/add\"]')\n    );\n  }\n\n  function getSubmitButtons(form) {\n    // Covers Add to cart + many dynamic checkout implementations\n    return Array.prototype.slice.call(\n      form.querySelectorAll('button[type=\"submit\"], input[type=\"submit\"]')\n    );\n  }\n\n  function toggleHelp(show) {\n    var help = wrap.querySelector('[data-esg-mevo-ack-help]');\n    if (!help) return;\n    help.style.display = show ? 'block' : 'none';\n  }\n\n  function setDisabled(disabled) {\n    var forms = getForms();\n    forms.forEach(function (form) {\n      getSubmitButtons(form).forEach(function (btn) {\n        // Keep original state so we don't fight other theme logic\n        if (btn.dataset.esgOrigDisabled === undefined) {\n          btn.dataset.esgOrigDisabled = btn.disabled ? \"1\" : \"0\";\n        }\n\n        if (disabled) {\n          btn.disabled = true;\n          btn.setAttribute('aria-disabled', 'true');\n          btn.style.opacity = '0.6';\n          btn.style.cursor = 'not-allowed';\n        } else {\n          btn.disabled = (btn.dataset.esgOrigDisabled === \"1\");\n          btn.setAttribute('aria-disabled', btn.disabled ? 'true' : 'false');\n          btn.style.opacity = '';\n          btn.style.cursor = '';\n        }\n      });\n    });\n  }\n\n  function bindSubmitGuards() {\n    var forms = getForms();\n    forms.forEach(function (form) {\n      if (form.dataset.esgAckBound === \"1\") return;\n      form.dataset.esgAckBound = \"1\";\n\n      form.addEventListener('submit', function (e) {\n        if (!checkbox.checked) {\n          e.preventDefault();\n          e.stopPropagation();\n          toggleHelp(true);\n          try { wrap.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch(_) {}\n        }\n      }, true);\n    });\n  }\n\n  function refresh() {\n    var ok = !!checkbox.checked;\n    setDisabled(!ok);\n    bindSubmitGuards();\n    if (ok) toggleHelp(false);\n  }\n\n  // Initial\n  refresh();\n\n  // Checkbox change\n  checkbox.addEventListener('change', refresh);\n\n  // Re-check on common Shopify section events (low frequency, no lockups)\n  document.addEventListener('DOMContentLoaded', refresh);\n  document.addEventListener('shopify:section:load', refresh);\n  document.addEventListener('shopify:section:reorder', refresh);\n  document.addEventListener('shopify:section:select', refresh);\n})();\n</script>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "always",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- Price Match Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🏷️</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Price Match Promise\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      See a better price from another authorized seller? Tell us—we’ll do our best to match it (or beat it).\n    </div>\n  </div>\n</div>\n\n<!-- No Sales Tax + Free Shipping Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">📦</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      No Sales Tax + Free Shipping on Most Orders\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Keep more in your pocket—most orders ship free and may qualify for no sales tax (some exclusions apply).\n    </div>\n  </div>\n</div>\n\n<!-- Real Human Support Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">👤</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Real Golf Experts (Not Bots)\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Have questions? Call us to talk to a real human: <strong>866-4-SIM-GOLF</strong>.\n    </div>\n  </div>\n</div>\n\n<!-- Small Shipping Note (Christmas-themed, compact) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🚚</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Ships in 3–5 business days\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Processing time may vary slightly during peak holiday volume.\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "w3_product_accessories_widget_Nw99yW": {
+          "type": "shopify://apps/w3-product-accessories/blocks/widget/cebf1474-e4fa-4cb4-a91e-d313690bf6f1",
+          "settings": {}
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "junip_junip_product_summary_Nn7k76",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_iG3btb",
+        "buy-buttons",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "w3_product_accessories_widget_Nw99yW",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "easify_attachments_product_attachments_PbbqhP": {
+          "type": "shopify://apps/easify-attachments/blocks/product-attachments/cc218f93-dff3-4a2d-af6e-04e2bc66e693",
+          "settings": {}
+        },
+        "junip_junip_product_review_CzDnXp": {
+          "type": "shopify://apps/junip/blocks/junip-product-review/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "product": "{{product}}",
+            "title": "",
+            "alignment": "center",
+            "sortOrder": "mostRecent"
+          }
+        }
+      },
+      "block_order": [
+        "easify_attachments_product_attachments_PbbqhP",
+        "junip_junip_product_review_CzDnXp"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

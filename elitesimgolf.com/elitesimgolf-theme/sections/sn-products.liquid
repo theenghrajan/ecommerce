@@ -1,0 +1,285 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+    .sn-heading-text, .sn-heading-button{
+        padding: 0 20px;
+    }
+    .sn-heading-button{
+        text-align: right;
+    }
+    .sn-heading-button a{
+      border: 1px solid #000;
+      padding: 10px 20px;
+      border-radius: 4px;
+    }
+    .sn-products-slider{
+        display: flex;
+        width: 100%;
+        max-width: 2000px;
+        margin: 20px auto 0;
+        overflow-x: hidden;
+        flex-wrap: nowrap;
+    }
+    .sn-product-outer{
+        flex-basis: calc(100% / 5);
+        flex-shrink: 0;
+    }
+    .sn-product-wrap img{
+        border-radius: 2px;
+        margin-bottom: 12px;
+        height: 272px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .sn-product-card-content{
+        padding: 0 12px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+    .sn-product-card-content p{
+      margin: 0;
+    }
+    .sn-product-wrap h4{
+        margin-bottom: 8px;
+    }
+    .sn-product-price{
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    .sn-product-price .sn-sale{
+        font-weight: bold;
+    }
+    .sn-product-price .sn-regular{
+        text-decoration: line-through;
+        opacity: 0.5;
+    }
+    .sn-product-price .sn-save{
+        font-size: 14px;
+        line-height: 1;
+        color: #fff;
+        background: #c40000;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+          background-attachment: scroll;
+      }
+      .sn-product-outer{
+        flex-basis: 100%;
+      }
+      .sn-heading-text, .sn-heading-button{
+        flex-basis: 100%;
+        text-align: center;
+        padding-bottom: 10px;
+      }
+      .sn-product-price{
+        flex-wrap: wrap;
+      }
+    }
+  {% endstyle %}
+
+  {% assign collection = section.settings.collection %}
+
+  {% if section.settings.heading != '' %}
+    <div class="sn-container vcenter">
+      <div class="sn-col-2 sn-heading-text mb-1">
+        {{ section.settings.text }}
+      </div>
+      <div class="sn-col-2 sn-heading-button mb-1">
+        <a href="{{ collection.url }}" class="collection-btn">View All</a>
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="sn-products-slider">
+    {% for product in collection.products %}
+      <div class="sn-product-outer p-1">
+        <div class="sn-product-wrap">
+          <a href="{{ product.url }}">
+            <img
+              src="{{ product.featured_image | image_url: width: 600 }}"
+              class="sn-img"
+              width="100%"
+              height="auto mb-1"
+              alt="{{ product.featured_image.alt | default: product.title | escape }}"
+            >
+            <div class="sn-product-card-content">
+              <p>
+                <small>{{ product.vendor }}</small>
+              </p>
+              <p>{{ product.title | truncate: 60 }}</p>
+              <div class="sn-product-price mt-1">
+                <span class="sn-sale">{{ product.price | money }}</span>
+                {% if product.compare_at_price %}
+                  <span class="sn-regular">{{ product.compare_at_price | money }}</span>
+                  <span class="sn-save">
+                    {{-
+                      product.compare_at_price
+                      | minus: product.price
+                      | times: 100.0
+                      | divided_by: product.compare_at_price
+                      | round
+                    -}}
+                    %</span
+                  >
+                {% endif %}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom: Products",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-products"
+    },
+    {
+      "id": "collection",
+      "type": "collection",
+      "label": "Collection"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Custom: Products"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

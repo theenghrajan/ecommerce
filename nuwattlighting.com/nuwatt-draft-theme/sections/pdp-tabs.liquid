@@ -29,10 +29,43 @@
 {% endcomment %}
 
 <div class="pdp-tabs page-width" id="pdp-tabs">
-  <ul class="pdp-tabs__list">
+  {%- comment -%}
+    #150 (#99): tabs with no content are not rendered at all (trigger + panel both skipped),
+    instead of rendering an "not been added yet" placeholder. Emptiness is computed once here
+    because the Specifications/Dimensions checks are expensive captures and both the trigger
+    loop and the panel loop need the same answer to stay index-aligned.
+    Specifications is intentionally always kept: the mini-specs "Read More" control lives
+    outside this section and targets #pdp-tab-trigger-specifications.
+    Fail-open by design - anything other than a clean "0" leaves the tab visible.
+  {%- endcomment -%}
+  {%- capture pdp_tab_flags_raw -%}
     {%- for block in section.blocks -%}
+      {%- assign tab_has_content = true -%}
+      {%- case block.type -%}
+        {%- when 'description' -%}
+          {%- comment -%} images are stripped from the description below, so a description holding nothing but an image counts as empty {%- endcomment -%}
+          {%- assign desc_plain = product.description | strip_html | strip -%}
+          {%- if desc_plain == blank and product.metafields.custom.description_image == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
+        {%- when 'warranty' -%}
+          {%- if product.metafields.custom.warranty_content == blank and block.settings.content == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
+        {%- when 'faq' -%}
+          {%- if product.metafields.custom.faqs.value == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
+        {%- when 'manuals' -%}
+          {%- if product.metafields.custom.manual == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
+        {%- when 'dimensions' -%}
+          {%- if product.metafields.custom.dimension_height == blank and product.metafields.custom.dimension_width == blank and product.metafields.custom.dimension_depth == blank and product.metafields.custom.dimension_cutout == blank and product.metafields.custom.dimension_weight == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
+      {%- endcase -%}
+      {%- if tab_has_content -%}1{%- else -%}0{%- endif -%},
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign pdp_tab_flags = pdp_tab_flags_raw | strip | split: ',' -%}
+  <ul class="pdp-tabs__list">
+    {%- assign pdp_tab_shown = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if pdp_tab_flags[forloop.index0] == '0' -%}{%- continue -%}{%- endif -%}
+      {%- assign pdp_tab_shown = pdp_tab_shown | plus: 1 -%}
       <li
-        class="pdp-tabs__tab{% if forloop.first %} active{% endif %}"
+        class="pdp-tabs__tab{% if pdp_tab_shown == 1 %} active{% endif %}"
         data-index="tab-{{ forloop.index }}"
         {% if block.type == 'specifications' %}id="pdp-tab-trigger-specifications"{% endif %}
         {{ block.shopify_attributes }}
@@ -43,17 +76,33 @@
   </ul>
 
   <div class="pdp-tabs__panels">
+    {%- assign pdp_panel_shown = 0 -%}
     {%- for block in section.blocks -%}
-      <div class="pdp-tabs__panel{% if forloop.first %} active{% endif %}" data-index="tab-{{ forloop.index }}">
+      {%- if pdp_tab_flags[forloop.index0] == '0' -%}{%- continue -%}{%- endif -%}
+      {%- assign pdp_panel_shown = pdp_panel_shown | plus: 1 -%}
+      <div class="pdp-tabs__panel{% if pdp_panel_shown == 1 %} active{% endif %}" data-index="tab-{{ forloop.index }}">
         {%- comment -%} #150 mobile audit (4): on phones the tabs show as stacked accordions; this header is hidden on desktop. {%- endcomment -%}
-        <button type="button" class="pdp-tabs__accordion-toggle" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" data-accordion-for="tab-{{ forloop.index }}">{{ block.settings.title }}</button>
+        <button type="button" class="pdp-tabs__accordion-toggle" aria-expanded="{% if pdp_panel_shown == 1 %}true{% else %}false{% endif %}" data-accordion-for="tab-{{ forloop.index }}">{{ block.settings.title }}</button>
         <div class="pdp-tabs__panel-body">
         {%- case block.type -%}
 
           {%- when 'description' -%}
             <div class="pdp-tab-description{% if product.metafields.custom.description_image == blank %} pdp-tab-description--no-image{% endif %}">
               <div class="pdp-tab-description__text-col">
-                {%- assign desc_text = product.description -%}
+                {%- comment -%}
+                  AC #105: some product descriptions still carry the A+ infographic inline, which repeats the
+                  dedicated infographic module further down the page. Strip any <img> out of the description copy
+                  while keeping its formatting. The product description itself is left untouched.
+                {%- endcomment -%}
+                {%- assign desc_chunks = product.description | split: '<img' -%}
+                {%- capture desc_text -%}
+                  {{- desc_chunks[0] -}}
+                  {%- for chunk in desc_chunks offset: 1 -%}
+                    {%- assign chunk_head = chunk | split: '>' | first -%}
+                    {{- chunk | remove_first: chunk_head | remove_first: '>' -}}
+                  {%- endfor -%}
+                {%- endcapture -%}
+                {%- assign desc_text = desc_text | replace: '<p></p>', '' | replace: '<p> </p>', '' | strip -%}
                 <div class="pdp-tab-description__text is-collapsed" data-pdp-description-text>
                   {{ desc_text }}
                 </div>

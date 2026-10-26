@@ -1,0 +1,30 @@
+a.elite-cta-pro__btn,
+a.elite-cta-pro__btn:link,
+a.elite-cta-pro__btn:visited {
+  background-color: var(--cta-btn-bg, #091836) !important;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+a.elite-cta-pro__btn:hover,
+a.elite-cta-pro__btn:focus,
+a.elite-cta-pro__btn:active {
+  background-color: #091836 !important;
+  background: #091836 !important;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transform: translateY(-2px);
+}
+
+a.elite-cta-pro__btn *,
+a.elite-cta-pro__btn:hover *,
+a.elite-cta-pro__btn:focus * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}

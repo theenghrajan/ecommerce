@@ -1,0 +1,238 @@
+{% comment %}
+  Professional Video Hero — Shopify OS 2.0 section
+  Add this file to /sections/video-hero.liquid, then add “Professional video hero” in the theme editor.
+{% endcomment %}
+
+{%- liquid
+  assign desktop_poster = section.settings.poster
+  assign mobile_poster = section.settings.mobile_poster | default: desktop_poster
+-%}
+
+<section
+  id="VideoHero-{{ section.id }}"
+  class="video-hero"
+  data-force-mobile-typography="{{ section.settings.force_mobile_typography }}"
+  style="
+    --vh-overlay: {{ section.settings.overlay_color }};
+    --vh-overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --vh-accent: {{ section.settings.accent_color }};
+    --vh-eyebrow-color: {{ section.settings.eyebrow_color }};
+    --vh-heading-color: {{ section.settings.heading_color }};
+    --vh-text-color: {{ section.settings.text_color }};
+    --vh-button-bg: {{ section.settings.button_background_color }};
+    --vh-button-hover-bg: {{ section.settings.button_hover_background_color }};
+    --vh-content-max: {{ section.settings.content_width }}px;
+    --vh-min-height: {{ section.settings.desktop_height }}px;
+    --vh-heading-font: {{ section.settings.heading_font }};
+    --vh-body-font: {{ section.settings.body_font }};
+    --vh-eyebrow-size: {{ section.settings.eyebrow_size_desktop }}px;
+    --vh-heading-size: {{ section.settings.heading_size_desktop }}px;
+    --vh-text-size: {{ section.settings.text_size_desktop }}px;
+  "
+>
+  <div class="video-hero__media" aria-hidden="true">
+    {%- if section.settings.video != blank -%}
+      {{ section.settings.video | video_tag:
+        image_size: '2000x',
+        autoplay: true,
+        loop: true,
+        muted: true,
+        controls: false,
+        class: 'video-hero__video'
+      }}
+    {%- elsif section.settings.poster != blank -%}
+      <picture>
+        {%- if mobile_poster != blank -%}
+          <source media="(max-width: 749px)" srcset="{{ mobile_poster | image_url: width: 1000 }}">
+        {%- endif -%}
+        {{ desktop_poster | image_url: width: 2400 | image_tag: class: 'video-hero__image', loading: 'eager', widths: '750, 1100, 1500, 2000, 2400' }}
+      </picture>
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'video-hero__placeholder' }}
+    {%- endif -%}
+  </div>
+  <div class="video-hero__overlay"></div>
+
+  <div class="video-hero__container page-width">
+    <div class="video-hero__content video-hero__content--{{ section.settings.content_position }}">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="video-hero__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="video-hero__heading">{{ section.settings.heading | escape | newline_to_br }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.text != blank -%}
+        <div class="video-hero__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a class="video-hero__button" href="{{ section.settings.button_link | default: '#' }}">
+          {{ section.settings.button_label | escape }}
+          <span aria-hidden="true">→</span>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap');
+  #VideoHero-{{ section.id }} {
+    position: relative;
+    isolation: isolate;
+    min-height: var(--vh-min-height);
+    display: grid;
+    overflow: hidden;
+    color: #fff;
+    background: #07111f;
+  }
+  #VideoHero-{{ section.id }} .video-hero__media,
+  #VideoHero-{{ section.id }} .video-hero__overlay { position: absolute; inset: 0; }
+  #VideoHero-{{ section.id }} .video-hero__media { z-index: -2; }
+  #VideoHero-{{ section.id }} .video-hero__video,
+  #VideoHero-{{ section.id }} .video-hero__image,
+  #VideoHero-{{ section.id }} .video-hero__placeholder {
+    width: 100%; height: 100%; display: block; object-fit: cover; object-position: center;
+  }
+  #VideoHero-{{ section.id }} .video-hero__overlay {
+    z-index: -1;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--vh-overlay) 95%, transparent), color-mix(in srgb, var(--vh-overlay) 20%, transparent) 66%), var(--vh-overlay);
+    opacity: var(--vh-overlay-opacity);
+  }
+  #VideoHero-{{ section.id }} .video-hero__container {
+    width: 100%; display: grid; align-items: end;
+    padding-top: 72px; padding-bottom: 72px;
+    padding-left: clamp(32px, 5vw, 96px); padding-right: clamp(32px, 5vw, 96px);
+  }
+  #VideoHero-{{ section.id }} .video-hero__content { width: min(100%, var(--vh-content-max)); }
+  #VideoHero-{{ section.id }} .video-hero__content--center { margin: 0 auto; text-align: center; }
+  #VideoHero-{{ section.id }} .video-hero__content--right { margin-left: auto; text-align: right; }
+  #VideoHero-{{ section.id }} .video-hero__eyebrow {
+    margin: 0 0 16px; color: var(--vh-eyebrow-color); font: 800 var(--vh-eyebrow-size)/1 var(--vh-body-font), sans-serif;
+    letter-spacing: .22em; text-transform: uppercase;
+  }
+  #VideoHero-{{ section.id }} .video-hero__heading {
+    max-width: 790px; margin: 0; color: var(--vh-heading-color); font-family: var(--vh-heading-font), sans-serif;
+    font-size: var(--vh-heading-size); font-style: italic; font-weight: 900; letter-spacing: -.045em;
+    line-height: .98; text-transform: uppercase;
+  }
+  #VideoHero-{{ section.id }} .video-hero__content--center .video-hero__heading { margin-inline: auto; }
+  #VideoHero-{{ section.id }} .video-hero__text { max-width: 600px; margin: 25px 0 0; color: var(--vh-text-color); font: 500 var(--vh-text-size)/1.6 var(--vh-body-font), sans-serif; }
+  #VideoHero-{{ section.id }} .video-hero__content--center .video-hero__text { margin-inline: auto; }
+  #VideoHero-{{ section.id }} .video-hero__content--right .video-hero__text { margin-left: auto; }
+  #VideoHero-{{ section.id }} .video-hero__button {
+    display: inline-flex; align-items: center; gap: 14px; margin-top: 30px; padding: 18px 24px;
+    color: #08162a; background: var(--vh-button-bg); border: 2px solid var(--vh-button-bg); font: 800 13px/1 var(--vh-heading-font), sans-serif;
+    letter-spacing: -.01em; text-decoration: none; text-transform: uppercase; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  #VideoHero-{{ section.id }} .video-hero__button:hover { color: #fff; background: var(--vh-button-hover-bg); border-color: var(--vh-button-hover-bg); transform: translateY(-2px); }
+  #VideoHero-{{ section.id }} .video-hero__button span { font-size: 19px; line-height: 0; }
+  /* Shopify's mobile editor canvas can render at a tablet-sized internal width.
+     989px ensures its phone preview and real phones use these controls. */
+  @media screen and (max-width: 989px) {
+    #VideoHero-{{ section.id }} {
+      min-height: {{ section.settings.mobile_height }}px;
+      --vh-eyebrow-size: {{ section.settings.eyebrow_size_mobile }}px;
+      --vh-heading-size: {{ section.settings.heading_size_mobile }}px;
+      --vh-text-size: {{ section.settings.text_size_mobile }}px;
+    }
+    #VideoHero-{{ section.id }} .video-hero__container { padding-top: 48px; padding-bottom: 42px; }
+    #VideoHero-{{ section.id }} .video-hero__eyebrow { font-size: {{ section.settings.eyebrow_size_mobile }}px !important; }
+    #VideoHero-{{ section.id }} .video-hero__heading { font-size: {{ section.settings.heading_size_mobile }}px !important; }
+    #VideoHero-{{ section.id }} .video-hero__text { margin-top: 18px; font-size: {{ section.settings.text_size_mobile }}px !important; }
+    #VideoHero-{{ section.id }} .video-hero__button { margin-top: 25px; padding: 16px 18px; }
+  }
+  /* Shopify's editor visually scales its phone preview while retaining a desktop
+     viewport. The data attribute below lets that preview use the mobile controls. */
+  #VideoHero-{{ section.id }}[data-compact-preview="true"] {
+    min-height: {{ section.settings.mobile_height }}px;
+    --vh-eyebrow-size: {{ section.settings.eyebrow_size_mobile }}px;
+    --vh-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --vh-text-size: {{ section.settings.text_size_mobile }}px;
+  }
+  #VideoHero-{{ section.id }}[data-compact-preview="true"] .video-hero__container { padding-top: 48px; padding-bottom: 42px; }
+  #VideoHero-{{ section.id }}[data-compact-preview="true"] .video-hero__eyebrow { font-size: {{ section.settings.eyebrow_size_mobile }}px !important; }
+  #VideoHero-{{ section.id }}[data-compact-preview="true"] .video-hero__heading { font-size: {{ section.settings.heading_size_mobile }}px !important; }
+  #VideoHero-{{ section.id }}[data-compact-preview="true"] .video-hero__text { margin-top: 18px; font-size: {{ section.settings.text_size_mobile }}px !important; }
+  #VideoHero-{{ section.id }}[data-compact-preview="true"] .video-hero__button { margin-top: 25px; padding: 16px 18px; }
+  /* Manual editor control: Shopify's device frame does not always change the
+     CSS viewport. Enable this setting to edit mobile sizing in that frame. */
+  #VideoHero-{{ section.id }}[data-force-mobile-typography="true"] {
+    min-height: {{ section.settings.mobile_height }}px;
+    --vh-eyebrow-size: {{ section.settings.eyebrow_size_mobile }}px;
+    --vh-heading-size: {{ section.settings.heading_size_mobile }}px;
+    --vh-text-size: {{ section.settings.text_size_mobile }}px;
+  }
+  #VideoHero-{{ section.id }}[data-force-mobile-typography="true"] .video-hero__container { padding-top: 48px; padding-bottom: 42px; }
+  #VideoHero-{{ section.id }}[data-force-mobile-typography="true"] .video-hero__eyebrow { font-size: {{ section.settings.eyebrow_size_mobile }}px !important; }
+  #VideoHero-{{ section.id }}[data-force-mobile-typography="true"] .video-hero__heading { font-size: {{ section.settings.heading_size_mobile }}px !important; }
+  #VideoHero-{{ section.id }}[data-force-mobile-typography="true"] .video-hero__text { margin-top: 18px; font-size: {{ section.settings.text_size_mobile }}px !important; }
+  #VideoHero-{{ section.id }}[data-force-mobile-typography="true"] .video-hero__button { margin-top: 25px; padding: 16px 18px; }
+  @media (prefers-reduced-motion: reduce) { #VideoHero-{{ section.id }} .video-hero__video { display: none; } }
+</style>
+
+<script>
+  (() => {
+    const hero = document.getElementById('VideoHero-{{ section.id }}');
+    if (!hero) return;
+    const updateHeroViewport = () => {
+      // In Shopify's editor the section can retain a desktop width while a
+      // parent canvas clips it to phone width. Use the smallest visible
+      // ancestor width so the phone preview receives its mobile settings.
+      let node = hero;
+      let visibleWidth = Infinity;
+      while (node && node !== document.body) {
+        const width = node.getBoundingClientRect().width;
+        if (width > 0) visibleWidth = Math.min(visibleWidth, width);
+        node = node.parentElement;
+      }
+      hero.dataset.compactPreview = visibleWidth <= 989 ? 'true' : 'false';
+    };
+    updateHeroViewport();
+    new ResizeObserver(updateHeroViewport).observe(hero);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Professional video hero",
+  "tag": "section",
+  "class": "section-video-hero",
+  "settings": [
+    { "type": "video", "id": "video", "label": "Background video" },
+    { "type": "image_picker", "id": "poster", "label": "Desktop fallback image" },
+    { "type": "image_picker", "id": "mobile_poster", "label": "Mobile fallback image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Immersive golf, at home" },
+    { "type": "textarea", "id": "heading", "label": "Heading", "default": "Play the world's best\\ncourses from home." },
+    { "type": "richtext", "id": "text", "label": "Description", "default": "<p>Premium golf simulators built for serious golfers. Free shipping, expert support, and setups that actually work.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop simulator packages" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "select", "id": "content_position", "label": "Content alignment", "default": "left", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}] },
+    { "type": "text", "id": "heading_font", "label": "Heading font", "default": "Barlow" },
+    { "type": "text", "id": "body_font", "label": "Body font", "default": "Inter" },
+    { "type": "checkbox", "id": "force_mobile_typography", "label": "Force mobile typography preview", "info": "Use while editing Shopify's phone preview. Turn off before publishing desktop changes.", "default": false },
+    { "type": "header", "content": "Desktop typography" },
+    { "type": "range", "id": "eyebrow_size_desktop", "label": "Eyebrow size", "min": 9, "max": 24, "step": 1, "default": 11, "unit": "px" },
+    { "type": "range", "id": "heading_size_desktop", "label": "Heading size", "min": 32, "max": 100, "step": 2, "default": 72, "unit": "px" },
+    { "type": "range", "id": "text_size_desktop", "label": "Paragraph size", "min": 12, "max": 24, "step": 1, "default": 16, "unit": "px" },
+    { "type": "header", "content": "Mobile typography" },
+    { "type": "range", "id": "eyebrow_size_mobile", "label": "Eyebrow size", "min": 9, "max": 20, "step": 1, "default": 11, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Heading size", "min": 24, "max": 64, "step": 2, "default": 30, "unit": "px" },
+    { "type": "range", "id": "text_size_mobile", "label": "Paragraph size", "min": 12, "max": 20, "step": 1, "default": 14, "unit": "px" },
+    { "type": "range", "id": "content_width", "label": "Content width", "min": 400, "max": 900, "step": 20, "default": 700, "unit": "px" },
+    { "type": "range", "id": "desktop_height", "label": "Desktop height", "min": 450, "max": 900, "step": 10, "default": 680, "unit": "px" },
+    { "type": "range", "id": "mobile_height", "label": "Mobile height", "min": 400, "max": 750, "step": 10, "default": 560, "unit": "px" },
+    { "type": "color", "id": "overlay_color", "label": "Overlay color", "default": "#06111d" },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay strength", "min": 0, "max": 100, "step": 5, "default": 65, "unit": "%" },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#2D7DD2" },
+    { "type": "color", "id": "eyebrow_color", "label": "Eyebrow text color", "default": "#2D7DD2" },
+    { "type": "color", "id": "heading_color", "label": "Heading text color", "default": "#FFFFFF" },
+    { "type": "color", "id": "text_color", "label": "Paragraph text color", "default": "#FFFFFF" },
+    { "type": "color", "id": "button_background_color", "label": "Button background color", "default": "#FFFFFF" },
+    { "type": "color", "id": "button_hover_background_color", "label": "Button hover background color", "default": "#2D7DD2" }
+  ],
+  "presets": [{ "name": "Professional video hero" }]
+}
+{% endschema %}

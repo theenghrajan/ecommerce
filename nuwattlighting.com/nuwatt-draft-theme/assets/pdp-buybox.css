@@ -219,6 +219,15 @@
 .read-more-specs-wrap a{
   margin-left: 0;
 }
+/* AC #164: long values (e.g. "5CCT: 2700K/3000K/...") wrap inside their column instead of
+   pushing it wider; column-gap replaces the spacing the removed ul margin used to give */
+.product-grid__item--details .mini-specs{
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 16px;
+}
+.mini-specs ul li{
+  overflow-wrap: anywhere;
+}
 
 /* ---------- Buy box card ---------- */
 .product-single__buy-box{

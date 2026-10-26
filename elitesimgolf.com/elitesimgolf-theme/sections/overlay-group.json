@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "aside",
+  "name": "Overlay group",
+  "sections": {
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "settings": {
+        "show_backorder_text": false,
+        "show_order_note": true,
+        "show_checkout_button": true,
+        "cart_terms_page": "",
+        "show_recommendations": false,
+        "recommendations_heading": "You may also like",
+        "recommendations_layout": "list"
+      }
+    },
+    "pop_up_469hA8": {
+      "type": "pop-up",
+      "blocks": {
+        "heading_ATHNDc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sign up and save",
+            "heading_size": "h2"
+          }
+        },
+        "text_t6myY7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy exclusive offers & discounts when you sign up to our newsletter</p>"
+          }
+        },
+        "newsletter_signup_cbVdrQ": {
+          "type": "newsletter-signup",
+          "settings": {}
+        },
+        "social_MYNbLH": {
+          "type": "social",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_ATHNDc",
+        "text_t6myY7",
+        "newsletter_signup_cbVdrQ",
+        "social_MYNbLH"
+      ],
+      "disabled": true,
+      "settings": {
+        "trigger": "exit",
+        "delay": 8,
+        "show_to_guests_only": false,
+        "show_on_mobile": true,
+        "dismiss_days": 30,
+        "width": 720,
+        "position": "justify-center items-center",
+        "text_align": "text-center",
+        "image": "shopify://shop_images/CFC88273-AE33-4375-A0F0-D47BB41623F4_b65b2c75-6875-44b3-b85e-1e55dc8af0d8.png",
+        "layout": "image_first",
+        "bg_color": "#161616",
+        "heading_color": "#2953b9",
+        "text_color": "#f8f8f8",
+        "button_colors": "heading"
+      }
+    }
+  },
+  "order": [
+    "cart-drawer",
+    "pop_up_469hA8"
+  ]
+}

@@ -1,0 +1,534 @@
+{% comment %}
+  Elite Sim Golf — FAQ Section
+  File: sections/custom-faq.liquid
+{% endcomment %}
+
+<style>
+  .esg-faq *,
+  .esg-faq *::before,
+  .esg-faq *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .esg-faq {
+    position: relative;
+    background: {{ section.settings.bg_color }};
+    color: #ffffff;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+    overflow: hidden;
+    padding: {{ section.settings.section_padding_top }}px 20px {{ section.settings.section_padding_bottom }}px;
+  }
+
+  /* Background image overlay */
+  {%- if section.settings.bg_image != blank -%}
+  .esg-faq__bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ section.settings.bg_image | image_url: width: 1800 }}');
+    background-size: cover;
+    background-position: {{ section.settings.bg_position }};
+    background-repeat: no-repeat;
+    opacity: {{ section.settings.bg_opacity | divided_by: 100.0 }};
+    z-index: 0;
+    pointer-events: none;
+  }
+  {%- endif -%}
+
+  /* Dark gradient overlay for readability */
+  .esg-faq::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba({{ section.settings.bg_color | color_extract: 'red' }},{{ section.settings.bg_color | color_extract: 'green' }},{{ section.settings.bg_color | color_extract: 'blue' }},0.92) 0%,
+      rgba({{ section.settings.bg_color | color_extract: 'red' }},{{ section.settings.bg_color | color_extract: 'green' }},{{ section.settings.bg_color | color_extract: 'blue' }},0.75) 55%,
+      rgba({{ section.settings.bg_color | color_extract: 'red' }},{{ section.settings.bg_color | color_extract: 'green' }},{{ section.settings.bg_color | color_extract: 'blue' }},0.35) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .esg-faq__inner {
+    position: relative;
+    z-index: 2;
+    max-width: {{ section.settings.content_width }}px;
+    margin: 0 auto;
+  }
+
+  /* ── Header ── */
+  .esg-faq__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .esg-faq__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .esg-faq__eyebrow-line {
+    width: 48px;
+    height: 1px;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.8;
+  }
+
+  .esg-faq__eyebrow-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-faq__title {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .esg-faq__title em {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-faq__title-diamond {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .esg-faq__title-diamond::before,
+  .esg-faq__title-diamond::after {
+    content: '';
+    height: 1px;
+    width: 48px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  .esg-faq__diamond {
+    width: 8px;
+    height: 8px;
+    border: 1.5px solid {{ section.settings.accent_color }};
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── FAQ Items ── */
+  .esg-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .esg-faq__item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .esg-faq__item:hover {
+    border-color: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .esg-faq__item.is-open {
+    border-color: {{ section.settings.accent_color }};
+    background: rgba(255,255,255,0.06);
+  }
+
+  .esg-faq__question {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    text-align: left;
+    font-family: inherit;
+  }
+
+  /* Question mark badge */
+  .esg-faq__q-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid {{ section.settings.accent_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: {{ section.settings.accent_color }};
+    font-size: 13px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Georgia, serif;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .esg-faq__item.is-open .esg-faq__q-icon {
+    background: {{ section.settings.accent_color }};
+    color: #ffffff;
+  }
+
+  .esg-faq__question-text {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.4;
+  }
+
+  /* Plus / X toggle */
+  .esg-faq__toggle {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {{ section.settings.accent_color }};
+    transition: transform 0.3s ease;
+  }
+
+  .esg-faq__item.is-open .esg-faq__toggle {
+    transform: rotate(45deg);
+  }
+
+  .esg-faq__toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Answer */
+  .esg-faq__answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .esg-faq__item.is-open .esg-faq__answer {
+    max-height: 600px;
+    opacity: 1;
+  }
+
+  .esg-faq__answer-inner {
+    padding: 0 20px 20px 62px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 16px;
+    margin: 0 20px;
+    margin-bottom: 0;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .esg-faq {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .esg-faq__title { font-size: clamp(22px, 6vw, 32px); }
+
+    .esg-faq__question { padding: 16px; gap: 12px; }
+
+    .esg-faq__question-text { font-size: 12px; letter-spacing: 0.05em; }
+
+    .esg-faq__answer-inner {
+      padding: 14px 16px 16px 16px;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .esg-faq__q-icon { width: 24px; height: 24px; font-size: 12px; }
+  }
+</style>
+
+<section class="esg-faq" id="esg-faq-{{ section.id }}">
+
+  {%- if section.settings.bg_image != blank -%}
+    <div class="esg-faq__bg"></div>
+  {%- endif -%}
+
+  <div class="esg-faq__inner">
+
+    <!-- Header -->
+    <div class="esg-faq__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="esg-faq__eyebrow">
+          <span class="esg-faq__eyebrow-line"></span>
+          <span class="esg-faq__eyebrow-text">{{ section.settings.eyebrow }}</span>
+          <span class="esg-faq__eyebrow-line"></span>
+        </div>
+      {%- endif -%}
+
+      <h2 class="esg-faq__title">
+        {{ section.settings.title_plain }}
+        {%- if section.settings.title_accent != blank -%}
+          <em>{{ section.settings.title_accent }}</em>
+        {%- endif -%}
+      </h2>
+
+      <div class="esg-faq__title-diamond">
+        <div class="esg-faq__diamond"></div>
+      </div>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="esg-faq__list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'faq_item' -%}
+          <div class="esg-faq__item" {{ block.shopify_attributes }}>
+            <button class="esg-faq__question" aria-expanded="false">
+              <span class="esg-faq__q-icon">?</span>
+              <span class="esg-faq__question-text">{{ block.settings.question }}</span>
+              <span class="esg-faq__toggle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </span>
+            </button>
+            {%- if block.settings.answer != blank -%}
+              <div class="esg-faq__answer" role="region">
+                <div class="esg-faq__answer-inner">{{ block.settings.answer }}</div>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var faq = document.getElementById('esg-faq-{{ section.id }}');
+  if (!faq) return;
+
+  var items = faq.querySelectorAll('.esg-faq__item');
+
+  items.forEach(function(item) {
+    var btn = item.querySelector('.esg-faq__question');
+    if (!btn) return;
+
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('is-open');
+
+      // Close all others
+      items.forEach(function(i) {
+        i.classList.remove('is-open');
+        var b = i.querySelector('.esg-faq__question');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ESG FAQ",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#0a1628"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "bg_opacity",
+      "label": "Image opacity %",
+      "min": 5,
+      "max": 70,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image position",
+      "default": "center center",
+      "options": [
+        { "value": "center center", "label": "Center" },
+        { "value": "center top",    "label": "Top" },
+        { "value": "center bottom", "label": "Bottom" },
+        { "value": "right center",  "label": "Right" },
+        { "value": "left center",   "label": "Left" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Questions & Answers"
+    },
+    {
+      "type": "text",
+      "id": "title_plain",
+      "label": "Title (white part)",
+      "default": "Frequently Asked"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title (accent color part)",
+      "default": "Questions"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Font family",
+      "default": "Inter"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Max content width (px)",
+      "min": 600,
+      "max": 1200,
+      "step": 50,
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Padding top (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What's included in a simulator package?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Our simulator packages include everything you need: a high-accuracy launch monitor, impact screen, projector, hitting mat, and software. Optional add-ons like enclosures and premium frames are also available.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included in a simulator package?",
+            "answer": "<p>Our simulator packages include everything you need: a high-accuracy launch monitor, impact screen, projector, hitting mat, and software. Optional add-ons like enclosures and premium frames are also available.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much space do I need for a golf simulator?",
+            "answer": "<p>We recommend a minimum of 10ft wide × 10ft deep × 9ft high. Ideal setups are 12–15ft wide with 10ft ceilings, but we have solutions for a variety of room sizes — reach out and we'll find the right fit.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need any technical experience to set one up?",
+            "answer": "<p>No technical experience required. Every kit comes with step-by-step assembly manuals and access to our remote support team. We also offer professional installation services if preferred.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What launch monitors do you carry?",
+            "answer": "<p>We carry all major brands including Trackman, Foresight Sports, Uneekor, Garmin Approach, and FlightScope — covering a wide range of budgets and accuracy levels.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer financing?",
+            "answer": "<p>Yes! We offer flexible financing options through our payment partners. Many customers qualify for 0% APR promotional periods. Contact us for details or apply at checkout.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if something arrives damaged or doesn't work?",
+            "answer": "<p>All products are covered by our warranty and our dedicated support team. If anything arrives damaged, contact us within 48 hours and we'll arrange a replacement or resolution — no hassle.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

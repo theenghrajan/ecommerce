@@ -1,0 +1,40 @@
+{% liquid
+  assign saving = product.compare_at_price | minus: product.price
+  assign rating = product.metafields.reviews.rating.value.rating
+  assign rating_count = product.metafields.reviews.rating_count.value
+%}
+
+<article class="elite-product">
+  <a class="elite-product__image" href="{{ product.url }}">
+    {% if product.compare_at_price > product.price %}
+      <span class="elite-product__badge">Up to {{ saving | money }} off</span>
+    {% endif %}
+
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 900 | image_tag: class: 'elite-product__image--primary', loading: 'lazy', alt: product.title }}
+    {% endif %}
+
+    {% if product.images[1] %}
+      {{ product.images[1] | image_url: width: 900 | image_tag: class: 'elite-product__image--hover', loading: 'lazy', alt: product.images[1].alt }}
+    {% endif %}
+  </a>
+
+  <p class="elite-product__vendor">{{ product.vendor }}</p>
+
+  <h3 class="elite-product__title">
+    <a href="{{ product.url }}">{{ product.title }}</a>
+  </h3>
+
+  <p class="elite-product__price">
+    {{ product.price | money }}
+    {% if product.compare_at_price > product.price %}
+      <span class="elite-product__compare">{{ product.compare_at_price | money }}</span>
+    {% endif %}
+  </p>
+
+  {% if rating != blank %}
+    <div class="elite-product__reviews" aria-label="Rated {{ rating }} out of 5">
+      ★★★★★ <span class="elite-product__review-count">({{ rating_count | default: 0 }})</span>
+    </div>
+  {% endif %}
+</article>

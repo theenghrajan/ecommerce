@@ -1,0 +1,1327 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_YjxFiw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "globo_product_options_app_block_rJ7Cfp": {
+          "type": "shopify://apps/globo-product-options/blocks/app-block/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+          "settings": {}
+        },
+        "custom_liquid_Y4NHb7": {
+          "type": "custom-liquid",
+          "name": "Spica3",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — Vendor Trigger\nTrigger: product.vendor = \"GolfJoy\" (case-insensitive)\nRequires code: GOLFJOY10\nAuto-hide after: March 30, 2026\nCompact styling to match ESG shipping box\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-03-30' | date: '%s' -%}\n{%- assign vendor_downcase = product.vendor | strip | downcase -%}\n\n{%- if today_ts <= cutoff_ts and vendor_downcase == 'golfjoy' -%}\n<div class=\"esg-promo-code-box\">\n  <div class=\"esg-promo-code-box__top\">\n    <div class=\"esg-promo-code-box__title\">\n      <span class=\"esg-promo-code-box__title-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M20.59 13.41 11 23l-2.5-2.5\"></path>\n          <path d=\"M17 7h.01\"></path>\n          <path d=\"M3 11V3h8l10 10-8 8L3 11z\"></path>\n        </svg>\n      </span>\n      <span>Extra Savings Available</span>\n    </div>\n\n    <div class=\"esg-promo-code-box__ends\">\n      Ends Mar 30, 2026\n    </div>\n  </div>\n\n  <div class=\"esg-promo-code-box__text\">\n    Use code below for <strong>up to 10% off</strong> at cart or checkout.\n  </div>\n\n  <div class=\"esg-promo-code-box__row\">\n    <div id=\"esg-promo-code\" class=\"esg-promo-code-box__code\">GOLFJOY10</div>\n\n    <button type=\"button\" id=\"esg-promo-copy\" class=\"esg-promo-code-box__button\">\n      Copy Code\n    </button>\n\n    <div id=\"esg-promo-copied\" class=\"esg-promo-code-box__copied\">\n      Copied\n    </div>\n  </div>\n\n  <div class=\"esg-promo-code-box__note\">\n    Tap the code or button to copy instantly.\n  </div>\n</div>\n\n<style>\n  .esg-promo-code-box {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #23923d;\n    border-radius: 12px;\n    background: linear-gradient(180deg, #f7fcf7 0%, #eef8ef 100%);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,.75),\n      0 1px 2px rgba(16,42,67,.05);\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-promo-code-box__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    margin-bottom: 7px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__title {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #168232;\n    letter-spacing: .1px;\n    line-height: 1.2;\n  }\n\n  .esg-promo-code-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #168232;\n    flex: 0 0 16px;\n  }\n\n  .esg-promo-code-box__title-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-promo-code-box__ends {\n    display: inline-block;\n    padding: 5px 8px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.28);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);\n  }\n\n  .esg-promo-code-box__text {\n    font-size: 13px;\n    color: #102a43;\n    margin-bottom: 9px;\n  }\n\n  .esg-promo-code-box__text strong {\n    font-weight: 800;\n  }\n\n  .esg-promo-code-box__row {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__code {\n    display: inline-flex;\n    align-items: center;\n    padding: 8px 11px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px dashed rgba(35,146,61,.45);\n    color: #168232;\n    font-weight: 900;\n    font-size: 12.5px;\n    letter-spacing: .12em;\n    line-height: 1;\n    user-select: all;\n    cursor: pointer;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.85);\n  }\n\n  .esg-promo-code-box__button {\n    appearance: none;\n    border: 1px solid #23923d;\n    border-radius: 999px;\n    padding: 8px 12px;\n    background: #168232;\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 12.5px;\n    line-height: 1;\n    cursor: pointer;\n    box-shadow: 0 1px 2px rgba(16,42,67,.08);\n    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;\n  }\n\n  .esg-promo-code-box__button:hover {\n    background: #136f2b;\n    transform: translateY(-1px);\n  }\n\n  .esg-promo-code-box__copied {\n    display: none;\n    align-items: center;\n    padding: 7px 10px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.35);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .esg-promo-code-box__note {\n    margin-top: 8px;\n    font-size: 12px;\n    color: #35506b;\n  }\n\n  @media (max-width: 749px) {\n    .esg-promo-code-box {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-promo-code-box__title {\n      font-size: 13.5px;\n    }\n\n    .esg-promo-code-box__title-icon {\n      width: 15px;\n      height: 15px;\n      min-width: 15px;\n      flex-basis: 15px;\n    }\n\n    .esg-promo-code-box__title-icon svg {\n      width: 15px;\n      height: 15px;\n    }\n\n    .esg-promo-code-box__ends,\n    .esg-promo-code-box__text,\n    .esg-promo-code-box__button,\n    .esg-promo-code-box__code {\n      font-size: 12px;\n    }\n\n    .esg-promo-code-box__note {\n      font-size: 11.5px;\n    }\n  }\n</style>\n\n<script>\n(function () {\n  var btn = document.getElementById('esg-promo-copy');\n  var codeEl = document.getElementById('esg-promo-code');\n  var badge = document.getElementById('esg-promo-copied');\n  if (!btn || !codeEl) return;\n\n  function showCopied() {\n    if (!badge) return;\n    badge.style.display = 'inline-flex';\n    setTimeout(function () {\n      badge.style.display = 'none';\n    }, 1400);\n  }\n\n  async function copyCode() {\n    var code = (codeEl.textContent || '').trim();\n\n    try {\n      if (navigator.clipboard && navigator.clipboard.writeText) {\n        await navigator.clipboard.writeText(code);\n        showCopied();\n        return;\n      }\n    } catch (e) {}\n\n    var ta = document.createElement('textarea');\n    ta.value = code;\n    ta.setAttribute('readonly', '');\n    ta.style.position = 'absolute';\n    ta.style.left = '-9999px';\n    document.body.appendChild(ta);\n    ta.select();\n\n    try {\n      document.execCommand('copy');\n      showCopied();\n    } catch (e) {}\n\n    document.body.removeChild(ta);\n  }\n\n  btn.addEventListener('click', copyCode);\n  codeEl.addEventListener('click', copyCode);\n  codeEl.title = 'Click to copy';\n})();\n</script>\n{%- endif -%}{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'spica 3' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>GolfJoy Spica 3</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_WTm6Q9": {
+          "type": "custom-liquid",
+          "name": "Eye Mini Lite Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'eye mini lite' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>UNEEKOR Eye Mini Lite</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_FKVhxB": {
+          "type": "custom-liquid",
+          "name": "Garmin R50 Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'garmin r50' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>Garmin Approach R50</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "name": "Trust Badge",
+          "settings": {
+            "custom_liquid": "<div class=\"esg-trust-listbox\">\n  <div class=\"esg-trust-listbox__header\">\n    <span class=\"esg-trust-listbox__header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"></path>\n      </svg>\n    </span>\n    <span>Why Buy from Elite Sim Golf</span>\n  </div>\n\n  <div class=\"esg-trust-lines\">\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">✅</div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Authorized {{ product.vendor }} Dealer</div>\n        <div class=\"esg-trust-line__text\">\n          Elite Sim Golf is a Premier {{ product.vendor }} Partner.\n        </div>\n      </div>\n    </div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">🚚</div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Ships Same Business Day from the USA</div>\n        <div class=\"esg-trust-line__text\">\n          Orders placed before <strong>NOON EST</strong> typically ship same day.\n        </div>\n      </div>\n    </div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">📦</div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Free Shipping on Most Orders</div>\n        <div class=\"esg-trust-line__text\">\n          Most orders ship free and may qualify for no sales tax.\n        </div>\n      </div>\n    </div>\n\n    <div class=\"esg-trust-line\">\n      <div class=\"esg-trust-line__icon\">👤</div>\n      <div class=\"esg-trust-line__content\">\n        <div class=\"esg-trust-line__title\">Real Golf Experts, Not Bots</div>\n        <div class=\"esg-trust-line__text\">\n          Call <strong>866-4-SIM-GOLF</strong> to speak with a real human.\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n  .esg-trust-listbox {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #e5e7eb;\n    border-radius: 12px;\n    background: #ffffff;\n    box-shadow:\n      0 1px 2px rgba(15, 23, 42, .04),\n      inset 0 1px 0 rgba(255,255,255,.8);\n    font-family: system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;\n    color: #1f2937;\n  }\n\n  .esg-trust-listbox__header {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #0f172a;\n    line-height: 1.2;\n    letter-spacing: .1px;\n    margin-bottom: 10px;\n  }\n\n  .esg-trust-listbox__header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #086ed3;\n    flex: 0 0 16px;\n  }\n\n  .esg-trust-listbox__header-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-trust-lines {\n    display: grid;\n    gap: 8px;\n  }\n\n  .esg-trust-line {\n    display: flex;\n    align-items: flex-start;\n    gap: 10px;\n    padding: 2px 0;\n  }\n\n  .esg-trust-line + .esg-trust-line {\n    border-top: 1px solid #eef2f7;\n    padding-top: 10px;\n    margin-top: 2px;\n  }\n\n  .esg-trust-line__icon {\n    width: 28px;\n    height: 28px;\n    min-width: 28px;\n    border-radius: 9px;\n    background: #f4f8ff;\n    border: 1px solid rgba(8,110,211,.10);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 15px;\n    line-height: 1;\n  }\n\n  .esg-trust-line__content {\n    min-width: 0;\n    line-height: 1.35;\n  }\n\n  .esg-trust-line__title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #111827;\n    margin: 0 0 2px;\n  }\n\n  .esg-trust-line__text {\n    font-size: 12px;\n    color: #6b7280;\n  }\n\n  .esg-trust-line__text strong {\n    color: #1f2937;\n    font-weight: 800;\n  }\n\n  @media (max-width: 749px) {\n    .esg-trust-listbox {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-trust-listbox__header {\n      font-size: 13.5px;\n    }\n\n    .esg-trust-line__title,\n    .esg-trust-line__text {\n      font-size: 12px;\n    }\n  }\n</style>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "w3_product_accessories_widget_Nw99yW": {
+          "type": "shopify://apps/w3-product-accessories/blocks/widget/cebf1474-e4fa-4cb4-a91e-d313690bf6f1",
+          "settings": {}
+        },
+        "bundly_product_bundles_fyjrAU": {
+          "type": "shopify://apps/bundly/blocks/product_bundles/1cabc354-c7f9-42e9-8322-7655396b33b7",
+          "disabled": true,
+          "settings": {
+            "heading": "BUNDLE AND SAVE",
+            "ribbon_text": "",
+            "show_bundle_image": false,
+            "show_discount_type": true,
+            "show_original_price": true,
+            "show_new_price": true,
+            "show_components": true,
+            "show_component_images": true,
+            "theme": "minimal",
+            "css": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_YjxFiw",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "globo_product_options_app_block_rJ7Cfp",
+        "custom_liquid_Y4NHb7",
+        "custom_liquid_WTm6Q9",
+        "custom_liquid_FKVhxB",
+        "buy-buttons",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "w3_product_accessories_widget_Nw99yW",
+        "bundly_product_bundles_fyjrAU",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "details",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ngWkaP": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ngWkaP"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "sn_product_intro_3qBL4H": {
+      "type": "sn-product-intro",
+      "blocks": {
+        "text_WFQCrb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The No-Compromise Build</p>",
+            "class": "sn-uppercase sn-highlight mb-2"
+          }
+        },
+        "text_Vibkg9": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Your <em>complete</em> overhead simulator bay — out of the box.</h2>",
+            "class": ""
+          }
+        },
+        "text_khdp7V": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The VTrack Premium 4K Bundle is built for golfers who don't want to compromise. Ceiling-mounted markerless tracking. 4K projection. A full 12-foot Eagle enclosure. A pro-grade hitting mat setup. Everything curated to work together, so you spend your time dialing in your swing — not troubleshooting compatibility.</p>",
+            "class": ""
+          }
+        },
+        "text_KmFGYk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Laon Swingcraft VTrack launch monitor sits overhead, out of the way, tracking every shot with dual high-speed cameras. No stickers, no special balls, no floor unit to swing around. Just clean, fast, accurate feedback — and slow-motion impact video to show you exactly what happened at contact.</p>",
+            "class": ""
+          }
+        },
+        "stats_TwgF7F": {
+          "type": "stats",
+          "settings": {
+            "title1": "25+",
+            "text1": "Shot Parameters",
+            "title2": "4K",
+            "text2": "Ultra HD Projection",
+            "title3": "12ft",
+            "text3": "Hitting Bay Width",
+            "title4": "~250ms",
+            "text4": "Shot Feedback Speed",
+            "class": "mt-2"
+          }
+        },
+        "review_Nt8F9e": {
+          "type": "review",
+          "settings": {
+            "message": "<p><em>\"I was torn between a few overhead options, but the VTrack bundle made the decision easy. Setup was simpler than expected, the data is incredible, and the 4K image on the impact screen is genuinely beautiful. This is a permanent fixture in my garage now.\"</em></p>",
+            "letters": "JM",
+            "name": "James M.",
+            "info": "Eagle 12 + VTrack Owner · Verified Purchase",
+            "class": "mb-2"
+          }
+        },
+        "review_XTNar4": {
+          "type": "review",
+          "settings": {
+            "message": "<p><em>\"The overhead design was the whole reason I went with VTrack. Nothing on the floor means my kids can use the sim without me worrying about the monitor. The bundle from Elite Sim Golf arrived packaged correctly and everything fit perfectly.\"</em></p>",
+            "letters": "DR",
+            "name": "David R.",
+            "info": "VTrack Premium Bundle Owner · Verified Purchase",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_WFQCrb",
+        "text_Vibkg9",
+        "text_khdp7V",
+        "text_KmFGYk",
+        "stats_TwgF7F",
+        "review_Nt8F9e",
+        "review_XTNar4"
+      ],
+      "name": "Product: Intro",
+      "settings": {
+        "id": "sn-product-info",
+        "text": "",
+        "background_color": "#121212",
+        "heading_color": "#ffffff",
+        "accent_color": "#4b94f6",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#282828",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_benefits_GXtkrM": {
+      "type": "sn-benefits",
+      "blocks": {
+        "benefit_4rJzMK": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/ceiling.svg",
+            "title": "Ceiling-Mounted, Out of the Way",
+            "text": "<p>VTrack mounts overhead — permanently. No floor unit to aim around, nothing to trip on, nothing expensive sitting where a mishit can reach it. Your bay stays clean, open, and <strong>ready for any golfer</strong> — left or right-handed — without moving a thing.</p>",
+            "class": ""
+          }
+        },
+        "benefit_yiABce": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/flash.svg",
+            "title": "No Dots. No Stickers. No Special Balls.",
+            "text": "<p>Drop a standard golf ball and swing. VTrack's dual high-speed cameras capture everything at contact — ball speed, launch angle, spin, club path, face angle, and more — <strong>without any prep work</strong>. Just play.</p>",
+            "class": ""
+          }
+        },
+        "benefit_LAbTqi": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/slow-motion.svg",
+            "title": "Slow-Motion Impact Video, Every Shot",
+            "text": "<p>See exactly what happened at contact. VTrack's high-speed cameras capture slow-motion impact video automatically, bridging the gap between <strong>feel and reality</strong> for faster, more meaningful improvement.</p>",
+            "class": ""
+          }
+        },
+        "benefit_kQBhPN": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/4k-film.svg",
+            "title": "True 4K on a 12ft Screen",
+            "text": "<p>The BenQ AK700ST is a dedicated golf simulator projector — not a repurposed home theater unit. Sharper text, crisper course detail, and a more immersive picture. Paired with the Eagle 12, it's a <strong>genuinely premium visual experience</strong>.</p>",
+            "class": ""
+          }
+        },
+        "benefit_QVUAzY": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/link.svg",
+            "title": "GSPro & E6 Ready, No Subscription Required",
+            "text": "<p>VTrack works out of the box with GSPro, E6 Connect, and E6 Apex. And unlike some competing systems, there's <strong>no mandatory recurring fee</strong> just to use the launch monitor's core functionality.</p>",
+            "class": ""
+          }
+        },
+        "benefit_nnNCzh": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/puzzle.svg",
+            "title": "Curated to Work Together",
+            "text": "<p>Every item in this bundle — the enclosure, projector, mats, cabling, and accessories — was selected by Elite Sim Golf specifically for this configuration. <strong>No compatibility guesswork</strong>, no missing pieces.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_4rJzMK",
+        "benefit_yiABce",
+        "benefit_LAbTqi",
+        "benefit_kQBhPN",
+        "benefit_QVUAzY",
+        "benefit_nnNCzh"
+      ],
+      "name": "Custom: Benefits",
+      "settings": {
+        "id": "sn-benefits",
+        "text": "<p>WHY CHOOSE THIS BUNDLE?</p><h2>Built different. Plays better.</h2>",
+        "columns": "3",
+        "align": "left",
+        "background_color": "#222222",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "accent_color": "#4b94f6",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "#4b94f6",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "rgba(0,0,0,0)",
+        "opacity": 18
+      }
+    },
+    "sn_product_description_QXUJAw": {
+      "type": "sn-product-description",
+      "blocks": {
+        "tag_3ULYda": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Overhead Mounted</strong>",
+            "class": ""
+          }
+        },
+        "tag_NyFPYC": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Markerless</strong>",
+            "class": ""
+          }
+        },
+        "tag_iAizxF": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>4K UHD</strong>",
+            "class": ""
+          }
+        },
+        "tag_cFi3dM": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>GSPro Compatible</strong>",
+            "class": ""
+          }
+        },
+        "tag_ek8aFc": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>12ft Bay</strong>",
+            "class": ""
+          }
+        },
+        "tag_GMcWYj": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>106\" Min Ceiling</strong>",
+            "class": ""
+          }
+        },
+        "tag_dJwJpT": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Left + Right Handed</strong>",
+            "class": ""
+          }
+        },
+        "tag_974wDd": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>No Subscription</strong>",
+            "class": ""
+          }
+        },
+        "tag_BwKbyw": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Slow-Mo Video</strong>",
+            "class": ""
+          }
+        },
+        "tag_ypHyiK": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>25+ Parameters</strong>",
+            "class": ""
+          }
+        },
+        "text_37BRNF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Product Description</p>",
+            "class": "sn-uppercase"
+          }
+        },
+        "text_dLtfq9": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>What makes this the <em>right</em> build?</h2><p>This bundle pairs the Laon Swingcraft VTrack — an overhead, camera-based launch monitor with dual high-speed stereoscopic cameras — with everything needed to build a finished, permanent simulator bay at home or in a private studio. The Eagle 12 enclosure creates a dedicated 12-foot hitting bay with safe ball containment and a clean, room-within-a-room aesthetic.</p><p>The BenQ AK700ST brings true 4K Ultra HD projection designed specifically for golf simulation — sharper image quality, cleaner text overlays, and more vivid course rendering. A BenQ projector mount, QCast wireless dongle, and a 25-foot cable kit (power + HDMI) are included to support real-world ceiling installs with clean cable routing.</p><p>The Elite ProTee 5x10 hitting mat and 6x12 landing mat complete the floor, giving you a large, durable stance area and a polished bay feel. A VTrack impact protector and a dozen TaylorMade TP5 Pix balls mean you're ready to swing from day one.</p><p>The VTrack requires a minimum ceiling height of 106 inches and is compatible with GSPro, E6 Connect, and E6 Apex. No marked balls or club stickers required for core use.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "tag_3ULYda",
+        "tag_NyFPYC",
+        "tag_iAizxF",
+        "tag_cFi3dM",
+        "tag_ek8aFc",
+        "tag_GMcWYj",
+        "tag_dJwJpT",
+        "tag_974wDd",
+        "tag_BwKbyw",
+        "tag_ypHyiK",
+        "text_37BRNF",
+        "text_dLtfq9"
+      ],
+      "name": "Product: Description",
+      "settings": {
+        "id": "sn-product-desc",
+        "quote": "<h4><em>\"The 'no-compromise' way to build a complete overhead simulator — ceiling-mounted, markerless tracking with deep data and fast feedback.\"</em></h4>",
+        "background_color": "#f8f8f8",
+        "heading_color": "#020202",
+        "accent_color": "#2953b9",
+        "text_color": "#282828",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_product_includes_6qaEcj": {
+      "type": "sn-product-includes",
+      "blocks": {
+        "card_RTdkg8": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/vtrack_28c9ba79-95a9-4eab-b2b1-c4253c2d9528.webp",
+            "title": "Laon Swingcraft VTrack Overhead Launch Monitor (with case)",
+            "text": "<p>Ceiling-mounted, markerless ball & club tracking with dual high-speed cameras. 25+ parameters, slow-motion impact video, GSPro & E6 compatible.</p>",
+            "class": ""
+          }
+        },
+        "card_zpWcdV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/E12-Front-SDS_0396465c-6a98-4115-a10a-76823abbde9e.webp",
+            "title": "Elite Sim Golf Eagle 12 Enclosure",
+            "text": "<p>12ft dedicated hitting bay — 144\" wide × 98\" high × 60\" deep — with safe ball containment and a finished sim-room look.</p>",
+            "class": ""
+          }
+        },
+        "card_rdAzgQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ak700st-gallery1.png",
+            "title": "BenQ AK700ST 4K Golf Simulator Projector",
+            "text": "<p>Dedicated golf simulator projector delivering true 4K UHD. Sharper detail, cleaner text overlays, and a more immersive image on your impact screen.</p>",
+            "class": ""
+          }
+        },
+        "card_qtMa4q": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ept510.webp",
+            "title": "Elite ProTee 5x10 Hitting Mat (removable hitting strip)",
+            "text": "<p>Large hitting surface for multiple ball positions and left/right-hand flexibility. Built for long-term, high-use durability.</p>",
+            "class": ""
+          }
+        },
+        "card_4RnEBF": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/6x12landingmat.png",
+            "title": "6x12 Landing Mat",
+            "text": "<p>Extends your floor coverage forward, completing the bay feel and protecting your floor surface in the ball landing zone.</p>",
+            "class": ""
+          }
+        },
+        "card_y9BxNW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/cm00g3.webp",
+            "title": "BenQ Projector Mount",
+            "text": "<p>Ceiling mount hardware designed to position and secure the AK700ST at the correct throw distance for the Eagle 12 screen.</p>",
+            "class": ""
+          }
+        },
+        "card_ewNXwU": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/25ft_projector_install.png",
+            "title": "Projector Install Kit — 25ft Power + 25ft HDMI",
+            "text": "<p>Long-run cables for clean ceiling installs. Eliminates the need to source your own cables for concealed or routed runs.</p>",
+            "class": ""
+          }
+        },
+        "card_jzzcjD": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/ezc-dongle.webp",
+            "title": "BenQ QCast Wireless USB Dongle",
+            "text": "<p>Wireless casting support to simplify connectivity and reduce visible cabling in your sim space.</p>",
+            "class": ""
+          }
+        },
+        "card_Lgchhm": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/VTK-Protector.png",
+            "title": "VTrack Impact Protector (by Elite Sim Golf)",
+            "text": "<p>Designed specifically to shield the VTrack unit from accidental ball impact and ricochet damage in active sim environments.</p>",
+            "class": ""
+          }
+        },
+        "card_Ei8FKQ": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/N76710_zoom_D.webp",
+            "title": "TaylorMade TP5 Pix Golf Balls (1 Dozen)",
+            "text": "<p>Premium balls included so you can start playing immediately — no separate ball order needed on day one.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_RTdkg8",
+        "card_zpWcdV",
+        "card_rdAzgQ",
+        "card_qtMa4q",
+        "card_4RnEBF",
+        "card_y9BxNW",
+        "card_ewNXwU",
+        "card_jzzcjD",
+        "card_Lgchhm",
+        "card_Ei8FKQ"
+      ],
+      "name": "Product: what's included",
+      "settings": {
+        "id": "sn-includes",
+        "text": "<p>WHAT'S INCLUDED</p><h2>10<strong> </strong>Items, <em>Zero</em> Gaps</h2><p>Every component selected to work together. No separate orders, no compatibility research, no missing pieces.</p>",
+        "align": "left",
+        "background_color": "#ffffff",
+        "heading_color": "#161616",
+        "text_color": "#282828",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#f8f8f8",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_reviews_kThK6p": {
+      "type": "sn-reviews",
+      "blocks": {
+        "review_amd83c": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I had a floor-based unit for two years and was constantly nervous about clipping it on a fat shot. Switched to the VTrack overhead setup and that stress is completely gone. The data is actually better too — spin numbers feel more consistent. The Eagle 12 enclosure makes my garage look like a real sim room. Took a weekend to set up but the instructions are solid.\"</em>",
+            "name": "<strong>Mark T.</strong> · Verified Buyer · Henderson, NV",
+            "class": ""
+          }
+        },
+        "review_gYphWP": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"Spent months convincing my wife to let me convert half the garage. She agreed on the condition it looked clean and not like a \"science experiment.\" The Eagle 12 + overhead VTrack combo genuinely looks finished. No wires everywhere, nothing sitting on the floor near the mat. She's actually used it a few times herself. The 4K image is noticeably sharper than what I had before — courses look real.\"</em>",
+            "name": "<em><strong>Brian L. </strong></em><em>· Verified Buyer · Columbus, OH</em>",
+            "class": ""
+          }
+        },
+        "review_PQ97FM": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I'd always used radar-based floor units so I was nervous about switching to an overhead camera system. What sold me was no stickers and no special balls. Just drop a ball and swing — and it works. Shot feedback is fast, the impact video is genuinely useful for finding bad contact, and I haven't had a misread in weeks of regular use. Worth the price for a permanent garage build.\"</em>",
+            "name": "<strong>Ryan C.</strong> · Verified Buyer · Scottsdale, AZ",
+            "class": ""
+          }
+        },
+        "review_hHCecP": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I'm not a tech guy. I didn't want to research projectors, figure out throw distances, or guess which mat fits a 12ft enclosure. That's exactly why I bought the bundle. Everything arrived, everything fit, and Elite Sim Golf walked me through the VTrack calibration over the phone. If you want a complete setup without the homework, this is the way to go.\"</em>",
+            "name": "<strong>Derek M.</strong> · Verified Buyer · Charlotte, NC",
+            "class": ""
+          }
+        },
+        "review_PEhB8f": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"My two boys (15 and 12) use the simulator as much as I do. With my old floor monitor I was always nervous about them standing too close or knocking it over. The VTrack being up on the ceiling completely solved that. They just step in and swing. The lefty/righty thing is huge too — my younger son is left-handed and we don't have to move anything. Best feature nobody talks about.\"</em>",
+            "name": "<strong>Jason W.</strong> · Verified Buyer · Denver, CO",
+            "class": ""
+          }
+        },
+        "review_qXNc9a": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I had a 1080P setup for a couple years and thought it was fine. Upgraded to this bundle and the difference in the 4K image on GSPro is immediately obvious — text is sharp, greens actually look like greens. The VTrack data is deep enough that I've started doing proper practice sessions instead of just playing rounds. Carry distance, spin, attack angle — it's all there. Solid investment for a serious home setup.\"</em>",
+            "name": "<strong>Paul H.</strong> · Verified Buyer · Nashville, TN",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_amd83c",
+        "review_gYphWP",
+        "review_PQ97FM",
+        "review_hHCecP",
+        "review_PEhB8f",
+        "review_qXNc9a"
+      ],
+      "name": "Custom: Reviews",
+      "settings": {
+        "id": "sn-reviews",
+        "text": "<p>Customer Reviews</p><h2>Hear from <em>real</em> golfers.</h2>",
+        "background_color": "#f8f8f8",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 48,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 24,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_product_features_gKVKtn": {
+      "type": "sn-product-features",
+      "blocks": {
+        "tab1_7WNRNd": {
+          "type": "tab1",
+          "settings": {
+            "number": "01",
+            "title": "Dual High-Speed Stereoscopic Cameras",
+            "text": "<p>Two high-speed cameras capture the ball and club through impact from above, delivering photometric tracking data without any floor-mounted hardware in your swing path.</p>",
+            "class": ""
+          }
+        },
+        "tab1_HdzNHz": {
+          "type": "tab1",
+          "settings": {
+            "number": "02",
+            "title": "Markerless Tracking — No Special Balls or Stickers",
+            "text": "<p>VTrack's core experience requires no club-face stickers, reflective dots, or specially marked balls. Drop a standard golf ball and swing.</p>",
+            "class": ""
+          }
+        },
+        "tab1_MVj3x8": {
+          "type": "tab1",
+          "settings": {
+            "number": "03",
+            "title": "25+ Ball & Club Data Parameters",
+            "text": "<p>Ball Speed, Launch Angle, Launch Direction, Spin Rate, Spin Axis, Carry & Total Distance, Apex, Club Speed, Club Path, Face Angle, Face-to-Path, Attack Angle, Dynamic Loft, Impact Location, and more.</p>",
+            "class": ""
+          }
+        },
+        "tab1_ddVrdE": {
+          "type": "tab1",
+          "settings": {
+            "number": "04",
+            "title": "Slow-Motion Impact Video",
+            "text": "<p>Automatically captures slow-motion footage of every strike. See exactly what happened at contact — a powerful feedback tool for diagnosing strike quality, gear effect, and swing flaws.</p>",
+            "class": ""
+          }
+        },
+        "tab1_4RGYyy": {
+          "type": "tab1",
+          "settings": {
+            "number": "05",
+            "title": "~200–250ms Shot Feedback Speed",
+            "text": "<p>Fast shot-to-result response time keeps simulator play feeling connected and natural. Noticeable during both practice and full-round simulation.</p>",
+            "class": ""
+          }
+        },
+        "tab1_zUCPjj": {
+          "type": "tab1",
+          "settings": {
+            "number": "06",
+            "title": "Left & Right-Handed Friendly",
+            "text": "<p>Because VTrack mounts overhead and in front of the hitting area, it supports both left- and right-handed golfers without moving the unit — ideal for multi-player households and sim studios.</p>",
+            "class": ""
+          }
+        },
+        "tab1_86FtAC": {
+          "type": "tab1",
+          "settings": {
+            "number": "07",
+            "title": "GSPro, E6 Connect & E6 Apex Compatible",
+            "text": "<p>Play on your preferred platform. VTrack connects to today's most popular simulator software. VTrack ToolKit handles setup, calibration, and area configuration.</p>",
+            "class": ""
+          }
+        },
+        "tab1_jYn6gP": {
+          "type": "tab1",
+          "settings": {
+            "number": "08",
+            "title": "No Required Subscription for Core Functionality",
+            "text": "<p>No mandatory recurring fee to keep using the launch monitor you purchased. Long-term ownership value without the hidden costs of competing subscription-gated hardware.</p>",
+            "class": ""
+          }
+        },
+        "tab2_GeHj3Y": {
+          "type": "tab2",
+          "settings": {
+            "number": "01",
+            "title": "12-Foot Wide Hitting Bay",
+            "text": "<p>The Eagle 12 gives you 144\" (12ft) of width — enough for a generous, comfortable swing for players of any size. Creates a proper \"sim room\" feel in a garage or dedicated space.</p>",
+            "class": ""
+          }
+        },
+        "tab2_7AUeUX": {
+          "type": "tab2",
+          "settings": {
+            "number": "02",
+            "title": "Safe Ball Containment",
+            "text": "<p>Designed to keep errant shots safely contained within the enclosure. Protects walls, windows, and surrounding areas from ball impact — essential for any serious home simulator.</p>",
+            "class": ""
+          }
+        },
+        "tab2_Rh7gCd": {
+          "type": "tab2",
+          "settings": {
+            "number": "03",
+            "title": "Clean, Finished Aesthetic",
+            "text": "<p>The Eagle 12 is built to look like a permanent installation, not a temporary setup. Ideal for finished basements, dedicated sim rooms, and garage builds where appearance matters.</p>",
+            "class": ""
+          }
+        },
+        "tab2_Da6Xdt": {
+          "type": "tab2",
+          "settings": {
+            "number": "04",
+            "title": "Dimensions: 144\" W × 98\" H × 60\" D",
+            "text": "<p>A generous, well-proportioned bay configuration designed to work with overhead launch monitors like the VTrack. Compatible with VTrack's 31\" × 24\" hitting zone requirements.</p>",
+            "class": ""
+          }
+        },
+        "tab3_mGHjqB": {
+          "type": "tab3",
+          "settings": {
+            "number": "01",
+            "title": "True 4K Ultra HD Resolution",
+            "text": "<p>The BenQ AK700ST delivers native 4K UHD — a significant step up from 1080P in sharpness, text clarity, and overall visual quality, especially noticeable in menus and course details.</p>",
+            "class": ""
+          }
+        },
+        "tab3_ki9AEr": {
+          "type": "tab3",
+          "settings": {
+            "number": "02",
+            "title": "Dedicated Golf Simulator Projector",
+            "text": "<p>Optimized for golf simulation environments — not a repurposed home theater unit. BenQ's golf-specific short-throw design is built for the throw distances and impact screen use cases in a simulator bay.</p>",
+            "class": ""
+          }
+        },
+        "tab3_t7pqM3": {
+          "type": "tab3",
+          "settings": {
+            "number": "03",
+            "title": "Short-Throw Lens",
+            "text": "<p>ST (Short-Throw) lens configuration allows the projector to produce a large, bright image from a short distance — ideal for ceiling mounting in real-world rooms with limited depth.</p>",
+            "class": ""
+          }
+        },
+        "tab3_Qi3RzQ": {
+          "type": "tab3",
+          "settings": {
+            "number": "04",
+            "title": "Wireless Connectivity via QCast Dongle",
+            "text": "<p>The included BenQ QCast wireless USB dongle allows screen casting without running extra cables — helps keep your sim space clean and reduces visible cable management challenges.</p>",
+            "class": ""
+          }
+        },
+        "tab4_kmCDzf": {
+          "type": "tab4",
+          "settings": {
+            "number": "01",
+            "title": "Elite ProTee 5x10 Hitting Mat",
+            "text": "<p>A large 5ft × 10ft hitting surface with a removable hitting strip. Accommodates a wide range of ball positions and stance widths — built for durability in high-use sim environments.</p>",
+            "class": ""
+          }
+        },
+        "tab4_K3jKM8": {
+          "type": "tab4",
+          "settings": {
+            "number": "02",
+            "title": "6x12 Landing Mat",
+            "text": "<p>Extends the floor coverage forward from the hitting mat, completing the bay feel and protecting your floor from wear and impact in the ball landing zone.</p>",
+            "class": ""
+          }
+        },
+        "tab4_7kgELL": {
+          "type": "tab4",
+          "settings": {
+            "number": "03",
+            "title": "VTrack Impact Protector",
+            "text": "<p>A dedicated clear shield designed by Elite Sim Golf to protect the VTrack unit from accidental ball impact and ricochet damage. Protects your investment without affecting tracking performance.</p>",
+            "class": ""
+          }
+        },
+        "tab4_M3Bmn3": {
+          "type": "tab4",
+          "settings": {
+            "number": "04",
+            "title": "TaylorMade TP5 Pix Golf Balls (12-pack)",
+            "text": "<p>Premium multi-layer golf balls included in the bundle so you can start playing on day one — no separate order needed.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab1_7WNRNd",
+        "tab1_HdzNHz",
+        "tab1_MVj3x8",
+        "tab1_ddVrdE",
+        "tab1_4RGYyy",
+        "tab1_zUCPjj",
+        "tab1_86FtAC",
+        "tab1_jYn6gP",
+        "tab2_GeHj3Y",
+        "tab2_7AUeUX",
+        "tab2_Rh7gCd",
+        "tab2_Da6Xdt",
+        "tab3_mGHjqB",
+        "tab3_ki9AEr",
+        "tab3_t7pqM3",
+        "tab3_Qi3RzQ",
+        "tab4_kmCDzf",
+        "tab4_K3jKM8",
+        "tab4_7kgELL",
+        "tab4_M3Bmn3"
+      ],
+      "name": "Product: Features tabs",
+      "settings": {
+        "id": "sn-features",
+        "text": "<p>PRODUCT FEATURES</p><h2>Engineered for serious golfers.</h2>",
+        "tab1": "VTrack Launch Monitor",
+        "tab2": "Eagle 12 Enclosure",
+        "tab3": "BenQ AK700ST",
+        "tab4": "Mats & Accessories",
+        "align": "center",
+        "background_color": "#161616",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_product_specs_9EhxxF": {
+      "type": "sn-product-specs",
+      "blocks": {
+        "col1_heading_YjW3GQ": {
+          "type": "col1-heading",
+          "settings": {
+            "text": "<strong>VTrack Launch Monitor</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_R9k8Mn": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Mount Type",
+            "text": "<strong>Overhead / Ceiling-Mounted</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_dfdwBE": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Tracking Technology Type",
+            "text": "<strong>Dual High-Speed Stereoscopic Cameras</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_RGMAPC": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Min. Ceiling Height",
+            "text": "<strong>106 inches (8'10\")</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_pKRhUG": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Hitting Zone",
+            "text": "<strong>31\" × 24\"</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_9yqETT": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Data Parameters",
+            "text": "<strong>25+ Ball & Club</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_KDGz8L": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Shot Feedback Speed",
+            "text": "<strong>~200–250 milliseconds</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_FfwNE8": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Impact Video",
+            "text": "<strong>Slow-Motion, Automatic</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_6jzDGP": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Marker Requirement",
+            "text": "<strong>None (Markerless)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_3Yi4PB": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Handedness",
+            "text": "<strong>Left & Right-Handed</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_pijUdP": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Subscription Required",
+            "text": "<strong>No (Core Functionality)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_dEbfa8": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Compatible Software",
+            "text": "<strong>GSPro, E6 Connect, E6 Apex</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_hyeFxV": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Manufacturer",
+            "text": "<strong>Laon Swingcraft</strong>",
+            "class": ""
+          }
+        },
+        "col2_heading_MH6qJn": {
+          "type": "col2-heading",
+          "settings": {
+            "text": "<strong>Eagle 12 Enclosure</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_fBVQtJ": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Bay Width",
+            "text": "<strong>144\" (12 ft)</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_VQaWha": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Bay Height",
+            "text": "<strong>98\" (8.17 ft)</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_FDbUt7": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Bay Depth",
+            "text": "<strong>60\" (5 ft)</strong>",
+            "class": ""
+          }
+        },
+        "col2_heading_YUzUcg": {
+          "type": "col2-heading",
+          "settings": {
+            "text": "<strong>BenQ AK700ST Projector</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_7EAQn7": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Resolution",
+            "text": "<strong>4K Ultra HD (3840×2160)</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_Mq6Lcr": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Lens Type",
+            "text": "<strong>Short-Throw (ST)</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_ypnzEN": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Use Case",
+            "text": "<strong>Dedicated Golf Simulator</strong>",
+            "class": ""
+          }
+        },
+        "col2_heading_ingeRP": {
+          "type": "col2-heading",
+          "settings": {
+            "text": "<strong>Bundle</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_8Yd4CX": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Hitting Mat",
+            "text": "<strong>Elite ProTee 5' × 10'</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_LEJHzj": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Landing Mat",
+            "text": "<strong>6' × 12'</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_MhEN9b": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Cable Run",
+            "text": "<strong>25ft Power + 25ft HDMI</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_WwnM9E": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Balls Included",
+            "text": "<strong>TaylorMade TP5 Pix (12-pack)</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_r8dbDp": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Bundle Price",
+            "text": "<strong>$10,299.00</strong>",
+            "class": ""
+          }
+        },
+        "col2_row_nQLe38": {
+          "type": "col2-row",
+          "settings": {
+            "feature": "Shippin",
+            "text": "<strong>Free (Continental US)</strong>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "col1_heading_YjW3GQ",
+        "col1_row_R9k8Mn",
+        "col1_row_dfdwBE",
+        "col1_row_RGMAPC",
+        "col1_row_pKRhUG",
+        "col1_row_9yqETT",
+        "col1_row_KDGz8L",
+        "col1_row_FfwNE8",
+        "col1_row_6jzDGP",
+        "col1_row_3Yi4PB",
+        "col1_row_pijUdP",
+        "col1_row_dEbfa8",
+        "col1_row_hyeFxV",
+        "col2_heading_MH6qJn",
+        "col2_row_fBVQtJ",
+        "col2_row_VQaWha",
+        "col2_row_FDbUt7",
+        "col2_heading_YUzUcg",
+        "col2_row_7EAQn7",
+        "col2_row_Mq6Lcr",
+        "col2_row_ypnzEN",
+        "col2_heading_ingeRP",
+        "col2_row_8Yd4CX",
+        "col2_row_LEJHzj",
+        "col2_row_MhEN9b",
+        "col2_row_WwnM9E",
+        "col2_row_r8dbDp",
+        "col2_row_nQLe38"
+      ],
+      "name": "Product: Specifications",
+      "settings": {
+        "id": "sn-specs",
+        "text": "<p>Technical Specifications</p><h2>By the <em>numbers.</em></h2>",
+        "columns": "2",
+        "align": "center",
+        "background_color": "#ffffff",
+        "heading_color": "#161616",
+        "text_color": "#333333",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#f8f8f8",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_resources_7tnEtj": {
+      "type": "sn-resources",
+      "blocks": {
+        "benefit_Vcrx3G": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "📖",
+            "title": "VTrack Launch Monitor Buyers Guide & Full Review",
+            "text": "<p>Ceiling requirements, data parameters, software compatibility, setup tips, and a full breakdown of what makes VTrack the right (or wrong) choice for your build.</p>",
+            "url": "/blogs/product-reviews/vtrack-launch-monitor-pro-level-overhead-performance-without-the-pro-level-price",
+            "class": ""
+          }
+        },
+        "benefit_LyNk9A": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "🔧",
+            "title": "Eagle 12 Simulator Assembly Manuals & Diagrams",
+            "text": "<p>Step-by-step frame assembly diagrams for Elite Sim Golf enclosures, including the Eagle 12. Everything you need to set up your bay correctly the first time.</p>",
+            "url": "",
+            "class": ""
+          }
+        },
+        "benefit_Hd3Wzh": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "🛠️",
+            "title": "Professional Installation Services",
+            "text": "<p>Available in Nashville & Knoxville, TN. Third-party installer network available for other markets. Let the pros handle the ceiling mount, cable routing, and calibration.</p>",
+            "url": "/pages/golf-simulator-installation-services-elite-sim-golf",
+            "class": ""
+          }
+        },
+        "benefit_WkC39U": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "❓",
+            "title": "Golf Simulator Frequently Asked Questions",
+            "text": "<p>Common questions answered about launch monitors, enclosures, software compatibility, ceiling requirements, and what to expect from your simulator build.</p>",
+            "url": "/pages/frequently-asked-questions",
+            "class": ""
+          }
+        },
+        "benefit_eWj7N9": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "💻",
+            "title": "Remote Support Session",
+            "text": "<p>Connect directly with the Elite Sim Golf team for live remote troubleshooting, software setup assistance, and post-purchase configuration support.</p>",
+            "url": "https://elitesimgolf.screenconnect.com/",
+            "class": ""
+          }
+        },
+        "benefit_GHYkq8": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "💡",
+            "title": "VTrack Premium 1080P Bundle — Budget Alternative",
+            "text": "<p>Same Eagle 12 + VTrack foundation, but with the BenQ AH700ST 1080P projector for a more budget-conscious entry point into this configuration.</p>",
+            "url": "https://elitesimgolf.com/products/vtrack-overhead-launch-monitor-premium-1080p-bundle-with-12ft-enclosure",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_Vcrx3G",
+        "benefit_LyNk9A",
+        "benefit_Hd3Wzh",
+        "benefit_WkC39U",
+        "benefit_eWj7N9",
+        "benefit_GHYkq8"
+      ],
+      "name": "Product: Resources",
+      "settings": {
+        "id": "sn-resources",
+        "text": "<p>Resources & Support</p><h2>Everything you need to <em>get set up.</em></h2>",
+        "align": "left",
+        "background_color": "#161616",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "sn_product_intro_3qBL4H",
+    "sn_benefits_GXtkrM",
+    "sn_product_description_QXUJAw",
+    "sn_product_includes_6qaEcj",
+    "sn_reviews_kThK6p",
+    "sn_product_features_gKVKtn",
+    "sn_product_specs_9EhxxF",
+    "sn_resources_7tnEtj",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

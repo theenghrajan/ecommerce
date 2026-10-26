@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner-coll",
+      "settings": {
+        "hero_height_desktop": 260,
+        "hero_height_mobile": 150,
+        "bg_style": "image",
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#f8f8f8",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "image_align": "object-center",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 50,
+        "hero_tint_text_color": "#ffffff",
+        "show_description": false,
+        "show_breadcrumbs": true
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 24,
+        "card_size": "small",
+        "show_prod_totals": true,
+        "enable_filtering": true,
+        "show_filter_counts": true,
+        "filters_open": "some",
+        "max_filter_options": 7,
+        "enable_sorting": true,
+        "sort_show_featured": false,
+        "sort_show_best": true,
+        "sort_show_alpha": true,
+        "sort_show_price": true,
+        "sort_show_date": true
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Trending",
+        "collection": "",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 12,
+        "show_view_all": false,
+        "full_width": true,
+        "color_scheme": "2",
+        "boundary_effect": ""
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Collection description",
+            "heading_size": "h2",
+            "heading_h1": false
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Describe your collection, share information about your brand and products.</p>",
+            "text_size": 100
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "disabled": true,
+      "settings": {
+        "text_alignment": "center",
+        "full_width_content": false,
+        "full_width": true,
+        "color_scheme": "none",
+        "boundary_effect": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "main",
+    "featured_collection",
+    "rich_text"
+  ]
+}

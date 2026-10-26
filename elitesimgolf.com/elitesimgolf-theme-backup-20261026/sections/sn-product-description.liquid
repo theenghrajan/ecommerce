@@ -1,0 +1,299 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --accent_color: {{ section.settings.accent_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+
+    .sn-desc-highlight, .sn-description{
+        padding: 20px;
+    }
+
+    .sn-desc-highlight{
+        flex-basis: 40%;
+    }
+
+    .sn-highlight-box{
+        padding: 20px;
+        background: #fff;
+        border-radius: 20px;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .sn-description{
+        flex-basis: 60%;
+    }
+
+    .sn-tags{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .sn-tag{
+        padding: 5px 20px;
+        border-radius: 50px;
+        background: var(--accent_color);
+        color: #fff;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+
+    .sn-quote{
+        padding: 10px 20px;
+        background: #f9f9f9;
+        border-left: 3px solid var(--accent_color);
+    }
+
+    /* embed responsively */
+
+    .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    @media screen and (max-width: 767px) {
+        #{{section.settings.id}} {
+            padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+            background-attachment: scroll;
+        }
+        .sn-desc-highlight, .sn-description{
+            flex-basis: 100%;
+        }
+    }
+  {% endstyle %}
+
+  <div class="sn-container hcenter">
+    <div class="sn-desc-highlight">
+      <div class="sn-highlight-box">
+        <div class="sn-tags">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'tag' %}
+                <span class="sn-tag {{ block.settings.class }}" {{ block.shopify_attributes }}>
+                  {{- block.settings.text -}}
+                </span>
+            {% endcase %}
+          {% endfor %}
+        </div>
+        <div class="sn-quote mt-2">
+          {{ section.settings.quote }}
+        </div>
+      </div>
+    </div>
+    <div class="sn-description">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'text' %}
+            <div class="sn-text {{ block.settings.class }}" {{ block.shopify_attributes }}>
+              {{ block.settings.text }}
+            </div>
+
+          {% when 'youtube' %}
+            <div id="sn-youtube"></div>
+            <div class="sn-youtube-wrap {{ block.settings.class }}" {{ block.shopify_attributes }}>
+              <div class="embed-container">
+                <iframe
+                  src="https://www.youtube.com/embed/{{ block.settings.youtube }}"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product: Description",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-product-desc"
+    },
+    {
+      "id": "quote",
+      "type": "richtext",
+      "label": "Quote"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "accent_color",
+      "type": "color",
+      "label": "Accent color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "label": "Text",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Tag",
+      "type": "tag",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "label": "Tag",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Youtube",
+      "type": "youtube",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Youtube video ID",
+          "id": "youtube",
+          "default": "DKIgurI3IvA"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product: Description"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

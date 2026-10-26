@@ -1,0 +1,270 @@
+{% for filter in results.filters %}
+
+  <details class="elite-filter{% if forloop.first %} elite-filter--first{% endif %}" open>
+
+    <summary class="elite-filter__summary">
+      <span class="elite-filter__label">{{ filter.label }}</span>
+    </summary>
+
+    {% if filter.type == 'price_range' %}
+
+      {% assign price_max = filter.range_max | divided_by: 100.0 %}
+      {% if filter.min_value.value %}{% assign current_min = filter.min_value.value | divided_by: 100.0 %}{% else %}{% assign current_min = 0 %}{% endif %}
+      {% if filter.max_value.value %}{% assign current_max = filter.max_value.value | divided_by: 100.0 %}{% else %}{% assign current_max = price_max %}{% endif %}
+
+      <div class="elite-price-filter" data-price-max="{{ price_max }}" data-price-min="{{ current_min }}" data-price-current-max="{{ current_max }}">
+        <div class="elite-price-filter__fields">
+          <label class="elite-price-input">
+            <span class="elite-price-input__symbol">$</span>
+            <input type="number" id="ElitePriceMin" name="{{ filter.min_value.param_name }}" value="{{ current_min }}" min="0" max="{{ price_max }}" step="1" inputmode="numeric" placeholder="Min">
+          </label>
+          <span class="elite-price-filter__dash">&ndash;</span>
+          <label class="elite-price-input">
+            <span class="elite-price-input__symbol">$</span>
+            <input type="number" id="ElitePriceMax" name="{{ filter.max_value.param_name }}" value="{{ current_max }}" min="0" max="{{ price_max }}" step="1" inputmode="numeric" placeholder="Max">
+          </label>
+        </div>
+        <div class="elite-price-slider" id="ElitePriceSlider" role="group" aria-label="Price range">
+          <div class="elite-price-slider__track"></div>
+          <div class="elite-price-slider__range" id="ElitePriceRange"></div>
+          <button type="button" class="elite-price-slider__handle elite-price-slider__handle--min" id="ElitePriceHandleMin" aria-label="Minimum price" aria-valuemin="0" aria-valuemax="{{ price_max }}" aria-valuenow="{{ current_min }}"></button>
+          <button type="button" class="elite-price-slider__handle elite-price-slider__handle--max" id="ElitePriceHandleMax" aria-label="Maximum price" aria-valuemin="0" aria-valuemax="{{ price_max }}" aria-valuenow="{{ current_max }}"></button>
+        </div>
+      </div>
+
+    {% else %}
+
+      <ul class="elite-filter__values">
+        {% for value in filter.values %}
+          <li>
+            <label>
+              <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %} onchange="this.form.submit()">
+              <span class="elite-filter__value-label">{{ value.label }}</span>
+              <span class="elite-filter__count">({{ value.count }})</span>
+            </label>
+          </li>
+        {% endfor %}
+      </ul>
+
+    {% endif %}
+
+  </details>
+
+{% endfor %}
+
+
+<style>
+
+.elite-filter {
+  width: 100%;
+  margin: 0;
+  padding: 18px 0;
+  border-top: none !important;
+  border-bottom: 1px solid var(--elite-line, #d8dfeb);
+  box-sizing: border-box;
+}
+
+/* First filter — no top padding so it sits on the border line */
+.elite-filter--first {
+  padding-top: 0 !important;
+}
+
+.elite-filter + .elite-filter { margin-top: 0; }
+
+.elite-filter__summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.elite-filter__summary::-webkit-details-marker { display: none; }
+.elite-filter__summary::marker { display: none; content: ""; }
+
+.elite-filter__label {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: #10284b;
+}
+
+.elite-filter__values {
+  display: block;
+  margin: 8px 0 0;
+  padding: 0 0 4px;
+  list-style: none;
+}
+
+.elite-filter__values li { margin: 0 0 10px; padding: 0; }
+.elite-filter__values li:last-child { margin-bottom: 0; }
+
+.elite-filter__values li label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 18px;
+  color: #333333;
+}
+
+.elite-filter__value-label { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.elite-filter__count { margin-left: auto; padding-left: 8px; font-size: 10px; color: #888888; white-space: nowrap; }
+
+.elite-filter__values input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin: 0 8px 0 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #777777;
+  border-radius: 2px;
+  background: #ffffff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.elite-filter__values input[type="checkbox"]:checked { background: #10284b; border-color: #10284b; }
+.elite-filter__values input[type="checkbox"]:checked::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 9px;
+  margin: 2px auto 0;
+  border: solid #ffffff;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.elite-filter__values input[type="checkbox"]:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* MOBILE DRAWER — white text */
+.elite-drawer .elite-filter { border-color: rgba(255,255,255,0.2); }
+.elite-drawer .elite-filter__label { color: #ffffff !important; }
+.elite-drawer .elite-filter__values li label { color: #ffffff !important; }
+.elite-drawer .elite-filter__count { color: rgba(255,255,255,0.55) !important; }
+
+/* PRICE FILTER */
+.elite-price-filter { width: 100%; padding: 8px 0 4px; box-sizing: border-box; }
+.elite-price-filter__fields { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+
+.elite-price-input {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 40px;
+  border: 1px solid #d5dce6;
+  background: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.elite-price-input__symbol { flex: 0 0 auto; padding: 0 8px; font-size: 13px; font-weight: 700; color: #10284b; line-height: 1; border-right: 1px solid #d5dce6; }
+
+.elite-price-input input {
+  display: block; width: 100%; height: 100%; padding: 0 10px;
+  border: 0 !important; outline: none !important; box-shadow: none !important; background: transparent !important;
+  font-size: 13px; font-weight: 700; color: #10284b; box-sizing: border-box;
+}
+
+.elite-price-input input::-webkit-inner-spin-button,
+.elite-price-input input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.elite-price-input input[type="number"] { -moz-appearance: textfield; }
+
+.elite-price-filter__dash { flex: 0 0 auto; font-size: 14px; font-weight: 700; color: #10284b; line-height: 1; }
+
+.elite-drawer .elite-price-input { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.25) !important; }
+.elite-drawer .elite-price-input__symbol { color: rgba(255,255,255,0.7) !important; border-right-color: rgba(255,255,255,0.2) !important; }
+.elite-drawer .elite-price-input input { color: #ffffff !important; }
+.elite-drawer .elite-price-filter__dash { color: rgba(255,255,255,0.6) !important; }
+
+.elite-price-slider { position: relative; width: 100%; height: 40px; touch-action: none; user-select: none; -webkit-user-select: none; box-sizing: border-box; }
+.elite-price-slider__track { position: absolute; left: 13px; right: 13px; top: 18px; height: 3px; background: #d8dfe8; pointer-events: none; z-index: 1; }
+.elite-price-slider__range { position: absolute; top: 18px; height: 3px; background: #10284b; pointer-events: none; z-index: 2; }
+
+.elite-price-slider__handle {
+  position: absolute; top: 5px; width: 24px; height: 24px; margin: 0; padding: 0;
+  border: 2px solid #10284b !important; border-radius: 50% !important; background: #fff !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,.15) !important; outline: none !important;
+  cursor: grab; transform: translateX(-50%); touch-action: none;
+  appearance: none; -webkit-appearance: none; box-sizing: border-box; z-index: 5;
+}
+
+.elite-price-slider__handle:hover { border-color: #10284b !important; }
+.elite-price-slider__handle.is-dragging { cursor: grabbing; z-index: 10; }
+
+.elite-drawer .elite-price-slider__track { background: rgba(255,255,255,0.2); }
+.elite-drawer .elite-price-slider__range { background: #fff; }
+.elite-drawer .elite-price-slider__handle { border-color: #fff !important; background: #10284b !important; }
+
+@media screen and (max-width: 749px) {
+  .elite-price-filter__fields { gap: 8px; }
+  .elite-price-input { height: 38px; }
+}
+
+</style>
+
+
+<script>
+(function () {
+  function initEliteFilters() {
+    const priceFilter = document.querySelector('.elite-price-filter');
+    if (!priceFilter) return;
+    const slider = document.getElementById('ElitePriceSlider');
+    const range = document.getElementById('ElitePriceRange');
+    const minHandle = document.getElementById('ElitePriceHandleMin');
+    const maxHandle = document.getElementById('ElitePriceHandleMax');
+    const minInput = document.getElementById('ElitePriceMin');
+    const maxInput = document.getElementById('ElitePriceMax');
+    if (!slider || !range || !minHandle || !maxHandle || !minInput || !maxInput) return;
+    const maxPrice = parseFloat(priceFilter.dataset.priceMax);
+    let minPrice = parseFloat(priceFilter.dataset.priceMin);
+    let currentMax = parseFloat(priceFilter.dataset.priceCurrentMax);
+    if (isNaN(minPrice)) minPrice = 0;
+    if (isNaN(currentMax) || currentMax <= 0) currentMax = maxPrice;
+    minPrice = Math.max(0, Math.min(minPrice, maxPrice));
+    currentMax = Math.max(minPrice, Math.min(currentMax, maxPrice));
+    function fmt(v) { return Math.round(v); }
+    function updateSlider() {
+      const minPct = maxPrice > 0 ? (minPrice / maxPrice) * 100 : 0;
+      const maxPct = maxPrice > 0 ? (currentMax / maxPrice) * 100 : 100;
+      minHandle.style.left = minPct + '%'; maxHandle.style.left = maxPct + '%';
+      range.style.left = minPct + '%'; range.style.width = (maxPct - minPct) + '%';
+      minInput.value = fmt(minPrice); maxInput.value = fmt(currentMax);
+      minHandle.setAttribute('aria-valuenow', minPrice); maxHandle.setAttribute('aria-valuenow', currentMax);
+    }
+    function getVal(clientX) {
+      const rect = slider.getBoundingClientRect();
+      const trackStart = 13, trackEnd = rect.width - 13;
+      return Math.round((Math.max(trackStart, Math.min(clientX - rect.left, trackEnd)) - trackStart) / (trackEnd - trackStart) * maxPrice);
+    }
+    let dragging = null;
+    function startDrag(handle, e) { e.preventDefault(); dragging = handle; handle.classList.add('is-dragging'); document.addEventListener('pointermove', moveDrag); document.addEventListener('pointerup', stopDrag); document.addEventListener('pointercancel', stopDrag); }
+    function moveDrag(e) { if (!dragging) return; let v = getVal(e.clientX); if (dragging === minHandle) minPrice = Math.max(0, Math.min(v, currentMax)); else currentMax = Math.min(maxPrice, Math.max(v, minPrice)); updateSlider(); }
+    function stopDrag() { if (!dragging) return; dragging.classList.remove('is-dragging'); dragging = null; document.removeEventListener('pointermove', moveDrag); document.removeEventListener('pointerup', stopDrag); document.removeEventListener('pointercancel', stopDrag); submitPrice(); }
+    minHandle.addEventListener('pointerdown', e => startDrag(minHandle, e));
+    maxHandle.addEventListener('pointerdown', e => startDrag(maxHandle, e));
+    slider.addEventListener('pointerdown', e => { if (e.target === minHandle || e.target === maxHandle) return; const v = getVal(e.clientX); if (Math.abs(v - minPrice) <= Math.abs(v - currentMax)) minPrice = Math.min(v, currentMax); else currentMax = Math.max(v, minPrice); updateSlider(); submitPrice(); });
+    minInput.addEventListener('change', function () { let v = parseFloat(this.value); if (isNaN(v)) v = 0; minPrice = Math.max(0, Math.min(v, currentMax)); updateSlider(); submitPrice(); });
+    maxInput.addEventListener('change', function () { let v = parseFloat(this.value); if (isNaN(v)) v = maxPrice; currentMax = Math.min(maxPrice, Math.max(v, minPrice)); updateSlider(); submitPrice(); });
+    function submitPrice() { const form = priceFilter.closest('form'); if (!form) return; minInput.value = fmt(minPrice); maxInput.value = fmt(currentMax); typeof form.requestSubmit === 'function' ? form.requestSubmit() : form.submit(); }
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+  }
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initEliteFilters) : initEliteFilters();
+  document.addEventListener('shopify:section:load', () => setTimeout(initEliteFilters, 150));
+})();
+</script>

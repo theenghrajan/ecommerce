@@ -1,0 +1,1384 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "video_hero_kP93yD": {
+      "type": "video-Hero",
+      "name": "Professional video hero",
+      "settings": {
+        "video": "shopify://files/videos/UNEEKOR_15 SECONDS_1920x1080.mp4",
+        "eyebrow": "Immersive golf, at home",
+        "heading": "Play the world's best courses from home.",
+        "text": "<p>Premium golf simulators built for serious golfers. Free shipping, expert support, and setups that actually work.</p>",
+        "button_label": "Shop simulator packages",
+        "button_link": "shopify://collections/golf-simulator-packages-sim-in-a-box",
+        "content_position": "left",
+        "heading_font": "Barlow",
+        "body_font": "Inter",
+        "force_mobile_typography": false,
+        "eyebrow_size_desktop": 14,
+        "heading_size_desktop": 58,
+        "text_size_desktop": 14,
+        "eyebrow_size_mobile": 9,
+        "heading_size_mobile": 36,
+        "text_size_mobile": 12,
+        "content_width": 700,
+        "desktop_height": 680,
+        "mobile_height": 560,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "accent_color": "#2d7dd2",
+        "eyebrow_color": "#2d7dd2",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_background_color": "#ffffff",
+        "button_hover_background_color": "#091836"
+      }
+    },
+    "custom_promo_slider_peMPg3": {
+      "type": "custom-promo-slider",
+      "blocks": {
+        "slide_hGDDYT": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pureflight-hero.png",
+            "link": "shopify://products/big-moss-4x5-true-launch-with-built-in-pure-flight-strip"
+          }
+        },
+        "slide_6DyYCq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/simkit-herov2.png",
+            "link": "shopify://pages/golf-simkit-bundle-builder"
+          }
+        },
+        "slide_ttq8Qx": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/protee-hero.png",
+            "link": "shopify://products/protee-vx-overhead-golf-launch-monitor"
+          }
+        },
+        "slide_D78TJH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/vtrack-hero.png",
+            "link": "https://elitesimgolf.com/collections/launch-monitors?sort_by=manual&filter.p.vendor=LAON+SWINGCRAFT"
+          }
+        },
+        "slide_Yd87Dk": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/zk521-hero_9c56f391-299e-40fb-b660-9cd51457d453.png",
+            "link": "shopify://products/optoma-zk521st-b-4k-laser-short-throw-golf-sim-projector"
+          }
+        },
+        "slide_a4x4rG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/uneekor-hero.png",
+            "link": "https://elitesimgolf.com/collections/launch-monitors?sort_by=manual&filter.p.vendor=Uneekor"
+          }
+        }
+      },
+      "block_order": [
+        "slide_hGDDYT",
+        "slide_6DyYCq",
+        "slide_ttq8Qx",
+        "slide_D78TJH",
+        "slide_Yd87Dk",
+        "slide_a4x4rG"
+      ],
+      "name": "ESG Promo Slider",
+      "settings": {
+        "bg_color": "#f7f8fa",
+        "overlay_opacity": 0,
+        "bg_position": "center center",
+        "show_topbar": true,
+        "topbar_padding_top": 28,
+        "topbar_padding_bottom": 28,
+        "eyebrow": "Limited-Time Offer",
+        "topbar_title": "Save 5% on most products",
+        "topbar_title_accent": "code: save5",
+        "topbar_align": "center",
+        "title_size_desktop": 30,
+        "title_size_mobile": 22,
+        "topbar_title_color": "#000000",
+        "card_gap": 6,
+        "card_radius": 4,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "accent_color": "#2d7dd2",
+        "heading_font": "Barlow",
+        "body_font": "Inter",
+        "padding_bottom": 32
+      }
+    },
+    "sn_video_hero_BfgtQn": {
+      "type": "sn-video-hero",
+      "blocks": {
+        "text_Na6fex": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Play the World's Best Courses From Home.</h1>",
+            "class": "mb-1 sn-uppercase"
+          }
+        },
+        "text_rimc9F": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Premium golf simulators built for serious golfers. Free shipping, expert support, and setups that actually work.</p>",
+            "class": "mb-2"
+          }
+        },
+        "button_TfFRNH": {
+          "type": "button",
+          "settings": {
+            "btn": "<strong>SHOP SIMULATOR PACKAGES</strong>",
+            "url": "shopify://collections/golf-simulator-packages-sim-in-a-box",
+            "class": "mt-2"
+          }
+        }
+      },
+      "block_order": [
+        "text_Na6fex",
+        "text_rimc9F",
+        "button_TfFRNH"
+      ],
+      "disabled": true,
+      "name": "Custom: Video Hero",
+      "settings": {
+        "id": "sn-video-hero",
+        "video": "https://cdn.shopify.com/videos/c/o/v/99e9a345e3b740a190cd1babbffd76c8.mp4",
+        "background_color": "#161616",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "#f8f8f8",
+        "btn_text": "#161616",
+        "overlay": "#000000",
+        "opacity": 11
+      }
+    },
+    "sn_marquee_HUxQep": {
+      "type": "sn-marquee",
+      "blocks": {
+        "marquee_Tk3Mft": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>NOW OFFERING NATIONWIDE INSTALLATION SERVICES</p>"
+          }
+        },
+        "marquee_tQMxW8": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>FAST AND FREE SHIPPING*</p>"
+          }
+        },
+        "marquee_jq43h9": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>NO HASSLE RETURNS</p>"
+          }
+        },
+        "marquee_FrBLHc": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>LOW PRICE GUARANTEE*</p>"
+          }
+        },
+        "marquee_k7mx4a": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>FREE REMOTE SETUP WITH ALL LAUNCH MONITORS</p>"
+          }
+        }
+      },
+      "block_order": [
+        "marquee_Tk3Mft",
+        "marquee_tQMxW8",
+        "marquee_jq43h9",
+        "marquee_FrBLHc",
+        "marquee_k7mx4a"
+      ],
+      "disabled": true,
+      "name": "Custom-Marquee",
+      "settings": {
+        "id": "sn-marquee",
+        "background_color": "#2953b9",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 12,
+        "hp-desktop": 0,
+        "vp-mobile": 4,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_promotions_nTMrEK": {
+      "type": "sn-promotions",
+      "blocks": {
+        "block_M6xaqa": {
+          "type": "block",
+          "settings": {
+            "url": "shopify://pages/golf-simkit-bundle-builder",
+            "image": "shopify://shop_images/sim_kit_builder.png",
+            "title": "",
+            "text": "",
+            "class": ""
+          }
+        },
+        "block_ek4X8T": {
+          "type": "block",
+          "settings": {
+            "url": "shopify://collections/fathers-day-indoor-golf-sale",
+            "image": "shopify://shop_images/ESG-FathersDaySale.png",
+            "title": "",
+            "text": "",
+            "class": ""
+          }
+        },
+        "block_PPrCFa": {
+          "type": "block",
+          "settings": {
+            "url": "shopify://products/vtrack-overhead-golf-launch-monitor",
+            "image": "shopify://shop_images/VTrack_Overhead_Golf_Launch_Monitor.webp",
+            "title": "",
+            "text": "",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_M6xaqa",
+        "block_ek4X8T",
+        "block_PPrCFa"
+      ],
+      "disabled": true,
+      "name": "Custom: Promotions",
+      "settings": {
+        "id": "sn-promotions",
+        "text": "<h1><strong>FATHER'S DAY SALE: </strong><em>Get the Ultimate Gift for  Dad</em></h1><p>This Father’s Day, give the gift he’ll enjoy every day of the year. During the Elite Sim Golf Father’s Day Sale, save on a hand-picked selection of premium golf simulator packages, launch monitors, enclosures, projectors, hitting mats, impact screens, and accessories designed to bring the ultimate indoor golf experience home. Whether you're shopping for the golf-loving dad in your life or finally building the simulator you've always wanted, now is the perfect time to invest in better practice, more family fun, and year-round golf regardless of the weather. From complete turnkey SIMKIT packages to custom-built simulator systems using our SIMKIT Builder, Elite Sim Golf makes it easy to create the perfect setup for any space and budget.</p>",
+        "background_color": "#f8f8f8",
+        "heading_color": "#f8f8f8",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "rgba(0,0,0,0)",
+        "vp-desktop": 40,
+        "hp-desktop": 24,
+        "vp-mobile": 40,
+        "hp-mobile": 0,
+        "background": "shopify://shop_images/FatherSonBG.png",
+        "overlay": "#161616",
+        "opacity": 14
+      }
+    },
+    "sn_promotions_pVW6f6": {
+      "type": "sn-promotions",
+      "blocks": {
+        "block_HfTUqh": {
+          "type": "block",
+          "settings": {
+            "url": "shopify://pages/golf-simkit-bundle-builder",
+            "image": "shopify://shop_images/sim_kit_builder.png",
+            "title": "",
+            "text": "",
+            "class": ""
+          }
+        },
+        "block_YAgVk3": {
+          "type": "block",
+          "settings": {
+            "url": "shopify://pages/freedom-250-sale",
+            "image": "shopify://shop_images/freedom250-homepage-vtrack-v3.png",
+            "title": "",
+            "text": "",
+            "class": ""
+          }
+        },
+        "block_3Mwb6n": {
+          "type": "block",
+          "settings": {
+            "url": "shopify://products/vtrack-overhead-golf-launch-monitor",
+            "image": "shopify://shop_images/VTrack_Overhead_Golf_Launch_Monitor.webp",
+            "title": "",
+            "text": "",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_HfTUqh",
+        "block_YAgVk3",
+        "block_3Mwb6n"
+      ],
+      "disabled": true,
+      "name": "Custom: Promotions2",
+      "settings": {
+        "id": "sn-promotions",
+        "text": "<h2><strong>Freedom 250 Sale — Now Live</strong></h2><h4>Limited-time savings on SimKits, projectors, enclosures & hitting mats. Code <strong>FREE </strong>at checkout.</h4>",
+        "background_color": "#001853",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "rgba(0,0,0,0)",
+        "vp-desktop": 40,
+        "hp-desktop": 24,
+        "vp-mobile": 40,
+        "hp-mobile": 0,
+        "background": "shopify://shop_images/MemorialBG.png",
+        "overlay": "#212121",
+        "opacity": 10
+      }
+    },
+    "custom_weekly_deals_LB9rAr": {
+      "type": "custom-weekly-deals",
+      "blocks": {
+        "deal_AQwfNb": {
+          "type": "deal",
+          "settings": {
+            "product": "vtrack-optoma-zk521st-b-launch-bundle",
+            "custom_title": "",
+            "custom_price": "",
+            "custom_compare": "",
+            "custom_url": "",
+            "show_badge": true,
+            "deal_label": "Deal of the Week",
+            "btn_text": "Shop This Deal",
+            "hide_price": false,
+            "reveal_btn_text": "",
+            "coupon_code": "",
+            "coupon_hint": "",
+            "price_override": "",
+            "compare_override": "",
+            "discount_label": "",
+            "savings_override": "",
+            "expiry_override": ""
+          }
+        },
+        "deal_byEHWw": {
+          "type": "deal",
+          "settings": {
+            "product": "optoma-zk521st-b-4k-laser-short-throw-golf-sim-projector",
+            "custom_title": "",
+            "custom_price": "",
+            "custom_compare": "",
+            "custom_url": "",
+            "show_badge": true,
+            "deal_label": "Hot Deal",
+            "btn_text": "Shop This Deal",
+            "hide_price": true,
+            "reveal_btn_text": "Click to See Price",
+            "coupon_code": "OPTOMASAVE",
+            "coupon_hint": "Apply at checkout for instant savings",
+            "price_override": "$2,429.00",
+            "compare_override": "$2,699.00",
+            "discount_label": "10%",
+            "savings_override": "SAVE 10%",
+            "expiry_override": ""
+          }
+        },
+        "deal_jcphrX": {
+          "type": "deal",
+          "settings": {
+            "product": "vtrack-benq-ak700st-bundle-overhead-launch-monitor-4k-laser-projector",
+            "custom_title": "",
+            "custom_price": "",
+            "custom_compare": "",
+            "custom_url": "",
+            "show_badge": true,
+            "deal_label": "Flash Sale",
+            "btn_text": "Shop This Deal",
+            "hide_price": false,
+            "reveal_btn_text": "Click to See Price",
+            "coupon_code": "",
+            "coupon_hint": "Apply at checkout for instant savings",
+            "price_override": "",
+            "compare_override": "",
+            "discount_label": "",
+            "savings_override": "",
+            "expiry_override": ""
+          }
+        }
+      },
+      "block_order": [
+        "deal_AQwfNb",
+        "deal_byEHWw",
+        "deal_jcphrX"
+      ],
+      "name": "ESG Weekly Deals",
+      "settings": {
+        "eyebrow": "Limited Time Only",
+        "title_plain": "Weekly",
+        "title_accent": "Deals",
+        "expiry_date": "2026-10-20T23:59:59",
+        "show_global_timer": true,
+        "show_card_timer": false,
+        "show_desc": true,
+        "overlay_opacity": 0,
+        "bg_color": "#f7f8fa",
+        "title_color": "#0d1b2a",
+        "title_accent_color": "#2d7dd2",
+        "eyebrow_color": "#2d7dd2",
+        "accent_color": "#091836",
+        "card_bg": "#ffffff",
+        "card_border": "#e8eaed",
+        "img_bg": "#f0f2f5",
+        "muted_color": "#718096",
+        "timer_bg": "#f0f4f8",
+        "heading_font": "Barlow",
+        "body_font": "Inter",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "custom_weekly_deals_Cd96z7": {
+      "type": "custom-weekly-deals",
+      "blocks": {
+        "deal_gEwUbn": {
+          "type": "deal",
+          "settings": {
+            "product": "square-home-edition-budget-simkit-enclosure-choice-optoma-zw350st",
+            "custom_title": "",
+            "custom_price": "",
+            "custom_compare": "",
+            "custom_url": "",
+            "show_badge": true,
+            "deal_label": "flash sale",
+            "btn_text": "Shop This Deal",
+            "hide_price": false,
+            "reveal_btn_text": "",
+            "coupon_code": "",
+            "coupon_hint": "",
+            "price_override": "$2,999.99",
+            "compare_override": "$3,808.95",
+            "discount_label": "-23%",
+            "savings_override": "$808.96",
+            "expiry_override": ""
+          }
+        },
+        "deal_djFdk6": {
+          "type": "deal",
+          "settings": {
+            "product": "optoma-zk521st-b-4k-laser-short-throw-golf-sim-projector",
+            "custom_title": "",
+            "custom_price": "",
+            "custom_compare": "",
+            "custom_url": "",
+            "show_badge": true,
+            "deal_label": "Hot Deal",
+            "btn_text": "Shop This Deal",
+            "hide_price": true,
+            "reveal_btn_text": "Click to See Price",
+            "coupon_code": "OPTOMASAVE",
+            "coupon_hint": "Apply at checkout for instant savings",
+            "price_override": "$2,429.00",
+            "compare_override": "$2,699.00",
+            "discount_label": "10%",
+            "savings_override": "SAVE 10%",
+            "expiry_override": ""
+          }
+        },
+        "deal_xbcjfN": {
+          "type": "deal",
+          "settings": {
+            "product": "protee-vx-overhead-launch-monitor-optoma-zk521st-b-4k-projector-combo",
+            "custom_title": "",
+            "custom_price": "",
+            "custom_compare": "",
+            "custom_url": "",
+            "show_badge": true,
+            "deal_label": "Flash Sale",
+            "btn_text": "Shop This Deal",
+            "hide_price": false,
+            "reveal_btn_text": "Click to See Price",
+            "coupon_code": "",
+            "coupon_hint": "Apply at checkout for instant savings",
+            "price_override": "",
+            "compare_override": "",
+            "discount_label": "",
+            "savings_override": "",
+            "expiry_override": ""
+          }
+        }
+      },
+      "block_order": [
+        "deal_gEwUbn",
+        "deal_djFdk6",
+        "deal_xbcjfN"
+      ],
+      "disabled": true,
+      "name": "ESG Weekly Deals 2",
+      "settings": {
+        "eyebrow": "Limited Time Only",
+        "title_plain": "Weekly",
+        "title_accent": "Deals",
+        "expiry_date": "2026-09-21T23:59:59",
+        "show_global_timer": true,
+        "show_card_timer": false,
+        "show_desc": true,
+        "overlay_opacity": 0,
+        "bg_color": "#f7f8fa",
+        "title_color": "#0d1b2a",
+        "title_accent_color": "#2d7dd2",
+        "eyebrow_color": "#2d7dd2",
+        "accent_color": "#091836",
+        "card_bg": "#ffffff",
+        "card_border": "#e8eaed",
+        "img_bg": "#f0f2f5",
+        "muted_color": "#718096",
+        "timer_bg": "#f0f4f8",
+        "heading_font": "Barlow",
+        "body_font": "Inter",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "custom_collections_9nEJXN": {
+      "type": "custom-collections",
+      "blocks": {
+        "collection_item_ffEeVb": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "golf-simulator-packages-sim-in-a-box",
+            "custom_title": "",
+            "custom_url": "",
+            "show_count": false,
+            "tall": false
+          }
+        },
+        "collection_item_8BtaGP": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "launch-monitors",
+            "custom_title": "",
+            "custom_image": "shopify://shop_images/launch-monitors.jpg",
+            "custom_url": "",
+            "show_count": false,
+            "tall": false
+          }
+        },
+        "collection_item_nWt3RU": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "golf-simulator-enclosures",
+            "custom_title": "",
+            "custom_image": "shopify://shop_images/commercial-golf-simulator-enclosure-kit-with-impact-screen-2-emt-frame-1607265.png",
+            "custom_url": "",
+            "show_count": false,
+            "tall": false
+          }
+        },
+        "collection_item_PLRX8B": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "hitting-mats-strips",
+            "custom_title": "",
+            "custom_url": "",
+            "show_count": false,
+            "tall": false
+          }
+        },
+        "collection_item_MPMKcc": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "golf-simulator-projectors",
+            "custom_title": "",
+            "custom_image": "shopify://shop_images/projectors.jpg",
+            "custom_url": "",
+            "show_count": false,
+            "tall": false
+          }
+        },
+        "collection_item_piNJ4T": {
+          "type": "collection_item",
+          "settings": {
+            "collection": "simulator-control-boxes",
+            "custom_title": "",
+            "custom_url": "",
+            "show_count": false,
+            "tall": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_item_ffEeVb",
+        "collection_item_8BtaGP",
+        "collection_item_nWt3RU",
+        "collection_item_PLRX8B",
+        "collection_item_MPMKcc",
+        "collection_item_piNJ4T"
+      ],
+      "name": "ESG Collections",
+      "settings": {
+        "show_header": true,
+        "eyebrow": "Browse By Category",
+        "title_plain": "Shop Popular",
+        "title_accent": "Categories",
+        "show_title_bar": true,
+        "layout": "3col",
+        "aspect_ratio": "4 / 3",
+        "gap": 12,
+        "border_radius": 6,
+        "show_view_all": true,
+        "view_all_text": "Shop All Categories",
+        "view_all_url": "",
+        "bg_color": "#f7f8fa",
+        "title_color": "#0d1b2a",
+        "accent_color": "#2d7dd2",
+        "body_font": "Inter",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "sm_product_EphycY": {
+      "type": "sm-product",
+      "name": "ESG Products",
+      "settings": {
+        "collection": "homepage-best-sellers",
+        "product_limit": 16,
+        "eyebrow": "Shop Now",
+        "title_plain": "our",
+        "title_accent": "best sellers",
+        "show_title_bar": true,
+        "badge_text": "",
+        "show_view_all": true,
+        "view_all_text": "View All",
+        "view_all_url": "",
+        "bg_color": "#f7f8fa",
+        "title_color": "#0d1b2a",
+        "accent_color": "#2d7dd2",
+        "card_bg": "#ffffff",
+        "card_border": "#e8eaed",
+        "img_bg": "#f0f2f5",
+        "muted_color": "#9aa3b0",
+        "body_font": "Inter",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "17863044932ffb2dc3": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    },
+    "sn_collections_NDRLAG": {
+      "type": "sn-collections",
+      "blocks": {
+        "block_pMYat8": {
+          "type": "block",
+          "settings": {
+            "collection": "golf-simulator-packages-sim-in-a-box",
+            "image": "shopify://shop_images/VTrack_3_ff32239d-d889-41ea-9aa3-4f666045d1e9.png",
+            "title": "COMPLETE GOLF SIMULATOR KITS",
+            "text": ""
+          }
+        },
+        "block_RkH9Ep": {
+          "type": "block",
+          "settings": {
+            "collection": "launch-monitors",
+            "image": "shopify://shop_images/launch-monitors.jpg",
+            "title": "GOLF LAUNCH MONITORS",
+            "text": ""
+          }
+        },
+        "block_QNfqY4": {
+          "type": "block",
+          "settings": {
+            "collection": "golf-simulator-enclosures",
+            "image": "shopify://shop_images/golf-enclosures.png",
+            "title": "GOLF SIMULATOR ENCLOSURES",
+            "text": ""
+          }
+        },
+        "block_J4BYMk": {
+          "type": "block",
+          "settings": {
+            "collection": "golf-simulator-projectors",
+            "image": "shopify://shop_images/projectors.jpg",
+            "title": "PROJECTORS",
+            "text": ""
+          }
+        },
+        "block_mc8QVQ": {
+          "type": "block",
+          "settings": {
+            "collection": "hitting-mats-strips",
+            "image": "shopify://shop_images/mats.jpg",
+            "title": "GOLF HITTING MATS & STRIPS",
+            "text": ""
+          }
+        },
+        "block_pfqa88": {
+          "type": "block",
+          "settings": {
+            "collection": "simulator-control-boxes",
+            "title": "Simulator Control Boxes",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_pMYat8",
+        "block_RkH9Ep",
+        "block_QNfqY4",
+        "block_J4BYMk",
+        "block_mc8QVQ",
+        "block_pfqa88"
+      ],
+      "disabled": true,
+      "name": "Custom: Collections",
+      "settings": {
+        "id": "sn-collections",
+        "text": "<h2>SHOP POPULAR CATEGORIES</h2>",
+        "background_color": "#212121",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#161616",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_products_x9WNLz": {
+      "type": "sn-products",
+      "disabled": true,
+      "name": "Custom: Products",
+      "settings": {
+        "id": "sn-products",
+        "collection": "homepage-best-sellers",
+        "text": "<h2>OUR BEST SELLERS</h2>",
+        "background_color": "#ffffff",
+        "heading_color": "#212121",
+        "text_color": "#212121",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 0,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "custom_review_frNLcN": {
+      "type": "custom-review",
+      "blocks": {
+        "review_VaxbnY": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Image is razor sharp. Zero washout even with the garage lights on. Wish I'd bought it sooner!",
+            "author_name": "Scott W.",
+            "author_location": "Columbus, OH"
+          }
+        },
+        "review_3Mypkx": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Ordered Monday, playing Augusta by Friday. Setup was painless, data is accurate, picture is incredible. Best money I've spent.",
+            "author_name": "Mike T.",
+            "author_location": "Nashville, TN"
+          }
+        },
+        "review_XL9gWx": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Tank of an enclosure. Takes full driver shots, no problem. Fit my garage perfectly. Exactly what was advertised.",
+            "author_name": "Chris B.",
+            "author_location": "Atlanta, GA"
+          }
+        },
+        "review_NqrwjW": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Customer support was outstanding. Had a question at 9pm and got a response within minutes. Incredible service.",
+            "author_name": "David R.",
+            "author_location": "Austin, TX"
+          }
+        },
+        "review_86McE7": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "My whole family uses it now. Kids are learning golf and I'm improving my swing year-round. Worth every penny.",
+            "author_name": "James K.",
+            "author_location": "Denver, CO"
+          }
+        }
+      },
+      "block_order": [
+        "review_VaxbnY",
+        "review_3Mypkx",
+        "review_XL9gWx",
+        "review_NqrwjW",
+        "review_86McE7"
+      ],
+      "name": "ESG Reviews",
+      "settings": {
+        "bg_color": "#07111e",
+        "bg_image": "shopify://shop_images/Bennifits.png",
+        "bg_opacity": 60,
+        "eyebrow": "Testimonials",
+        "title_plain": "What Our",
+        "title_accent": "Customers Say",
+        "card_bg": "#0d1b2a",
+        "card_active_bg": "#112240",
+        "accent_color": "#2d7dd2",
+        "body_font": "Inter",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "sn_reviews_ycRmaT": {
+      "type": "sn-reviews",
+      "blocks": {
+        "review_KgXdTt": {
+          "type": "review",
+          "settings": {
+            "review": "\"Ordered Monday, playing Augusta by Friday. Setup was painless, data is accurate, picture is incredible. Best money I've spent.\"",
+            "name": "<strong>Mike T. | Nashville, TN</strong>",
+            "class": ""
+          }
+        },
+        "review_piARxx": {
+          "type": "review",
+          "settings": {
+            "review": "\"Tank of an enclosure. Takes full driver shots, no problem. Fit my garage perfectly. Exactly what was advertised.\"",
+            "name": "Chris B. | Atlanta, GA",
+            "class": ""
+          }
+        },
+        "review_AyPnBy": {
+          "type": "review",
+          "settings": {
+            "review": "\"Data is legit. Spin, launch angle, ball speed — all match what I see on the course. No complaints whatsoever.\"",
+            "name": "Ryan K. | Dallas, TX",
+            "class": ""
+          }
+        },
+        "review_BCfb8L": {
+          "type": "review",
+          "settings": {
+            "review": "\"Image is razor sharp. Zero washout even with the garage lights on. Wish I'd bought it sooner.\"",
+            "name": "Scott W. | Columbus, OH",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_KgXdTt",
+        "review_piARxx",
+        "review_AyPnBy",
+        "review_BCfb8L"
+      ],
+      "disabled": true,
+      "name": "Custom: Reviews",
+      "settings": {
+        "id": "sn-reviews",
+        "text": "<h2>WHAT OUR CUSTOMERS SAY</h2>",
+        "background_color": "#212121",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "custom_benefits_JkDEdc": {
+      "type": "custom-benefits",
+      "blocks": {
+        "benefit_tPrh4G": {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "expert_star",
+            "icon_emoji": "⭐",
+            "title": "Expert Guidance, Every Step",
+            "text": "Our golf experts are here to help you choose the perfect simulator for your space, goals, and budget. We make the process simple from start to swing."
+          }
+        },
+        "benefit_wCAqjc": {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "tag",
+            "icon_emoji": "⭐",
+            "title": "Premium Gear, Honest Prices",
+            "text": "We partner with top brands to bring you high-performance golf simulators and accessories at the best possible prices with no hidden fees."
+          }
+        },
+        "benefit_KLzy39": {
+          "type": "benefit",
+          "settings": {
+            "icon_type": "truck",
+            "icon_emoji": "⭐",
+            "title": "Fast Shipping & Real Support",
+            "text": "From order to on the course, we've got you covered. Enjoy quick, reliable shipping and real support from a team that golfers trust."
+          }
+        },
+        "trust_item_wWFh4r": {
+          "type": "trust_item",
+          "settings": {
+            "icon_type": "shield_check",
+            "icon_emoji": "✅",
+            "label": "Authorized\nDealer"
+          }
+        },
+        "trust_item_tVe9bq": {
+          "type": "trust_item",
+          "settings": {
+            "icon_type": "award",
+            "icon_emoji": "✅",
+            "label": "Top-Rated\nBy Golfers"
+          }
+        },
+        "trust_item_zKCwb7": {
+          "type": "trust_item",
+          "settings": {
+            "icon_type": "lock",
+            "icon_emoji": "✅",
+            "label": "Secure\nPayments"
+          }
+        },
+        "trust_item_4a3JDW": {
+          "type": "trust_item",
+          "settings": {
+            "icon_type": "headset",
+            "icon_emoji": "✅",
+            "label": "Dedicated\nSupport"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_tPrh4G",
+        "benefit_wCAqjc",
+        "benefit_KLzy39",
+        "trust_item_wWFh4r",
+        "trust_item_tVe9bq",
+        "trust_item_zKCwb7",
+        "trust_item_4a3JDW"
+      ],
+      "name": "ESG Benefits",
+      "settings": {
+        "bg_color": "#0a1628",
+        "bg_image": "shopify://shop_images/golf-ball-field_1.jpg",
+        "overlay_opacity": 50,
+        "bg_position": "center center",
+        "show_header": true,
+        "eyebrow": "Our Advantage",
+        "title_plain": "Why Choose",
+        "title_accent": "Elite Sim Golf",
+        "show_trust_bar": true,
+        "trust_padding_bottom": 48,
+        "accent_color": "#2d7dd2",
+        "body_font": "Inter",
+        "padding_top": 64,
+        "padding_bottom": 52
+      }
+    },
+    "sn_benefits_EPdBQm": {
+      "type": "sn-benefits",
+      "blocks": {
+        "benefit_pn3KL3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/marketing-agent.svg",
+            "title": "<strong>🏌️ Expert Guidance, Every Step</strong>",
+            "text": "<p>We're golfers and simulator nerds ourselves. From picking the right enclosure size to dialing in your launch monitor, our team gives you real advice — not a sales pitch.</p>",
+            "class": ""
+          }
+        },
+        "benefit_MPCrnJ": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/high-quality.svg",
+            "title": "<strong>💰 Premium Gear, Honest Prices</strong>",
+            "text": "<p>High-end simulators shouldn't cost a fortune. We source the best brands — Uneekor, Garmin, BenQ, VTrack — and price them so more golfers can play year-round.</p>",
+            "class": ""
+          }
+        },
+        "benefit_ficiJi": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/fast-delivery.svg",
+            "title": "<strong>📦 Fast Shipping & Real Support</strong>",
+            "text": "<p>Free shipping to the continental US, and we don't disappear after the sale. Call, text, or email us — an actual human answers.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_pn3KL3",
+        "benefit_MPCrnJ",
+        "benefit_ficiJi"
+      ],
+      "disabled": true,
+      "name": "Custom: Benefits",
+      "settings": {
+        "id": "sn-benefits",
+        "text": "<h2>WHY CHOOSE ELITE SIM GOLF</h2>",
+        "columns": "3",
+        "align": "center",
+        "background_color": "#000000",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "accent_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "#ffffff",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "background": "shopify://shop_images/golf-ball-field_1.jpg",
+        "overlay": "#000000",
+        "opacity": 3
+      }
+    },
+    "sm_product_MPG6RR": {
+      "type": "sm-product",
+      "name": "ESG Products",
+      "settings": {
+        "collection": "golf-simulator-packages-sim-in-a-box",
+        "product_limit": 10,
+        "eyebrow": "Shop Now",
+        "title_plain": "Golf Simulator",
+        "title_accent": "Packages",
+        "show_title_bar": true,
+        "badge_text": "",
+        "show_view_all": true,
+        "view_all_text": "View All",
+        "view_all_url": "",
+        "bg_color": "#f7f8fa",
+        "title_color": "#0d1b2a",
+        "accent_color": "#2d7dd2",
+        "card_bg": "#ffffff",
+        "card_border": "#e8eaed",
+        "img_bg": "#f0f2f5",
+        "muted_color": "#9aa3b0",
+        "body_font": "Inter",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_blog_XAgLwy": {
+      "type": "custom-blog",
+      "name": "ESG Blog",
+      "settings": {
+        "blog": "product-reviews",
+        "article_limit": 6,
+        "show_header": true,
+        "eyebrow": "Latest Articles",
+        "title_plain": "Elite Sim Golf",
+        "title_accent": "Blog",
+        "show_excerpt": true,
+        "show_tag": true,
+        "read_more_text": "Read More",
+        "show_view_all": true,
+        "view_all_text": "View All Posts",
+        "bg_color": "#091836",
+        "title_color": "#ffffff",
+        "accent_color": "#2d7dd2",
+        "card_bg": "#242936",
+        "card_border": "#2e3447",
+        "img_bg": "#1a1f2e",
+        "muted_color": "#8892a4",
+        "body_font": "Inter",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "sn_products_LBaDwB": {
+      "type": "sn-products",
+      "disabled": true,
+      "name": "Custom: Products",
+      "settings": {
+        "id": "sn-products",
+        "collection": "golf-simulator-packages-sim-in-a-box",
+        "text": "<h2>GOLF SIMULATOR PACKAGES</h2>",
+        "background_color": "",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 0,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_banners_hiQFnA": {
+      "type": "sn-banners",
+      "blocks": {
+        "image_DCpe9X": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SimKitSale.jpg",
+            "url": "",
+            "class": ""
+          }
+        },
+        "image_fjNJ3A": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SimKitSale.jpg",
+            "url": "",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_DCpe9X",
+        "image_fjNJ3A"
+      ],
+      "disabled": true,
+      "name": "Custom: Banners",
+      "settings": {
+        "id": "sn-banners",
+        "text": "",
+        "background_color": "",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 0,
+        "hp-desktop": 0,
+        "vp-mobile": 0,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_blog_WRde4J": {
+      "type": "sn-blog",
+      "disabled": true,
+      "name": "Custom: Blog posts",
+      "settings": {
+        "id": "sn-blog",
+        "text": "<h2>ELITE SIM GOLF BLOG</h2>",
+        "blog": "product-reviews",
+        "background_color": "#212121",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "custom_faqs_4bPdQT": {
+      "type": "custom-faqs",
+      "blocks": {
+        "faq_item_QrYF8j": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's included in a simulator package?",
+            "answer": "<p>Our simulator packages include everything you need: a high-accuracy launch monitor, impact screen, projector, hitting mat, and software. Optional add-ons like enclosures and premium frames are also available.</p>"
+          }
+        },
+        "faq_item_JbwVWm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much space do I need for a golf simulator?",
+            "answer": "<p>We recommend a minimum of 10ft wide × 10ft deep × 9ft high. Ideal setups are 12–15ft wide with 10ft ceilings, but we have solutions for a variety of room sizes — reach out and we'll find the right fit.</p>"
+          }
+        },
+        "faq_item_NRK3Dq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do I need any technical experience to set one up?",
+            "answer": "<p>No technical experience required. Every kit comes with step-by-step assembly manuals and access to our remote support team. We also offer professional installation services if preferred.</p>"
+          }
+        },
+        "faq_item_apWer3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What launch monitors do you carry?",
+            "answer": "<p>We carry all major brands including Trackman, Foresight Sports, Uneekor, Garmin Approach, and FlightScope — covering a wide range of budgets and accuracy levels.</p>"
+          }
+        },
+        "faq_item_FD8nDb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you offer financing?",
+            "answer": "<p>Yes! We offer flexible financing options through our payment partners. Many customers qualify for 0% APR promotional periods. Contact us for details or apply at checkout.</p>"
+          }
+        },
+        "faq_item_jWdMyx": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if something arrives damaged or doesn't work?",
+            "answer": "<p>All products are covered by our warranty and our dedicated support team. If anything arrives damaged, contact us within 48 hours and we'll arrange a replacement or resolution — no hassle.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_QrYF8j",
+        "faq_item_JbwVWm",
+        "faq_item_NRK3Dq",
+        "faq_item_apWer3",
+        "faq_item_FD8nDb",
+        "faq_item_jWdMyx"
+      ],
+      "name": "ESG FAQ",
+      "settings": {
+        "bg_color": "#091836",
+        "bg_image": "shopify://shop_images/FAQ_s.png",
+        "bg_opacity": 70,
+        "bg_position": "center center",
+        "eyebrow": "Questions & Answers",
+        "title_plain": "Frequently Asked",
+        "title_accent": "Questions",
+        "accent_color": "#2d7dd2",
+        "body_font": "Inter",
+        "content_width": 800,
+        "section_padding_top": 72,
+        "section_padding_bottom": 72
+      }
+    },
+    "sn_faq_qVhLwf": {
+      "type": "sn-faq",
+      "blocks": {
+        "collapsible_Hg7fnW": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>What's included in a simulator package?</strong>",
+            "answer": "<p>A: Our packages include everything you need to start playing — an enclosure, impact screen, launch monitor, and projector. Some packages also include hitting mats, software, and mounting hardware. Each product page lists exactly what's in the box.</p>",
+            "class": "mt-1"
+          }
+        },
+        "collapsible_rGGJVD": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>How much space do I need for a golf simulator?</strong>",
+            "answer": "<p>A: Most setups fit comfortably in a standard garage bay or basement. Our smallest enclosure (Birdie 10) starts at 10' wide x 8.5' high x 5' deep. We recommend at least 12–14 feet of ceiling clearance for a full, comfortable swing.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_HCtyht": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>Do I need any technical experience to set one up?</strong>",
+            "answer": "<p>A: No. Our packages are designed to be plug-and-play. Most customers have everything up and running within a few hours. We also have assembly manuals, video guides, and a support team you can call or text if you get stuck.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_QCrmcm": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>What launch monitors do you carry?</strong>",
+            "answer": "<p>A: We carry top brands including Garmin, Uneekor, VTrack, FlightScope, and Rapsodo — covering a range of budgets and use cases, from casual home use to serious game improvement.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_3pVT4B": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>Do you offer financing?</strong>",
+            "answer": "<p>A: Yes. We support multiple payment options including Shop Pay installments, PayPal, and more at checkout. You can get a high-end setup without paying everything upfront.</p><p>\"Rates from 0%-36% APR. Payment options through Shop Pay Installments, are subject to an eligibility check and are provided by these lending partners: <a href=\"https://www.affirm.com/lenders\" title=\"https://www.affirm.com/lenders\">affirm.com/lenders</a>. Options depend on your purchase amount, and a down payment may be required. State notices to consumers <a href=\"https://www.affirm.com/licenses\" title=\"https://www.affirm.com/licenses\">https://www.affirm.com/licenses</a>.\"</p>",
+            "class": ""
+          }
+        },
+        "collapsible_FC7wgB": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>What if something arrives damaged or doesn't work?</strong>",
+            "answer": "<p>A: Contact us and we'll make it right. Our support team is available Monday–Friday 9AM–6PM, and you can reach us by phone, text, or email anytime.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_Hg7fnW",
+        "collapsible_rGGJVD",
+        "collapsible_HCtyht",
+        "collapsible_QCrmcm",
+        "collapsible_3pVT4B",
+        "collapsible_FC7wgB"
+      ],
+      "disabled": true,
+      "name": "Custom: FAQs",
+      "settings": {
+        "id": "sn-faqs",
+        "text": "<h2>FREQUENTLY ASKED QUESTIONS</h2>",
+        "background_color": "#000000",
+        "heading_color": "#f8f8f8",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "faq_bg": "#212121",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 24,
+        "overlay": "",
+        "opacity": 10
+      }
+    }
+  },
+  "order": [
+    "video_hero_kP93yD",
+    "custom_promo_slider_peMPg3",
+    "sn_video_hero_BfgtQn",
+    "sn_marquee_HUxQep",
+    "sn_promotions_nTMrEK",
+    "sn_promotions_pVW6f6",
+    "custom_weekly_deals_LB9rAr",
+    "custom_weekly_deals_Cd96z7",
+    "custom_collections_9nEJXN",
+    "sm_product_EphycY",
+    "17863044932ffb2dc3",
+    "sn_collections_NDRLAG",
+    "sn_products_x9WNLz",
+    "custom_review_frNLcN",
+    "sn_reviews_ycRmaT",
+    "custom_benefits_JkDEdc",
+    "sn_benefits_EPdBQm",
+    "sm_product_MPG6RR",
+    "custom_blog_XAgLwy",
+    "sn_products_LBaDwB",
+    "sn_banners_hiQFnA",
+    "sn_blog_WRde4J",
+    "custom_faqs_4bPdQT",
+    "sn_faq_qVhLwf"
+  ]
+}

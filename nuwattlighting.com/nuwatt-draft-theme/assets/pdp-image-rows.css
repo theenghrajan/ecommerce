@@ -50,3 +50,57 @@
   text-align: center;
   line-height: normal;
 }
+
+/* #150 (Gary, AC #90): one infographic image instead of 5 frames. The image keeps its natural aspect ratio (height follows
+   the content), centred with padding around it.
+   AC #100 / #109: the frame lines up with every other .page-width block on the page - see the
+   .page-width wrapper note below. */
+.pdp-image-rows:not(:has(*)){
+  display: none;
+}
+
+/* AC #109 (Gary, comment 2648160): "Look how much wider the infographic is compared to the rest of the page.
+   We want everything to be aligned, symmetrical." The infographic now sits inside the same
+   .page-width wrapper every other block on the page uses, so its edges match the tab bar and
+   the description copy at every breakpoint, instead of being capped at a hard-coded width.
+   width:100% is required because .pdp-image-rows is a flex column - without it the wrapper
+   shrink-fits to the image and lands ~44px narrow on each side. */
+.pdp-image-rows > .page-width{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pdp-infographic{
+  padding: 40px 0;
+  line-height: 0;
+}
+
+.pdp-infographic picture{
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.pdp-infographic__img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 749px){
+  .pdp-infographic{
+    padding: 24px 0;
+  }
+}
+
+/* only a mobile image set: nothing on desktop */
+@media only screen and (min-width: 750px){
+  .pdp-infographic--mobile-only{
+    display: none;
+  }
+  /* hide the page-width wrapper as well, otherwise the flex gap leaves an empty band */
+  .pdp-image-rows > .page-width:has(> .pdp-infographic--mobile-only){
+    display: none;
+  }
+}

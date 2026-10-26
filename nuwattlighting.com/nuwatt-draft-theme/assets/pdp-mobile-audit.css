@@ -323,3 +323,22 @@
 .nw-reviews-more .btn{
   min-height: 48px;
 }
+
+/* (Gary, AC #90) per-unit price under the total price; desktop as well since AC #106 */
+.nw-unit-price{
+  display: none;
+}
+.template-product .product-single__buy-box .nw-unit-price:not([hidden]){
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #4b5563;
+}
+@media only screen and (max-width: 749px){
+  .template-product .product-single__buy-box .nw-unit-price:not([hidden]){
+    flex-basis: 100%;
+    margin-top: 2px;
+    font-size: 14px;
+  }
+}

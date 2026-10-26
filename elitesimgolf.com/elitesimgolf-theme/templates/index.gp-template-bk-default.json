@@ -1,0 +1,513 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sn_video_hero_BfgtQn": {
+      "type": "sn-video-hero",
+      "blocks": {
+        "text_Na6fex": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Play the World's Best Courses From Home.</h1>",
+            "class": "mb-1 sn-uppercase"
+          }
+        },
+        "text_rimc9F": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Premium golf simulators built for serious golfers. Free shipping, expert support, and setups that actually work.</p>",
+            "class": "mb-2"
+          }
+        },
+        "button_TfFRNH": {
+          "type": "button",
+          "settings": {
+            "btn": "<strong>SHOP SIMULATOR PACKAGES</strong>",
+            "url": "shopify://collections/golf-simulator-packages-sim-in-a-box",
+            "class": "mt-2"
+          }
+        }
+      },
+      "block_order": [
+        "text_Na6fex",
+        "text_rimc9F",
+        "button_TfFRNH"
+      ],
+      "name": "Custom: Video Hero",
+      "settings": {
+        "id": "sn-video-hero",
+        "video": "https://cdn.shopify.com/videos/c/o/v/99e9a345e3b740a190cd1babbffd76c8.mp4",
+        "background_color": "#161616",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "#f8f8f8",
+        "btn_text": "#161616",
+        "overlay": "#000000",
+        "opacity": 11
+      }
+    },
+    "sn_marquee_HUxQep": {
+      "type": "sn-marquee",
+      "blocks": {
+        "marquee_Tk3Mft": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>NOW OFFERING NATIONWIDE INSTALLATION SERVICES</p>"
+          }
+        },
+        "marquee_tQMxW8": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>FAST AND FREE SHIPPING*</p>"
+          }
+        },
+        "marquee_jq43h9": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>NO HASSLE RETURNS</p>"
+          }
+        },
+        "marquee_FrBLHc": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>LOW PRICE GUARANTEE*</p>"
+          }
+        },
+        "marquee_k7mx4a": {
+          "type": "marquee",
+          "settings": {
+            "text": "<p>FREE REMOTE SETUP WITH ALL LAUNCH MONITORS</p>"
+          }
+        }
+      },
+      "block_order": [
+        "marquee_Tk3Mft",
+        "marquee_tQMxW8",
+        "marquee_jq43h9",
+        "marquee_FrBLHc",
+        "marquee_k7mx4a"
+      ],
+      "name": "Custom-Marquee",
+      "settings": {
+        "id": "sn-marquee",
+        "background_color": "#2953b9",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 12,
+        "hp-desktop": 0,
+        "vp-mobile": 4,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_collections_NDRLAG": {
+      "type": "sn-collections",
+      "blocks": {
+        "block_pMYat8": {
+          "type": "block",
+          "settings": {
+            "collection": "golf-simulator-packages-sim-in-a-box",
+            "image": "shopify://shop_images/VTrack_3_ff32239d-d889-41ea-9aa3-4f666045d1e9.png",
+            "title": "COMPLETE GOLF SIMULATOR KITS",
+            "text": ""
+          }
+        },
+        "block_RkH9Ep": {
+          "type": "block",
+          "settings": {
+            "collection": "launch-monitors",
+            "image": "shopify://shop_images/launch-monitors.jpg",
+            "title": "GOLF LAUNCH MONITORS",
+            "text": ""
+          }
+        },
+        "block_QNfqY4": {
+          "type": "block",
+          "settings": {
+            "collection": "golf-simulator-enclosures",
+            "image": "shopify://shop_images/golf-enclosures.png",
+            "title": "GOLF SIMULATOR ENCLOSURES",
+            "text": ""
+          }
+        },
+        "block_J4BYMk": {
+          "type": "block",
+          "settings": {
+            "collection": "golf-simulator-projectors",
+            "image": "shopify://shop_images/projectors.jpg",
+            "title": "PROJECTORS",
+            "text": ""
+          }
+        },
+        "block_mc8QVQ": {
+          "type": "block",
+          "settings": {
+            "collection": "hitting-mats-strips",
+            "image": "shopify://shop_images/mats.jpg",
+            "title": "GOLF HITTING MATS & STRIPS",
+            "text": ""
+          }
+        },
+        "block_pfqa88": {
+          "type": "block",
+          "settings": {
+            "collection": "simulator-control-boxes",
+            "image": "shopify://shop_images/E2-ESG.png",
+            "title": "Simulator Control Boxes",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_pMYat8",
+        "block_RkH9Ep",
+        "block_QNfqY4",
+        "block_J4BYMk",
+        "block_mc8QVQ",
+        "block_pfqa88"
+      ],
+      "name": "Custom: Collections",
+      "settings": {
+        "id": "sn-collections",
+        "text": "<h2>SHOP POPULAR CATEGORIES</h2>",
+        "background_color": "#212121",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#161616",
+        "vp-desktop": 72,
+        "hp-desktop": 0,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_products_x9WNLz": {
+      "type": "sn-products",
+      "name": "Custom: Products",
+      "settings": {
+        "id": "sn-products",
+        "collection": "homepage-best-sellers",
+        "text": "<h2>OUR BEST SELLERS</h2>",
+        "background_color": "#ffffff",
+        "heading_color": "#212121",
+        "text_color": "#212121",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 0,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_reviews_ycRmaT": {
+      "type": "sn-reviews",
+      "blocks": {
+        "review_KgXdTt": {
+          "type": "review",
+          "settings": {
+            "review": "\"Ordered Monday, playing Augusta by Friday. Setup was painless, data is accurate, picture is incredible. Best money I've spent.\"",
+            "name": "<strong>Mike T. | Nashville, TN</strong>",
+            "class": ""
+          }
+        },
+        "review_piARxx": {
+          "type": "review",
+          "settings": {
+            "review": "\"Tank of an enclosure. Takes full driver shots, no problem. Fit my garage perfectly. Exactly what was advertised.\"",
+            "name": "Chris B. | Atlanta, GA",
+            "class": ""
+          }
+        },
+        "review_AyPnBy": {
+          "type": "review",
+          "settings": {
+            "review": "\"Data is legit. Spin, launch angle, ball speed — all match what I see on the course. No complaints whatsoever.\"",
+            "name": "Ryan K. | Dallas, TX",
+            "class": ""
+          }
+        },
+        "review_BCfb8L": {
+          "type": "review",
+          "settings": {
+            "review": "\"Image is razor sharp. Zero washout even with the garage lights on. Wish I'd bought it sooner.\"",
+            "name": "Scott W. | Columbus, OH",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_KgXdTt",
+        "review_piARxx",
+        "review_AyPnBy",
+        "review_BCfb8L"
+      ],
+      "name": "Custom: Reviews",
+      "settings": {
+        "id": "sn-reviews",
+        "text": "<h2>WHAT OUR CUSTOMERS SAY</h2>",
+        "background_color": "#212121",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_benefits_EPdBQm": {
+      "type": "sn-benefits",
+      "blocks": {
+        "benefit_pn3KL3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/marketing-agent.svg",
+            "title": "<strong>🏌️ Expert Guidance, Every Step</strong>",
+            "text": "<p>We're golfers and simulator nerds ourselves. From picking the right enclosure size to dialing in your launch monitor, our team gives you real advice — not a sales pitch.</p>",
+            "class": ""
+          }
+        },
+        "benefit_MPCrnJ": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/high-quality.svg",
+            "title": "<strong>💰 Premium Gear, Honest Prices</strong>",
+            "text": "<p>High-end simulators shouldn't cost a fortune. We source the best brands — Uneekor, Garmin, BenQ, VTrack — and price them so more golfers can play year-round.</p>",
+            "class": ""
+          }
+        },
+        "benefit_ficiJi": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/fast-delivery.svg",
+            "title": "<strong>📦 Fast Shipping & Real Support</strong>",
+            "text": "<p>Free shipping to the continental US, and we don't disappear after the sale. Call, text, or email us — an actual human answers.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_pn3KL3",
+        "benefit_MPCrnJ",
+        "benefit_ficiJi"
+      ],
+      "name": "Custom: Benefits",
+      "settings": {
+        "id": "sn-benefits",
+        "text": "<h2>WHY CHOOSE ELITE SIM GOLF</h2>",
+        "columns": "3",
+        "align": "center",
+        "background_color": "#000000",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "accent_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "#ffffff",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "background": "shopify://shop_images/golf-ball-field_1.jpg",
+        "overlay": "#000000",
+        "opacity": 3
+      }
+    },
+    "sn_products_LBaDwB": {
+      "type": "sn-products",
+      "name": "Custom: Products",
+      "settings": {
+        "id": "sn-products",
+        "collection": "golf-simulator-packages-sim-in-a-box",
+        "text": "<h2>GOLF SIMULATOR PACKAGES</h2>",
+        "background_color": "",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 0,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_banners_hiQFnA": {
+      "type": "sn-banners",
+      "blocks": {
+        "image_DCpe9X": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SimKitSale.jpg",
+            "url": "",
+            "class": ""
+          }
+        },
+        "image_fjNJ3A": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/SimKitSale.jpg",
+            "url": "",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_DCpe9X",
+        "image_fjNJ3A"
+      ],
+      "disabled": true,
+      "name": "Custom: Banners",
+      "settings": {
+        "id": "sn-banners",
+        "text": "",
+        "background_color": "",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 0,
+        "hp-desktop": 0,
+        "vp-mobile": 0,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_blog_WRde4J": {
+      "type": "sn-blog",
+      "name": "Custom: Blog posts",
+      "settings": {
+        "id": "sn-blog",
+        "text": "<h2>ELITE SIM GOLF BLOG</h2>",
+        "blog": "product-reviews",
+        "background_color": "#212121",
+        "heading_color": "#ffffff",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_faq_qVhLwf": {
+      "type": "sn-faq",
+      "blocks": {
+        "collapsible_Hg7fnW": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>What's included in a simulator package?</strong>",
+            "answer": "<p>A: Our packages include everything you need to start playing — an enclosure, impact screen, launch monitor, and projector. Some packages also include hitting mats, software, and mounting hardware. Each product page lists exactly what's in the box.</p>",
+            "class": "mt-1"
+          }
+        },
+        "collapsible_rGGJVD": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>How much space do I need for a golf simulator?</strong>",
+            "answer": "<p>A: Most setups fit comfortably in a standard garage bay or basement. Our smallest enclosure (Birdie 10) starts at 10' wide x 8.5' high x 5' deep. We recommend at least 12–14 feet of ceiling clearance for a full, comfortable swing.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_HCtyht": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>Do I need any technical experience to set one up?</strong>",
+            "answer": "<p>A: No. Our packages are designed to be plug-and-play. Most customers have everything up and running within a few hours. We also have assembly manuals, video guides, and a support team you can call or text if you get stuck.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_QCrmcm": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>What launch monitors do you carry?</strong>",
+            "answer": "<p>A: We carry top brands including Garmin, Uneekor, VTrack, FlightScope, and Rapsodo — covering a range of budgets and use cases, from casual home use to serious game improvement.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_3pVT4B": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>Do you offer financing?</strong>",
+            "answer": "<p>A: Yes. We support multiple payment options including Shop Pay installments, PayPal, and more at checkout. You can get a high-end setup without paying everything upfront.</p>",
+            "class": ""
+          }
+        },
+        "collapsible_FC7wgB": {
+          "type": "collapsible",
+          "settings": {
+            "icon": "shopify://shop_images/question.svg",
+            "question": "<strong>What if something arrives damaged or doesn't work?</strong>",
+            "answer": "<p>A: Contact us and we'll make it right. Our support team is available Monday–Friday 9AM–6PM, and you can reach us by phone, text, or email anytime.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_Hg7fnW",
+        "collapsible_rGGJVD",
+        "collapsible_HCtyht",
+        "collapsible_QCrmcm",
+        "collapsible_3pVT4B",
+        "collapsible_FC7wgB"
+      ],
+      "name": "Custom: FAQs",
+      "settings": {
+        "id": "sn-faqs",
+        "text": "<h2>FREQUENTLY ASKED QUESTIONS</h2>",
+        "background_color": "#000000",
+        "heading_color": "#f8f8f8",
+        "text_color": "#f8f8f8",
+        "btn_bg": "",
+        "btn_text": "",
+        "faq_bg": "#212121",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 24,
+        "overlay": "",
+        "opacity": 10
+      }
+    }
+  },
+  "order": [
+    "sn_video_hero_BfgtQn",
+    "sn_marquee_HUxQep",
+    "sn_collections_NDRLAG",
+    "sn_products_x9WNLz",
+    "sn_reviews_ycRmaT",
+    "sn_benefits_EPdBQm",
+    "sn_products_LBaDwB",
+    "sn_banners_hiQFnA",
+    "sn_blog_WRde4J",
+    "sn_faq_qVhLwf"
+  ]
+}

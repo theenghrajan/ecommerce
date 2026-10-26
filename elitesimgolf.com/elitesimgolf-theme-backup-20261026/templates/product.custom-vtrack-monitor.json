@@ -1,0 +1,1162 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_YjxFiw": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "disabled": true,
+          "settings": {}
+        },
+        "custom_liquid_h7emKM": {
+          "type": "custom-liquid",
+          "name": "VTRACK Shipping/Inventory Notice",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{%- assign on_hand = product.selected_or_first_available_variant.inventory_quantity | default: 0 -%}\n{%- assign incoming_po = product.metafields.custom.incoming_po_qty | default: 0 -%}\n\n<div class=\"esg-vtrack-stock-box\">\n  <div class=\"esg-vtrack-stock-header\">\n    <span class=\"esg-vtrack-stock-dot\"></span>\n    <span>Live Inventory & Shipping</span>\n  </div>\n\n  <!-- Inventory Row -->\n  <div class=\"esg-vtrack-stock-row\">\n    <div class=\"esg-vtrack-stock-left\">\n      <div class=\"esg-vtrack-stock-label\">Inventory</div>\n\n      {%- if on_hand > 0 -%}\n        <div class=\"esg-vtrack-stock-value\">{{ on_hand }} In Stock</div>\n        <div class=\"esg-vtrack-stock-sub\">Ready to ship now.</div>\n      {%- elsif incoming_po > 0 -%}\n        <div class=\"esg-vtrack-stock-value\">{{ incoming_po }} Incoming</div>\n        <div class=\"esg-vtrack-stock-sub\">More units on the way.</div>\n      {%- else -%}\n        <div class=\"esg-vtrack-stock-value\">Check Availability</div>\n        <div class=\"esg-vtrack-stock-sub\">Contact us for current lead time.</div>\n      {%- endif -%}\n    </div>\n\n    {%- if on_hand > 0 and incoming_po > 0 -%}\n      <div class=\"esg-vtrack-stock-pill\">+ {{ incoming_po }} incoming</div>\n    {%- endif -%}\n  </div>\n\n  <!-- Shipping Row -->\n  <div class=\"esg-vtrack-stock-row\">\n    <div class=\"esg-vtrack-stock-left\">\n      <div class=\"esg-vtrack-stock-label\">Same-Day Shipping via UPS Next Day Air</div>\n\n      {%- if on_hand > 0 -%}\n        <div class=\"esg-vtrack-stock-value\">Order by 4PM ET</div>\n        <div class=\"esg-vtrack-stock-sub\">Ships same business day, arrives the following day!</div>\n      {%- else -%}\n        <div class=\"esg-vtrack-stock-value\">Fast Fulfillment</div>\n        <div class=\"esg-vtrack-stock-sub\">Applies to in-stock units.</div>\n      {%- endif -%}\n    </div>\n\n    {%- if on_hand > 0 -%}\n      <div class=\"esg-vtrack-stock-timer\" id=\"esg-vtrack-cutoff-timer\">Calculating…</div>\n    {%- endif -%}\n  </div>\n</div>\n\n<style>\n  .esg-vtrack-stock-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 10px 12px;\n    border-radius: 12px;\n    border: 1px solid rgba(8,110,211,.22);\n    background: #086ed3;\n    box-shadow: 0 10px 24px rgba(29,78,216,.18);\n    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;\n    color: #ffffff;\n    line-height: 1.25;\n  }\n\n  .esg-vtrack-stock-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 10.5px;\n    font-weight: 800;\n    text-transform: uppercase;\n    letter-spacing: .08em;\n    color: rgba(255,255,255,.92);\n    margin-bottom: 8px;\n  }\n\n  .esg-vtrack-stock-dot {\n    width: 8px;\n    height: 8px;\n    border-radius: 999px;\n    background: #ffffff;\n    box-shadow: 0 0 0 4px rgba(255,255,255,.14);\n    flex: 0 0 auto;\n  }\n\n  .esg-vtrack-stock-row {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    padding: 8px 0;\n    border-top: 1px solid rgba(255,255,255,.16);\n  }\n\n  .esg-vtrack-stock-row:first-of-type {\n    border-top: 0;\n    padding-top: 0;\n  }\n\n  .esg-vtrack-stock-left {\n    min-width: 0;\n  }\n\n  .esg-vtrack-stock-label {\n    font-size: 10px;\n    font-weight: 800;\n    text-transform: uppercase;\n    letter-spacing: .07em;\n    color: rgba(255,255,255,.82);\n    margin-bottom: 2px;\n  }\n\n  .esg-vtrack-stock-value {\n    font-size: 17px;\n    font-weight: 900;\n    color: #ffffff;\n    line-height: 1.1;\n    margin-bottom: 1px;\n  }\n\n  .esg-vtrack-stock-sub {\n    font-size: 11px;\n    color: rgba(255,255,255,.9);\n    line-height: 1.3;\n  }\n\n  .esg-vtrack-stock-pill {\n    display: inline-flex;\n    align-items: center;\n    white-space: nowrap;\n    padding: 5px 8px;\n    border-radius: 999px;\n    background: rgba(255,255,255,.18);\n    border: 1px solid rgba(255,255,255,.24);\n    color: #ffffff;\n    font-size: 10.5px;\n    font-weight: 900;\n    line-height: 1;\n  }\n\n  .esg-vtrack-stock-timer {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    white-space: nowrap;\n    padding: 6px 9px;\n    border-radius: 999px;\n    background: #ffffff;\n    color: #1d4ed8;\n    font-size: 10.5px;\n    font-weight: 900;\n    line-height: 1.1;\n    box-shadow: 0 2px 8px rgba(255,255,255,.18);\n  }\n\n  @media (max-width: 749px) {\n    .esg-vtrack-stock-row {\n      align-items: flex-start;\n      flex-direction: column;\n      gap: 6px;\n    }\n\n    .esg-vtrack-stock-value {\n      font-size: 16px;\n    }\n\n    .esg-vtrack-stock-timer,\n    .esg-vtrack-stock-pill {\n      align-self: flex-start;\n    }\n  }\n</style>\n\n<script>\n  (function() {\n    var timerEl = document.getElementById('esg-vtrack-cutoff-timer');\n    if (!timerEl) return;\n\n    function getEasternTimeParts(date) {\n      var parts = new Intl.DateTimeFormat('en-US', {\n        timeZone: 'America/New_York',\n        year: 'numeric',\n        month: 'numeric',\n        day: 'numeric',\n        hour: 'numeric',\n        minute: 'numeric',\n        second: 'numeric',\n        hour12: false\n      }).formatToParts(date);\n\n      var map = {};\n      parts.forEach(function(part) {\n        if (part.type !== 'literal') map[part.type] = parseInt(part.value, 10);\n      });\n      return map;\n    }\n\n    function updateTimer() {\n      var now = new Date();\n      var et = getEasternTimeParts(now);\n      var currentSeconds = (et.hour * 3600) + (et.minute * 60) + et.second;\n      var cutoffSeconds = 16 * 3600;\n      var remaining = cutoffSeconds - currentSeconds;\n\n      if (remaining > 0) {\n        var hrs = Math.floor(remaining / 3600);\n        var mins = Math.floor((remaining % 3600) / 60);\n        var secs = remaining % 60;\n        timerEl.textContent = hrs + 'h ' + mins + 'm ' + secs + 's left';\n      } else {\n        timerEl.textContent = 'Cutoff passed';\n      }\n    }\n\n    updateTimer();\n    setInterval(updateTimer, 1000);\n  })();\n</script>"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "always",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_GyekTB": {
+          "type": "custom-liquid",
+          "name": "VTrack Why Buy Small",
+          "settings": {
+            "custom_liquid": "<div class=\"esg-vtrack-compact-box\">\n  <div class=\"esg-vtrack-compact-header\">\n    <span class=\"esg-vtrack-compact-header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"></path>\n      </svg>\n    </span>\n    <span>Why Buy VTrack From Elite Sim Golf</span>\n  </div>\n\n  <div class=\"esg-vtrack-compact-intro\">\n    <strong>America’s #1 VTrack Dealer</strong> — expert support, fast shipping, and real post-purchase help. Don't believe us? Our reviews speak for themselves!\n  </div>\n\n  <div class=\"esg-vtrack-compact-grid\">\n\n    <div class=\"esg-vtrack-compact-item\">\n      <div class=\"esg-vtrack-compact-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path>\n          <path d=\"M22 4L12 14.01l-3-3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-vtrack-compact-content\">\n        <div class=\"esg-vtrack-compact-title\">Lowest Price Guaranteed</div>\n        <div class=\"esg-vtrack-compact-text\">You won't find a better price, if you do let us know and we will beat it!</div>\n      </div>\n    </div>\n\n    <div class=\"esg-vtrack-compact-item\">\n      <div class=\"esg-vtrack-compact-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n          <path d=\"M12 7v5l3 3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-vtrack-compact-content\">\n        <div class=\"esg-vtrack-compact-title\">30-Day Risk Free Guarantee</div>\n        <div class=\"esg-vtrack-compact-text\">Added confidence with your purchase, if your not happy we will take it back.</div>\n      </div>\n    </div>\n\n    <div class=\"esg-vtrack-compact-item\">\n      <div class=\"esg-vtrack-compact-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-vtrack-compact-content\">\n        <div class=\"esg-vtrack-compact-title\">Remote Setup Help</div>\n        <div class=\"esg-vtrack-compact-text\">Support with setup, calibration, and software. Buy with confidence!</div>\n      </div>\n    </div>\n\n    <div class=\"esg-vtrack-compact-item\">\n      <div class=\"esg-vtrack-compact-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n          <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n          <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n          <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n        </svg>\n      </div>\n      <div class=\"esg-vtrack-compact-content\">\n        <div class=\"esg-vtrack-compact-title\">Fast U.S. Shipping</div>\n        <div class=\"esg-vtrack-compact-text\">Quick turnaround from U.S.-stocked inventory. Not a dropshipper.</div>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .esg-vtrack-compact-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 10px 12px;\n    border: 1px solid #e2e8f0;\n    border-radius: 10px;\n    background: #ffffff;\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    color: #334155;\n    line-height: 1.3;\n  }\n  .esg-vtrack-compact-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11px;\n    font-weight: 800;\n    color: #64748b;\n    text-transform: uppercase;\n    letter-spacing: .05em;\n    margin-bottom: 8px;\n  }\n  .esg-vtrack-compact-header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 14px;\n    height: 14px;\n    color: #086ed3;\n  }\n  .esg-vtrack-compact-header-icon svg {\n    width: 14px;\n    height: 14px;\n    display: block;\n  }\n  .esg-vtrack-compact-intro {\n    margin: 0 0 10px;\n    padding: 8px 10px;\n    border-radius: 8px;\n    background: #eff6ff;\n    border: 1px solid #bfdbfe;\n    font-size: 12px;\n    color: #1e3a8a;\n  }\n  .esg-vtrack-compact-intro strong {\n    color: #0f172a;\n  }\n  .esg-vtrack-compact-grid {\n    display: grid;\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n    gap: 10px 14px;\n  }\n  .esg-vtrack-compact-item {\n    display: flex;\n    align-items: flex-start;\n    gap: 8px;\n    min-width: 0;\n  }\n  .esg-vtrack-compact-icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 24px;\n    height: 24px;\n    min-width: 24px;\n    border-radius: 6px;\n    background: #eff6ff;\n    color: #2563eb;\n    margin-top: 1px;\n  }\n  .esg-vtrack-compact-icon svg {\n    width: 13px;\n    height: 13px;\n  }\n  .esg-vtrack-compact-content {\n    min-width: 0;\n  }\n  .esg-vtrack-compact-title {\n    font-size: 12.5px;\n    font-weight: 800;\n    color: #0f172a;\n    line-height: 1.25;\n  }\n  .esg-vtrack-compact-text {\n    font-size: 11.5px;\n    color: #64748b;\n    line-height: 1.35;\n  }\n\n  @media (max-width: 749px) {\n    .esg-vtrack-compact-box {\n      padding: 10px 12px;\n    }\n    .esg-vtrack-compact-grid {\n      grid-template-columns: 1fr;\n      gap: 10px;\n    }\n  }\n</style>"
+          }
+        },
+        "custom_liquid_tF9hXH": {
+          "type": "custom-liquid",
+          "name": "VTrack Why Buy",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"esg-why-vtrack-esg-box\">\n  <div class=\"esg-why-vtrack-esg-header\">\n    <span class=\"esg-why-vtrack-esg-header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"></path>\n      </svg>\n    </span>\n    <span>Why Buy VTrack From Elite Sim Golf</span>\n  </div>\n\n  <div class=\"esg-why-vtrack-esg-intro\">\n    <strong>Elite Sim Golf is America’s #1 VTrack Dealer</strong> — trusted by golfers nationwide for expert guidance, fast shipping, and real post-purchase support.\n  </div>\n\n  <div class=\"esg-why-vtrack-esg-grid\">\n\n    <!-- Item 1 -->\n    <div class=\"esg-why-vtrack-esg-item\">\n      <div class=\"esg-why-vtrack-esg-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path>\n          <path d=\"M22 4L12 14.01l-3-3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-vtrack-esg-content\">\n        <div class=\"esg-why-vtrack-esg-title\">America’s #1 VTrack Dealer</div>\n        <div class=\"esg-why-vtrack-esg-text\">Buy from the leading VTrack specialist with hands-on product knowledge and real-world experience.</div>\n      </div>\n    </div>\n\n    <!-- Item 2 -->\n    <div class=\"esg-why-vtrack-esg-item\">\n      <div class=\"esg-why-vtrack-esg-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n          <path d=\"M12 7v5l3 3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-vtrack-esg-content\">\n        <div class=\"esg-why-vtrack-esg-title\">Exclusive 30-Day Money-Back Guarantee</div>\n        <div class=\"esg-why-vtrack-esg-text\">Purchase with added confidence knowing Elite Sim Golf backs VTrack with a 30-day money-back guarantee.</div>\n      </div>\n    </div>\n\n    <!-- Item 3 -->\n    <div class=\"esg-why-vtrack-esg-item\">\n      <div class=\"esg-why-vtrack-esg-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-vtrack-esg-content\">\n        <div class=\"esg-why-vtrack-esg-title\">Free Remote Setup Support</div>\n        <div class=\"esg-why-vtrack-esg-text\">We help with setup, calibration, and software integration so you can get running quickly and correctly.</div>\n      </div>\n    </div>\n\n    <!-- Item 4 -->\n    <div class=\"esg-why-vtrack-esg-item\">\n      <div class=\"esg-why-vtrack-esg-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n          <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n          <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n          <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n        </svg>\n      </div>\n      <div class=\"esg-why-vtrack-esg-content\">\n        <div class=\"esg-why-vtrack-esg-title\">Fast U.S. Shipping</div>\n        <div class=\"esg-why-vtrack-esg-text\">We stock and ship fast, helping you avoid long waits and get your simulator project moving sooner.</div>\n      </div>\n    </div>\n\n  </div>\n</div>\n\n<style>\n  .esg-why-vtrack-esg-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 12px 16px;\n    border: 1px solid #e2e8f0;\n    border-radius: 10px;\n    background: #ffffff;\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    color: #334155;\n    line-height: 1.35;\n  }\n  .esg-why-vtrack-esg-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11.5px;\n    font-weight: 800;\n    color: #64748b;\n    text-transform: uppercase;\n    letter-spacing: .05em;\n    margin-bottom: 10px;\n  }\n  .esg-why-vtrack-esg-header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 14px;\n    height: 14px;\n    color: #086ed3;\n  }\n  .esg-why-vtrack-esg-header-icon svg {\n    width: 14px;\n    height: 14px;\n    display: block;\n  }\n  .esg-why-vtrack-esg-intro {\n    margin: 0 0 14px;\n    padding: 10px 12px;\n    border-radius: 8px;\n    background: #eff6ff;\n    border: 1px solid #bfdbfe;\n    font-size: 12.5px;\n    color: #1e3a8a;\n  }\n  .esg-why-vtrack-esg-intro strong {\n    color: #0f172a;\n  }\n  .esg-why-vtrack-esg-grid {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 12px 16px;\n  }\n  .esg-why-vtrack-esg-item {\n    display: flex;\n    align-items: flex-start;\n    gap: 8px;\n  }\n  .esg-why-vtrack-esg-icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    min-width: 26px;\n    border-radius: 6px;\n    background: #eff6ff;\n    color: #2563eb;\n    flex: 0 0 auto;\n    margin-top: 2px;\n  }\n  .esg-why-vtrack-esg-icon svg {\n    width: 14px;\n    height: 14px;\n  }\n  .esg-why-vtrack-esg-content {\n    min-width: 0;\n  }\n  .esg-why-vtrack-esg-title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #0f172a;\n  }\n  .esg-why-vtrack-esg-text {\n    font-size: 12px;\n    color: #64748b;\n  }\n\n  @media (max-width: 749px) {\n    .esg-why-vtrack-esg-box {\n      padding: 12px 14px;\n    }\n    .esg-why-vtrack-esg-grid {\n      grid-template-columns: 1fr;\n      gap: 12px;\n    }\n  }\n</style>"
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_Y4NHb7": {
+          "type": "custom-liquid",
+          "name": "Spica3",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG PDP PROMO BOX — Vendor Trigger\nTrigger: product.vendor = \"GolfJoy\" (case-insensitive)\nRequires code: GOLFJOY10\nAuto-hide after: March 30, 2026\nCompact styling to match ESG shipping box\n{%- endcomment -%}\n\n{%- assign today_ts = 'now' | date: '%s' -%}\n{%- assign cutoff_ts = '2026-03-30' | date: '%s' -%}\n{%- assign vendor_downcase = product.vendor | strip | downcase -%}\n\n{%- if today_ts <= cutoff_ts and vendor_downcase == 'golfjoy' -%}\n<div class=\"esg-promo-code-box\">\n  <div class=\"esg-promo-code-box__top\">\n    <div class=\"esg-promo-code-box__title\">\n      <span class=\"esg-promo-code-box__title-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.9\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M20.59 13.41 11 23l-2.5-2.5\"></path>\n          <path d=\"M17 7h.01\"></path>\n          <path d=\"M3 11V3h8l10 10-8 8L3 11z\"></path>\n        </svg>\n      </span>\n      <span>Extra Savings Available</span>\n    </div>\n\n    <div class=\"esg-promo-code-box__ends\">\n      Ends Mar 30, 2026\n    </div>\n  </div>\n\n  <div class=\"esg-promo-code-box__text\">\n    Use code below for <strong>up to 10% off</strong> at cart or checkout.\n  </div>\n\n  <div class=\"esg-promo-code-box__row\">\n    <div id=\"esg-promo-code\" class=\"esg-promo-code-box__code\">GOLFJOY10</div>\n\n    <button type=\"button\" id=\"esg-promo-copy\" class=\"esg-promo-code-box__button\">\n      Copy Code\n    </button>\n\n    <div id=\"esg-promo-copied\" class=\"esg-promo-code-box__copied\">\n      Copied\n    </div>\n  </div>\n\n  <div class=\"esg-promo-code-box__note\">\n    Tap the code or button to copy instantly.\n  </div>\n</div>\n\n<style>\n  .esg-promo-code-box {\n    max-width: 1100px;\n    margin: 12px 0 0;\n    padding: 13px 14px;\n    border: 1px solid #23923d;\n    border-radius: 12px;\n    background: linear-gradient(180deg, #f7fcf7 0%, #eef8ef 100%);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,.75),\n      0 1px 2px rgba(16,42,67,.05);\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-promo-code-box__top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 10px;\n    margin-bottom: 7px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__title {\n    display: flex;\n    align-items: center;\n    gap: 7px;\n    font-size: 14px;\n    font-weight: 800;\n    color: #168232;\n    letter-spacing: .1px;\n    line-height: 1.2;\n  }\n\n  .esg-promo-code-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 16px;\n    height: 16px;\n    min-width: 16px;\n    color: #168232;\n    flex: 0 0 16px;\n  }\n\n  .esg-promo-code-box__title-icon svg {\n    width: 16px;\n    height: 16px;\n    display: block;\n  }\n\n  .esg-promo-code-box__ends {\n    display: inline-block;\n    padding: 5px 8px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.28);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.8);\n  }\n\n  .esg-promo-code-box__text {\n    font-size: 13px;\n    color: #102a43;\n    margin-bottom: 9px;\n  }\n\n  .esg-promo-code-box__text strong {\n    font-weight: 800;\n  }\n\n  .esg-promo-code-box__row {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-wrap: wrap;\n  }\n\n  .esg-promo-code-box__code {\n    display: inline-flex;\n    align-items: center;\n    padding: 8px 11px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px dashed rgba(35,146,61,.45);\n    color: #168232;\n    font-weight: 900;\n    font-size: 12.5px;\n    letter-spacing: .12em;\n    line-height: 1;\n    user-select: all;\n    cursor: pointer;\n    white-space: nowrap;\n    box-shadow: inset 0 1px 0 rgba(255,255,255,.85);\n  }\n\n  .esg-promo-code-box__button {\n    appearance: none;\n    border: 1px solid #23923d;\n    border-radius: 999px;\n    padding: 8px 12px;\n    background: #168232;\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 12.5px;\n    line-height: 1;\n    cursor: pointer;\n    box-shadow: 0 1px 2px rgba(16,42,67,.08);\n    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;\n  }\n\n  .esg-promo-code-box__button:hover {\n    background: #136f2b;\n    transform: translateY(-1px);\n  }\n\n  .esg-promo-code-box__copied {\n    display: none;\n    align-items: center;\n    padding: 7px 10px;\n    border-radius: 999px;\n    background: #ffffff;\n    border: 1px solid rgba(35,146,61,.35);\n    color: #168232;\n    font-size: 12px;\n    font-weight: 800;\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .esg-promo-code-box__note {\n    margin-top: 8px;\n    font-size: 12px;\n    color: #35506b;\n  }\n\n  @media (max-width: 749px) {\n    .esg-promo-code-box {\n      padding: 12px;\n      border-radius: 10px;\n    }\n\n    .esg-promo-code-box__title {\n      font-size: 13.5px;\n    }\n\n    .esg-promo-code-box__title-icon {\n      width: 15px;\n      height: 15px;\n      min-width: 15px;\n      flex-basis: 15px;\n    }\n\n    .esg-promo-code-box__title-icon svg {\n      width: 15px;\n      height: 15px;\n    }\n\n    .esg-promo-code-box__ends,\n    .esg-promo-code-box__text,\n    .esg-promo-code-box__button,\n    .esg-promo-code-box__code {\n      font-size: 12px;\n    }\n\n    .esg-promo-code-box__note {\n      font-size: 11.5px;\n    }\n  }\n</style>\n\n<script>\n(function () {\n  var btn = document.getElementById('esg-promo-copy');\n  var codeEl = document.getElementById('esg-promo-code');\n  var badge = document.getElementById('esg-promo-copied');\n  if (!btn || !codeEl) return;\n\n  function showCopied() {\n    if (!badge) return;\n    badge.style.display = 'inline-flex';\n    setTimeout(function () {\n      badge.style.display = 'none';\n    }, 1400);\n  }\n\n  async function copyCode() {\n    var code = (codeEl.textContent || '').trim();\n\n    try {\n      if (navigator.clipboard && navigator.clipboard.writeText) {\n        await navigator.clipboard.writeText(code);\n        showCopied();\n        return;\n      }\n    } catch (e) {}\n\n    var ta = document.createElement('textarea');\n    ta.value = code;\n    ta.setAttribute('readonly', '');\n    ta.style.position = 'absolute';\n    ta.style.left = '-9999px';\n    document.body.appendChild(ta);\n    ta.select();\n\n    try {\n      document.execCommand('copy');\n      showCopied();\n    } catch (e) {}\n\n    document.body.removeChild(ta);\n  }\n\n  btn.addEventListener('click', copyCode);\n  codeEl.addEventListener('click', copyCode);\n  codeEl.title = 'Click to copy';\n})();\n</script>\n{%- endif -%}{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'spica 3' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>GolfJoy Spica 3</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_WTm6Q9": {
+          "type": "custom-liquid",
+          "name": "Eye Mini Lite Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'eye mini lite' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>UNEEKOR Eye Mini Lite</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_FKVhxB": {
+          "type": "custom-liquid",
+          "name": "Garmin R50 Block",
+          "settings": {
+            "custom_liquid": "{%- assign has_garmin_r50_tag = false -%}\n{%- for tag in product.tags -%}\n  {%- assign normalized_tag = tag | strip | downcase -%}\n  {%- if normalized_tag == 'garmin r50' -%}\n    {%- assign has_garmin_r50_tag = true -%}\n  {%- endif -%}\n{%- endfor -%}\n\n{%- if has_garmin_r50_tag -%}\n<div class=\"esg-r50-shipbox\">\n  <div class=\"esg-r50-shipbox__title\">Free 2-Day Shipping + 30-Day Returns</div>\n  <div class=\"esg-r50-shipbox__text\">\n    Order your <strong>Garmin Approach R50</strong> by 2PM ET for same-day shipping.\n  </div>\n  <div class=\"esg-r50-shipbox__timer\">\n    Order within <span id=\"esg-r50-countdown\">22 Hrs 0 Mins</span>\n  </div>\n</div>\n\n<style>\n  .esg-r50-shipbox {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 12px 14px;\n    border: 1.5px solid #198f2d;\n    border-radius: 10px;\n    background: #eef6ee;\n    color: #102a43;\n    line-height: 1.35;\n  }\n\n  .esg-r50-shipbox__title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #198f2d;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text {\n    font-size: 14px;\n    margin-bottom: 4px;\n  }\n\n  .esg-r50-shipbox__text strong {\n    font-weight: 800;\n  }\n\n  .esg-r50-shipbox__timer {\n    font-size: 14px;\n    font-weight: 600;\n  }\n\n  .esg-r50-shipbox__timer span {\n    color: #198f2d;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media (max-width: 749px) {\n    .esg-r50-shipbox {\n      padding: 10px 12px;\n      border-radius: 8px;\n    }\n\n    .esg-r50-shipbox__title {\n      font-size: 14px;\n    }\n\n    .esg-r50-shipbox__text,\n    .esg-r50-shipbox__timer {\n      font-size: 13px;\n    }\n  }\n</style>\n\n<script>\n  (function () {\n    var countdownEl = document.getElementById(\"esg-r50-countdown\");\n    if (!countdownEl) return;\n\n    function updateCountdown() {\n      var now = new Date();\n      var estString = now.toLocaleString(\"en-US\", { timeZone: \"America/New_York\" });\n      var estNow = new Date(estString);\n\n      var cutoff = new Date(estNow);\n      cutoff.setHours(14, 0, 0, 0);\n\n      if (estNow >= cutoff) {\n        cutoff.setDate(cutoff.getDate() + 1);\n      }\n\n      var diff = cutoff - estNow;\n      var hrs = Math.floor(diff / (1000 * 60 * 60));\n      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));\n\n      countdownEl.textContent = hrs + \" Hrs \" + mins + \" Mins\";\n    }\n\n    updateCountdown();\n    setInterval(updateCountdown, 60000);\n  })();\n</script>\n{%- endif -%}"
+          }
+        },
+        "selleasy_lb_upsell_widget_pal_axKBpX": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-pal/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "name": "Trust Badge",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"esg-why-buy-box\">\n  <div class=\"esg-why-buy-header\">\n    <span class=\"esg-why-buy-header-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M20 6 9 17l-5-5\"></path>\n      </svg>\n    </span>\n    <span>Why Buy from Elite Sim Golf</span>\n  </div>\n\n  <div class=\"esg-why-buy-grid\">\n    <!-- Item 1: Authorized Dealer -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 11.08V12a10 10 0 1 1-5.93-9.14\"></path>\n          <path d=\"M22 4L12 14.01l-3-3\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Authorized {{ product.vendor }} Dealer</div>\n        <div class=\"esg-why-buy-text\">Premier {{ product.vendor }} Partner.</div>\n      </div>\n    </div>\n\n    <!-- Item 2: Fast Shipping -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"></rect>\n          <polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"></polygon>\n          <circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"></circle>\n          <circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"></circle>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Ships Same Business Day*</div>\n        <div class=\"esg-why-buy-text\">Orders placed before <strong>2PM EST.</strong></div>\n      </div>\n    </div>\n\n    <!-- Item 3: Free Shipping -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"></path>\n          <polyline points=\"3.27 6.96 12 12.01 20.73 6.96\"></polyline>\n          <line x1=\"12\" y1=\"22.08\" x2=\"12\" y2=\"12\"></line>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Free Shipping on Most Orders</div>\n        <div class=\"esg-why-buy-text\">Ships free, may qualify for no sales tax.</div>\n      </div>\n    </div>\n\n    <!-- Item 4: Real Experts -->\n    <div class=\"esg-why-buy-item\">\n      <div class=\"esg-why-buy-icon\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n        </svg>\n      </div>\n      <div class=\"esg-why-buy-content\">\n        <div class=\"esg-why-buy-title\">Real Golf Experts, Not Bots</div>\n        <div class=\"esg-why-buy-text\">Call <strong>866-4-SIM-GOLF</strong> anytime.</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n  .esg-why-buy-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 12px 16px;\n    border: 1px solid #e2e8f0;\n    border-radius: 10px;\n    background: #ffffff;\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    color: #334155;\n    line-height: 1.35;\n  }\n  .esg-why-buy-header {\n    display: flex;\n    align-items: center;\n    gap: 6px;\n    font-size: 11.5px;\n    font-weight: 800;\n    color: #64748b;\n    text-transform: uppercase;\n    letter-spacing: .05em;\n    margin-bottom: 12px;\n  }\n  .esg-why-buy-header-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 14px;\n    height: 14px;\n    color: #086ed3; /* Keeps your signature blue accent for headers */\n  }\n  .esg-why-buy-header-icon svg {\n    width: 14px;\n    height: 14px;\n    display: block;\n  }\n  .esg-why-buy-grid {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 12px 16px; /* Replaces messy borders with clean gaps */\n  }\n  .esg-why-buy-item {\n    display: flex;\n    align-items: flex-start; /* Aligns icon with top line of text */\n    gap: 8px;\n  }\n  .esg-why-buy-icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 26px;\n    height: 26px;\n    min-width: 26px;\n    border-radius: 6px;\n    background: #eff6ff; /* Soft blue background to match the style */\n    color: #2563eb; /* Vibrant blue SVG */\n    flex: 0 0 auto;\n    margin-top: 2px; /* Slight nudge down to center with title */\n  }\n  .esg-why-buy-icon svg {\n    width: 14px;\n    height: 14px;\n  }\n  .esg-why-buy-content {\n    min-width: 0;\n  }\n  .esg-why-buy-title {\n    font-size: 13px;\n    font-weight: 800;\n    color: #0f172a;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; /* Prevents long vendor names from breaking layout */\n  }\n  .esg-why-buy-text {\n    font-size: 12px;\n    color: #64748b;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n  }\n  .esg-why-buy-text strong {\n    color: #334155;\n    font-weight: 800;\n  }\n\n  @media (max-width: 749px) {\n    .esg-why-buy-box {\n      padding: 12px 14px;\n    }\n    .esg-why-buy-grid {\n      grid-template-columns: 1fr; /* Stacks to single column on mobile */\n      gap: 12px;\n    }\n    .esg-why-buy-title,\n    .esg-why-buy-text {\n      white-space: normal; /* Lets text wrap naturally on tiny screens */\n    }\n  }\n</style>"
+          }
+        },
+        "selleasy_lb_upsell_widget_bl_crQYed": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-bl/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "selleasy_lb_upsell_widget_ba_BqKErr": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-ba/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "disabled": true,
+          "settings": {}
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_YjxFiw",
+        "price",
+        "divider-0",
+        "custom_liquid_h7emKM",
+        "buy-buttons",
+        "custom_liquid_GyekTB",
+        "custom_liquid_tF9hXH",
+        "variant-picker",
+        "custom_liquid_Y4NHb7",
+        "custom_liquid_WTm6Q9",
+        "custom_liquid_FKVhxB",
+        "selleasy_lb_upsell_widget_pal_axKBpX",
+        "custom_liquid_tbWYJT",
+        "selleasy_lb_upsell_widget_bl_crQYed",
+        "selleasy_lb_upsell_widget_ba_BqKErr",
+        "richtext_3t6BjV",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "details",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_ngWkaP": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_ngWkaP"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "sn_product_intro_3qBL4H": {
+      "type": "sn-product-intro",
+      "blocks": {
+        "text_WFQCrb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Overhead Launch Monitor Built for Serious Home Simulators</p>",
+            "class": "sn-uppercase sn-highlight mb-2"
+          }
+        },
+        "text_Vibkg9": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Pro-level overhead tracking. Clean setup. No compromise.</h2>",
+            "class": ""
+          }
+        },
+        "text_khdp7V": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Laon Swingcraft VTrack is a ceiling-mounted, photometric golf launch monitor designed for home simulators and private studios that demand real data without the clutter of a floor unit. It mounts overhead, tracks every shot with dual high-speed cameras, and delivers detailed ball and club data in real time — without stickers, without special balls, and without a mandatory subscription just to use the hardware you own.</p><p>With a generous 31\" × 24\" hitting zone, left and right-handed support, slow-motion impact video, and compatibility with GSPro and E6, the VTrack turns a well-planned simulator bay into a performance tool you'll actually use every day.</p>",
+            "class": ""
+          }
+        },
+        "stats_TwgF7F": {
+          "type": "stats",
+          "settings": {
+            "title1": "25+",
+            "text1": "Shot Parameters",
+            "title2": "<strong>31\" × 24\"</strong>",
+            "text2": "Hitting Zone",
+            "title3": "<strong>~250ms</strong>",
+            "text3": "Shot Feedback",
+            "title4": "<strong>106\"</strong>",
+            "text4": "Min. Ceiling Height",
+            "class": "mt-2"
+          }
+        },
+        "review_Nt8F9e": {
+          "type": "review",
+          "settings": {
+            "message": "<p><em>\"Fantastic OHLM! Very impressed with the accuracy and easy integration with GSPro. Been using the VTrack in our commercial setting for a few weeks now and all the customers are loving the experience.\"</em></p>",
+            "letters": "BG",
+            "name": "Barton G.",
+            "info": "Verified Purchase",
+            "class": "mb-2"
+          }
+        },
+        "review_XTNar4": {
+          "type": "review",
+          "settings": {
+            "message": "<p><em>\"I find the VTrack to be consistently accurate. We play several rounds per day and any misreads are 98% human error — and they are few. The data it provides is very helpful. The support from Elite Sim Golf from start to way after the sale has been outstanding.\"</em></p>",
+            "letters": "CL",
+            "name": "Chuck L.",
+            "info": "Verified Purchase",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_WFQCrb",
+        "text_Vibkg9",
+        "text_khdp7V",
+        "stats_TwgF7F",
+        "review_Nt8F9e",
+        "review_XTNar4"
+      ],
+      "name": "Product: Intro",
+      "settings": {
+        "id": "sn-product-info",
+        "text": "",
+        "background_color": "#ffffff",
+        "heading_color": "#161616",
+        "accent_color": "#4b94f6",
+        "text_color": "#282828",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#f2f2f2",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_benefits_GXtkrM": {
+      "type": "sn-benefits",
+      "blocks": {
+        "benefit_4rJzMK": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/ceiling.svg",
+            "title": "<strong>🏔️ Nothing on the Floor — Ever</strong>",
+            "text": "<p>VTrack mounts to your ceiling and stays there. No floor unit to aim around, nothing to trip on, nothing expensive sitting in the path of a mishit. Your bay stays clean, open, and ready for any golfer.</p>",
+            "class": ""
+          }
+        },
+        "benefit_yiABce": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/flash.svg",
+            "title": "<strong>🎯 Drop a Ball. Swing. That's It.</strong>",
+            "text": "<p>No stickers on your clubs. No reflective dots. No special marked balls required. VTrack's markerless camera system captures everything at contact with a standard golf ball and your own clubs — exactly as golf should be played.</p>",
+            "class": ""
+          }
+        },
+        "benefit_LAbTqi": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/slow-motion.svg",
+            "title": "<strong>🎬 See What Actually Happens at Impact</strong>",
+            "text": "<p>VTrack automatically captures slow-motion impact video of every shot, showing you exactly how the club is delivering the ball at contact. It bridges the gap between feel and reality — one of the most powerful feedback tools available in this price range.</p>",
+            "class": ""
+          }
+        },
+        "benefit_kQBhPN": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/dashboard.svg",
+            "title": "<strong>📊 Data Deep Enough to Actually Improve</strong>",
+            "text": "<p>25+ ball and club parameters including ball speed, spin rate, spin axis, launch angle, club path, face angle, attack angle, dynamic loft, and impact location. Not just carry distance — real performance data for real improvement.</p>",
+            "class": ""
+          }
+        },
+        "benefit_QVUAzY": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/link.svg",
+            "title": "<strong>🔗 GSPro and E6 — Ready Out of the Box</strong>",
+            "text": "<p>VTrack connects to GSPro, E6 Connect, and E6 Apex without workarounds. It also includes VTrack ToolKit for settings and calibration, VTrack Practice Range for structured sessions, and CSV export for coaching or tracking progress over time.</p>",
+            "class": ""
+          }
+        },
+        "benefit_nnNCzh": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/save-money.svg",
+            "title": "<strong>💰 No Mandatory Subscription for Core Use</strong>",
+            "text": "<p>There is no required recurring fee to unlock the VTrack's core tracking functionality. Play and practice with the hardware you own. Third-party software like GSPro or E6 may have their own licenses, but the launch monitor itself doesn't hold your data hostage.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_4rJzMK",
+        "benefit_yiABce",
+        "benefit_LAbTqi",
+        "benefit_kQBhPN",
+        "benefit_QVUAzY",
+        "benefit_nnNCzh"
+      ],
+      "name": "Custom: Benefits",
+      "settings": {
+        "id": "sn-benefits",
+        "text": "<p>WHY VTRACK</p><h2>Overhead tracking done right</h2>",
+        "columns": "3",
+        "align": "left",
+        "background_color": "#f8f8f8",
+        "heading_color": "#161616",
+        "text_color": "#282828",
+        "accent_color": "#4b94f6",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "#4b94f6",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "rgba(0,0,0,0)",
+        "opacity": 18
+      }
+    },
+    "sn_product_description_QXUJAw": {
+      "type": "sn-product-description",
+      "blocks": {
+        "tag_3ULYda": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Overhead Mounted</strong>",
+            "class": ""
+          }
+        },
+        "tag_NyFPYC": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Markerless</strong>",
+            "class": ""
+          }
+        },
+        "tag_cFi3dM": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>GSPro Compatible</strong>",
+            "class": ""
+          }
+        },
+        "tag_GMcWYj": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>106\" Min Ceiling</strong>",
+            "class": ""
+          }
+        },
+        "tag_974wDd": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>No Subscription</strong>",
+            "class": ""
+          }
+        },
+        "tag_BwKbyw": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Slow-Mo Video</strong>",
+            "class": ""
+          }
+        },
+        "tag_iLeBzG": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>Left + Right Handed</strong>",
+            "class": ""
+          }
+        },
+        "tag_8ngyGy": {
+          "type": "tag",
+          "settings": {
+            "text": "<strong>25+ Parameters</strong>",
+            "class": ""
+          }
+        },
+        "text_37BRNF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Product Description</p>",
+            "class": "sn-uppercase"
+          }
+        },
+        "text_dLtfq9": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>What is the VTrack, and who is it for?</h2><p>The VTrack Overhead Golf Launch Monitor is developed by Laon People Co., Ltd. — an AI-focused golf technology company dedicated to advancing what's possible in photometric tracking. It's a ceiling-mounted, dual-camera launch monitor built for golfers who want a permanent, clean simulator setup with studio-grade data, without the compromises that come with floor-based systems or the price tag of the highest-end commercial units.</p><p>VTrack uses two stereoscopic high-speed cameras — capturing up to 1,800 frames per second — to measure the ball and club through impact from above. Because the system is optical and overhead, there's nothing in your hitting area. The floor stays clear. The swing path is unobstructed. And because VTrack is ceiling-mounted in front of the hitting zone, it naturally supports both left- and right-handed golfers without any repositioning.</p><p>The hitting zone is a generous 31\" × 24\", giving players more flexibility in ball position and stance than tighter alternatives. Shot feedback arrives in approximately 200–250 milliseconds, keeping simulator play feeling connected and responsive. And because VTrack captures slow-motion impact video automatically, you can see exactly what happened at contact — not just what the numbers say.</p><p>VTrack requires a minimum ceiling height of 106\" for proper installation and performance. If your space meets that threshold, it's one of the most compelling overhead launch monitors available for home simulators and private studios at this price point.</p>",
+            "class": ""
+          }
+        },
+        "youtube_4KEWzi": {
+          "type": "youtube",
+          "settings": {
+            "youtube": "DKIgurI3IvA",
+            "class": "mt-2"
+          }
+        }
+      },
+      "block_order": [
+        "tag_3ULYda",
+        "tag_NyFPYC",
+        "tag_cFi3dM",
+        "tag_GMcWYj",
+        "tag_974wDd",
+        "tag_BwKbyw",
+        "tag_iLeBzG",
+        "tag_8ngyGy",
+        "text_37BRNF",
+        "text_dLtfq9",
+        "youtube_4KEWzi"
+      ],
+      "name": "Product: Description",
+      "settings": {
+        "id": "sn-product-desc",
+        "quote": "<h4><em>Who is VTrack best for? </em></h4><p><em>VTrack is the right choice for golfers who want a clean overhead setup with markerless tracking, deep ball and club data, slow-motion impact video, strong simulator software compatibility, and a one-time hardware investment that doesn't require ongoing monitor fees to remain useful.</em></p>",
+        "background_color": "#ffffff",
+        "heading_color": "#020202",
+        "accent_color": "#2953b9",
+        "text_color": "#282828",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "1774036709ecd78424": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_qBXrtk": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_qBXrtk"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "sn_reviews_kThK6p": {
+      "type": "sn-reviews",
+      "blocks": {
+        "review_amd83c": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I had a floor-based unit for two years and was constantly nervous about clipping it on a fat shot. Switched to the VTrack overhead setup and that stress is completely gone. The data is actually better too — spin numbers feel more consistent. The Eagle 12 enclosure makes my garage look like a real sim room. Took a weekend to set up but the instructions are solid.\"</em>",
+            "name": "<strong>Mark T.</strong> · Verified Buyer · Henderson, NV",
+            "class": ""
+          }
+        },
+        "review_gYphWP": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"Spent months convincing my wife to let me convert half the garage. She agreed on the condition it looked clean and not like a \"science experiment.\" The Eagle 12 + overhead VTrack combo genuinely looks finished. No wires everywhere, nothing sitting on the floor near the mat. She's actually used it a few times herself. The 4K image is noticeably sharper than what I had before — courses look real.\"</em>",
+            "name": "<em><strong>Brian L. </strong></em><em>· Verified Buyer · Columbus, OH</em>",
+            "class": ""
+          }
+        },
+        "review_PQ97FM": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I'd always used radar-based floor units so I was nervous about switching to an overhead camera system. What sold me was no stickers and no special balls. Just drop a ball and swing — and it works. Shot feedback is fast, the impact video is genuinely useful for finding bad contact, and I haven't had a misread in weeks of regular use. Worth the price for a permanent garage build.\"</em>",
+            "name": "<strong>Ryan C.</strong> · Verified Buyer · Scottsdale, AZ",
+            "class": ""
+          }
+        },
+        "review_hHCecP": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I'm not a tech guy. I didn't want to research projectors, figure out throw distances, or guess which mat fits a 12ft enclosure. That's exactly why I bought the bundle. Everything arrived, everything fit, and Elite Sim Golf walked me through the VTrack calibration over the phone. If you want a complete setup without the homework, this is the way to go.\"</em>",
+            "name": "<strong>Derek M.</strong> · Verified Buyer · Charlotte, NC",
+            "class": ""
+          }
+        },
+        "review_PEhB8f": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"My two boys (15 and 12) use the simulator as much as I do. With my old floor monitor I was always nervous about them standing too close or knocking it over. The VTrack being up on the ceiling completely solved that. They just step in and swing. The lefty/righty thing is huge too — my younger son is left-handed and we don't have to move anything. Best feature nobody talks about.\"</em>",
+            "name": "<strong>Jason W.</strong> · Verified Buyer · Denver, CO",
+            "class": ""
+          }
+        },
+        "review_qXNc9a": {
+          "type": "review",
+          "settings": {
+            "review": "<em>\"I had a 1080P setup for a couple years and thought it was fine. Upgraded to this bundle and the difference in the 4K image on GSPro is immediately obvious — text is sharp, greens actually look like greens. The VTrack data is deep enough that I've started doing proper practice sessions instead of just playing rounds. Carry distance, spin, attack angle — it's all there. Solid investment for a serious home setup.\"</em>",
+            "name": "<strong>Paul H.</strong> · Verified Buyer · Nashville, TN",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_amd83c",
+        "review_gYphWP",
+        "review_PQ97FM",
+        "review_hHCecP",
+        "review_PEhB8f",
+        "review_qXNc9a"
+      ],
+      "disabled": true,
+      "name": "Custom: Reviews",
+      "settings": {
+        "id": "sn-reviews",
+        "text": "<p>Customer Reviews</p><h2>Hear from <em>real</em> golfers.</h2>",
+        "background_color": "#f8f8f8",
+        "heading_color": "",
+        "text_color": "",
+        "btn_bg": "",
+        "btn_text": "",
+        "vp-desktop": 48,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 24,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_product_features_gKVKtn": {
+      "type": "sn-product-features",
+      "blocks": {
+        "tab1_7WNRNd": {
+          "type": "tab1",
+          "settings": {
+            "number": "01",
+            "title": "<strong>Dual Stereoscopic High-Speed Cameras</strong>",
+            "text": "<p>VTrack uses two high-speed cameras capturing up to 1,800 frames per second to observe the ball and club through impact from an overhead position. This photometric approach delivers precise data without requiring floor-mounted hardware in your hitting area.</p>",
+            "class": ""
+          }
+        },
+        "tab1_HdzNHz": {
+          "type": "tab1",
+          "settings": {
+            "number": "02",
+            "title": "<strong>Markerless Ball Tracking</strong>",
+            "text": "<p>The core VTrack experience requires no club-face stickers, reflective dots, or specially marked golf balls. Drop a standard ball, swing, and let the cameras do the rest. An optional marked ball mode is available for golfers who prefer it.</p>",
+            "class": ""
+          }
+        },
+        "tab1_MVj3x8": {
+          "type": "tab1",
+          "settings": {
+            "number": "03",
+            "title": "<strong>25+ Ball and Club Parameters</strong>",
+            "text": "<p>Ball Speed, Launch Angle, Launch Direction, Spin Rate, Spin Axis, Carry Distance, Total Distance, Apex Height, Shot Curvature / Side Distance, Club Speed, Club Path, Face Angle, Face-to-Path, Attack Angle, Dynamic Loft, Impact Location, and more.</p>",
+            "class": ""
+          }
+        },
+        "tab1_ddVrdE": {
+          "type": "tab1",
+          "settings": {
+            "number": "04",
+            "title": "<strong>Slow-Motion Impact Video</strong>",
+            "text": "<p>Every shot is captured in slow motion. Instead of guessing what happened at contact, you can see it — club path, face delivery, strike location, and gear-effect misses all become visible in a way that pure numbers can't convey.</p>",
+            "class": ""
+          }
+        },
+        "tab1_4RGYyy": {
+          "type": "tab1",
+          "settings": {
+            "number": "05",
+            "title": "<strong>~200–250ms Shot Feedback Speed</strong>",
+            "text": "<p>Fast response from impact to screen. Simulator play feels connected rather than delayed, which makes a noticeable difference during practice sessions and full-round simulation on GSPro or E6.</p>",
+            "class": ""
+          }
+        },
+        "tab1_zUCPjj": {
+          "type": "tab1",
+          "settings": {
+            "number": "06",
+            "title": "<strong>31\" × 24\" Hitting Zone</strong>",
+            "text": "<p>A generous hitting zone that accommodates a wide range of ball positions, stance widths, and player types. Less stress about precise ball placement — more room to swing naturally.</p>",
+            "class": ""
+          }
+        },
+        "tab2_GeHj3Y": {
+          "type": "tab2",
+          "settings": {
+            "number": "01",
+            "title": "<strong>GSPro Compatible</strong>",
+            "text": "<p>VTrack integrates with GSPro for realistic ball flight simulation, access to a large course library, and online play. A complete setup walkthrough is available from Elite Sim Golf covering VTrack ToolKit configuration and GSPro connection.</p>",
+            "class": ""
+          }
+        },
+        "tab2_7AUeUX": {
+          "type": "tab2",
+          "settings": {
+            "number": "02",
+            "title": "<strong>E6 Connect & E6 Apex Compatible</strong>",
+            "text": "<p>VTrack also connects to E6 Connect and E6 Apex for golfers who prefer the E6 platform's course play and environments.</p>",
+            "class": ""
+          }
+        },
+        "tab2_Rh7gCd": {
+          "type": "tab2",
+          "settings": {
+            "number": "03",
+            "title": "<strong>VTrack ToolKit (Included)</strong>",
+            "text": "<p>The native management application for settings, calibration, data analysis, and player management. Used during initial setup and ongoing session management.</p>",
+            "class": ""
+          }
+        },
+        "tab2_Da6Xdt": {
+          "type": "tab2",
+          "settings": {
+            "number": "04",
+            "title": "<strong>VTrack Practice Range (Included)</strong>",
+            "text": "<p>A structured practice application included with the unit for dedicated training sessions, ball-striking analysis, and progress tracking outside of full simulator rounds.</p>",
+            "class": ""
+          }
+        },
+        "tab2_jAHpQT": {
+          "type": "tab2",
+          "settings": {
+            "number": "05",
+            "title": "<strong>CSV Data Export</strong>",
+            "text": "<p>Export your session data in CSV format to track performance over time, share with a coach, or run your own analysis.</p>",
+            "class": ""
+          }
+        },
+        "tab2_zdraYL": {
+          "type": "tab2",
+          "settings": {
+            "number": "06",
+            "title": "<strong>No Required Subscription for Core Functionality</strong>",
+            "text": "<p>The VTrack launch monitor's core tracking and practice features do not require a recurring monitor subscription. Third-party simulator software licenses are separate.</p>",
+            "class": ""
+          }
+        },
+        "tab3_mGHjqB": {
+          "type": "tab3",
+          "settings": {
+            "number": "01",
+            "title": "<strong>106\" Minimum Ceiling Height Required</strong>",
+            "text": "<p>VTrack is designed for rooms with at least 106\" (8'10\") of ceiling clearance. This is the most important room requirement — it allows the cameras to achieve the correct angle, field of view, and tracking performance.</p>",
+            "class": ""
+          }
+        },
+        "tab3_ki9AEr": {
+          "type": "tab3",
+          "settings": {
+            "number": "02",
+            "title": "<strong>Ceiling-Mounted Overhead Design</strong>",
+            "text": "<p>The unit mounts to the ceiling in front of the hitting area, keeping the entire floor zone clear. Nothing on the floor means a cleaner bay, a safer environment, and an unobstructed swing path.</p>",
+            "class": ""
+          }
+        },
+        "tab3_t7pqM3": {
+          "type": "tab3",
+          "settings": {
+            "number": "03",
+            "title": "<strong>Left and Right-Handed Support</strong>",
+            "text": "<p>Because VTrack mounts overhead, it tracks both left- and right-handed golfers without repositioning the unit. Ideal for families, shared sim rooms, and studios with multiple players.</p>",
+            "class": ""
+          }
+        },
+        "tab3_Qi3RzQ": {
+          "type": "tab3",
+          "settings": {
+            "number": "04",
+            "title": "<strong>Guided Calibration via ToolKit</strong>",
+            "text": "<p>VTrack ToolKit walks through the calibration process including calibration board placement, ball check procedure, area settings, and tee configuration. Elite Sim Golf also provides a complete video setup guide for GSPro.</p>",
+            "class": ""
+          }
+        },
+        "tab3_WeF93n": {
+          "type": "tab3",
+          "settings": {
+            "number": "05",
+            "title": "<strong>DIY-Friendly for Rooms That Meet Requirements</strong>",
+            "text": "<p>Golfers comfortable with ceiling-mounted equipment — projectors, mounts, enclosures — will generally find VTrack a manageable DIY install. Proper mounting alignment and completing the calibration process are the key steps to consistent long-term performance.</p>",
+            "class": ""
+          }
+        },
+        "tab3_ULdG7n": {
+          "type": "tab3",
+          "settings": {
+            "number": "06",
+            "title": "<strong>VTrack Protector Available from Elite Sim Golf</strong>",
+            "text": "<p>Elite Sim Golf manufactures a dedicated VTrack Impact Protector in-house — designed to shield the overhead unit from accidental ball impact and ricochet damage in active sim environments. Available separately and included in select bundles.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab1_7WNRNd",
+        "tab1_HdzNHz",
+        "tab1_MVj3x8",
+        "tab1_ddVrdE",
+        "tab1_4RGYyy",
+        "tab1_zUCPjj",
+        "tab2_GeHj3Y",
+        "tab2_7AUeUX",
+        "tab2_Rh7gCd",
+        "tab2_Da6Xdt",
+        "tab2_jAHpQT",
+        "tab2_zdraYL",
+        "tab3_mGHjqB",
+        "tab3_ki9AEr",
+        "tab3_t7pqM3",
+        "tab3_Qi3RzQ",
+        "tab3_WeF93n",
+        "tab3_ULdG7n"
+      ],
+      "name": "Product: Features tabs",
+      "settings": {
+        "id": "sn-features",
+        "text": "<p>PRODUCT FEATURES</p><h2>Everything the VTrack does</h2>",
+        "tab1": "Tracking & Data",
+        "tab2": "Compatibility & Software",
+        "tab3": "Setup & Installation",
+        "tab4": "",
+        "align": "center",
+        "background_color": "#f8f8f8",
+        "heading_color": "#161616",
+        "text_color": "#282828",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#ffffff",
+        "vp-desktop": 48,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 12,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_product_specs_9EhxxF": {
+      "type": "sn-product-specs",
+      "blocks": {
+        "col1_heading_YjW3GQ": {
+          "type": "col1-heading",
+          "settings": {
+            "text": "<strong>VTrack Launch Monitor</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_R9k8Mn": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Manufacturer",
+            "text": "<strong>Laon People Co., Ltd. (Laon Swingcraft)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_kgNChL": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Mount Type",
+            "text": "<strong>Overhead / Ceiling-Mounted</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_dfdwBE": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Tracking Technology Type",
+            "text": "<strong>Dual Stereoscopic High-Speed Cameras</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_8rykQc": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Camera Speed",
+            "text": "<strong>Up to 1,800 fps</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_RGMAPC": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Min. Ceiling Height",
+            "text": "<strong>106 inches (8'10\")</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_pKRhUG": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Hitting Zone",
+            "text": "<strong>31\" × 24\"</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_9yqETT": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Data Parameters",
+            "text": "<strong>25+ Ball & Club</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_KDGz8L": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Shot Feedback Speed",
+            "text": "<strong>~200–250 milliseconds</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_FfwNE8": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Impact Video",
+            "text": "<strong>Slow-Motion, Automatic</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_6jzDGP": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Marker Requirement",
+            "text": "<strong>None (Markerless)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_3Yi4PB": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Handedness",
+            "text": "<strong>Left & Right-Handed</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_pijUdP": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Subscription Required",
+            "text": "<strong>No (Core Functionality)</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_NEp4BA": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Data Export",
+            "text": "<strong>CSV</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_dEbfa8": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Compatible Software",
+            "text": "<strong>GSPro, E6 Connect, E6 Apex</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_bQR6z4": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Price",
+            "text": "<strong>$5,000.00</strong>",
+            "class": ""
+          }
+        },
+        "col1_row_z6xGKV": {
+          "type": "col1-row",
+          "settings": {
+            "feature": "Dealer Status",
+            "text": "<strong>Authorized US VTrack Partner</strong>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "col1_heading_YjW3GQ",
+        "col1_row_R9k8Mn",
+        "col1_row_kgNChL",
+        "col1_row_dfdwBE",
+        "col1_row_8rykQc",
+        "col1_row_RGMAPC",
+        "col1_row_pKRhUG",
+        "col1_row_9yqETT",
+        "col1_row_KDGz8L",
+        "col1_row_FfwNE8",
+        "col1_row_6jzDGP",
+        "col1_row_3Yi4PB",
+        "col1_row_pijUdP",
+        "col1_row_NEp4BA",
+        "col1_row_dEbfa8",
+        "col1_row_bQR6z4",
+        "col1_row_z6xGKV"
+      ],
+      "name": "Product: Specifications",
+      "settings": {
+        "id": "sn-specs",
+        "text": "<h2>By the <em>numbers.</em></h2>",
+        "columns": "1",
+        "align": "center",
+        "background_color": "#ffffff",
+        "heading_color": "#161616",
+        "text_color": "#333333",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "card_bg": "#f8f8f8",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 10
+      }
+    },
+    "sn_benefits_w67jx7": {
+      "type": "sn-benefits",
+      "blocks": {
+        "benefit_bpHchp": {
+          "type": "benefit",
+          "settings": {
+            "title": "<strong>✈️ Free UPS Next Day Air Saver</strong>",
+            "text": "<p>VTrack orders ship free via UPS Next Day Air Saver where available, helping you get your setup moving faster. Some ZIP codes ship via UPS 2nd Day Air.</p>",
+            "class": ""
+          }
+        },
+        "benefit_rgA33b": {
+          "type": "benefit",
+          "settings": {
+            "title": "<strong>📦 Real Inventory, Real Fulfillment</strong>",
+            "text": "<p>We carry stock instead of relying solely on drop-ship timelines. Orders placed before 4:00 PM ET ship the same business day while stock is available.</p>",
+            "class": ""
+          }
+        },
+        "benefit_8mJwcb": {
+          "type": "benefit",
+          "settings": {
+            "title": "<strong>🛡️ In-House VTrack Protectors</strong>",
+            "text": "<p>Elite Sim Golf manufactures VTrack Impact Protectors in-house for better availability, quality control, and post-purchase support — not sourced from a third party.</p>",
+            "class": ""
+          }
+        },
+        "benefit_4p9WcR": {
+          "type": "benefit",
+          "settings": {
+            "title": "<strong>🤝 Post-Purchase Support That Actually Shows Up</strong>",
+            "text": "<p>Our team doesn't disappear after the sale. From setup questions to calibration help to troubleshooting, we're known for being responsive and knowledgeable — because we use this equipment ourselves.</p>",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_bpHchp",
+        "benefit_rgA33b",
+        "benefit_8mJwcb",
+        "benefit_4p9WcR"
+      ],
+      "name": "Custom: Benefits",
+      "settings": {
+        "id": "sn-why",
+        "text": "<p>WHY BUY FROM ELITE SIM GOLF</p><h2>A smoother VTrack experience — from delivery to setup.</h2><p>Choosing where you buy matters just as much as choosing the right launch monitor. Elite Sim Golf is an authorized VTrack dealer built around fast fulfillment, real inventory, and support that continues long after checkout.</p>",
+        "columns": "4",
+        "align": "left",
+        "background_color": "",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "#2953b9",
+        "vp-desktop": 48,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 24,
+        "background": "shopify://shop_images/golf-ball-field_1.jpg",
+        "overlay": "#161616",
+        "opacity": 10
+      }
+    },
+    "sn_resources_7tnEtj": {
+      "type": "sn-resources",
+      "blocks": {
+        "benefit_Vcrx3G": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "📖",
+            "title": "<strong> VTrack Buyers Guide & Full Review</strong>",
+            "text": "<p>Ceiling requirements, data parameters, software compatibility, comparisons to competing overhead units, and real-world performance notes. Read before you buy.</p>",
+            "url": "/blogs/product-reviews/vtrack-launch-monitor-pro-level-overhead-performance-without-the-pro-level-price",
+            "class": ""
+          }
+        },
+        "benefit_LyNk9A": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "🎥",
+            "title": "<strong>VTrack + GSPro Setup Video (Elite Sim Golf)</strong>",
+            "text": "<p>Complete walkthrough covering VTrack ToolKit setup, calibration board placement, ball check procedure, area and tee settings, system test, and GSPro connection.</p>",
+            "url": "#sn-youtube",
+            "class": ""
+          }
+        },
+        "benefit_Hd3Wzh": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "❓",
+            "title": "<strong>Frequently Asked Questions</strong>",
+            "text": "<p>Common questions about launch monitors, ceiling requirements, software compatibility, and what to expect from your simulator build.→ Visit the FAQ</p>",
+            "url": "/pages/golf-simulator-installation-services-elite-sim-golf",
+            "class": ""
+          }
+        },
+        "benefit_WkC39U": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "📞",
+            "title": "<strong>Talk to a Real Expert</strong>",
+            "text": "<p>Call 866-4-SIM-GOLF or text 865-248-2729 anytime. Real golf simulator experts, not bots.</p>",
+            "url": "/pages/frequently-asked-questions",
+            "class": ""
+          }
+        },
+        "benefit_eWj7N9": {
+          "type": "benefit",
+          "settings": {
+            "emoji": "💻",
+            "title": "Remote Support Session",
+            "text": "<p>Connect directly with the Elite Sim Golf team for live remote troubleshooting, software setup assistance, and post-purchase configuration support.</p>",
+            "url": "https://elitesimgolf.screenconnect.com/",
+            "class": ""
+          }
+        }
+      },
+      "block_order": [
+        "benefit_Vcrx3G",
+        "benefit_LyNk9A",
+        "benefit_Hd3Wzh",
+        "benefit_WkC39U",
+        "benefit_eWj7N9"
+      ],
+      "name": "Product: Resources",
+      "settings": {
+        "id": "sn-resources",
+        "text": "<h2>Setup & Support Resources</h2>",
+        "align": "left",
+        "background_color": "#f2f2f2",
+        "heading_color": "#282828",
+        "text_color": "#282828",
+        "accent_color": "#2953b9",
+        "btn_bg": "",
+        "btn_text": "",
+        "icon_bg": "rgba(0,0,0,0)",
+        "vp-desktop": 72,
+        "hp-desktop": 24,
+        "vp-mobile": 48,
+        "hp-mobile": 0,
+        "overlay": "",
+        "opacity": 8
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "sn_product_intro_3qBL4H",
+    "sn_benefits_GXtkrM",
+    "sn_product_description_QXUJAw",
+    "1774036709ecd78424",
+    "sn_reviews_kThK6p",
+    "sn_product_features_gKVKtn",
+    "sn_product_specs_9EhxxF",
+    "sn_benefits_w67jx7",
+    "sn_resources_7tnEtj",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

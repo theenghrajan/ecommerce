@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner-coll",
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "bg_style": "image",
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#f8f8f8",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "image_align": "object-center",
+        "image": "shopify://shop_images/64899-2-D.webp",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 50,
+        "hero_tint_text_color": "#ffffff",
+        "show_description": false,
+        "show_breadcrumbs": true
+      }
+    },
+    "custom_liquid_JGVKCx": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"margin:18px 0; padding:18px; border:1px solid #e6e6e6; border-radius:14px; box-shadow:0 10px 24px rgba(0,0,0,.06); background:#fff;\">\n  <h2 style=\"margin:0 0 8px; font-size:20px;\">Eye Mini Lite Bundles from Elite Sim Golf</h2>\n  <p style=\"margin:0; color:#4b5563; line-height:1.6;\">\n    Turn-key simulator packages built around Uneekor’s <strong>Eye Mini Lite</strong>. Choose your bay size (10ft or 12ft)\n    and your visual tier (Standard, Premium 1080P, or Premium 4K).\n  </p>\n\n  <div style=\"margin-top:12px;\">\n    <a href=\"#shopify-section-template--19390515511490__main\" style=\"display:inline-block; padding:11px 16px; border-radius:999px; background:#086ed3; color:#fff; text-decoration:none; font-weight:700;\">\n      Shop Bundles\n    </a>\n  </div>\n</div>\n\n<script type=\"application/ld+json\">\n{\n  \"@context\":\"https://schema.org\",\n  \"@type\":\"FAQPage\",\n  \"mainEntity\":[\n    {\n      \"@type\":\"Question\",\n      \"name\":\"What comes in an Eye Mini Lite bundle from Elite Sim Golf?\",\n      \"acceptedAnswer\":{\n        \"@type\":\"Answer\",\n        \"text\":\"Eye Mini Lite bundles include the Uneekor Eye Mini Lite launch monitor, an Elite Sim Golf enclosure (10ft or 12ft), a BenQ short-throw projector (varies by package), ProTee 5x5 hitting mat, 6x12 landing mat, projector mount, and a projector install kit.\"\n      }\n    },\n    {\n      \"@type\":\"Question\",\n      \"name\":\"Should I choose the 10ft or 12ft package?\",\n      \"acceptedAnswer\":{\n        \"@type\":\"Answer\",\n        \"text\":\"Choose 10ft if your room is tighter and you want a premium enclosure footprint. Choose 12ft if you want more comfort, easier shared play, and a more immersive full-bay feel.\"\n      }\n    },\n    {\n      \"@type\":\"Question\",\n      \"name\":\"What is the difference between Standard, Premium 1080P, and Premium 4K packages?\",\n      \"acceptedAnswer\":{\n        \"@type\":\"Answer\",\n        \"text\":\"Standard is the best-value visual tier. Premium 1080P is a brighter upgrade for real rooms with ambient light. Premium 4K is the sharpest, most premium image experience with maximum course detail and cleaner UI.\"\n      }\n    },\n    {\n      \"@type\":\"Question\",\n      \"name\":\"Do Eye Mini Lite packages require a PC?\",\n      \"acceptedAnswer\":{\n        \"@type\":\"Answer\",\n        \"text\":\"Yes. Eye Mini Lite is designed for an indoor simulator setup and requires a compatible PC for software and gameplay.\"\n      }\n    }\n  ]\n}\n</script>\n<!-- ===== Visual Tier Explainer Card (Standard vs Premium 1080P vs Premium 4K) ===== -->\n<div style=\"\n  margin:16px 0;\n  padding:16px 16px;\n  border:1px solid #e6e6e6;\n  border-radius:14px;\n  box-shadow:0 10px 24px rgba(0,0,0,.06);\n  background:#ffffff;\n  font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;\n  color:#1f2937;\n\">\n  <div style=\"display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; justify-content:space-between;\">\n    <div style=\"min-width:240px; flex:1;\">\n      <div style=\"font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#6b7280; font-weight:800; margin:0 0 6px;\">\n        Visual Tier Guide\n      </div>\n      <h3 style=\"margin:0 0 6px; font-size:18px; line-height:1.25;\">\n        Standard vs Premium 1080P vs Premium 4K\n      </h3>\n      <p style=\"margin:0; color:#4b5563; font-size:14px; line-height:1.6;\">\n        Same core simulator build—different projector tier. Pick based on room light and how “premium” you want the image to look.\n      </p>\n    </div>\n\n    <a href=\"#esg-card-comp\" style=\"\n      display:inline-block;\n      padding:10px 14px;\n      border-radius:999px;\n      border:1px solid #dbeafe;\n      background:#eff6ff;\n      color:#086ed3;\n      text-decoration:none;\n      font-weight:800;\n      font-size:13px;\n      white-space:nowrap;\n      margin-top:2px;\n    \">Compare all 6 →</a>\n  </div>\n\n  <div style=\"display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px;\">\n    <!-- Standard -->\n    <div style=\"border:1px solid #eef2f7; background:#fafafa; border-radius:12px; padding:12px;\">\n      <div style=\"display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid #e5e7eb; background:#fff; font-weight:900; font-size:12px;\">\n        Standard\n      </div>\n      <p style=\"margin:8px 0 0; font-size:13px; color:#374151; line-height:1.55;\">\n        Best value. Built to <strong>get you playing fast</strong> with a bright, golf-friendly image in most garages/bonus rooms.\n      </p>\n      <p style=\"margin:8px 0 0; font-size:12px; color:#6b7280;\">\n        Best for: budget-smart builds & lower ambient light.\n      </p>\n    </div>\n\n    <!-- Premium 1080P -->\n    <div style=\"border:1px solid #eef2f7; background:#fafafa; border-radius:12px; padding:12px;\">\n      <div style=\"display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid #cfe5ff; background:#eff6ff; color:#0b4ea8; font-weight:900; font-size:12px;\">\n        Premium 1080P\n      </div>\n      <p style=\"margin:8px 0 0; font-size:13px; color:#374151; line-height:1.55;\">\n        Noticeably <strong>brighter and punchier</strong> in real rooms—great if you have any ambient light (garage doors, windows, overhead lights).\n      </p>\n      <p style=\"margin:8px 0 0; font-size:12px; color:#6b7280;\">\n        Best for: the “most recommended” balance of price + visual pop.\n      </p>\n    </div>\n\n    <!-- Premium 4K -->\n    <div style=\"border:1px solid #eef2f7; background:#fafafa; border-radius:12px; padding:12px;\">\n      <div style=\"display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid #cfe5ff; background:#eff6ff; color:#0b4ea8; font-weight:900; font-size:12px;\">\n        Premium 4K\n      </div>\n      <p style=\"margin:8px 0 0; font-size:13px; color:#374151; line-height:1.55;\">\n        Maximum detail—<strong>sharper text, cleaner UI, and more course clarity</strong>. The “high-end bay” look every time you power on.\n      </p>\n      <p style=\"margin:8px 0 0; font-size:12px; color:#6b7280;\">\n        Best for: “forever bay” builds and golfers who care about image detail.\n      </p>\n    </div>\n  </div>\n\n  <p style=\"margin:12px 0 0; font-size:12px; color:#6b7280;\">\n    Tip: If you’re unsure, choose <strong>Premium 1080P</strong> for the biggest real-world visual improvement per dollar. Go <strong>Premium 4K</strong> if you want maximum crispness.\n  </p>\n</div>\n\n<!-- Mobile stacking -->\n<style>\n  @media (max-width: 860px){\n    .esg-eml-visual-tier-grid{grid-template-columns:1fr !important;}\n  }\n</style>",
+        "full_width": false,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 24,
+        "card_size": "medium",
+        "show_prod_totals": true,
+        "enable_filtering": true,
+        "show_filter_counts": true,
+        "filters_open": "some",
+        "max_filter_options": 7,
+        "enable_sorting": false,
+        "sort_show_featured": false,
+        "sort_show_best": true,
+        "sort_show_alpha": true,
+        "sort_show_price": true,
+        "sort_show_date": true
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Trending",
+        "collection": "",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 12,
+        "show_view_all": false,
+        "full_width": true,
+        "color_scheme": "2",
+        "boundary_effect": ""
+      }
+    },
+    "custom_liquid_aMNXU6": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "<!-- =========================================================\nElite Sim Golf — Launch Monitor Comparison Feature (FULL WIDTH)\nEYE MINI LITE vs GolfJoy Spica 3 vs Garmin Approach R50\n========================================================= -->\n\n<div class=\"esg-wrap esg-lm-compare\">\n  <style>\n    .esg-lm-compare{font-family:system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;color:#1f2937;line-height:1.6;}\n    .esg-lm-compare *{box-sizing:border-box;}\n    /* IMPORTANT: no max-width container here */\n    .esg-lm-compare .esg-card{background:#fff;border:1px solid #e6e6e6;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.06);padding:18px 18px;margin:16px 0;}\n    .esg-lm-compare .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b7280;font-weight:900;margin:0 0 6px;}\n    .esg-lm-compare .title{font-size:22px;line-height:1.25;margin:0 0 6px;}\n    .esg-lm-compare .sub{margin:0;color:#4b5563;font-size:14px;}\n    .esg-lm-compare .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}\n    @media (max-width: 900px){.esg-lm-compare .grid{grid-template-columns:1fr;}}\n    .esg-lm-compare .miniCard{border:1px solid #eef2f7;background:#fafafa;border-radius:12px;padding:14px;}\n    .esg-lm-compare .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#fff;font-size:12px;font-weight:800;color:#111827;}\n    .esg-lm-compare .pill.blue{border-color:#cfe5ff;background:#eff6ff;color:#0b4ea8;}\n    .esg-lm-compare h3{margin:10px 0 6px;font-size:15px;}\n    .esg-lm-compare ul{margin:8px 0 0;padding-left:18px;}\n    .esg-lm-compare li{margin:6px 0;color:#374151;font-size:13px;}\n    .esg-lm-compare a{color:#086ed3;text-decoration:none;}\n    .esg-lm-compare a:hover{text-decoration:underline;}\n    .esg-lm-compare .tableWrap{overflow-x:auto;border-radius:14px;border:1px solid #e6e6e6;margin-top:12px;}\n    .esg-lm-compare table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;min-width:980px;}\n    .esg-lm-compare th,.esg-lm-compare td{padding:12px;border-bottom:1px solid #f0f0f0;vertical-align:top;text-align:left;}\n    .esg-lm-compare th{background:#f8fafc;font-size:12px;color:#6b7280;letter-spacing:.02em;text-transform:uppercase;}\n    .esg-lm-compare tr:last-child td{border-bottom:0;}\n    .esg-lm-compare .note{font-size:12px;color:#6b7280;margin:10px 0 0;}\n    .esg-lm-compare .ctaRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}\n    .esg-lm-compare .btn{display:inline-block;padding:11px 16px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid #dbeafe;text-decoration:none;}\n    .esg-lm-compare .btn.primary{background:#086ed3;border-color:#086ed3;color:#fff;}\n    .esg-lm-compare .btn.ghost{background:#eff6ff;color:#086ed3;}\n  </style>\n\n  <!-- Header -->\n  <div class=\"esg-card\">\n    <div style=\"display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between;\">\n      <div style=\"min-width:260px;flex:1;\">\n        <div class=\"kicker\">Launch Monitor Comparison</div>\n        <h2 class=\"title\">Uneekor Eye Mini Lite vs GolfJoy Spica 3 vs Garmin Approach R50</h2>\n        <p class=\"sub\">\n          Three camera-based options, three different “use cases.” Use this guide to pick the right monitor for your sim room,\n          practice style, and how turn-key you want the experience to be.\n        </p>\n      </div>\n\n      <div class=\"ctaRow\" style=\"margin-top:0;\">\n        <a class=\"btn primary\" href=\"https://elitesimgolf.com/products/uneekor-eye-mini-lite-launch-monitor\">Shop Eye Mini Lite</a>\n        <a class=\"btn ghost\" href=\"https://elitesimgolf.com/products/garmin-approach-r50\">Shop Garmin R50</a>\n        <a class=\"btn ghost\" href=\"https://elitesimgolf.com/products/golfjoy-spica-3-birdie-10-complete-4k-golf-simulator-package\">See Spica 3 Bundle</a>\n      </div>\n    </div>\n\n    <!-- Quick take cards -->\n    <div class=\"grid\">\n      <div class=\"miniCard\">\n        <span class=\"pill blue\">Uneekor Eye Mini Lite</span>\n        <h3>Best for a dedicated indoor sim bay</h3>\n        <ul>\n          <li><strong>PC-required</strong> ground unit for a permanent setup</li>\n          <li><strong>Compact hitting zone</strong> for repeatable alignment</li>\n          <li><strong>Club data support</strong> (with included stickers)</li>\n          <li>Great if you want the Uneekor ecosystem + long-term sim room build</li>\n        </ul>\n      </div>\n\n      <div class=\"miniCard\">\n        <span class=\"pill\">GolfJoy Spica 3</span>\n        <h3>Best for portability + “range to sim” flexibility</h3>\n        <ul>\n          <li>Triple high-speed cameras with <strong>built-in touchscreen</strong></li>\n          <li><strong>Indoor & outdoor</strong> use with rechargeable battery</li>\n          <li><strong>No special balls</strong> (works with any ball)</li>\n          <li>Strong option for golfers who want a portable camera unit</li>\n        </ul>\n      </div>\n\n      <div class=\"miniCard\">\n        <span class=\"pill blue\">Garmin Approach R50</span>\n        <h3>Best for premium “all-in-one” convenience</h3>\n        <ul>\n          <li>Large <strong>touchscreen</strong> with an easy on-device workflow</li>\n          <li><strong>Three-camera</strong> system for ball + club measurement</li>\n          <li><strong>Impact video</strong> + training tools + course play (membership required for some content)</li>\n          <li>Ideal if you want a premium, minimal-fuss experience</li>\n        </ul>\n      </div>\n    </div>\n\n    <p class=\"note\">\n      Tip: If you’re building a permanent simulator room, “workflow” matters just as much as data—how you start sessions, switch users, and launch software.\n    </p>\n  </div>\n<div class=\"esg-wrap esg-lm-compare\"></div>\n  <!-- Side-by-side table -->\n  <div class=\"esg-card\">\n    <h2 class=\"title\" style=\"margin-bottom:2px;\">Side-by-Side Feature Comparison</h2>\n    <p class=\"sub\">Use this as your quick “what do I gain / give up?” checklist.</p>\n\n    <div class=\"tableWrap\">\n      <table>\n        <thead>\n          <tr>\n            <th>Feature</th>\n            <th>Uneekor Eye Mini Lite</th>\n            <th>GolfJoy Spica 3</th>\n            <th>Garmin Approach R50</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><strong>Best Use Case</strong></td>\n            <td>Dedicated indoor sim bay</td>\n            <td>Portable practice (indoors + outdoors)</td>\n            <td>Premium all-in-one sim + training</td>\n          </tr>\n          <tr>\n            <td><strong>Setup Style</strong></td>\n            <td>Ground unit / stationary bay workflow</td>\n            <td>Portable unit you can move session-to-session</td>\n            <td>Device-centric, on-screen workflow</td>\n          </tr>\n          <tr>\n            <td><strong>PC Requirement</strong></td>\n            <td><span class=\"pill blue\">Yes (PC required)</span></td>\n            <td>Depends on sim/software preference</td>\n            <td><span class=\"pill\">Not required for core use</span></td>\n          </tr>\n          <tr>\n            <td><strong>Display / Control</strong></td>\n            <td>Run sessions through Uneekor software on PC</td>\n            <td><strong>Built-in touchscreen</strong></td>\n            <td><strong>Built-in touchscreen</strong></td>\n          </tr>\n          <tr>\n            <td><strong>Indoor / Outdoor</strong></td>\n            <td>Indoor-focused dedicated setup</td>\n            <td><strong>Indoor & outdoor</strong></td>\n            <td><strong>Indoor & outdoor</strong></td>\n          </tr>\n          <tr>\n            <td><strong>“Pick this if…”</strong></td>\n            <td>You want a permanent indoor sim bay and Uneekor workflow</td>\n            <td>You want portability and “range to sim” flexibility</td>\n            <td>You want premium convenience with minimal friction</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <p class=\"note\">\n      Want us to match the right monitor to your room? Send your ceiling height, room width, and depth and we’ll recommend the cleanest setup.\n    </p>\n  </div>\n\n</div>",
+        "full_width": false,
+        "show_space": true,
+        "boundary_effect": ""
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "custom_liquid_JGVKCx",
+    "main",
+    "featured_collection",
+    "custom_liquid_aMNXU6"
+  ]
+}

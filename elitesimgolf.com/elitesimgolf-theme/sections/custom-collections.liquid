@@ -1,0 +1,608 @@
+{% comment %}
+  Elite Sim Golf — Custom Collections Grid Section
+  File: sections/custom-collections.liquid
+{% endcomment %}
+
+{%- assign col_blocks = section.blocks | where: "type", "collection_item" -%}
+
+<style>
+  .esg-cols *,
+  .esg-cols *::before,
+  .esg-cols *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .esg-cols {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+  }
+
+  .esg-cols__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── Header ── */
+  .esg-cols__header {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  .esg-cols__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .esg-cols__eyebrow-line {
+    width: 52px; height: 1px;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.6;
+  }
+
+  .esg-cols__eyebrow-text {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-cols__title {
+    font-size: clamp(24px, 3.5vw, 46px);
+    font-weight: 900; font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: {{ section.settings.title_color }};
+    line-height: 1.1;
+  }
+
+  .esg-cols__title em {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-cols__title-bar {
+    width: 56px; height: 3px;
+    background: {{ section.settings.accent_color }};
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+
+  /* ── Grid ── */
+  .esg-cols__grid {
+    display: grid;
+    gap: {{ section.settings.gap }}px;
+  }
+
+  /* Layout variants */
+  .esg-cols__grid--2col { grid-template-columns: repeat(2, 1fr); }
+  .esg-cols__grid--3col { grid-template-columns: repeat(3, 1fr); }
+  .esg-cols__grid--4col { grid-template-columns: repeat(4, 1fr); }
+
+  /* Auto layout: first row 3 equal, second row fills */
+  .esg-cols__grid--auto {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ── Card ── */
+  .esg-cols__card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    border-radius: {{ section.settings.border_radius }}px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: {{ section.settings.aspect_ratio }};
+    cursor: pointer;
+    group: '';
+  }
+
+  /* Tall first card option */
+  .esg-cols__card--tall {
+    aspect-ratio: unset;
+  }
+
+  /* Image */
+  .esg-cols__card img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                filter 0.45s ease;
+    filter: brightness(0.82);
+  }
+
+  .esg-cols__card:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.65);
+  }
+
+  /* Gradient overlay always present */
+  .esg-cols__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 30%,
+      rgba(0,0,0,0.72) 100%
+    );
+    z-index: 1;
+    transition: opacity 0.35s;
+  }
+
+  .esg-cols__card:hover::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.08) 0%,
+      rgba(0,0,0,0.82) 100%
+    );
+  }
+
+  /* Accent top line on hover */
+  .esg-cols__card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: {{ section.settings.accent_color }};
+    z-index: 3;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .esg-cols__card:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Content */
+  .esg-cols__card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 20px 22px 22px;
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    transition: padding 0.3s ease;
+  }
+
+  .esg-cols__card:hover .esg-cols__card-content {
+    padding-bottom: 26px;
+  }
+
+  .esg-cols__card-title {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.3;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+  }
+
+  /* Hover: show arrow */
+  .esg-cols__card-arrow {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: {{ section.settings.accent_color }};
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .esg-cols__card:hover .esg-cols__card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .esg-cols__card-arrow svg {
+    width: 16px; height: 16px;
+    color: #fff;
+  }
+
+  /* Product count badge */
+  .esg-cols__card-count {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.06em;
+    z-index: 2;
+    transition: background 0.25s, border-color 0.25s;
+  }
+
+  .esg-cols__card:hover .esg-cols__card-count {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+    color: #fff;
+  }
+
+  /* Placeholder (no image) */
+  .esg-cols__placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .esg-cols__placeholder svg {
+    width: 64px; height: 64px;
+    color: rgba(255,255,255,0.1);
+  }
+
+  /* ── View All ── */
+  .esg-cols__cta {
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .esg-cols__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    border: 2px solid {{ section.settings.accent_color }};
+    border-radius: 6px;
+    background: transparent;
+    color: {{ section.settings.accent_color }};
+    font-size: 13px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .esg-cols__btn:hover {
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+  }
+
+  .esg-cols__btn svg { width: 15px; height: 15px; }
+
+  /* ══ TABLET ══ */
+  @media (max-width: 1024px) {
+    .esg-cols__grid--4col { grid-template-columns: repeat(2, 1fr); }
+    .esg-cols__grid--3col { grid-template-columns: repeat(2, 1fr); }
+    .esg-cols__grid--auto { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ══ MOBILE ══ */
+  @media (max-width: 640px) {
+    .esg-cols__inner { padding: 0 14px; }
+    .esg-cols__grid--2col,
+    .esg-cols__grid--3col,
+    .esg-cols__grid--4col,
+    .esg-cols__grid--auto { grid-template-columns: 1fr 1fr; }
+    .esg-cols__card-title { font-size: 12px; letter-spacing: 0.05em; }
+    .esg-cols__card-content { padding: 14px 14px 16px; }
+    .esg-cols__card-arrow { display: none; }
+    .esg-cols__card-count { font-size: 10px; padding: 3px 8px; top: 10px; right: 10px; }
+  }
+
+  @media (max-width: 400px) {
+    .esg-cols__grid--2col,
+    .esg-cols__grid--3col,
+    .esg-cols__grid--4col,
+    .esg-cols__grid--auto { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="esg-cols" id="esg-cols-{{ section.id }}">
+  <div class="esg-cols__inner">
+
+    <!-- Header -->
+    {%- if section.settings.show_header -%}
+      <div class="esg-cols__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="esg-cols__eyebrow">
+            <span class="esg-cols__eyebrow-line"></span>
+            <span class="esg-cols__eyebrow-text">{{ section.settings.eyebrow }}</span>
+            <span class="esg-cols__eyebrow-line"></span>
+          </div>
+        {%- endif -%}
+        <h2 class="esg-cols__title">
+          {{ section.settings.title_plain }}
+          {%- if section.settings.title_accent != blank %}
+            <em>{{ section.settings.title_accent }}</em>
+          {%- endif %}
+        </h2>
+        {%- if section.settings.show_title_bar -%}
+          <div class="esg-cols__title-bar"></div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <!-- Grid -->
+    <div class="esg-cols__grid esg-cols__grid--{{ section.settings.layout }}">
+      {%- for block in col_blocks -%}
+        {%- assign col = collections[block.settings.collection] -%}
+        {%- assign card_url = col.url | default: block.settings.custom_url | default: '#' -%}
+        {%- assign card_title = block.settings.custom_title | default: col.title -%}
+        {%- assign card_img = block.settings.custom_image -%}
+        {%- if card_img == blank and col != blank -%}
+          {%- assign card_img = col.featured_image -%}
+        {%- endif -%}
+
+        <a href="{{ card_url }}" class="esg-cols__card{% if block.settings.tall %} esg-cols__card--tall{% endif %}"
+           style="{% if block.settings.tall %}aspect-ratio: unset; grid-row: span 2;{% endif %}"
+           {{ block.shopify_attributes }}>
+
+          {%- if card_img != blank -%}
+            <img src="{{ card_img | image_url: width: 900 }}"
+                 alt="{{ card_title | escape }}"
+                 width="900" loading="lazy">
+          {%- else -%}
+            <div class="esg-cols__placeholder">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.show_count and col != blank and col.products_count > 0 -%}
+            <div class="esg-cols__card-count">{{ col.products_count }} Products</div>
+          {%- endif -%}
+
+          <div class="esg-cols__card-content">
+            <div class="esg-cols__card-title">{{ card_title }}</div>
+            <div class="esg-cols__card-arrow">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </div>
+          </div>
+
+        </a>
+      {%- endfor -%}
+    </div>
+
+    <!-- View All -->
+    {%- if section.settings.show_view_all -%}
+      <div class="esg-cols__cta">
+        <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="esg-cols__btn">
+          {{ section.settings.view_all_text | default: 'Shop All Categories' }}
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "ESG Collections",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Browse By Category"
+    },
+    {
+      "type": "text",
+      "id": "title_plain",
+      "label": "Title — main part",
+      "default": "Shop Popular"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title — accent color part",
+      "default": "Categories"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_bar",
+      "label": "Show underline bar",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Grid columns",
+      "default": "3col",
+      "options": [
+        { "value": "2col", "label": "2 Columns" },
+        { "value": "3col", "label": "3 Columns" },
+        { "value": "4col", "label": "4 Columns" },
+        { "value": "auto", "label": "Auto (3 top, fill bottom)" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Card image ratio",
+      "default": "4 / 3",
+      "options": [
+        { "value": "1 / 1",  "label": "Square (1:1)" },
+        { "value": "4 / 3",  "label": "Landscape (4:3)" },
+        { "value": "3 / 2",  "label": "Photo (3:2)" },
+        { "value": "16 / 9", "label": "Wide (16:9)" },
+        { "value": "3 / 4",  "label": "Portrait (3:4)" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between cards (px)",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Card corner radius (px)",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button text",
+      "default": "Shop All Categories"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#f7f8fa"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Font family",
+      "default": "Inter"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection Card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom title (overrides collection title)"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Custom image (overrides collection image)"
+        },
+        {
+          "type": "url",
+          "id": "custom_url",
+          "label": "Custom URL (overrides collection URL)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_count",
+          "label": "Show product count badge",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "tall",
+          "label": "Tall card (spans 2 rows)",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG Collections",
+      "blocks": [
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" },
+        { "type": "collection_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

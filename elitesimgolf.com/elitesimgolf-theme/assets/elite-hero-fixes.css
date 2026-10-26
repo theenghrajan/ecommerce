@@ -1,0 +1,13 @@
+/* Hide hr divider line in description */
+.elite-collection-info__desc-html hr {
+  display: none !important;
+}
+
+/* Stronger button border */
+.elite-collection-info__button {
+  border-color: rgba(255,255,255,0.75) !important;
+}
+
+.elite-collection-info__button:hover {
+  border-color: #ffffff !important;
+}

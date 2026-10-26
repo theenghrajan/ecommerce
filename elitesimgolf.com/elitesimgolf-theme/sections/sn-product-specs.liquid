@@ -1,0 +1,348 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --accent_color: {{ section.settings.accent_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+
+    .sn-table-wrap{
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.05);
+      overflow: hidden;
+      background: {{section.settings.card_bg}};
+    }
+    .sn-table-heading{
+      background: var(--accent_color);
+      color: #fff;
+      padding: 10px 20px;
+      text-transform: uppercase;
+    }
+    .sn-table-row{
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .sn-table-row:last-child{
+      border-bottom: none;
+    }
+    .sn-table-feature{
+      text-align: left;
+    }
+    .sn-table-text{
+      text-align: right;
+    }
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+          background-attachment: scroll;
+      }
+    }
+  {% endstyle %}
+
+  {% if section.settings.heading != '' %}
+    <div class="sn-container hcenter text-center">
+      <div class="sn-col-1 sn-heading">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="sn-container hcenter">
+    <div class="sn-col-2 p-1">
+      <div class="sn-table-wrap">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'col1-heading' %}
+              <div class="sn-table-heading {{ block.settings.class }}" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+            {% when 'col1-row' %}
+              <div class="sn-table-row {{ block.settings.class }}" {{ block.shopify_attributes }}>
+                <div class="sn-table-col sn-table-feature">{{ block.settings.feature }}</div>
+                <div class="sn-table-col sn-table-text">{{ block.settings.text }}</div>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+    {% if section.settings.columns == '2' %}
+      <div class="sn-col-2 p-1">
+        <div class="sn-table-wrap">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'col2-heading' %}
+                <div class="sn-table-heading {{ block.settings.class }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.text }}
+                </div>
+              {% when 'col2-row' %}
+                <div class="sn-table-row {{ block.settings.class }}" {{ block.shopify_attributes }}>
+                  <div class="sn-table-col sn-table-feature">{{ block.settings.feature }}</div>
+                  <div class="sn-table-col">{{ block.settings.text }}</div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product: Specifications",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-specs"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "id": "columns",
+      "type": "select",
+      "options": [
+        {
+          "label": "1 column",
+          "value": "1"
+        },
+        {
+          "label": "2 columns",
+          "value": "2"
+        }
+      ],
+      "label": "# of columns",
+      "default": "2"
+    },
+    {
+      "id": "align",
+      "type": "select",
+      "options": [
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Left",
+          "value": "left"
+        }
+      ],
+      "label": "Align text (card content)",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "accent_color",
+      "type": "color",
+      "label": "Accent color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "card_bg",
+      "type": "color",
+      "label": "Card background color"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Table 1 heading",
+      "type": "col1-heading",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "label": "Heading",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Table 1 row",
+      "type": "col1-row",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "label": "Feature",
+          "id": "feature"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Table 2 heading",
+      "type": "col2-heading",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "label": "Heading",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    },
+    {
+      "name": "Table 2 row",
+      "type": "col2-row",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "label": "Feature",
+          "id": "feature"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Text",
+          "id": "text"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product: Specifications"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

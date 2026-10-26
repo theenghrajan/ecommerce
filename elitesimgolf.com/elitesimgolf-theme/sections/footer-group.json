@@ -1,0 +1,107 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "custom_footer_ERkGgX": {
+      "type": "custom-footer",
+      "custom_css": [],
+      "name": "ESG Footer",
+      "settings": {
+        "footer_logo": "shopify://shop_images/ESG-BOLD-Transparent.png",
+        "logo_subtext": "The Indoor Golf Experts",
+        "top_strip_text": "",
+        "footer_bg_image": "shopify://shop_images/Footer.png",
+        "footer_bg_opacity": 60,
+        "footer_bg_position": "center center",
+        "footer_bg": "#091836",
+        "footer_text": "#000000",
+        "accent_color": "#2d7dd2",
+        "body_font": "Inter",
+        "address": "",
+        "phone": "865-657-1028",
+        "email": "info@elitesimgolf.com",
+        "support_hours": "Monday to Friday: 09:00 AM to 06:00 PM EST",
+        "show_policies_col": true,
+        "policies_menu": "footer",
+        "show_support_col": true,
+        "support_menu": "support",
+        "show_extra_col": false,
+        "extra_col_title": "Quick Links",
+        "extra_menu": "",
+        "show_newsletter": true,
+        "newsletter_text": "Sign up for exclusive offers and discounts, original stories, VIP access to special events and much more.",
+        "facebook_url": "https://www.facebook.com/p/ELITE-Sim-Golf-61579712016641/",
+        "instagram_url": "https://www.instagram.com/elitesimgolf/",
+        "youtube_url": "https://www.youtube.com/@EliteSimGolf",
+        "tiktok_url": "https://www.tiktok.com/@elitesimgolf",
+        "twitter_url": "",
+        "powered_by": false
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "image_width": 150,
+            "heading": "Contact Us",
+            "text": "<p><strong>Elite Sim Golf, LLC</strong></p><p><strong>Address: </strong>822 Mulberry Street, Loudon, TN 37774</p><p><strong>Phone: </strong>866-4-SIM-GOLF (866-474-6465)</p><p><strong>Email:</strong> info@elitesimgolf.com</p><p><strong>Support:</strong> Monday to Friday: 09:00 AM to 06:00 PM</p>",
+            "button_label": "",
+            "button_link": "",
+            "enable_follow_on_shop": false
+          }
+        },
+        "link_list_4i73da": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Policies",
+            "menu": "footer"
+          }
+        },
+        "link_list_enAX3U": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "support"
+          }
+        },
+        "newsletter_signup_Eb8cYp": {
+          "type": "newsletter-signup",
+          "settings": {
+            "heading": "Newsletter",
+            "text": "<p>Sign up for exclusive offers and discounts, original stories, VIP access to special events and much more.</p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text",
+        "link_list_4i73da",
+        "link_list_enAX3U",
+        "newsletter_signup_Eb8cYp"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_powered_by": false,
+        "show_social": true,
+        "show_payment_icons": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "boundary_effect": ""
+      }
+    }
+  },
+  "order": [
+    "custom_footer_ERkGgX",
+    "footer"
+  ]
+}

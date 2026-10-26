@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_9UDYrR": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": false
+          }
+        },
+        "custom_liquid_c4wNTb": {
+          "type": "custom-liquid",
+          "name": "PGA Championship Sale",
+          "settings": {
+            "custom_liquid": "{% assign product_tags_downcase = product.tags | join: ',' | downcase %}\n\n{% if product_tags_downcase contains 'dad' %}\n\n<!-- Elite Sim Golf Father's Day Sale Mini PDP Box - Auto Hides After June 28 -->\n<div id=\"esg-fathers-day-mini-sale\" style=\"max-width:600px;margin:10px 0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;\">\n  <div style=\"background:linear-gradient(135deg,#020617 0%,#071a33 55%,#086ED3 100%);border-radius:12px;padding:11px 12px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.16);\">\n    \n    <div style=\"display:flex;align-items:center;gap:7px;margin-bottom:8px;\">\n      <span style=\"font-size:15px;color:#fff;\">🎁</span>\n      <div style=\"font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#dbeafe;line-height:1;\">\n        Father's Day Sale\n      </div>\n    </div>\n\n    <div style=\"font-size:16px;font-weight:950;line-height:1.15;margin-bottom:8px;\">\n      Give Dad the Ultimate Golf Gift.\n    </div>\n\n    <div style=\"background:#fff;color:#071a33;border-radius:9px;padding:7px 9px;margin-bottom:8px;text-align:center;\">\n      <div style=\"font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;line-height:1;\">\n        Coupon Code\n      </div>\n      <div style=\"font-size:18px;font-weight:950;letter-spacing:.08em;color:#086ED3;line-height:1.2;margin-top:2px;\">\n        DADSDAY\n      </div>\n    </div>\n\n    <div style=\"font-size:12px;line-height:1.3;color:#f8fafc;\">\n      Save on golf simulator packages, launch monitors, enclosures, projectors, mats, and accessories. For the best deal, text\n      <span style=\"font-weight:950;white-space:nowrap;color:#fff;\">865-248-2729</span>.\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function() {\n    var saleBox = document.getElementById('esg-fathers-day-mini-sale');\n    var hideAfter = new Date('2026-06-29T00:00:00');\n\n    if (saleBox && new Date() >= hideAfter) {\n      saleBox.style.display = 'none';\n    }\n  })();\n</script>\n\n{% endif %}"
+          }
+        },
+        "custom_liquid_RjC47A": {
+          "type": "custom-liquid",
+          "name": "Spring Sale Block",
+          "settings": {
+            "custom_liquid": "<!-- Elite Sim Golf Memorial Day Sale Mini PDP Box - Auto Hides After May 31 -->\n<div id=\"esg-memorial-mini-sale\" style=\"max-width:600px;margin:10px 0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;\">\n  <div style=\"background:linear-gradient(135deg,#071a33 0%,#0b2b55 55%,#9f1239 100%);border-radius:12px;padding:11px 12px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.16);\">\n    \n    <div style=\"display:flex;align-items:center;gap:7px;margin-bottom:8px;\">\n      <span style=\"font-size:15px;color:#fff;\">★</span>\n      <div style=\"font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#dbeafe;line-height:1;\">\n        Memorial Day Sale\n      </div>\n    </div>\n\n    <div style=\"font-size:16px;font-weight:950;line-height:1.15;margin-bottom:8px;\">\n      Save Today on Popular Golf Sim Gear!\n    </div>\n\n    <div style=\"background:#fff;color:#071a33;border-radius:9px;padding:7px 9px;margin-bottom:8px;text-align:center;\">\n      <div style=\"font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;line-height:1;\">\n        Coupon Code\n      </div>\n      <div style=\"font-size:18px;font-weight:950;letter-spacing:.08em;color:#b91c1c;line-height:1.2;margin-top:2px;\">\n        REMEMBER\n      </div>\n    </div>\n\n    <div style=\"font-size:12px;line-height:1.3;color:#f8fafc;\">\n      For the best deal, text\n      <span style=\"font-weight:950;white-space:nowrap;color:#fff;\">865-248-2729</span> for items excluded from Discount Code.\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function() {\n    var saleBox = document.getElementById('esg-memorial-mini-sale');\n    var hideAfter = new Date('2026-06-01T00:00:00');\n\n    if (saleBox && new Date() >= hideAfter) {\n      saleBox.style.display = 'none';\n    }\n  })();\n</script>"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "never",
+            "inventory_threshold": 1
+          }
+        },
+        "divider-0": {
+          "type": "divider",
+          "settings": {}
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "custom_liquid_MVemU4": {
+          "type": "custom-liquid",
+          "name": "Availability Box",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"esg-availability-mini\">\n  <style>\n    .esg-availability-mini{\n      --esg-blue:#086ED3;\n      --esg-blue-dark:#0657a8;\n      --esg-ink:#0f172a;\n      --esg-text:#334155;\n      --esg-muted:#64748b;\n      --esg-line:#dbe5f0;\n      --esg-soft:#f8fbff;\n      --esg-green:#128a43;\n      --esg-green-bg:#ecfdf3;\n      --esg-amber:#b45309;\n      --esg-amber-bg:#fff7ed;\n      --esg-shadow:0 10px 24px rgba(2,32,71,.08);\n      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Arial,sans-serif;\n      margin:14px 0 18px;\n    }\n    .esg-availability-mini *{box-sizing:border-box;}\n    .esg-availability-mini .esg-avail-wrap{\n      border:1px solid var(--esg-line);\n      border-radius:18px;\n      background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);\n      box-shadow:var(--esg-shadow);\n      overflow:hidden;\n    }\n    .esg-availability-mini .esg-avail-head{\n      padding:11px 14px;\n      background:linear-gradient(90deg,var(--esg-blue-dark) 0%,var(--esg-blue) 100%);\n      color:#fff;\n      font-size:13px;\n      font-weight:900;\n      letter-spacing:.02em;\n      text-transform:uppercase;\n    }\n    .esg-availability-mini .esg-avail-body{\n      padding:14px;\n    }\n    .esg-availability-mini .esg-avail-status{\n      display:inline-flex;\n      align-items:center;\n      gap:8px;\n      padding:8px 12px;\n      border-radius:999px;\n      font-size:12px;\n      font-weight:900;\n      line-height:1.2;\n      margin-bottom:12px;\n    }\n    .esg-availability-mini .esg-avail-status.in-stock{\n      background:var(--esg-green-bg);\n      color:var(--esg-green);\n      border:1px solid rgba(18,138,67,.18);\n    }\n    .esg-availability-mini .esg-avail-status.out-stock{\n      background:var(--esg-amber-bg);\n      color:var(--esg-amber);\n      border:1px solid rgba(180,83,9,.18);\n    }\n    .esg-availability-mini .esg-avail-dot{\n      width:8px;\n      height:8px;\n      border-radius:50%;\n      background:currentColor;\n      flex:0 0 auto;\n    }\n    .esg-availability-mini .esg-avail-list{\n      list-style:none;\n      margin:0;\n      padding:0;\n      display:grid;\n      gap:9px;\n    }\n    .esg-availability-mini .esg-avail-list li{\n      position:relative;\n      padding-left:22px;\n      color:var(--esg-text);\n      font-size:14px;\n      line-height:1.45;\n      font-weight:600;\n    }\n    .esg-availability-mini .esg-avail-list li:before{\n      content:\"✓\";\n      position:absolute;\n      left:0;\n      top:0;\n      color:var(--esg-blue);\n      font-weight:900;\n    }\n    .esg-availability-mini .esg-avail-note{\n      margin-top:10px;\n      font-size:12px;\n      line-height:1.45;\n      color:var(--esg-muted);\n    }\n  </style>\n\n  {% assign current_variant = product.selected_or_first_available_variant %}\n\n  <div class=\"esg-avail-wrap\">\n    <div class=\"esg-avail-head\">Product Availability</div>\n    <div class=\"esg-avail-body\">\n\n      {% if current_variant.available %}\n        <div class=\"esg-avail-status in-stock\">\n          <span class=\"esg-avail-dot\"></span>\n          In Stock\n        </div>\n\n        <ul class=\"esg-avail-list\">\n          <li>Available — Most Orders Ship Same Business Day</li>\n          <li>\n  FREE UPS Ground Delivery \n  <span style=\"font-size:11px;color:#64748b;opacity:.85;\">\n    (Pre-cut EMT Pipe Kits Excluded)\n  </span>\n</li>\n          <li>Ships from our warehouse in Loudon, TN</li>\n          <li>Available for Local Pickup</li>\n        </ul>\n      {% else %}\n        <div class=\"esg-avail-status out-stock\">\n          <span class=\"esg-avail-dot\"></span>\n          Currently Out of Stock\n        </div>\n\n        <ul class=\"esg-avail-list\">\n          <li>Typically ships in 3–5 Business Days</li>\n        </ul>\n      {% endif %}\n\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "optis_product_options_option_set_UkUppT": {
+          "type": "shopify://apps/optis-product-options/blocks/option-set/2c446099-c349-4e73-80cd-49c9770b7807",
+          "settings": {}
+        },
+        "selleasy_lb_upsell_widget_ba_cBHamb": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-ba/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "selleasy_lb_upsell_widget_pal_9DhETA": {
+          "type": "shopify://apps/selleasy/blocks/lb-upsell-widget-pal/790c1a03-a71f-4bc1-9869-00dad526d3c2",
+          "settings": {}
+        },
+        "custom_liquid_TbREKC": {
+          "type": "custom-liquid",
+          "name": "Commercial DIY Compare",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'COMMERCIALSERIES' %}\n<div class=\"esg-sticky-compare-mini\">\n  <style>\n    .esg-sticky-compare-mini{\n      --esg-blue:#086ED3;\n      --esg-blue-dark:#0657a8;\n      --esg-ink:#0f172a;\n      --esg-text:#334155;\n      --esg-muted:#64748b;\n      --esg-line:#dbe5f0;\n      --esg-soft:#f8fbff;\n      --esg-shadow:0 10px 24px rgba(2,32,71,.10);\n      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Arial,sans-serif;\n      margin:14px 0 18px;\n    }\n    .esg-sticky-compare-mini *{box-sizing:border-box;}\n    .esg-sticky-compare-mini .esg-mini-wrap{\n      position:sticky;\n      top:18px;\n      z-index:4;\n      background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);\n      border:1px solid var(--esg-line);\n      border-radius:18px;\n      box-shadow:var(--esg-shadow);\n      overflow:hidden;\n    }\n    .esg-sticky-compare-mini .esg-mini-head{\n      padding:12px 14px;\n      background:linear-gradient(90deg,var(--esg-blue-dark) 0%,var(--esg-blue) 100%);\n      color:#fff;\n      font-size:13px;\n      font-weight:900;\n      letter-spacing:.02em;\n      text-transform:uppercase;\n    }\n    .esg-sticky-compare-mini .esg-mini-body{\n      padding:14px;\n    }\n    .esg-sticky-compare-mini .esg-mini-title{\n      margin:0 0 10px;\n      font-size:18px;\n      line-height:1.2;\n      color:var(--esg-ink);\n      font-weight:800;\n    }\n    .esg-sticky-compare-mini .esg-mini-grid{\n      display:grid;\n      grid-template-columns:1fr 1fr;\n      gap:10px;\n      margin-bottom:10px;\n    }\n    .esg-sticky-compare-mini .esg-mini-col{\n      border:1px solid var(--esg-line);\n      border-radius:14px;\n      overflow:hidden;\n      background:#fff;\n    }\n    .esg-sticky-compare-mini .esg-mini-col h4{\n      margin:0;\n      padding:10px 12px;\n      font-size:13px;\n      line-height:1.2;\n      font-weight:800;\n      color:var(--esg-ink);\n      background:#f8fafc;\n      border-bottom:1px solid var(--esg-line);\n    }\n    .esg-sticky-compare-mini .esg-mini-col.featured h4{\n      background:#eef6ff;\n      color:var(--esg-blue-dark);\n    }\n    .esg-sticky-compare-mini .esg-mini-col ul{\n      list-style:none;\n      margin:0;\n      padding:10px 12px;\n    }\n    .esg-sticky-compare-mini .esg-mini-col li{\n      position:relative;\n      padding-left:18px;\n      margin:0 0 8px;\n      font-size:13px;\n      line-height:1.45;\n      color:var(--esg-text);\n    }\n    .esg-sticky-compare-mini .esg-mini-col li:last-child{margin-bottom:0;}\n    .esg-sticky-compare-mini .esg-mini-col li:before{\n      content:\"•\";\n      position:absolute;\n      left:0;\n      top:0;\n      color:var(--esg-blue);\n      font-weight:900;\n    }\n    .esg-sticky-compare-mini .esg-mini-badge{\n      display:inline-block;\n      margin-top:2px;\n      padding:9px 12px;\n      border-radius:999px;\n      background:#e8f3ff;\n      color:var(--esg-blue-dark);\n      font-size:12px;\n      font-weight:900;\n      line-height:1.2;\n    }\n    .esg-sticky-compare-mini .esg-mini-note{\n      margin-top:10px;\n      font-size:12px;\n      line-height:1.45;\n      color:var(--esg-muted);\n    }\n    @media (max-width: 640px){\n      .esg-sticky-compare-mini .esg-mini-grid{\n        grid-template-columns:1fr;\n      }\n      .esg-sticky-compare-mini .esg-mini-wrap{\n        position:relative;\n        top:auto;\n      }\n    }\n  </style>\n\n  <div class=\"esg-mini-wrap\">\n    <div class=\"esg-mini-head\">Why Shoppers Choose Elite Sim Golf</div>\n    <div class=\"esg-mini-body\">\n      <div class=\"esg-mini-title\">The foundation for your custom golf simulator</div>\n\n      <div class=\"esg-mini-grid\">\n        <div class=\"esg-mini-col featured\">\n          <h4>Elite Sim Golf COMMERCIAL Series</h4>\n          <ul>\n            <li>Premium triple-layer screen included standard</li>\n            <li>Fully customizable build path</li>\n            <li>Designed around standard 1&quot; EMT</li>\n          </ul>\n        </div>\n\n        <div class=\"esg-mini-col\">\n          <h4>Typical competitor setup</h4>\n          <ul>\n            <li>Multiple screen tiers</li>\n            <li>Premium materials may cost extra</li>\n            <li>More decision fatigue before checkout</li>\n          </ul>\n        </div>\n      </div>\n\n      <div class=\"esg-mini-badge\">\n        Better foundation, better value, better out-of-the-box setup\n      </div>\n\n      <div class=\"esg-mini-note\">\n        See full comparison and customization details lower on the page.\n      </div>\n    </div>\n  </div>\n</div>\n{% endif %}"
+          }
+        },
+        "custom_liquid_UeT6n9": {
+          "type": "custom-liquid",
+          "name": "DIY Mini Compare",
+          "settings": {
+            "custom_liquid": "{% if product.tags contains 'DIYSERIES' %}\n<div class=\"esg-sticky-compare-mini\">\n  <style>\n    .esg-sticky-compare-mini{\n      --esg-blue:#086ED3;\n      --esg-blue-dark:#0657a8;\n      --esg-ink:#0f172a;\n      --esg-text:#334155;\n      --esg-muted:#64748b;\n      --esg-line:#dbe5f0;\n      --esg-soft:#f8fbff;\n      --esg-shadow:0 10px 24px rgba(2,32,71,.10);\n      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Arial,sans-serif;\n      margin:14px 0 18px;\n    }\n    .esg-sticky-compare-mini *{box-sizing:border-box;}\n    .esg-sticky-compare-mini .esg-mini-wrap{\n      position:sticky;\n      top:18px;\n      z-index:4;\n      background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);\n      border:1px solid var(--esg-line);\n      border-radius:18px;\n      box-shadow:var(--esg-shadow);\n      overflow:hidden;\n    }\n    .esg-sticky-compare-mini .esg-mini-head{\n      padding:12px 14px;\n      background:linear-gradient(90deg,var(--esg-blue-dark) 0%,var(--esg-blue) 100%);\n      color:#fff;\n      font-size:13px;\n      font-weight:900;\n      letter-spacing:.02em;\n      text-transform:uppercase;\n    }\n    .esg-sticky-compare-mini .esg-mini-body{\n      padding:14px;\n    }\n    .esg-sticky-compare-mini .esg-mini-title{\n      margin:0 0 10px;\n      font-size:18px;\n      line-height:1.2;\n      color:var(--esg-ink);\n      font-weight:800;\n    }\n    .esg-sticky-compare-mini .esg-mini-grid{\n      display:grid;\n      grid-template-columns:1fr 1fr;\n      gap:10px;\n      margin-bottom:10px;\n    }\n    .esg-sticky-compare-mini .esg-mini-col{\n      border:1px solid var(--esg-line);\n      border-radius:14px;\n      overflow:hidden;\n      background:#fff;\n    }\n    .esg-sticky-compare-mini .esg-mini-col h4{\n      margin:0;\n      padding:10px 12px;\n      font-size:13px;\n      line-height:1.2;\n      font-weight:800;\n      color:var(--esg-ink);\n      background:#f8fafc;\n      border-bottom:1px solid var(--esg-line);\n    }\n    .esg-sticky-compare-mini .esg-mini-col.featured h4{\n      background:#eef6ff;\n      color:var(--esg-blue-dark);\n    }\n    .esg-sticky-compare-mini .esg-mini-col ul{\n      list-style:none;\n      margin:0;\n      padding:10px 12px;\n    }\n    .esg-sticky-compare-mini .esg-mini-col li{\n      position:relative;\n      padding-left:18px;\n      margin:0 0 8px;\n      font-size:13px;\n      line-height:1.45;\n      color:var(--esg-text);\n    }\n    .esg-sticky-compare-mini .esg-mini-col li:last-child{margin-bottom:0;}\n    .esg-sticky-compare-mini .esg-mini-col li:before{\n      content:\"•\";\n      position:absolute;\n      left:0;\n      top:0;\n      color:var(--esg-blue);\n      font-weight:900;\n    }\n    .esg-sticky-compare-mini .esg-mini-badge{\n      display:inline-block;\n      margin-top:2px;\n      padding:9px 12px;\n      border-radius:999px;\n      background:#e8f3ff;\n      color:var(--esg-blue-dark);\n      font-size:12px;\n      font-weight:900;\n      line-height:1.2;\n    }\n    .esg-sticky-compare-mini .esg-mini-note{\n      margin-top:10px;\n      font-size:12px;\n      line-height:1.45;\n      color:var(--esg-muted);\n    }\n    @media (max-width: 640px){\n      .esg-sticky-compare-mini .esg-mini-grid{\n        grid-template-columns:1fr;\n      }\n      .esg-sticky-compare-mini .esg-mini-wrap{\n        position:relative;\n        top:auto;\n      }\n    }\n  </style>\n\n  <div class=\"esg-mini-wrap\">\n    <div class=\"esg-mini-head\">Why Shoppers Choose Elite Sim Golf</div>\n    <div class=\"esg-mini-body\">\n      <div class=\"esg-mini-title\">The foundation for your custom golf simulator</div>\n\n      <div class=\"esg-mini-grid\">\n        <div class=\"esg-mini-col featured\">\n          <h4>Elite Sim Golf DIY Series</h4>\n          <ul>\n            <li>Premium triple-layer screen included standard</li>\n            <li>Fully customizable build path</li>\n            <li>Designed around standard 1&quot; EMT</li>\n          </ul>\n        </div>\n\n        <div class=\"esg-mini-col\">\n          <h4>Typical competitor setup</h4>\n          <ul>\n            <li>Multiple screen tiers</li>\n            <li>Premium materials may cost extra</li>\n            <li>More decision fatigue before checkout</li>\n          </ul>\n        </div>\n      </div>\n\n      <div class=\"esg-mini-badge\">\n        Better foundation, better value, better out-of-the-box setup\n      </div>\n\n      <div class=\"esg-mini-note\">\n        See full comparison and customization details lower on the page.\n      </div>\n    </div>\n  </div>\n</div>\n{% endif %}"
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "name": "Trust Badge",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<!-- Price Match Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🏷️</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Price Match Promise\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      See a better price from another authorized seller? Tell us—we’ll do our best to match it (or beat it).\n    </div>\n  </div>\n</div>\n\n<!-- No Sales Tax + Free Shipping Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">📦</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      No Sales Tax + Free Shipping on Most Orders\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Keep more in your pocket—most orders ship free and may qualify for no sales tax (some exclusions apply).\n    </div>\n  </div>\n</div>\n\n<!-- Real Human Support Note (compact line) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">👤</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Real Golf Experts (Not Bots)\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Have questions? Call us to talk to a real human: <strong>866-4-SIM-GOLF</strong>.\n    </div>\n  </div>\n</div>\n\n<!-- Small Shipping Note (Christmas-themed, compact) -->\n<div style=\"\n  margin:10px 0 0;\n  padding:10px 12px;\n  border-radius:12px;\n  border:1px solid #e5e7eb;\n  background:#ffffff;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n  color:#1f2937;\n  display:flex;\n  align-items:flex-start;\n  gap:10px;\n\">\n  <div style=\"\n    width:28px; height:28px; border-radius:10px;\n    background:#e7f2ff;\n    display:flex; align-items:center; justify-content:center;\n    font-size:16px; flex:0 0 auto;\n  \">🚚</div>\n\n  <div style=\"line-height:1.35;\">\n    <div style=\"font-weight:800; font-size:13px; margin:0;\">\n      Ships in 3–5 business days\n    </div>\n    <div style=\"font-size:12px; color:#6b7280; margin-top:2px;\">\n      Processing time may vary slightly during peak holiday volume.\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_9UDYrR",
+        "price",
+        "custom_liquid_c4wNTb",
+        "custom_liquid_RjC47A",
+        "buy-buttons",
+        "divider-0",
+        "variant-picker",
+        "custom_liquid_MVemU4",
+        "optis_product_options_option_set_UkUppT",
+        "selleasy_lb_upsell_widget_ba_cBHamb",
+        "selleasy_lb_upsell_widget_pal_9DhETA",
+        "custom_liquid_TbREKC",
+        "custom_liquid_UeT6n9",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "1",
+        "enable_border": true,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "custom_liquid_mTqhVt": {
+      "type": "custom-liquid",
+      "name": "Enclosure Warranty",
+      "settings": {
+        "custom_liquid": "<!-- Elite Sim Golf - Warranty & Use Terms -->\n<div style=\"max-width:1200px;margin:32px auto 0;padding:0 16px;\">\n  <div style=\"background:#ffffff;border:1px solid #dbe4f0;border-radius:18px;box-shadow:0 10px 30px rgba(15,23,42,0.06);overflow:hidden;\">\n    \n    <div style=\"background:linear-gradient(135deg,#086ed3 0%,#0b7df0 100%);padding:18px 22px;\">\n      <div style=\"font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;font-size:22px;line-height:1.2;font-weight:800;color:#ffffff;letter-spacing:.2px;\">\n        Warranty &amp; Use Terms\n      </div>\n    </div>\n\n    <div style=\"padding:22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#1f2937;\">\n      \n      <div style=\"display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:0 0 20px;\">\n        <div style=\"border:1px solid #dbe4f0;background:#f8fbff;border-radius:14px;padding:14px 16px;\">\n          <div style=\"font-size:13px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#086ed3;margin:0 0 6px;\">\n            Coverage\n          </div>\n          <div style=\"font-size:15px;line-height:1.5;font-weight:700;color:#111827;\">\n            One (1) year warranty on the impact screen material only.\n          </div>\n        </div>\n\n        <div style=\"border:1px solid #dbe4f0;background:#f8fbff;border-radius:14px;padding:14px 16px;\">\n          <div style=\"font-size:13px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#086ed3;margin:0 0 6px;\">\n            Not Covered\n          </div>\n          <div style=\"font-size:15px;line-height:1.5;font-weight:700;color:#111827;\">\n            Attached flaps, velvet border/surround, and outer enclosure fabric.\n          </div>\n        </div>\n\n        <div style=\"border:1px solid #dbe4f0;background:#f8fbff;border-radius:14px;padding:14px 16px;\">\n          <div style=\"font-size:13px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:#086ed3;margin:0 0 6px;\">\n            Intended Use\n          </div>\n          <div style=\"font-size:15px;line-height:1.5;font-weight:700;color:#111827;\">\n            The golf ball is intended to strike the screen only.\n          </div>\n        </div>\n      </div>\n\n      <div style=\"font-size:15px;line-height:1.75;color:#374151;\">\n        <p style=\"margin:0 0 14px;\">\n          Elite Sim Golf impact screens are covered by a <strong>one (1) year warranty on the impact screen material only</strong>. This warranty does <strong>not</strong> include the flaps attached to the screen, the screen’s velvet border/surround, or the outer enclosure fabric surround.\n        </p>\n\n        <p style=\"margin:0 0 14px;\">\n          Golf simulator impact screens are designed for the golf ball to strike the <strong>screen only</strong>. Repeated low shots into the bottom portion of the screen that cause the ball to drive the screen back into the lower enclosure bar may damage the lower velvet surround. Damage resulting from this type of contact is not considered a warranty issue.\n        </p>\n\n        <p style=\"margin:0 0 14px;\">\n          For golfers who are newer to the game, high-handicap players, junior players, or instructional environments where low shots are more common, Elite Sim Golf recommends using <strong>yoga wedges</strong> or the <strong>Worm Burner Defender</strong> to help reduce the likelihood of this type of damage.\n        </p>\n\n        <p style=\"margin:0 0 14px;\">\n          The outer enclosure fabric is intended to help contain mis-hit shots in many situations, but <strong>ball containment is not guaranteed</strong>. Repeated or direct impact to the enclosure surround, side panels, or top panels is outside the intended use of the impact screen system.\n        </p>\n\n        <p style=\"margin:0 0 14px;\">\n          If wedge shots are repeatedly striking the top of the enclosure, this generally indicates the golfer is hitting from an improper distance from the screen or delivering excessive delofting through improper swing mechanics. Under proper use conditions, even a <strong>62-degree wedge</strong> struck from approximately <strong>10 feet</strong> from the screen should not produce a launch angle high enough to contact the top of the enclosure.\n        </p>\n\n        <p style=\"margin:0;\">\n          Damage caused by misuse, repeated mis-hits, improper setup, improper hitting distance, or impact to areas other than the screen itself is <strong>not covered under warranty</strong>.\n        </p>\n      </div>\n\n    </div>\n  </div>\n</div>",
+        "full_width": false,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "custom_liquid_Gt9C9d": {
+      "type": "custom-liquid",
+      "name": "Enclosure FAQ",
+      "settings": {
+        "custom_liquid": "<div class=\"esg-faq\">\n\n<style>\n.esg-faq{\n  --esg-blue:#086ED3;\n  --esg-blue-dark:#0657a8;\n  --esg-ink:#0f172a;\n  --esg-text:#334155;\n  --esg-muted:#64748b;\n  --esg-line:#e2e8f0;\n  --esg-bg:#f8fbff;\n  --esg-shadow:0 10px 28px rgba(2,32,71,.08);\n\n  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Arial,sans-serif;\n  max-width:1200px;\n  width:100%;\n  margin:40px auto;\n}\n\n.esg-faq h2{\n  font-size:28px;\n  font-weight:900;\n  color:var(--esg-ink);\n  margin-bottom:20px;\n}\n\n.esg-faq-item{\n  border:1px solid var(--esg-line);\n  border-radius:16px;\n  margin-bottom:12px;\n  overflow:hidden;\n  background:#fff;\n  box-shadow:var(--esg-shadow);\n}\n\n.esg-faq-item summary{\n  cursor:pointer;\n  padding:18px 20px;\n  font-weight:800;\n  font-size:16px;\n  color:var(--esg-ink);\n  list-style:none;\n  background:linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);\n  position:relative;\n}\n\n.esg-faq-item summary:hover{\n  background:#f3f8ff;\n}\n\n.esg-faq-item summary::-webkit-details-marker{\n  display:none;\n}\n\n.esg-faq-answer{\n  padding:20px;\n  border-top:1px solid var(--esg-line);\n  font-size:15px;\n  line-height:1.6;\n  color:var(--esg-text);\n}\n\n.esg-faq-answer p{\n  margin:0 0 12px;\n}\n\n.esg-faq-answer p:last-child{\n  margin-bottom:0;\n}\n\n.esg-faq-answer ul{\n  padding-left:18px;\n  margin:10px 0 12px;\n}\n\n.esg-faq-answer li{\n  margin-bottom:6px;\n}\n</style>\n\n<h2>Golf Simulator Setup & Safety FAQ</h2>\n\n<details class=\"esg-faq-item\" open>\n  <summary>How far away should I stand from my impact screen?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>For the safety of both the golfer and the screen, we recommend standing a minimum of <strong>10–12 feet away from the screen</strong>.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>How much space do I need for a golf simulator enclosure?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>When planning your golf simulator space, make sure to account for:</p>\n    <ul>\n      <li><strong>Buffer space</strong> – Avoid placing the enclosure directly against walls or ceilings to help prevent bounceback and reduce the chance of damage.</li>\n      <li><strong>Enclosure footprint</strong> – Always verify the exact enclosure dimensions when planning your layout.</li>\n      <li><strong>Safe hitting distance</strong> – Golfers should stand approximately <strong>10–12 feet away from the screen</strong>.</li>\n      <li><strong>Golfer height</strong> – Taller golfers require additional ceiling clearance for a full swing.</li>\n      <li><strong>Club length</strong> – Drivers require more swing space than irons.</li>\n      <li><strong>Turf thickness and obstacles</strong> – Consider HVAC ducts, soffits, lighting fixtures, and flooring height.</li>\n      <li><strong>Room layout</strong> – Ensure there is adequate space for walkways, furniture, and access to doors.</li>\n    </ul>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>Can I iron or steam a golf impact screen?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>We <strong>do NOT recommend ironing your golf screen</strong>, because it is very easy to damage the screen material. Our goal is for your impact screen to last as long as possible.</p>\n\n    <p>When it comes to wrinkles and fold marks, the best solution is prevention. Unpack your new screen immediately after receiving it, and if you need to store it temporarily, fold it very loosely.</p>\n\n    <p>Mounting the screen with proper tension using zip ties or ball bungees and allowing it to relax for a couple of days will smooth out most wrinkles naturally.</p>\n\n    <p><strong>That being said…</strong></p>\n\n    <p>We have also had success using a clothing steamer to remove wrinkles and fold lines. Using a clean consumer-grade steamer with distilled water can help accelerate the process while avoiding water marks on the screen.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>Can I wash my golf screen material?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>For detailed cleaning instructions and best practices, please see our article:</p>\n    <p><strong>“How to Clean Your Golf Impact Screen.”</strong></p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>Are there safety concerns when using a golf simulator?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>We want your indoor golf setup to be fun, help improve your game, and remain safe for everyone.</p>\n\n    <p>Always follow these safety guidelines:</p>\n    <ul>\n      <li>Follow the assembly manual provided with your enclosure.</li>\n      <li>Keep children, pets, and spectators outside of swing range.</li>\n      <li>Protect ceilings, walls, windows, vehicles, and nearby property.</li>\n      <li>Ensure your enclosure and impact screen are properly tensioned.</li>\n      <li>Always use equipment as intended for indoor golf simulator use.</li>\n    </ul>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>What happens if the black enclosure material gets hit by a golf ball?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>The enclosure material is not designed to absorb direct golf ball impacts. During normal use, golf balls should strike the impact screen first.</p>\n    <p>If a ball contacts the screen and then lightly rebounds into the enclosure fabric, it typically will not cause any issues.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>Can I get a replacement impact screen for the enclosure?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>Yes. Replacement impact screens are available if your current screen becomes worn or damaged.</p>\n    <p>Contact our customer support team and we can help match the correct screen size and material for your enclosure.</p>\n    <p>Proper installation and correct tensioning can significantly extend the life of your golf simulator screen.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>How long does it take to assemble the enclosure?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>Most DIY golf simulator enclosures assemble in about <strong>45–90 minutes</strong>, depending on the enclosure size.</p>\n    <p>Installation is typically faster with two people. Assembly instructions and reference materials are included to guide the process.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>What pipes are required to build the enclosure frame?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>DIY golf simulator enclosures require <strong>1-inch EMT (Electrical Metal Tubing)</strong> to construct the frame.</p>\n    <p>You have two options:</p>\n    <ul>\n      <li>Add a <strong>Pipe Framing Kit</strong> so pipes arrive pre-cut to the exact lengths.</li>\n      <li>Purchase EMT conduit from a local hardware or building supply store.</li>\n    </ul>\n    <p>Your enclosure kit will include the exact pipe lengths and quantities required.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>What are EMT pipes?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>EMT stands for <strong>Electrical Metal Tubing</strong>, also known as electrical conduit. These metal pipes are used to construct the frame structure of simulator enclosures.</p>\n    <p><strong>Important:</strong> Do not substitute PVC pipe for EMT. PVC lacks the strength required and will not properly fit EMT fittings.</p>\n  </div>\n</details>\n\n<details class=\"esg-faq-item\">\n  <summary>Do I need to use a golf hitting mat?</summary>\n  <div class=\"esg-faq-answer\">\n    <p>Golf hitting mats provide a cushioned surface for standing and swinging your golf club. They help protect your joints during impact and allow you to tee the ball at the proper height for realistic practice.</p>\n\n    <p>When choosing a hitting mat size, consider the needs of the golfer and the available simulator space.</p>\n\n    <ul>\n      <li><strong>4' × 5'</strong> – Allows most golfers to comfortably swing a driver with their heels near the edge of the mat.</li>\n      <li><strong>5' × 7'</strong> – Provides additional stance room for wider swings.</li>\n      <li><strong>4' × 9'</strong> – Ideal for simulator setups used by both right- and left-handed golfers.</li>\n    </ul>\n\n    <p>Larger mats are also helpful when multiple players will be using the simulator.</p>\n  </div>\n</details>\n\n</div>",
+        "full_width": false,
+        "show_space": false,
+        "boundary_effect": ""
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_rTCbJR": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_rTCbJR"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    },
+    "17724900034ff3e6cf": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_kDe9WT": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_kDe9WT"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_liquid_mTqhVt",
+    "custom_liquid_Gt9C9d",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd",
+    "17724900034ff3e6cf"
+  ]
+}

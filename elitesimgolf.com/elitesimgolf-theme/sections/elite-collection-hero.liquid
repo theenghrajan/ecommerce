@@ -1,0 +1,475 @@
+{{ 'elite-hero-bg.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign raw_desc = collection.description
+  assign background_image = section.settings.background_image
+
+  if section.settings.use_collection_image and collection.image != blank
+    assign background_image = collection.image
+  endif
+%}
+
+<div
+  class="elite-hero-wrap"
+  style="
+    --info-overlay: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --hero-min-h: {{ section.settings.desktop_height }}px;
+    --hero-min-h-mob: {{ section.settings.mobile_height }}px;
+    --accent-color: {{ section.settings.accent_color }};
+  "
+>
+
+  {% if background_image != blank %}
+    <div class="elite-hero-wrap__bg">
+      {{
+        background_image
+        | image_url: width: 2400
+        | image_tag:
+          loading: 'lazy',
+          widths: '750, 1100, 1600, 2000, 2400',
+          sizes: '100vw',
+          alt: collection.title
+      }}
+    </div>
+
+    <div class="elite-hero-wrap__overlay"></div>
+  {% endif %}
+
+  <div class="elite-hero-wrap__content">
+
+    {% if raw_desc != blank %}
+
+      <div class="elite-collection-description">
+        {{ raw_desc }}
+      </div>
+
+    {% else %}
+
+      <div class="elite-hero-wrap__fallback">
+
+        {% if section.settings.fallback_eyebrow != blank %}
+          <p class="elite-hero-wrap__eyebrow">
+            {{ section.settings.fallback_eyebrow }}
+          </p>
+        {% endif %}
+
+        <h1 class="elite-hero-wrap__title">
+          {{ collection.title }}
+        </h1>
+
+        {% if section.settings.fallback_text != blank %}
+          <p class="elite-hero-wrap__text">
+            {{ section.settings.fallback_text }}
+          </p>
+        {% endif %}
+
+{% if section.settings.fallback_text != blank %}
+  <p class="elite-hero-wrap__text">
+    {{ section.settings.fallback_text }}
+  </p>
+{% endif %}
+
+      </div>
+
+    {% endif %}
+
+  </div>
+
+</div>
+
+<style>
+
+  /* =========================================================
+     MAIN HERO
+  ========================================================= */
+
+  .elite-hero-wrap {
+    position: relative;
+    width: 100%;
+    min-height: var(--hero-min-h, 300px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* =========================================================
+     BACKGROUND IMAGE
+  ========================================================= */
+
+  .elite-hero-wrap__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .elite-hero-wrap__bg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .elite-hero-wrap__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(
+      255,
+      255,
+      255,
+      var(--info-overlay, 0.75)
+    );
+  }
+
+  /* =========================================================
+     CONTENT
+  ========================================================= */
+
+  .elite-hero-wrap__content {
+    position: relative;
+    width: 100%;
+  }
+
+  /*
+    IMPORTANT:
+    The collection description is now rendered directly.
+    This prevents Liquid from accidentally removing
+    description content containing HTML/style markup.
+  */
+
+  .elite-collection-description {
+    width: 100%;
+  }
+
+  /* =========================================================
+     FALLBACK
+  ========================================================= */
+
+  .elite-hero-wrap__fallback {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 48px;
+  }
+
+  .elite-hero-wrap__eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-color, #1677d2);
+    margin: 0 0 8px;
+  }
+
+  .elite-hero-wrap__title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #091836;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin: 0 0 16px;
+  }
+
+  .elite-hero-wrap__text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #3a4759;
+    margin: 0;
+    max-width: 760px;
+  }
+
+  /* =========================================================
+     FALLBACK BUTTON
+  ========================================================= */
+
+  .elite-hero-wrap__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 14px 24px;
+    background: #091836;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.2s ease;
+  }
+
+  .elite-hero-wrap__button:hover {
+    background: var(--accent-color, #1677d2);
+    color: #ffffff;
+  }
+
+  /* =========================================================
+     HIDE FILTERS / APP ELEMENTS INSIDE DESCRIPTION
+  ========================================================= */
+
+  .elite-hero-wrap__content select,
+  .elite-hero-wrap__content option,
+  .elite-hero-wrap__content [class*="filter"],
+  .elite-hero-wrap__content [class*="Filter"],
+  .elite-hero-wrap__content [id*="filter"],
+  .elite-hero-wrap__content [id*="Filter"] {
+    display: none !important;
+  }
+
+  /* =========================================================
+     ESG CONTAINERS
+  ========================================================= */
+
+  .elite-hero-wrap .esg-collection-header,
+  .elite-hero-wrap .esg-col-header,
+  .elite-hero-wrap .esg-pkg-header,
+  .elite-hero-wrap [class^="esg-"] {
+    background: transparent !important;
+    border-top: none !important;
+    border-bottom: none !important;
+  }
+
+  /* =========================================================
+     MOBILE
+  ========================================================= */
+
+  @media (max-width: 749px) {
+
+    .elite-hero-wrap {
+      min-height: var(--hero-min-h-mob, 240px);
+    }
+
+    .elite-hero-wrap__fallback {
+      padding: 32px 20px;
+    }
+
+    .elite-hero-wrap__title {
+      font-size: clamp(28px, 8vw, 42px);
+    }
+
+    .elite-hero-wrap__text {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+  }
+  /* =========================================================
+   COLLECTION DESCRIPTION CTA BUTTON
+   Background only — keeps existing size/layout
+========================================================= */
+
+.elite-collection-description a[href*="golf-simulator-enclosures"] {
+  background: #091836 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.elite-collection-description a[href*="golf-simulator-enclosures"]:hover {
+  background: var(--accent-color, #1677D2) !important;
+  color: #ffffff !important;
+}
+/* =========================================================
+   COLLECTION DESCRIPTION HEADINGS
+   Match ESG heading style
+========================================================= */
+
+.elite-collection-description h1,
+.elite-collection-description h2,
+.elite-collection-description h3,
+.elite-collection-description h4,
+.elite-collection-description h5,
+.elite-collection-description h6 {
+  font-family: "Barlow Condensed", sans-serif !important;
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  color: #0A1A3A !important;
+  line-height: 1.02 !important;
+}
+.elite-collection-description h1,
+.elite-collection-description h2,
+.elite-collection-description h3,
+.elite-collection-description h4,
+.elite-collection-description h5,
+.elite-collection-description h6 {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+/* Hide breadcrumb and extra collection header elements */
+.elite-hero-wrap .breadcrumb,
+.elite-hero-wrap [class*="breadcrumb"],
+.elite-hero-wrap [class*="Breadcrumb"],
+.elite-hero-wrap .collection-breadcrumb,
+.elite-hero-wrap [class*="collection-icon"],
+.elite-hero-wrap [class*="Collection-icon"] {
+  display: none !important;
+}
+/* Add background to collection description buttons */
+.elite-collection-description a[class*="button"],
+.elite-collection-description a[class*="btn"],
+.elite-collection-description button,
+.elite-collection-description .button,
+.elite-collection-description .btn {
+  background: #091836 !important;
+  color: #ffffff !important;
+}
+
+/* Keep the same background on hover */
+.elite-collection-description a[class*="button"]:hover,
+.elite-collection-description a[class*="btn"]:hover,
+.elite-collection-description button:hover,
+.elite-collection-description .button:hover,
+.elite-collection-description .btn:hover {
+  background: #091836 !important;
+  color: #ffffff !important;
+}
+/* =========================================================
+   ESG CARD BUTTON — NAVY BACKGROUND
+   ========================================================= */
+
+.elite-collection-description .esg-ch-card a,
+.elite-collection-description .esg-ch-card button,
+.elite-collection-description .esg-ch-card [role="button"],
+.elite-collection-description .esg-ch-card a[class],
+.elite-collection-description .esg-ch-card button[class] {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  color: #ffffff !important;
+}
+
+/* Keep navy background on hover */
+.elite-collection-description .esg-ch-card a:hover,
+.elite-collection-description .esg-ch-card button:hover,
+.elite-collection-description .esg-ch-card [role="button"]:hover {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  color: #ffffff !important;
+}
+/* FINAL ESG BUTTON OVERRIDE */
+.elite-collection-description .esg-ch-compare,
+.elite-collection-description .esg-ch-compare:hover,
+.elite-collection-description .esg-ch-compare:focus {
+  background: #091836 !important;
+  background-color: #091836 !important;
+  border-color: #091836 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.elite-collection-description .esg-ch-compare svg {
+  stroke: #ffffff !important;
+}
+
+/* ESG card text */
+.elite-collection-description .esg-ch-card-title,
+.elite-collection-description .esg-ch-card-text {
+  color: #091836 !important;
+}
+/* Force all collection description text to the Elite navy color */
+.elite-hero-wrap .elite-collection-description,
+.elite-hero-wrap .elite-collection-description *,
+.elite-hero-wrap .elite-collection-description p,
+.elite-hero-wrap .elite-collection-description span,
+.elite-hero-wrap .elite-collection-description strong,
+.elite-hero-wrap .elite-collection-description b,
+.elite-hero-wrap .elite-collection-description h1,
+.elite-hero-wrap .elite-collection-description h2,
+.elite-hero-wrap .elite-collection-description h3,
+.elite-hero-wrap .elite-collection-description h4,
+.elite-hero-wrap .elite-collection-description h5,
+.elite-hero-wrap .elite-collection-description h6,
+.elite-hero-wrap .elite-collection-description li,
+.elite-hero-wrap .elite-collection-description a {
+  color: #091836 !important;
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Elite Collection Info",
+  "settings": [
+    {
+      "type": "text",
+      "id": "fallback_eyebrow",
+      "label": "Eyebrow text",
+      "default": "Elite Sim Golf"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Fallback background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_collection_image",
+      "label": "Use collection image when available",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "White overlay opacity",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "default": 75,
+      "unit": "%"
+    },
+    {
+      "type": "textarea",
+      "id": "fallback_text",
+      "label": "Fallback description",
+      "default": "Explore our premium golf simulator equipment and complete indoor golf solutions."
+    },
+    {
+      "type": "text",
+      "id": "fallback_button_text",
+      "label": "Fallback button text",
+      "default": "Shop collection"
+    },
+    {
+      "type": "url",
+      "id": "fallback_button_link",
+      "label": "Fallback button link"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent colour",
+      "default": "#1677D2"
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Desktop min height",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "default": 300,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile min height",
+      "min": 160,
+      "max": 480,
+      "step": 20,
+      "default": 240,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Elite Collection Info"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,251 @@
+<section
+  id="{{ section.settings.id }}"
+  class="landing"
+>
+  {% style %}
+    #{{section.settings.id}} {
+      padding: {{ section.settings.vp-desktop }}px {{ section.settings.hp-desktop }}px;
+      background-color: {{ section.settings.background_color }};
+      --heading_color: {{ section.settings.heading_color }};
+      --text_color: {{ section.settings.text_color }};
+      --btn_bg: {{ section.settings.btn_bg }};
+      --btn_text: {{ section.settings.btn_text }};
+      background: url({{section.settings.background | image_url: width: 2000}}) no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    {% if section.settings.overlay %}
+    #{{section.settings.id}}::after{
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: {{section.settings.overlay}};
+      opacity: calc({{section.settings.opacity}} * 0.05);
+      content: '';
+    }
+    {% endif %}
+    .sn-faq-wrap{
+        max-width: 800px;
+    }
+    .sn-question-wrap{
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background: {{ section.settings.faq_bg }};
+    }
+    /* .sn-question-wrap:last-child{
+        border: none;
+    } */
+    .sn-question-wrap .content{
+        background: transparent;
+    }
+    .collapse-header{
+        display: flex;
+        gap: 10px;
+    }
+    .collapse-icon{
+        flex-basis: 24px;
+        flex-shrink: 0;
+    }
+    .sn-question-wrap .content ul, .sn-question-wrap .content ol{
+      -webkit-padding-start: 20px;
+      -moz-padding-start: 20px;
+    }
+    @media screen and (max-width: 767px) {
+      #{{section.settings.id}} {
+          padding: {{ section.settings.vp-mobile }}px {{ section.settings.hp-mobile }}px;
+          background-attachment: scroll;
+      }
+    }
+  {% endstyle %}
+
+  {% if section.settings.heading != '' %}
+    <div class="sn-container hcenter text-center">
+      <div class="sn-col-1 sn-heading mb-2">
+        {{ section.settings.text }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="sn-container hcenter">
+    <div class="sn-faq-wrap sn-col-1">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'collapsible' %}
+            <div
+              class="sn-question-wrap {{ block.settings.class }}"
+              {{ block.shopify_attributes }}
+            >
+              <div class="collapsible">
+                <div class="collapse-header">
+                  <span class="collapse-icon">
+                    <img
+                      src="{{ block.settings.icon | image_url: width: 48 }}"
+                      class="sn-img"
+                      width="24px"
+                      height="auto"
+                    >
+                  </span>
+                  <h4>{{ block.settings.question }}</h4>
+                </div>
+              </div>
+              <div class="content">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom: FAQs",
+  "settings": [
+    {
+      "id": "id",
+      "type": "text",
+      "label": "Section ID",
+      "default": "sn-faqs"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "Section heading"
+    },
+    {
+      "type": "header",
+      "content": "Section styles"
+    },
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color"
+    },
+    {
+      "id": "heading_color",
+      "type": "color",
+      "label": "Heading color"
+    },
+    {
+      "id": "text_color",
+      "type": "color",
+      "label": "Text color"
+    },
+    {
+      "id": "btn_bg",
+      "type": "color",
+      "label": "Button background color"
+    },
+    {
+      "id": "btn_text",
+      "type": "color",
+      "label": "Button text color"
+    },
+    {
+      "id": "faq_bg",
+      "type": "color",
+      "label": "Question background"
+    },
+    {
+      "id": "vp-desktop",
+      "type": "range",
+      "label": "Vertical padding (desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-desktop",
+      "type": "range",
+      "label": "Horizontal padding (desktop)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "vp-mobile",
+      "type": "range",
+      "label": "Vertical padding (mobile)",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "id": "hp-mobile",
+      "type": "range",
+      "label": "Horizontal padding (mobile)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "id": "background",
+      "type": "image_picker",
+      "label": "Background image"
+    },
+    {
+      "id": "overlay",
+      "type": "color",
+      "label": "Overlay color"
+    },
+    {
+      "id": "opacity",
+      "type": "range",
+      "step": 1,
+      "min": 0,
+      "max": 20,
+      "default": 10,
+      "label": "Overlay opacity"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Question",
+      "type": "collapsible",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Icon",
+          "id": "icon"
+        },
+        {
+          "type": "inline_richtext",
+          "label": "Question",
+          "id": "question"
+        },
+        {
+          "type": "richtext",
+          "label": "Answer",
+          "id": "answer"
+        },
+        {
+          "type": "text",
+          "label": "CSS class",
+          "id": "class"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom: FAQs"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

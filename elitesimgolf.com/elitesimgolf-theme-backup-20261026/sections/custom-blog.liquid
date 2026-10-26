@@ -1,0 +1,716 @@
+{% comment %}
+  Elite Sim Golf — Custom Blog Section
+  File: sections/custom-blog.liquid
+{% endcomment %}
+
+{%- assign blog_obj = blogs[section.settings.blog] -%}
+{%- assign articles  = blog_obj.articles -%}
+{%- assign art_limit = section.settings.article_limit | default: 6 -%}
+
+<style>
+  .esg-blog *,
+  .esg-blog *::before,
+  .esg-blog *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Shell ── */
+  .esg-blog {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+  }
+
+  .esg-blog__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── Header ── */
+  .esg-blog__header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .esg-blog__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .esg-blog__eyebrow-line {
+    width: 52px; height: 1px;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.6;
+  }
+
+  .esg-blog__eyebrow-text {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-blog__title {
+    font-size: clamp(22px, 3.5vw, 42px);
+    font-weight: 900; font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: {{ section.settings.title_color }};
+    line-height: 1.1;
+  }
+
+  .esg-blog__title em {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-blog__title-bar {
+    width: 56px; height: 3px;
+    background: {{ section.settings.accent_color }};
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+
+  /* ── Slider Wrap ── */
+  .esg-blog__slider-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .esg-blog__track-outer {
+    flex: 1;
+    overflow: hidden;
+    margin: 0 12px;
+  }
+
+  .esg-blog__track {
+    display: flex;
+    transition: transform 0.48s cubic-bezier(0.25,0.46,0.45,0.94);
+    will-change: transform;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  /* ── Card ── */
+  .esg-blog__card {
+    flex: 0 0 calc(33.333% - 20px);
+    margin: 0 10px;
+    background: {{ section.settings.card_bg }};
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid {{ section.settings.card_border }};
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  }
+
+  .esg-blog__card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    transform: translateY(-4px);
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  /* Image */
+  .esg-blog__img-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: {{ section.settings.img_bg }};
+    flex-shrink: 0;
+  }
+
+  .esg-blog__img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+
+  .esg-blog__card:hover .esg-blog__img-wrap img {
+    transform: scale(1.06);
+  }
+
+  /* Accent line on hover */
+  .esg-blog__img-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: {{ section.settings.accent_color }};
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 2;
+  }
+
+  .esg-blog__card:hover .esg-blog__img-wrap::after {
+    transform: scaleX(1);
+  }
+
+  /* Placeholder */
+  .esg-blog__img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+  }
+
+  .esg-blog__img-placeholder svg {
+    width: 48px; height: 48px;
+    color: rgba(255,255,255,0.12);
+  }
+
+  /* Category tag on image */
+  .esg-blog__tag {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+    z-index: 1;
+    line-height: 1;
+  }
+
+  /* Card body */
+  .esg-blog__card-body {
+    padding: 20px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  /* Meta row */
+  .esg-blog__meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: {{ section.settings.muted_color }};
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .esg-blog__meta-dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: {{ section.settings.muted_color }};
+    flex-shrink: 0;
+  }
+
+  /* Article title */
+  .esg-blog__card-title {
+    font-size: 15px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: {{ section.settings.title_color }};
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s;
+  }
+
+  .esg-blog__card:hover .esg-blog__card-title {
+    color: {{ section.settings.accent_color }};
+  }
+
+  /* Excerpt */
+  .esg-blog__excerpt {
+    font-size: 13.5px;
+    color: {{ section.settings.muted_color }};
+    line-height: 1.65;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  /* Read more */
+  .esg-blog__read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    margin-top: 4px;
+    transition: gap 0.2s;
+  }
+
+  .esg-blog__card:hover .esg-blog__read-more { gap: 10px; }
+
+  .esg-blog__read-more svg { width: 13px; height: 13px; }
+
+  /* ── Nav Arrows ── */
+  .esg-blog__arrow {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid {{ section.settings.card_border }};
+    background: {{ section.settings.card_bg }};
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+    color: {{ section.settings.title_color }};
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+
+  .esg-blog__arrow:hover {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+    color: #fff;
+  }
+
+  .esg-blog__arrow svg { width: 18px; height: 18px; }
+
+  /* ── Dots ── */
+  .esg-blog__dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 28px;
+  }
+
+  .esg-blog__dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: {{ section.settings.muted_color }};
+    border: none; cursor: pointer; padding: 0;
+    opacity: 0.4;
+    transition: background 0.2s, transform 0.2s, opacity 0.2s;
+  }
+
+  .esg-blog__dot.is-active {
+    background: {{ section.settings.accent_color }};
+    transform: scale(1.4);
+    opacity: 1;
+  }
+
+  /* ── View All ── */
+  .esg-blog__cta {
+    text-align: center;
+    margin-top: 36px;
+  }
+
+  .esg-blog__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    border: 2px solid {{ section.settings.accent_color }};
+    border-radius: 6px;
+    background: transparent;
+    color: {{ section.settings.accent_color }};
+    font-size: 13px; font-weight: 800;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+    transition: background 0.25s, color 0.25s;
+  }
+
+  .esg-blog__btn:hover {
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+  }
+
+  .esg-blog__btn svg { width: 15px; height: 15px; }
+
+  /* ══ TABLET ══ */
+  @media (max-width: 1024px) {
+    .esg-blog__card { flex: 0 0 calc(50% - 16px); margin: 0 8px; }
+  }
+
+  /* ══ MOBILE ══ */
+  @media (max-width: 640px) {
+    .esg-blog__inner { padding: 0 14px; }
+    .esg-blog__card { flex: 0 0 calc(85% - 16px); margin: 0 8px; }
+    .esg-blog__track-outer { margin: 0 6px; }
+    .esg-blog__card-title { font-size: 13px; }
+    .esg-blog__excerpt { font-size: 12.5px; }
+    .esg-blog__arrow { width: 36px; height: 36px; }
+  }
+</style>
+
+<section class="esg-blog" id="esg-blog-{{ section.id }}">
+  <div class="esg-blog__inner">
+
+    <!-- Header -->
+    {%- if section.settings.show_header -%}
+      <div class="esg-blog__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="esg-blog__eyebrow">
+            <span class="esg-blog__eyebrow-line"></span>
+            <span class="esg-blog__eyebrow-text">{{ section.settings.eyebrow }}</span>
+            <span class="esg-blog__eyebrow-line"></span>
+          </div>
+        {%- endif -%}
+        <h2 class="esg-blog__title">
+          {{ section.settings.title_plain }}
+          {%- if section.settings.title_accent != blank %}
+            <em>{{ section.settings.title_accent }}</em>
+          {%- endif %}
+        </h2>
+        <div class="esg-blog__title-bar"></div>
+      </div>
+    {%- endif -%}
+
+    <!-- Slider -->
+    <div class="esg-blog__slider-wrap">
+
+      <button class="esg-blog__arrow" id="esg-blog-prev-{{ section.id }}" aria-label="Previous">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <div class="esg-blog__track-outer">
+        <div class="esg-blog__track" id="esg-blog-track-{{ section.id }}">
+
+          {%- for article in articles limit: art_limit -%}
+            <a href="{{ article.url }}" class="esg-blog__card">
+
+              <!-- Image -->
+              <div class="esg-blog__img-wrap">
+                {%- if section.settings.show_tag and article.tags.first != blank -%}
+                  <div class="esg-blog__tag">{{ article.tags.first }}</div>
+                {%- endif -%}
+                {%- if article.image -%}
+                  <img src="{{ article.image | image_url: width: 800 }}"
+                       alt="{{ article.image.alt | default: article.title | escape }}"
+                       width="400" loading="lazy">
+                {%- else -%}
+                  <div class="esg-blog__img-placeholder">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <!-- Body -->
+              <div class="esg-blog__card-body">
+                <div class="esg-blog__meta">
+                  <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
+                  {%- if article.author != blank -%}
+                    <span class="esg-blog__meta-dot"></span>
+                    <span>{{ article.author }}</span>
+                  {%- endif -%}
+                </div>
+                <div class="esg-blog__card-title">{{ article.title }}</div>
+                {%- if section.settings.show_excerpt and article.excerpt_or_content != blank -%}
+                  <p class="esg-blog__excerpt">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+                {%- endif -%}
+                <div class="esg-blog__read-more">
+                  {{ section.settings.read_more_text | default: 'Read More' }}
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </div>
+              </div>
+
+            </a>
+          {%- else -%}
+            {%- for i in (1..3) -%}
+              <div class="esg-blog__card">
+                <div class="esg-blog__img-wrap">
+                  <div class="esg-blog__img-placeholder">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0.8">
+                      <rect x="3" y="3" width="18" height="18" rx="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="esg-blog__card-body">
+                  <div class="esg-blog__meta"><span>Select a blog above</span></div>
+                  <div class="esg-blog__card-title">Article Title Will Appear Here</div>
+                  <p class="esg-blog__excerpt">Select your blog in Theme Editor → Section Settings → Blog to display your articles here.</p>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
+
+        </div>
+      </div>
+
+      <button class="esg-blog__arrow" id="esg-blog-next-{{ section.id }}" aria-label="Next">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="esg-blog__dots" id="esg-blog-dots-{{ section.id }}"></div>
+
+    <!-- View All -->
+    {%- if section.settings.show_view_all -%}
+      <div class="esg-blog__cta">
+        <a href="{{ blog_obj.url | default: '/blogs/news' }}" class="esg-blog__btn">
+          {{ section.settings.view_all_text | default: 'View All Posts' }}
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sid    = '{{ section.id }}';
+  var track  = document.getElementById('esg-blog-track-' + sid);
+  var dotsEl = document.getElementById('esg-blog-dots-' + sid);
+  var btnP   = document.getElementById('esg-blog-prev-' + sid);
+  var btnN   = document.getElementById('esg-blog-next-' + sid);
+  if (!track) return;
+
+  var cards   = track.querySelectorAll('.esg-blog__card');
+  var total   = cards.length;
+  var current = 0;
+
+  function perView() {
+    var w = window.innerWidth;
+    if (w <= 640)  return 1;
+    if (w <= 1024) return 2;
+    return 3;
+  }
+
+  function maxIdx() { return Math.max(0, total - perView()); }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    var count = maxIdx() + 1;
+    for (var d = 0; d < count; d++) {
+      var dot = document.createElement('button');
+      dot.className = 'esg-blog__dot';
+      dot.setAttribute('aria-label', 'Page ' + (d + 1));
+      (function(i){ dot.addEventListener('click', function(){ goTo(i); }); })(d);
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIdx()));
+    var offset = 0;
+    var gap = 20;
+    for (var i = 0; i < current; i++) {
+      offset += cards[i].offsetWidth + gap;
+    }
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    var dots = dotsEl.querySelectorAll('.esg-blog__dot');
+    dots.forEach(function(d, i) { d.classList.toggle('is-active', i === current); });
+    btnP.style.opacity = current === 0 ? '0.4' : '1';
+    btnN.style.opacity = current >= maxIdx() ? '0.4' : '1';
+  }
+
+  btnP.addEventListener('click', function() { goTo(current - 1); });
+  btnN.addEventListener('click', function() { goTo(current + 1); });
+
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  });
+
+  window.addEventListener('resize', function() { buildDots(); goTo(Math.min(current, maxIdx())); });
+
+  buildDots();
+  goTo(0);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ESG Blog",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Blog Source"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "article_limit",
+      "label": "Number of articles",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Latest Articles"
+    },
+    {
+      "type": "text",
+      "id": "title_plain",
+      "label": "Title — main part",
+      "default": "Elite Sim Golf"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title — accent color part",
+      "default": "Blog"
+    },
+    {
+      "type": "header",
+      "content": "Card Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show article excerpt",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag",
+      "label": "Show first tag as badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "read_more_text",
+      "label": "Read more link text",
+      "default": "Read More"
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button text",
+      "default": "View All Posts"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#1a1f2e"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title & text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#242936"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card border",
+      "default": "#2e3447"
+    },
+    {
+      "type": "color",
+      "id": "img_bg",
+      "label": "Image placeholder background",
+      "default": "#1a1f2e"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted / meta text color",
+      "default": "#8892a4"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Font family",
+      "default": "Inter"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG Blog"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,231 @@
+{{ 'elite-cta-hover.css' | asset_url | stylesheet_tag }}
+<section
+  class="elite-collection elite-cta-pro"
+  style="
+    --cta-bg: {{ section.settings.background }};
+    --cta-kicker-color: {{ section.settings.kicker_color }};
+    --cta-heading-color: {{ section.settings.heading_color }};
+    --cta-text-color: {{ section.settings.text_color }};
+    --cta-btn-bg: {{ section.settings.button_background }};
+    --cta-heading-size-desktop: {{ section.settings.heading_size_desktop }}px;
+    --cta-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --cta-text-size-desktop: {{ section.settings.text_size_desktop }}px;
+    --cta-text-size-mobile: {{ section.settings.text_size_mobile }}px;
+    --cta-btn-size: {{ section.settings.button_text_size }}px;
+  "
+>
+  <div class="elite-wrap elite-cta-pro__inner">
+
+    <div class="elite-cta-pro__left">
+      {% if section.settings.kicker != blank %}
+        <div class="elite-cta-pro__kicker">{{ section.settings.kicker }}</div>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="elite-cta-pro__heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="elite-cta-pro__text">{{ section.settings.text }}</div>
+      {% endif %}
+    </div>
+
+    <div class="elite-cta-pro__right">
+      {% if section.settings.button_label != blank %}
+        <a
+          class="elite-cta-pro__btn"
+          href="{{ section.settings.button_link | default: '#' }}"
+          style="color:#ffffff !important; -webkit-text-fill-color:#ffffff !important;"
+        >
+          <span style="color:#ffffff !important; -webkit-text-fill-color:#ffffff !important;">{{ section.settings.button_label }}</span>
+          <span class="elite-cta-pro__arrow" style="color:#ffffff !important; -webkit-text-fill-color:#ffffff !important;"> &rarr;</span>
+        </a>
+      {% endif %}
+      <p class="elite-cta-pro__note">No commitment &mdash; just great advice.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+.elite-cta-pro {
+  position: relative;
+  background: var(--cta-bg, #091836);
+  padding: 72px 0;
+  overflow: hidden;
+}
+
+.elite-cta-pro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.elite-cta-pro::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1677d2 0%, #4a9fff 50%, transparent 100%);
+}
+
+.elite-cta-pro__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.elite-cta-pro__left { flex: 1; min-width: 0; }
+
+.elite-cta-pro__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--cta-kicker-color, #4a9fff);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.elite-cta-pro__kicker::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.elite-cta-pro__heading {
+  margin: 0 0 16px;
+  color: var(--cta-heading-color, #ffffff);
+  font-family: Barlow, Arial, sans-serif;
+  font-size: var(--cta-heading-size-desktop, 42px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.elite-cta-pro__text {
+  color: var(--cta-text-color, rgba(255,255,255,0.65));
+  font-size: var(--cta-text-size-desktop, 16px);
+  line-height: 1.6;
+}
+
+.elite-cta-pro__text p {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.elite-cta-pro__right {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.elite-cta-pro__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 18px 36px !important;
+  background: var(--cta-btn-bg, #1677d2) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: var(--cta-btn-size, 12px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border: 1px solid var(--cta-btn-bg, #1677d2) !important;
+  border-radius: 0 !important;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.elite-cta-pro__btn:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+.elite-cta-pro__btn *, .elite-cta-pro__btn:hover * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.elite-cta-pro__arrow {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.elite-cta-pro__btn:hover .elite-cta-pro__arrow {
+  transform: translateX(4px);
+}
+
+.elite-cta-pro__note {
+  margin: 0;
+  color: rgba(255,255,255,0.35);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: right;
+}
+
+@media screen and (max-width: 749px) {
+  .elite-cta-pro { padding: 52px 0; }
+  .elite-cta-pro__inner { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .elite-cta-pro__heading { font-size: var(--cta-heading-size-mobile, 36px) !important; }
+  .elite-cta-pro__text { font-size: var(--cta-text-size-mobile, 15px) !important; }
+  .elite-cta-pro__right { width: 100%; align-items: flex-start; }
+  .elite-cta-pro__btn { width: 100% !important; justify-content: center !important; }
+  .elite-cta-pro__note { text-align: left; }
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Elite collection CTA",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "kicker", "label": "Eyebrow text", "default": "NEED A HAND?" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "LET'S BUILD YOUR IDEAL SETUP." },
+    { "type": "richtext", "id": "text", "label": "Paragraph", "default": "<p>Our simulator specialists will help you find the right fit for your space and budget.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button text", "default": "SPEAK WITH AN EXPERT" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#091836" },
+    { "type": "color", "id": "kicker_color", "label": "Eyebrow color", "default": "#4A9FFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#FFFFFF" },
+    { "type": "color", "id": "text_color", "label": "Paragraph color", "default": "#FFFFFF" },
+    { "type": "color", "id": "button_background", "label": "Button color", "default": "#1677D2" },
+    { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#FFFFFF" },
+    { "type": "header", "content": "Sizes" },
+    { "type": "range", "id": "heading_size_desktop", "label": "Desktop heading size", "min": 24, "max": 80, "step": 2, "default": 42, "unit": "px" },
+    { "type": "range", "id": "heading_size_mobile", "label": "Mobile heading size", "min": 24, "max": 54, "step": 2, "default": 36, "unit": "px" },
+    { "type": "range", "id": "text_size_desktop", "label": "Desktop paragraph size", "min": 12, "max": 24, "step": 1, "default": 16, "unit": "px" },
+    { "type": "range", "id": "text_size_mobile", "label": "Mobile paragraph size", "min": 12, "max": 20, "step": 1, "default": 15, "unit": "px" },
+    { "type": "range", "id": "button_text_size", "label": "Button text size", "min": 10, "max": 20, "step": 1, "default": 12, "unit": "px" }
+  ],
+  "presets": [{ "name": "Elite collection CTA" }]
+}
+{% endschema %}

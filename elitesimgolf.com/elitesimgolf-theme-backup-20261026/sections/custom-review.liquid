@@ -1,0 +1,756 @@
+{% comment %}
+  Elite Sim Golf — Reviews / Testimonials Section
+  File: sections/custom-reviews.liquid
+{% endcomment %}
+
+<style>
+  .esg-reviews *,
+  .esg-reviews *::before,
+  .esg-reviews *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Section Shell ── */
+  .esg-reviews {
+    position: relative;
+    background: {{ section.settings.bg_color }};
+    overflow: hidden;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+  }
+
+  /* Background image */
+  .esg-reviews__bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Dark overlay */
+  .esg-reviews__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(10,22,40,0.97) 0%,
+      rgba(10,22,40,0.85) 50%,
+      rgba(10,22,40,0.92) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .esg-reviews__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* ── Header ── */
+  .esg-reviews__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .esg-reviews__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .esg-reviews__eyebrow-line {
+    width: 40px;
+    height: 1px;
+    background: {{ section.settings.accent_color }};
+  }
+
+  .esg-reviews__eyebrow-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-reviews__title {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    line-height: 1.1;
+  }
+
+  .esg-reviews__title em {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-reviews__diamond {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .esg-reviews__diamond::before,
+  .esg-reviews__diamond::after {
+    content: '';
+    height: 1px;
+    width: 40px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .esg-reviews__diamond-icon {
+    width: 8px;
+    height: 8px;
+    border: 1.5px solid {{ section.settings.accent_color }};
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── Slider Wrapper ── */
+  .esg-reviews__slider-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* Nav Arrows */
+  .esg-reviews__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    color: #ffffff;
+    transition: background 0.2s, border-color 0.2s;
+    z-index: 3;
+  }
+
+  .esg-reviews__arrow:hover {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  .esg-reviews__arrow svg { width: 18px; height: 18px; }
+
+  /* ── Track ── */
+  .esg-reviews__track-outer {
+    flex: 1;
+    overflow: hidden;
+    margin: 0 16px;
+  }
+
+  .esg-reviews__track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* ── Card ── */
+  .esg-reviews__card {
+    flex: 0 0 calc(30% - 12px);
+    margin: 0 6px;
+    background: {{ section.settings.card_bg }};
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 26px 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), border-color 0.3s, box-shadow 0.3s, flex-basis 0.4s, padding 0.4s;
+    position: relative;
+    align-self: center;
+  }
+
+  .esg-reviews__card:hover {
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  /* Active center card — visibly larger */
+  .esg-reviews__card.is-active {
+    flex: 0 0 calc(38% - 12px);
+    background: {{ section.settings.card_active_bg }};
+    border-color: {{ section.settings.accent_color }};
+    box-shadow: 0 20px 56px rgba(0,0,0,0.55);
+    transform: scaleY(1.06);
+    z-index: 2;
+    padding: 32px 28px 26px;
+  }
+
+  /* Quote mark top-right */
+  .esg-reviews__quote-icon {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-size: 52px;
+    line-height: 1;
+    color: {{ section.settings.accent_color }};
+    font-family: Georgia, serif;
+    opacity: 0.5;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Stars */
+  .esg-reviews__stars {
+    display: flex;
+    gap: 3px;
+  }
+
+  .esg-reviews__star {
+    color: {{ section.settings.accent_color }};
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  /* Review text */
+  .esg-reviews__text {
+    font-size: 15px;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  /* Divider inside card */
+  .esg-reviews__card-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+  }
+
+  /* Author row */
+  .esg-reviews__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .esg-reviews__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid {{ section.settings.accent_color }};
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* Placeholder avatar circle */
+  .esg-reviews__avatar-placeholder {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, {{ section.settings.accent_color }}, #1a4a8a);
+    border: 2px solid {{ section.settings.accent_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    flex-shrink: 0;
+  }
+
+  .esg-reviews__author-info { flex: 1; }
+
+  .esg-reviews__author-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .esg-reviews__author-location {
+    font-size: 11px;
+    color: {{ section.settings.accent_color }};
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .esg-reviews__author-location svg {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+  }
+
+  /* ── Dots ── */
+  .esg-reviews__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+
+  .esg-reviews__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .esg-reviews__dot.is-active {
+    background: {{ section.settings.accent_color }};
+    transform: scale(1.3);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .esg-reviews__card,
+    .esg-reviews__card.is-active {
+      flex: 0 0 calc(100% - 12px) !important;
+      transform: none !important;
+      padding: 22px 18px 18px !important;
+    }
+
+    .esg-reviews__arrow {
+      width: 38px;
+      height: 38px;
+    }
+
+    .esg-reviews__track-outer { margin: 0 10px; }
+  }
+
+  @media (max-width: 600px) {
+    .esg-reviews__header { margin-bottom: 32px; }
+    .esg-reviews__card { padding: 22px 18px 18px; }
+    .esg-reviews__text { font-size: 14px; }
+  }
+</style>
+
+{%- assign total_blocks = section.blocks | size -%}
+
+<section class="esg-reviews" id="esg-reviews-{{ section.id }}">
+
+  {%- if section.settings.bg_image != blank -%}
+    <div class="esg-reviews__bg" style="background-image:url('{{ section.settings.bg_image | image_url: width: 1800 }}'); opacity:{{ section.settings.bg_opacity | divided_by: 100.0 }};"></div>
+    <div class="esg-reviews__overlay"></div>
+  {%- endif -%}
+
+  <div class="esg-reviews__inner">
+
+    <!-- Header -->
+    <div class="esg-reviews__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="esg-reviews__eyebrow">
+          <span class="esg-reviews__eyebrow-line"></span>
+          <span class="esg-reviews__eyebrow-text">{{ section.settings.eyebrow }}</span>
+          <span class="esg-reviews__eyebrow-line"></span>
+        </div>
+      {%- endif -%}
+      <h2 class="esg-reviews__title">
+        {{ section.settings.title_plain }}
+        {%- if section.settings.title_accent != blank -%}
+          <em>{{ section.settings.title_accent }}</em>
+        {%- endif -%}
+      </h2>
+      <div class="esg-reviews__diamond">
+        <div class="esg-reviews__diamond-icon"></div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="esg-reviews__slider-wrap">
+
+      <button class="esg-reviews__arrow" id="esg-rev-prev-{{ section.id }}" aria-label="Previous">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="esg-reviews__track-outer">
+        <div class="esg-reviews__track" id="esg-rev-track-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'review' -%}
+              {%- assign initials = block.settings.author_name | split: ' ' | map: 'first' | join: '' | upcase | truncate: 2, '' -%}
+              <div class="esg-reviews__card{% if forloop.index == 2 %} is-active{% endif %}" {{ block.shopify_attributes }}>
+                <span class="esg-reviews__quote-icon">&ldquo;</span>
+
+                <!-- Stars -->
+                <div class="esg-reviews__stars">
+                  {%- assign star_count = block.settings.rating | default: 5 -%}
+                  {%- for i in (1..5) -%}
+                    <span class="esg-reviews__star">{% if i <= star_count %}★{% else %}☆{% endif %}</span>
+                  {%- endfor -%}
+                </div>
+
+                <!-- Text -->
+                <p class="esg-reviews__text">{{ block.settings.review_text }}</p>
+
+                <hr class="esg-reviews__card-divider">
+
+                <!-- Author -->
+                <div class="esg-reviews__author">
+                  {%- if block.settings.author_image != blank -%}
+                    <img class="esg-reviews__avatar"
+                         src="{{ block.settings.author_image | image_url: width: 120 }}"
+                         alt="{{ block.settings.author_name }}"
+                         width="44" height="44" loading="lazy">
+                  {%- else -%}
+                    <div class="esg-reviews__avatar-placeholder">{{ initials }}</div>
+                  {%- endif -%}
+                  <div class="esg-reviews__author-info">
+                    <div class="esg-reviews__author-name">{{ block.settings.author_name }}</div>
+                    {%- if block.settings.author_location != blank -%}
+                      <div class="esg-reviews__author-location">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        {{ block.settings.author_location }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <button class="esg-reviews__arrow" id="esg-rev-next-{{ section.id }}" aria-label="Next">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="esg-reviews__dots" id="esg-rev-dots-{{ section.id }}"></div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var sid     = '{{ section.id }}';
+  var total   = {{ total_blocks }};
+  var track   = document.getElementById('esg-rev-track-' + sid);
+  var dotsEl  = document.getElementById('esg-rev-dots-' + sid);
+  var btnPrev = document.getElementById('esg-rev-prev-' + sid);
+  var btnNext = document.getElementById('esg-rev-next-' + sid);
+  if (!track || total === 0) return;
+
+  var cards      = track.querySelectorAll('.esg-reviews__card');
+  var isMobile   = window.innerWidth <= 900;
+  var perView    = isMobile ? 1 : 3;
+  var current    = isMobile ? 0 : 1; // start on centre card (index 1) on desktop
+  var maxIndex   = Math.max(0, total - perView);
+
+  /* ── Build dots ── */
+  var dotCount = maxIndex + 1;
+  var dots = [];
+  for (var d = 0; d < dotCount; d++) {
+    var dot = document.createElement('button');
+    dot.className = 'esg-reviews__dot';
+    dot.setAttribute('aria-label', 'Go to slide ' + (d + 1));
+    (function(idx){ dot.addEventListener('click', function(){ goTo(idx); }); })(d);
+    dotsEl.appendChild(dot);
+    dots.push(dot);
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex));
+
+    /* active card highlight — must set before measuring */
+    cards.forEach(function(card) { card.classList.remove('is-active'); });
+    var activeIdx = isMobile ? current : current + 1;
+    if (cards[activeIdx]) cards[activeIdx].classList.add('is-active');
+
+    /* dots */
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('is-active', i === current);
+    });
+
+    /* Offset: sum widths of cards before current index */
+    if (!isMobile) {
+      /* On desktop we always show 3; slide by moving first card out */
+      var firstCard = cards[current];
+      var offset = 0;
+      for (var i = 0; i < current; i++) {
+        offset += cards[i].offsetWidth + 12;
+      }
+      track.style.transform = 'translateX(-' + offset + 'px)';
+    } else {
+      var offset = 0;
+      for (var i = 0; i < current; i++) {
+        offset += cards[i].offsetWidth + 12;
+      }
+      track.style.transform = 'translateX(-' + offset + 'px)';
+    }
+  }
+
+  btnPrev.addEventListener('click', function() { goTo(current - 1); });
+  btnNext.addEventListener('click', function() { goTo(current + 1); });
+
+  /* Touch swipe */
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); }
+  });
+
+  /* Auto-play */
+  {%- if section.settings.autoplay -%}
+  var timer = setInterval(function() { goTo(current >= maxIndex ? 0 : current + 1); }, {{ section.settings.autoplay_speed | times: 1000 }});
+  track.addEventListener('touchstart', function() { clearInterval(timer); }, { passive: true });
+  {%- endif -%}
+
+  /* Init — small delay so flex-basis transition renders before we measure */
+  setTimeout(function() { goTo(current); }, 50);
+
+  /* Recalc on resize */
+  window.addEventListener('resize', function() {
+    isMobile = window.innerWidth <= 900;
+    perView  = isMobile ? 1 : 3;
+    maxIndex = Math.max(0, total - perView);
+    current  = Math.min(current, maxIndex);
+    goTo(current);
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ESG Reviews",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#07111e"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image (optional)"
+    },
+    {
+      "type": "range",
+      "id": "bg_opacity",
+      "label": "Image opacity %",
+      "min": 5,
+      "max": 60,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "title_plain",
+      "label": "Title — white part",
+      "default": "What Our"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title — accent color part",
+      "default": "Customers Say"
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "color",
+      "id": "card_active_bg",
+      "label": "Active card background",
+      "default": "#112240"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Font family",
+      "default": "Inter"
+    },
+    {
+      "type": "header",
+      "content": "Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-advance slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Seconds between slides",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "Image is razor sharp. Zero washout even with the garage lights on. Wish I'd bought it sooner!"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author photo (optional)"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author name",
+          "default": "Scott W."
+        },
+        {
+          "type": "text",
+          "id": "author_location",
+          "label": "Author location",
+          "default": "Columbus, OH"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG Reviews",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Image is razor sharp. Zero washout even with the garage lights on. Wish I'd bought it sooner!",
+            "author_name": "Scott W.",
+            "author_location": "Columbus, OH"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Ordered Monday, playing Augusta by Friday. Setup was painless, data is accurate, picture is incredible. Best money I've spent.",
+            "author_name": "Mike T.",
+            "author_location": "Nashville, TN"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Tank of an enclosure. Takes full driver shots, no problem. Fit my garage perfectly. Exactly what was advertised.",
+            "author_name": "Chris B.",
+            "author_location": "Atlanta, GA"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "Customer support was outstanding. Had a question at 9pm and got a response within minutes. Incredible service.",
+            "author_name": "David R.",
+            "author_location": "Austin, TX"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "My whole family uses it now. Kids are learning golf and I'm improving my swing year-round. Worth every penny.",
+            "author_name": "James K.",
+            "author_location": "Denver, CO"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "products": {"type":"elite-collection-products","settings":{"enable_sort":true,"products_per_page":24,"desktop_columns":"4","mobile_columns":"2"}},
+    "value_cards": {"type":"elite-value-cards","blocks":{"card_1":{"type":"card","settings":{"title":"Expert Guidance, Every Step","text":"Our golf experts are here to help you choose the perfect simulator for your space, goals, and budget. We make the process simple from start to swing."}},"card_2":{"type":"card","settings":{"title":"Premium Gear, Honest Prices","text":"We partner with top brands to bring you high-performance golf simulators and accessories at the best possible prices with no hidden fees."}},"card_3":{"type":"card","settings":{"title":"Fast Shipping & Real Support","text":"From order to on the course, we've got you covered. Enjoy quick, reliable shipping and real support from a team that golfers trust."}}},"block_order":["card_1","card_2","card_3"],"settings":{"kicker":"Why choose us","kicker_size":12,"kicker_color":"#1677d2","heading":"Built for your best round","background":"#f4f6f8","heading_color":"#071a3a","heading_size_desktop":54,"heading_size_mobile":40,"space":90,"columns":"3","icon_color":"#1677d2","icon_size":48,"card_title_size":13,"card_title_color":"#071a3a","card_text_size":14,"card_text_color":"#536176"}},
+    "story": {"type":"elite-split-story","disabled":true,"settings":{"image_position":"left","kicker":"Make it yours","heading":"Your space. Your game","text":"<p>Build an indoor golf experience around your room, goals and budget.</p>","button_label":"Talk to an expert","button_link":"","background":"#ffffff","panel_color":"#071a3a","text_color":"#ffffff","kicker_color":"#4a9fff","heading_size_desktop":54,"heading_size_mobile":40,"space":90}},
+    "cta": {"type":"elite-collection-cta","settings":{"kicker":"Need a hand?","heading":"Let's build your ideal setup.","text":"<p>Our simulator specialists will help you find the right fit.</p>","button_label":"Speak with an expert","button_link":"","background":"#091836","kicker_color":"#4a9fff","heading_color":"#ffffff","text_color":"#ffffff","button_background":"#091836","button_text_color":"#ffffff","heading_size_desktop":42,"heading_size_mobile":36,"text_size_desktop":16,"text_size_mobile":15,"button_text_size":12}}
+  },
+  "order":["products","value_cards","story","cta"]
+}

@@ -1,0 +1,21 @@
+As per comments #7 - #11,
+
+For the site: https://www.nuwattlighting.com/
+
+Re: Change to product spec cards
+
+1. Product specifications on the new design product pages
+
+The new spec design (no bullets, rows closer together) is on all new design product pages on the draft theme, as confirmed in comment #10. While re-testing on desktop and mobile, we found that long values such as "5CCT: 2700K/3000K/3500K/4000K/5000K" were running past the spec area, and on mobile the two columns were touching. We have fixed this: long values now wrap inside their column, and there is space between the two columns.
+
+Reference draft product pages:
+https://www.nuwattlighting.com/products/4-inch-120-277v-recessed-lighting-slim-canless-led?preview_theme_id=148630929482
+https://www.nuwattlighting.com/products/4-inch-mr16-led-retrofit-12v-recessed-downlights-wet-rated-5cct-2700k-5000k-600lm-gu5-3-base?preview_theme_id=148630929482
+Reference screenshot (desktop): https://drive.google.com/file/d/1ESpt1qikn_Wjoh7P3b8NpnKfmqV2Tsmy/view?usp=sharing
+Reference screenshot (mobile): https://drive.google.com/file/d/1YNUHWyG5MmTJPlDkJJx5fc8q7u1w_PwT/view?usp=sharing
+
+2. Current design (live site)
+
+As per comment #11, the new spec design stays on the new design only. Nothing has been changed on the live site, and the spec change will go live together with the new design.
+
+Thanks!

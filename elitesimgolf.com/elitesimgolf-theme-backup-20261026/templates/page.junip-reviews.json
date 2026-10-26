@@ -1,0 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "hero_height_desktop": 200,
+        "hero_height_mobile": 150,
+        "enable_bg": false,
+        "boundary_effect": "",
+        "show_contrast_logo": false,
+        "hero_bg_color": "#eeeeee",
+        "hero_bg_gradient": "",
+        "hero_text_color": "#333333",
+        "hero_tint_color": "#000000",
+        "hero_tint_opacity": 20,
+        "hero_tint_text_color": "#ffffff",
+        "show_breadcrumbs": false
+      }
+    },
+    "1759262971024c4545": {
+      "type": "apps",
+      "blocks": {
+        "junip_junip_reviews_MNJjTh": {
+          "type": "shopify://apps/junip/blocks/junip-reviews/dc14f5a8-ed15-41b1-ad08-cfba23f9789b",
+          "settings": {
+            "layout": "grid",
+            "reviewsType": "all",
+            "showSummary": false,
+            "showMediaGallery": false,
+            "reviewsCount": 10,
+            "containerClass": ""
+          }
+        }
+      },
+      "block_order": [
+        "junip_junip_reviews_MNJjTh"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "1759262971024c4545",
+    "main"
+  ]
+}

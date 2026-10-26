@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "custom_liquid_xKjFNp": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG SIMKIT BUILDER PROMO BOX\nTrigger: Product Type contains \"Launch Monitor\" OR Product Tags contain \"launch monitor\"\nPurpose: Upsell the SIMKIT Builder on standalone launch monitor pages.\n{%- endcomment -%}\n\n{%- assign is_launch_monitor = false -%}\n\n{%- comment -%} Check Product Type {%- endcomment -%}\n{%- assign prod_type_downcase = product.type | downcase -%}\n{%- if prod_type_downcase contains 'launch monitor' -%}\n  {%- assign is_launch_monitor = true -%}\n{%- endif -%}\n\n{%- comment -%} Check Product Tags (fallback) {%- endcomment -%}\n{%- unless is_launch_monitor -%}\n  {%- for tag in product.tags -%}\n    {%- assign normalized_tag = tag | strip | downcase -%}\n    {%- if normalized_tag contains 'launch monitor' -%}\n      {%- assign is_launch_monitor = true -%}\n      {%- break -%}\n    {%- endif -%}\n  {%- endfor -%}\n{%- endunless -%}\n\n{%- if is_launch_monitor -%}\n<div class=\"esg-simkit-promo-box\">\n  <div class=\"esg-simkit-promo-box__top\">\n    <div class=\"esg-simkit-promo-box__title\">\n      <span class=\"esg-simkit-promo-box__title-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <path d=\"M22 12h-4l-3 9L9 3l-3 9H2\"></path>\n        </svg>\n      </span>\n      <span>Build Your Dream Simulator</span>\n    </div>\n  </div>\n  <div class=\"esg-simkit-promo-box__text\">\n    Turn this launch monitor into a complete setup. Custom fit your enclosure, impact screen, and mat using the <strong>Elite Sim Golf SIMKIT Builder</strong>.\n  </div>\n  <div class=\"esg-simkit-promo-box__action\">\n    <!-- UPDATE THIS URL TO MATCH YOUR ACTUAL SIMKIT BUILDER PAGE -->\n    <a href=\"/pages/simkit-builder\" class=\"esg-simkit-promo-box__button\">\n      Open SIMKIT Builder\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M5 12h14\"></path>\n        <path d=\"m12 5 7 7-7 7\"></path>\n      </svg>\n    </a>\n  </div>\n</div>\n\n<style>\n  .esg-simkit-promo-box {\n    max-width: 1100px;\n    margin: 12px 0;\n    padding: 14px 16px;\n    border: 1px solid #23923d;\n    border-radius: 12px;\n    background: linear-gradient(180deg, #f7fcf7 0%, #eef8ef 100%);\n    box-shadow:\n      inset 0 1px 0 rgba(255,255,255,.75),\n      0 2px 4px rgba(16,42,67,.04);\n    color: #102a43;\n    line-height: 1.4;\n  }\n  .esg-simkit-promo-box__top {\n    margin-bottom: 6px;\n  }\n  .esg-simkit-promo-box__title {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    font-size: 15px;\n    font-weight: 900;\n    color: #168232;\n    letter-spacing: .2px;\n  }\n  .esg-simkit-promo-box__title-icon {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    width: 18px;\n    height: 18px;\n    color: #168232;\n  }\n  .esg-simkit-promo-box__title-icon svg {\n    width: 18px;\n    height: 18px;\n    display: block;\n  }\n  .esg-simkit-promo-box__text {\n    font-size: 13.5px;\n    color: #243b53;\n    margin-bottom: 12px;\n  }\n  .esg-simkit-promo-box__text strong {\n    font-weight: 800;\n    color: #102a43;\n  }\n  .esg-simkit-promo-box__action {\n    display: flex;\n  }\n  .esg-simkit-promo-box__button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 6px;\n    text-decoration: none;\n    border: 1px solid #168232;\n    border-radius: 999px;\n    padding: 9px 16px;\n    background: #168232;\n    color: #ffffff;\n    font-weight: 800;\n    font-size: 13px;\n    line-height: 1;\n    box-shadow: 0 2px 4px rgba(22, 130, 50, 0.2);\n    transition: all 0.2s ease;\n  }\n  .esg-simkit-promo-box__button:hover {\n    background: #136f2b;\n    border-color: #136f2b;\n    transform: translateY(-1px);\n    box-shadow: 0 4px 6px rgba(22, 130, 50, 0.25);\n    color: #ffffff;\n  }\n  .esg-simkit-promo-box__button svg {\n    width: 14px;\n    height: 14px;\n    transition: transform 0.2s ease;\n  }\n  .esg-simkit-promo-box__button:hover svg {\n    transform: translateX(2px);\n  }\n\n  @media (max-width: 749px) {\n    .esg-simkit-promo-box {\n      padding: 12px;\n      border-radius: 10px;\n    }\n    .esg-simkit-promo-box__title {\n      font-size: 14px;\n    }\n    .esg-simkit-promo-box__text {\n      font-size: 12.5px;\n      margin-bottom: 10px;\n    }\n    .esg-simkit-promo-box__button {\n      width: 100%;\n      padding: 10px 16px;\n      font-size: 13px;\n    }\n  }\n</style>\n{%- endif -%}"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "vendor-text": {
+          "type": "vendor-text",
+          "disabled": true,
+          "settings": {
+            "show_label": true
+          }
+        },
+        "judge_me_reviews_preview_badge_VexfB6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_and_shipping": true,
+            "show_rating": true
+          }
+        },
+        "variant-picker": {
+          "type": "variant-picker",
+          "settings": {
+            "selector_style": "dropdown",
+            "enable_dynamic_availability": true,
+            "enable_size_chart": false,
+            "size_chart_variant": "Size",
+            "size_chart_page": ""
+          }
+        },
+        "divider_wWN9tH": {
+          "type": "divider",
+          "settings": {}
+        },
+        "custom_liquid_pPntfq": {
+          "type": "custom-liquid",
+          "name": "Freedom Sale",
+          "settings": {
+            "custom_liquid": "<!-- FREEDOM 250 SALE — PDP Callout Section -->\n<!-- Elite Sim Golf | June 24 – July 31, 2026 -->\n<!--\n  USAGE: Paste into your product .liquid theme file.\n  Tag products with:\n    FREEDOM                           → required to show callout\n    FREE5 / FREE10 / FREE15 / FREE20  → shows that % off (optional)\n  Date gate is server-side — auto-shows June 24 and auto-hides August 1.\n-->\n\n{% assign f250_now   = 'now'                  | date: '%s' | plus: 0 %}\n{% assign f250_start = '2026-06-24T00:00:00Z' | date: '%s' | plus: 0 %}\n{% assign f250_end   = '2026-08-01T00:00:00Z' | date: '%s' | plus: 0 %}\n\n{% if product.tags contains 'FREEDOM' and f250_now >= f250_start and f250_now < f250_end %}\n\n{% assign f250_pct = '' %}\n{% if product.tags contains 'FREE20' %}{% assign f250_pct = '20' %}\n{% elsif product.tags contains 'FREE15' %}{% assign f250_pct = '15' %}\n{% elsif product.tags contains 'FREE10' %}{% assign f250_pct = '10' %}\n{% elsif product.tags contains 'FREE5'  %}{% assign f250_pct = '5'  %}\n{% endif %}\n\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap\" rel=\"stylesheet\">\n\n<style>\n  .esg-f250-callout *,\n  .esg-f250-callout *::before,\n  .esg-f250-callout *::after {\n    box-sizing: border-box;\n  }\n\n  .esg-f250-callout {\n    background-color: #0A1A3A;\n    font-family: 'Barlow Condensed', sans-serif;\n    position: relative;\n    overflow: hidden;\n  }\n\n  /* Red/white stripe top accent */\n  .esg-f250-callout::before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    height: 4px;\n    background: repeating-linear-gradient(\n      to right,\n      #C8102E 0px,\n      #C8102E 50px,\n      #ffffff 50px,\n      #ffffff 100px\n    );\n    opacity: 0.85;\n  }\n\n  .esg-f250-callout__inner {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 28px 48px;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 32px;\n    flex-wrap: wrap;\n  }\n\n  .esg-f250-callout__left {\n    display: flex;\n    align-items: center;\n    gap: 20px;\n    flex-wrap: wrap;\n  }\n\n  .esg-f250-callout__lockup {\n    display: flex;\n    flex-direction: column;\n    gap: 2px;\n  }\n\n  .esg-f250-callout__eyebrow {\n    font-size: 11px;\n    font-weight: 700;\n    letter-spacing: 0.22em;\n    text-transform: uppercase;\n    color: #C8102E;\n    line-height: 1;\n  }\n\n  .esg-f250-callout__title {\n    font-size: clamp(22px, 3vw, 32px);\n    font-weight: 900;\n    text-transform: uppercase;\n    letter-spacing: -0.01em;\n    color: #ffffff;\n    line-height: 1;\n  }\n\n  .esg-f250-callout__divider {\n    width: 1px;\n    height: 40px;\n    background: rgba(255, 255, 255, 0.15);\n    flex-shrink: 0;\n  }\n\n  .esg-f250-callout__details {\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n  }\n\n  .esg-f250-callout__savings {\n    font-size: 15px;\n    font-weight: 700;\n    color: #ffffff;\n    letter-spacing: 0.04em;\n    text-transform: uppercase;\n  }\n\n  .esg-f250-callout__savings em {\n    color: #C8102E;\n    font-style: normal;\n  }\n\n  .esg-f250-callout__date {\n    font-family: 'Inter', system-ui, sans-serif;\n    font-size: 12px;\n    font-weight: 500;\n    color: rgba(255, 255, 255, 0.55);\n    letter-spacing: 0.03em;\n  }\n\n  .esg-f250-callout__date strong {\n    color: #ffffff;\n    font-family: 'Barlow Condensed', sans-serif;\n    font-size: 15px;\n    font-weight: 800;\n    letter-spacing: 0.12em;\n    background: rgba(255, 255, 255, 0.1);\n    border: 1px solid rgba(255, 255, 255, 0.2);\n    padding: 2px 10px;\n    border-radius: 3px;\n    margin-left: 4px;\n  }\n\n  .esg-f250-callout__ends {\n    font-family: 'Inter', system-ui, sans-serif;\n    font-size: 12px;\n    font-weight: 500;\n    color: rgba(255, 255, 255, 0.38);\n    white-space: nowrap;\n    flex-shrink: 0;\n  }\n\n  @media (max-width: 900px) {\n    .esg-f250-callout__inner {\n      padding: 24px;\n      gap: 20px;\n    }\n\n    .esg-f250-callout__divider {\n      display: none;\n    }\n\n    .esg-f250-callout__ends {\n      display: none;\n    }\n  }\n\n  @media (max-width: 560px) {\n    .esg-f250-callout__left {\n      gap: 12px;\n    }\n  }\n</style>\n\n<div class=\"esg-f250-callout\">\n  <div class=\"esg-f250-callout__inner\">\n\n    <div class=\"esg-f250-callout__left\">\n      <div class=\"esg-f250-callout__lockup\">\n        <div class=\"esg-f250-callout__eyebrow\">Limited-Time Offer</div>\n        <div class=\"esg-f250-callout__title\">Freedom 250 Sale</div>\n      </div>\n      <div class=\"esg-f250-callout__divider\"></div>\n      <div class=\"esg-f250-callout__details\">\n        {% if f250_pct != '' %}\n          <div class=\"esg-f250-callout__savings\">Save <em>{{ f250_pct }}%</em> at checkout</div>\n          <div class=\"esg-f250-callout__date\">Use code<strong>FREE</strong> at checkout &mdash; Sale ends July 31, 2026</div>\n        {% else %}\n          <div class=\"esg-f250-callout__savings\"></div>\n          <div class=\"esg-f250-callout__date\">Use code<strong>FREE</strong> at checkout &mdash; Sale ends July 31, 2026</div>\n        {% endif %}\n      </div>\n    </div>\n\n\n  </div>\n</div>\n\n{% endif %}"
+          }
+        },
+        "custom_liquid_8rcXDe": {
+          "type": "custom-liquid",
+          "name": "VTrack Notice",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nVTRACK MAP PRICING NOTICE\nShows only when product has tag \"vtrack\"\n{%- endcomment -%}\n\n{%- assign product_tags_downcase = product.tags | join: ',' | downcase -%}\n\n{%- if product_tags_downcase contains 'vtrack' -%}\n  <div style=\"\n    margin:12px 0 0;\n    padding:12px 14px;\n    border-radius:14px;\n    border:1px solid rgba(8,110,211,.35);\n    background:linear-gradient(180deg,#ffffff 0%,#f4f9ff 100%);\n    font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;\n    color:#0f172a;\n    display:flex;\n    align-items:flex-start;\n    gap:10px;\n    box-shadow:0 8px 18px rgba(8,110,211,.08);\n    position:relative;\n    overflow:hidden;\n  \">\n\n    <div style=\"\n      position:absolute;\n      inset:0 auto 0 0;\n      width:4px;\n      background:linear-gradient(180deg,#086ed3 0%,#38bdf8 100%);\n    \"></div>\n\n    <div style=\"\n      width:28px;\n      height:28px;\n      border-radius:10px;\n      background:#e7f2ff;\n      display:flex;\n      align-items:center;\n      justify-content:center;\n      font-size:15px;\n      border:1px solid rgba(8,110,211,.20);\n      flex:0 0 auto;\n    \">ℹ️</div>\n\n    <div style=\"line-height:1.35; font-size:13px;\">\n      <div style=\"font-weight:900; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#086ed3; margin-bottom:3px;\">\n        VTrack MAP Pricing Notice\n      </div>\n\n      The <strong>VTrack Launch Monitor</strong> included in this kit is sold at the manufacturer’s\n      <strong>MAP price of $5,000</strong>. Any promotional pricing or discounts applied to this package\n      apply only to <strong>products manufactured by Elite Sim Golf</strong> and do not reduce the price\n      of the VTrack launch monitor itself.\n    </div>\n\n  </div>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_MVemU4": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<!-- Elite Sim Golf Memorial Day Sale Mini PDP Box - Auto Hides After May 31 -->\n<div id=\"esg-memorial-mini-sale\" style=\"max-width:600px;margin:10px 0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;\">\n  <div style=\"background:linear-gradient(135deg,#071a33 0%,#0b2b55 55%,#9f1239 100%);border-radius:12px;padding:11px 12px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.16);border:1px solid rgba(255,255,255,.16);\">\n    \n    <div style=\"display:flex;align-items:center;gap:7px;margin-bottom:8px;\">\n      <span style=\"font-size:15px;color:#fff;\">★</span>\n      <div style=\"font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#dbeafe;line-height:1;\">\n        Memorial Day Sale\n      </div>\n    </div>\n\n    <div style=\"font-size:16px;font-weight:950;line-height:1.15;margin-bottom:8px;\">\n      Save Today on Popular Golf Sim Gear!\n    </div>\n\n    <div style=\"background:#fff;color:#071a33;border-radius:9px;padding:7px 9px;margin-bottom:8px;text-align:center;\">\n      <div style=\"font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;line-height:1;\">\n        Coupon Code\n      </div>\n      <div style=\"font-size:18px;font-weight:950;letter-spacing:.08em;color:#b91c1c;line-height:1.2;margin-top:2px;\">\n        REMEMBER\n      </div>\n    </div>\n\n    <div style=\"font-size:12px;line-height:1.3;color:#f8fafc;\">\n      For the best deal, text\n      <span style=\"font-weight:950;white-space:nowrap;color:#fff;\">865-248-2729</span> for items excluded from Discount Code.\n    </div>\n\n  </div>\n</div>\n\n<script>\n  (function() {\n    var saleBox = document.getElementById('esg-memorial-mini-sale');\n    var hideAfter = new Date('2026-06-01T00:00:00');\n\n    if (saleBox && new Date() >= hideAfter) {\n      saleBox.style.display = 'none';\n    }\n  })();\n</script>"
+          }
+        },
+        "optis_product_options_option_set_9Qq9fq": {
+          "type": "shopify://apps/optis-product-options/blocks/option-set/2c446099-c349-4e73-80cd-49c9770b7807",
+          "settings": {}
+        },
+        "custom_liquid_zRE3Kx": {
+          "type": "custom-liquid",
+          "name": "SimKit Builder",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\nESG SIMKIT BUILDER PROMO BOX\nTrigger: Product Type contains \"Golf Simulator Kit\" (Ignores tags)\nPurpose: Upsell the SIMKIT Builder on simulator package pages.\n{%- endcomment -%}\n\n{%- assign is_golf_simulator_kit = false -%}\n\n{%- comment -%} Check Product Type Only {%- endcomment -%}\n{%- assign prod_type_downcase = product.type | downcase -%}\n{%- if prod_type_downcase contains 'golf simulator kit' -%}\n  {%- assign is_golf_simulator_kit = true -%}\n{%- endif -%}\n\n{%- if is_golf_simulator_kit -%}\n<div class=\"esg-simkit-promo-box\">\n  \n  <div class=\"esg-simkit-promo-box__content\">\n    <div class=\"esg-simkit-promo-box__icon\" aria-hidden=\"true\">\n      <!-- Golf Ball on Tee Icon -->\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <circle cx=\"12\" cy=\"9\" r=\"4\"></circle>\n        <path d=\"M12 13v7\"></path>\n        <path d=\"M8 20h8\"></path>\n      </svg>\n    </div>\n    \n    <div class=\"esg-simkit-promo-box__text-group\">\n      <div class=\"esg-simkit-promo-box__title\">\n        Build Your Dream Home Golf Simulator\n      </div>\n      <div class=\"esg-simkit-promo-box__text\">\n        Not seeing the exact mix of products you're looking for in our simulator packages? Customize your enclosure, projector, hitting mat, and simulator flooring using the <strong>Elite Sim Golf SIMKIT Builder</strong>. Discounts up to 15% off SIMKIT Bundles. <span style=\"opacity: 0.85;\">(Discounts Exclude Launch Monitors)</span>\n      </div>\n    </div>\n  </div>\n\n  <a href=\"/pages/golf-simkit-bundle-builder\" class=\"esg-simkit-promo-box__button\">\n    Open the ELITE SIMKIT Builder\n    <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n      <path d=\"M5 12h14\"></path>\n      <path d=\"m12 5 7 7-7 7\"></path>\n    </svg>\n  </a>\n\n</div>\n\n<style>\n  .esg-simkit-promo-box {\n    max-width: 1100px;\n    margin: 14px 0;\n    padding: 14px 16px;\n    border: 1px solid #e2e8f0; /* Soft, clean border */\n    border-radius: 12px;\n    background: #ffffff; /* Premium white background */\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 16px;\n    flex-wrap: wrap;\n    color: #334155;\n    line-height: 1.4;\n  }\n  .esg-simkit-promo-box__content {\n    display: flex;\n    align-items: flex-start;\n    gap: 12px;\n    flex: 1 1 300px;\n  }\n  .esg-simkit-promo-box__icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 32px;\n    height: 32px;\n    min-width: 32px;\n    border-radius: 8px;\n    background: #eff6ff; /* Soft blue icon background */\n    color: #2563eb; /* Vibrant royal blue icon */\n    flex: 0 0 auto;\n    margin-top: 2px;\n  }\n  .esg-simkit-promo-box__icon svg {\n    width: 18px;\n    height: 18px;\n    display: block;\n  }\n  .esg-simkit-promo-box__text-group {\n    display: flex;\n    flex-direction: column;\n    gap: 4px;\n    min-width: 0;\n  }\n  .esg-simkit-promo-box__title {\n    font-size: 14px;\n    font-weight: 800;\n    color: #0f172a;\n    letter-spacing: .2px;\n  }\n  .esg-simkit-promo-box__text {\n    font-size: 12.5px;\n    color: #475569;\n  }\n  .esg-simkit-promo-box__text strong {\n    font-weight: 700;\n    color: #0f172a;\n  }\n  \n  /* --- UPGRADED BUTTON STYLES --- */\n  .esg-simkit-promo-box__button {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8px;\n    text-decoration: none;\n    border: 1px solid transparent;\n    border-radius: 999px;\n    padding: 12px 28px; /* Taller and significantly wider */\n    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); /* Premium gradient */\n    color: #ffffff;\n    font-weight: 800; /* Bolder text */\n    font-size: 14px; /* Slightly larger text */\n    letter-spacing: .3px;\n    line-height: 1;\n    /* Soft shadow + crisp white inner top-glow for a 3D effect */\n    box-shadow: \n      inset 0 1px 0 rgba(255, 255, 255, 0.25), \n      0 4px 10px rgba(37, 99, 235, 0.25);\n    transition: all 0.25s ease;\n    white-space: nowrap;\n    flex-shrink: 0;\n  }\n  .esg-simkit-promo-box__button:hover {\n    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); /* Darkens on hover */\n    transform: translateY(-2px); /* Lifts up slightly more */\n    box-shadow: \n      inset 0 1px 0 rgba(255, 255, 255, 0.2), \n      0 6px 14px rgba(37, 99, 235, 0.35); /* Shadow expands */\n    color: #ffffff;\n  }\n  .esg-simkit-promo-box__button svg {\n    width: 15px;\n    height: 15px;\n    transition: transform 0.25s ease;\n  }\n  .esg-simkit-promo-box__button:hover svg {\n    transform: translateX(4px); /* Arrow slides over */\n  }\n\n  @media (max-width: 749px) {\n    .esg-simkit-promo-box {\n      padding: 14px;\n      flex-direction: column;\n      align-items: stretch;\n      gap: 16px;\n    }\n    .esg-simkit-promo-box__title {\n      font-size: 13.5px;\n    }\n    .esg-simkit-promo-box__text {\n      font-size: 12.5px;\n    }\n    .esg-simkit-promo-box__button {\n      width: 100%;\n      padding: 14px 20px; /* Keeps it nice and tall on mobile */\n    }\n  }\n</style>\n{%- endif -%}"
+          }
+        },
+        "buy-buttons": {
+          "type": "buy-buttons",
+          "settings": {
+            "show_qty_selector": true,
+            "enable_dynamic_checkout": true,
+            "show_pickup_availability": true,
+            "show_backorder_text": false,
+            "show_gift_card_recipient": false,
+            "show_inventory_notice": "never",
+            "show_inventory_count": "never",
+            "inventory_threshold": 1
+          }
+        },
+        "custom_liquid_tbWYJT": {
+          "type": "custom-liquid",
+          "name": "White Glove Promise",
+          "settings": {
+            "custom_liquid": "<!-- Elite Sim Golf Advantage Grid -->\n<div class=\"esg-trust-grid\">\n  \n  <!-- Item 1: Advantage -->\n  <div class=\"esg-trust-item\">\n    <div class=\"esg-trust-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <circle cx=\"12\" cy=\"8\" r=\"6\"></circle>\n        <path d=\"M15.477 12.89 17 22l-5-3-5 3 1.523-9.11\"></path>\n      </svg>\n    </div>\n    <div class=\"esg-trust-content\">\n      <div class=\"esg-trust-title\">The Elite Sim Golf Advantage</div>\n      <div class=\"esg-trust-desc\">More than just a box on your doorstep — get premium products, expert guidance, and real support.</div>\n    </div>\n  </div>\n\n  <!-- Item 2: White Glove -->\n  <div class=\"esg-trust-item\">\n    <div class=\"esg-trust-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z\"></path>\n      </svg>\n    </div>\n    <div class=\"esg-trust-content\">\n      <div class=\"esg-trust-title\">White Glove Guarantee</div>\n      <div class=\"esg-trust-desc\">We help you through the process with pre-sale guidance, compatibility help, and post-purchase setup support.</div>\n    </div>\n  </div>\n\n  <!-- Item 3: Coordinated Delivery -->\n  <div class=\"esg-trust-item\">\n    <div class=\"esg-trust-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M10 17h4V5H2v12h3\"></path>\n        <path d=\"M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h2\"></path>\n        <circle cx=\"7.5\" cy=\"17.5\" r=\"2.5\"></circle>\n        <circle cx=\"17.5\" cy=\"17.5\" r=\"2.5\"></circle>\n      </svg>\n    </div>\n    <div class=\"esg-trust-content\">\n      <div class=\"esg-trust-title\">Coordinated Shipment</div>\n      <div class=\"esg-trust-desc\">In most cases, your simulator package arrives together instead of in multiple confusing shipments.</div>\n    </div>\n  </div>\n\n  <!-- Item 4: Real Support -->\n  <div class=\"esg-trust-item\">\n    <div class=\"esg-trust-icon\" aria-hidden=\"true\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n        <path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path>\n      </svg>\n    </div>\n    <div class=\"esg-trust-content\">\n      <div class=\"esg-trust-title\">Real Golf Sim Experts</div>\n      <div class=\"esg-trust-desc\">Have questions? Call us to speak with a real human at <strong>866-4-SIM-GOLF</strong>.</div>\n    </div>\n  </div>\n\n</div>\n\n<style>\n  .esg-trust-grid {\n    max-width: 1100px;\n    margin: 16px 0;\n    padding: 16px;\n    border: 1px solid #e2e8f0;\n    border-radius: 12px;\n    background: #ffffff;\n    box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);\n    display: grid;\n    grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */\n    gap: 20px 16px; /* 20px vertical gap, 16px horizontal gap */\n  }\n  .esg-trust-item {\n    display: flex;\n    align-items: flex-start;\n    gap: 12px;\n  }\n  .esg-trust-icon {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    width: 32px;\n    height: 32px;\n    min-width: 32px;\n    border-radius: 8px;\n    background: #eff6ff; /* Soft blue background to match your site */\n    color: #2563eb; /* Vibrant blue icon */\n    flex: 0 0 auto;\n  }\n  .esg-trust-icon svg {\n    width: 18px;\n    height: 18px;\n  }\n  .esg-trust-content {\n    line-height: 1.35;\n    padding-top: 2px; /* Aligns text perfectly with the icon */\n  }\n  .esg-trust-title {\n    font-weight: 800;\n    font-size: 13.5px;\n    color: #0f172a;\n    margin: 0 0 4px 0;\n  }\n  .esg-trust-desc {\n    font-size: 12.5px;\n    color: #475569;\n  }\n  .esg-trust-desc strong {\n    color: #0f172a;\n    font-weight: 700;\n  }\n\n  @media (max-width: 749px) {\n    .esg-trust-grid {\n      grid-template-columns: 1fr; /* Stacks into 1 column on mobile */\n      gap: 16px;\n      padding: 14px;\n    }\n    .esg-trust-title {\n      font-size: 13px;\n    }\n    .esg-trust-desc {\n      font-size: 12px;\n    }\n  }\n</style>"
+          }
+        },
+        "richtext_3t6BjV": {
+          "type": "richtext",
+          "disabled": true,
+          "settings": {
+            "text": "<h6>IN-STOCK ITEMS TYPICALLY SHIP IN 1-2 BUSINESS DAYS</h6>",
+            "icon": "truck",
+            "icon_size": "small",
+            "enable_box": true,
+            "box_color": "#2953b9",
+            "reduce_margin": true
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": true,
+            "icon": "none",
+            "open": true
+          }
+        }
+      },
+      "block_order": [
+        "custom_liquid_xKjFNp",
+        "title",
+        "vendor-text",
+        "judge_me_reviews_preview_badge_VexfB6",
+        "price",
+        "variant-picker",
+        "divider_wWN9tH",
+        "custom_liquid_pPntfq",
+        "custom_liquid_8rcXDe",
+        "custom_liquid_MVemU4",
+        "optis_product_options_option_set_9Qq9fq",
+        "custom_liquid_zRE3Kx",
+        "buy-buttons",
+        "custom_liquid_tbWYJT",
+        "richtext_3t6BjV",
+        "share",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_columns": true,
+        "media_size": "medium",
+        "media_layout": "slider",
+        "media_thumbs": "desktop",
+        "media_ratio": "tallest",
+        "enable_border": false,
+        "enable_zoom": true,
+        "enable_video_looping": true,
+        "description_location": "below",
+        "enable_media_grouping": false,
+        "media_grouping_option": "Color,Colour,Couleur,Farbe"
+      }
+    },
+    "17562984174d6fb64c": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_dqWfny": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1100,
+            "show_shop_reviews": false,
+            "empty_state": "other_products_reviews"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_dqWfny"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You may also like",
+        "layout": "carousel",
+        "card_size": "small",
+        "products_to_show": 8
+      }
+    },
+    "1760406629ebb1a2bd": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17562984174d6fb64c",
+    "related-products",
+    "1760406629ebb1a2bd"
+  ]
+}

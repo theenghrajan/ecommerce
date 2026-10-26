@@ -1,0 +1,424 @@
+{% comment %}
+  Refined Shopify Bundle Builder - Optimized for DsignSense Standards
+  - Requirement: Steps 1-4 required.
+  - Discount Logic: 15% calculation based ONLY on items from Steps 2-6.
+  - UI: Hidden until Steps 1-4 are valid.
+{% endcomment %}
+
+<section id="bundle-builder-{{ section.id }}" class="landing bundle-builder" data-section-id="{{ section.id }}">
+  <div class="bundle-progress-container">
+    <div class="progress-wrap" style="position: relative;">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="bundle-tabs">
+        {% for i in (1..7) %}
+          <div class="bundle-tab {% if forloop.first %}active{% endif %}" data-step="{{ i }}">
+            <span class="step-num">{{ i }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="sn-container bundle-layout-grid">
+    <aside class="bundle-sidebar-footer">
+      <div class="sidebar-sticky-content">
+        <p class="sidebar-label">Your Bundle</p>
+
+        <div class="selected-items-tray-wrapper">
+          <div class="selected-items-tray" id="selected-items-tray">
+            <p class="empty-msg">Select products to build your bundle</p>
+          </div>
+        </div>
+
+        <div class="footer-summary" style="margin-top: 15px;">
+          <div
+            class="total-price-row"
+            style="padding: 5px 0; border-top: 1px solid #f4f4f4; display: flex; justify-content: space-between; align-items: center;"
+          >
+            <span class="label" style="font-size: 14px;">Subtotal:</span>
+            <span class="amount" id="bundle-total-price" style="font-size: 16px;">{{ 0 | money }}</span>
+          </div>
+
+          <div id="discount-wrapper" style="display: none;">
+            <div
+              class="total-price-row discount-row"
+              style="padding: 5px 0; display: flex; justify-content: space-between; align-items: center; color: #2953b9;"
+            >
+              <span class="label" style="font-size: 14px;">Estimated Discount:</span>
+              <span class="amount" id="bundle-estimated-discount" style="font-size: 16px;">-{{ 0 | money }}</span>
+            </div>
+
+            <p style="font-size: 10px; color: #888; margin: 2px 0 12px; font-style: italic; line-height: 1.2;">
+              *Actual discount will be applied on the checkout page.
+            </p>
+          </div>
+
+          <p
+            id="bundle-validation-msg"
+            style="color: #d93025; font-size: 12px; margin-bottom: 10px; font-weight: 600; min-height: 1.2em;"
+          ></p>
+
+          <div class="footer-actions">
+            <button type="button" id="prev-step" class="btn-secondary">Back</button>
+            <button type="button" id="next-step" class="btn-primary btn-call-to-action">Next Step</button>
+            <button
+              type="button"
+              id="bundle-checkout"
+              class="btn-primary btn-call-to-action"
+              style="display:none;"
+              disabled
+            >
+              Checkout Bundle
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="bundle-main-content">
+      {% for i in (1..7) %}
+        {%- assign collection_id = 'collection_' | append: i -%}
+        {%- assign bundle_collection = collections[section.settings[collection_id]] -%}
+
+        <div class="step-content {% if forloop.first %}active{% endif %}" data-step-content="{{ i }}">
+          <h2 class="step-title">{{ bundle_collection.title | default: 'Items' }}</h2>
+
+          <div class="product-grid">
+            {% if bundle_collection != blank and bundle_collection.products.size > 0 %}
+              {% for product in bundle_collection.products limit: 48 %}
+                {%- assign featured_media = product.featured_media | default: product.featured_image -%}
+                {%- assign current_variant = product.selected_or_first_available_variant -%}
+
+                <div
+                  class="product-card"
+                  data-product-id="{{ current_variant.id }}"
+                  data-product-title="{{ product.title | escape }}"
+                  data-price="{{ current_variant.price }}"
+                  data-img="{% if featured_media %}{{ featured_media | image_url: width: 100 }}{% endif %}"
+                  data-step-origin="{{ i }}"
+                >
+                  <div class="card-image-wrap">
+                    {% if featured_media %}
+                      <img
+                        src="{{ featured_media | image_url: width: 400, height: 400, crop: 'center' }}"
+                        alt="{{ product.title | escape }}"
+                        loading="lazy"
+                        width="400"
+                        height="400"
+                      >
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                  </div>
+
+                  <div class="card-info">
+                    <p class="product-title-grid">
+                      <strong>{{ product.title }}</strong>
+                    </p>
+
+                    {% if product.variants.size > 1 %}
+                      <div class="variant-select-wrap">
+                        <label class="variant-label">Select {{ product.options | join: '/' }}:</label>
+                        <select class="variant-selector">
+                          {% for variant in product.variants %}
+                            <option
+                              value="{{ variant.id }}"
+                              data-price="{{ variant.price }}"
+                              data-available="{{ variant.available }}"
+                              {% if variant == current_variant %}
+                                selected
+                              {% endif %}
+                            >
+                              {{ variant.title }} - {{ variant.price | money }}
+                            </option>
+                          {% endfor %}
+                        </select>
+                      </div>
+                    {% endif %}
+
+                    <p class="price-display">{{ current_variant.price | money }}</p>
+                    <button
+                      type="button"
+                      class="add-to-bundle-btn"
+                      {% unless current_variant.available %}
+                        disabled
+                      {% endunless %}
+                    >
+                      {% if current_variant.available %}Select{% else %}Sold Out{% endif %}
+                    </button>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              {% for j in (1..6) %}
+                <div class="product-card placeholder">
+                  <div class="card-image-wrap">
+                    {{ 'product-' | append: j | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>
+                  <div class="card-info">
+                    <p>Product Placeholder</p>
+                    <p class="price-display">{{ 1999 | money }}</p>
+                    <button type="button" class="add-to-bundle-btn" disabled>Select</button>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </main>
+  </div>
+</section>
+
+<style>
+  /* [CSS Styles remain exactly as previously optimized] */
+  .sn-container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+  .bundle-builder { position: relative; padding-bottom: 120px; color: #333; }
+  .bundle-progress-container { position: sticky; top: 0; background: #fff; z-index: 999; padding: 25px 0; border-bottom: 1px solid #eee; margin-bottom: 40px; }
+  .progress-wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .progress-track { position: absolute; top: 50%; left: 0; width: 100%; height: 4px; background: #eee; transform: translateY(-50%); z-index: 1; }
+  .progress-fill { position: absolute; top: 0; left: 0; height: 100%; background: #000; width: 14.28%; transition: width 0.4s ease; }
+  .bundle-tabs { display: flex; justify-content: space-between; position: relative; z-index: 2; }
+  .bundle-tab { flex: 1; text-align: center; }
+  .step-num { display: flex; width: 35px; height: 35px; border-radius: 50%; background: #fff; border: 2px solid #eee; color: #999; align-items: center; justify-content: center; font-weight: bold; margin-inline: auto; font-size: 14px; transition: 0.3s; }
+  .bundle-tab.active .step-num, .bundle-tab.completed .step-num { background: #000; color: #fff; border-color: #000; }
+  .bundle-layout-grid { display: flex; flex-direction: column; gap: 40px; }
+  .bundle-sidebar-footer { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #eee; padding: 20px; z-index: 9; box-shadow: 0 -5px 15px rgba(0,0,0,0.05); }
+  .sidebar-label { display: none; font-weight: bold; text-transform: uppercase; font-size: 13px; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+  .selected-items-tray { display: flex; flex-wrap: wrap; gap: 10px; min-height: 50px; margin-bottom: 10px; }
+  .footer-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .footer-actions button { width: 100%; padding: 16px; font-weight: 600; text-transform: uppercase; border: none; cursor: pointer; border-radius: 4px; font-size: 13px; }
+  .btn-primary.btn-call-to-action { background: #2953b9; color: #fff; }
+  .btn-primary.btn-call-to-action:disabled { background: #ccc; cursor: not-allowed; }
+  .btn-secondary { background: #f4f4f4; color: #333; }
+  .btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  @media (min-width: 1024px) {
+    .bundle-layout-grid { flex-direction: row; align-items: flex-start; }
+    .bundle-main-content { flex: 1; order: 2; }
+    .bundle-sidebar-footer { position: sticky; top: 190px; width: 350px; order: 1; padding: 30px; border: 1px solid #eee; border-radius: 8px; box-shadow: none; height: fit-content; }
+    .sidebar-label { display: block; }
+    .selected-items-tray { flex-direction: column; flex-wrap: nowrap; height: 230px; overflow-y: scroll; padding-right: 5px; align-items: stretch; }
+    .selected-items-tray::-webkit-scrollbar { width: 6px; }
+    .selected-items-tray::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+    .selected-items-tray::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    .selected-items-tray::-webkit-scrollbar-thumb:hover { background: #2953b9; }
+    .footer-actions { grid-template-columns: 1fr; }
+    .bundle-progress-container { top: 84px; z-index: 9;}
+  }
+
+  .step-title { font-size: 28px; margin-bottom: 30px; font-weight: 700; }
+  .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  @media (min-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+  .product-card { background: #fff; border: 1px solid #f0f0f0; padding: 15px; display: flex; flex-direction: column; border-radius: 8px; height: 100%; transition: 0.2s; }
+  .product-card.selected { border: 2px solid #2953b9; background: #fafafa; }
+  .card-image-wrap { background: #f9f9f9; margin-bottom: 12px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 4px; }
+  .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .variant-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; color: #666; }
+  .variant-selector { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; color: #000; background: transparent; margin-bottom: 10px; cursor: pointer; }
+  .price-display { font-weight: bold; margin-bottom: 10px; font-size: 16px; }
+  .add-to-bundle-btn { background: #000; color: #fff; border: none; width: 100%; padding: 12px; cursor: pointer; border-radius: 4px; margin-top: auto; }
+  .add-to-bundle-btn:disabled { background: #ccc; }
+  .step-content { display: none; }
+  .step-content.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .mini-thumb { position: relative; width: 60px; height: 60px; border: 1px solid #eee; border-radius: 4px; flex-shrink: 0; background: #fff; display: flex; align-items: center; justify-content: center;}
+  @media (min-width: 1024px) {
+    .mini-thumb { width: 100%; height: auto; min-height: 70px; display: flex; align-items: center; gap: 12px; padding: 8px; border: none; border-bottom: 1px solid #f4f4f4; justify-content: flex-start; }
+  }
+  .mini-thumb img { width: 100%; height: 100%; object-fit: cover; max-width: 50px; border-radius: 2px; flex-shrink: 0;}
+  .tray-item-title { display: none; font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1; max-width: 160px; }
+  @media (min-width: 1024px) { .tray-item-title { display: block; } }
+  .remove-item { position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; background: #000; color: #fff; border-radius: 50%; font-size: 10px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; line-height: 1; }
+  @media (min-width: 1024px) { .remove-item { position: static; margin-left: auto; width: 22px; height: 22px; } }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('.bundle-builder');
+    const tray = document.getElementById('selected-items-tray');
+    const nextBtn = document.getElementById('next-step');
+    const prevBtn = document.getElementById('prev-step');
+    const checkoutBtn = document.getElementById('bundle-checkout');
+    const validationMsg = document.getElementById('bundle-validation-msg');
+    const discountWrapper = document.getElementById('discount-wrapper');
+    const progressFill = document.getElementById('progress-fill');
+    const totalPriceEl = document.getElementById('bundle-total-price');
+    const discountPriceEl = document.getElementById('bundle-estimated-discount');
+
+    let currentStep = 1;
+    const totalSteps = 7;
+    let bundle = [];
+
+    const formatMoney = (cents) =>
+      new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
+
+    const updateUI = () => {
+      document.querySelectorAll('.bundle-tab').forEach((tab, index) => {
+        tab.classList.toggle('active', index + 1 === currentStep);
+        tab.classList.toggle('completed', index + 1 < currentStep);
+      });
+      document.querySelectorAll('.step-content').forEach((c) => c.classList.remove('active'));
+      document.querySelector(`[data-step-content="${currentStep}"]`).classList.add('active');
+
+      progressFill.style.width = `${(currentStep / totalSteps) * 100}%`;
+      prevBtn.disabled = currentStep === 1;
+
+      const hasItemFromCurrentStep = bundle.some((item) => item.stepOrigin == currentStep);
+      const steps1to4Valid = [1, 2, 3, 4].every((step) => bundle.some((item) => item.stepOrigin == step));
+
+      // Show Discount only if Steps 1-4 are valid
+      discountWrapper.style.display = steps1to4Valid ? 'block' : 'none';
+
+      validationMsg.innerText = '';
+
+      if (currentStep <= 4) {
+        if (!hasItemFromCurrentStep) {
+          nextBtn.disabled = true;
+          validationMsg.innerText = 'Add at least one product to continue.';
+        } else {
+          nextBtn.disabled = false;
+        }
+      } else {
+        nextBtn.disabled = false;
+      }
+
+      if (currentStep === totalSteps) {
+        nextBtn.style.display = 'none';
+        checkoutBtn.style.display = 'inline-block';
+        if (!steps1to4Valid) {
+          checkoutBtn.disabled = true;
+          validationMsg.innerText = 'Products missing from required steps (1-4).';
+        } else {
+          checkoutBtn.disabled = false;
+        }
+      } else {
+        nextBtn.style.display = 'inline-block';
+        checkoutBtn.style.display = 'none';
+      }
+      window.scrollTo({ top: section.offsetTop - 20, behavior: 'smooth' });
+    };
+
+    const renderTray = () => {
+      if (bundle.length === 0) {
+        tray.innerHTML = '<p class="empty-msg">Select products to build your bundle</p>';
+        totalPriceEl.innerText = formatMoney(0);
+        discountPriceEl.innerText = '-' + formatMoney(0);
+      } else {
+        let total = 0;
+        let discountableTotal = 0;
+
+        tray.innerHTML = bundle
+          .map((item, index) => {
+            total += parseInt(item.price);
+
+            // Logic: Only steps 2, 3, 4, 5, 6 contribute to the discount
+            if ([2, 3, 4, 5, 6].includes(parseInt(item.stepOrigin))) {
+              discountableTotal += parseInt(item.price);
+            }
+
+            return `
+            <div class="mini-thumb">
+              <img src="${item.img || ''}" alt="selected">
+              <span class="tray-item-title">${item.title}</span>
+              <button type="button" class="remove-item" data-index="${index}">✕</button>
+            </div>`;
+          })
+          .join('');
+
+        const discountAmount = discountableTotal * 0.15; // 15% Discount
+        totalPriceEl.innerText = formatMoney(total);
+        discountPriceEl.innerText = '-' + formatMoney(discountAmount);
+      }
+      updateUI();
+    };
+
+    section.addEventListener('change', (e) => {
+      if (e.target.classList.contains('variant-selector')) {
+        const card = e.target.closest('.product-card');
+        const opt = e.target.options[e.target.selectedIndex];
+        card.dataset.productId = e.target.value;
+        card.dataset.price = opt.dataset.price;
+        card.querySelector('.price-display').innerText = formatMoney(opt.dataset.price);
+        const btn = card.querySelector('.add-to-bundle-btn');
+        const isAdded = bundle.some((i) => i.id === e.target.value);
+        btn.innerText = isAdded ? 'Added' : opt.dataset.available === 'true' ? 'Select' : 'Sold Out';
+        btn.disabled = opt.dataset.available !== 'true';
+        card.classList.toggle('selected', isAdded);
+      }
+    });
+
+    section.addEventListener('click', (e) => {
+      if (e.target.classList.contains('add-to-bundle-btn')) {
+        const card = e.target.closest('.product-card');
+        const productData = {
+          id: card.dataset.productId,
+          title: card.dataset.productTitle,
+          img: card.dataset.img,
+          price: card.dataset.price,
+          stepOrigin: card.dataset.stepOrigin,
+        };
+
+        if (!bundle.find((i) => i.id === productData.id)) {
+          bundle.push(productData);
+          card.classList.add('selected');
+          e.target.innerText = 'Added';
+          renderTray();
+        }
+      }
+      if (e.target.classList.contains('remove-item')) {
+        const removed = bundle.splice(e.target.dataset.index, 1)[0];
+        document.querySelectorAll(`[data-product-id="${removed.id}"]`).forEach((el) => {
+          el.classList.remove('selected');
+          el.querySelector('.add-to-bundle-btn').innerText = 'Select';
+        });
+        renderTray();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (!nextBtn.disabled && currentStep < totalSteps) {
+        currentStep++;
+        updateUI();
+      }
+    });
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateUI();
+      }
+    });
+
+    checkoutBtn.addEventListener('click', async function () {
+      if (this.disabled) return;
+      this.innerText = 'Processing...';
+      const items = bundle.map((i) => ({ id: parseInt(i.id), quantity: 1 }));
+      await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+      window.location.href = '/checkout';
+    });
+
+    updateUI();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "7-Step Bundle Builder",
+  "settings": [
+    { "type": "collection", "id": "collection_1", "label": "Step 1 Collection" },
+    { "type": "collection", "id": "collection_2", "label": "Step 2 Collection" },
+    { "type": "collection", "id": "collection_3", "label": "Step 3 Collection" },
+    { "type": "collection", "id": "collection_4", "label": "Step 4 Collection" },
+    { "type": "collection", "id": "collection_5", "label": "Step 5 Collection" },
+    { "type": "collection", "id": "collection_6", "label": "Step 6 Collection" },
+    { "type": "collection", "id": "collection_7", "label": "Step 7 Collection" }
+  ],
+  "presets": [{ "name": "7-Step Bundle Builder" }]
+}
+{% endschema %}

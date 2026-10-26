@@ -1,0 +1,665 @@
+{% comment %}
+  Elite Sim Golf — Custom Products Section
+  File: sections/custom-products.liquid
+{% endcomment %}
+
+<style>
+  .esg-prod *,
+  .esg-prod *::before,
+  .esg-prod *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Section Shell ── */
+  .esg-prod {
+    background: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+  }
+
+  .esg-prod__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── Header ── */
+  .esg-prod__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .esg-prod__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .esg-prod__eyebrow-line {
+    width: 52px; height: 1px;
+    background: {{ section.settings.accent_color }};
+    opacity: 0.6;
+  }
+
+  .esg-prod__eyebrow-text {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-prod__title {
+    font-size: clamp(24px, 3.5vw, 44px);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: {{ section.settings.title_color }};
+    line-height: 1.1;
+  }
+
+  .esg-prod__title em {
+    font-style: normal;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-prod__title-bar {
+    width: 56px; height: 3px;
+    background: {{ section.settings.accent_color }};
+    border-radius: 2px;
+    margin: 14px auto 0;
+  }
+
+  /* ── Slider Wrapper ── */
+  .esg-prod__slider-wrap {
+    position: relative;
+  }
+
+  .esg-prod__track-outer {
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .esg-prod__track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    gap: 0;
+  }
+
+  /* ── Product Card ── */
+  .esg-prod__card {
+    flex: 0 0 calc(20% - 16px);
+    margin: 0 8px;
+    background: {{ section.settings.card_bg }};
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid {{ section.settings.card_border }};
+    transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .esg-prod__card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    transform: translateY(-3px);
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  /* Image area */
+  .esg-prod__img-wrap {
+    position: relative;
+    background: {{ section.settings.img_bg }};
+    padding: 20px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .esg-prod__img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+  }
+
+  .esg-prod__card:hover .esg-prod__img-wrap img {
+    transform: scale(1.05);
+  }
+
+  /* Badge */
+  .esg-prod__badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    line-height: 1;
+  }
+
+  /* Card body */
+  .esg-prod__card-body {
+    padding: 16px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+  }
+
+  .esg-prod__vendor {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+  }
+
+  .esg-prod__card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: {{ section.settings.title_color }};
+    line-height: 1.4;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Price row */
+  .esg-prod__price-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .esg-prod__price {
+    font-size: 16px;
+    font-weight: 800;
+    color: {{ section.settings.title_color }};
+  }
+
+  .esg-prod__price-compare {
+    font-size: 13px;
+    color: {{ section.settings.muted_color }};
+    text-decoration: line-through;
+  }
+
+  .esg-prod__discount {
+    background: #e53e3e;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Nav Arrows ── */
+  .esg-prod__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid {{ section.settings.card_border }};
+    background: {{ section.settings.card_bg }};
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    color: {{ section.settings.title_color }};
+    z-index: 3;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+
+  .esg-prod__arrow:hover {
+    background: {{ section.settings.accent_color }};
+    border-color: {{ section.settings.accent_color }};
+    color: #fff;
+  }
+
+  .esg-prod__arrow svg { width: 18px; height: 18px; }
+
+  .esg-prod__arrow--prev { left: -20px; }
+  .esg-prod__arrow--next { right: -20px; }
+
+  /* ── Dots ── */
+  .esg-prod__dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 28px;
+  }
+
+  .esg-prod__dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: {{ section.settings.muted_color }};
+    border: none; cursor: pointer; padding: 0;
+    transition: background 0.2s, transform 0.2s;
+    opacity: 0.4;
+  }
+
+  .esg-prod__dot.is-active {
+    background: {{ section.settings.accent_color }};
+    transform: scale(1.4);
+    opacity: 1;
+  }
+
+  /* ── View All Button ── */
+  .esg-prod__cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .esg-prod__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    border: 2px solid {{ section.settings.accent_color }};
+    border-radius: 6px;
+    background: transparent;
+    color: {{ section.settings.accent_color }};
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: {{ section.settings.body_font }}, system-ui, sans-serif;
+    transition: background 0.25s, color 0.25s;
+    cursor: pointer;
+  }
+
+  .esg-prod__btn:hover {
+    background: {{ section.settings.accent_color }};
+    color: #fff;
+  }
+
+  .esg-prod__btn svg { width: 16px; height: 16px; }
+
+  /* ══ TABLET ══ */
+  @media (max-width: 1024px) {
+    .esg-prod__card { flex: 0 0 calc(25% - 16px); }
+    .esg-prod__arrow--prev { left: -14px; }
+    .esg-prod__arrow--next { right: -14px; }
+  }
+
+  @media (max-width: 768px) {
+    .esg-prod__inner { padding: 0 16px; }
+    .esg-prod__card { flex: 0 0 calc(50% - 12px); margin: 0 6px; }
+    .esg-prod__arrow { width: 36px; height: 36px; }
+    .esg-prod__arrow--prev { left: -4px; }
+    .esg-prod__arrow--next { right: -4px; }
+    .esg-prod__card-title { font-size: 13px; }
+    .esg-prod__price { font-size: 15px; }
+  }
+
+  @media (max-width: 480px) {
+    .esg-prod__card { flex: 0 0 calc(75% - 12px); }
+  }
+</style>
+
+{%- assign per_view_desktop = 5 -%}
+{%- assign collection = collections[section.settings.collection] -%}
+{%- assign products = collection.products -%}
+{%- assign product_limit = section.settings.product_limit | default: 10 -%}
+
+<section class="esg-prod" id="esg-prod-{{ section.id }}">
+  <div class="esg-prod__inner">
+
+    <!-- Header -->
+    <div class="esg-prod__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="esg-prod__eyebrow">
+          <span class="esg-prod__eyebrow-line"></span>
+          <span class="esg-prod__eyebrow-text">{{ section.settings.eyebrow }}</span>
+          <span class="esg-prod__eyebrow-line"></span>
+        </div>
+      {%- endif -%}
+      <h2 class="esg-prod__title">
+        {{ section.settings.title_plain }}
+        {%- if section.settings.title_accent != blank %}
+          <em>{{ section.settings.title_accent }}</em>
+        {%- endif %}
+      </h2>
+      {%- if section.settings.show_title_bar -%}
+        <div class="esg-prod__title-bar"></div>
+      {%- endif -%}
+    </div>
+
+    <!-- Slider -->
+    <div class="esg-prod__slider-wrap">
+
+      <button class="esg-prod__arrow esg-prod__arrow--prev" id="esg-prod-prev-{{ section.id }}" aria-label="Previous">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="esg-prod__track-outer">
+        <div class="esg-prod__track" id="esg-prod-track-{{ section.id }}">
+          {%- for product in products limit: product_limit -%}
+            {%- assign savings = product.compare_at_price | minus: product.price -%}
+            {%- assign discount_pct = savings | times: 100 | divided_by: product.compare_at_price -%}
+            <a href="{{ product.url }}" class="esg-prod__card">
+              <div class="esg-prod__img-wrap">
+                {%- if product.featured_image -%}
+                  <img src="{{ product.featured_image | image_url: width: 600 }}"
+                       alt="{{ product.featured_image.alt | escape }}"
+                       width="300" height="300" loading="lazy">
+                {%- endif -%}
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="esg-prod__badge">{{ discount_pct }}%</span>
+                {%- elsif section.settings.badge_text != blank -%}
+                  <span class="esg-prod__badge">{{ section.settings.badge_text }}</span>
+                {%- endif -%}
+              </div>
+              <div class="esg-prod__card-body">
+                {%- if product.vendor != blank -%}
+                  <div class="esg-prod__vendor">{{ product.vendor }}</div>
+                {%- endif -%}
+                <div class="esg-prod__card-title">{{ product.title }}</div>
+                <div class="esg-prod__price-row">
+                  <span class="esg-prod__price">{{ product.price | money }}</span>
+                  {%- if product.compare_at_price > product.price -%}
+                    <span class="esg-prod__price-compare">{{ product.compare_at_price | money }}</span>
+                    <span class="esg-prod__discount">{{ discount_pct }}%</span>
+                  {%- endif -%}
+                </div>
+              </div>
+            </a>
+          {%- else -%}
+            {%- comment -%} No collection selected — show placeholder cards {%- endcomment -%}
+            {%- for i in (1..5) -%}
+              <div class="esg-prod__card">
+                <div class="esg-prod__img-wrap" style="min-height:200px;">
+                  <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="{{ section.settings.muted_color }}" stroke-width="1" opacity="0.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                </div>
+                <div class="esg-prod__card-body">
+                  <div class="esg-prod__vendor">Brand Name</div>
+                  <div class="esg-prod__card-title">Product Title — Select a collection above</div>
+                  <div class="esg-prod__price-row">
+                    <span class="esg-prod__price">$0.00</span>
+                  </div>
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <button class="esg-prod__arrow esg-prod__arrow--next" id="esg-prod-next-{{ section.id }}" aria-label="Next">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Dots -->
+    <div class="esg-prod__dots" id="esg-prod-dots-{{ section.id }}"></div>
+
+    <!-- View All CTA -->
+    {%- if section.settings.show_view_all -%}
+      <div class="esg-prod__cta">
+        <a href="{{ section.settings.view_all_url | default: collection.url | default: '/collections/all' }}"
+           class="esg-prod__btn">
+          {{ section.settings.view_all_text | default: 'View All' }}
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sid      = '{{ section.id }}';
+  var track    = document.getElementById('esg-prod-track-' + sid);
+  var dotsEl   = document.getElementById('esg-prod-dots-' + sid);
+  var btnPrev  = document.getElementById('esg-prod-prev-' + sid);
+  var btnNext  = document.getElementById('esg-prod-next-' + sid);
+  if (!track) return;
+
+  var cards    = track.querySelectorAll('.esg-prod__card');
+  var total    = cards.length;
+  var current  = 0;
+
+  function perView() {
+    var w = window.innerWidth;
+    if (w <= 480) return 1;
+    if (w <= 768) return 2;
+    if (w <= 1024) return 4;
+    return 5;
+  }
+
+  function maxIndex() {
+    return Math.max(0, total - perView());
+  }
+
+  /* Build dots */
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    var count = maxIndex() + 1;
+    for (var d = 0; d < count; d++) {
+      var dot = document.createElement('button');
+      dot.className = 'esg-prod__dot';
+      dot.setAttribute('aria-label', 'Slide ' + (d + 1));
+      (function(i){ dot.addEventListener('click', function(){ goTo(i); }); })(d);
+      dotsEl.appendChild(dot);
+    }
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex()));
+    var offset = 0;
+    for (var i = 0; i < current; i++) {
+      offset += cards[i].offsetWidth + 16;
+    }
+    track.style.transform = 'translateX(-' + offset + 'px)';
+    var dots = dotsEl.querySelectorAll('.esg-prod__dot');
+    dots.forEach(function(d, i) { d.classList.toggle('is-active', i === current); });
+    btnPrev.style.opacity = current === 0 ? '0.35' : '1';
+    btnNext.style.opacity = current >= maxIndex() ? '0.35' : '1';
+  }
+
+  btnPrev.addEventListener('click', function() { goTo(current - 1); });
+  btnNext.addEventListener('click', function() { goTo(current + 1); });
+
+  /* Touch swipe */
+  var startX = 0;
+  track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  });
+
+  window.addEventListener('resize', function() { buildDots(); goTo(Math.min(current, maxIndex())); });
+
+  buildDots();
+  goTo(0);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "ESG Products",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Collection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection to display"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Max products to show",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "text",
+      "id": "title_plain",
+      "label": "Title — main part",
+      "default": "Golf Simulator"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Title — accent color part",
+      "default": "Packages"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title_bar",
+      "label": "Show underline bar",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text when no discount e.g. NEW (optional)"
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button text",
+      "default": "View All"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "Button URL (leave blank to use collection URL)"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#f7f8fa"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title & text color",
+      "default": "#0d1b2a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2d7dd2"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card border",
+      "default": "#e8eaed"
+    },
+    {
+      "type": "color",
+      "id": "img_bg",
+      "label": "Image area background",
+      "default": "#f0f2f5"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted / compare price color",
+      "default": "#9aa3b0"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "body_font",
+      "label": "Font family",
+      "default": "Inter"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "ESG Products"
+    }
+  ]
+}
+{% endschema %}
