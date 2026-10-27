@@ -1,0 +1,94 @@
+{% comment %}
+  Design-driven card (task #151, AC comments #54/#55): image, title + subtitle, intro,
+  then each list item as a row with a yellow bullet, linked title, short description
+  and an arrow. Built from the block's existing rich text so the copy and links stay
+  editable in the theme editor exactly as before:
+    <h2>NuWatt <a>Residential Lighting</a> – Where Design Meets Function</h2>
+    <p>intro</p>
+    <ul><li><a>High End Recessed Lights</a> - description</li>...</ul>
+
+  Accepts:
+    - block: the rich-text "text" block (settings.text, settings.card_image)
+{% endcomment %}
+
+{%- liquid
+  assign html = block.settings.text
+  assign ul_parts = html | split: '<ul>'
+  assign head = ul_parts[0]
+  assign list_html = ''
+  if ul_parts.size > 1
+    assign list_html = ul_parts[1] | split: '</ul>' | first
+  endif
+
+  assign h2_parts = head | split: '</h2>'
+  assign h2_inner = h2_parts[0] | remove_first: '<h2>'
+  assign intro = head | remove_first: h2_parts[0] | remove_first: '</h2>'
+
+  assign title = h2_inner
+  assign sub = ''
+  if h2_inner contains '</a>'
+    assign title = h2_inner | split: '</a>' | first | append: '</a>'
+    assign sub = h2_inner | remove_first: title | strip
+    assign first_char = sub | slice: 0
+    if first_char == '-' or first_char == '–'
+      assign sub = sub | slice: 1, 500 | strip
+    endif
+  endif
+-%}
+
+<div class="dd-card">
+  <div class="dd-card__head">
+    {%- if block.settings.card_image != blank -%}
+      <div class="dd-card__media">
+        {{ block.settings.card_image | image_url: width: 900 | image_tag:
+          widths: '300, 450, 600, 900',
+          sizes: '(min-width: 990px) 240px, calc(100vw - 74px)',
+          loading: 'lazy',
+          alt: block.settings.card_image.alt
+        }}
+      </div>
+    {%- endif -%}
+    <div class="dd-card__intro rte">
+      <h2 class="dd-card__title">
+        {{- title -}}
+        {%- if sub != blank -%}
+          <span class="visually-hidden"> – </span><span class="dd-card__sub">{{ sub }}</span>
+        {%- endif -%}
+      </h2>
+      {{ intro }}
+    </div>
+  </div>
+
+  {%- if list_html != blank -%}
+    <ul class="dd-card__list">
+      {%- assign items = list_html | split: '<li>' -%}
+      {%- for raw in items -%}
+        {%- assign item = raw | remove: '</li>' | remove: '<br/>' | remove: '<br>' | strip -%}
+        {%- if item == blank -%}{%- continue -%}{%- endif -%}
+        {%- liquid
+          if item contains '</a>'
+            assign link = item | split: '</a>' | first | append: '</a>'
+            assign desc = item | remove_first: link | strip
+          else
+            assign link = item
+            assign desc = ''
+          endif
+          assign first_char = desc | slice: 0
+          if first_char == '-' or first_char == '–'
+            assign desc = desc | slice: 1, 1000 | strip
+          endif
+        -%}
+        <li class="dd-card__item">
+          <span class="dd-card__dot" aria-hidden="true"></span>
+          <div class="dd-card__text">
+            {{ link }}
+            {%- if desc != blank -%}<p class="dd-card__desc">{{ desc }}</p>{%- endif -%}
+          </div>
+          <span class="dd-card__arrow" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3.5 10h12.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>

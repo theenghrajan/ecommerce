@@ -252,6 +252,27 @@
         "collection_h2": "About our Sloped Ceiling Can Lights Collection",
         "collection_seo_description": "Adjustable recessed lighting provides the flexibility to direct light exactly where it’s needed. These fixtures are perfect for angled ceilings or spaces with unique architectural features. Sloped ceiling can lights ensure even, customizable illumination."
       }
+    },
+    "ss_adjustable_guide": {
+      "type": "advanced-content",
+      "blocks": {
+        "ss_adjustable_guide_html": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2>How to Choose a Fixture for Your Ceiling Pitch</h2>\n<p>The pitch of the ceiling decides how far the light has to tilt to point straight down. A gentle 3/12 pitch sits at roughly 14 degrees. A 6/12 pitch is close to 27 degrees, and a steep 12/12 cathedral ceiling is 45 degrees. A fixed downlight on a 6/12 ceiling throws its beam at the wall instead of the floor, which leaves one side of the room bright and the other side dim.</p>\n<p>Match the tilt range on the spec sheet to the pitch you are working with. Our retrofit gimbal downlights and the 3 inch and 6 inch wafer gimbals tilt up to 30 degrees, which covers most residential slopes up to about 6/12 or 7/12. For anything steeper, aim the fixtures as far as they will go and use more of them, set closer together, so the pools of light overlap. On a flat ceiling, the same tilt lets you swing the beam onto a wall, a fireplace or a piece of art.</p>\n<h2>Canless Gimbal vs Retrofit Gimbal</h2>\n<p>Both types aim light the same way. The difference is what is already in your ceiling.</p>\n<p><strong>Retrofit gimbal:</strong> Made for existing cans. The <a href=\"/products/4-inch-adjustable-can-lights-sloped-ceiling-recessed-lighting-damp-rated-5cct-2700k-5000k-750lm\">4 inch</a> and <a href=\"/products/5-6-inch-adjustable-can-lights-sloped-ceiling-recessed-lighting-damp-rated-5cct-2700k-5000k-1200lm\">5/6 inch adjustable retrofit downlights</a> screw into the old socket with an E26 adapter and clip into the housing. No new hole, no new wiring, and the swap takes a few minutes per light.</p>\n<p><strong>Canless gimbal:</strong> Made for ceilings without cans. A slim wafer light connects to its own junction box and clips into a round cutout, so it suits new construction, remodels and shallow spaces under joists where a full can will not fit. Our 4 inch and 6 inch canless gimbals are airtight, and several are wet rated for covered outdoor ceilings and showers.</p>\n<p>If the old cans are in good shape and sit where you want light, retrofit is the faster path. If you are opening the ceiling anyway, or the cans are in the wrong spots, go canless.</p>\n<h2>Choosing a Beam Angle for Accent Lighting</h2>\n<p>Tilt aims the light. Beam angle decides how wide it spreads once it lands. A narrow beam builds a bright, defined spot on a painting or a stone column. A wider beam softens the edges and covers more wall.</p>\n<p>The standard 4 inch canless gimbal and the 2 inch trimless both use a 38 degree beam, a good middle ground for washing a feature wall or lighting a kitchen island from a sloped ceiling. For a wider spread, the <a href=\"/products/4-inch-gimbal-recessed-light-for-sloped-ceiling-canless-led-lighting-60-degree-beam-angle-wet-rated-5cct-2700k-5000k-750lm\">4 inch gimbal canless light with a 60 degree beam</a> covers more floor per fixture, and the 6 inch airtight gimbal comes in 38 or 60 degrees. Our multi-head square gimbals ship with a 20 degree beam for tight accent work, with 38 and 60 degrees available on request. As a rule of thumb, aim accent lights at about 30 degrees from vertical so the beam reaches the object without bouncing glare into anyone's eyes.</p>\n<h2>What Size Adjustable Recessed Light Do You Need?</h2>\n<p>Size follows the room and the job the light has to do:</p>\n<ul>\n<li><strong>2 inch:</strong> The <a href=\"/products/2-inch-white-gimbal-trimless-recessed-lighting-8w-600-lumens-120v\">2 inch trimless gimbal</a> is a small, low-profile accent light for shelving, niches and art, at 600 lumens.</li>\n<li><strong>3 inch:</strong> 600 lumens in a compact trim. Good for hallways, bathrooms, task lighting over counters and tight spacing on a slope.</li>\n<li><strong>4 inch:</strong> 750 to 840 lumens. The most common pick for living rooms and kitchens, and the size of our double head and triple head gimbals, which put 2,000 or 3,000 lumens through one cutout.</li>\n<li><strong>6 inch:</strong> 1,050 to 1,500 lumens for general lighting in large rooms, high vaulted ceilings and garages.</li>\n</ul>\n<p>For retrofit, measure the inside diameter of your existing can and buy the matching size. For canless, check the cutout size on the product page before you cut.</p>\n<h2>Tilt Angles by Fixture</h2>\n<p>These figures come from each product's specification sheet:</p>\n<style>\n.ss-tilt-table{background:none;border-collapse:collapse;border:1px solid #e2e8f0;min-width:560px}\n.ss-tilt-table th,.ss-tilt-table td{border:1px solid #e2e8f0;padding:.5rem .875rem;line-height:1.4;background:#fff;color:#334155}\n.ss-tilt-table th{background:#f1f5f9;font-weight:600}\n</style>\n<div class=\"table-wrapper\">\n<table class=\"ss-tilt-table\">\n<thead><tr><th>Fixture</th><th>Installation</th><th>Tilt</th><th>Rotation</th></tr></thead>\n<tbody>\n<tr><td>4 inch Adjustable Retrofit LED Downlight</td><td>Retrofit (E26)</td><td>30 degrees each side (60 degrees total)</td><td>360 degrees</td></tr>\n<tr><td>5/6 inch Adjustable Retrofit LED Downlight</td><td>Retrofit (E26)</td><td>30 degrees each side (60 degrees total)</td><td>Not listed</td></tr>\n<tr><td>3 inch Round Gimbal Canless LED Light</td><td>Canless</td><td>Up to 30 degrees</td><td>360 degrees</td></tr>\n<tr><td>6 inch Wafer Gimbal Canless LED Light</td><td>Canless</td><td>30 degrees</td><td>360 degrees</td></tr>\n<tr><td>4 inch Square Gimbal Triple Head Trimless</td><td>Trimless</td><td>35 degrees</td><td>360 degrees</td></tr>\n</tbody>\n</table>\n</div>",
+            "width": "100%",
+            "alignment": "top-middle"
+          }
+        }
+      },
+      "block_order": [
+        "ss_adjustable_guide_html"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
     }
   },
   "order": [
@@ -260,6 +281,7 @@
     "custom_expandable_discription_BXPz99",
     "main-collection",
     "jump_to_QTaQzj",
+    "ss_adjustable_guide",
     "collection_metafield_faq_DFNfgQ",
     "recently-viewed",
     "expandable_description_jxgHiP"

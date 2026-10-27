@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "collection_description_fullwidth": true,
+        "overlay_opacity": 90,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "desktop_product_columns": "4",
+        "enable_filtering": false,
+        "enable_sorting": true,
+        "show_vendor": false,
+        "show_stock": true,
+        "show_rating": false,
+        "side_menu_title": "Collections",
+        "side_menu": ""
+      }
+    },
+    "a5d4d239-3ba7-40d5-9025-b2588ad81776": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16363247861982__a5d4d239-3ba7-40d5-9025-b2588ad81776-1681473993108ca4ae-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact a Packaging Specialist"
+          }
+        },
+        "template--16363247861982__a5d4d239-3ba7-40d5-9025-b2588ad81776-1681473993108ca4ae-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our experienced packaging specialists are available to assist with your project, provide recommendations, or help place an order.</p><p><strong>Call 1-800-67-ROYCO or email our team at </strong><a href=\"mailto:sales@roycopackaging.com\" title=\"Email Royco Packaging\"><strong>sales@roycopackaging.com</strong></a></p>"
+          }
+        },
+        "template--16363247861982__a5d4d239-3ba7-40d5-9025-b2588ad81776-1681473993108ca4ae-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "template--16363247861982__a5d4d239-3ba7-40d5-9025-b2588ad81776-1681473993108ca4ae-0",
+        "template--16363247861982__a5d4d239-3ba7-40d5-9025-b2588ad81776-1681473993108ca4ae-1",
+        "template--16363247861982__a5d4d239-3ba7-40d5-9025-b2588ad81776-1681473993108ca4ae-2"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "accent-1",
+        "spacing_top": 16,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "a5d4d239-3ba7-40d5-9025-b2588ad81776"
+  ]
+}

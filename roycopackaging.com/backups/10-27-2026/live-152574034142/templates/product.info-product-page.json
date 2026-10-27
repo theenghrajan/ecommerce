@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "show_vendor": false,
+            "show_stock": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "barcode_label": "Barcode",
+            "show_rating": false
+          }
+        },
+        "ed9157b4-6ca6-4c4f-a689-3c5302d56f96": {
+          "type": "text",
+          "settings": {
+            "text": "Due to the size and weight of this item, please contact our team for the most up to date pricing and shipping options.",
+            "color_scheme": "none"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "ed9157b4-6ca6-4c4f-a689-3c5302d56f96",
+        "description"
+      ],
+      "settings": {
+        "hide_variants": false
+      }
+    },
+    "70796a3a-3e91-45c4-b148-4d2f60ae350c": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16733575938270__70796a3a-3e91-45c4-b148-4d2f60ae350c-16806366609222aa67-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact a Packaging Specialist for Pricing & Availability"
+          }
+        },
+        "template--16733575938270__70796a3a-3e91-45c4-b148-4d2f60ae350c-16806366609222aa67-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our experienced packaging specialists are available to assist with your project, provide recommendations, or help place an order. </p><p><strong>Call 1-800-67-ROYCO or email our team at sales@roycopackaging.com</strong></p>"
+          }
+        },
+        "template--16733575938270__70796a3a-3e91-45c4-b148-4d2f60ae350c-16806366609222aa67-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "template--16733575938270__70796a3a-3e91-45c4-b148-4d2f60ae350c-16806366609222aa67-0",
+        "template--16733575938270__70796a3a-3e91-45c4-b148-4d2f60ae350c-16806366609222aa67-1",
+        "template--16733575938270__70796a3a-3e91-45c4-b148-4d2f60ae350c-16806366609222aa67-2"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "background-1",
+        "spacing_top": 0,
+        "spacing_bottom": 60
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show": true,
+        "title": "Related products",
+        "count": "4",
+        "show_vendor": true,
+        "show_stock": true,
+        "show_rating": false,
+        "color_scheme": "background-1",
+        "spacing_top": 60,
+        "spacing_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "70796a3a-3e91-45c4-b148-4d2f60ae350c",
+    "recommendations"
+  ]
+}

@@ -1,6 +1,17 @@
 .collection_metafield_section {
     margin: 0 auto;
 }
+/* chico.css .nw-faq-section sets padding 0 + max-content, so collection FAQs touch the screen edge on mobile */
+@media only screen and (max-width: 768px) {
+  .collection_metafield_section.nw-faq-section {
+    padding: 0 var(--pageWidthPadding, 17px);
+    max-width: 100%;
+  }
+  /* global width:auto below makes short questions put the + beside the text */
+  .collection_metafield_section button.collapsible-trigger.collapsible-trigger-btn {
+    width: 100%;
+  }
+}
 .more1 {
   position: relative;
 }

@@ -1,0 +1,157 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "rich_text_tQhwHL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kLh7UW": {
+          "type": "heading",
+          "settings": {
+            "title": "{{ page.title }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kLh7UW"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "rich_text_LUcFVD": {
+      "type": "rich-text",
+      "blocks": {
+        "text_WQLCbD": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<h2>Quick Summary</h2><p>The Clearly Innovative lifetime limited warranty covers qualifying defects in glass chair mats for the life of the product when used as intended. Approved remedies may include repair or replacement, while customers remain responsible for shipping and transportation costs. Coverage applies only to the original purchaser at the original shipped location and excludes scratches, misuse, metal casters, accidents and unauthorized alterations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_WQLCbD"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "rich_text_83hBqe": {
+      "type": "rich-text",
+      "blocks": {
+        "text_qb98QE": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p><strong>Warranty at a Glance</strong></p><p>• <strong>Coverage: </strong>Defects for the life of the product during normal intended use.<br/>• <strong>Who is covered: </strong>The original purchaser at the original shipped location.<br/>• <strong>Approved claim remedy: </strong>Clearly Innovative may repair or replace the product at its sole option and may also offer a refund as described in the full terms.<br/>• <strong>Shipping: </strong>The customer is responsible for shipping and transportation costs.</p><h2>What the Warranty Covers</h2><p>Clearly Innovative's warranty applies to its <a href=\"/collections/chair-mats\" title=\"/collections/chair-mats\">glass chair mats</a> when a product defect causes a mat to fail during normal, intended use.<br/>• Coverage lasts for the life of the product.<br/>• Clearly Innovative may repair or replace a covered mat at its sole option.<br/>• Repairs or replacement are made at no charge for the remedy itself, while the customer remains responsible for shipping and transportation costs.</p><h2>What Is Not Covered</h2><p>The published warranty excludes failures or damage associated with the following:<br/>• Scratching<br/>• Abuse, misuse or mishandling<br/>• <a href=\"/products/desk-chair-casters\" title=\"/products/desk-chair-casters\">Using chairs with metal casters</a><br/>• Contact with metal furniture legs<br/>• Use not as intended<br/>• Accidents<br/>• Unauthorized alterations</p><h2>Who Is Covered</h2><p>Coverage extends only to the original purchaser at the original shipped location.<br/><br/>If an authorized product reseller makes a warranty claim, Clearly Innovative reserves the option to replace the defective product as part of a future shipment of mats to that reseller.</p><h2>How to File a Warranty Claim</h2><p><em>The current website does not publish the claim-submission details below. Client confirmation is required before this section is finalized:</em></p><p><strong>1. Contact method: </strong>[CLIENT TO CONFIRM: phone, email or form and the preferred contact details.]</p><p><strong>2. Information to include: </strong>[CLIENT TO CONFIRM: order number, photos of the defect, purchase date and any other required documentation.]</p><p><strong>3. After submission: </strong>[CLIENT TO CONFIRM: review process and what the customer can expect after submitting a claim.]</p><p><strong>4. Response time: </strong>[CLIENT TO CONFIRM: expected response time.]</p><h2>Your Remedy Options</h2><p>Clearly Innovative retains the right to repair or replace the product or offer a full refund of the purchase price at its sole discretion. The stated remedy is the purchaser's sole and exclusive remedy for a warranty breach, and total liability for a defective product is limited to the purchase price.</p><p>For policies that apply to non-warranty returns, review the <a href=\"/policies/refund-policy\" title=\"/policies/refund-policy\">Returns and Exchanges policy.</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_qb98QE"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "faq_ULnagc": {
+      "type": "faq",
+      "blocks": {
+        "question_AXnfCj": {
+          "type": "question",
+          "settings": {
+            "title": "Does the warranty cover scratches?",
+            "text": "<p>No. Scratching is specifically excluded from the warranty.</p>"
+          }
+        },
+        "question_Azykee": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use my chair's metal casters on the mat?",
+            "text": "<p>The warranty excludes failures due to using chairs with metal casters.</p>"
+          }
+        },
+        "question_bwRF8q": {
+          "type": "question",
+          "settings": {
+            "title": "Is the warranty still valid if I move?",
+            "text": "<p>The published terms state that coverage extends only to the original purchaser at the original shipped location. Coverage at a different location is not stated in the current warranty terms.</p>"
+          }
+        },
+        "question_xr6cjW": {
+          "type": "question",
+          "settings": {
+            "title": "Who pays for shipping on a warranty claim?",
+            "text": "<p>The customer is responsible for shipping and transportation costs associated with warranty repair or replacement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_AXnfCj",
+        "question_Azykee",
+        "question_bwRF8q",
+        "question_xr6cjW"
+      ],
+      "disabled": true,
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "title": "Warranty FAQs",
+        "narrow_column": true
+      }
+    },
+    "rich_text_pd944M": {
+      "type": "rich-text",
+      "blocks": {
+        "text_TNXRVM": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<h2>Full Warranty Terms</h2><p>Clearly Innovative Glass Chair Mats are warranted to be free from defects for the life of the product. Clearly Innovative Home and Office Products LLC will at its sole option, repair or replace any mat, except for scratching, which fails in its normal use as it is intended to be used.</p><p>Such repairs or replacement will be made at no charge to the customer provided that the customer shall be responsible for any shipping and transportation costs, and if warranty is claimed by an authorized product reseller, Clearly Innovative Home and Office Products LLC reserves the option of replacing any defective product as part of a future shipment of mats to reseller.</p><p>This warranty does not cover failures due to abuse, misuse, mishandling, using chairs with metal casters, contact with metal furniture legs, used not as intended, accident, or unauthorized alterations. This warranty extends only to the original purchaser at the original shipped location.</p><p>This warranty is exclusive and in lieu of all other warranties, whether expressed, implied or statutory, including any liability arising under any warranty of merchantability or fitness for a particular purpose, statutory, or otherwise. This warranty gives you specific legal rights, which may vary from State to State.</p><p>In no event shall Clearly Innovative Home and Office Products LLC be liable for any incidental, special, or indirect or consequential damages, whether resulting from the use, misuse or inability to use the product. Some States do not allow the exclusion of incidental or consequential damages, so the above limitations may not apply to you.</p><p>Clearly Innovative Home and Office Products LLC retains the right to repair or replace the product or offer a full refund of the purchase price at its sole discretion. Such remedy shall be the purchaser’s sole and exclusive remedy for any breach of warranty. The entire liability for any defective product shall in no event exceed the purchase price for the defective product.</p><p>For more product information, explore the <a href=\"/pages/benefits-of-glass\" title=\"/pages/benefits-of-glass\">patented beveled edge</a>, browse the <a href=\"/blogs/news/frequently-asked-questions-about-glass-floor-mats\" title=\"/blogs/news/frequently-asked-questions-about-glass-floor-mats\">glass chair mat FAQs</a> and visit our <a href=\"/pages/resources\" title=\"/pages/resources\">product resources.</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_TNXRVM"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "rich_text_tQhwHL",
+    "rich_text_LUcFVD",
+    "main",
+    "rich_text_83hBqe",
+    "faq_ULnagc",
+    "rich_text_pd944M"
+  ]
+}

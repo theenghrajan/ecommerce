@@ -19,7 +19,7 @@
       "name": "MIL-STD-2073 Decoder",
       "settings": {
         "heading": "MIL-STD-2073 Packaging Decoder",
-        "intro": "<p>Enter the packaging requirement code from your contract, drawing, or DD Form 2326 for quick translation into plain English — and links to the Royco materials that can help.</p><p>Prefer to read the full text? <a href=\"https://cdn.shopify.com/s/files/1/0659/3059/2478/files/MIL-STD-2073-1E.pdf?v=1787891611\" target=\"_blank\" title=\"View the full MIL-STD-2073 specification\">Download the spec</a>.</p>",
+        "intro": "<p>Packaging requirement codes on a military contract can look like alphabet soup, but each one carries specific instructions about materials, preservation, and marking. MIL-STD-2073 defines this coding system, and a single wrong character can mean rejected shipments or costly rework.</p><p>Royco Packaging developed this decoder so contractors, packers, and quality teams can translate these codes into plain language in seconds. This helps them quickly source materials that meet the required specifications. Programs across the Navy, Army, and Defense Logistics Agency reference MIL-STD-2073 in their packaging requirements. Accurate translation can help avoid delays and other downstream issues.</p><p>Enter the packaging requirement code from your contract, drawing, or DD Form 2326 into the tool below for an instant, plain-language translation, along with links to materials that meet each requirement.</p><p>Prefer the full document? You can download a <a href=\"https://cdn.shopify.com/s/files/1/0659/3059/2478/files/MIL-STD-2073-1E.pdf?v=1787891611\" target=\"_blank\" title=\"View the full MIL-STD-2073 specification\">copy of the spec here</a>.</p>",
         "collection_root": "/collections",
         "product_root": "/products",
         "text_size": 17,
@@ -68,11 +68,250 @@
         "spacing_top": 14,
         "spacing_bottom": 14
       }
+    },
+    "decoder_content_1": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "What MIL-STD-2073 Packaging Codes Tell You"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>MIL-STD-2073 packaging requirement codes pack a surprising amount of information into just a few characters. A single code points to a specific combination of preservation method, packing level, and unit container requirement drawn from Appendix J of the standard.</p><p>Missing even one digit can change the code's meaning. This can cause problems during a Defense Contract Management Agency inspection or lead to a rejected delivery. Contractors working with the Department of Defense, NASA, or major aerospace suppliers use these codes to keep documentation consistent across the supply chain.</p><p>This decoder pulls straight from the current standard, so the translation matches what an inspector expects to see. Packaging teams, buyers, and quality assurance staff use it to confirm a code before ordering materials. Packagers can use it to double-check a shipment before it leaves the dock.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore MIL-STD-2073 Packaging Solutions",
+            "button_link": "shopify://pages/mil-std-2073"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "custom_css": [
+        ".container{max-width:1180px;margin:0 auto;padding:0 1.25rem}",
+        " .rich-text{text-align:left}",
+        " .rich-text-text{max-width:78ch}"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "background-1",
+        "spacing_top": 20,
+        "spacing_bottom": 20
+      }
+    },
+    "decoder_content_2": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to Read a Packaging Requirement Code"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A typical MIL-STD-2073 code breaks down into a short string of letters, and each letter maps to an entry in Appendix J. Reading the letters in order usually reveals:</p><ul><li>The preservation method, which tells you how the item needs protection from moisture, corrosion, or physical damage</li><li>The cleaning and drying requirement that applies before preservation begins</li><li>The packing level, which sets how rugged the outer packaging needs to be for shipment and storage</li><li>Any special marking or unit pack instructions tied to that specific line item</li></ul><p>Once you identify those pieces, matching them to a barrier bag, roll stock material, or box becomes straightforward. The decoder above does this automatically, eliminating manual cross-referencing against a lengthy specification document.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "custom_css": [
+        ".container{max-width:1180px;margin:0 auto;padding:0 1.25rem}",
+        " .rich-text{text-align:left}",
+        " .rich-text-text{max-width:78ch}"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "background-1",
+        "spacing_top": 20,
+        "spacing_bottom": 20
+      }
+    },
+    "decoder_content_3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Contractors Use This Decoder"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Speed matters when a contract deadline is close, and a packaging specialist isn't available. This tool gives program managers, quality engineers, and small packaging shops the same information in the same amount of time, without waiting on a callback or digging through a PDF to find the page they need.</p><p>Royco Packaging keeps this decoder updated as standards change. The tool accounts for revisions such as MIL-PRF-81705F, which replaced the earlier MIL-PRF-81705E revision, when a code references those barrier materials.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "custom_css": [
+        ".container{max-width:1180px;margin:0 auto;padding:0 1.25rem}",
+        " .rich-text{text-align:left}",
+        " .rich-text-text{max-width:78ch}"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "background-1",
+        "spacing_top": 20,
+        "spacing_bottom": 20
+      }
+    },
+    "decoder_content_4": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Matching Codes to Certified Materials"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Translating a code is only half the job. The next step is sourcing packaging that meets the code's requirements. This is where many buyers run into trouble if their supplier only sells commercial-grade barrier bags or generic tape.</p><p>Royco Packaging manufactures roll stock, barrier bags, desiccants, VCI materials, and boxes to military and commercial specifications. These products meet the requirements referenced in MIL-STD-2073 and related standards. Roll stock and finished bags also ship with the documentation quality teams need, including certificates of conformance when required.</p><p>Same-day shipment is available on many in-stock rolls and bags. Working directly with a manufacturer instead of a reseller can also speed up turnaround. This is especially helpful when a code calls for a less common combination of preservation method and packing level.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "See Our Military Packaging Solutions",
+            "button_link": "shopify://pages/military-packaging-solutions"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "custom_css": [
+        ".container{max-width:1180px;margin:0 auto;padding:0 1.25rem}",
+        " .rich-text{text-align:left}",
+        " .rich-text-text{max-width:78ch}"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "background-1",
+        "spacing_top": 20,
+        "spacing_bottom": 20
+      }
+    },
+    "decoder_content_5": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Turn a Packaging Code Into an Accurate Shipment"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A packaging requirement code should never slow down a shipment schedule or leave a quality team second-guessing a spec. Royco Packaging put this decoder online for exactly that reason, and pairs the tool with materials, documentation, and packaging specialists who work with MIL-STD-2073 codes every day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "custom_css": [
+        ".container{max-width:1180px;margin:0 auto;padding:0 1.25rem}",
+        " .rich-text{text-align:left}",
+        " .rich-text-text{max-width:78ch}"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "background-1",
+        "spacing_top": 20,
+        "spacing_bottom": 20
+      }
+    },
+    "decoder_faqs": {
+      "type": "ss-faq-blocks",
+      "custom_css": [
+        ".ss-faq{max-width:1180px;margin:0 auto;padding:48px 1.25rem}",
+        " .ss-faq h2{font-size:24px;font-weight:500;color:#232323;margin:0 0 20px}",
+        " .ss-faq__item{padding:10px}",
+        " .ss-faq__item summary{font-size:18px;line-height:1.6;color:#676767;padding-bottom:10px;border-bottom:1px solid #000;cursor:pointer}",
+        " .ss-faq__item .rte{margin-top:10px}"
+      ],
+      "settings": {
+        "heading": "FAQs"
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "What is MIL-STD-2073 used for?",
+            "answer": "<p>MIL-STD-2073 sets the packaging, preservation, and marking requirements for military and defense items moving through the supply chain. The Department of Defense issues the standard, and contractors reference it whenever a contract or drawing calls for a specific packaging code.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Is MIL-STD-2073 the same as MIL-STD-129?",
+            "answer": "<p>No, the two standards cover separate parts of the process. MIL-STD-2073 defines packaging, preservation, and unit pack requirements, and MIL-STD-129 covers military marking for shipment and storage.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Does every DoD contract require MIL-STD-2073 packaging?",
+            "answer": "<p>Not every contract calls for it, so the packaging requirement code on your contract or drawing determines what applies. Check the specific line item before ordering materials to prevent delays later in production.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens if a shipment does not match its packaging code?",
+            "answer": "<p>A mismatched shipment often gets rejected during inspection or returned for repackaging, which adds cost and delays delivery. Confirming the code before packing catches these issues early and keeps a contract on schedule.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "Is the MIL-STD-2073 decoder free to use?",
+            "answer": "<p>Yes, the decoder is free and available to anyone working with a MIL-STD-2073 packaging requirement code. No account or purchase is required to look up a translation.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ]
     }
   },
   "order": [
     "main",
     "mil_std_2073_decoder_gitNy6",
-    "rich_text_PqLHHY"
+    "decoder_content_1",
+    "decoder_content_2",
+    "decoder_content_3",
+    "decoder_content_4",
+    "decoder_content_5",
+    "rich_text_PqLHHY",
+    "decoder_faqs"
   ]
 }

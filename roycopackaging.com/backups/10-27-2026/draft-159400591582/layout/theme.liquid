@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+<head>
+  <meta name="google-site-verification" content="f8SThZPr225Xjw3XrchclxHdipz26vEHjOnn36FbU_A" />
+	<meta charset="utf-8">
+	<link rel="preload" as="image" href="https://www.roycopackaging.com/cdn/shop/files/home-hero-background.webp" fetchpriority="high" />
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MZ7Z8KT');</script>
+<!-- End Google Tag Manager -->
+{% if request.path == '/products' and shop.metafields.custom.ss_product_title != blank %}
+	<title>{{ shop.metafields.custom.ss_product_title }}</title>
+{% elsif request.path == '/collections' and shop.metafields.custom.ss_collections_title != blank %}
+	<title>{{ shop.metafields.custom.ss_collections_title }}</title>
+{% else %}
+	<title>
+		{{ page_title }}
+		{%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+		{%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+		{%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+	</title>
+{% endif %}
+	{% if request.path == '/products' and shop.metafields.custom.ss_products_meta_description != blank %}
+		<meta name="description" content="{{ shop.metafields.custom.ss_products_meta_description | escape }}">
+	{% elsif request.path == '/collections' and shop.metafields.custom.ss_collections_meta_description != blank %}
+		<meta name="description" content="{{ shop.metafields.custom.ss_collections_meta_description | escape }}">
+	{% elsif page_description %}
+		<meta name="description" content="{{ page_description | escape }}">
+	{% endif %}
+
+	{% render 'meta-tags' %}
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="{{ canonical_url }}">
+
+	<link rel="preconnect" href="//cdn.shopify.com" crossorigin>
+
+	{% unless settings.typography_headings.system? and settings.typography_body.system? %}
+		<link rel="preconnect" href="//fonts.shopifycdn.com" crossorigin>
+	{% endunless %}
+
+	{% unless settings.typography_body.system? %}
+		<link rel="preload" as="font" href="{{ settings.typography_body | font_url }}" type="font/woff2" crossorigin>
+	{% endunless %}
+	{% unless settings.typography_headings.system? %}
+		<link rel="preload" as="font" href="{{ settings.typography_headings | font_url }}" type="font/woff2" crossorigin>
+	{% endunless %}
+
+	{% render 'head-css' %}
+
+	{{ 'base.css' | asset_url | stylesheet_tag }}
+
+	<script src="{{ 'scripts.js' | asset_url }}" defer="defer"></script>
+
+	{% if settings.favicon != blank %}
+		<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+	{% endif %}
+
+	{{ content_for_header }}
+
+	<script>
+		document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+		if (Shopify.designMode) {
+			document.documentElement.classList.add('shopify-design-mode');
+		}
+	</script>
+
+	{%- if request.design_mode -%}
+		{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}
+		{{ 'flickity.css' | asset_url | stylesheet_tag }}
+		{{ 'component-scroller.css' | asset_url | stylesheet_tag }}
+		<script src="{{ 'flickity.pkgd.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'carousel-slider.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'map.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+	{%- endif -%}
+
+<!--   Breadcrumb Schema   -->
+  {% include 'breadcrumb-schema' %}
+
+<!--   Local Business Schema   -->
+  {% include 'local-business-schema' %}
+
+  <script id='merchantWidgetScript' src="https://www.gstatic.com/shopping/merchant/merchantwidget.js" defer></script>
+
+<script>
+  merchantWidgetScript.addEventListener('load', function () {
+    merchantwidget.start({
+         // REQUIRED FIELDS
+         merchant_id: 689599519,
+
+         // OPTIONAL FIELDS
+         position: 'bottom_right',
+         region: 'US',
+    });
+  });
+</script>
+</head>
+
+<body class="template-{{ template.name }}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZ7Z8KT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link visually-hidden visually-hidden-focusable" href="#MainContent">{{ 'accessibility.link_messages.skip_to_text' | t }}</a>
+
+{% section 'announcement-bar' %}
+
+{% section 'header' %}
+
+  {% if template.name == "index" %}
+    <h1 style="display: none;">Award Winning Packaging Manufacturer - Military, Industrial, and Specialty Packaging</h1>  
+  {% endif %}
+
+<main id="MainContent" class="main" role="main" tabindex="-1">
+	{% section 'header-features' %}
+
+	{% if settings.breadcrumbs_enabled %}
+		{% render 'breadcrumb' %}
+	{% endif %}
+
+	{{ content_for_layout }}
+</main>
+
+<footer class="footer">
+	{% section 'footer-features' %}
+
+	{% section 'newsletter' %}
+
+	{% section 'footer' %}
+
+	{% render 'header-mini-cart' %}
+
+	{% if page.handle == 'faq' %}
+		{% render 'faq-schema' %}
+	{% endif %}
+</footer>
+{% render 'page-schema' %}
+
+{%- if settings.predictive_search_enabled -%}
+	<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% include 'appikon-discounts' %}
+   {% render 'royco-calculator-prefill' %}
+</body>
+</html>

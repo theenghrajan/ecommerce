@@ -1,0 +1,267 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bcad3fe7-ca52-441e-9f31-6039f72410a3": {
+      "type": "slideshow-image",
+      "blocks": {
+        "template--14817059471434__bcad3fe7-ca52-441e-9f31-6039f72410a3-16826312345aa8d064-0": {
+          "type": "image",
+          "settings": {
+            "link": "",
+            "image": "shopify://shop_images/FPO_c670a901-8061-422d-9e21-9a762b4629e0.png"
+          }
+        }
+      },
+      "block_order": [
+        "template--14817059471434__bcad3fe7-ca52-441e-9f31-6039f72410a3-16826312345aa8d064-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "slide_width": 100,
+        "slide_height": 50,
+        "style": "dots",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "lazyload_images": false
+      }
+    },
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": false,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "custom_expandable_discription_BXPz99": {
+      "type": "custom-expandable-discription",
+      "name": "Collection content new",
+      "settings": {
+        "collection_h2": "About our Sloped Ceiling Can Lights Collection",
+        "collection_seo_description": "Adjustable recessed lighting provides the flexibility to direct light exactly where it’s needed. These fixtures are perfect for angled ceilings or spaces with unique architectural features. Sloped ceiling can lights ensure even, customizable illumination."
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "subcollections": {
+          "type": "subcollections",
+          "disabled": true,
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "grid_style": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "subcollections",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".color-swatch--bronze {background-color: #cd7f32;}",
+        ".color-swatch--brushed-nickel {background-color: silver;}",
+        ".color-swatch--white {border: solid 1px;}",
+        ".color-swatch--5cct {background-image: url(\"https://cdn.shopify.com/s/files/1/0293/5858/7978/files/selectable-color-temperature-recessed-lighting.png?v=1720811150\");}",
+        ".tag__text {display: unset !important;}"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapse_filters": true,
+        "enable_color_swatches": true,
+        "enable_sort": true
+      }
+    },
+    "jump_to_QTaQzj": {
+      "type": "jump-to",
+      "blocks": {
+        "question_wNyfYx": {
+          "type": "question",
+          "settings": {
+            "button": "View All",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting",
+            "image": "shopify://shop_images/view-all-recessed-lighting-products.png",
+            "alt-text": "View All Our Recessed Lighting"
+          }
+        },
+        "question_ntHCFy": {
+          "type": "question",
+          "settings": {
+            "button": "Adjustable Retrofits",
+            "link": "shopify://collections/gimbal-retrofit-recessed-lights",
+            "image": "shopify://shop_images/adjustable_recessed_lighting_collection.webp",
+            "alt-text": "Gimbal Retrofits"
+          }
+        },
+        "question_QGUjXL": {
+          "type": "question",
+          "settings": {
+            "button": "Adjustable Canless",
+            "link": "https://www.nuwattlighting.com/collections/gimbal-canless-recessed-lights",
+            "image": "shopify://shop_images/canless_can_lights.png",
+            "alt-text": ""
+          }
+        },
+        "question_6YAc8b": {
+          "type": "question",
+          "settings": {
+            "button": "Black Trim",
+            "link": "",
+            "image": "shopify://shop_images/NW-GMB-C6-16.5W-5CCT-BLK_1P.jpg",
+            "alt-text": "adjustable recessed can lights black"
+          }
+        },
+        "question_LMrHyt": {
+          "type": "question",
+          "settings": {
+            "button": "Bronze Trim",
+            "link": "https://www.nuwattlighting.com/collections/bronze-recessed-lighting?filter.p.m.custom.trim_type=Gimbal",
+            "image": "shopify://shop_images/NW-GMB-3-5CT-BZ-R-_6_-Main-Image-939063.jpg",
+            "alt-text": "adjustable bronze recessed lights"
+          }
+        },
+        "question_3VKGbH": {
+          "type": "question",
+          "settings": {
+            "button": "Nickel Trim",
+            "link": "https://www.nuwattlighting.com/collections/brushed-nickel-recessed-lighting?filter.p.m.custom.trim_type=Gimbal",
+            "image": "shopify://shop_images/NW-GMB-4-5CT-N-R-4P_01.jpg",
+            "alt-text": "adjustable brushed nickel recessed lights"
+          }
+        },
+        "question_7kh3Kq": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "button": "4 Inch",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting?filter.p.m.custom.trim_type=Gimbal&filter.p.m.custom.size=4+Inch",
+            "image": "shopify://shop_images/6-inch-white-retrofit-adjustable-led-recessed-downlight-5-kelvin-temperatures-5cct-165-watt-1200-lumens-dimmable-nw-gmb-c6-165w-5cct-wh-909901.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_8mjBAT": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "button": "6 Inch",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting?filter.p.m.custom.trim_type=Gimbal&filter.p.m.custom.size=6+Inch",
+            "image": "shopify://shop_images/6-inch-white-adjustable-round-recessed-led-ceiling-light-5-kelvin-temperatures-5cct-12-watt-900-lumens-dimmable-nw-p-adjdl-6-12w-5ct-wh-323561.jpg",
+            "alt-text": ""
+          }
+        },
+        "question_hTxzHp": {
+          "type": "question",
+          "disabled": true,
+          "settings": {
+            "button": "3 Inch",
+            "link": "https://www.nuwattlighting.com/collections/recessed-lighting?filter.p.m.custom.trim_type=Gimbal&filter.p.m.custom.size=3+Inch",
+            "image": "shopify://shop_images/NW-GMB-3-5CT-WH-R-_6_-Main-Image-745797.jpg",
+            "alt-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "question_wNyfYx",
+        "question_ntHCFy",
+        "question_QGUjXL",
+        "question_6YAc8b",
+        "question_LMrHyt",
+        "question_3VKGbH",
+        "question_7kh3Kq",
+        "question_8mjBAT",
+        "question_hTxzHp"
+      ],
+      "settings": {
+        "headline": ""
+      }
+    },
+    "collection_metafield_faq_DFNfgQ": {
+      "type": "collection-metafield-faq",
+      "blocks": {
+        "question_hrtqgt": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_1.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_1 | metafield_tag }}"
+          }
+        },
+        "question_k4CxR4": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_2.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_2 | metafield_tag }}"
+          }
+        },
+        "question_ftrtLd": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_3.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_3 | metafield_tag }}"
+          }
+        },
+        "question_X6EEDT": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_4.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_4 | metafield_tag }}"
+          }
+        },
+        "question_6xmwMT": {
+          "type": "question",
+          "settings": {
+            "title": "{{ collection.metafields.custom.faq_title_5.value }}",
+            "text": "{{ collection.metafields.custom.faq_content_5 | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "question_hrtqgt",
+        "question_k4CxR4",
+        "question_ftrtLd",
+        "question_X6EEDT",
+        "question_6xmwMT"
+      ],
+      "name": "Collection Faq",
+      "settings": {
+        "title": "FAQs",
+        "heading_size": "h2",
+        "heading_position": "left"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {}
+    },
+    "expandable_description_jxgHiP": {
+      "type": "expandable-description",
+      "disabled": true,
+      "settings": {
+        "collection_h2": "About our Sloped Ceiling Can Lights Collection",
+        "collection_seo_description": "Adjustable recessed lighting provides the flexibility to direct light exactly where it’s needed. These fixtures are perfect for angled ceilings or spaces with unique architectural features. Sloped ceiling can lights ensure even, customizable illumination."
+      }
+    }
+  },
+  "order": [
+    "bcad3fe7-ca52-441e-9f31-6039f72410a3",
+    "collection-header",
+    "custom_expandable_discription_BXPz99",
+    "main-collection",
+    "jump_to_QTaQzj",
+    "collection_metafield_faq_DFNfgQ",
+    "recently-viewed",
+    "expandable_description_jxgHiP"
+  ]
+}

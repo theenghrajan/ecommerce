@@ -1,0 +1,345 @@
+<div class="pcarousel-section">
+  <div class="pcarousel-header">
+    <h2 class="pcarousel-title">{{ section.settings.title }}</h2>
+    <a href="{{ section.settings.view_all_url }}" class="pcarousel-viewall">View all</a>
+  </div>
+
+  <div class="pcarousel-wrapper">
+    <div class="pcarousel-fade pcarousel-fade--left"></div>
+    <div class="pcarousel-track-outer">
+      <div class="pcarousel-track">
+
+        {% assign col = collections[section.settings.collection] %}
+
+        {% for i in (1..3) %}
+          {% for product in col.products limit: section.settings.product_limit %}
+            <div class="pcarousel-item">
+              <a href="{{ product.url }}" class="pcarousel-item__link">
+                <div class="pcarousel-item__image-wrap">
+                  {% if product.featured_image %}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 800 }}"
+                      alt="{{ product.title | escape }}"
+                      class="pcarousel-item__img pcarousel-item__img--primary"
+                      loading="lazy"
+                      width="800"
+                      height="600"
+                    >
+                    {% if product.images[1] %}
+                      <img
+                        src="{{ product.images[1] | image_url: width: 800 }}"
+                        alt="{{ product.title | escape }}"
+                        class="pcarousel-item__img pcarousel-item__img--secondary"
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                      >
+                    {% endif %}
+                  {% endif %}
+                  <div class="pcarousel-shop-btn">
+                    <span>Shop</span>
+                    <span>Now</span>
+                  </div>
+                </div>
+                <div class="pcarousel-item__info">
+                  <p class="pcarousel-item__title">{{ product.title }}</p>
+                  <div class="pcarousel-item__price">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="pcarousel-price--compare">{{ product.compare_at_price | money }}</span>
+                      <span class="pcarousel-price--sale">{{ product.price | money }}</span>
+                      <span class="pcarousel-price--badge">Save {{ product.compare_at_price | minus: product.price | money }}</span>
+                    {% else %}
+                      <span class="pcarousel-price--regular">{{ product.price | money }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% endfor %}
+
+      </div>
+    </div>
+    <div class="pcarousel-fade pcarousel-fade--right"></div>
+  </div>
+</div>
+
+<style>
+.pcarousel-section {
+  padding: 52px 0 60px;
+  background: #fff;
+}
+
+.pcarousel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto 28px;
+  padding: 0 40px;
+  position: relative;
+}
+
+.pcarousel-title {
+  font-family: var(--font-heading-family, serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.pcarousel-viewall {
+  position: absolute;
+  right: 40px;
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 13px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.pcarousel-viewall:hover {
+  opacity: 0.6;
+}
+
+.pcarousel-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pcarousel-track-outer {
+  overflow: hidden;
+  width: 100%;
+}
+
+.pcarousel-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: pcarousel-scroll 45s linear infinite;
+}
+
+.pcarousel-track:hover {
+  animation-play-state: paused;
+}
+
+.pcarousel-item {
+  flex: 0 0 340px;
+  width: 340px;
+}
+
+.pcarousel-item__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.pcarousel-item__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f5f5f3;
+}
+
+.pcarousel-item__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.pcarousel-item__img--secondary {
+  opacity: 0;
+}
+
+.pcarousel-item__link:hover .pcarousel-item__img--primary {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.pcarousel-item__link:hover .pcarousel-item__img--secondary {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.pcarousel-shop-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pcarousel-item__link:hover .pcarousel-shop-btn {
+  opacity: 1;
+}
+
+.pcarousel-item__info {
+  padding: 12px 2px 0;
+}
+
+.pcarousel-item__title {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 14px;
+  color: #1a1a1a;
+  margin: 0 0 5px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.pcarousel-item__price {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.pcarousel-price--regular {
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+.pcarousel-price--compare {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.pcarousel-price--sale {
+  font-size: 14px;
+  color: #d72b2b;
+  font-weight: 500;
+}
+
+.pcarousel-price--badge {
+  font-size: 11px;
+  background: #d72b2b;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 2px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pcarousel-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pcarousel-fade--left {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+
+.pcarousel-fade--right {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+@keyframes pcarousel-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@media (max-width: 749px) {
+  .pcarousel-header {
+    padding: 0 20px;
+    justify-content: center;
+  }
+
+  .pcarousel-viewall {
+    right: 20px;
+  }
+
+  .pcarousel-wrapper {
+    padding: 0 20px;
+  }
+
+  .pcarousel-title {
+    font-size: 20px;
+  }
+
+  .pcarousel-item {
+    flex: 0 0 240px;
+    width: 240px;
+  }
+
+  .pcarousel-track {
+    animation-duration: 32s;
+    gap: 14px;
+  }
+
+  .pcarousel-fade {
+    width: 40px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Product Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Glass Office Chair Mats from Clearly Innovative"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "label": "Number of products",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Carousel"
+    }
+  ]
+}
+{% endschema %}

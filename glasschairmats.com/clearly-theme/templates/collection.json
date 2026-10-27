@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cfca1c3a-1ae6-49bb-8712-876b9d88f311": {
+      "type": "slideshow",
+      "blocks": {
+        "template--15919760703652__cfca1c3a-1ae6-49bb-8712-876b9d88f311-1669841255713ca7cc-0": {
+          "type": "image",
+          "settings": {
+            "title": "Quality You Can Trust",
+            "title_size": 50,
+            "subheading": "For nearly 20 years, we've delivered products designed to transform your home and office, including our patented beveled edge glass chair mat.",
+            "link": "",
+            "link_text": "",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/CI_HERO_TABBED_2880x2_10bca6f1-600c-4e8c-bd4c-03ada627d256.jpg",
+            "parallax_direction": "left",
+            "overlay_opacity": 10,
+            "focal_point": "bottom center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919760703652__cfca1c3a-1ae6-49bb-8712-876b9d88f311-1669841255713ca7cc-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "450px",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "arrows",
+        "autoplay": true,
+        "autoplay_speed": 5
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "collection_description": {
+          "type": "collection_description",
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "collection_subnav_style": "inline",
+            "per_row": 3,
+            "mobile_flush_grid": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_description",
+        "product_grid"
+      ],
+      "custom_css": [
+        ".collection-description.rte {max-width: 1300px;}",
+        ".collection-description.rte div {text-align: left; /* margin-bottom: 30px; */}",
+        ".show-more-content.active {margin-block-end: 20px;}"
+      ],
+      "settings": {
+        "collection_image_enable": false,
+        "collection_image_height": 550,
+        "parallax": true,
+        "parallax_direction": "top",
+        "enable_sidebar": false,
+        "collapsed": true,
+        "enable_color_swatches": false,
+        "enable_sort": false
+      }
+    }
+  },
+  "order": [
+    "cfca1c3a-1ae6-49bb-8712-876b9d88f311",
+    "main-collection"
+  ]
+}

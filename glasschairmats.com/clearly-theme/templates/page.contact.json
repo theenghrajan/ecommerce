@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich-text": {
+      "type": "rich-text",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<h1></h1><h1>Any Questions? Contact Us Today!</h1><p>Phone: <a href=\"tel:(888) 612-4322\" target=\"_blank\">(888) 612-4322</a> | Email: <a href=\"mailto:info@glasschairmats.com\" title=\"mailto:info@glasschairmats.com\">info@glasschairmats.com</a></p><p>Corporate Mailing Address: Box C161, 1001 Avenida Pico San Clemente, CA 92673</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text"
+      ],
+      "custom_css": [
+        "h1 {font-size: 32px;}"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "custom_css": [
+        ".contact-form {padding-bottom: 20px;}"
+      ],
+      "settings": {
+        "title": "",
+        "text": "",
+        "show_phone": false,
+        "narrow_column": true
+      }
+    },
+    "9eeae32b-f193-47b2-b1d9-7b6329b29f1f": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--15919760834724__9eeae32b-f193-47b2-b1d9-7b6329b29f1f-1682634494c1fce26f-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<script charset=\"utf-8\" type=\"text/javascript\" src=\"//js.hsforms.net/forms/embed/v2.js\"></script>\n<script>\n  hbspt.forms.create({\n    region: \"na1\",\n    portalId: \"39563200\",\n    formId: \"4cbf7308-a430-4293-a579-b967b0ad9e10\"\n  });\n</script>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919760834724__9eeae32b-f193-47b2-b1d9-7b6329b29f1f-1682634494c1fce26f-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich-text",
+    "form",
+    "9eeae32b-f193-47b2-b1d9-7b6329b29f1f"
+  ]
+}

@@ -1,0 +1,95 @@
+{% comment %}
+ ===========================================================
+ HERO BANNER
+ Author: Foremost Media
+===========================================================
+{% endcomment %}
+
+{{ 'component-hero-banner.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-banner">
+  <div class="hero-banner__background">
+    {% if section.settings.background_image != blank %}
+      <img
+        srcset="
+          {%- if section.settings.background_image.width >= 375 -%}{{ section.settings.background_image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 550 -%}{{ section.settings.background_image | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 750 -%}{{ section.settings.background_image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 1100 -%}{{ section.settings.background_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 1500 -%}{{ section.settings.background_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 1780 -%}{{ section.settings.background_image | image_url: width: 1780 }} 1780w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 2000 -%}{{ section.settings.background_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 3000 -%}{{ section.settings.background_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+          {%- if section.settings.background_image.width >= 3840 -%}{{ section.settings.background_image | image_url: width: 3840 }} 3840w,{%- endif -%}
+          {{ section.settings.background_image | image_url }} {{ section.settings.background_image.width }}w"
+        sizes="(min-width: 1420px) 1420px, calc(100vw - 3rem)"
+        src="{{ section.settings.background_image | image_url: width: 1500 }}"
+        alt="{{ section.settings.background_image.alt | escape }}"
+        width="{{ section.settings.background_image.width }}"
+        height="{{ section.settings.background_image.width | divided_by: section.settings.background_image.aspect_ratio | round }}"
+        class="hero-banner__image"
+      >
+    {% endif %}
+  </div>
+
+  <div class="hero-banner__inner container">
+    <div class="page-width hero-banner__content">
+      {% if section.settings.title != blank %}
+        {% assign title_lines = section.settings.title | split: '|' %}
+            <h2 class="hero-banner__title">
+                {{ title_lines[0] }}{% if title_lines.size > 1 %}<br>{{ title_lines[1] }}{% endif %}
+            </h2>
+        {% endif %}
+      {% if section.settings.text != blank %}
+        <p class="hero-banner__text">{{ section.settings.text }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="hero-banner__button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (H1)",
+      "default": "Your Hero Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Supporting Text",
+      "default": "Add your banner text here."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}

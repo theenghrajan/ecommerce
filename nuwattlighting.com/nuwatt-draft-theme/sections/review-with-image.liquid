@@ -1,7 +1,7 @@
 
 <div class="image-with-review">
     <div class="page-width">
-        <div class="main-div">
+        <div class="main-div{% unless section.settings.show_reviews %} main-div--solo{% endunless %}">
             <div class="why-nuwatt-card">
                 <div class="image_wrapper">
                     {% if section.settings.main_image != blank %}
@@ -41,6 +41,7 @@
                     {% endif %}
                 </div>
             </div>
+            {%- if section.settings.show_reviews -%}
             <div class="review_section">
                  {%- comment -%}
                    #151 (AC comment #47): reviews now come from Stamped.io, not Junip.
@@ -59,6 +60,7 @@
                     <a href="/pages/reviews?page=reviews" class="why-nuwatt-view-all-btn">Read All Reviews</a>
                 </div>
             </div>
+            {%- endif -%}
         </div>
     </div>
 </div>
@@ -84,6 +86,13 @@
       "id": "heading",
       "label": "Heading",
       "default": "Made to spec. Stocked, shipped and supported here."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reviews",
+      "label": "Show reviews column",
+      "info": "Turn off when the Glowing reviews section is used; the Why NuWatt card then runs full width.",
+      "default": true
     }
   ],
   "blocks": [
@@ -676,5 +685,21 @@
   }
   .image-with-review .review_section #stamped-reviews-widget .block .stamped-reviews-author {
     margin-top: 8px !important;
+  }
+
+  /* #151 (#53): reviews moved to the Glowing reviews section; the card runs full width */
+  .image-with-review .main-div--solo .why-nuwatt-card {
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    .image-with-review .main-div--solo .why-nuwatt-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 40px;
+    }
+    .image-with-review .main-div--solo .why-nuwatt-list li:nth-child(2) {
+      border-top: none;
+      padding-top: 0;
+    }
   }
 </style>

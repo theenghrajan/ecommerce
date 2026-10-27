@@ -1,0 +1,353 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "judgeme_preview_badge_product_page_29c95bce": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": false
+          }
+        },
+        "custom_TwNCT4": {
+          "type": "custom",
+          "settings": {
+            "code": "<p style=\"font-size:14px; color:#555; margin-top:8px; padding:8px 0; border-top:1px solid #eee;\">\n📐 Not sure which size fits your space? Measure your chair's rolling zone and add 12 inches on each side for the best coverage.\n</p>"
+          }
+        },
+        "inventory_status": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 4,
+            "inventory_transfers_enable": false
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true
+          }
+        },
+        "sales_point_8MeyV8": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "checkmark",
+            "text": "Shatter-Resistant Tempered Glass"
+          }
+        },
+        "sales_point": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "shield",
+            "text": "Lifetime Warranty Against Cracks"
+          }
+        },
+        "sales_point_D9UTyX": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "Free Shipping on Every Order"
+          }
+        },
+        "sales_point_N3jmDr": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "package",
+            "text": "Holds 1,000+ lbs — Engineered for Durability"
+          }
+        },
+        "sales_point_WxzwCd": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "heart",
+            "text": "Physical Therapist Approved"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<p>We ship our mats and other glass products with standard ground or occasionally with an LTL truck line. Most orders ship within one to three business days. When your order is shipped, you will receive an email notification with a tracking number. Our FedEx shipments do not require your signature. Your order will be left at your door.</p><p>Shipping is only available to the 48 lower US states. </p><p>After your order is picked up by the shipping company, it cannot be redirected or returned to Clearly Innovative.</p><p>After you receive your order, it may be <a href=\"https://glasschairmats.com/policies/refund-policy\" title=\"https://glasschairmats.com/policies/refund-policy\">returned if authorized</a> by Clearly Innovative. The cost of return shipping is the responsibility of the buyer.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judgeme_preview_badge_product_page_29c95bce",
+        "price",
+        "separator",
+        "variant_picker",
+        "custom_TwNCT4",
+        "inventory_status",
+        "buy_buttons",
+        "sales_point_8MeyV8",
+        "sales_point",
+        "sales_point_D9UTyX",
+        "sales_point_N3jmDr",
+        "sales_point_WxzwCd",
+        "description",
+        "tab",
+        "share"
+      ],
+      "custom_css": [
+        ".sales-point {border-top: 1px solid #e8e8e8; padding: 10px 0; font-size: 14px; letter-spacing: 0.3px;}",
+        ".sales-point:last-of-type {border-bottom: 1px solid #e8e8e8;}"
+      ],
+      "settings": {
+        "sku_enable": false,
+        "image_size": "large",
+        "product_zoom_enable": true,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": false,
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "26c64bf5-d3fa-4f41-b0ef-9e0bbd332ae9": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "26c64bf5-d3fa-4f41-b0ef-9e0bbd332ae9"
+      ],
+      "custom_css": [
+        ".page-width--narrow {max-width: 1350px;}",
+        ".rte p:first-child {margin-bottom: 0px;}",
+        ".rte h2 {margin-top: 25px;}",
+        ".rte div.ss-image-text {display: inline-flex; margin-bottom: 0px; align-items: flex-start; justify-content: center; gap: 5px;}",
+        ".ss-image-text img {width: 25px; height: 25px; margin-top: 5px;}"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "e8366918-5173-4b2d-bfe4-74b72c4ecf06": {
+      "type": "slideshow",
+      "blocks": {
+        "template--15919761064100__e8366918-5173-4b2d-bfe4-74b72c4ecf06-1670528306ef9abd19-0": {
+          "type": "image",
+          "settings": {
+            "title": "Quality You Can Trust",
+            "title_size": 59,
+            "subheading": "Elegant • Eco-friendly • Ergonomic • Economical",
+            "link": "",
+            "link_text": "",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/bg-blue.jpg",
+            "parallax_direction": "left",
+            "overlay_opacity": 0,
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919761064100__e8366918-5173-4b2d-bfe4-74b72c4ecf06-1670528306ef9abd19-0"
+      ],
+      "settings": {
+        "section_height": "450px",
+        "mobile_height": "auto",
+        "parallax": true,
+        "style": "arrows",
+        "autoplay": false,
+        "autoplay_speed": 5
+      }
+    },
+    "text-and-image": {
+      "type": "text-and-image",
+      "settings": {
+        "image": "shopify://shop_images/CI_CI-DIFFERENCE_1080X_ccc90db2-b3a8-4a75-89be-e202a1df6f41.jpg",
+        "image_width": 700,
+        "subtitle": "",
+        "title": "The Clearly Innovative™ Difference",
+        "text": "<ul><li>Lifetime warranty</li><li>Everyday best price</li><li>Free shipping</li><li>Patented bevel edge</li><li>Superior durability </li><li>Protect your floors, furniture, body and wallet with the superior choice</li></ul>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "align_text": "left",
+        "layout": "right",
+        "divider": false
+      }
+    },
+    "text-and-image2": {
+      "type": "text-and-image",
+      "settings": {
+        "image": "shopify://shop_images/CI_CUSTOM-ORDER_1080X_2e6d382e-4ab6-46e9-8b27-6f24af92158a.jpg",
+        "image_width": 700,
+        "subtitle": "",
+        "title": "Custom & Bulk Orders",
+        "text": "<p>If one of our standard sizes doesn't work for your needs, <a href=\"/pages/contact\" title=\"Contact\">contact us</a> to<br/>create your perfect size. And we offer discounts on orders of 5 or more mats.</p>",
+        "button_label": "Contact Us",
+        "button_link": "shopify://pages/contact",
+        "button_style": "primary",
+        "align_text": "left",
+        "layout": "left",
+        "divider": false
+      }
+    },
+    "judgeme_section_review_widget_a939": {
+      "type": "apps",
+      "blocks": {
+        "judgeme_review_widget_8239c0b8": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judgeme_review_widget_8239c0b8"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonials-0": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author name",
+            "author_info": "Los Angeles, CA"
+          }
+        },
+        "testimonials-1": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author name",
+            "author_info": "Los Angeles, CA"
+          }
+        },
+        "testimonials-2": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author name",
+            "author_info": "Los Angeles, CA"
+          }
+        },
+        "1d10d385-11bb-4fa9-965d-de482c8cc86a": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author name",
+            "author_info": "Los Angeles, CA"
+          }
+        },
+        "013ca2a2-f00f-4bda-a524-60da5d422e91": {
+          "type": "testimonial",
+          "settings": {
+            "icon": "5-stars",
+            "testimonial": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>",
+            "author": "Author name",
+            "author_info": "Los Angeles, CA"
+          }
+        }
+      },
+      "block_order": [
+        "testimonials-0",
+        "testimonials-1",
+        "testimonials-2",
+        "1d10d385-11bb-4fa9-965d-de482c8cc86a",
+        "013ca2a2-f00f-4bda-a524-60da5d422e91"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Here's what our customers have to say",
+        "round_images": true,
+        "color_background": "#e8e4db",
+        "color_text": "#4e4944"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show_product_recommendations": true,
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    },
+    "5f1a78a2-bf98-4555-8b5f-e4a52c099774": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "More Glass Products",
+        "home_featured_products": "all",
+        "per_row": 4,
+        "rows": 1,
+        "view_all": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "e8366918-5173-4b2d-bfe4-74b72c4ecf06",
+    "text-and-image",
+    "text-and-image2",
+    "judgeme_section_review_widget_a939",
+    "testimonials",
+    "product-recommendations",
+    "collection-return",
+    "5f1a78a2-bf98-4555-8b5f-e4a52c099774"
+  ]
+}

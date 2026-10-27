@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "mil_std_2073_desiccant_calculator_K4ijaR": {
+      "type": "mil-std-2073-desiccant-calculator",
+      "name": "MIL-STD-2073 Desiccant",
+      "settings": {
+        "heading": "MIL-STD-2073 Desiccant Calculator",
+        "intro": "<p>In Method 50 packaging containers are sealed with activated desiccant inside, and MIL-STD-2073-1E sets the minimum quantity by formula. Enter your enclosure and the dunnage details to see the computed minimum, the whole-unit quantity to specify, and the MIL-D-3464 bags that make it up.</p><p>For help with your specific project, <a href=\"https://www.roycopackaging.com/pages/contact\" title=\"https://www.roycopackaging.com/pages/contact\">reach out to our experts.</a></p>",
+        "collection_root": "/collections",
+        "product_root": "/products",
+        "indicator_handle": "product:ms20003-2-humidity-indicator-card",
+        "indicator_label": "See MS20003 humidity indicator cards",
+        "text_size": 15,
+        "color_bg": "#ffffff",
+        "color_panel": "#f6f7f9",
+        "color_ink": "#14181f",
+        "color_muted": "#5c6673",
+        "color_accent": "#1f4e79",
+        "color_line": "#d9dee5",
+        "padding_top": 48,
+        "padding_bottom": 48,
+        "disclaimer": "<p>Formulas I and II are reproduced from MIL-STD-2073-1E w/CHANGE 4, section 5.2.3.7.b. Bag sizes and the definition of a unit are from MIL-D-3464E. This tool is provided for reference only. The result is the minimum quantity the standard computes from the values you enter; it does not replace the packaging engineer's judgment on enclosure selection, dunnage weight or item characteristics. Always verify against the current revision of the standard at the DLA ASSIST database and against the requirements of your specific contract or drawing.</p>"
+      }
+    },
+    "rich_text_zFJkWd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PLA8wf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact a Packaging Specialist"
+          }
+        },
+        "text_RP49Mt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our certified packaging specialists are available to assist with your project, provide recommendations, or help place an order.</p><p><strong>Call 1-800-67-ROYCO or email our team at </strong><a href=\"mailto:sales@roycopackaging.com\" title=\"Email Royco Packaging\"><strong>sales@roycopackaging.com</strong></a></p>"
+          }
+        },
+        "button_RWaYcV": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PLA8wf",
+        "text_RP49Mt",
+        "button_RWaYcV"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "accent-1",
+        "spacing_top": 14,
+        "spacing_bottom": 14
+      }
+    }
+  },
+  "order": [
+    "main",
+    "mil_std_2073_desiccant_calculator_K4ijaR",
+    "rich_text_zFJkWd"
+  ]
+}

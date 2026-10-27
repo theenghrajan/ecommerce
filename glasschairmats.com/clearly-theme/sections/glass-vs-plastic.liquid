@@ -1,0 +1,166 @@
+{%- if section.settings.image != blank -%}
+  {%- style -%}
+    @media screen and (max-width: 768px) {
+      .background-media-text--{{ section.id }} {
+        background-image: url({{ section.settings.image | img_url: '1x1' }});
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
+  <div class="left-image-box {% if section.settings.parallax %}parallax{% endif %}" {% if section.settings.image != blank %} style="background-image:url({{ section.settings.image | img_url:'master' }})" {% endif %}>
+  </div>
+   <div class="right-image-box {% if section.settings.parallax %}parallax{% endif %}" {% if section.settings.image1 != blank %} style="background-image:url({{ section.settings.image1 | img_url:'master' }})" {% endif %}>
+  </div>
+  {% unless section.settings.remove_margin %}
+  <div class="index-section {% if section.settings.bottom_margin != blank %}bottom_margin{% endif %}">
+  {% endunless %} 
+  
+  <div class="top-container page-width">
+    <div class="head-box">
+      {% if section.settings.heading != blank %}
+      <h2 class="h1">{{section.settings.heading}}</h2>
+      {% endif %}
+      {% if section.settings.detail != blank %}
+      <p class="h4">{{section.settings.detail}}</p>
+      {% endif %}
+    </div>
+    <div class="compare-box">
+      <div class="left-box">  
+        {% if section.settings.right != blank %}
+        <div class="img-box"><img src="{{section.settings.right | img_url:"master"}}"></div>
+        {% endif %}
+        {% if section.settings.glass_heading != blank %}
+      <h2 class="h2">{{section.settings.glass_heading}}</h2>
+        {% endif %}
+        {% if section.settings.glass_detail != blank %}
+      <div class="p2">{{section.settings.glass_detail}}</div>
+        {% endif %}
+      </div>
+      <div class="border-line"></div>
+      <div class="right-box">  
+        {% if section.settings.wrong != blank %}
+        <div class="img-box"><img src="{{section.settings.wrong | img_url:"master"}}"></div>
+        {% endif %}
+        {% if section.settings.plastic_heading != blank %}
+      <h2 class="h2">{{section.settings.plastic_heading}}</h2>
+        {% endif %}
+        {% if section.settings.plastic_detail != blank %}
+      <div class="p2">{{section.settings.plastic_detail}}</div>
+        {% endif %}
+      </div>
+    </div>
+    {% if section.settings.faq_link != blank %}
+    <div class="bottom-box">
+      <h4 class="h4">{{section.settings.faq_link}}</h4>
+    </div>
+    {% endif %}
+  </div>
+    
+    {% unless section.settings.remove_margin %}  
+  </div>
+  {% endunless %} 
+
+
+
+{% schema %}
+  {
+    "name": "Glass vs Plastic",
+	"class":"glass-vs-plastic index-section--flush",
+    "settings": [
+{
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Right background image"
+    },
+
+
+{
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "Enable parallax",
+      "default": true
+    },
+{
+"type":"text",
+"label":"Heading",
+"id":"heading"
+},
+{
+"type":"textarea",
+"id":"detail",
+"label":"Description"
+},
+{
+"type":"header",
+"content":"Glass block"
+},
+{
+"type":"image_picker",
+"id":"right",
+"label":"Right icon"
+},
+{
+"type":"text",
+"id":"glass_heading",
+"label":"Glass heading"
+},
+{
+"type":"richtext",
+"id":"glass_detail",
+"label":"Glass detail"
+},
+{
+"type":"header",
+"content":"Plastic  block"
+},
+{
+"type":"image_picker",
+"id":"wrong",
+"label":"wrong icon"
+},
+{
+"type":"text",
+"id":"plastic_heading",
+"label":"Plastic heading"
+},
+{
+"type":"richtext",
+"id":"plastic_detail",
+"label":"Plastic detail"
+},
+{
+"type":"richtext",
+"id":"faq_link",
+"label":"FAQ link"
+},
+{
+  "type": "checkbox",
+      "id": "remove_margin",
+      "label": "Remove Margin",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "bottom_margin",
+      "label": "Bottom Margin"
+    }
+],
+"presets":[
+{
+"name":"Glass vs Plastic"
+}
+]
+
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -120,16 +120,8 @@
     align-items: center;
     min-height: 44px;
   }
-  .template-index .richtext-cards .theme-block li a {
-    display: inline-block;
-    padding: 10px 0;
-  }
-  .template-index .richtext-cards .theme-block li {
-    padding-bottom: 4px !important;
-  }
-  .template-index .richtext-cards .theme-block li::before {
-    top: 17px !important;
-  }
+  /* SEO card list rows (snippets/dd-card.liquid): the title link covers the whole
+     row, so each row is already a 44px+ tap target */
 }
 
 /* (8) phones in landscape: one row of 8 */
