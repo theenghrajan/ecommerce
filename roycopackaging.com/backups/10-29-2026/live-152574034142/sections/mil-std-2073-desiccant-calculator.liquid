@@ -1,0 +1,1028 @@
+{% comment %}
+  ============================================================================
+  MIL-STD-2073 DESICCANT CALCULATOR
+  Royco Packaging, Inc.  —  sections/mil-std-2073-desiccant-calculator.liquid
+
+  WHAT THIS IS
+    A self-contained Shopify theme section that computes the minimum quantity
+    of activated desiccant required for a Method 50 unit pack, using
+    Formula I and Formula II exactly as written in MIL-STD-2073-1E
+    w/CHANGE 4, section 5.2.3.7.b. It converts the result into MIL-D-3464
+    standard unit bags and links them to the matching Royco products.
+
+  INSTALL
+    1. Shopify admin > Online Store > Themes > ... > Edit code
+    2. Sections > Add a new section > name it  mil-std-2073-desiccant-calculator
+    3. Replace the generated contents with this entire file, Save
+    4. Open the page you want it on in the Theme Editor > Add section >
+       "MIL-STD-2073 Desiccant"
+
+    Shopify caps a section's schema name at 25 characters, so the Theme
+    Editor label is the short form. The heading customers actually see is
+    the "Heading" setting, which still reads "MIL-STD-2073 Desiccant
+    Calculator" and can be changed without touching this file.
+
+  TEXT SIZE
+    Theme Editor > Appearance > "Base text size". Everything in the section
+    scales from that one number, the same way the code lookup section does.
+
+  MAINTAINING THE PRODUCT LINKS
+    Search this file for  BAGS:  (near the top of the <script> block).
+    That array maps each MIL-D-3464 bag size to a Royco product handle.
+    A blank handle renders as plain text rather than a link that 404s.
+
+  SOURCE
+    MIL-STD-2073-1E w/CHANGE 4, section 5.2.3.7 (Method 50) and 5.2.3.7.b
+    (Formulas I and II). Bag sizes and the definition of a unit are from
+    MIL-D-3464E, section 3.3.
+  ============================================================================
+{% endcomment %}
+
+<div
+  class="royco-desi"
+  id="royco-desi-{{ section.id }}"
+  data-collection-root="{{ section.settings.collection_root | escape }}"
+  data-product-root="{{ section.settings.product_root | escape }}"
+  data-indicator-handle="{{ section.settings.indicator_handle | escape }}"
+  data-indicator-label="{{ section.settings.indicator_label | escape }}"
+>
+  <div class="royco-desi__inner">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="royco-desi__heading">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    {% if section.settings.intro != blank %}
+      <div class="royco-desi__intro rte">{{ section.settings.intro }}</div>
+    {% endif %}
+
+    <div class="royco-desi__layout">
+
+      <form class="royco-desi__panel" data-role="form" novalidate autocomplete="off">
+
+        <!-- 1 — enclosure ------------------------------------------------ -->
+        <fieldset class="royco-desi__fs">
+          <legend class="royco-desi__legend"><span>1</span> Enclosure</legend>
+
+          <div class="royco-desi__seg" role="radiogroup" aria-label="Enclosure type">
+            <label class="royco-desi__segopt">
+              <input type="radio" name="royco-desi-encl-{{ section.id }}" value="bag" data-role="encl" checked>
+              <span>Flexible barrier bag</span>
+            </label>
+            <label class="royco-desi__segopt">
+              <input type="radio" name="royco-desi-encl-{{ section.id }}" value="rigid" data-role="encl">
+              <span>Rigid container, not all metal</span>
+            </label>
+            <label class="royco-desi__segopt">
+              <input type="radio" name="royco-desi-encl-{{ section.id }}" value="metal" data-role="encl">
+              <span>Rigid all-metal container</span>
+            </label>
+          </div>
+
+          <p class="royco-desi__help" data-role="encl-help"></p>
+
+          <label class="royco-desi__check" data-role="wvtr-wrap">
+            <input type="checkbox" data-role="wvtr">
+            <span>Sealed enclosure verified to a water vapor transmission rate not exceeding
+            0.001 gram per 24 hours per 100 square inches, tested per ASTM D4279 constant
+            atmosphere method. Formula II may then be used.</span>
+          </label>
+        </fieldset>
+
+        <!-- 2 — dimensions ----------------------------------------------- -->
+        <fieldset class="royco-desi__fs">
+          <legend class="royco-desi__legend"><span>2</span> Dimensions</legend>
+
+          <div class="royco-desi__seg royco-desi__seg--sm" role="radiogroup" aria-label="Units">
+            <label class="royco-desi__segopt">
+              <input type="radio" name="royco-desi-unit-{{ section.id }}" value="in" data-role="unit" checked>
+              <span>Inches</span>
+            </label>
+            <label class="royco-desi__segopt">
+              <input type="radio" name="royco-desi-unit-{{ section.id }}" value="ft" data-role="unit">
+              <span>Feet</span>
+            </label>
+          </div>
+
+          <div data-role="dims-bag">
+            <div class="royco-desi__row">
+              <label class="royco-desi__field">
+                <span class="royco-desi__lbl">Bag width <em data-role="u1">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="bagW" class="royco-desi__num">
+              </label>
+              <label class="royco-desi__field">
+                <span class="royco-desi__lbl">Bag length <em data-role="u2">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="bagL" class="royco-desi__num">
+              </label>
+              <label class="royco-desi__field">
+                <span class="royco-desi__lbl">Gusset <em data-role="u3">in</em> <small>optional</small></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="bagG" class="royco-desi__num">
+              </label>
+            </div>
+            <p class="royco-desi__help">
+              Barrier area is both faces of the bag, so a flat bag counts twice its face
+              dimensions. Use the finished bag size, including enough length to permit
+              two subsequent reseals after inspection as 5.2.3.7 requires.
+            </p>
+          </div>
+
+          <div data-role="dims-box" hidden>
+            <div class="royco-desi__row">
+              <label class="royco-desi__field">
+                <span class="royco-desi__lbl">Length <em data-role="u4">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="boxL" class="royco-desi__num">
+              </label>
+              <label class="royco-desi__field">
+                <span class="royco-desi__lbl">Width <em data-role="u5">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="boxW" class="royco-desi__num">
+              </label>
+              <label class="royco-desi__field">
+                <span class="royco-desi__lbl">Height <em data-role="u6">in</em></span>
+                <input type="number" min="0" step="any" inputmode="decimal" data-role="boxH" class="royco-desi__num">
+              </label>
+            </div>
+            <p class="royco-desi__help" data-role="box-help"></p>
+          </div>
+
+          <label class="royco-desi__check">
+            <input type="checkbox" data-role="manual">
+            <span>Enter <em data-role="manual-word">area</em> directly instead</span>
+          </label>
+
+          <div class="royco-desi__row" data-role="manual-wrap" hidden>
+            <label class="royco-desi__field">
+              <span class="royco-desi__lbl"><em data-role="manual-word2">Area</em> <em data-role="u7">in&sup2;</em></span>
+              <input type="number" min="0" step="any" inputmode="decimal" data-role="manualVal" class="royco-desi__num">
+            </label>
+          </div>
+
+          <p class="royco-desi__derived" data-role="derived"></p>
+        </fieldset>
+
+        <!-- 3 — dunnage --------------------------------------------------- -->
+        <fieldset class="royco-desi__fs">
+          <legend class="royco-desi__legend"><span>3</span> Dunnage inside the pack</legend>
+          <p class="royco-desi__help">
+            Pounds of each material sealed inside the enclosure. Include the inner
+            container when one is used. Leave blank where a material is not present.
+          </p>
+          <div data-role="dunnage"></div>
+        </fieldset>
+
+        <button type="button" class="royco-desi__reset" data-role="reset">Clear all fields</button>
+      </form>
+
+      <div class="royco-desi__panel royco-desi__result" data-role="out" aria-live="polite"></div>
+
+    </div>
+
+    {% if section.settings.disclaimer != blank %}
+      <div class="royco-desi__disclaimer rte">{{ section.settings.disclaimer }}</div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% style %}
+  #royco-desi-{{ section.id }} {
+    --rc-ink:    {{ section.settings.color_ink }};
+    --rc-muted:  {{ section.settings.color_muted }};
+    --rc-accent: {{ section.settings.color_accent }};
+    --rc-bg:     {{ section.settings.color_bg }};
+    --rc-panel:  {{ section.settings.color_panel }};
+    --rc-line:   {{ section.settings.color_line }};
+    --rc-radius: 10px;
+    /* Every size in the section is derived from this one number, set in
+       Theme Editor > Appearance > Base text size. */
+    --rc-fs:     {{ section.settings.text_size }}px;
+  }
+  #royco-desi-{{ section.id }} {
+    background: var(--rc-bg);
+    color: var(--rc-ink);
+    padding: {{ section.settings.padding_top }}px 1.25rem {{ section.settings.padding_bottom }}px;
+    font-size: var(--rc-fs);
+  }
+{% endstyle %}
+
+<style>
+  .royco-desi *, .royco-desi *::before, .royco-desi *::after { box-sizing: border-box; }
+  .royco-desi__inner { max-width: 1180px; margin: 0 auto; }
+  /* Several elements the script toggles carry a display rule of their own,
+     and an author rule always beats the browser's [hidden] default. */
+  .royco-desi [hidden] { display: none !important; }
+
+  .royco-desi__heading {
+    margin: 0 0 .5em;
+    font-size: calc(var(--rc-fs) * 2);
+    line-height: 1.15;
+  }
+  .royco-desi__intro {
+    margin: 0 0 2em;
+    max-width: 62ch;
+    font-size: calc(var(--rc-fs) * 1.06);
+    line-height: 1.6;
+    color: var(--rc-muted);
+  }
+  .royco-desi__intro p:last-child { margin-bottom: 0; }
+
+  /* ---- two-panel layout ---- */
+  .royco-desi__layout {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    align-items: start;
+  }
+  .royco-desi__panel {
+    min-width: 0;
+    border: 1px solid var(--rc-line);
+    border-radius: var(--rc-radius);
+    background: var(--rc-panel);
+    padding: 1.15rem 1.2rem 1.2rem;
+  }
+  .royco-desi__result { position: sticky; top: 1rem; }
+
+  /* ---- form ---- */
+  .royco-desi__fs { border: 0; margin: 0 0 1.5em; padding: 0; min-width: 0; }
+  .royco-desi__fs:last-of-type { margin-bottom: 1em; }
+  .royco-desi__legend {
+    display: flex; align-items: center; gap: .5em;
+    padding: 0; margin-bottom: .7em;
+    font-weight: 650; line-height: 1.25;
+    font-size: calc(var(--rc-fs) * 1.12);
+  }
+  .royco-desi__legend span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.6em; height: 1.6em; border-radius: 50%;
+    background: var(--rc-accent); color: #fff;
+    font-size: calc(var(--rc-fs) * .8); font-weight: 650;
+  }
+
+  .royco-desi__seg { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .7em; }
+  .royco-desi__segopt { position: relative; }
+  .royco-desi__segopt input {
+    position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer;
+  }
+  .royco-desi__segopt span {
+    display: block;
+    border: 1.5px solid var(--rc-line); border-radius: 8px;
+    background: var(--rc-bg); color: var(--rc-muted);
+    padding: .45em .8em; line-height: 1.35;
+    font-size: calc(var(--rc-fs) * .92);
+  }
+  .royco-desi__segopt input:checked + span {
+    border-color: var(--rc-accent); color: var(--rc-ink); font-weight: 650;
+    box-shadow: inset 0 0 0 1px var(--rc-accent);
+  }
+  .royco-desi__segopt input:focus-visible + span {
+    outline: 2px solid var(--rc-accent); outline-offset: 2px;
+  }
+  .royco-desi__seg--sm .royco-desi__segopt span { font-size: calc(var(--rc-fs) * .84); padding: .3em .7em; }
+
+  .royco-desi__row { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: .5em; }
+  .royco-desi__field { flex: 1 1 7.5rem; min-width: 0; display: block; }
+  .royco-desi__lbl {
+    display: block; margin-bottom: .3em;
+    font-size: calc(var(--rc-fs) * .84); color: var(--rc-muted); line-height: 1.35;
+  }
+  .royco-desi__lbl em { font-style: normal; }
+  .royco-desi__lbl small { font-size: .92em; opacity: .8; }
+  .royco-desi__num {
+    display: block; width: 100%;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * 1.1);
+    color: var(--rc-ink); background: var(--rc-bg);
+    border: 1.5px solid var(--rc-line); border-radius: 8px;
+    padding: .45em .55em;
+  }
+  .royco-desi__num:focus-visible {
+    outline: 2px solid var(--rc-accent); outline-offset: 1px; border-color: var(--rc-accent);
+  }
+
+  .royco-desi__check {
+    display: flex; gap: .55em; align-items: flex-start;
+    margin: .6em 0 .2em; cursor: pointer;
+    font-size: calc(var(--rc-fs) * .84); line-height: 1.5; color: var(--rc-muted);
+  }
+  .royco-desi__check input { margin-top: .25em; flex: none; accent-color: var(--rc-accent); }
+  .royco-desi__check em { font-style: normal; font-weight: 650; color: var(--rc-ink); }
+
+  .royco-desi__help {
+    margin: .4em 0 0;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.55; color: var(--rc-muted);
+  }
+  .royco-desi__derived {
+    margin: .8em 0 0; padding-top: .6em;
+    border-top: 1px dashed var(--rc-line);
+    font-size: calc(var(--rc-fs) * .9); line-height: 1.5; color: var(--rc-muted);
+  }
+  .royco-desi__derived strong {
+    color: var(--rc-ink); font-weight: 650;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  /* ---- dunnage rows ---- */
+  .royco-desi__dun {
+    display: grid; grid-template-columns: minmax(0, 1fr) 7.5rem;
+    gap: .5rem .7rem; align-items: center;
+    padding: .5em 0; border-bottom: 1px solid var(--rc-line);
+  }
+  .royco-desi__dun:last-child { border-bottom: 0; }
+  .royco-desi__dunlbl { font-size: calc(var(--rc-fs) * .92); line-height: 1.4; }
+  .royco-desi__dunlbl b { font-weight: 650; }
+  .royco-desi__dunlbl i {
+    display: block; font-style: normal;
+    font-size: calc(var(--rc-fs) * .8); color: var(--rc-muted);
+  }
+  .royco-desi__dunfac {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: var(--rc-accent); font-weight: 650;
+  }
+
+  .royco-desi__reset {
+    font-family: inherit; font-size: calc(var(--rc-fs) * .86);
+    color: var(--rc-muted); background: none; border: 0; padding: 0;
+    cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+  }
+  .royco-desi__reset:hover { color: var(--rc-ink); }
+
+  /* ---- result ---- */
+  .royco-desi__idle {
+    color: var(--rc-muted); font-size: calc(var(--rc-fs) * .92); line-height: 1.6;
+  }
+  .royco-desi__formula {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * .92); line-height: 1.7;
+    background: var(--rc-bg); border: 1px solid var(--rc-line); border-radius: 8px;
+    padding: .7em .8em; margin: 0 0 1em;
+    overflow-x: auto; white-space: nowrap;
+  }
+  .royco-desi__formula b { color: var(--rc-accent); font-weight: 650; }
+  .royco-desi__formula i {
+    display: block; white-space: normal; font-style: normal;
+    margin-top: .4em; font-family: inherit;
+    font-size: calc(var(--rc-fs) * .8); color: var(--rc-muted);
+  }
+
+  .royco-desi__terms {
+    width: 100%; table-layout: fixed; border-collapse: collapse; margin-bottom: 1em;
+  }
+  .royco-desi__terms th, .royco-desi__terms td {
+    text-align: left; padding: .45em .3em; overflow-wrap: anywhere;
+    border-bottom: 1px solid var(--rc-line);
+    font-size: calc(var(--rc-fs) * .88); line-height: 1.45;
+  }
+  .royco-desi__terms th { color: var(--rc-muted); font-weight: 500; letter-spacing: .04em;
+    text-transform: uppercase; font-size: calc(var(--rc-fs) * .74); }
+  .royco-desi__terms td:last-child, .royco-desi__terms th:last-child {
+    width: 6rem; text-align: right; white-space: nowrap;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  .royco-desi__terms tr[data-total] td {
+    border-bottom: 0; border-top: 2px solid var(--rc-line);
+    font-weight: 650; padding-top: .6em;
+  }
+
+  .royco-desi__answer {
+    display: flex; flex-wrap: wrap; gap: .8rem 1.6rem;
+    align-items: baseline; margin-bottom: 1em;
+  }
+  .royco-desi__answerbox span {
+    display: block; font-size: calc(var(--rc-fs) * .74);
+    letter-spacing: .07em; text-transform: uppercase; color: var(--rc-muted);
+    margin-bottom: .15em;
+  }
+  .royco-desi__answerbox strong {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: calc(var(--rc-fs) * 1.35); font-weight: 650; line-height: 1.1;
+  }
+  .royco-desi__answerbox--spec strong {
+    font-size: calc(var(--rc-fs) * 2); color: var(--rc-accent);
+  }
+
+  .royco-desi__pack {
+    margin-bottom: 1em; padding-top: .8em;
+    border-top: 1px dashed var(--rc-line);
+  }
+  .royco-desi__packtitle {
+    font-size: calc(var(--rc-fs) * .74); letter-spacing: .07em;
+    text-transform: uppercase; color: var(--rc-muted); margin-bottom: .5em;
+  }
+  .royco-desi__bag {
+    display: flex; align-items: baseline; gap: .5em;
+    padding: .4em 0; border-bottom: 1px solid var(--rc-line);
+    font-size: calc(var(--rc-fs) * .94); line-height: 1.5;
+  }
+  .royco-desi__bag:last-child { border-bottom: 0; }
+  .royco-desi__bagqty {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 650; flex: none; min-width: 2.5em;
+  }
+  .royco-desi__note {
+    margin: .8em 0 0;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.6; color: var(--rc-muted);
+  }
+  .royco-desi__note--flag {
+    padding: .7em .8em; border-radius: 8px;
+    background: var(--rc-bg); border: 1px solid var(--rc-line);
+  }
+  .royco-desi__note strong { color: var(--rc-ink); font-weight: 650; }
+  .royco-desi__err { color: #b3352a; font-size: calc(var(--rc-fs) * .92); line-height: 1.6; }
+
+  .royco-desi a {
+    color: var(--rc-accent); text-decoration: underline; text-underline-offset: 2px;
+  }
+
+  .royco-desi__disclaimer {
+    margin-top: 2em; max-width: 78ch;
+    font-size: calc(var(--rc-fs) * .82); line-height: 1.6; color: var(--rc-muted);
+  }
+  .royco-desi__disclaimer p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 860px) {
+    .royco-desi__layout { grid-template-columns: minmax(0, 1fr); }
+    .royco-desi__formula { white-space: normal; }
+    .royco-desi__result { position: static; }
+  }
+</style>
+
+{% raw %}
+<script>
+(function () {
+  "use strict";
+
+  /* == DATA ================================================================
+     MIL-D-3464E standard bag sizes. Handles VERIFIED against
+     roycopackaging.com/collections/mil-d-3464/products.json and
+     /collections/desiccants/products.json.
+
+     NOTE ON THE 16 AND 80 UNIT HANDLES. The store has a legacy handle
+     collision: the 80 unit product lives at /products/16-unit-desiccant,
+     and the 16 unit product lives at
+     /products/16-unit-desiccant-mil-d-3464-ty-1-and-ty-2. Both are correct
+     as written below. If those handles are ever cleaned up in Shopify,
+     change them here too.
+
+     A blank handle renders as plain text rather than a link that 404s.
+     ======================================================================== */
+  var BAGS = [
+    { units: 16,    label: "16 unit", handle: "16-unit-desiccant-mil-d-3464-ty-1-and-ty-2" },
+    { units:  8,    label: "8 unit",  handle: "8-unit-desiccant" },
+    { units:  4,    label: "4 unit",  handle: "4-unit-desiccant" },
+    { units:  2,    label: "2 unit",  handle: "2-unit-desiccant" },
+    { units:  1,    label: "1 unit",  handle: "1-unit-desiccant" }
+  ];
+
+  /* Fractional bags. Not used in the breakdown, because the specified
+     quantity is rounded up to a whole unit, but named in the footnote so a
+     buyer working to a fractional allowance can find them. */
+  var FRACTIONS = [
+    { label: "1/2 unit", handle: "1-2-unit-desiccant" },
+    { label: "1/3 unit", handle: "1-3-unit-desiccant" },
+    { label: "1/6 unit", handle: "1-6-unit-desiccant" }
+  ];
+
+  /* Bulk sewn bag. Outside the 1/6 through 16 unit range MIL-D-3464 lists,
+     so it is offered as an alternative rather than used in the breakdown. */
+  var BULK = { units: 80, label: "80 unit", handle: "16-unit-desiccant" };
+
+  var COLLECTION_HANDLE = "mil-d-3464";
+
+  /* Dunnage factors, 5.2.3.7.b. */
+  var DUNNAGE = [
+    { key: "x1", sym: "X₁", factor: 8.0, label: "Cellulosic material",
+      note: "wood, fiberboard, paper, and any other material not listed below" },
+    { key: "x2", sym: "X₂", factor: 3.6, label: "Bound fibers",
+      note: "synthetic or vegetable fibers bound with rubber" },
+    { key: "x3", sym: "X₃", factor: 2.0, label: "Glass fibers",
+      note: "fiberglass" },
+    { key: "x4", sym: "X₄", factor: 0.5, label: "Synthetic foams and rubber",
+      note: "" }
+  ];
+
+  /* Constants, 5.2.3.7.b. The standard supplies a constant for each unit of
+     measure rather than one constant plus a conversion, and the foot values
+     are rounded very slightly high (1.6 against 0.011 x 144 = 1.584;
+     1.2 against 0.0007 x 1728 = 1.2096). The tool uses whichever constant
+     matches the unit the customer states, which is what the standard says
+     to do. */
+  var CONST = {
+    in: { C: 0.011,  K: 0.0007, area: "in²", vol: "in³", len: "in" },
+    ft: { C: 1.6,    K: 1.2,    area: "ft²", vol: "ft³", len: "ft" }
+  };
+
+  var ENCL_HELP = {
+    bag:   "A heat-sealed bag is the unit container. Formula I applies, based on the area of the barrier material.",
+    rigid: "A sealed rigid container other than all metal. Formula I applies, based on the area of the barrier, unless the enclosure is verified to the low water vapor transmission rate below.",
+    metal: "A sealed rigid metal container with a machine seamed, welded, gasketed or threaded closure. Formula II applies, based on the volume inside the container."
+  };
+
+  /* == HELPERS ============================================================= */
+
+  var ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return ESC[c]; }); }
+
+  function resolveUrl(roots, handle, isProduct) {
+    if (!handle) return "";
+    var root = isProduct ? roots.product : roots.collection;
+    return root.replace(/\/+$/, "") + "/" + handle;
+  }
+
+  /* Fixed three decimals, for the term table where the column must align. */
+  function fixed3(n) { return (isFinite(n) ? n : 0).toFixed(3); }
+
+  /* Trim trailing zeros so 288 reads as 288 and 5.168 keeps its precision. */
+  function num(n, dp) {
+    if (!isFinite(n)) return "0";
+    var s = n.toFixed(dp === undefined ? 3 : dp);
+    if (s.indexOf(".") > -1) s = s.replace(/0+$/, "").replace(/\.$/, "");
+    return s;
+  }
+
+  function val(el) {
+    if (!el) return 0;
+    var v = parseFloat(el.value);
+    return (isFinite(v) && v > 0) ? v : 0;
+  }
+
+  /* == SECTION ============================================================= */
+
+  function init(root) {
+    if (root.getAttribute("data-royco-desi-ready")) return;
+    root.setAttribute("data-royco-desi-ready", "1");
+
+    var roots = {
+      collection: root.getAttribute("data-collection-root") || "/collections",
+      product:    root.getAttribute("data-product-root")    || "/products"
+    };
+    var indicatorHandle = (root.getAttribute("data-indicator-handle") || "").trim();
+    var indicatorLabel  = (root.getAttribute("data-indicator-label") || "").trim()
+                          || "See Royco humidity indicators";
+
+    var q = function (sel) { return root.querySelector(sel); };
+    var qa = function (sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); };
+    var byRole = function (r) { return q('[data-role="' + r + '"]'); };
+
+    var out = byRole("out");
+
+    /* ---- build the dunnage rows ---- */
+    var dunWrap = byRole("dunnage");
+    dunWrap.innerHTML = DUNNAGE.map(function (d) {
+      return '<div class="royco-desi__dun">' +
+               '<div class="royco-desi__dunlbl">' +
+                 '<b>' + esc(d.label) + '</b> ' +
+                 '<span class="royco-desi__dunfac">' + d.sym + " = " + num(d.factor, 1) + "</span>" +
+                 (d.note ? "<i>" + esc(d.note) + "</i>" : "") +
+               "</div>" +
+               '<input type="number" min="0" step="any" inputmode="decimal" class="royco-desi__num" ' +
+                 'data-role="dun-' + d.key + '" aria-label="' + esc(d.label) + ' in pounds" placeholder="lb">' +
+             "</div>";
+    }).join("");
+
+    /* ---- read the form ---- */
+    function state() {
+      var encl = "bag";
+      qa('[data-role="encl"]').forEach(function (r) { if (r.checked) encl = r.value; });
+
+      var unit = "in";
+      qa('[data-role="unit"]').forEach(function (r) { if (r.checked) unit = r.value; });
+
+      var wvtr = byRole("wvtr").checked;
+      var manual = byRole("manual").checked;
+
+      /* Formula II for a rigid metal container, and for a rigid non-metal
+         container the customer has verified to the 0.001 g WVTR in the note
+         to 5.2.3.7.b. Everything else is Formula I. */
+      var formula = (encl === "metal" || (encl === "rigid" && wvtr)) ? 2 : 1;
+
+      var dun = DUNNAGE.map(function (d) { return val(byRole("dun-" + d.key)); });
+
+      return {
+        encl: encl, unit: unit, wvtr: wvtr, manual: manual, formula: formula,
+        dun: dun,
+        bagW: val(byRole("bagW")), bagL: val(byRole("bagL")), bagG: val(byRole("bagG")),
+        boxL: val(byRole("boxL")), boxW: val(byRole("boxW")), boxH: val(byRole("boxH")),
+        manualVal: val(byRole("manualVal"))
+      };
+    }
+
+    /* ---- geometry ---- */
+    function geometry(s) {
+      /* Formula II wants the volume inside the container; Formula I wants
+         the area of the barrier. */
+      if (s.formula === 2) {
+        if (s.manual) {
+          return { value: s.manualVal, how: "" };
+        }
+        var v = s.boxL * s.boxW * s.boxH;
+        return {
+          value: v,
+          how: v > 0
+            ? num(s.boxL) + " × " + num(s.boxW) + " × " + num(s.boxH)
+            : ""
+        };
+      }
+
+      if (s.manual) return { value: s.manualVal, how: "" };
+
+      if (s.encl === "bag") {
+        /* Both faces of the bag. A gusset adds one face on each side. */
+        var a = 2 * s.bagL * (s.bagW + s.bagG);
+        return {
+          value: a,
+          how: a > 0
+            ? (s.bagG > 0
+                ? "2 × " + num(s.bagL) + " × (" + num(s.bagW) + " + " + num(s.bagG) + ")"
+                : "2 × " + num(s.bagL) + " × " + num(s.bagW))
+            : ""
+        };
+      }
+
+      /* Rigid container on Formula I: the whole outside surface is barrier. */
+      var l = s.boxL, w = s.boxW, h = s.boxH;
+      var area = 2 * (l * w + l * h + w * h);
+      return {
+        value: area,
+        how: area > 0
+          ? "2 × ((" + num(l) + " × " + num(w) + ") + (" + num(l) + " × " +
+            num(h) + ") + (" + num(w) + " × " + num(h) + "))"
+          : ""
+      };
+    }
+
+    /* ---- MIL-D-3464 bag breakdown, largest size first ---- */
+    function breakdown(units) {
+      var left = units, picks = [];
+      for (var i = 0; i < BAGS.length; i++) {
+        var n = Math.floor(left / BAGS[i].units);
+        if (n > 0) { picks.push({ bag: BAGS[i], count: n }); left -= n * BAGS[i].units; }
+      }
+      return picks;
+    }
+
+    /* ---- labels that follow the chosen unit of measure ---- */
+    function relabel(s) {
+      var c = CONST[s.unit];
+      ["u1", "u2", "u3", "u4", "u5", "u6"].forEach(function (r) {
+        var el = byRole(r); if (el) el.textContent = c.len;
+      });
+      var u7 = byRole("u7");
+      if (u7) u7.innerHTML = s.formula === 2 ? c.vol : c.area;
+
+      var word = s.formula === 2 ? "volume" : "area";
+      byRole("manual-word").textContent = word;
+      byRole("manual-word2").textContent = word.charAt(0).toUpperCase() + word.slice(1);
+
+      byRole("encl-help").textContent = ENCL_HELP[s.encl];
+      byRole("wvtr-wrap").hidden = (s.encl !== "rigid");
+
+      var useBox = (s.formula === 2 || s.encl !== "bag");
+      byRole("dims-bag").hidden = s.manual || useBox;
+      byRole("dims-box").hidden = s.manual || !useBox;
+      byRole("manual-wrap").hidden = !s.manual;
+
+      var bh = byRole("box-help");
+      if (bh) {
+        bh.textContent = s.formula === 2
+          ? "Inside dimensions of the sealed container. Volume is length × width × height."
+          : "Outside dimensions of the sealed container. Barrier area is the whole surface, 2(LW + LH + WH).";
+      }
+    }
+
+    /* ---- render ---- */
+    function render() {
+      var s = state();
+      relabel(s);
+
+      var c = CONST[s.unit];
+      var geo = geometry(s);
+      var measureUnit = s.formula === 2 ? c.vol : c.area;
+      var coef = s.formula === 2 ? c.K : c.C;
+      var coefName = s.formula === 2 ? "K" : "C";
+      var geoSym = s.formula === 2 ? "V" : "A";
+
+      var derived = byRole("derived");
+      if (geo.value > 0) {
+        derived.innerHTML =
+          (s.formula === 2 ? "Volume" : "Barrier area") + " " + geoSym + " = " +
+          (geo.how ? esc(geo.how) + " = " : "") +
+          "<strong>" + esc(num(geo.value, 2)) + " " + measureUnit + "</strong>";
+      } else {
+        derived.innerHTML = "";
+      }
+
+      var dunTotal = 0;
+      var dunRows = DUNNAGE.map(function (d, i) {
+        var lb = s.dun[i];
+        var contrib = d.factor * lb;
+        dunTotal += contrib;
+        return { d: d, lb: lb, contrib: contrib };
+      });
+
+      var geoContrib = coef * geo.value;
+      var total = geoContrib + dunTotal;
+
+      if (geo.value <= 0 && dunTotal <= 0) {
+        out.innerHTML =
+          '<p class="royco-desi__idle">Enter the enclosure dimensions and any dunnage sealed ' +
+          "inside the pack. The minimum quantity of desiccant appears here, computed by the " +
+          "formula MIL-STD-2073-1E gives for that enclosure, and broken down into MIL-D-3464 " +
+          "standard unit bags.</p>";
+        return;
+      }
+
+      if (geo.value <= 0) {
+        out.innerHTML =
+          '<p class="royco-desi__err">Enter the ' +
+          (s.formula === 2 ? "container volume" : "barrier area") +
+          " or the dimensions it is derived from. Dunnage alone does not size the pack.</p>";
+        return;
+      }
+
+      var specified = Math.max(1, Math.ceil(total - 1e-9));
+      var picks = breakdown(specified);
+
+      var html = "";
+
+      /* formula, with the customer's numbers substituted */
+      var subst = "<b>" + esc(num(coef, 4)) + "</b> × " + esc(num(geo.value, 2));
+      dunRows.forEach(function (r) {
+        if (r.lb > 0) subst += " + <b>" + esc(num(r.d.factor, 1)) + "</b> × " + esc(num(r.lb, 3));
+      });
+      html +=
+        '<p class="royco-desi__formula">' +
+          "Formula " + (s.formula === 2 ? "II" : "I") + ": " +
+          "U = " + coefName + geoSym + " + X₁D + X₂D + X₃D + X₄D<br>" +
+          "U = " + subst +
+          "<i>" + esc(coefName) + " = " + esc(num(coef, 4)) + " when " +
+          (s.formula === 2 ? "volume" : "the area of the barrier material") +
+          " is stated in " + esc(s.unit === "in" ? (s.formula === 2 ? "cubic inches" : "square inches")
+                                                 : (s.formula === 2 ? "cubic feet" : "square feet")) +
+          ". D is pounds of dunnage.</i>" +
+        "</p>";
+
+      /* term-by-term table */
+      html +=
+        '<table class="royco-desi__terms"><thead><tr>' +
+          "<th>Term</th><th>Units</th>" +
+        "</tr></thead><tbody>";
+      html +=
+        "<tr><td>" + (s.formula === 2 ? "Container volume" : "Barrier area") + " " +
+        esc(num(geo.value, 2)) + " " + measureUnit + " × " + esc(num(coef, 4)) + "</td>" +
+        "<td>" + esc(fixed3(geoContrib)) + "</td></tr>";
+      dunRows.forEach(function (r) {
+        if (r.lb <= 0) return;
+        html +=
+          "<tr><td>" + esc(r.d.label) + " " + esc(num(r.lb, 3)) + " lb × " +
+          esc(num(r.d.factor, 1)) + "</td>" +
+          "<td>" + esc(fixed3(r.contrib)) + "</td></tr>";
+      });
+      html +=
+        '<tr data-total="1"><td>Computed minimum</td><td>' + esc(fixed3(total)) + "</td></tr>";
+      html += "</tbody></table>";
+
+      /* the two numbers */
+      html +=
+        '<div class="royco-desi__answer">' +
+          '<div class="royco-desi__answerbox">' +
+            "<span>Computed minimum</span>" +
+            "<strong data-role='exact'>" + esc(num(total, 3)) + " U</strong>" +
+          "</div>" +
+          '<div class="royco-desi__answerbox royco-desi__answerbox--spec">' +
+            "<span>Specify</span>" +
+            "<strong data-role='specified'>" + esc(String(specified)) + " U</strong>" +
+          "</div>" +
+        "</div>";
+
+      /* pack breakdown */
+      var collUrl = resolveUrl(roots, COLLECTION_HANDLE, false);
+      html += '<div class="royco-desi__pack">';
+      html += '<p class="royco-desi__packtitle">Pack it with</p>';
+      picks.forEach(function (p) {
+        var url = resolveUrl(roots, p.bag.handle, true);
+        var name = url
+          ? '<a href="' + esc(url) + '" data-royco-bag="' + esc(String(p.bag.units)) + '">' +
+            esc(p.bag.label) + " bag</a>"
+          : esc(p.bag.label) + " bag";
+        html +=
+          '<div class="royco-desi__bag">' +
+            '<span class="royco-desi__bagqty">' + esc(String(p.count)) + "×</span>" +
+            "<span>" + name + " &mdash; " + esc(String(p.count * p.bag.units)) + " units</span>" +
+          "</div>";
+      });
+      html += "</div>";
+
+      /* footnotes */
+      if (specified >= BULK.units) {
+        var bulkUrl = resolveUrl(roots, BULK.handle, true);
+        html +=
+          '<p class="royco-desi__note">For a pack this size Royco also supplies an ' +
+          (bulkUrl ? '<a href="' + esc(bulkUrl) + '">80 unit bulk sewn bag</a>' : "80 unit bulk sewn bag") +
+          ". It sits outside the 1/6 through 16 unit range MIL-D-3464 lists, so specify it only " +
+          "where the contract or drawing permits a non-standard bag size.</p>";
+      }
+
+      if (total < 1) {
+        html +=
+          '<p class="royco-desi__note">The computed minimum is below one unit. The quantity above ' +
+          "is rounded up to a whole unit. Where the contract or drawing permits a fractional " +
+          "allowance, MIL-D-3464 also recognizes " +
+          FRACTIONS.map(function (f) {
+            var u = resolveUrl(roots, f.handle, true);
+            return u ? '<a href="' + esc(u) + '">' + esc(f.label) + "</a>" : esc(f.label);
+          }).join(", ") + " bags.</p>";
+      }
+
+      /* humidity indicator — always, because Method 50 always requires one */
+      var indUrl = "";
+      if (indicatorHandle.indexOf("product:") === 0) {
+        indUrl = resolveUrl(roots, indicatorHandle.slice(8), true);
+      } else if (indicatorHandle) {
+        indUrl = resolveUrl(roots, indicatorHandle, false);
+      }
+      html +=
+        '<p class="royco-desi__note royco-desi__note--flag"><strong>Humidity indicator required.</strong> ' +
+        "Every Method 50 unit pack shall also include a humidity indicator conforming to MS20003, " +
+        "secured directly behind the inspection window or immediately within the closure seal. " +
+        "Externally mounted color change devices shall conform to SAE AS26860. " +
+        (indUrl ? '<a href="' + esc(indUrl) + '" data-royco-indicator="1">' +
+                  esc(indicatorLabel) + "</a>." : "") +
+        "</p>";
+
+      html +=
+        '<p class="royco-desi__note">Desiccant shall conform to ' +
+        (collUrl ? '<a href="' + esc(collUrl) + '">MIL-D-3464</a>' : "MIL-D-3464") +
+        ", Type I unless Type II or III is specified. Place it in voids, secure it so it cannot " +
+        "shift or bear load, and keep it off critical surfaces of the item. Inserting the " +
+        "desiccant is the last action before final sealing.</p>";
+
+      out.innerHTML = html;
+    }
+
+    /* ---- wiring ---- */
+    root.addEventListener("input", render);
+    root.addEventListener("change", render);
+
+    byRole("reset").addEventListener("click", function () {
+      qa("input[type=number]").forEach(function (i) { i.value = ""; });
+      byRole("wvtr").checked = false;
+      byRole("manual").checked = false;
+      qa('[data-role="encl"]').forEach(function (r, i) { r.checked = (i === 0); });
+      qa('[data-role="unit"]').forEach(function (r, i) { r.checked = (i === 0); });
+      render();
+    });
+
+    render();
+  }
+
+  function boot() {
+    Array.prototype.slice.call(document.querySelectorAll(".royco-desi")).forEach(init);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+  document.addEventListener("shopify:section:load", boot);
+})();
+</script>
+{% endraw %}
+
+{% schema %}
+{
+  "name": "MIL-STD-2073 Desiccant",
+  "tag": "section",
+  "class": "section-royco-desiccant",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "MIL-STD-2073 Desiccant Calculator"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>Method 50 packs are sealed with activated desiccant, and MIL-STD-2073-1E sets the minimum quantity by formula. Enter your enclosure and the dunnage sealed inside it, and this tool returns the computed minimum, the whole-unit quantity to specify, and the MIL-D-3464 bags that make it up.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Product links"
+    },
+    {
+      "type": "text",
+      "id": "collection_root",
+      "label": "Collection URL root",
+      "default": "/collections"
+    },
+    {
+      "type": "text",
+      "id": "product_root",
+      "label": "Product URL root",
+      "info": "Each MIL-D-3464 bag size links to this path plus the handle mapped in the BAGS array inside the section file.",
+      "default": "/products"
+    },
+    {
+      "type": "text",
+      "id": "indicator_handle",
+      "label": "Humidity indicator handle",
+      "info": "A single product prefixed with product:, or a collection handle on its own. Defaults to the MS20003-2 card. Leave blank and the humidity indicator note renders as plain text rather than a link that 404s.",
+      "default": "product:ms20003-2-humidity-indicator-card"
+    },
+    {
+      "type": "text",
+      "id": "indicator_label",
+      "label": "Humidity indicator link text",
+      "info": "Change this if you point the handle above at a collection rather than the single MS20003-2 card.",
+      "default": "See MS20003-2 humidity indicator cards"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Base text size",
+      "info": "Everything in the section scales from this. Raise it if the tool reads small on your theme.",
+      "min": 14,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "color",
+      "id": "color_bg",
+      "label": "Page background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "color_panel",
+      "label": "Panel background",
+      "default": "#f6f7f9"
+    },
+    {
+      "type": "color",
+      "id": "color_ink",
+      "label": "Text",
+      "default": "#14181f"
+    },
+    {
+      "type": "color",
+      "id": "color_muted",
+      "label": "Muted text",
+      "default": "#5c6673"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Accent and links",
+      "default": "#1f4e79"
+    },
+    {
+      "type": "color",
+      "id": "color_line",
+      "label": "Borders",
+      "default": "#d9dee5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "header",
+      "content": "Legal"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>Formulas I and II are reproduced from MIL-STD-2073-1E w/CHANGE 4, section 5.2.3.7.b. Bag sizes and the definition of a unit are from MIL-D-3464E. This tool is provided for reference only. The result is the minimum quantity the standard computes from the values you enter; it does not replace the packaging engineer's judgment on enclosure selection, dunnage weight or item characteristics. Always verify against the current revision of the standard at the DLA ASSIST database and against the requirements of your specific contract or drawing.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "MIL-STD-2073 Desiccant"
+    }
+  ]
+}
+{% endschema %}

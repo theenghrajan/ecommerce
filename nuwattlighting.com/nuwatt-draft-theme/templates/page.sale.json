@@ -1,0 +1,348 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "ss_hero": {
+      "type": "ss-sale-hero",
+      "blocks": {
+        "countdown": {
+          "type": "countdown",
+          "settings": {
+            "position": "top-right",
+            "label_during": "Sale ends in",
+            "show_before": false,
+            "label_before": "Sale starts in"
+          }
+        }
+      },
+      "block_order": [
+        "countdown"
+      ],
+      "settings": {
+        "mode": "auto",
+        "sale_start": "2026-11-27 00:00",
+        "sale_end": "2026-11-30 23:59",
+        "image": "shopify://shop_images/Anchor-Kitchen-Header.jpg",
+        "min_height": 500,
+        "min_height_mobile": 440,
+        "overlay_opacity": 80,
+        "gradient_direction": "right",
+        "show_breadcrumb": true,
+        "breadcrumb_label": "Sale",
+        "text_case": "sentence",
+        "button_radius": 2,
+        "heading": "Black Friday & Cyber Monday Sale: 15% Off Everything",
+        "text": "<p>Our biggest sale of the year is here. Take 15% off every recessed light, flood light, shop light and outdoor fixture, sitewide.</p>",
+        "button_label": "Shop the Sale",
+        "button_link": "",
+        "off_heading": "NuWatt Lighting Sale",
+        "off_text": "<p>Our next sale is on the way. Sign up for early access to our best holiday selection and exclusive prices.</p>",
+        "off_button_label": "Get Early Access",
+        "off_button_link": "",
+        "countdown_bg": "#FCC833",
+        "countdown_text": "#1F1F1F"
+      }
+    },
+    "ss_trust": {
+      "type": "ss-anchor-trust-bar",
+      "blocks": {
+        "warranty": {
+          "type": "text_block",
+          "settings": {
+            "icon": "shield",
+            "icon_image": "shopify://shop_images/image_5.png",
+            "title": "Best Warranty",
+            "btnlink": "",
+            "text": "5 Year Warranty"
+          }
+        },
+        "returns": {
+          "type": "text_block",
+          "settings": {
+            "icon": "recycle",
+            "icon_image": "shopify://shop_images/image_4.png",
+            "title": "Easy Returns",
+            "btnlink": "",
+            "text": "30-Day Hassle Free"
+          }
+        },
+        "discount": {
+          "type": "text_block",
+          "settings": {
+            "icon": "sales-tag",
+            "icon_image": "shopify://shop_images/image_3.png",
+            "title": "Volume Discount",
+            "btnlink": "",
+            "text": "Save More on Bulk"
+          }
+        },
+        "secure": {
+          "type": "text_block",
+          "settings": {
+            "icon": "wallet",
+            "icon_image": "shopify://shop_images/image_2.png",
+            "title": "Secure Shopping",
+            "btnlink": "",
+            "text": "Safe & Protected"
+          }
+        }
+      },
+      "block_order": [
+        "warranty",
+        "returns",
+        "discount",
+        "secure"
+      ],
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "title": "",
+        "align_text": "left",
+        "text_case": "sentence",
+        "show_dividers": false,
+        "desktop_columns_per_row": 4,
+        "icon_color": "#000000",
+        "button_label": "",
+        "button_link": "",
+        "divider": false
+      }
+    },
+    "ss_intro_sale": {
+      "type": "ss-anchor-intro",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Save <strong>15% sitewide</strong> on recessed lighting, LED flood lights, wafer lights and more during NuWatt's Black Friday and Cyber Monday sale. Every product line is included, with free shipping on every order and same-day processing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text"
+      ],
+      "settings": {
+        "sale_visibility": "sale",
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "text_case": "sentence",
+        "align_text": "left",
+        "narrow_column": true,
+        "color_scheme": "none",
+        "divider": false
+      }
+    },
+    "ss_intro_off": {
+      "type": "ss-anchor-intro",
+      "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>NuWatt runs its biggest sale of the year every Black Friday and Cyber Monday, with savings across recessed lighting, flood lights, shop lights and outdoor fixtures. Join the list below and we'll let you know before it starts.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text"
+      ],
+      "settings": {
+        "sale_visibility": "off",
+        "padding_top": 48,
+        "padding_bottom": 0,
+        "text_case": "sentence",
+        "align_text": "left",
+        "narrow_column": true,
+        "color_scheme": "none",
+        "divider": false
+      }
+    },
+    "ss_categories": {
+      "type": "ss-anchor-category-rows",
+      "blocks": {
+        "cat_1": {
+          "type": "category",
+          "settings": {
+            "heading": "Recessed Lighting",
+            "subheading": "Canless, retrofit and gimbal recessed lights, 15% off.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/recessed-lighting",
+            "products": [
+              "4-inch-mr16-led-retrofit-12v-recessed-downlights-wet-rated-5cct-2700k-5000k-600lm-gu5-3-base",
+              "6-inch-canless-black-recessed-lighting-slim-led-wafer-lights-wet-rated-5cct-2700k-5000k-1050lm",
+              "5-6-inch-adjustable-can-lights-sloped-ceiling-recessed-lighting-damp-rated-5cct-2700k-5000k-1200lm",
+              "6-inch-wafer-gimbal-black-recessed-lighting"
+            ],
+            "feature_image": "shopify://shop_images/Anchor-Bedroom-Recessed.jpg",
+            "feature_title": "Recessed Lighting",
+            "feature_text": "Canless, retrofit and gimbal recessed lights, 15% off.",
+            "feature_link_label": "Shop Recessed",
+            "feature_link": "shopify://collections/recessed-lighting",
+            "feature_overlay": 60
+          }
+        },
+        "cat_2": {
+          "type": "category",
+          "settings": {
+            "heading": "Outdoor Lighting",
+            "subheading": "Flood, bullet and landscape lights for every exterior, 15% off.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/outdoor-led-lighting",
+            "products": [
+              "outdoor-flood-lights-white-90w-12600-lumens",
+              "nuwatt-25w-led-bullet-spotlight-flood-light-12-pack-with-3cct-switch-knuckle-mount-120-277v-commercial-outdoor-weatherproof-landscape-led-3500lm-dimmable-ul-listed",
+              "mini-flood-landscape-fixture-50w-white-finish",
+              "landscape-bullet-led-spot-light-black-finish"
+            ],
+            "feature_image": "shopify://shop_images/Anchor-Outdoor-Header.jpg",
+            "feature_title": "Outdoor Lighting",
+            "feature_text": "Flood, bullet and landscape lights for every exterior, 15% off.",
+            "feature_link_label": "Shop Outdoor",
+            "feature_link": "shopify://collections/outdoor-led-lighting",
+            "feature_overlay": 60
+          }
+        },
+        "cat_3": {
+          "type": "category",
+          "settings": {
+            "heading": "Residential Lighting",
+            "subheading": "Lighting for every room in the home, 15% off.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/residential-led-lighting",
+            "products": [
+              "4-inch-canless-black-recessed-lighting-led-wafer-lights-wet-rated-5cct-2700k-5000k-630lm",
+              "6-inch-canless-recessed-lighting-slim-led-wafer-lights-wet-rated-5cct-2700k-5000k-1050lm",
+              "1x2-ft-led-surface-mount-panel-4-pack-22w-5cct",
+              "6-inch-bronze-canless-recessed-lighting-slim-led-wafer-lights-wet-rated-5cct-2700k-5000k-1050lm"
+            ],
+            "feature_image": "shopify://shop_images/Homepage-Category-Bedroom.jpg",
+            "feature_title": "Residential Lighting",
+            "feature_text": "Lighting for every room in the home, 15% off.",
+            "feature_link_label": "Shop Residential",
+            "feature_link": "shopify://collections/residential-led-lighting",
+            "feature_overlay": 60
+          }
+        },
+        "cat_4": {
+          "type": "category",
+          "settings": {
+            "heading": "Commercial Lighting",
+            "subheading": "Panels, downlights and retrofits for offices and retail, 15% off.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/commercial-lighting",
+            "products": [
+              "6-inch-white-round-slim-recessed-led-ceiling-light-5-kelvin-temperatures-5cct-14-watt-120-277-volt-1050-lumens-0-10v-dimmable",
+              "6-inch-anti-glare-canless-black-recessed-lighting",
+              "3-inch-anti-glare-recessed-lighting-canless-led-downlights-120v-15w-cob-led-chip-wet-rated-5cct-2700k-5000k-1100lm",
+              "nuwatt-6-inch-round-retrofit-white-recessed-light-120-277v-e26-quick-connect-3-wattage-selectable-12w-15w-18w-900-1100-1300lm-5cct-2700k-5000k-color-selectable-dimmable-cri-90-ul-energy-star-ja8-certified-1"
+            ],
+            "feature_image": "shopify://shop_images/Anchor-Office-Panels.jpg",
+            "feature_title": "Commercial Lighting",
+            "feature_text": "Panels, downlights and retrofits for offices and retail, 15% off.",
+            "feature_link_label": "Shop Commercial",
+            "feature_link": "shopify://collections/commercial-lighting",
+            "feature_overlay": 60
+          }
+        },
+        "cat_5": {
+          "type": "category",
+          "settings": {
+            "heading": "Industrial Lighting",
+            "subheading": "High bays, wall packs and floods for warehouses and sites, 15% off.",
+            "view_all_label": "View all",
+            "view_all_link": "shopify://collections/industrial-led-lighting",
+            "products": [
+              "ufo-led-high-bay-industrial-warehouse-led-fixture-100w-5000k-daylight-13-000-lumens-120-277v-1-10v-dimmable",
+              "ufo-led-high-bay-industrial-warehouse-led-fixture-240w-5000k-daylight-35-000-lumens-120-277v-1-10v-dimmable",
+              "white-60w-outdoor-wall-pack-lights-led-commercial-wall-pack-lighting-with-motion-sensor-light-sensor-hid-replacement-weatherproof-4-pack",
+              "nuwatt-led-outdoor-flood-light-dusk-to-dawn-photocell-installed-60w-waterproof-led-flood-light-dimmable-flood-light-1-2-knuckle-mount-7800-lumens-3cct-color-selectable-led-flood-light-100-277v"
+            ],
+            "feature_image": "shopify://shop_images/Warehouse_environment_with_NuWatt_UFO_Lights.png",
+            "feature_title": "Industrial Lighting",
+            "feature_text": "High bays, wall packs and floods for warehouses and sites, 15% off.",
+            "feature_link_label": "Shop Industrial",
+            "feature_link": "shopify://collections/industrial-led-lighting",
+            "feature_overlay": 60
+          }
+        }
+      },
+      "block_order": [
+        "cat_1",
+        "cat_2",
+        "cat_3",
+        "cat_4",
+        "cat_5"
+      ],
+      "settings": {
+        "sale_visibility": "sale",
+        "text_case": "sentence",
+        "card_radius": 8,
+        "row_gap": 48,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "ss_signup": {
+      "type": "ss-sale-signup",
+      "settings": {
+        "sale_visibility": "off",
+        "heading": "Get Early Access",
+        "text": "Shop our best holiday selection and exclusive prices before everyone else.",
+        "button_label": "Sign Up",
+        "success": "Thanks for signing up. We'll email you before the sale starts.",
+        "note": "",
+        "tags": "prospect,newsletter,early-access-sale",
+        "bg": "#F4F4F4",
+        "text_case": "sentence",
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "ss_related": {
+      "type": "ss-anchor-related",
+      "settings": {
+        "heading": "Related Content",
+        "text_case": "sentence",
+        "card_border_color": "#e5e7eb",
+        "card_radius": 8,
+        "padding_top": 48,
+        "padding_bottom": 0
+      }
+    },
+    "ss_glowing_reviews": {
+      "type": "ss-anchor-glowing-reviews",
+      "settings": {
+        "eyebrow": "Customer reviews",
+        "heading": "Our Glowing Reviews",
+        "text": "Verified reviews from customers who bought these lights.",
+        "button_label": "Read all reviews",
+        "button_link": "/pages/reviews",
+        "review_ids": "",
+        "max_reviews": 8
+      }
+    }
+  },
+  "order": [
+    "main",
+    "ss_hero",
+    "ss_trust",
+    "ss_intro_sale",
+    "ss_intro_off",
+    "ss_categories",
+    "ss_signup",
+    "ss_related",
+    "ss_glowing_reviews"
+  ]
+}

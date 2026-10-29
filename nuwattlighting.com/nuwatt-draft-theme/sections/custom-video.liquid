@@ -630,7 +630,37 @@ font-size: 2em;
 {% endstylesheet %}
 
 {% style %}
-  {%- if section.settings.main_image_height != blank -%}
+  {%- comment -%}
+    #151 (#73): the video was cut off because main_image_height fixed the box at 530px. Gary
+    agreed in #24/#30 to a 16:9 video that never crops, capped near 1920x1080 (page-width is
+    1900px) and not edge to edge on larger screens. The height setting now only applies to
+    a static image.
+  {%- endcomment -%}
+  @media screen and (min-width: 768px) {
+    #shopify-section-{{ section.id }} .headr-gallery-container,
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy {
+      height: auto !important;
+    }
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy .video-parent-section {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+    }
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy .hero__media,
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy .hero__media-container,
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy .headr-gallery__video {
+      width: 100%;
+      height: 100%;
+    }
+    #shopify-section-{{ section.id }} #headr-gallery__main-link-sy .headr-gallery__video {
+      object-fit: cover;
+    }
+  }
+  {%- if section.settings.main_image_height != blank and section.settings.main_image_src != blank -%}
   @media screen and (min-width: 1025px) {
     #shopify-section-{{ section.id }} .headr-gallery-container {
       height: {{ section.settings.main_image_height }}px !important;

@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {}
+        },
+        "meta": {
+          "type": "meta",
+          "settings": {
+            "show_date": true,
+            "show_author": false
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "excerpt_Fq6q47": {
+          "type": "excerpt",
+          "settings": {}
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        },
+        "faq_kPTdpK": {
+          "type": "faq",
+          "settings": {
+            "block_title": "Frequently Asked Question"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "meta",
+        "title",
+        "excerpt_Fq6q47",
+        "content",
+        "faq_kPTdpK",
+        "share"
+      ],
+      "custom_css": [
+        ".article-template-content.rte.ss-excerpt {padding: 20px; border: 1px solid black;}",
+        ".ss-excerpt h2 {margin-block-start: 0px;}"
+      ],
+      "settings": {
+        "comments_per_page": 10
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

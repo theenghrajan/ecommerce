@@ -1,0 +1,52 @@
+/* Component - Rating
+=================================== */
+.rating {
+  display: flex;
+  align-items: center;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.rating-stars {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.icon-rating-star {
+  color: var(--color-product-review-star);
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: currentColor;
+  vertical-align: middle;
+  background: none;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.icon-rating-star-empty {
+  color: rgba(var(--color-foreground), 0.3);
+}
+
+.rating-caption {
+  margin-left: 0.3rem;
+  display: block;
+  top: 1px;
+  position: relative;
+}
+
+.star-rating-link {
+  font-size: calc(var(--font-body-scale) * 1.2rem);
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-bolder-weight);
+  color: rgb(var(--color-foreground));
+  line-height: 1;
+  flex: none;
+}
+
+.star-rating-link .star-rating {
+  margin-right: 0.5rem;
+  position: relative;
+  top: -1px;
+}

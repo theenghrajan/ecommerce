@@ -1,0 +1,410 @@
+{% comment %}
+  Our Glowing Reviews carousel (task #151, AC comments #53 and #77): hand-picked Stamped.io
+  reviews on a NuWatt yellow backing, fetched from Stamped's public widget API by review ID.
+  Rendered full width by sections/stamped-glowing-reviews.liquid, and in the right-hand column
+  of sections/review-with-image.liquid (Why NuWatt) when that section's reviews column is on.
+
+  Params:
+  - section_id: id of the rendering section (makes the element id that scopes the CSS and script)
+  - review_ids: comma-separated Stamped review IDs, in display order
+  - heading, button_label, button_link
+  - layout: 'full' (default) or 'column'
+  #136 (Gary, AC 490502 #100): the progress bar can be dragged to move the carousel, and when a button label is set the
+  carousel ends with a "Read All Reviews" card linking to button_link (same link as the button below the carousel).
+{% endcomment %}
+
+{%- assign root_id = 'GlowingReviews-' | append: section_id -%}
+{%- assign review_ids = review_ids | remove: ' ' -%}
+
+<div class="glowing-reviews glowing-reviews--{{ layout | default: 'full' }}" id="{{ root_id }}" data-review-ids="{{ review_ids }}" data-more-label="{{ button_label | escape }}" data-more-link="{{ button_link | default: '/pages/reviews' | escape }}">
+  <div class="page-width">
+    {%- if heading != blank -%}
+      <h2 class="glowing-reviews__heading">{{ heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="glowing-reviews__track" role="list" aria-label="{{ heading | escape }}" tabindex="0"></div>
+
+    <div class="glowing-reviews__controls" hidden>
+      <div class="glowing-reviews__scrub" aria-hidden="true"><div class="glowing-reviews__progress"><span></span></div></div>
+      <div class="glowing-reviews__arrows">
+        <button type="button" class="glowing-reviews__arrow" data-dir="-1" aria-label="Previous reviews">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M18 11H4M9.5 5.5 4 11l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="glowing-reviews__arrow" data-dir="1" aria-label="Next reviews">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 11h14M12.5 5.5 18 11l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    {%- if button_label != blank -%}
+      <div class="glowing-reviews__footer">
+        <a href="{{ button_link | default: '/pages/reviews' }}" class="glowing-reviews__button">{{ button_label | escape }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ root_id }}');
+    if (!root) return;
+    var ids = (root.dataset.reviewIds || '').split(',').filter(Boolean);
+    var track = root.querySelector('.glowing-reviews__track');
+    var controls = root.querySelector('.glowing-reviews__controls');
+    var bar = root.querySelector('.glowing-reviews__progress span');
+    if (!ids.length) return;
+
+    var url = 'https://stamped.io/api/widget/reviews?storeUrl=363503&apiKey=31f05899-3dc3-476c-91b8-375386ad6cfc&take=' + ids.length +
+      ids.map(function (id) { return '&reviewIds=' + encodeURIComponent(id); }).join('');
+
+    var star = '<svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z" fill="currentColor"/></svg>';
+
+    function text(s) {
+      var d = document.createElement('div');
+      d.textContent = s || '';
+      return d.innerHTML;
+    }
+
+    function render(reviews) {
+      // keep the order the IDs were entered in
+      var byId = {};
+      reviews.forEach(function (r) { byId[String(r.id)] = r; });
+      var html = ids.map(function (id) {
+        var r = byId[id];
+        if (!r) return '';
+        var stars = '';
+        for (var i = 0; i < 5; i++) stars += star;
+        return '<figure class="glowing-reviews__card" role="listitem">' +
+          '<div class="glowing-reviews__stars" role="img" aria-label="' + r.reviewRating + ' out of 5 stars">' + stars + '</div>' +
+          '<p class="glowing-reviews__title">' + text(r.reviewTitle) + '</p>' +
+          '<blockquote class="glowing-reviews__body">' + text(r.reviewMessage) + '</blockquote>' +
+          '<figcaption class="glowing-reviews__author">' + text(r.author) + '</figcaption>' +
+          '</figure>';
+      }).join('');
+      if (!html) return;
+      var moreLabel = root.dataset.moreLabel;
+      if (moreLabel) {
+        html += '<a class="glowing-reviews__card glowing-reviews__card--more" role="listitem" href="' + text(root.dataset.moreLink) + '">' +
+          '<span class="glowing-reviews__more-label">' + text(moreLabel) + '</span>' +
+          '<svg width="28" height="28" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M4 11h14M12.5 5.5 18 11l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+          '</a>';
+      }
+      track.innerHTML = html;
+      controls.hidden = false;
+      update();
+    }
+
+    function step() {
+      var card = track.querySelector('.glowing-reviews__card');
+      if (!card) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      // +2px: card widths are fractional, so 3 cards can measure as 2.99
+      var perView = Math.max(1, Math.floor((track.clientWidth + gap + 2) / (card.offsetWidth + gap)));
+      return perView * (card.offsetWidth + gap);
+    }
+
+    function update() {
+      var max = track.scrollWidth - track.clientWidth;
+      var visible = track.scrollWidth ? track.clientWidth / track.scrollWidth : 1;
+      var pos = max > 0 ? track.scrollLeft / max : 0;
+      bar.style.width = Math.max(visible, 0.1) * 100 + '%';
+      bar.style.transform = 'translateX(' + (pos * (1 / Math.max(visible, 0.1) - 1) * 100) + '%)';
+      root.querySelectorAll('.glowing-reviews__arrow').forEach(function (b) {
+        b.disabled = b.dataset.dir === '-1' ? track.scrollLeft <= 2 : track.scrollLeft >= max - 2;
+      });
+    }
+
+    root.querySelectorAll('.glowing-reviews__arrow').forEach(function (b) {
+      b.addEventListener('click', function () {
+        track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+
+    // #136: drag the black bar (or click anywhere on the bar) to move the carousel
+    var scrub = root.querySelector('.glowing-reviews__scrub');
+    var progress = root.querySelector('.glowing-reviews__progress');
+    var dragging = false, grab = 0;
+    function scrubTo(e) {
+      var rect = progress.getBoundingClientRect();
+      var thumbW = bar.getBoundingClientRect().width;
+      var room = rect.width - thumbW;
+      var ratio = room > 0 ? Math.min(1, Math.max(0, (e.clientX - rect.left - grab) / room)) : 0;
+      track.scrollLeft = ratio * (track.scrollWidth - track.clientWidth);
+    }
+    scrub.addEventListener('pointerdown', function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      var thumb = bar.getBoundingClientRect();
+      grab = (e.clientX >= thumb.left && e.clientX <= thumb.right) ? e.clientX - thumb.left : thumb.width / 2;
+      dragging = true;
+      root.classList.add('is-dragging');
+      track.style.scrollSnapType = 'none';
+      if (scrub.setPointerCapture) scrub.setPointerCapture(e.pointerId);
+      scrubTo(e);
+      e.preventDefault();
+    });
+    scrub.addEventListener('pointermove', function (e) { if (dragging) scrubTo(e); });
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      root.classList.remove('is-dragging');
+      track.style.scrollSnapType = '';
+    }
+    scrub.addEventListener('pointerup', endDrag);
+    scrub.addEventListener('pointercancel', endDrag);
+
+    fetch(url)
+      .then(function (r) { return r.ok ? r.json() : { data: [] }; })
+      .then(function (d) { render(d.data || []); })
+      .catch(function () {});
+  })();
+</script>
+
+<style>
+  #{{ root_id }} {
+    padding: 64px 0;
+    background: #ffffff;
+  }
+  #{{ root_id }} .page-width {
+    max-width: 1900px;
+  }
+  #{{ root_id }} .glowing-reviews__heading {
+    margin: 0 0 32px;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: none;
+    color: #202020;
+  }
+  #{{ root_id }} .glowing-reviews__track {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 48px) / 3);
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  #{{ root_id }} .glowing-reviews__track::-webkit-scrollbar {
+    display: none;
+  }
+  #{{ root_id }} .glowing-reviews__card {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 28px 24px;
+    border-radius: 12px;
+    background: #fcc833;
+    color: #202020;
+    text-align: center;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+  }
+  #{{ root_id }} .glowing-reviews__stars {
+    display: flex;
+    gap: 3px;
+    color: #202020;
+  }
+  #{{ root_id }} .glowing-reviews__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  #{{ root_id }} .glowing-reviews__body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1.5;
+    color: #202020;
+  }
+  #{{ root_id }} .glowing-reviews__body::before,
+  #{{ root_id }} .glowing-reviews__body::after {
+    content: none;
+  }
+  #{{ root_id }} .glowing-reviews__author {
+    margin-top: auto;
+    font-size: 16px;
+    font-style: italic;
+  }
+  /* #136: last card = link to all reviews */
+  #{{ root_id }} .glowing-reviews__card--more {
+    justify-content: center;
+    gap: 14px;
+    background: #202020;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  #{{ root_id }} .glowing-reviews__more-label {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  @media (hover: hover) {
+    #{{ root_id }} .glowing-reviews__card--more:hover {
+      background: #000000;
+      color: #fcc833;
+    }
+  }
+  #{{ root_id }} .glowing-reviews__controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 28px;
+  }
+  #{{ root_id }} .glowing-reviews__controls[hidden] {
+    display: none;
+  }
+  /* #136: taller invisible grab area around the 3px bar so it is easy to drag */
+  #{{ root_id }} .glowing-reviews__scrub {
+    flex: 1 1 auto;
+    padding: 12px 0;
+    cursor: grab;
+    touch-action: none;
+  }
+  #{{ root_id }}.is-dragging .glowing-reviews__scrub {
+    cursor: grabbing;
+  }
+  #{{ root_id }}.is-dragging .glowing-reviews__progress span {
+    transition: none;
+  }
+  #{{ root_id }} .glowing-reviews__progress {
+    position: relative;
+    height: 3px;
+    overflow: hidden;
+    background: #e2e6ec;
+  }
+  #{{ root_id }} .glowing-reviews__progress span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #202020;
+    transition: transform 0.2s ease;
+  }
+  #{{ root_id }} .glowing-reviews__arrows {
+    display: flex;
+    gap: 4px;
+  }
+  #{{ root_id }} .glowing-reviews__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: #202020;
+    cursor: pointer;
+  }
+  #{{ root_id }} .glowing-reviews__arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  @media (hover: hover) {
+    #{{ root_id }} .glowing-reviews__arrow:not(:disabled):hover {
+      background: #f4f4f4;
+    }
+  }
+  #{{ root_id }} .glowing-reviews__footer {
+    margin-top: 28px;
+    text-align: center;
+  }
+  #{{ root_id }} .glowing-reviews__button {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 28px;
+    border-radius: 6px;
+    background: #202020;
+    color: #ffffff;
+    font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  /* #151 (#73): Gary saw too much empty space around the text, so larger type and
+     narrower cards: 4 per view on wide screens */
+  @media screen and (min-width: 1400px) {
+    #{{ root_id }} .glowing-reviews__track {
+      grid-auto-columns: calc((100% - 72px) / 4);
+    }
+  }
+  @media screen and (max-width: 989px) {
+    #{{ root_id }} .glowing-reviews__track {
+      grid-auto-columns: calc((100% - 16px) / 2);
+      gap: 16px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    #{{ root_id }} {
+      padding: 40px 0;
+    }
+    #{{ root_id }} .glowing-reviews__heading {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+    /* one card plus a peek of the next, so it reads as swipeable */
+    #{{ root_id }} .glowing-reviews__track {
+      grid-auto-columns: 85%;
+      gap: 12px;
+    }
+    #{{ root_id }} .glowing-reviews__card {
+      padding: 24px 20px;
+    }
+    #{{ root_id }} .glowing-reviews__title {
+      font-size: 18px;
+    }
+    #{{ root_id }} .glowing-reviews__body {
+      font-size: 16px;
+    }
+  }
+  /* #151 (#77): column layout, beside the Why NuWatt card. The column is about half the
+     page, so one review per view (two on very wide screens) and a smaller heading. */
+  #{{ root_id }}.glowing-reviews--column {
+    padding: 0;
+    background: none;
+  }
+  #{{ root_id }}.glowing-reviews--column .page-width {
+    max-width: none;
+    padding: 0;
+  }
+  #{{ root_id }}.glowing-reviews--column .glowing-reviews__heading {
+    margin-bottom: 24px;
+    font-size: 32px;
+  }
+  #{{ root_id }}.glowing-reviews--column .glowing-reviews__track {
+    grid-auto-columns: 100%;
+    gap: 16px;
+  }
+  #{{ root_id }}.glowing-reviews--column .glowing-reviews__footer {
+    margin-top: 24px;
+  }
+  @media screen and (min-width: 1600px) {
+    #{{ root_id }}.glowing-reviews--column .glowing-reviews__track {
+      grid-auto-columns: calc((100% - 16px) / 2);
+    }
+  }
+  @media screen and (max-width: 767px) {
+    #{{ root_id }}.glowing-reviews--column .glowing-reviews__heading {
+      font-size: 28px;
+    }
+    #{{ root_id }}.glowing-reviews--column .glowing-reviews__track {
+      grid-auto-columns: 85%;
+      gap: 12px;
+    }
+  }
+</style>

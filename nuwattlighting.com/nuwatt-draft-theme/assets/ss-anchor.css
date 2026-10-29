@@ -475,6 +475,13 @@
 /* The trim line is a bare <li>; the collection grid shows it without a bullet. */
 .ss-anchor-product .grid-item__meta-main > li { list-style: none; }
 
+/* #136: long spec values without spaces (e.g. "5CCT: 2700K/3000K/3500K/4000K/5000K")
+   ran into the next card; let them wrap inside their own card. */
+.ss-anchor-product .product-specs-collection-page li,
+.ss-anchor-product .grid-item__title {
+  overflow-wrap: anywhere;
+}
+
 /* The theme renders a second, absolutely-positioned quick-add over the image;
    the in-flow "Add to Cart" is the one shown on collection pages. */
 .ss-anchor-product .grid-item__content > .grid-product__actions,
@@ -937,4 +944,214 @@ html.ss-anchor-modal-open { overflow: hidden; }
 }
 .ss-anchor-reviews #stamped-reviews-widget .stamped-reviews-message-block {
   color: #4b5563 !important;
+}
+
+/* ---------- #136 Anchor glowing reviews (sections/ss-anchor-glowing-reviews.liquid) ----------
+   Design comment #87 "Version 2, Anchor pages": summary left, alternating yellow / dark cards
+   running off the right edge, on a cream band. */
+.ssgr {
+  background: #fdf5e8;
+  padding: 72px 0;
+  overflow: hidden;
+  font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+}
+.ssgr__inner {
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  column-gap: 60px;
+  align-items: center;
+}
+.ssgr__eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+}
+.ssgr__heading {
+  margin: 0 0 14px;
+  font-size: 40px;
+  line-height: 1.12;
+  font-weight: 700;
+  color: #111;
+}
+/* the theme uppercases + letter-spaces every h2; Figma has "Our Glowing Reviews" in title case */
+.ssgr .ssgr__heading {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+.ssgr__summary-stars { display: flex; gap: 6px; color: #fcc833; margin-bottom: 16px; }
+.ssgr__text { margin: 0 0 28px; font-size: 15px; line-height: 1.5; color: #444; }
+.ssgr__button {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 4px;
+  background: #fcc833;
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.ssgr__button:hover { background: #f2bb1c; color: #111; }
+.ssgr__controls { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+.ssgr__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+}
+.ssgr__arrow--next { background: #111; border-color: #111; color: #fff; }
+.ssgr__arrow:disabled { opacity: 0.35; cursor: default; }
+.ssgr__dots { display: flex; align-items: center; gap: 6px; margin-left: 8px; }
+.ssgr__dots span { width: 6px; height: 6px; border-radius: 3px; background: #c8c8c8; transition: width 0.2s; }
+.ssgr__dots span.is-active { width: 26px; background: #111; }
+
+.ssgr__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 263px;
+  gap: 21px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-right: 40px;
+}
+.ssgr__track::-webkit-scrollbar { display: none; }
+.ssgr__card {
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 26px 24px 20px;
+  border-radius: 12px;
+  min-height: 350px;
+}
+.ssgr__card--yellow { background: #fcc833; color: #111; }
+.ssgr__card--dark { background: #1e1e21; color: #fff; }
+.ssgr__stars { display: flex; gap: 6px; margin-bottom: 18px; }
+.ssgr__card--yellow .ssgr__stars { color: #111; }
+.ssgr__card--dark .ssgr__stars { color: #fcc833; }
+.ssgr__title { margin: 0 0 14px; font-size: 18px; line-height: 1.3; font-weight: 700; }
+.ssgr__body { margin: 0 0 18px; padding: 0; border: 0; font-size: 14.5px; line-height: 1.5; font-style: normal; flex: 1 1 auto; }
+.ssgr__card--yellow .ssgr__body { color: #2a2a2a; }
+.ssgr__card--dark .ssgr__body { color: #e3e3e3; }
+.ssgr__body::before, .ssgr__body::after { content: none; }
+.ssgr__author { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; font-size: 14px; }
+.ssgr__name { font-weight: 700; }
+.ssgr__verified { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; }
+.ssgr__card--yellow .ssgr__verified svg { color: #111; }
+.ssgr__card--dark .ssgr__verified svg { color: #fcc833; }
+.ssgr__chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px 6px 6px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+.ssgr__card--yellow .ssgr__chip { background: #fff; color: #111; }
+.ssgr__card--dark .ssgr__chip { background: #2d2d31; color: #fff; }
+.ssgr__chip-img { flex: 0 0 44px; width: 44px; height: 44px; border-radius: 6px; background: #fff; overflow: hidden; }
+.ssgr__chip-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.ssgr__chip-text { display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto; }
+.ssgr__chip-label { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; }
+.ssgr__chip-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ssgr__chip-arrow { display: inline-flex; flex: 0 0 auto; }
+
+@media screen and (max-width: 768px) {
+  .ssgr { padding: 48px 0; }
+  .ssgr__inner { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .ssgr__heading { font-size: 32px; }
+  .ssgr__text { margin-bottom: 20px; }
+  .ssgr__track { grid-auto-columns: 82%; gap: 14px; padding-right: 17px; margin-top: 24px; }
+  .ssgr__card { min-height: 0; }
+  /* on phones the arrows + dots sit under the cards */
+  .ssgr__summary { display: contents; }
+  .ssgr__eyebrow, .ssgr__heading, .ssgr__summary-stars, .ssgr__text, .ssgr__button { grid-column: 1; }
+  .ssgr__summary > * { margin-left: 0; }
+  .ssgr__button { justify-self: start; }
+  .ssgr__controls { order: 10; margin-top: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ssgr__dots span { transition: none; }
+}
+
+/* ---------- #136 approved Figma (Design #93, Gary #94), 2026-10-27 ----------
+   Hero full width, trust bar as a full-width grey band, Browse by Category plain on white with a left title. */
+
+/* Hero: edge to edge, no rounded corners; text stays in the page column */
+.ss-anchor-hero-wrap { max-width: none; margin: 0; padding: 0; }
+.ss-anchor-hero-wrap .ss-anchor-hero { border-radius: 0; }
+.ss-anchor-hero__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 -4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.ss-anchor-hero__crumbs a { color: #fff; text-decoration: none; }
+.ss-anchor-hero__crumbs a:hover { text-decoration: underline; }
+.ss-anchor-hero__crumbs [aria-current] { color: #fff; }
+
+/* Arrow links ("View all ->", "Shop Under-Cabinet Lighting ->") in sentence case, as in the Figma */
+.ss-anchor-link { text-transform: none; letter-spacing: 0; }
+
+/* Trust bar: one full-width light-grey band, items plain (no boxes) */
+.ss-anchor-trust { background: #f3f4f6; }
+.ss-anchor-trust .text-with-icons__blocks { padding: 28px 0; }
+.ss-anchor-trust .text-with-icons__block {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.ss-anchor-trust .text-with-icons__block-title h3 { font-size: 13px; line-height: 18px; }
+.ss-anchor-trust .text-with-icons__block-text { font-size: 12px; line-height: 16px; }
+
+/* Browse by Category: white background, title left like the other section titles, icons without boxes.
+   #MainContent: text-with-icons.liquid styles itself with #shopify-section-<id> rules (home "Top Categories"), which outrank a bare attribute selector. */
+#MainContent [id$="__ss_browse"] .text-with-icons { background: transparent; padding: 48px 0 32px; }
+#MainContent [id$="__ss_browse"] .text-with-icons h2 {
+  text-align: left !important; /* the h2 carries the theme's .text-center (text-align: center !important) */
+  margin: 0 0 24px;
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+#MainContent [id$="__ss_browse"] .text-with-icons__block {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+#MainContent [id$="__ss_browse"] .text-with-icons__block-title h3 { font-size: 13px; }
+@media (hover: hover) {
+  #MainContent [id$="__ss_browse"] .text-with-icons__block:hover {
+    background: transparent;
+    box-shadow: none;
+  }
+  #MainContent [id$="__ss_browse"] .text-with-icons__block:hover .text-with-icons__block-title h3 { text-decoration: underline; }
+}
+
+@media screen and (max-width: 768px) {
+  .ss-anchor-trust .text-with-icons__blocks { padding: 20px 0; row-gap: 16px; }
+  .ss-anchor-trust .text-with-icons__block { padding: 0; }
+  #MainContent [id$="__ss_browse"] .text-with-icons { padding: 36px 0 20px; }
+  #MainContent [id$="__ss_browse"] .text-with-icons h2 { font-size: 22px; line-height: 28px; margin-bottom: 16px; }
+  #MainContent [id$="__ss_browse"] .text-with-icons__blocks { row-gap: 20px; }
 }

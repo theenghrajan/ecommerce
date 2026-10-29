@@ -1,0 +1,62 @@
+{%- if request.page_type == 'page' and page != blank -%}
+  {%- liquid
+    assign is_technical_page = false
+
+    if page.handle == 'mil-std-2073' or page.handle == 'what-to-know-about-mil-dtl-117'
+      assign is_technical_page = true
+    endif
+
+    assign schema_description = page_description
+
+    if schema_description == blank
+      assign schema_description = page.content | strip_html | strip_newlines | truncate: 300
+    endif
+  -%}
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": {{ canonical_url | append: '#webpage' | json }},
+          "url": {{ canonical_url | json }},
+          "name": {{ page.title | json }},
+          "description": {{ schema_description | json }},
+          "inLanguage": {{ request.locale.iso_code | json }},
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": {{ shop.url | append: '#website' | json }},
+            "url": {{ shop.url | json }},
+            "name": {{ shop.name | json }}
+          }
+        }
+        {%- if is_technical_page -%}
+          ,
+          {
+            "@type": "TechArticle",
+            "@id": {{ canonical_url | append: '#techarticle' | json }},
+            "url": {{ canonical_url | json }},
+            "headline": {{ page.title | json }},
+            "description": {{ schema_description | json }},
+            "articleBody": {{ page.content | strip_html | strip_newlines | json }},
+            "inLanguage": {{ request.locale.iso_code | json }},
+            "mainEntityOfPage": {
+              "@id": {{ canonical_url | append: '#webpage' | json }}
+            },
+            "author": {
+              "@type": "Organization",
+              "name": {{ shop.name | json }},
+              "url": {{ shop.url | json }}
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": {{ shop.name | json }},
+              "url": {{ shop.url | json }}
+            }
+          }
+        {%- endif -%}
+      ]
+    }
+  </script>
+{%- endif -%}

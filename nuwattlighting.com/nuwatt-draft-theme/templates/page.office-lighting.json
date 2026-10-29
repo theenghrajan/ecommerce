@@ -19,8 +19,8 @@
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0,
-        "image": "",
-        "min_height": 500,
+        "image": "shopify://shop_images/Anchor-Office-Header.jpg",
+        "min_height": 440,
         "overlay_opacity": 80,
         "gradient_direction": "right",
         "heading": "Office Lights",
@@ -29,7 +29,9 @@
         "text": "<p>Low-glare, energy-efficient lighting that keeps workspaces comfortable and productive.</p>",
         "button_label": "",
         "button_link": "shopify://collections/led-panel-light",
-        "button_radius": 2
+        "button_radius": 2,
+        "show_breadcrumb": true,
+        "breadcrumb_label": "Office Lighting"
       }
     },
     "ss_trust": {
@@ -87,7 +89,7 @@
         "padding_bottom": 0,
         "title": "",
         "align_text": "left",
-        "text_case": "uppercase",
+        "text_case": "sentence",
         "show_dividers": false,
         "desktop_columns_per_row": 4,
         "icon_color": "#000000",
@@ -114,7 +116,7 @@
         "padding_top": 48,
         "padding_bottom": 0,
         "text_case": "sentence",
-        "align_text": "center",
+        "align_text": "left",
         "narrow_column": true,
         "color_scheme": "none",
         "divider": false
@@ -136,10 +138,10 @@
               "2x4-led-panel-for-drop-in-ceiling-50w-40w-30w-selectable-5-color-select-3000k-3500k-4000k-5000k-6500k-super-bright-5500lm-0-10v-dimmable-flat-backlit-fixture-ul-listed-120v-277v",
               "2x2-ft-square-led-surface-mount-panel-4-pack-40w-5cct"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Office-Panels.jpg",
             "feature_title": "LED Panel Lights",
             "feature_text": "Even, low-glare light for open-plan offices and meeting rooms.",
-            "feature_link_label": "Shop Panels",
+            "feature_link_label": "Shop LED Panel Lights",
             "feature_link": "shopify://collections/led-panel-light",
             "feature_overlay": 60
           }
@@ -157,10 +159,10 @@
               "4ft-led-t8-bulbs-3500k-18w",
               "t8-tube-bi-pin-to-single-pin-converter-2-pieces"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Office-Tubes.jpg",
             "feature_title": "LED Tube Lights",
             "feature_text": "A straight swap for fluorescent tubes, at a fraction of the running cost.",
-            "feature_link_label": "Shop Tubes",
+            "feature_link_label": "Shop LED Tube Lights",
             "feature_link": "shopify://collections/led-tube-lights",
             "feature_overlay": 60
           }
@@ -178,10 +180,10 @@
               "4-inch-square-anti-glare-commercial-black-recessed-lighting",
               "nuwatt-6-inch-round-retrofit-white-recessed-light-120-277v-e26-quick-connect-3-wattage-selectable-12w-15w-18w-900-1100-1300lm-5cct-2700k-5000k-color-selectable-dimmable-cri-90-ul-energy-star-ja8-certified-1"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Office-Recessed.jpg",
             "feature_title": "Commercial Recessed Lighting",
             "feature_text": "Hard-wearing recessed fixtures built for commercial ceilings.",
-            "feature_link_label": "Shop Commercial Recessed",
+            "feature_link_label": "Shop Commercial Recessed Lighting",
             "feature_link": "shopify://collections/commercial-recessed-lighting",
             "feature_overlay": 60
           }
@@ -281,7 +283,8 @@
         ],
         "min_rating": 4,
         "take": 12
-      }
+      },
+      "disabled": true
     },
     "1788233592cc5a915d": {
       "type": "apps",
@@ -428,6 +431,15 @@
         "button_link": "",
         "divider": false
       }
+    },
+    "ss_glowing_reviews": {
+      "type": "stamped-glowing-reviews",
+      "settings": {
+        "heading": "Our Glowing Reviews",
+        "review_ids": "165577922, 165577999, 165577914, 165577826, 166004438, 165577881, 165577834, 165577868",
+        "button_label": "Read All Reviews",
+        "button_link": "/pages/reviews?page=reviews"
+      }
     }
   },
   "order": [
@@ -436,9 +448,10 @@
     "ss_trust",
     "ss_intro",
     "ss_categories",
-    "ss_related",
     "ss_browse",
+    "ss_related",
     "ss_shop_more",
+    "ss_glowing_reviews",
     "ss_reviews",
     "1788233592cc5a915d"
   ]

@@ -1600,12 +1600,8 @@ div.variant-input[data-value="White"] .variant__button-label {
   box-shadow: none !important;
 }
 
-.selected-pdp-option .cstm-brdr .variant__button-label{
-
-border: solid black 1px;
-
-
-}
+/* #150: removed the 1px border on .selected-pdp-option labels (class set by the LED Mini Area Light Shield script in
+   theme.liquid). The selected size already gets the theme's own 2px border on .cstm-brdr, so this drew a second line inside it. */
 
 /* END variant picker pdp fix */
 
@@ -1642,6 +1638,18 @@ border: solid black 1px;
 
 .Meteor-Navigation__Link__desktop{
   color: black !important;
+}
+
+/* #167 mobile drawer: sub-menu title reads "All <name>" in the desktop nav font */
+.Meteor-MobileNavigation .Meteor-Drawer__Header > a{
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  color: black !important;
+}
+.Meteor-MobileNavigation .Meteor-Drawer__Header > a::before{
+  content: "All ";
 }
 
 /* END meteor app */

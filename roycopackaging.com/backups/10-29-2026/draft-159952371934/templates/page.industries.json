@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "rich_text_zFJkWd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PLA8wf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Contact a Packaging Specialist"
+          }
+        },
+        "text_RP49Mt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our certified packaging specialists are available to assist with your project, provide recommendations, or help place an order.</p><p><strong>Call 1-800-67-ROYCO or email our team at </strong><a href=\"mailto:sales@roycopackaging.com\" title=\"Email Royco Packaging\"><strong>sales@roycopackaging.com</strong></a></p>"
+          }
+        },
+        "button_RWaYcV": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PLA8wf",
+        "text_RP49Mt",
+        "button_RWaYcV"
+      ],
+      "settings": {
+        "narrow": true,
+        "color_scheme": "accent-1",
+        "spacing_top": 14,
+        "spacing_bottom": 14
+      }
+    },
+    "ss_faq_3HKmqK": {
+      "type": "ss-faq",
+      "custom_css": [
+        ".ss-faq{max-width:1460px;margin:0 auto;padding:60px 20px}",
+        " .ss-faq h2{font-size:24px;font-weight:500;color:#232323;margin:0 0 20px}",
+        " .ss-faq__item{padding:10px}",
+        " .ss-faq__item summary{font-size:18px;line-height:1.6;color:#676767;padding-bottom:10px;border-bottom:1px solid #000;cursor:pointer}",
+        " .ss-faq__item .rte{margin-top:10px}"
+      ],
+      "name": "SS FAQs",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "faqs": "{{ page.metafields.custom.ss_faqs.value }}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_zFJkWd",
+    "ss_faq_3HKmqK"
+  ]
+}

@@ -1,0 +1,194 @@
+{% comment %}
+  SS Sale Sign-up (#144, /pages/sale)
+  "Get Early Access" email form. Gary (#144 comment 10): sits between the last
+  collection and Related Content, shows when the sale is NOT running and hides
+  during the promo. Visibility follows the SS Sale Banner's schedule via
+  snippets/ss-sale-visibility.liquid ("Show in" setting).
+
+  Uses Shopify's customer form, like snippets/newsletter-form.liquid, so
+  sign-ups land in Customers with email marketing consent and the tags below
+  (Klaviyo picks them up through its Shopify sync).
+{% endcomment %}
+
+{{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
+{%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
+{%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+{%- render 'ss-sale-visibility', id: section.id, show: section.settings.sale_visibility -%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} .ss-sale-signup__card {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 32px;
+    border-radius: 8px;
+    background: {{ section.settings.bg }};
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .ss-sale-signup__card .ss-anchor-heading { margin-bottom: 8px; font-size: 32px; line-height: 40px; }
+  #shopify-section-{{ section.id }} .ss-sale-signup__text { margin: 0 auto 24px; max-width: 560px; font-size: 18px; line-height: 28px; }
+  #shopify-section-{{ section.id }} .ss-sale-signup__form { display: flex; gap: 12px; max-width: 560px; margin: 0 auto; }
+  #shopify-section-{{ section.id }} .ss-sale-signup__input {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 48px;
+    margin: 0;
+    padding: 0 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 2px;
+    background: #fff;
+    font-size: 16px;
+  }
+  #shopify-section-{{ section.id }} .ss-sale-signup__btn { flex: 0 0 auto; min-height: 48px; }
+  #shopify-section-{{ section.id }} .ss-sale-signup__note { margin: 12px 0 0; font-size: 13px; line-height: 18px; color: var(--ss-muted, #4b5563); }
+  #shopify-section-{{ section.id }} .note { max-width: 560px; margin: 0 auto 16px; }
+  @media only screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .ss-sale-signup__card { padding: 32px 20px; border-radius: 0; }
+    #shopify-section-{{ section.id }} .ss-sale-signup__card .ss-anchor-heading { font-size: 28px; line-height: 34px; }
+    #shopify-section-{{ section.id }} .ss-sale-signup__text { font-size: 16px; line-height: 24px; }
+    #shopify-section-{{ section.id }} .ss-sale-signup__form { flex-direction: column; }
+    #shopify-section-{{ section.id }} .ss-sale-signup__btn { width: 100%; }
+  }
+{%- endstyle -%}
+
+<div id="early-access" class="ss-anchor-section ss-sale-signup" data-section-id="{{ section.id }}" data-section-type="ss-sale-signup">
+  <div class="ss-anchor-inner">
+    <div class="ss-sale-signup__card">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="ss-anchor-heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <p class="ss-sale-signup__text">{{ section.settings.text | escape }}</p>
+      {%- endif -%}
+
+      {%- assign form_id = 'SsSaleSignup-' | append: section.id -%}
+      {%- form 'customer', id: form_id -%}
+        {%- if form.posted_successfully? -%}
+          <div class="note note--success" role="status">{{ section.settings.success | escape }}</div>
+        {%- else -%}
+          {%- if form.errors -%}
+            <div role="alert">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+          <input type="hidden" name="contact[tags]" value="{{ section.settings.tags | escape }}">
+          <div class="ss-sale-signup__form">
+            <label for="SsSaleEmail-{{ section.id }}" class="hidden-label">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+            <input
+              type="email"
+              id="SsSaleEmail-{{ section.id }}"
+              class="ss-sale-signup__input"
+              name="contact[email]"
+              value="{% if customer %}{{ customer.email }}{% endif %}"
+              placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+              autocomplete="email"
+              autocorrect="off"
+              autocapitalize="off"
+              required
+            >
+            <button type="submit" class="btn ss-anchor-btn ss-sale-signup__btn">{{ section.settings.button_label | escape }}</button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+      {%- if section.settings.note != blank -%}
+        <p class="ss-sale-signup__note">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SS Sale Sign-up",
+  "tag": "section",
+  "class": "ss-anchor-section-wrapper",
+  "settings": [
+    {
+      "type": "select",
+      "id": "sale_visibility",
+      "label": "Show in",
+      "info": "Follows the SS Sale Banner's schedule on this page.",
+      "default": "off",
+      "options": [
+        { "value": "always", "label": "Both versions" },
+        { "value": "sale", "label": "Sale version only" },
+        { "value": "off", "label": "Off-season version only" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get Early Access"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Shop our best holiday selection and exclusive prices before everyone else."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Sign Up"
+    },
+    {
+      "type": "text",
+      "id": "success",
+      "label": "Thank-you message",
+      "default": "Thanks for signing up. We'll email you before the sale starts."
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Small print"
+    },
+    {
+      "type": "text",
+      "id": "tags",
+      "label": "Customer tags",
+      "info": "Added to everyone who signs up here. Comma separated.",
+      "default": "prospect,newsletter,early-access-sale"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Card background",
+      "default": "#F4F4F4"
+    },
+    {
+      "type": "select",
+      "id": "text_case",
+      "label": "Heading case",
+      "default": "sentence",
+      "options": [
+        { "value": "sentence", "label": "Sentence case" },
+        { "value": "uppercase", "label": "UPPERCASE" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom spacing",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS Sale Sign-up"
+    }
+  ]
+}
+{% endschema %}

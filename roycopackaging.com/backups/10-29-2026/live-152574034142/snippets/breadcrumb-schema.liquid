@@ -1,0 +1,91 @@
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            {%- assign position = position | plus: 1 -%}
+            "position": {{ position }},
+            "item": {
+               
+                "@id": "{{ shop.url }}",
+                "name": "{{ shop.name }}"
+            }
+        }
+
+        {%- if article -%}
+
+            {%- assign position = position | plus: 1 -%}
+            ,{
+                "@type": "ListItem",
+                "position": {{ position }},
+                "item": {
+                   
+                    "@id":  "{{ shop.url | append: blog.url }}",
+                    "name": "{{ blog.title | escape_once | replace: '"',"'"}}"
+                }
+            }
+
+            {%- assign position = position | plus: 1 -%}
+            ,{
+                "@type": "ListItem",
+                "position": {{ position }},
+                "item": {
+                    
+                    "@id": "{{ shop.url | append: article.url }}",
+                    "name": "{{ article.title | escape_once | replace: '"',"'"}}"
+                }
+            }
+
+       
+        {%- elsif product -%}
+
+            {%- assign product_breadcrumb_url = shop.url | append: '/products/' | append: product.handle -%}
+
+            {%- if collection and collection.url != blank -%}
+                {%- assign position = position | plus: 1 -%}
+                {%- assign product_breadcrumb_url = shop.url | append: collection.url | append: '/products/' | append: product.handle -%}
+
+                ,{
+                    "@type": "ListItem",
+                    "position": {{ position }},
+                    "item": {
+                        "@type": "CollectionPage",
+                        "@id":  "{{ shop.url | append: collection.url }}",
+                        "name": "{{ collection.title | escape_once | replace: '"',"'" }}"
+                    }
+                }
+            {%- endif -%}
+
+        {%- elsif collection and product == nil -%}
+
+            {%- assign position = position | plus: 1 -%}
+            ,{
+                "@type": "ListItem",
+                "position": {{ position }},
+                "item": {
+                    "@type": "CollectionPage",
+                    "@id":  "{{ shop.url | append: collection.url }}",
+                    "name": "{{ collection.title | escape_once | replace: '"',"'" }}"
+                }
+            }
+
+            {%- if current_tags -%}
+
+                {%- assign position = position | plus: 1 -%}
+                ,{
+                    "@type": "ListItem",
+                    "position": {{ position }},
+                    "item": {
+                        "@type": "CollectionPage",
+                        "@id":  "{{ shop.url | append: collection.url | append: '/' | append: current_tags_url_part }}",
+                        "name": "{{ breadcrumb_tags_item_name }}"
+                    }
+                }
+            {%- endif -%}
+
+        {%- endif -%}
+    ]
+
+ }
+</script>

@@ -21,7 +21,7 @@
 
   Metafields this section expects (create these in Shopify Admin — see chat for full list):
   - product.metafields.custom.description_image      (file/image reference)
-  - product.metafields.custom.faqs                    (list of "faq" metaobjects, fields: question, answer — both plain text)
+  - product.metafields.custom.faqs + collection.metafields.custom.product_faqs (lists of "Product FAQ" metaobjects: question, answer rich text) - #150
   - product.metafields.custom.dimension_height/_width/_depth/_cutout/_weight (single line text)
   - product.metafields.custom.manual                  (already exists; reused as-is)
   - product.metafields.custom.warranty_content         (rich text) - falls back to this
@@ -38,6 +38,50 @@
     outside this section and targets #pdp-tab-trigger-specifications.
     Fail-open by design - anything other than a clean "0" leaves the tab visible.
   {%- endcomment -%}
+  {%- comment -%}
+    #150 (Gary #116): the FAQ tab lists the product's own FAQs (product custom.faqs) first, then the FAQs of every
+    collection the product is in (collection custom.product_faqs), with the collections named in the FAQ block's
+    "Show last" setting (default recessed-lighting = the "All recessed lighting" questions) at the end.
+    Both fields hold Product FAQ metaobjects (question + rich-text answer). Each FAQ shows once; the first one starts open.
+  {%- endcomment -%}
+  {%- liquid
+    assign faq_block = section.blocks | where: 'type', 'faq' | first
+    assign faq_last_list = faq_block.settings.last_collections | default: 'recessed-lighting' | remove: ' ' | split: ','
+    assign faq_seen = ','
+    assign faq_count = 0
+  -%}
+  {%- capture pdp_faq_html -%}
+    {%- for faq in product.metafields.custom.faqs.value -%}
+      {%- assign faq_key = ',' | append: faq.system.id | append: ',' -%}
+      {%- unless faq_seen contains faq_key -%}
+        {%- assign faq_seen = faq_seen | append: faq.system.id | append: ',' -%}
+        {%- assign faq_count = faq_count | plus: 1 -%}
+        {%- assign faq_id = 'pdp-faq-' | append: faq_count -%}
+        {%- capture faq_answer -%}{{ faq.answer | metafield_tag }}{%- endcapture -%}
+        {%- assign faq_open = false -%}{%- if faq_count == 1 -%}{%- assign faq_open = true -%}{%- endif -%}
+        {%- render 'tab', id: faq_id, title: faq.question, content: faq_answer, force_open: faq_open -%}
+      {%- endunless -%}
+    {%- endfor -%}
+    {%- for pass in (1..2) -%}
+      {%- for faq_col in product.collections -%}
+        {%- assign faq_col_last = false -%}
+        {%- if faq_last_list contains faq_col.handle -%}{%- assign faq_col_last = true -%}{%- endif -%}
+        {%- if pass == 1 and faq_col_last -%}{%- continue -%}{%- endif -%}
+        {%- if pass == 2 and faq_col_last == false -%}{%- continue -%}{%- endif -%}
+        {%- for faq in faq_col.metafields.custom.product_faqs.value -%}
+          {%- assign faq_key = ',' | append: faq.system.id | append: ',' -%}
+          {%- unless faq_seen contains faq_key -%}
+            {%- assign faq_seen = faq_seen | append: faq.system.id | append: ',' -%}
+            {%- assign faq_count = faq_count | plus: 1 -%}
+            {%- assign faq_id = 'pdp-faq-' | append: faq_count -%}
+            {%- capture faq_answer -%}{{ faq.answer | metafield_tag }}{%- endcapture -%}
+            {%- assign faq_open = false -%}{%- if faq_count == 1 -%}{%- assign faq_open = true -%}{%- endif -%}
+        {%- render 'tab', id: faq_id, title: faq.question, content: faq_answer, force_open: faq_open -%}
+          {%- endunless -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endcapture -%}
   {%- capture pdp_tab_flags_raw -%}
     {%- for block in section.blocks -%}
       {%- assign tab_has_content = true -%}
@@ -49,7 +93,7 @@
         {%- when 'warranty' -%}
           {%- if product.metafields.custom.warranty_content == blank and block.settings.content == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
         {%- when 'faq' -%}
-          {%- if product.metafields.custom.faqs.value == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
+          {%- if faq_count == 0 -%}{%- assign tab_has_content = false -%}{%- endif -%}
         {%- when 'manuals' -%}
           {%- if product.metafields.custom.manual == blank -%}{%- assign tab_has_content = false -%}{%- endif -%}
         {%- when 'dimensions' -%}
@@ -195,12 +239,8 @@
 
           {%- when 'faq' -%}
             <div class="pdp-tab-faq">
-              {%- assign faq_list = product.metafields.custom.faqs.value -%}
-              {%- if faq_list != blank -%}
-                {%- for faq in faq_list -%}
-                  {%- assign faq_id = 'pdp-faq-' | append: forloop.index -%}
-                  {%- render 'tab', id: faq_id, title: faq.question, content: faq.answer -%}
-                {%- endfor -%}
+              {%- if faq_count > 0 -%}
+                {{ pdp_faq_html }}
               {%- else -%}
                 <p class="pdp-tab-faq__empty">{{ block.settings.empty_state_text | default: 'FAQs for this product have not been added yet.' }}</p>
               {%- endif -%}
@@ -298,6 +338,24 @@
       var firstPanel = pdpTabs.querySelector('.pdp-tabs__panel');
       if (firstPanel) firstPanel.classList.add('is-open');
     }
+    // #150: FAQ works as an accordion - opening a question closes any other open one.
+    // Runs in the capture phase, before the theme's own toggle opens the clicked item.
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest && e.target.closest('.pdp-tab-faq .collapsible-trigger');
+      if (!trigger || trigger.getAttribute('aria-expanded') === 'true') return;
+      var faq = trigger.closest('.pdp-tab-faq');
+      faq.querySelectorAll('.collapsible-trigger[aria-expanded="true"]').forEach(function (open) {
+        if (open === trigger) return;
+        open.setAttribute('aria-expanded', 'false');
+        open.classList.remove('is-open');
+        var content = document.getElementById(open.getAttribute('aria-controls'));
+        if (content) {
+          content.classList.remove('is-open');
+          content.style.height = '0px';
+        }
+      });
+    }, true);
+
     var specsJumpLinks = document.querySelectorAll('[data-pdp-jump-to-specs]');
     specsJumpLinks.forEach(function (link) {
       link.addEventListener('click', function (e) {
@@ -327,21 +385,36 @@
       "type": "description",
       "name": "Description",
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab label", "default": "Description" }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "Description"
+        }
       ]
     },
     {
       "type": "specifications",
       "name": "Specifications",
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab label", "default": "Specifications" }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "Specifications"
+        }
       ]
     },
     {
       "type": "warranty",
       "name": "Warranty / Certifications",
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab label", "default": "Warranty / Certifications" },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "Warranty / Certifications"
+        },
         {
           "type": "richtext",
           "id": "content",
@@ -355,22 +428,49 @@
       "type": "faq",
       "name": "FAQ's",
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab label", "default": "FAQ's" },
-        { "type": "text", "id": "empty_state_text", "label": "Empty state text", "default": "FAQs for this product have not been added yet." }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "FAQ's"
+        },
+        {
+          "type": "text",
+          "id": "empty_state_text",
+          "label": "Empty state text",
+          "default": "FAQs for this product have not been added yet."
+        },
+        {
+          "type": "text",
+          "id": "last_collections",
+          "label": "Show last",
+          "default": "recessed-lighting",
+          "info": "Collection handles (comma-separated) whose FAQs are listed after the others, e.g. the questions that apply to all recessed lights."
+        }
       ]
     },
     {
       "type": "dimensions",
       "name": "Dimensions",
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab label", "default": "Dimensions" }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "Dimensions"
+        }
       ]
     },
     {
       "type": "manuals",
       "name": "Manuals",
       "settings": [
-        { "type": "text", "id": "title", "label": "Tab label", "default": "Manuals" }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab label",
+          "default": "Manuals"
+        }
       ]
     }
   ],
@@ -378,12 +478,24 @@
     {
       "name": "PDP Tabs",
       "blocks": [
-        { "type": "description" },
-        { "type": "specifications" },
-        { "type": "warranty" },
-        { "type": "faq" },
-        { "type": "dimensions" },
-        { "type": "manuals" }
+        {
+          "type": "description"
+        },
+        {
+          "type": "specifications"
+        },
+        {
+          "type": "warranty"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "dimensions"
+        },
+        {
+          "type": "manuals"
+        }
       ]
     }
   ]

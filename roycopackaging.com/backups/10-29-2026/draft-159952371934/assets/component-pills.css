@@ -1,0 +1,64 @@
+/* Component - Pills / Pill Navigation
+====================================== */
+.pill-nav {
+  display: flex;
+  align-items: center;
+  padding-left: 1px;
+}
+
+.pill-nav-item {
+  flex: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  height: auto;
+  font-size: calc(var(--font-body-scale) * 1.5rem);
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground-alt));
+  box-shadow: 0 0 0 0.1rem var(--color-border), 0 3px 0 var(--color-box-shadow);
+  position: relative;
+}
+
+@media (min-width: 990px) {
+  .pill-nav-item {
+    padding: 1.2rem 2.5rem;
+  }
+}
+
+.pill-nav-item:hover:not(.pill-nav-item-disabled) {
+  box-shadow: 0 0 0 0.2rem var(--color-border), 0 3px 0 var(--color-box-shadow);
+  z-index: 1;
+}
+
+.pill-nav-item.is-active {
+  background-color: rgb(var(--color-accent-1));
+  color: rgb(var(--color-button-text));
+  z-index: 1;
+}
+
+.pill-nav-item:first-child {
+  border-top-left-radius: var(--buttons-radius);
+  border-bottom-left-radius: var(--buttons-radius);
+}
+
+.pill-nav-item:last-child {
+  border-top-right-radius: var(--buttons-radius);
+  border-bottom-right-radius: var(--buttons-radius);
+}
+
+.pill-nav-item-disabled {
+  cursor: not-allowed;
+}
+
+.pill-nav-item-disabled > * {
+  opacity: 0.5;
+}
+
+.pill-nav-slider .pill-nav-item {
+  padding: 1.2rem 1.6rem;
+}

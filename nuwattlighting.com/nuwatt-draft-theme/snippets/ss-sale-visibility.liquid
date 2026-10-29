@@ -1,0 +1,22 @@
+{% comment %}
+  SS Sale — hide a section in one of the sale page's two modes (#144).
+  sections/ss-sale-hero.liquid works out the mode from its schedule and puts
+  ss-sale--on or ss-sale--off on <html>. This snippet hides the calling section
+  in the other mode, so "Sale" sections disappear off-season and "Off-season"
+  sections disappear during the sale. With no class on <html> (no sale hero on
+  the page, e.g. every anchor page) nothing is hidden.
+  Usage:
+    {%- render 'ss-sale-visibility', id: section.id, show: section.settings.sale_visibility -%}
+  Params:
+    - id   (required) section.id
+    - show 'always' (default) | 'sale' | 'off'
+{% endcomment %}
+{%- if id != blank and show == 'sale' -%}
+  {%- style -%}
+    html.ss-sale--off #shopify-section-{{ id }} { display: none; }
+  {%- endstyle -%}
+{%- elsif id != blank and show == 'off' -%}
+  {%- style -%}
+    html.ss-sale--on #shopify-section-{{ id }} { display: none; }
+  {%- endstyle -%}
+{%- endif -%}

@@ -344,7 +344,7 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify://shop_images/Homepage-Category-Kitchen.jpg",
-            "link": "shopify://collections/residential-led-lighting",
+            "link": "/pages/kitchen-lighting",
             "logo-heading": "Residential|Kitchen lights"
           }
         },
@@ -352,7 +352,7 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify://shop_images/Homepage-Category-Bedroom.jpg",
-            "link": "shopify://collections/recessed-lighting",
+            "link": "/pages/bedroom-lighting",
             "logo-heading": "Residential|Bedroom lights"
           }
         },
@@ -360,7 +360,7 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify://shop_images/Homepage-Category-Office.jpg",
-            "link": "shopify://collections/all",
+            "link": "/pages/office-lighting",
             "logo-heading": "Commercial|Office lights"
           }
         },
@@ -368,7 +368,7 @@
           "type": "logo_image",
           "settings": {
             "image": "shopify://shop_images/Homepage-Category-Outdoor.jpg",
-            "link": "shopify://collections/outdoor-led-lighting",
+            "link": "/pages/outdoor-lighting",
             "logo-heading": "Outdoor|Outdoor lights"
           }
         }
@@ -459,7 +459,11 @@
         "main_image": "shopify://shop_images/nw-hq.jpg",
         "eyebrow": "Why NuWatt",
         "heading": "Better by Design",
-        "show_reviews": false
+        "show_reviews": true,
+        "review_ids": "166004438, 165941523, 165601032, 166360113, 166109718, 165577936, 165577988, 165577983",
+        "reviews_heading": "Our Glowing Reviews",
+        "reviews_button_label": "Read All Reviews",
+        "reviews_button_link": "/pages/reviews?page=reviews"
       }
     },
     "rich_text_7QBBKd": {
@@ -600,7 +604,8 @@
         "review_ids": "166004438, 165941523, 165601032, 166360113, 166109718, 165577936, 165577988, 165577983",
         "button_label": "Read All Reviews",
         "button_link": "/pages/reviews?page=reviews"
-      }
+      },
+      "disabled": true
     }
   },
   "order": [

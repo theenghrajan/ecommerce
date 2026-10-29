@@ -48,12 +48,10 @@
 {%- endstyle -%}
 
 <div
-  class="page-width hero--padded ss-anchor-section ss-anchor-hero-wrap"
+  class="ss-anchor-section ss-anchor-hero-wrap"
   data-section-id="{{ section.id }}"
   data-section-type="ss-anchor-hero"
 >
-  {%- comment -%} Home / Page, top left like other pages (#116 audit) {%- endcomment -%}
-  {%- render 'breadcrumbs', bc_page_title: section.settings.heading -%}
   <div class="ss-anchor-hero hero">
     <div class="ss-anchor-hero__media hero__image-wrapper">
       {%- if section.settings.image != blank -%}
@@ -85,6 +83,13 @@
 
     <div class="ss-anchor-hero__inner hero__text-wrap">
       <div class="ss-anchor-hero__content hero__text-content">
+        {%- comment -%} #136 Figma: full-width hero with "Home / Kitchen Lighting" inside it, above the heading {%- endcomment -%}
+        {%- assign crumb_label = section.settings.breadcrumb_label | default: page.title -%}
+        {%- if section.settings.show_breadcrumb and crumb_label != blank -%}
+          <nav class="ss-anchor-hero__crumbs" aria-label="Breadcrumb">
+            <a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ crumb_label | escape }}</span>
+          </nav>
+        {%- endif -%}
         {%- if section.settings.heading != blank -%}
           {%- case section.settings.heading_tag -%}
             {%- when 'h1' -%}
@@ -175,15 +180,39 @@
       "label": "Gradient direction",
       "default": "right",
       "options": [
-        { "value": "right", "label": "Dark on the left" },
-        { "value": "left", "label": "Dark on the right" },
-        { "value": "top", "label": "Dark at the bottom" },
-        { "value": "bottom", "label": "Dark at the top" }
+        {
+          "value": "right",
+          "label": "Dark on the left"
+        },
+        {
+          "value": "left",
+          "label": "Dark on the right"
+        },
+        {
+          "value": "top",
+          "label": "Dark at the bottom"
+        },
+        {
+          "value": "bottom",
+          "label": "Dark at the top"
+        }
       ]
     },
     {
       "type": "header",
       "content": "Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show breadcrumb",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_label",
+      "label": "Breadcrumb page name",
+      "info": "Empty = the page title."
     },
     {
       "type": "text",
@@ -198,9 +227,18 @@
       "info": "Use H1 when this is the page's main heading. Only one H1 per page.",
       "default": "h1",
       "options": [
-        { "value": "h1", "label": "H1" },
-        { "value": "h2", "label": "H2" },
-        { "value": "div", "label": "No heading tag" }
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "div",
+          "label": "No heading tag"
+        }
       ]
     },
     {
@@ -210,8 +248,14 @@
       "info": "Overrides the theme-wide uppercase heading setting for this section only.",
       "default": "sentence",
       "options": [
-        { "value": "sentence", "label": "Sentence case" },
-        { "value": "uppercase", "label": "UPPERCASE" }
+        {
+          "value": "sentence",
+          "label": "Sentence case"
+        },
+        {
+          "value": "uppercase",
+          "label": "UPPERCASE"
+        }
       ]
     },
     {

@@ -163,3 +163,43 @@
     font-size: 12px;
   }
 }
+
+/* #150 (Gary #116) FAQ tab.
+   Width: every question button full width so the arrow always sits at the right edge (custom.css sets
+   button.collapsible-trigger.collapsible-trigger-btn { width: auto }, which left the arrow next to short questions).
+   Type: same family/size as the other tabs (Description / Warranty: Roboto 15px / 24px, #4b5563); the theme's
+   collapsible buttons are 19px (17px on phones) and their content 18px (16px). */
+.pdp-tab-faq button.collapsible-trigger.collapsible-trigger-btn {
+  display: block;
+  width: 100%;
+  padding-right: 32px;
+  text-align: left;
+  font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #202020;
+}
+.pdp-tab-faq .collapsible-content__inner,
+.pdp-tab-faq .collapsible-content__inner p {
+  font-family: var(--typeBasePrimary), var(--typeBaseFallback);
+  font-size: 15px;
+  line-height: 24px;
+  color: #4b5563;
+}
+.pdp-tab-faq .collapsible-content__inner p { margin: 0 0 12px; }
+.pdp-tab-faq .collapsible-content__inner p:last-child { margin-bottom: 0; }
+/* Height follows the answer: the theme locks an opened item at a fixed pixel height (its switch back to
+   height:auto in theme.js calls jQuery .css() on a plain element and fails), so the box no longer fits once the
+   text reflows. Open items always use their natural height; closing still animates. One 16px gap under each answer
+   (was 35px padding + 12px paragraph margin). */
+.pdp-tab-faq .collapsible-content.is-open { height: auto !important; }
+.pdp-tab-faq .collapsible-content__inner { padding-bottom: 16px; }
+@media only screen and (max-width: 749px) {
+  .pdp-tab-faq .collapsible-content__inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

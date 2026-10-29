@@ -441,6 +441,8 @@ document.querySelectorAll('.alt-accordion-toggle').forEach((header, index) => {
         document.addEventListener('DOMContentLoaded', function() {
             const quantitySelect = document.getElementById('nwl-quantity-select');
             const hiddenInput = document.getElementById('product-select');
+            // #150: these elements are not on any page any more - stop instead of throwing on every page load
+            if (!quantitySelect || !hiddenInput) return;
 
             quantitySelect.addEventListener('change', function() {
                 hiddenInput.value = this.value;
@@ -461,7 +463,11 @@ document.querySelectorAll('.alt-accordion-toggle').forEach((header, index) => {
       <script>
 document.addEventListener('DOMContentLoaded', () => {
   // Select the fieldset by its ID
-  const fieldset = document.querySelector('#ProductSelect-template--16466481348682__main-6915617161290-option-0');
+  // #150: matched by the product id (6915617161290 = LED Mini Area Light Shield, Size option) instead of the full id,
+  // whose template part changes when the template is re-saved (it was template--16466481348682, the script stopped working
+  // and threw on every page). Only that product page has this fieldset; everywhere else the script stops here.
+  const fieldset = document.querySelector('fieldset[id$="__main-6915617161290-option-0"]');
+  if (!fieldset) return;
 
   // Get all `.variant-input` elements within the selected fieldset
   const variantInputs = fieldset.querySelectorAll('.variant-input');
@@ -518,11 +524,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add 'selected-pdp-option' to the clicked variant input
       variantInput.classList.add('selected-pdp-option');
 
-      // Also check the corresponding input
-      const inputElement = variantInput.querySelector('input[type="radio"]');
-      if (inputElement) {
-        inputElement.checked = true;
-      }
+      // #150: do NOT tick the radio here. This handler runs before the browser's own click reaches the radio, so
+      // ticking it first meant no "change" event fired and the theme never switched the variant (price / SKU / cart
+      // stayed on the previous size). The native click selects the radio and the theme updates the variant.
     });
   });
 });
@@ -859,6 +863,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script async onload="myInit()" type="text/javascript" src="https://cdn1.stamped.io/files/widget.min.js"></script>
 {%- render 'breadcrumb-click-tracker' -%}
 
+<script src="{{ 'meteor-nav-fixes.js' | asset_url }}" defer></script>
 </body>
 </html>
 

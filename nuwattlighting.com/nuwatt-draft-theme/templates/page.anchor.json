@@ -19,8 +19,8 @@
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0,
-        "image": "shopify://shop_images/Bedroom_Hero.jpg",
-        "min_height": 500,
+        "image": "shopify://shop_images/Anchor-Bedroom-Header.jpg",
+        "min_height": 440,
         "overlay_opacity": 80,
         "gradient_direction": "right",
         "heading": "Bedroom Lights",
@@ -29,7 +29,9 @@
         "text": "<p>Create a relaxing retreat with premium LED lighting designed for comfort, style and efficiency.</p>",
         "button_label": "",
         "button_link": "/collections/recessed-lighting",
-        "button_radius": 2
+        "button_radius": 2,
+        "show_breadcrumb": true,
+        "breadcrumb_label": "Bedroom Lighting"
       }
     },
     "ss_trust": {
@@ -87,7 +89,7 @@
         "padding_bottom": 0,
         "title": "",
         "align_text": "left",
-        "text_case": "uppercase",
+        "text_case": "sentence",
         "show_dividers": false,
         "desktop_columns_per_row": 4,
         "icon_color": "#000000",
@@ -114,7 +116,7 @@
         "padding_top": 48,
         "padding_bottom": 0,
         "text_case": "sentence",
-        "align_text": "center",
+        "align_text": "left",
         "narrow_column": true,
         "color_scheme": "none",
         "divider": false
@@ -136,7 +138,7 @@
               "5-6-inch-adjustable-can-lights-sloped-ceiling-recessed-lighting-damp-rated-5cct-2700k-5000k-1200lm",
               "6-inch-canless-black-recessed-lighting-slim-led-wafer-lights-with-emergency-battery-back-up-wet-rated-5cct-2700k-5000k-1050lm"
             ],
-            "feature_image": "shopify://shop_images/Bedroom_Canless.jpg",
+            "feature_image": "shopify://shop_images/Anchor-Bedroom-Recessed.jpg",
             "feature_title": "Canless Recessed Lights",
             "feature_text": "Sleek, modern and easy to install. Perfect for any bedroom.",
             "feature_link_label": "Shop Canless",
@@ -157,7 +159,7 @@
               "6-inch-wafer-gimbal-recessed-lighting-white",
               "6-inch-canless-black-recessed-lighting-slim-led-wafer-lights-wet-rated-5cct-2700k-5000k-1050lm"
             ],
-            "feature_image": "shopify://shop_images/Bedroom_Retrofit.jpg",
+            "feature_image": "shopify://shop_images/Anchor-Bedroom-Retrofit.jpg",
             "feature_title": "Retrofit Recessed Lights",
             "feature_text": "Easy upgrade for existing housings. Save time and money.",
             "feature_link_label": "Shop Retrofit",
@@ -178,7 +180,7 @@
               "5-6-inch-adjustable-black-recessed-lighting-retrofit-can-lights-sloped-ceilings-5cct",
               "6-inch-brushed-nickel-canless-led-recessed-lighting-slim-wafer-lights-120-277v"
             ],
-            "feature_image": "shopify://shop_images/Bedroom_Ceiling.jpg",
+            "feature_image": "shopify://shop_images/Anchor-Bedroom-Ceiling.jpg",
             "feature_title": "Ceiling Lights",
             "feature_text": "Stylish ceiling solutions to brighten up your space.",
             "feature_link_label": "Shop Ceiling",
@@ -199,7 +201,7 @@
               "6-inch-smart-downlights-rgb-color-changing-recessed-lights-canless-led-wet-rated",
               "6-inch-black-smart-downlights-rgb-color-changing-recessed-lights-canless-led-wet-rated"
             ],
-            "feature_image": "shopify://shop_images/Bedroom_Smart.jpg",
+            "feature_image": "shopify://shop_images/Anchor-Bedroom-Smart.jpg",
             "feature_title": "Smart Recessed Lights",
             "feature_text": "Set the perfect mood with customizable smart lighting.",
             "feature_link_label": "Shop Smart",
@@ -304,7 +306,8 @@
         ],
         "min_rating": 4,
         "take": 12
-      }
+      },
+      "disabled": true
     },
     "1788233592cc5a915d": {
       "type": "apps",
@@ -451,6 +454,15 @@
         "button_link": "",
         "divider": false
       }
+    },
+    "ss_glowing_reviews": {
+      "type": "stamped-glowing-reviews",
+      "settings": {
+        "heading": "Our Glowing Reviews",
+        "review_ids": "165855627, 166360113, 165577968, 165577944, 165577835, 166035835, 165577906, 165596144",
+        "button_label": "Read All Reviews",
+        "button_link": "/pages/reviews?page=reviews"
+      }
     }
   },
   "order": [
@@ -459,9 +471,10 @@
     "ss_trust",
     "ss_intro",
     "ss_categories",
-    "ss_related",
     "ss_browse",
+    "ss_related",
     "ss_shop_more",
+    "ss_glowing_reviews",
     "ss_reviews",
     "1788233592cc5a915d"
   ]

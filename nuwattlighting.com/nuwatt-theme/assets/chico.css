@@ -1625,6 +1625,18 @@ border: solid black 1px;
   color: black !important;
 }
 
+/* #167 mobile drawer: sub-menu title reads "All <name>" in the desktop nav font */
+.Meteor-MobileNavigation .Meteor-Drawer__Header > a{
+  display: block !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  color: black !important;
+}
+.Meteor-MobileNavigation .Meteor-Drawer__Header > a::before{
+  content: "All ";
+}
+
 /* END meteor app */
 
 

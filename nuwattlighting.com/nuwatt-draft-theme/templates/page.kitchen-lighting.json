@@ -19,17 +19,19 @@
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0,
-        "image": "",
-        "min_height": 500,
+        "image": "shopify://shop_images/Anchor-Kitchen-Header.jpg",
+        "min_height": 440,
         "overlay_opacity": 80,
         "gradient_direction": "right",
         "heading": "Kitchen Lights",
         "heading_tag": "h1",
         "text_case": "sentence",
-        "text": "<p>Bright, even task lighting for countertops, islands and cabinets \u2014 built to last and easy to install.</p>",
+        "text": "<p>Bright, even task lighting for countertops, islands and cabinets — built to last and easy to install.</p>",
         "button_label": "",
         "button_link": "shopify://collections/led-under-cabinet-lighting",
-        "button_radius": 2
+        "button_radius": 2,
+        "show_breadcrumb": true,
+        "breadcrumb_label": "Kitchen Lighting"
       }
     },
     "ss_trust": {
@@ -87,7 +89,7 @@
         "padding_bottom": 0,
         "title": "",
         "align_text": "left",
-        "text_case": "uppercase",
+        "text_case": "sentence",
         "show_dividers": false,
         "desktop_columns_per_row": 4,
         "icon_color": "#000000",
@@ -114,7 +116,7 @@
         "padding_top": 48,
         "padding_bottom": 0,
         "text_case": "sentence",
-        "align_text": "center",
+        "align_text": "left",
         "narrow_column": true,
         "color_scheme": "none",
         "divider": false
@@ -136,10 +138,10 @@
               "42-inch-bronze-kitchen-under-cabinet-light-bar-2700k-5000k-cct-hardwire-or-plug-in-linkable-90cri-1050lm-dimmable-under-counter-lighting",
               "bronze-jumper-cable-for-daisy-chaining-nuwatt-kitchen-under-cabinet-lights-120v-ul-safety-listed"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Kitchen-Under-Cabinet.jpg",
             "feature_title": "Under-Cabinet Lighting",
             "feature_text": "Bright, even task light exactly where you prep and cook.",
-            "feature_link_label": "Shop Under-Cabinet",
+            "feature_link_label": "Shop Under-Cabinet Lighting",
             "feature_link": "shopify://collections/led-under-cabinet-lighting",
             "feature_overlay": 60
           }
@@ -157,10 +159,10 @@
               "4-inch-canless-black-recessed-lighting-led-wafer-lights-wet-rated-5cct-2700k-5000k-630lm",
               "6-inch-canless-recessed-lighting-slim-led-wafer-lights-wet-rated-5cct-2700k-5000k-1050lm"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Kitchen-Recessed.jpg",
             "feature_title": "Recessed Lighting",
             "feature_text": "Clean, modern ceiling light that spreads evenly across the room.",
-            "feature_link_label": "Shop Recessed",
+            "feature_link_label": "Shop Recessed Lighting",
             "feature_link": "shopify://collections/recessed-lighting",
             "feature_overlay": 60
           }
@@ -173,15 +175,15 @@
             "view_all_label": "View all",
             "view_all_link": "shopify://collections/led-ceiling-lights",
             "products": [
-              "1x2-ft-led-surface-mount-panel-4-pack-22w-5cct",
-              "1x1-ft-12-square-led-surface-mount-panel-4-pack-18w-5cct",
-              "black-1x1-ft-12-square-led-surface-mount-panel-5-kelvin-selectable-5cct-18-watts-1500-lumens-dimmable",
-              "black-1x2-ft-led-surface-mount-panel-5-kelvin-selectable-5cct-22-watts-2000-lumens-dimmable"
+              "4-inch-regressed-surface-mount-ceiling-light",
+              "4-in-architectural-surface-mount-light",
+              "12-inch-surface-mount-led-ceiling-light-dimmable",
+              "12-inch-surface-mount-led-ceiling-light-bi-level-motion-sensor"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Kitchen-Ceiling.jpg",
             "feature_title": "Ceiling Lights",
             "feature_text": "Stylish ceiling solutions to brighten up your kitchen.",
-            "feature_link_label": "Shop Ceiling",
+            "feature_link_label": "Shop Ceiling Lights",
             "feature_link": "shopify://collections/led-ceiling-lights",
             "feature_overlay": 60
           }
@@ -281,7 +283,8 @@
         ],
         "min_rating": 4,
         "take": 12
-      }
+      },
+      "disabled": true
     },
     "1788233592cc5a915d": {
       "type": "apps",
@@ -428,6 +431,15 @@
         "button_link": "",
         "divider": false
       }
+    },
+    "ss_glowing_reviews": {
+      "type": "stamped-glowing-reviews",
+      "settings": {
+        "heading": "Our Glowing Reviews",
+        "review_ids": "166360113, 165577968, 165577835, 165577881, 166035835, 165577834, 165596144, 165577852",
+        "button_label": "Read All Reviews",
+        "button_link": "/pages/reviews?page=reviews"
+      }
     }
   },
   "order": [
@@ -436,9 +448,10 @@
     "ss_trust",
     "ss_intro",
     "ss_categories",
-    "ss_related",
     "ss_browse",
+    "ss_related",
     "ss_shop_more",
+    "ss_glowing_reviews",
     "ss_reviews",
     "1788233592cc5a915d"
   ]

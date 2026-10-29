@@ -1,0 +1,125 @@
+{% comment %}
+  ============================================================================
+  ROYCO CALCULATOR PREFILL
+  Royco Packaging, Inc.  —  snippets/royco-calculator-prefill.liquid
+
+  WHAT THIS IS
+    A companion to the calculator sections. When a customer arrives from a
+    calculator's "Request a quote" button, the URL carries the whole
+    calculation in a "comment" parameter. Shopify's contact form does not
+    read query parameters, so this snippet writes that text into the Comment
+    box for them.
+
+  INSTALL
+    1. Shopify admin > Online Store > Themes > ... > Edit code
+    2. Snippets > Add a new snippet > name it  royco-calculator-prefill
+    3. Replace the generated contents with this entire file, Save
+    4. Render it on the contact page. Easiest is theme.liquid, immediately
+       before </body>:
+
+         {% render 'royco-calculator-prefill' %}
+
+       It does nothing at all unless the URL carries a comment parameter and
+       the page has a contact form, so it is safe to load site-wide. If you
+       would rather scope it, put the same line in the contact page's
+       template or in the section that renders the form.
+
+  WHAT IT TOUCHES
+    The first textarea inside a form that posts to /contact. It does not care
+    what the field is named, so a theme update that renames contact[body]
+    will not break it.
+
+    It will not overwrite a Comment box that already has something in it, so
+    a customer who typed first keeps what they typed, and it only ever runs
+    once per page load.
+
+  NO PARAMETER, NO EFFECT
+    Without ?comment= in the URL the snippet exits before touching the page.
+    The quote button therefore still works if this snippet is ever removed —
+    the customer simply gets an empty Comment box.
+  ============================================================================
+{% endcomment %}
+
+{% raw %}
+<script>
+(function () {
+  "use strict";
+
+  /* The calculators send ?comment=... and a source marker. Accept "body" too,
+     in case a future tool uses the Shopify field name directly. */
+  function param() {
+    var q;
+    try { q = new URLSearchParams(window.location.search); }
+    catch (e) { return ""; }
+    return q.get("comment") || q.get("body") || "";
+  }
+
+  var text = param();
+  if (!text) return;
+
+  var done = false;
+
+  function contactTextarea() {
+    var forms = document.querySelectorAll('form[action*="/contact"]');
+    for (var i = 0; i < forms.length; i++) {
+      var ta = forms[i].querySelector("textarea");
+      if (ta) return ta;
+    }
+    /* Some themes render the form without a /contact action until it is
+       submitted. Fall back to a textarea whose name looks like Shopify's. */
+    return document.querySelector('textarea[name="contact[body]"]') ||
+           document.querySelector('textarea[name*="contact"]');
+  }
+
+  function fill() {
+    if (done) return true;
+    var ta = contactTextarea();
+    if (!ta) return false;
+
+    /* Never clobber something the customer has already written. */
+    if (ta.value && ta.value.trim() !== "") { done = true; return true; }
+
+    ta.value = text;
+    /* Themes with character counters or floating labels listen for these. */
+    ta.dispatchEvent(new Event("input",  { bubbles: true }));
+    ta.dispatchEvent(new Event("change", { bubbles: true }));
+
+    /* Grow the box if the theme left it at two or three rows, so the customer
+       can see that their figures came through. */
+    try {
+      var rows = text.split("\n").length;
+      if (ta.rows && ta.rows < rows) ta.rows = Math.min(rows + 1, 28);
+    } catch (e) {}
+
+    /* Send them to the first thing they still have to fill in. */
+    try {
+      var form = ta.form;
+      var email = form && form.querySelector('input[type="email"]');
+      if (email && !email.value) email.focus({ preventScroll: true });
+      ta.scrollIntoView({ block: "center", behavior: "smooth" });
+    } catch (e) {}
+
+    done = true;
+    return true;
+  }
+
+  function start() {
+    if (fill()) return;
+
+    /* The form may be rendered by the theme's own scripts after this point.
+       Watch for it, and give up after ten seconds rather than observing the
+       document for the life of the page. */
+    if (typeof MutationObserver !== "function") return;
+    var obs = new MutationObserver(function () { if (fill()) obs.disconnect(); });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(function () { obs.disconnect(); }, 10000);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+</script>
+{% endraw %}

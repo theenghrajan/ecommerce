@@ -1,0 +1,74 @@
+/* Component - Price
+=================================== */
+.price-on-sale .price-regular {
+  display: none;
+}
+
+.price-item {
+  margin: 0;
+}
+
+.price-item > span {
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+}
+
+.price-item .sup {
+  display: block;
+  top: 0;
+  line-height: 1;
+  font-size: calc(var(--font-body-scale) * 1rem);
+  color: rgb(var(--color-foreground));
+  font-weight: 400;
+  text-transform: uppercase;
+  position: relative;
+  vertical-align: baseline;
+}
+
+@media (min-width: 1200px) {
+  .price-item .sup {
+    display: inline-block;
+    line-height: 0;
+    top: -0.5em;
+  }
+}
+
+.product-info .price-item .sup {
+  display: inline-block;
+  line-height: 0;
+  top: -0.5em;
+}
+
+.price-regular .price-item-regular,
+.price-item-sale {
+  font-weight: var(--font-bolder-weight);
+  display: block;
+  color: rgb(var(--color-foreground-alt));
+  font-size: calc(var(--font-body-scale) * 2rem);
+}
+
+.price-sale s {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-weight: var(--font-bolder-weight);
+  font-size: calc(var(--font-body-scale) * 1.4rem);
+  margin-bottom: 0.5rem;
+}
+
+.price-sale s::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border: 1px solid currentColor;
+  opacity: 0.5;
+  transform: rotate(-10deg);
+}
+
+@media (min-width: 1200px) {
+  .price-sale s {
+    margin-bottom: 0;
+  }
+}

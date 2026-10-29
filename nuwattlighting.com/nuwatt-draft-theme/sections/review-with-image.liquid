@@ -43,22 +43,19 @@
             </div>
             {%- if section.settings.show_reviews -%}
             <div class="review_section">
-                 {%- comment -%}
-                   #151 (AC comment #47): reviews now come from Stamped.io, not Junip.
-                   Store-wide carousel; StampedFn.init is loaded in layout/theme.liquid.
-                 {%- endcomment -%}
-                 <div
-                   id="stamped-reviews-widget"
-                   data-widget-type="carousel"
-                   data-title=""
-                   data-take="12"
-                   data-min-rating="4"
-                   data-fill-empty="false"
-                   data-random="false"
-                   data-show-avatar="true"></div>
-                <div class="why-nuwatt-review-footer">
-                    <a href="/pages/reviews?page=reviews" class="why-nuwatt-view-all-btn">Read All Reviews</a>
-                </div>
+                {%- comment -%}
+                  #151 (#77): Gary wants the reviews back beside the Why NuWatt card, so this
+                  column now shows the same hand-picked Glowing Reviews carousel as the
+                  full-width section (#53), not the old store-wide Stamped carousel.
+                {%- endcomment -%}
+                {% render 'glowing-reviews',
+                  section_id: section.id,
+                  review_ids: section.settings.review_ids,
+                  heading: section.settings.reviews_heading,
+                  button_label: section.settings.reviews_button_label,
+                  button_link: section.settings.reviews_button_link,
+                  layout: 'column'
+                %}
             </div>
             {%- endif -%}
         </div>
@@ -91,8 +88,31 @@
       "type": "checkbox",
       "id": "show_reviews",
       "label": "Show reviews column",
-      "info": "Turn off when the Glowing reviews section is used; the Why NuWatt card then runs full width.",
+      "info": "Shows the hand-picked reviews beside the Why NuWatt card. Turn off (and use the full-width Glowing reviews section instead) to run the card full width.",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "reviews_heading",
+      "label": "Reviews heading",
+      "default": "Our Glowing Reviews"
+    },
+    {
+      "type": "textarea",
+      "id": "review_ids",
+      "label": "Stamped review IDs",
+      "info": "Comma-separated, in display order."
+    },
+    {
+      "type": "text",
+      "id": "reviews_button_label",
+      "label": "Reviews button label",
+      "default": "Read All Reviews"
+    },
+    {
+      "type": "url",
+      "id": "reviews_button_link",
+      "label": "Reviews button link"
     }
   ],
   "blocks": [
@@ -252,6 +272,12 @@
     border-radius: 20px;
     padding: 33px;
     box-sizing: border-box;
+    /* #151 (#77): Glowing Reviews column; centred against the taller Why NuWatt card,
+       min-width 0 so the carousel track can't widen the column past 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
   }
   .image-with-review .junip-review-carousel{
     padding:0;

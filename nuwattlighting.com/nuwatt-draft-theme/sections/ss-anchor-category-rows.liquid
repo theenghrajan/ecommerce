@@ -31,6 +31,7 @@
 {{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
 {%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
 {%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+{%- render 'ss-sale-visibility', id: section.id, show: section.settings.sale_visibility -%}
 
 {%- style -%}
   #shopify-section-{{ section.id }} {
@@ -168,6 +169,8 @@
           {%- if empty_slots > 0 -%}
             {%- for i in (1..empty_slots) -%}
               <div class="ss-anchor-product ss-anchor-product--empty">
+                {%- comment -%} #136: the dummy card is an editor hint only; shoppers see an empty slot (Gary: wall packs = 3 with room for a 4th) {%- endcomment -%}
+                {%- if request.design_mode -%}
                 <div class="ss-anchor-product__placeholder">
                   {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
                   {%- comment -%}
@@ -180,6 +183,7 @@
                     {{ 'home_page.onboarding.product_title' | t }}
                   </p>
                 </div>
+                {%- endif -%}
               </div>
             {%- endfor -%}
           {%- endif -%}
@@ -241,6 +245,18 @@
   "class": "ss-anchor-section-wrapper",
   "max_blocks": 6,
   "settings": [
+    {
+      "type": "select",
+      "id": "sale_visibility",
+      "label": "Sale page: show in",
+      "info": "Only matters on a page with an SS Sale Banner. Everywhere else the section always shows.",
+      "default": "always",
+      "options": [
+        { "value": "always", "label": "Both versions" },
+        { "value": "sale", "label": "Sale version only" },
+        { "value": "off", "label": "Off-season version only" }
+      ]
+    },
     {
       "type": "paragraph",
       "content": "Add a “Category row” block per category. The settings below are shared by every row so the rows stay consistent."

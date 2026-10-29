@@ -48,6 +48,12 @@
     background: rgba(252, 200, 51, 0.2);
     padding: 56px 0;
   }
+  {%- comment -%} #151 (#73): home page uses the Design Driven grey; Gary wants no tinted yellow. {%- endcomment -%}
+  {%- if template.name == 'index' -%}
+  #shopify-section-{{ section.id }} {
+    background: #f4f4f4;
+  }
+  {%- endif -%}
 
   /* Figma's product cards sit in a bordered, rounded white card where the image AND
      the text share the same ~20px inset from the card edge. The theme's default lets

@@ -19,8 +19,8 @@
       "settings": {
         "padding_top": 0,
         "padding_bottom": 0,
-        "image": "",
-        "min_height": 500,
+        "image": "shopify://shop_images/Anchor-Outdoor-Header.jpg",
+        "min_height": 440,
         "overlay_opacity": 80,
         "gradient_direction": "right",
         "heading": "Outdoor Lights",
@@ -29,7 +29,9 @@
         "text": "<p>Wet-rated lighting built to handle the weather, from garden paths to building exteriors.</p>",
         "button_label": "",
         "button_link": "shopify://collections/landscape-lighting",
-        "button_radius": 2
+        "button_radius": 2,
+        "show_breadcrumb": true,
+        "breadcrumb_label": "Outdoor Lighting"
       }
     },
     "ss_trust": {
@@ -87,7 +89,7 @@
         "padding_bottom": 0,
         "title": "",
         "align_text": "left",
-        "text_case": "uppercase",
+        "text_case": "sentence",
         "show_dividers": false,
         "desktop_columns_per_row": 4,
         "icon_color": "#000000",
@@ -114,7 +116,7 @@
         "padding_top": 48,
         "padding_bottom": 0,
         "text_case": "sentence",
-        "align_text": "center",
+        "align_text": "left",
         "narrow_column": true,
         "color_scheme": "none",
         "divider": false
@@ -136,10 +138,10 @@
               "landscape-bullet-led-flood-light-black-finish",
               "brass-stake-10-heavy-duty"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Outdoor-Landscape.jpg",
             "feature_title": "Landscape Lighting",
             "feature_text": "Light paths, beds and features without overpowering the garden.",
-            "feature_link_label": "Shop Landscape",
+            "feature_link_label": "Shop Landscape Lighting",
             "feature_link": "shopify://collections/landscape-lighting",
             "feature_overlay": 60
           }
@@ -157,10 +159,10 @@
               "mini-flood-landscape-fixture-50w-white-finish",
               "outdoor-flood-lights-bronze-90w-12600-lumens"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Outdoor-Flood.jpg",
             "feature_title": "LED Flood Lights",
             "feature_text": "Broad, powerful coverage for driveways, yards and building faces.",
-            "feature_link_label": "Shop Flood",
+            "feature_link_label": "Shop LED Flood Lights",
             "feature_link": "shopify://collections/led-flood-lights",
             "feature_overlay": 60
           }
@@ -176,12 +178,12 @@
               "nuwatt-25w-led-bullet-spotlight-flood-light-12-pack-with-3cct-switch-knuckle-mount-120-277v-commercial-outdoor-weatherproof-landscape-led-3500lm-dimmable-ul-listed",
               "nuwatt-white-led-bullet-spotlight-flood-light-25w-3cct-selectable-1-2-inch-knuckle-mount-high-brightness-3500-lumens-120-277v-commercial-outdoor-weatherproof-landscape-led-dimmable-ul-listed",
               "landscape-bullet-led-spot-light-black-finish",
-              "landscape-bullet-led-flood-light-black-finish"
+              "landscape-bullet-led-spot-light-bronze-finish"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Outdoor-Bullet.jpg",
             "feature_title": "Bullet Lights",
             "feature_text": "Tight, directional beams for uplighting trees and architecture.",
-            "feature_link_label": "Shop Bullet",
+            "feature_link_label": "Shop Bullet Lights",
             "feature_link": "shopify://collections/bullet-lights",
             "feature_overlay": 60
           }
@@ -198,10 +200,10 @@
               "white-60w-outdoor-wall-pack-lights-led-commercial-wall-pack-lighting-with-motion-sensor-light-sensor-hid-replacement-weatherproof-4-pack",
               "black-led-wall-pack-full-cut-off-5-wattage-selectable-80-64-48-32-16w-5-lumen-selectable-3-color-selectable-3000k-4000k-5000k-photocell-included"
             ],
-            "feature_image": "",
+            "feature_image": "shopify://shop_images/Anchor-Outdoor-Wall-Packs.jpg",
             "feature_title": "LED Wall Packs",
             "feature_text": "Durable exterior wall lighting for entrances, loading bays and perimeters.",
-            "feature_link_label": "Shop Wall Packs",
+            "feature_link_label": "Shop LED Wall Packs",
             "feature_link": "shopify://collections/led-wall-packs",
             "feature_overlay": 60
           }
@@ -303,7 +305,8 @@
         ],
         "min_rating": 4,
         "take": 12
-      }
+      },
+      "disabled": true
     },
     "1788233592cc5a915d": {
       "type": "apps",
@@ -450,6 +453,15 @@
         "button_link": "",
         "divider": false
       }
+    },
+    "ss_glowing_reviews": {
+      "type": "stamped-glowing-reviews",
+      "settings": {
+        "heading": "Our Glowing Reviews",
+        "review_ids": "165577899, 165577885, 165577734, 165577869, 165596776, 165577814, 165577998, 165577894",
+        "button_label": "Read All Reviews",
+        "button_link": "/pages/reviews?page=reviews"
+      }
     }
   },
   "order": [
@@ -458,9 +470,10 @@
     "ss_trust",
     "ss_intro",
     "ss_categories",
-    "ss_related",
     "ss_browse",
+    "ss_related",
     "ss_shop_more",
+    "ss_glowing_reviews",
     "ss_reviews",
     "1788233592cc5a915d"
   ]

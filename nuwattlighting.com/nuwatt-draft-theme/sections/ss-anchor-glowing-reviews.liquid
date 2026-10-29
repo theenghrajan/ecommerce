@@ -1,0 +1,185 @@
+{% comment %}
+  SS Anchor Glowing Reviews (task #136, Design comment #87 "Version 2, Anchor pages", approved with the pages in #94).
+  Summary panel on the left (eyebrow, heading, stars, text, "Read all reviews", arrows + dots) and a carousel of
+  review cards on the right that alternate yellow / dark and run off the right edge of the page.
+  Which reviews show:
+    - Review IDs (optional): only these hand-picked Stamped reviews, in this order.
+    - Otherwise: the best 5-star reviews of the products shown on this page (read from the product cards of
+      ss-anchor-category-rows, so the reviews always follow the rows). One Stamped request per product
+      (the public widget API filters on a single productId), reviews with a title and card-length text,
+      taken round-robin across products for variety.
+  Uses the same public Stamped key as layout/theme.liquid and sections/stamped-glowing-reviews.liquid (#151).
+  Hides itself when no review qualifies.
+{% endcomment %}
+{{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
+
+{%- assign review_ids = section.settings.review_ids | remove: ' ' -%}
+
+<div class="ssgr" data-review-ids="{{ review_ids }}" data-max="{{ section.settings.max_reviews }}" hidden>
+  <div class="page-width ssgr__inner">
+    <div class="ssgr__summary">
+      {%- if section.settings.eyebrow != blank -%}<p class="ssgr__eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="ssgr__heading">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      <div class="ssgr__summary-stars" role="img" aria-label="5 out of 5 stars">
+        {%- for i in (1..5) -%}<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z" fill="currentColor"/></svg>{%- endfor -%}
+      </div>
+      {%- if section.settings.text != blank -%}<p class="ssgr__text">{{ section.settings.text | escape }}</p>{%- endif -%}
+      {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+        <a class="ssgr__button" href="{{ section.settings.button_link }}">{{ section.settings.button_label | escape }}</a>
+      {%- endif -%}
+      <div class="ssgr__controls">
+        <button type="button" class="ssgr__arrow ssgr__arrow--prev" data-dir="-1" aria-label="Previous reviews">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="ssgr__arrow ssgr__arrow--next" data-dir="1" aria-label="Next reviews">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="ssgr__dots" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="ssgr__track" role="list" aria-label="{{ section.settings.heading | escape }}" tabindex="0"></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} .ssgr');
+    if (!root) return;
+    var KEY = 'storeUrl=363503&apiKey=31f05899-3dc3-476c-91b8-375386ad6cfc';
+    var API = 'https://stamped.io/api/widget/reviews?' + KEY;
+    var track = root.querySelector('.ssgr__track');
+    var dotsBox = root.querySelector('.ssgr__dots');
+    var inner = root.querySelector('.ssgr__inner');
+    var max = parseInt(root.dataset.max, 10) || 8;
+    var ids = (root.dataset.reviewIds || '').split(',').filter(Boolean);
+
+    // products on this page (anchor category rows) -> id: { handle, title, image }
+    var products = {};
+    document.querySelectorAll('.ss-anchor-product__card[data-product-id]').forEach(function (card) {
+      var id = card.getAttribute('data-product-id');
+      if (products[id]) return;
+      var img = card.querySelector('img');
+      products[id] = {
+        handle: card.getAttribute('data-product-handle'),
+        image: img ? (img.currentSrc || img.src) : ''
+      };
+    });
+
+    var star = '<svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L10 14.8l-5.2 2.8 1-5.8L1.5 7.7l5.9-.8z" fill="currentColor"/></svg>';
+    var check = '<svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M5.5 10.2 8.6 13l6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var arrow = '<svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+    function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+    function getJSON(url) { return fetch(url).then(function (r) { return r.ok ? r.json() : { data: [] }; }).catch(function () { return { data: [] }; }); }
+    function usable(r) {
+      var len = (r.reviewMessage || '').length;
+      return r.reviewRating >= 5 && (r.reviewTitle || '').trim() && len >= 60 && len <= 320;
+    }
+
+    function card(r, i) {
+      var p = products[String(r.productId)] || {};
+      var href = p.handle ? '/products/' + p.handle : '';
+      var thumb = r.productImageThumbnailUrl || p.image;
+      var stars = '';
+      for (var s = 0; s < 5; s++) stars += star;
+      var chip = '<span class="ssgr__chip-img">' + (thumb ? '<img src="' + esc(thumb) + '" alt="" loading="lazy" width="40" height="40">' : '') + '</span>' +
+        '<span class="ssgr__chip-text"><span class="ssgr__chip-label">Reviewed</span><span class="ssgr__chip-name">' + esc(r.productName) + '</span></span>' +
+        '<span class="ssgr__chip-arrow">' + arrow + '</span>';
+      return '<figure class="ssgr__card ssgr__card--' + (i % 2 ? 'dark' : 'yellow') + '" role="listitem">' +
+        '<div class="ssgr__stars" role="img" aria-label="' + r.reviewRating + ' out of 5 stars">' + stars + '</div>' +
+        '<p class="ssgr__title">' + esc(r.reviewTitle) + '</p>' +
+        '<blockquote class="ssgr__body">' + esc(r.reviewMessage) + '</blockquote>' +
+        '<figcaption class="ssgr__author"><span class="ssgr__name">' + esc(r.author) + '</span>' +
+          (r.reviewVerifiedType === 2 ? '<span class="ssgr__verified">' + check + 'Verified Buyer</span>' : '') + '</figcaption>' +
+        (href ? '<a class="ssgr__chip" href="' + href + '">' + chip + '</a>' : '<span class="ssgr__chip">' + chip + '</span>') +
+        '</figure>';
+    }
+
+    function load() {
+      if (ids.length) {
+        var url = API + '&take=' + ids.length + ids.map(function (id) { return '&reviewIds=' + encodeURIComponent(id); }).join('');
+        return getJSON(url).then(function (d) {
+          var byId = {};
+          (d.data || []).forEach(function (r) { byId[String(r.id)] = r; });
+          return ids.map(function (id) { return byId[id]; }).filter(Boolean);
+        });
+      }
+      var pids = Object.keys(products);
+      return Promise.all(pids.map(function (pid) {
+        return getJSON(API + '&productId=' + pid + '&minRating=5&take=20').then(function (d) { return (d.data || []).filter(usable); });
+      })).then(function (lists) {
+        // round-robin across products so one well-reviewed product does not fill the carousel
+        var out = [], seen = {}, more = true;
+        for (var round = 0; more && out.length < max; round++) {
+          more = false;
+          lists.forEach(function (list) {
+            var r = list[round];
+            if (!r) return;
+            more = true;
+            if (out.length < max && !seen[r.id]) { seen[r.id] = 1; out.push(r); }
+          });
+        }
+        return out;
+      });
+    }
+
+    // cards run off the right edge of the page (Figma): stretch the track to the viewport edge
+    function bleed() {
+      var right = inner.getBoundingClientRect().right;
+      var pad = parseFloat(getComputedStyle(inner).paddingRight) || 0;
+      track.style.marginRight = -(document.documentElement.clientWidth - right + pad) + 'px';
+    }
+
+    function step() {
+      var c = track.querySelector('.ssgr__card');
+      if (!c) return track.clientWidth;
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return c.offsetWidth + gap;
+    }
+
+    function update() {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      var cards = track.querySelectorAll('.ssgr__card').length;
+      var current = Math.round(track.scrollLeft / step());
+      if (track.scrollLeft >= maxScroll - 2) current = cards - 1;
+      dotsBox.querySelectorAll('span').forEach(function (d, i) { d.classList.toggle('is-active', i === Math.min(current, cards - 1)); });
+      root.querySelector('.ssgr__arrow--prev').disabled = track.scrollLeft <= 2;
+      root.querySelector('.ssgr__arrow--next').disabled = track.scrollLeft >= maxScroll - 2;
+    }
+
+    load().then(function (reviews) {
+      if (!reviews.length) return;
+      track.innerHTML = reviews.map(card).join('');
+      dotsBox.innerHTML = reviews.map(function () { return '<span></span>'; }).join('');
+      root.hidden = false;
+      bleed();
+      update();
+      root.querySelectorAll('.ssgr__arrow').forEach(function (b) {
+        b.addEventListener('click', function () { track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: 'smooth' }); });
+      });
+      track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+      window.addEventListener('resize', function () { bleed(); update(); });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Anchor glowing reviews",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Customer reviews" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Glowing Reviews" },
+    { "type": "text", "id": "text", "label": "Text", "default": "Verified reviews from customers who bought these lights." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Read all reviews" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    {
+      "type": "textarea",
+      "id": "review_ids",
+      "label": "Hand-picked review IDs",
+      "info": "Optional. Comma-separated Stamped review IDs, in display order. Empty = the best 5-star reviews of the products shown on this page."
+    },
+    { "type": "range", "id": "max_reviews", "label": "Maximum reviews", "min": 3, "max": 12, "step": 1, "default": 8 }
+  ],
+  "presets": [{ "name": "Anchor glowing reviews" }]
+}
+{% endschema %}

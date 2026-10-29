@@ -14,6 +14,7 @@
 {{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
 {%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
 {%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+{%- render 'ss-sale-visibility', id: section.id, show: section.settings.sale_visibility -%}
 
 <style>
   {% if template.name == 'index' %}
@@ -106,6 +107,18 @@
   "name": "SS Anchor Intro",
   "class": "richtext-cts ss-anchor-section-wrapper ss-anchor-intro",
   "settings": [
+    {
+      "type": "select",
+      "id": "sale_visibility",
+      "label": "Sale page: show in",
+      "info": "Only matters on a page with an SS Sale Banner. Everywhere else the section always shows.",
+      "default": "always",
+      "options": [
+        { "value": "always", "label": "Both versions" },
+        { "value": "sale", "label": "Sale version only" },
+        { "value": "off", "label": "Off-season version only" }
+      ]
+    },
     {
       "type": "range",
       "id": "padding_top",
