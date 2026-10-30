@@ -1,0 +1,370 @@
+{% liquid
+  assign cart_title = section.settings.cart_title
+  assign empty_cart_title = section.settings.empty_cart_title
+  assign cart_progress_bar_enabled = section.settings.cart_progress_bar_enabled
+  assign cart_progress_bar_threshold = section.settings.cart_progress_bar_threshold
+  assign cart_progress_message = section.settings.cart_progress_message
+  assign cart_progress_reached_message = section.settings.cart_progress_reached_message
+  assign cart_upsells_enabled = section.settings.cart_upsells_enabled
+  assign cart_upsells_title = section.settings.cart_upsells_title
+  assign cart_upsells = section.settings.cart_upsells
+  assign cart_footer_label = section.settings.cart_footer_label
+  assign cart_footer_shipping = section.settings.cart_footer_shipping
+  assign cart_footer_shipping_free = section.settings.cart_footer_shipping_free
+  assign cart_footer_privacy_rte = section.settings.cart_footer_privacy_rte
+  assign cart_footer_interest = section.settings.cart_footer_interest
+  assign show_savings = section.settings.show_savings
+  assign show_cc = section.settings.show_cc
+
+  assign oke_reiews = section.settings.oke_reiews
+  assign review_star = section.settings.review_star
+  assign review_text = section.settings.review_text
+
+  assign empty_cart_btns = section.blocks | where: 'type', 'empty_cart_btn'
+%}
+
+<!-- LAYOUT CART DRAWER START -->
+<div @click.self="$store.cart.hide()" class=" fixed inset-0 h-full w-full"></div>
+
+<div
+  x-cloak
+  x-show="$store.cart.visible"
+  id="cart-drawer"
+  class="bg-c-white fixed bottom-0 right-0 top-0 z-10 flex h-full w-full flex-col overflow-hidden shadow md:max-w-[600px]"
+  x-transition:enter="transition ease-out duration-300"
+  x-transition:enter-start="translate-y-full md:translate-y-0 md:translate-x-full"
+  x-transition:enter-end="translate-y-0 md:translate-x-0"
+  x-transition:leave="transition ease-in duration-300"
+  x-transition:leave-start="translate-y-0 md:translate-x-0"
+  x-transition:leave-end="translate-y-full md:translate-y-0 md:translate-x-full"
+>
+  <!-- !$store.cart.obj.visibleItemCount -->
+  <!-- EMPTY CART STATE START -->
+  <template x-if="!$store.cart.obj.visibleItemCount">
+    <div class="relative flex h-full w-full flex-col overflow-hidden">
+      <!-- EMPTY CART HEADER -->
+      <div class="border-c-border md:px-7.5 bg-c-white flex w-full items-center justify-between border-b px-5 py-3">
+        <h3 class="text-sc-title text-xl font-semibold">{{ empty_cart_title }}</h3>
+        <button
+          type="button"
+          class="ml-5"
+          @click="$store.cart.hide()"
+          aria-label="{{ 'layout.general.close_window' | t }}"
+        >
+          <span class="sr-only">{{ 'layout.general.close_window' | t }}</span>
+          {% render 'icon', name: 'close-small', class: 'w-7.5 h-7.5 text-c-shadow' %}
+        </button>
+      </div>
+
+      <div class="scrollbar-hide flex w-full flex-1 flex-col overflow-y-auto overflow-x-hidden">
+        {% if empty_cart_btns != blank %}
+          <!-- EMPTY CART BUTTONS -->
+          <div class="md:px-7.5 py-7.5 w-full px-5">
+            <div
+              class="mx-auto w-full space-y-4 md:max-w-[var(--logo-desk-w)] md:space-y-5"
+              style="--logo-desk-w: 300px;"
+            >
+              {% for block in empty_cart_btns %}
+                {% liquid
+                  assign text = block.settings.text
+                  assign url = block.settings.url
+                  assign btn_type = block.settings.btn_type
+                %}
+                <a
+                  href="{{ url }}"
+                  class="{% render 'btn-class', btn: btn_type %} group w-full px-5 py-3 text-base tracking-[0.5px]"
+                  {% if btn_type == 'btn_cta_fill' %}
+                    style="--c-btn-cta-bg-default: {{ block.settings.btn_cta_bg_default.rgb }}; --c-btn-cta-text-default: {{ block.settings.btn_cta_text_default.rgb }}; --c-btn-cta-bg-hover: {{ block.settings.btn_cta_bg_hover.rgb }}; --c-btn-cta-text-hover: {{ block.settings.btn_cta_text_hover.rgb }};"
+                  {% endif %}
+                >
+                  <span>{{ text }}</span>
+                  {% render 'icon',
+                    name: 'btn-arrow',
+                    class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+                  %}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+
+        <!-- EMPTY CART UPSELLS -->
+        {% if cart_upsells_enabled == true and cart_upsells.count > 0 %}
+          <template x-if="!$store.cart.obj.visibleItemCount">
+            <div class="md:px-7.5 bg-sc-bg-third mt-auto flex flex-col justify-end px-5 pb-7 pt-5">
+              <!-- UPSELLS TITLE -->
+              <span class="text-c-shadow mb-2 block text-base font-semibold">
+                {{ cart_upsells_title }}
+              </span>
+
+              {% if cart_upsells.count > 1 %}
+                <div class="flex flex-col space-y-3">
+                  {% for product in cart_upsells %}
+                    {% render 'cart-upsell-item', product: product, modi: 'empty-' %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </template>
+        {% endif %}
+      </div>
+    </div>
+  </template>
+  <!-- EMPTY CART STATE END -->
+
+  <!-- $store.cart.obj.visibleItemCount -->
+  <!-- CART WITH ITEMS STATE START -->
+  <template x-if="$store.cart.obj.visibleItemCount">
+    <div class="flex h-full w-full flex-col">
+      <!-- CART HEADER -->
+      <div class="flex w-full flex-col">
+        <div class="md:px-7.5 border-c-border bg-c-white flex w-full items-center justify-between border-b px-5 py-3">
+          <div class="flex items-baseline space-x-2">
+            <h3 class="text-sc-title text-xl font-semibold">{{ cart_title }}</h3>
+            <span
+              class="text-c-shadow text-sm lg:text-base"
+              x-text="$store.cart.obj.visibleItemCount + ($store.cart.obj.visibleItemCount > 1 ? ' items' : ' item')"
+            ></span>
+          </div>
+
+          <button
+            type="button"
+            class="ml-5"
+            @click="$store.cart.hide()"
+            aria-label="{{ 'layout.general.close_window' | t }}"
+          >
+            <span class="sr-only">{{ 'layout.general.close_window' | t }}</span>
+            {% render 'icon', name: 'close-small', class: 'w-7.5 h-7.5 text-sc-title' %}
+          </button>
+        </div>
+
+        {% if cart_progress_bar_enabled %}
+          {% render 'cart-progress-bar',
+            cart_progress_bar_threshold: cart_progress_bar_threshold,
+            cart_progress_message: cart_progress_message,
+            cart_progress_reached_message: cart_progress_reached_message
+          %}
+        {% endif %}
+      </div>
+
+      <!-- LINE ITEMS + UPSELLS -->
+      <div class="scrollbar-hide bg-c-white flex w-full flex-1 flex-col overflow-y-auto overflow-x-hidden">
+        <!-- CART ITEMS -->
+        <div class="md:p-7.5 p-5 pb-10 md:pb-10">
+          <template x-for="(item, index) in $store['cart'].obj.items" :key="item.key">
+            <template x-if="item.handle !== 'order-coverage'">
+              {% render 'cart-item' %}
+            </template>
+          </template>
+        </div>
+
+        <div class="mt-auto">
+          <!-- CART UPSELLS -->
+          {% if cart_upsells_enabled == true and cart_upsells.count > 0 %}
+            <template x-if="$store['cart'].obj.items && !$store.cart.upsells.every(id => $store['cart'].obj.items.some(lineItem => lineItem.product_id === id))">
+              <div class="md:px-7.5 bg-sc-bg-third mt-auto flex flex-col justify-end px-5 pb-7 pt-5">
+                <!-- UPSELLS TITLE -->
+                <span class="text-c-shadow mb-2 block text-base font-semibold">
+                  {{ cart_upsells_title }}
+                </span>
+
+                <ul class="flex flex-col space-y-3">
+                  {% for product in cart_upsells %}
+                    <li
+                      class="no-select-all"
+                      x-show="$store['cart'].obj.items && !$store['cart'].obj.items.some(lineItem => lineItem.handle === '{{ product.handle }}')"
+                    >
+                      {% render 'cart-upsell-item', product: product, modi: 'cart-' %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </template>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- CART TOTAL -->
+      <div class="bg-c-white md:px-7.5 sticky bottom-0 px-5 pb-5 lg:px-10">
+        {% if cart_footer_label != blank %}
+          <div
+            class="bg-c-mintglow text-c-shadow -mx-7.5 flex justify-center px-5 py-2 text-center text-sm font-medium md:-mx-10 md:px-10 md:text-base"
+          >
+            {% assign cart_footer_label_list = cart_footer_label | split: '||' %}
+            {% for ben in cart_footer_label_list %}
+              <span>
+                {{ ben }}
+              </span>
+              {% unless forloop.last %}
+                <svg
+                  class="text-c-shadow mx-1.5 my-auto shrink-0 md:mx-3"
+                  width="5"
+                  height="4"
+                  viewBox="0 0 5 4"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="2.5" cy="2" r="2" fill="currentColor"/>
+                </svg>
+              {% endunless %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="pt-5"></div>
+
+        {% if show_savings %}
+          <div
+            x-cloak
+            x-collapse
+            x-show="$store.cart.obj.cart_compared_price > $store.cart.obj.total_price"
+            style="--c-title: {{ section.settings.show_saving_color.rgb }};"
+          >
+            <div class="mb-2 flex w-full items-center justify-between">
+              <span class="text-sc-title text-base font-semibold">{{ 'cart.general.savings' | t | camelcase }}</span>
+
+              <span
+                class="text-sc-title text-base font-semibold"
+                x-text="'-' + window.biCurrency($store.cart.obj.cart_compared_price - $store.cart.obj.total_price)"
+              >
+                {{ cart_footer_shipping }}
+              </span>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if cart_footer_shipping != blank %}
+          <div class="mb-2 flex w-full items-center justify-between">
+            <span class="text-sc-title text-base font-semibold">{{ 'cart.general.shipping' | t }}</span>
+
+            <div class="">
+              <span
+                class="text-sc-title text-base font-semibold"
+                {% if cart_footer_shipping_free != blank %}
+                  :class="($store.cart.obj.total_price >= {{ cart_progress_bar_threshold | times: 100 }} || $store.cart.obj && $store.cart.obj.items && $store.cart.obj.items.some(item => item.selling_plan_allocation)) && 'line-through !font-normal'"
+                {% endif %}
+              >
+                {{ cart_footer_shipping }}
+              </span>
+
+              {% if cart_footer_shipping_free != blank %}
+                <span
+                  class="text-sc-title ml-1 text-base font-semibold"
+                  x-cloak
+                  x-show="$store.cart.obj.total_price >= {{ cart_progress_bar_threshold | times: 100 }} || $store.cart.obj && $store.cart.obj.items && $store.cart.obj.items.some(item => item.selling_plan_allocation)"
+                  style="--c-title: {{ section.settings.show_saving_color.rgb }};"
+                >
+                  {{ cart_footer_shipping_free }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="mb-2 flex w-full items-center justify-between" id="cart-subtotal">
+          <span class="text-sc-title text-base font-semibold">{{ 'cart.general.subtotal' | t }}</span>
+
+          <span class="flex items-center space-x-1">
+            <del
+              class="text-sc-title text-base"
+              x-show="$store.cart.obj.cart_compared_price > $store.cart.obj.total_price"
+              x-text="window.biCurrency($store.cart.obj.cart_compared_price)"
+            ></del>
+
+            <span
+              class="text-sc-title text-base font-semibold"
+              x-text="window.biCurrency($store.cart.obj.total_price)"
+            ></span>
+          </span>
+        </div>
+
+        {% if cart_footer_privacy_rte != blank %}
+          <div class="rte text-sc-title mt-2 text-sm">
+            {{ cart_footer_privacy_rte }}
+          </div>
+        {% endif %}
+
+        {% if cart_footer_interest != blank %}
+          <div class="rte text-sc-title ml-auto mt-2 text-right text-sm">
+            {% assign cart_footer_interest = cart_footer_interest
+              | replace: '{interest}', '<span x-text="window.biCurrency($store.cart.obj.total_price / 4)"></span>'
+            %}
+            {{ cart_footer_interest }}
+          </div>
+        {% endif %}
+
+        <a
+          href="/checkout"
+          x-init="
+            (function () {
+            	window.onpageshow = function(event) {
+            		if (event.persisted) {
+            			$el.removeAttribute('aria-busy');
+            		}
+            	};
+            })();
+          "
+          aria-label="Open checkout page"
+          @click="$el.setAttribute('aria-busy', true)"
+          class="{% render 'btn-class', btn: 'btn_cta_fill' %} mt-4 min-h-[52px] w-full items-center space-x-2"
+          style="--c-btn-cta-bg-default: {{ section.settings.btn_cta_bg_default.rgb }}; --c-btn-cta-text-default: {{ section.settings.btn_cta_text_default.rgb }}; --c-btn-cta-bg-hover: {{ section.settings.btn_cta_bg_hover.rgb }}; --c-btn-cta-text-hover: {{ section.settings.btn_cta_text_hover.rgb }};"
+        >
+          {% render 'icon', name: 'lock', class: 'text-c-white' %}
+          <span class="text-base font-semibold">{{ 'cart.general.checkout' | t }}</span>
+          {% render 'btn-loader' %}
+        </a>
+
+        {% if review_star != blank or review_text != blank or oke_reiews != blank %}
+          <div class="mt-2 flex items-center justify-center">
+            {% if review_star != blank %}
+              <div class="mr-1 w-full max-w-20">
+                {{
+                  review_star
+                  | image_url: width: review_star.width
+                  | image_tag:
+                    alt: review_star.alt,
+                    class: 'object-contain w-full h-full pointer-events-none',
+                    loading: 'lazy'
+                }}
+              </div>
+            {% endif %}
+
+            {% if oke_reiews != blank %}
+              <div
+                data-oke-badge
+                data-oke-layout="minimal"
+                data-oke-star-height-px="20"
+                class="rte text-sc-title flex justify-center text-center text-base"
+              ></div>
+            {% endif %}
+
+            {% if review_text != blank %}
+              <div class="rte text-sc-title text-sm md:text-base">
+                {{- review_text -}}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if show_cc %}
+          <ul class="-m-1 flex list-none flex-wrap justify-center pt-3 md:pt-4" role="list">
+            {%- for type in shop.enabled_payment_types -%}
+              {% if type == 'apple_pay'
+                or type == 'paypal'
+                or type == 'visa'
+                or type == 'master'
+                or type == 'google_pay'
+              %}
+                <li class="m-1">
+                  {{ type | payment_type_svg_tag: class: '' }}
+                </li>
+              {% endif %}
+            {%- endfor -%}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </template>
+  <!-- CART WITH ITEMS STATE END -->
+</div>
+<!-- LAYOUT CART DRAWER END -->

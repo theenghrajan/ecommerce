@@ -1,0 +1,133 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  render 'css-variables-setter'
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary border-c-border border-b-[2px]"
+  data-hide-header
+>
+  <ul
+    class="scrollbar-hide animate__animated relative mx-auto -mb-0.5 flex w-max max-w-full snap-x items-center overflow-x-auto overflow-y-hidden scroll-smooth px-5 opacity-0 md:px-10"
+    x-intersect.once="$el.classList.add('animate__fadeIn')"
+    x-data
+    x-init="$el.scrollLeft = $refs.activeLink.getBoundingClientRect().left"
+    @wheel.prevent.throttle="
+      $el.scrollBy({
+        left: $event.deltaY < 0 ? -500 : 500,
+        behavior: 'smooth'
+      });
+    "
+  >
+    {% for block in section.blocks %}
+      {% liquid
+        assign title = block.settings.title
+        assign url = block.settings.url
+      %}
+      <li
+        {% if url == request.path %}
+          x-ref="activeLink"
+        {% endif %}
+        class="hover:border-sc-title hover:text-sc-title snap-start scroll-ml-5 border-b-[2px] transition-colors duration-200 ease-in-out md:scroll-ml-10 {% if url == request.path -%} border-sc-title text-sc-title {%- else -%} border-transparent text-sc-body-primary {%- endif -%}"
+      >
+        <a
+          href="{{- url -}}"
+          aria-label="{{- title -}}"
+          class="flex whitespace-nowrap px-5 py-3 text-lg font-semibold md:px-10 lg:text-2xl"
+        >
+          <span>
+            {{- title -}}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": "Navigation list",
+  "tag": "section",
+  "class": "sticky top-0 z-10",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Navigation list"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Link color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Active link color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#F7FAFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Block link"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Navigation list",
+      "category": "Sections",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Elemental Innovation"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Ingredients"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Science"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

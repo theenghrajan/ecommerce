@@ -1,0 +1,97 @@
+<h2 class="text-sc-title mb-3 text-4xl font-semibold">
+  {{ 'customer.register.sign_up' | t }}
+</h2>
+
+<div class="text-c-shadow text-base">
+  {{ 'customer.register.register_text' | t }}
+</div>
+
+<form class="mt-7.5" @submit.prevent="registerFormSubmit()">
+  <div x-show="statusState" data-status-paste class="mb-3 "></div>
+
+  <div class="mb-4 grid grid-cols-1 gap-4">
+    {% assign placeholder = 'customer.register.first_name' | t %}
+    {%- render 'input',
+      name: 'customer[first_name]',
+      label: placeholder,
+      type: 'text',
+      required: true,
+      input_height: 54,
+      autocomplete: 'given-name',
+      x_model: 'firstName',
+      x_input: 'clearStatus()'
+    -%}
+
+    {% assign placeholder = 'customer.register.last_name' | t %}
+    {%- render 'input',
+      name: 'customer[last_name]',
+      label: placeholder,
+      type: 'text',
+      required: true,
+      input_height: 54,
+      autocomplete: 'family-name',
+      x_model: 'lastName',
+      x_input: 'clearStatus()'
+    -%}
+  </div>
+
+  {% assign placeholder = 'customer.register.email' | t %}
+  {%- render 'input',
+    name: 'customer[email]',
+    label: placeholder,
+    type: 'text',
+    required: true,
+    input_height: 54,
+    autocomplete: 'email',
+    x_model: 'email',
+    x_input: 'clearStatus()',
+    class: 'block mb-4'
+  -%}
+
+  {% assign placeholder = 'customer.register.password' | t %}
+  {%- render 'input',
+    name: 'customer[password]',
+    label: placeholder,
+    type: 'password',
+    required: true,
+    input_height: 54,
+    autocomplete: 'password',
+    x_model: 'password',
+    x_input: 'clearStatus()'
+  -%}
+
+  <div class="mt-7.5 flex flex-col">
+    <button
+      type="submit"
+      :aria-busy="loading"
+      aria-label="{{ 'customer.register.title' | t }}"
+      class="min-h-10 w-full rounded-md py-1 {% render 'btn-class', btn: 'btn_primary_fill' %}"
+    >
+      <span>{{ 'customer.register.title' | t }}</span>
+      {% render 'btn-loader' %}
+    </button>
+
+    <a
+      aria-label="{{ 'customer.login.cancel' | t }}"
+      href="{{ shop.url }}"
+      class="mt-4 min-h-10 w-full rounded-md py-1 {% render 'btn-class', btn: 'btn_primary_outline' %}"
+    >
+      <span>{{ 'customer.login.cancel' | t }}</span>
+    </a>
+
+    <div class="md:mt-7.5 border-c-border pt-7.5 mt-5 flex w-full space-x-2 border-t">
+      <span class="text-c-shadow text-base lg:text-lg">{{ 'customer.login.have_an_account' | t }}</span>
+      <button
+        {% if request.page_type contains 'customers/' %}
+          @click.prevent="login_tab = 'login'; changeUrl('/account/login')"
+        {% else %}
+          @click.prevent="login_tab = 'login'"
+        {% endif %}
+        aria-label="{{ 'customer.login.sign_in' | t }}"
+        class="text-c-shadow w-max max-w-full text-left text-lg font-semibold underline"
+      >
+        <span>{{ 'customer.login.sign_in' | t }}</span>
+      </button>
+    </div>
+  </div>
+</form>

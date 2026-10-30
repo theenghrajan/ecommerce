@@ -1,0 +1,90 @@
+{% if upsells or block.settings.title != blank or block.settings.products != blank %}
+  {% liquid
+    if upsells
+      assign up_title = upsells.title
+      assign up_badge = upsells.badge
+      assign up_products = upsells.products.value
+    else
+      assign up_title = block.settings.title
+      assign up_badge = block.settings.badge
+      assign up_products = block.settings.products
+    endif
+  %}
+  <div {{ block.shopify_attributes }}>
+    {% if up_title != blank or up_badge != blank %}
+      <div class="mb-2 flex w-full items-baseline justify-between space-x-2">
+        {% if up_title != blank %}
+          <span class="text-sc-title text-base font-semibold">{{ up_title }}</span>
+        {% endif %}
+
+        {% if up_badge != blank %}
+          <span class="bg-c-sunhaze text-c-shadow font-third rounded px-2 py-1 text-base uppercase">
+            {{- up_badge -}}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if up_products != blank %}
+      <article class="bg-c-white md:border-c-border hover:border-c-navy duration-250 -mx-5 flex flex-col p-4 ease-in-out md:m-0 md:rounded-lg md:border">
+        <ul class="divide-c-border grid grid-cols-1 gap-5 divide-y">
+          {% for u_product in up_products %}
+            <li
+              class="group flex space-x-2 pt-5 first:pt-0 lg:space-x-4"
+              x-data="{ qoId: Math.random() }"
+            >
+              <a href="{{ u_product.url }}" class="w-17.5 h-17.5 flex shrink-0">
+                {{
+                  u_product.featured_image
+                  | image_url: width: 140
+                  | image_tag:
+                    alt: u_product.featured_image.alt,
+                    class: 'h-full w-full object-cover rounded-lg border border-c-border',
+                    widths: '70, 140',
+                    draggable: false
+                }}
+              </a>
+              <div class="flex flex-1 flex-col">
+                <div class="mb-1 flex flex-col space-y-0.5 lg:space-y-1">
+                  <span class="text-sc-title font-primary line-clamp-1 text-lg font-semibold">
+                    {{- u_product.title }}
+                  </span>
+
+                  {% if u_product.metafields.binaery.product_information.value.slogan.value %}
+                    <div class="rte text-c-shadow line-clamp-2 text-sm ">
+                      {{ u_product.metafields.binaery.product_information.value.slogan.value | metafield_tag }}
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="ml-auto mt-auto flex w-full items-center justify-between">
+                  <span class="text-sc-body-primary mr-5 text-base font-semibold leading-none">
+                    {{- u_product.price | money_without_trailing_zeros -}}
+                  </span>
+
+                  <template x-if="$store.cart.obj.items && $store.cart.obj.items.some(item => item.product_id === {{ u_product.id }})">
+                    <span class="{% render 'btn-class', btn: 'btn_cta_fill' %} mt-auto min-h-0 min-w-0 cursor-default px-4 py-0.5">
+                      {{ 'common.add_to_cart_success' | t }}
+                    </span>
+                  </template>
+
+                  <template x-if="$store.cart.obj.items && !$store.cart.obj.items.some(item => item.product_id === {{ u_product.id }})">
+                    <button
+                      type="button"
+                      aria-label="Open quick order popup"
+                      @click="$store.quickOrder.show({ id: qoId, initiator: 'section' })"
+                      class=" {% render 'btn-class', btn: 'btn_primary_outline' %} mt-auto min-h-0 min-w-0 px-4 py-0.5"
+                    >
+                      <span>{{ 'common.add_to_cart_small' | t }}</span>
+                    </button>
+                  </template>
+                </div>
+              </div>
+              {% render 'quick-order', product: u_product %}
+            </li>
+          {% endfor %}
+        </ul>
+      </article>
+    {% endif %}
+  </div>
+{% endif %}

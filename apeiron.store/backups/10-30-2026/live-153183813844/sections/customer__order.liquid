@@ -1,0 +1,415 @@
+{% liquid
+  assign btn_type = section.settings.btn_type | default: 'btn_primary_fill'
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+{% assign requeires_shipping = false %}
+{% for line_item in order.line_items %}
+  {% if line_item.requires_shipping %}
+    {% assign requeires_shipping = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<div class="bg-[#fefbf9]" data-section-id="{{ section.id }}">
+  {% render 'account-navigation' %}
+
+  <div class="narrow-container smD:pt-14 px-7.5 md:px-15 smD:px-25 smD:max-w-7xl 2xl:px-7.5 smD:pb-20 flex py-10 2xl:py-20">
+    {% render 'account-navigation-aside' %}
+    <div class="2xl:pl-12.5 border-c-border w-full 2xl:border-l">
+      <h1 class="font-primary text-sc-title mb-5 text-2xl md:mb-10">
+        {{- 'customer.order.title' | t: name: customer.name -}}
+      </h1>
+
+      {% if requeires_shipping and fulfillment.tracking_number %}
+        <div class="smD:hidden mb-3 flex items-baseline space-x-1">
+          <span class="text-sc-title block shrink-0 text-base font-medium">
+            {{- 'customer.order.track' | t | append: ':' -}}
+          </span>
+          {%- if fulfillment.tracking_url -%}
+            <a
+              class="text-sc-subtitle break-all text-base"
+              aria-label="Redirect to tracking site"
+              href="{{ fulfillment.tracking_url }}"
+            >
+              {{ fulfillment.tracking_number }}
+            </a>
+          {% else %}
+            <p class="text-sc-title break-all text-base">{{ fulfillment.tracking_number }}</p>
+          {%- endif -%}
+        </div>
+      {% endif %}
+
+      <div class="smD:flex smD:space-x-12.5 w-full">
+        <div class="w-full">
+          {%- if order.cancelled -%}
+            <div class="smD:mb-3 mb-4">
+              {%- assign cancelled_on = order.cancelled_at | date: format: 'date_at_time' -%}
+              {%- assign cancel_message = 'customer.order.cancelled_on'
+                | t: date: cancelled_on, reason: order.cancel_reason_label
+              -%}
+              {%- render 'layout-message', status: 'error', content: cancel_message -%}
+            </div>
+          {%- endif -%}
+
+          {% comment %}ORDER PRODUCTS{% endcomment %}
+          <table class="w-full">
+            <thead class="hidden md:table-header-group">
+              <tr>
+                <th class="text-sc-title pb-3 text-left text-sm font-medium">
+                  {{ 'customer.order.product' | t }}
+                </th>
+                <th class="text-sc-title pb-3 text-left text-sm font-medium">
+                  {{ 'customer.order.quantity' | t }}
+                </th>
+                <th class="text-sc-title pb-3 text-right text-sm font-medium">
+                  {{ 'customer.order.total' | t }}
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="border-c-border border-b border-t">
+              {%- for line_item in order.line_items -%}
+                <tr>
+                  <td class="w-full pb-3 md:w-4/6 md:pb-5 {% if forloop.first %}pt-3 md:pt-5{% endif %}">
+                    <div class="flex space-x-3">
+                      {% if line_item.image %}
+                        {{
+                          line_item.image
+                          | image_url: width: 100
+                          | image_tag:
+                            alt: line_item.image.alt,
+                            class: 'w-25 object-cover h-auto shrink-0',
+                            loading: 'lazy'
+                        }}
+                      {% else %}
+                        {{ 'image' | placeholder_svg_tag: 'w-25 h-auto object-cover shrink-0' }}
+                      {% endif %}
+
+                      <div class="w-full space-y-1 pr-3 md:space-y-2 md:pr-10">
+                        <a
+                          class="text-sc-subtitle line-clamp-2 inline-block text-sm font-medium md:text-base"
+                          aria-label="Redirect to {{ line_item.title }}"
+                          href="{{ line_item.url }}"
+                        >
+                          {{- line_item.title -}}
+                        </a>
+
+                        <p class="text-sc-body-primary text-xs md:hidden">
+                          {{ 'customer.order.quantity' | t | append: ': ' -}}
+                          {{- line_item.quantity }}
+                        </p>
+
+                        <p class="text-sc-body-primary ml-3 hidden text-sm md:m-0 md:block">
+                          {{ line_item.line_price | money }}
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-sc-body-primary hidden pb-5 text-left align-top text-base md:table-cell {% if forloop.first %}pt-5{% endif %}">
+                    {{ line_item.quantity }}
+                  </td>
+                  <td class="text-sc-body-primary pb-3 text-right align-top text-sm md:pb-5 md:text-base {% if forloop.first %}pt-3 md:pt-5{% endif %}">
+                    {{ line_item.final_line_price | money }}
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+
+          {% comment %}ORDER INFO{% endcomment %}
+          <div class="py-4.5 flex grid-cols-2 flex-col md:grid md:gap-x-5 md:py-5">
+            <div class="pb-4.5 border-c-border smD:pl-5 w-full space-y-2 border-b md:border-none">
+              <div class="flex items-start justify-between space-x-3">
+                <span class="text-sc-title text-sm">{{ 'customer.order.subtotal' | t }}</span>
+                <span class="text-sc-title text-sm font-medium">{{ order.line_items_subtotal_price | money }}</span>
+              </div>
+
+              {%- for discount_application in order.cart_level_discount_applications -%}
+                <div class="flex items-start justify-between space-x-3">
+                  <span class="text-sc-title text-sm">
+                    {{- 'customer.order.discount' | t }} ({{ discount_application.title }})
+                  </span>
+                  <span class="text-sc-title text-sm font-medium"
+                    >-{{ discount_application.total_allocated_amount | money -}}
+                  </span>
+                </div>
+              {%- endfor -%}
+
+              {%- for shipping_method in order.shipping_methods -%}
+                <div class="flex items-start justify-between space-x-3">
+                  <span class="text-sc-title text-sm">
+                    {{- 'customer.order.shipping' | t }} ({{ shipping_method.title }})
+                  </span>
+                  <span class="text-sc-title text-sm font-medium">{{ shipping_method.price | money }}</span>
+                </div>
+              {%- endfor -%}
+
+              {%- for tax_line in order.tax_lines -%}
+                <div class="flex items-start justify-between space-x-3">
+                  {%- if cart.taxes_included -%}
+                    <span class="text-sc-title text-sm">
+                      {{- 'customer.order.taxes_included' | t }} ({{ tax_line.title }}
+                      {{ tax_line.rate_percentage }}%)
+                    </span>
+                  {%- else -%}
+                    <span class="text-sc-title text-sm">
+                      {{- 'customer.order.taxes_excluded' | t }} ({{ tax_line.title }}
+                      {{ tax_line.rate_percentage }}%)
+                    </span>
+                  {%- endif -%}
+
+                  <span class="text-sc-title text-sm font-medium">{{ tax_line.price | money }}</span>
+                </div>
+              {%- endfor -%}
+
+              {%- if order.total_duties > 0 -%}
+                <div class="flex items-start justify-between space-x-3">
+                  <span class="text-sc-title text-sm">{{ 'customer.order.total_duties' | t }}</span>
+                  <span class="text-sc-title text-sm font-medium">{{ order.total_duties | money }}</span>
+                </div>
+              {%- endif -%}
+
+              {%- if order.total_refunded_amount > 0 -%}
+                <div class="flex items-start justify-between space-x-3">
+                  <span class="text-sc-title text-sm">{{ 'customer.order.refunded_amount' | t }}</span>
+                  <span class="text-sc-title text-sm font-medium">{{ order.total_refunded_amount | money }}</span>
+                </div>
+              {%- endif -%}
+
+              <div class="flex items-start justify-between space-x-3">
+                <span class="text-sc-title text-sm">{{ 'customer.order.total' | t }}</span>
+                <span class="text-sc-title text-sm font-medium">
+                  {{- order.total_net_amount | money_with_currency -}}
+                </span>
+              </div>
+            </div>
+            {% assign show_buy_again = true %}
+            {% for line_item in order.line_items %}
+              {% assign has_variant = false %}
+
+              {% if all_products[line_item.product.handle] != blank %}
+                {% for variant in all_products[line_item.product.handle].variants %}
+                  {% if variant.id == line_item.variant_id %}
+                    {% assign has_variant = true %}
+                  {% endif %}
+                {% endfor %}
+
+                {% if has_variant %}
+                  {% for variant in all_products[line_item.product.handle].variants %}
+                    {% if variant.id == line_item.variant_id and variant.available == false %}
+                      {% assign show_buy_again = false %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                {% else %}
+                  {% assign show_buy_again = false %}
+                  {% break %}
+                {% endif %}
+              {% else %}
+                {% assign show_buy_again = false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            <div class="mt-4 md:-order-1 md:m-0 {% unless show_buy_again %}!m-0{% endunless %}">
+              {% if show_buy_again %}
+                <button
+                  x-data="{ loading: false }"
+                  @click.prevent="
+                    async () => {
+                      loading = true;
+                      await $store.cart.addToCart(
+                       [
+                       {%- for line_item in order.line_items -%}
+                         {
+                           id: {{ line_item.variant_id }},
+                           quantity: {{ line_item.quantity }},
+                         },
+                       {%- endfor -%}
+                       ]
+                      );
+                      loading = false;
+                    }
+                  "
+                  :class="{ 'loading' : loading }"
+                  class="{% render 'btn-class', btn: btn_type %} uppercase"
+                >
+                  {% render 'icon', name: 'spin' %}
+                  <span>{{ 'customer.order.buy_it_again' | t }}</span>
+                </button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        {% comment %}ORDER BOXES{% endcomment %}
+        <div class="smD:grid-cols-1 smD:max-w-[260px] smD:mt-0 mt-3 grid w-full grid-cols-1 gap-5 md:mt-5 md:grid-cols-2">
+          {%- if order.shipping_address -%}
+            <div class="border-c-border w-full space-y-2.5 border p-5">
+              <div class="text-sc-title flex items-center space-x-2">
+                {%- render 'icon', name: 'box', class: 'h-5.5 w-5.5' -%}
+                <p class="text-sm font-medium">{{ 'customer.order.shipping_address' | t }}</p>
+              </div>
+
+              <div class="rte-p:text-sm rte-p:text-sc-body-primary">
+                {{- order.shipping_address | format_address -}}
+              </div>
+            </div>
+          {%- endif -%}
+
+          <div class="border-c-border w-full space-y-2.5 border p-5">
+            <div class="text-sc-title flex items-center space-x-2">
+              {%- render 'icon', name: 'car', class: 'h-5.5 w-5.5' -%}
+              <p class="text-sm font-medium">{{ 'customer.order.order_info' | t }}</p>
+            </div>
+
+            {%- assign fulfillment = order.line_items
+              | where: 'fulfillment'
+              | map: 'fulfillment'
+              | sort: 'created_at'
+              | last
+            -%}
+
+            {%- if order.shipping_address and fulfillment -%}
+              {%- assign created_at = fulfillment.created_at | date: format: 'date' -%}
+            {% endif %}
+
+            <div class="rte-p:text-sm rte-p:text-sc-body-primary space-y-1">
+              <p>{{ customer.email }}</p>
+              <p>
+                {% if fulfillment %}
+                  {{ order.fulfillment_status_label }}: {{ created_at }}
+                {% else %}
+                  {{ order.fulfillment_status_label }}
+                {% endif %}
+              </p>
+              <p>
+                {{ 'customer.order.payment_status' | t | append: ': ' -}}
+                {{- order.financial_status_label }}
+              </p>
+
+              {% if requeires_shipping %}
+                <span class="text-sc-title block pt-3 text-sm font-medium">
+                  {{- 'customer.order.track' | t | append: ':' -}}
+                </span>
+                {%- if fulfillment.tracking_number -%}
+                  {%- if fulfillment.tracking_url -%}
+                    <a
+                      class="text-sc-subtitle break-all text-sm"
+                      aria-label="Redirect to tracking site"
+                      href="{{ fulfillment.tracking_url }}"
+                    >
+                      {{ fulfillment.tracking_number }}
+                    </a>
+                  {% else %}
+                    <p class="text-sc-title break-all text-sm">
+                      {{ fulfillment.tracking_number }}
+                    </p>
+                  {%- endif -%}
+                {% else %}
+                  <p>{{ 'customer.order.pending_shipment' | t }}</p>
+                {% endif %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer order",
+  "settings": [
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Section button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

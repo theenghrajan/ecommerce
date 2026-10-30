@@ -1,0 +1,476 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Apeiron",
+    "theme_version": "1.0.0",
+    "theme_author": "Binaery Agency",
+    "theme_documentation_url": "https:\/\/www.binaery.com\/",
+    "theme_support_url": "https:\/\/www.binaery.com\/"
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "32 x 32px .png recommended"
+      }
+    ]
+  },
+  {
+    "name": "LOGO",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "number",
+        "id": "logo_max_w_desktop",
+        "label": "Logo max width in px",
+        "info": "For large screens"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_small",
+        "label": "Small logo"
+      },
+      {
+        "type": "number",
+        "id": "logo_max_w_mobile",
+        "label": "Logo max width in px",
+        "info": "For small screens"
+      }
+    ]
+  },
+  {
+    "name": "Product card",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Product card settings"
+      },
+      {
+        "type": "select",
+        "id": "discount_type",
+        "label": "Discount badge type",
+        "options": [
+          {
+            "value": "currency",
+            "label": "Currency"
+          },
+          {
+            "value": "percents",
+            "label": "Percentage"
+          },
+          {
+            "value": "hidden",
+            "label": "Hidden"
+          }
+        ],
+        "default": "currency"
+      }
+    ]
+  },
+  {
+    "name": "Global subscriptions",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "allow_subscriptions",
+        "label": "Allow subscriptions",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Product delivery settings",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Delivery settings"
+      },
+      {
+        "type": "select",
+        "id": "delivery_mode",
+        "label": "Skip weekends",
+        "options": [
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "default": "yes"
+      },
+      {
+        "type": "select",
+        "id": "delivery_days",
+        "label": "Delivery days",
+        "options": [
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          }
+        ],
+        "default": "5"
+      }
+    ]
+  },
+  {
+    "name": "COLORS",
+    "settings": [
+      {
+        "type": "color",
+        "id": "c-blur-overlay",
+        "label": "Blurred overlay",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color_background",
+        "id": "c-bg-lineargradient",
+        "label": "Main linear gradient",
+        "default": "linear-gradient(86deg, rgba(247, 249, 236, 1) 29%, rgba(181, 219, 252, 0.6) 100%)"
+      },
+      {
+        "type": "header",
+        "content": "Brand colors"
+      },
+      {
+        "type": "color",
+        "id": "c-navy",
+        "label": "Navy",
+        "default": "#1A4178"
+      },
+      {
+        "type": "color",
+        "id": "c-white",
+        "label": "White",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "c-shadow",
+        "label": "Shadow",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-blue",
+        "label": "Blue shade",
+        "default": "#AEE6F4"
+      },
+      {
+        "type": "color",
+        "id": "c-gray",
+        "label": "Gray",
+        "default": "#485568"
+      },
+      {
+        "type": "color",
+        "id": "c-sunhaze",
+        "label": "Sunhaze",
+        "default": "#FFF699"
+      },
+      {
+        "type": "color",
+        "id": "c-crimsonite",
+        "label": "Crimsonite",
+        "default": "#990000"
+      },
+      {
+        "type": "color",
+        "id": "c-seabright",
+        "label": "Seabright",
+        "default": "#0C97A8"
+      },
+      {
+        "type": "color",
+        "id": "c-mintglow",
+        "label": "Mintglow",
+        "default": "#D0E9D4"
+      },
+      {
+        "type": "header",
+        "content": "CTA button"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-cta-bg-default",
+        "label": "Button bg default",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-cta-text-default",
+        "label": "Button text default",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-cta-bg-hover",
+        "label": "Button bg hover",
+        "default": "#08499D"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-cta-text-hover",
+        "label": "Button text hover",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Primary button fill"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-bg-default",
+        "label": "Button bg default",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-text-default",
+        "label": "Button text default",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-bg-hover",
+        "label": "Button bg hover",
+        "default": "#08499D"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-text-hover",
+        "label": "Button text hover",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Primary button outline"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-outline-bg-default",
+        "label": "Button bg default",
+        "default": "transparent"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-outline-text-default",
+        "label": "Button text default",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-outline-bg-hover",
+        "label": "Button bg hover",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-primary-outline-text-hover",
+        "label": "Button text hover",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Secondary button fill"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-bg-default",
+        "label": "Button bg default",
+        "default": "#08499D"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-text-default",
+        "label": "Button text default",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-bg-hover",
+        "label": "Button bg hover",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-text-hover",
+        "label": "Button text hover",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Secondary button outline"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-outline-bg-default",
+        "label": "Button bg default",
+        "default": "transparent"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-outline-text-default",
+        "label": "Button text default",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-outline-bg-hover",
+        "label": "Button bg hover",
+        "default": "#25282A"
+      },
+      {
+        "type": "color",
+        "id": "c-btn-secondary-outline-text-hover",
+        "label": "Button text hover",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "Links"
+      },
+      {
+        "type": "color",
+        "id": "c-link-primary-text",
+        "label": "Primary link",
+        "default": "#08499D"
+      },
+      {
+        "type": "color",
+        "id": "c-link-secondary-text",
+        "label": "Secondary link",
+        "default": "#0A089D"
+      },
+      {
+        "type": "header",
+        "content": "Accent colors"
+      },
+      {
+        "type": "color",
+        "id": "c-accent-success",
+        "label": "Success",
+        "default": "#07A17B"
+      },
+      {
+        "type": "color",
+        "id": "c-accent-warning",
+        "label": "Warning",
+        "default": "#A34E31"
+      },
+      {
+        "type": "color",
+        "id": "c-accent-error",
+        "label": "Error",
+        "default": "#D72C0D"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_facebook",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_twitter",
+        "label": "Twitter"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest",
+        "label": "Pinterest"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_vimeo",
+        "label": "Vimeo"
+      },
+      {
+        "type": "url",
+        "id": "social_whatsapp",
+        "label": "WhatsApp"
+      },
+      {
+        "type": "url",
+        "id": "social_tumblr",
+        "label": "Tumblr"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube",
+        "label": "YouTube"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_linkedin",
+        "label": "LinkedIn"
+      },
+      {
+        "type": "url",
+        "id": "social_snapchat",
+        "label": "Snapchat"
+      },
+      {
+        "type": "url",
+        "id": "social_fancy",
+        "label": "Fancy"
+      },
+      {
+        "type": "url",
+        "id": "social_wechat",
+        "label": "WeChat"
+      },
+      {
+        "type": "url",
+        "id": "social_reddit",
+        "label": "Reddit"
+      },
+      {
+        "type": "url",
+        "id": "social_line",
+        "label": "LINE"
+      },
+      {
+        "type": "url",
+        "id": "social_spotify",
+        "label": "Spotify"
+      },
+      {
+        "type": "url",
+        "id": "social_21buttons",
+        "label": "21 Buttons"
+      }
+    ]
+  }
+]

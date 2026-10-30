@@ -1,0 +1,84 @@
+{% liquid
+  assign topic_blocks = section.blocks | where: 'type', 'topic'
+
+  assign btn_type = btn_type | default: 'btn_primary_fill'
+
+  assign class = class | default: ''
+  assign class = class | append: ' grid grid-cols-1 gap-6'
+%}
+
+{% capture topic_options %}
+  {%- for option in topic_blocks -%}
+      <option {% if forloop.first -%}selected{%- endif %} value="{{- option.settings.title -}}">
+        {{- option.settings.title -}}
+      </option>
+  {%- endfor -%}
+{% endcapture %}
+
+{% capture content %}
+  <div class="{{- class -}}">
+    <div class="grid grid-cols-2 gap-4">
+      {% assign placeholder = 'contact.form.first_name' | t %}
+      {%- render 'input',
+        name: 'contact[first_name]',
+        label: placeholder,
+        type: 'text',
+        required: true,
+        autocomplete: 'given-name'
+      -%}
+
+      {% assign placeholder = 'contact.form.last_name' | t %}
+      {%- render 'input',
+        name: 'contact[last_name]',
+        label: placeholder,
+        type: 'text',
+        required: true,
+        autocomplete: 'family-name'
+      -%}
+    </div>
+
+    {% assign placeholder = 'contact.form.email' | t %}
+    {%- render 'input',
+      name: 'contact[email]',
+      label: placeholder,
+      type: 'text',
+      required: true,
+      autocomplete: 'email'
+    -%}
+
+    {% if topic_blocks.size > 0 %}
+      {% assign placeholder = 'contact.form.type' | t %}
+      {%- render 'select',
+        name: 'contact[topic]',
+        label: placeholder,
+        options: topic_options,
+        chevron: true,
+        input_height: 54
+      -%}
+    {% endif %}
+
+    {% assign placeholder = 'contact.form.message' | t %}
+    {%- render 'input',
+      name: 'contact[body]',
+      multiline: 4,
+      label: placeholder,
+      type: 'textarea',
+      required: true,
+      class: 'mb-2 md:mb-4.5'
+    -%}
+
+    <button
+      type="submit"
+      aria-label="{{- 'contact.form.send' | t -}}"
+      class="{% render 'btn-class', btn: btn_type %} w-full"
+    >
+      {{- 'contact.form.send' | t -}}
+    </button>
+  </div>
+{% endcapture %}
+
+{% form 'contact', x-data: 'nativeForm()' %}
+  {{ form.errors | default_errors }}
+
+  {{ content }}
+{% endform %}

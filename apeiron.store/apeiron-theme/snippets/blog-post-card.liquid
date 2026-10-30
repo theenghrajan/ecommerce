@@ -1,0 +1,71 @@
+{%- comment -%}
+  BLOG POST COMPONENT
+
+  * type: main, second, related
+  * blog
+  * article: the article to render. If no article is passed then a placeholder is generated
+  * class
+  * article_btn
+  * article_btn_type
+  * loading
+{%- endcomment -%}
+
+<article class="{{ class }} group flex flex-col">
+  {%- if article.image != blank -%}
+    <a
+      href="{{ article.url }}"
+      class="image-overflow-hidden relative mb-5 block rounded-lg pb-[100%] md:pb-[340px]"
+      aria-label="Redirect to article"
+    >
+      {{-
+        article.image
+        | image_url: width: 1400
+        | image_tag:
+          widths: '315, 620, 1400',
+          class: 'absolute top-0 left-0 object-cover w-full h-full group-hover:scale-105 duration-500 will-change-transform',
+          draggable: false,
+          loading: loading
+      -}}
+
+      {% if blog %}
+        <span class="text-c-shadow min-w-15 bg-c-white/70 absolute right-3 top-3 flex justify-center px-4 py-2 text-sm font-medium lg:right-5 lg:top-5">
+          {{- blog.title -}}
+        </span>
+      {% endif %}
+    </a>
+  {%- else -%}
+    <div class="image-overflow-hidden relative mb-5 rounded-lg pb-[100%] md:pb-[340px]">
+      {{-
+        'image'
+        | placeholder_svg_tag: 'absolute top-0 left-0 object-cover w-full h-full group-hover:scale-105 duration-500 will-change-transform'
+      -}}
+    </div>
+  {%- endif -%}
+
+  <div class="text-c-shadow flex flex-col">
+    <div class="mb-2 flex flex-wrap items-center gap-x-3 gap-y-2 lg:gap-x-5">
+      <div class="flex items-center space-x-2">
+        {% render 'icon', name: 'calendar', class: 'text-c-shadow' %}
+        <span class="text-sm lg:text-base">
+          {{- article.published_at | date: '%B %d, %Y' -}}
+        </span>
+      </div>
+    </div>
+
+    <h2 class="min-h-[var(--same-height)]" x-data="SameBlockHeight('section', '--same-height')">
+      <a
+        href="{{ article.url | default: '#' }}"
+        class="text-c-navy line-clamp-3 text-lg font-medium duration-300 ease-in-out hover:opacity-70"
+        aria-label="Redirect to article"
+      >
+        {{- article.title | default: 'Article title' -}}
+      </a>
+    </h2>
+
+    {% if article.excerpt_or_content != blank %}
+      <div class="rte mt-3 line-clamp-4 text-base lg:line-clamp-2 h-20 lg:h-10">
+        {{- article.excerpt_or_content | strip_html | truncatewords: 50 -}}
+      </div>
+    {% endif %}
+  </div>
+</article>

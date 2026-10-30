@@ -1,0 +1,256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement_bar_9egjFM": {
+      "type": "announcement-bar",
+      "disabled": true,
+      "settings": {
+        "c-title": "#ffffff",
+        "c-bg-primary": "#25282a",
+        "announcement_text": "<p>Ordering is currently available via Zelle only. We apologize for the inconvenience.</p>"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "header_products_dropdown_fMHrzg": {
+          "type": "_header-products-dropdown",
+          "name": "List item (products)",
+          "settings": {
+            "title": "Products",
+            "subtitle": "Shop by Products",
+            "link": "",
+            "label_1": "Best Sellers",
+            "badge_1": "",
+            "products_1": [
+              "bpc",
+              "bpc-157",
+              "tb4-frag"
+            ],
+            "link_1": "shopify://collections/elementals-top-sellers",
+            "label_2": "Apeiron Elementals",
+            "badge_2": "",
+            "products_2": [
+              "rejuvenate-ua",
+              "nutrigenomic-lean",
+              "nac-glycine-powder"
+            ],
+            "link_2": "",
+            "label_3": "Expert Favorites",
+            "badge_3": "",
+            "products_3": [
+              "bpc",
+              "bpc-tb4-frag",
+              "marine-collagen"
+            ],
+            "link_3": "",
+            "label_4": "Bundle & Save",
+            "badge_4": "Up to 20% off",
+            "products_4": [],
+            "link_4": "shopify://collections/bundles",
+            "label_5": "Shop All",
+            "badge_5": "",
+            "products_5": [],
+            "link_5": "/collections/all",
+            "label_6": "",
+            "badge_6": "",
+            "products_6": [],
+            "link_6": ""
+          },
+          "blocks": {}
+        },
+        "header_dropdown_egN4TH": {
+          "type": "_header-dropdown",
+          "name": "List item",
+          "settings": {
+            "title": "Shop by Goal",
+            "subtitle": "Shop by Goal",
+            "grid_title": "Most Viewed Goals",
+            "link": "",
+            "list": "binaery-shop-by-goal"
+          },
+          "blocks": {
+            "link_HjrW37": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-recovery.jpg",
+                "title": "Recovery & Performance",
+                "b_link_text": "",
+                "link": "shopify://collections/performance-energy"
+              },
+              "blocks": {}
+            },
+            "link_X6az8x": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-longevity.jpg",
+                "title": "Longevity & Aging",
+                "b_link_text": "",
+                "link": "shopify://collections/age-rejuvenation"
+              },
+              "blocks": {}
+            },
+            "link_Q7VtB7": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-detox.jpg",
+                "title": "Gut & Detox",
+                "b_link_text": "",
+                "link": "shopify://collections/gut-detox-metabolic"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "link_HjrW37",
+            "link_X6az8x",
+            "link_Q7VtB7"
+          ]
+        },
+        "header_dropdown_iWDWVy": {
+          "type": "_header-dropdown",
+          "name": "List item",
+          "settings": {
+            "title": "Learn",
+            "subtitle": "",
+            "grid_title": "Learn",
+            "link": "",
+            "list": ""
+          },
+          "blocks": {
+            "link_xy9Yg3": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-elemental.jpg",
+                "title": "Elemental Innovation",
+                "b_link_text": "Learn more",
+                "link": "shopify://pages/elemental-innovation"
+              },
+              "blocks": {}
+            },
+            "link_TMhXap": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-science-web.jpg",
+                "title": "The Science",
+                "b_link_text": "Learn more",
+                "link": "shopify://pages/science"
+              },
+              "blocks": {}
+            },
+            "link_bif8pG": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-explore.jpg",
+                "title": "Explore Ingredients",
+                "b_link_text": "Learn more",
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "link_VmcXay": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-story.jpg",
+                "title": "Our Reviews",
+                "b_link_text": "See what people say about us",
+                "link": "shopify://pages/reviews"
+              },
+              "blocks": {}
+            },
+            "link_3C9cEA": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-about-us.jpg",
+                "title": "About Us",
+                "b_link_text": "Learn about our founders",
+                "link": "shopify://pages/about-us"
+              },
+              "blocks": {}
+            },
+            "link_eR774m": {
+              "type": "_link",
+              "name": "Image block",
+              "settings": {
+                "product": "",
+                "badge": "",
+                "image": "shopify://shop_images/bi-ap-wholesale.jpg",
+                "title": "Wholesale",
+                "b_link_text": "Apply or Login",
+                "link": "shopify://pages/wholesale-program"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "link_xy9Yg3",
+            "link_TMhXap",
+            "link_bif8pG",
+            "link_VmcXay",
+            "link_3C9cEA",
+            "link_eR774m"
+          ]
+        }
+      },
+      "block_order": [
+        "header_products_dropdown_fMHrzg",
+        "header_dropdown_egN4TH",
+        "header_dropdown_iWDWVy"
+      ],
+      "custom_css": [],
+      "settings": {
+        "sticky_header": true,
+        "hide_on": "",
+        "hide_navigation_on": "",
+        "hide_shop_btn_on": "",
+        "simple_header_on": "",
+        "seo_navigation": "",
+        "shop_all_btn_text": "SHOP ALL",
+        "shop_all_btn_url": "shopify://collections/all",
+        "shop_all_btn": "btn_primary_fill",
+        "bottom_title": "",
+        "bottom_btn_text": "",
+        "bottom_btn_url": "shopify://pages/quiz",
+        "bottom_btn_type": "btn_primary_fill"
+      }
+    }
+  },
+  "order": [
+    "announcement_bar_9egjFM",
+    "header"
+  ]
+}

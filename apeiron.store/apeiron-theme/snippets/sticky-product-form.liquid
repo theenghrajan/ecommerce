@@ -1,0 +1,84 @@
+<div
+  x-cloak
+  x-show="selectedVariant.available"
+  @scroll.window.throttle.150ms="setStickyForm"
+  :class="stickyForm ? 'translate-y-0' : 'translate-y-full !shadow-none'"
+  class="fixed bottom-0 left-0 right-0 z-10 flex bg-[#F9F9F9] py-4 shadow-2xl transition-transform duration-300 will-change-transform md:py-2"
+  style="box-shadow: 0 -1px 20px 0 #F9F9F9; min-height: 80px;"
+>
+  <div class="xs:px-5 md:px-15 xl:px-17.5 mx-auto flex w-full max-w-[1110px] items-center justify-between px-3">
+    <div class="hidden flex-col space-y-1 lg:flex">
+      <span class="text-sc-title text-2xl font-semibold">{{- product.title -}}</span>
+      {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+        {% capture product_data_attribute %}data-oke-reviews-product-id="shopify-{{ product.id }}"{% endcapture %}
+        <div data-oke-star-rating {{ product_data_attribute }}>{{ product.metafields.okendo.StarRatingSnippet }}</div>
+      {% endif %}
+    </div>
+    <div class="flex w-full flex-col items-center justify-between lg:w-max lg:flex-row lg:justify-end">
+      <div class="hidden flex-col lg:flex lg:items-end lg:text-right">
+        <span class="text-sc-body-primary flex flex-wrap items-center lg:justify-end">
+          <del
+            x-cloak
+            x-show="selectedVariant.biComparePrice > selectedVariant.biPrice"
+            x-text="window.biCurrency(selectedVariant.biComparePrice / qty)"
+            class="text-c-gray mr-2 inline-block text-lg"
+          ></del>
+
+          <span
+            class="text-c-shadow inline-block shrink-0 text-xl font-semibold"
+            x-text="window.biCurrency(selectedVariant.biPrice / qty)"
+          ></span>
+        </span>
+      </div>
+
+      <button
+        type="button"
+        :aria-busy="loading"
+        class="btn btn--main btn--cta w-full shrink-0 rounded-lg p-3 lg:ml-5 lg:w-max lg:min-w-[200px]"
+        :disabled="!selectedVariant.available"
+        @click="addToCart({{ to_checkout | default: false }})"
+      >
+        <span
+          x-text="selectedVariant.available ? '{%- if has_offer -%}{{ 'common.pre_order' | t }}{%- elsif to_checkout -%}{{ 'common.buy_now' | t }}{%- else -%}{{ 'common.add_to_cart' | t }}{%- endif -%}' : '{{ 'common.sold_out' | t }}'"
+        >
+          {%- if product.selected_or_first_available_variant.available -%}
+            {%- if has_offer -%}
+              {{- 'common.pre_order' | t -}}
+            {%- elsif to_checkout -%}
+              {{- 'common.buy_now' | t -}}
+            {%- else -%}
+              {{- 'common.add_to_cart' | t -}}
+            {%- endif -%}
+          {%- else -%}
+            {{- 'common.sold_out' | t -}}
+          {%- endif -%}
+        </span>
+        {% render 'btn-loader' %}
+      </button>
+
+      {% if review_star != blank or review_text != blank %}
+        <div class="flex space-x-1 pt-2 text-center lg:hidden">
+          {% if review_star != blank %}
+            <div class="w-full max-w-20">
+              {{
+                review_star
+                | image_url: width: review_star.width
+                | image_tag:
+                  alt: review_star.alt,
+                  class: 'object-contain w-full h-full',
+                  loading: 'lazy',
+                  draggable: false
+              }}
+            </div>
+          {% endif %}
+
+          {% if review_text != blank %}
+            <div class="rte text-sc-title text-sm">
+              {{- review_text -}}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<h2 class="text-sc-title mb-3 text-4xl font-semibold">
+  {{ 'customer.activate_account.title' | t }}
+</h2>
+
+<div class="text-c-shadow text-base">
+  {{ 'customer.activate_account.subtext' | t }}
+</div>
+
+{% form 'activate_customer_password', x-data: 'nativeForm()', class: 'mt-7.5' %}
+  {% if form.errors %}
+    {% capture error_text %}
+      {{ form.errors | default_errors }}
+    {% endcapture %}
+
+    <div data-status-paste class="mb-3 ">
+      {%- render 'layout-message', status: 'error', content: error_text -%}
+    </div>
+  {% endif %}
+
+  {% assign placeholder = 'customer.activate_account.password' | t %}
+  {%- render 'input',
+    name: 'customer[password]',
+    label: placeholder,
+    type: 'password',
+    required: true,
+    input_height: 54,
+    autocomplete: 'password',
+    x_model: 'password',
+    x_input: 'clearStatus();',
+    class: 'block mb-4'
+  -%}
+
+  {% assign placeholder = 'customer.activate_account.password_confirm' | t %}
+  {%- render 'input',
+    name: 'customer[password_confirmation]',
+    label: placeholder,
+    type: 'password',
+    required: true,
+    input_height: 54,
+    autocomplete: 'password',
+    x_model: 'passwordConfirmation',
+    x_input: 'clearStatus();'
+  -%}
+
+  <div class="mt-7.5flex flex-col">
+    <button
+      type="submit"
+      :aria-busy="loading"
+      aria-label="{{ 'customer.activate_account.submit' | t }}"
+      class="min-h-10 w-full rounded-md py-1 {% render 'btn-class', btn: 'btn_primary_fill' %}"
+    >
+      <span>{{ 'customer.activate_account.submit' | t }}</span>
+      {% render 'btn-loader' %}
+    </button>
+
+    <a
+      href="{{ shop.url }}"
+      aria-label="{{ 'customer.activate_account.cancel' | t }}"
+      class="mt-4 min-h-10 w-full rounded-md py-1 {% render 'btn-class', btn: 'btn_primary_outline' %}"
+    >
+      <span>{{ 'customer.activate_account.cancel' | t }}</span>
+    </a>
+  </div>
+{% endform %}

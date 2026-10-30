@@ -1,0 +1,34 @@
+{% if request.design_mode %}
+  <script defer>
+    document.addEventListener('alpine:init', () => {
+      document.addEventListener('shopify:section:select', (event) => {
+        if (event.target && event.target.className.includes('bi-section')) {
+          const classList = event.target.className.split(' ');
+          const biSectionClass = classList.find((c) => c.startsWith('bi-section'));
+
+          if (biSectionClass) {
+            const sectionType = biSectionClass.replace('bi-section--', '');
+
+            switch (sectionType) {
+              case 'cart':
+                window.Alpine.store('mobileMenu').hide();
+                window.Alpine.store('drawer').hide();
+                window.Alpine.store('cart').show();
+                break;
+              case 'menu':
+                window.Alpine.store('cart').hide();
+                window.Alpine.store('drawer').hide();
+                window.Alpine.store('mobileMenu').show();
+                break;
+              case 'search':
+                window.Alpine.store('mobileMenu').hide();
+                window.Alpine.store('cart').hide();
+                window.Alpine.store('drawer').show({ id: 'search-drawer' });
+                break;
+            }
+          }
+        }
+      });
+    });
+  </script>
+{% endif %}

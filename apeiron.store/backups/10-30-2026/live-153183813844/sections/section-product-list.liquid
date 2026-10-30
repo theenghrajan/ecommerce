@@ -1,0 +1,353 @@
+{% liquid
+  assign title = section.settings.title
+  assign subtitle = section.settings.subtitle
+  assign products = section.settings.products
+  assign card_type = section.settings.card_type
+
+  assign mob_alignment = section.settings.mob_alignment | prepend: 'text-'
+  assign desk_alignment = section.settings.alignment | prepend: 'lg:text-'
+  assign alignment = mob_alignment | append: ' ' | append: desk_alignment
+
+  case section.settings.mob_alignment
+    when 'left'
+      assign layout = 'container flex flex-col space-y-5'
+    when 'center'
+      assign layout = 'container flex flex-col items-center space-y-5'
+    when 'right'
+      assign layout = 'container flex flex-col items-end space-y-5'
+  endcase
+
+  case section.settings.alignment
+    when 'left'
+      assign layout = layout | append: ' lg:space-y-0 lg:flex-row justify-between'
+      assign btc_class = 'lg:ml-5'
+    when 'center'
+      assign layout = layout | append: ' space-y-5 items-center'
+      assign btc_class = ''
+    when 'right'
+      assign layout = layout | append: ' lg:space-y-0 lg:flex-row-reverse justify-between'
+      assign btc_class = 'lg:mr-5'
+  endcase
+
+  assign autoplay = section.settings.autoplay | times: 1000
+  assign pagination_style = section.settings.pagination_style
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title space-y-5 overflow-hidden lg:space-y-10"
+>
+  <div class="{{ layout }} {{ alignment -}}">
+    {% if title != blank or subtitle != blank %}
+      <div class="space-y-3 lg:space-y-4">
+        {% if title != blank %}
+          <h2
+            class="rte text-3xl font-semibold lg:text-4xl xl:text-5xl {{ animation -}}"
+            {% if animation %}
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- title -}}
+          </h2>
+        {% endif %}
+
+        {% if subtitle != blank %}
+          <div
+            class="rte text-sc-body-primary text-base lg:text-lg {{ animation -}}"
+            {% if animation %}
+              style="animation-delay: 100ms"
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- subtitle -}}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if btn_text != blank %}
+      <a
+        href="{{ btn_url }}"
+        class="{% render 'btn-class', btn: btn_type %} {{ btc_class }} group h-full w-max max-w-full {{ animation -}}"
+        aria-label="{{ btn_text }}"
+        {% if animation %}
+          style="animation-delay: 100ms"
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        <span>{{- btn_text -}}</span>
+        {% render 'icon',
+          name: 'btn-arrow',
+          class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+        %}
+      </a>
+    {% endif %}
+  </div>
+
+  <div
+    class="splide container overflow-visible {{ animation -}}"
+    x-load="visible (100px 100px 100px 100px)"
+    x-data="splideSlider()"
+    data-splide='{ {%- if autoplay > 0 -%}"autoplay": true, "interval": {{ autoplay -}},{%- endif %} "arrows": false, "pagination": false, "rewind": true, "startAt": 0, "fixedWidth": "360px", "speed": 500, "gap": 20, "breakpoints": { "1919": { "fixedWidth": "320px", "gap": 20 }, "744": { "fixedWidth": "280px", "gap": 16 }, "370": { "fixedWidth": "240px", "gap": 16 } } }'
+    {% if animation %}
+      style="animation-delay: 200ms"
+      x-intersect.once="$el.classList.add('animate__fadeIn')"
+    {% endif %}
+  >
+    <div class="splide__track overflow-visible">
+      <ul class="splide__list">
+        {% for product in products %}
+          {%- unless product.template_suffix == 'hidden' -%}
+            <li class="splide__slide group relative flex flex-col overflow-hidden">
+              {% render 'product-card',
+                product: product,
+                disable_animation: true,
+                type: card_type,
+                img_height: '75%',
+                img_height_lg: '75%'
+              %}
+            </li>
+          {%- endunless -%}
+        {% endfor %}
+        {% if products == blank %}
+          {% for i in (1..5) %}
+            <li class="splide__slide group relative flex flex-col overflow-hidden">
+              {% render 'product-card',
+                product: product,
+                disable_animation: true,
+                type: card_type,
+                img_height: '75%',
+                img_height_lg: '75%'
+              %}
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+
+    <div
+      class="mt-5 flex space-x-5 lg:hidden"
+      data-pagination-bar-inner
+    >
+      {% render 'splide-pagination', bar: true, style: pagination_style %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product list slider",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Mobile text alignment",
+      "default": "left"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "left"
+    },
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Section product list"
+    },
+    {
+      "type": "select",
+      "id": "card_type",
+      "label": "Product card type",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "select",
+      "id": "pagination_style",
+      "label": "Pagination style",
+      "options": [
+        {
+          "value": "pagination--light",
+          "label": "Light"
+        },
+        {
+          "value": "pagination--dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "pagination--dark"
+    },
+    {
+      "type": "range",
+      "id": "autoplay",
+      "label": "Slider autoplay duration",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "Shop Best Sellers"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        }
+      ],
+      "default": "btn_primary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 70
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 70
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "category": "Sections",
+      "name": "Product list slider",
+      "settings": {
+        "title": "Elementals Best Sellers"
+      }
+    }
+  ]
+}
+{% endschema %}

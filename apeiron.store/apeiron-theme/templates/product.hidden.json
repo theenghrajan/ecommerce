@@ -1,0 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {}
+    },
+    "main_product_LanJDb": {
+      "type": "main-product",
+      "blocks": {
+        "product_title_TXKkdm": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "product_description_GdJQCW": {
+          "type": "product_description",
+          "settings": {
+            "description": ""
+          }
+        },
+        "product_form_GKxRJU": {
+          "type": "product_form",
+          "settings": {
+            "show_subscription": false
+          }
+        }
+      },
+      "block_order": [
+        "product_title_TXKkdm",
+        "product_description_GdJQCW",
+        "product_form_GKxRJU"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_anchor_id": "Main product",
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 80,
+        "pt_desk": 20,
+        "pb_desk": 120
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {}
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "main_product_LanJDb",
+    "zp-product-footer-content"
+  ]
+}

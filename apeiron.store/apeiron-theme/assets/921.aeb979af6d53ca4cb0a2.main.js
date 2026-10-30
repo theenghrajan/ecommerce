@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkapeiron=self.webpackChunkapeiron||[]).push([[921],{921:function(t,e,n){n.r(e),n.d(e,{lottiePlayerData:function(){return r}});n(326);var a=n(855),r=function(){return{loadLottie:function(){var t=this.$el;t.addEventListener("ready",(function(){(0,a.vt)(JSON.parse(t.dataset.config)||{})}))}}}}}]);

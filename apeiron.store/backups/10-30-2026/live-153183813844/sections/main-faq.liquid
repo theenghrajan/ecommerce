@@ -1,0 +1,520 @@
+{% liquid
+  assign title = section.settings.title
+  assign bg = section.settings.bg
+  assign search = section.settings.search
+
+  assign blocks = section.blocks
+
+  render 'css-variables-setter'
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title"
+  x-data="FAQ()"
+>
+  {% if title != blank %}
+    <div
+      class="py-15 border-c-border relative flex min-h-[300px] flex-col items-center justify-center md:border-b lg:min-h-[315px] 2xl:min-h-[400px]"
+      {% if bg != blank %}
+        style="background-image: url({{ bg | image_url: width: 1700 }}); background-size: cover;"
+      {% endif %}
+    >
+      <h1 class="text-sc-title container relative max-w-[833px] px-4 text-center text-3xl font-semibold lg:text-5xl">
+        {{- title -}}
+      </h1>
+
+      {% if search != blank %}
+        <div class="mt-5 lg:mt-10">
+          <label
+            for="{{ section.id | append: '-search' }}"
+            class="border-c-border bg-c-white flex w-full max-w-[var(--width)] overflow-hidden rounded-lg border"
+            style="--width: 500px;"
+          >
+            <input
+              type="text"
+              id="{{ section.id | append: '-search' }}"
+              class="text-sc-title placeholder-sc-body-primary border-c-border bg-c-white w-full border-r p-4 text-base font-semibold outline-none lg:text-lg"
+              placeholder="{{- search -}}"
+              @input.throttle.75ms="search"
+              x-model="query"
+              @keydown.enter="search"
+            >
+            <button type="button" class="px-4" @click="search">
+              {% render 'icon', name: 'search', class: 'w-7' %}
+            </button>
+          </label>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="container overflow-clip xl:flex">
+    <div class="py-15 relative hidden w-full max-w-[var(--width)] xl:flex xl:flex-col" style="--width: 378px;">
+      {% if blocks.size > 0 %}
+        <ul class="top-15 p-7.5 bg-c-white sticky flex flex-col space-y-5 rounded-lg">
+          <template x-for="(faqItems, category) in faqs" :key="category">
+            <li class="">
+              <button
+                type="button"
+                @click="changeCategory(category)"
+                :aria-label="'Change category - ' + category"
+                class="hover:text-sc-title text-sc-body-primary group relative w-full pr-10 text-left text-xl duration-300 ease-in-out"
+                :class="(active === category && !Object.keys(filteredFAQS).length) && 'font-semibold'"
+              >
+                <span x-text="category"></span>
+                <span
+                  class="absolute right-0 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center opacity-0 duration-200 ease-in-out group-hover:opacity-100"
+                  :class="(active === category && !Object.keys(filteredFAQS).length) && 'opacity-100'"
+                >
+                  {% render 'icon', name: 'chevron-header', class: 'text-sc-title w-6 h-6' %}
+                </span>
+              </button>
+            </li>
+          </template>
+        </ul>
+      {% endif %}
+    </div>
+
+    <div class="xl:pt-15 xl:pl-17.5 lg:pb-15 w-full pb-10 md:pt-5" data-hide-header>
+      <div class="-mx-7.5 sticky top-0 z-10 mb-2.5 md:m-0 md:mb-5 xl:hidden">
+        <button
+          type="button"
+          @click="filter = !filter"
+          class="bg-c-white px-7.5 border-c-border relative flex w-full items-center justify-between border-b py-3 md:rounded-lg md:border"
+          aria-label="{{- 'faq.filter_title' | t -}}"
+        >
+          <span class="text-sc-title text-lg font-semibold">{{- 'faq.filter_title' | t -}}</span>
+
+          {% render 'icon', name: 'filter-ranges', class: 'w-7 text-sc-title' %}
+        </button>
+
+        <div x-cloak x-show="filter" x-collapse>
+          <ul class="px-7.5 bg-c-white border-c-border flex flex-col border-b py-5 md:rounded-b-lg md:border-x">
+            <template x-for="(faqItems, category) in faqs" :key="category">
+              <li class="border-c-border relative mb-4 border-b pb-4 duration-200 ease-in-out last:mb-0 last:border-none last:pb-0">
+                <button
+                  type="button"
+                  @click="changeCategory(category, 60);"
+                  :aria-label="'Change category - ' + category"
+                  class="text-sc-body-primary relative w-full text-left text-lg duration-200 ease-in-out"
+                  :class="active === category && 'font-semibold'"
+                  x-text="category"
+                ></button>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+
+      {% if blocks.size > 0 %}
+        <div class="md:bg-c-white grid md:rounded-lg">
+          <template x-if="!query.length || query.length && !Object.keys(filteredFAQS).length">
+            <template x-for="(faqItems, category) in faqs" :key="category">
+              <div
+                class="md:p-7.5 w-full py-5 md:rounded-lg"
+                x-data="{ activeIndex: null }"
+                :data-category="category"
+              >
+                <h2 class="mb-5 block text-2xl font-semibold" x-text="category"></h2>
+
+                <template x-for="(item, index) in faqItems" :key="index">
+                  <div class="border-c-border border-t py-5">
+                    <button
+                      @click="activeIndex === index ? activeIndex = null : activeIndex = index"
+                      type="button"
+                      class="no-select text-sc-body-primary flex w-full items-center justify-between text-left"
+                    >
+                      <span class="mr-2 text-xl font-semibold" x-text="item.title"></span>
+                      {% render 'icon',
+                        name: 'accordion-icon-js',
+                        class: 'shrink-0 duration-200 w-7 h-7 ease-in-out text-sc-title'
+                      %}
+                    </button>
+
+                    <div
+                      x-cloak
+                      x-collapse
+                      x-show="activeIndex === index"
+                    >
+                      <div class="pt-3 lg:pt-4">
+                        <div class="rte text-sc-body-primary text-base lg:text-lg" x-html="item.text"></div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </template>
+          </template>
+
+          <template x-if="query.length">
+            <template x-for="(faqItems, category) in filteredFAQS" :key="category">
+              <div
+                class="md:p-7.5 w-full md:rounded-lg"
+                :data-category="category"
+              >
+                <h2 class="mb-5 block text-2xl font-semibold" x-text="category"></h2>
+
+                <template x-for="(item, index) in faqItems" :key="index">
+                  <div class="border-c-border border-t py-5" x-data="{ activeIndex: index }">
+                    <button
+                      @click="activeIndex === index ? activeIndex = null : activeIndex = index"
+                      type="button"
+                      class="no-select text-sc-body-primary flex w-full items-center justify-between text-left"
+                    >
+                      <span
+                        class="mr-2 text-xl font-semibold"
+                        x-html="highlightQuery(item.title)"
+                      ></span>
+                      {% render 'icon',
+                        name: 'accordion-icon-js',
+                        class: 'shrink-0 duration-200 w-7 h-7 ease-in-out text-sc-title'
+                      %}
+                    </button>
+
+                    <div
+                      x-cloak
+                      x-collapse
+                      x-show="activeIndex === index"
+                    >
+                      <div class="pt-3 lg:pt-4">
+                        <div
+                          class="rte text-sc-body-primary text-base lg:text-lg"
+                          x-html="highlightQuery(item.text)"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </template>
+          </template>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <script type="application/json" data-faq>
+    {
+      "faqs": [
+        {% for block in blocks -%}
+          {%- liquid
+            assign category = block.settings.category
+            assign title = block.settings.title
+            assign text = block.settings.text
+          -%}
+          {
+            "category": {{ category | json -}},
+            "title": {{ title | json -}},
+            "text": {{ text | json }}
+          }{%- unless forloop.last -%},{%- endunless %}
+        {% endfor %}
+      ]
+    }
+  </script>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {% for block in blocks -%}
+        {%- liquid
+          assign title = block.settings.title
+          assign text = block.settings.text
+        -%}
+        {
+          "@type":"Question",
+          "name":"{{- title | escape -}}",
+          "acceptedAnswer":{
+            "@type":"Answer",
+            "text":"{{- text | escape -}}"
+          }
+        }{%- unless forloop.last -%},{%- endunless %}
+      {% endfor %}
+    ]
+  }
+</script>
+
+<script defer>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('FAQ', () => ({
+      faqs: {},
+      faqsRects: {},
+      filteredFAQS: {},
+      active: null,
+      query: '',
+      filter: false,
+      init() {
+        const { faqs } = JSON.parse(this.$root.querySelector('[data-faq]').textContent);
+
+        this.faqs = faqs.reduce((acc, { category, ...rest }) => {
+          (acc[category] ||= []).push(rest);
+          return acc;
+        }, {});
+
+        this.active = Object.keys(this.faqs)[0];
+
+        this.updateRects();
+
+        window.addEventListener('resize', () => {
+          this.updateRects();
+        });
+
+        this.scrollHandler = this.onScroll.bind(this);
+        window.addEventListener('scroll', this.scrollHandler);
+      },
+      search() {
+        this.filteredFAQS = {};
+
+        if (!this.query) {
+          this.updateRects();
+          return;
+        }
+
+        const lowerQuery = this.query.toLowerCase();
+
+        Object.entries(this.faqs).forEach(([category, items]) => {
+          const filteredItems = items.filter(
+            (item) => item.title.toLowerCase().includes(lowerQuery) || item.text.toLowerCase().includes(lowerQuery),
+          );
+
+          if (filteredItems.length) {
+            this.filteredFAQS[category] = filteredItems;
+          }
+        });
+      },
+      highlightQuery(text) {
+        if (!this.query) {
+          return text;
+        }
+
+        const regex = new RegExp(`(${this.query})`, 'gi');
+
+        return text.replace(/(<[^>]+>|[^<]+)/g, (match) => {
+          if (match.startsWith('<')) {
+            return match;
+          }
+
+          return match.replace(regex, '<span class="bg-c-mintglow/40">$1</span>');
+        });
+      },
+      changeCategory(category, gap = 0) {
+        this.active = category;
+        this.query = '';
+        this.filter = false;
+
+        setTimeout(
+          () => {
+            this.scrollToAnchor(this.$root.querySelector(`[data-category="${category}"]`), gap);
+          },
+          window.innerWidth < 1280 ? 300 : 0,
+        );
+      },
+      scrollToAnchor(node, gap = 0) {
+        const anchorBlock = node;
+
+        if (anchorBlock) {
+          const elementPosition = anchorBlock.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - gap;
+
+          window.removeEventListener('scroll', this.scrollHandler);
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+
+          let lastY = window.scrollY;
+          let sameCount = 0;
+
+          const checkScrollEnd = () => {
+            const currentY = window.scrollY;
+
+            if (Math.abs(currentY - lastY) < 1) {
+              sameCount++;
+            } else {
+              sameCount = 0;
+            }
+
+            lastY = currentY;
+
+            if (sameCount > 10) {
+              window.addEventListener('scroll', this.scrollHandler);
+            } else {
+              requestAnimationFrame(checkScrollEnd);
+            }
+          };
+
+          requestAnimationFrame(checkScrollEnd);
+        }
+      },
+      updateRects() {
+        Object.entries(this.faqs).forEach(([category]) => {
+          const el = this.$root.querySelector(`[data-category="${category}"]`);
+          if (!el) return null;
+          const rect = el.getBoundingClientRect();
+          const scrollY = window.scrollY;
+
+          this.faqsRects[category] = {
+            top: rect.top + scrollY,
+            bottom: rect.bottom + scrollY,
+          };
+        });
+      },
+      onScroll() {
+        if (window.innerWidth < 1280) return;
+
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+
+        for (const [category, { bottom }] of Object.entries(this.faqsRects)) {
+          if (bottom > scrollY && bottom <= scrollY + viewportHeight) {
+            this.active = category;
+            return;
+          }
+        }
+
+        for (const [category, { top }] of Object.entries(this.faqsRects)) {
+          if (top > scrollY) {
+            this.active = category;
+            return;
+          }
+        }
+
+        this.active = Object.keys(this.faqs)[0];
+      },
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Main FAQ",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "text",
+      "id": "search",
+      "label": "Search label",
+      "default": "Get Started"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg",
+      "label": "Banner background image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Block category"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Block text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "title": "Frequently asked questions"
+    },
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {
+          "category": "General",
+          "title": "Who is Apeiron Elementals?",
+          "text": "<p>We are a leading health and wellness supplement manufacturer with years of experience in this industry. We named our company Apeiron Elementals to reflect our core philosophy - that the fundamentals of lifestyle, diet, and environment are key to supporting our human potential across our lifespan.  Our company was created in 2018 to make superior supplements with the client’s needs in mind. Originally designed to support our medical centers, our products were specifically tailored to the individual needs of our patients. Over time, we accumulated enough data to understand that there were commonalities among individuals and that we could develop products that could benefit the wider community.</p>"
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "category": "General",
+          "title": "What types of supplements does Apeiron Elementals offer?",
+          "text": "<p>Our diverse array of supplements is designed to provide high-quality nutritional support while also focused on the basics. This includes strengthening the foundation that can promote healthy aging, starting at the cellular level. We choose ingredients that help counteract the stresses of modern living - antioxidants to reduce inflammation, adaptogens to enhance resilience, and nutrients to nourish critical systems. Whether you're looking for comprehensive well-being or targeted support, our meticulously crafted supplements cater to a spectrum of health goals, ensuring a holistic approach to your nutritional needs.</p>"
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "category": "General",
+          "title": "What Research Goes Into Apeiron Elementals Products?",
+          "text": "<p>At Apeiron Elementals, we understand that what gets measured gets managed. For this reason, we ensure that scientific principles, including working with evidence-based outcomes, are at the core of what we do. This allows us to offer products that effectively deliver the benefits you’re looking for, safe and efficiently. Our medical director designs formulas with outcomes in mind using his decades of clinical experience. Meanwhile, our manufacturers maintain FDA-registered facilities and ensure rigorous testing is performed throughout the manufacturing process in accordance with current Good Manufacturing Practices (cGMP).</p>"
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "category": "General",
+          "title": "How Do I Use Apeiron Elementals’ Products?",
+          "text": "<p>All our health and wellness products are clearly labeled with a full list of ingredients as well as the recommended dosage. Our products are designed to work alone and synergistically allowing our clients and customers to address multiple wellness goals at the same time. Your regimen may vary based on many factors such as your age, the type of supplement, your goals, and much more. All these factors are well detailed in our product documentation which is available on our website. We always recommend talking to your doctor first before starting on any supplement. This is to avoid any negative interaction with medication that you may be using. Of course, our experts are on hand to answer any questions that you may have about any of our products.</p>"
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "category": "General",
+          "title": "How Safe Are Apeiron Elementals’ Health and Wellness Products?",
+          "text": "<p>All our health and wellness products are extensively tested to ensure that they are safe for use. We are committed to transparency when it comes to&nbsp;the ingredients that we use in our products so you know exactly what you are taking. Our focus on safety extends to our tamper-proof packaging that ensures you get your health and wellness products in as sterile a state as when they left our manufacturing plant. This guarantees you quality and safety, meaning you can use our products with confidence and peace of mind.</p><p>For more information about our supplements, don’t hesitate to&nbsp;<a href=/\"https://apeiron.store/pages/contact-us/\">contact us</a>&nbsp;today.</p>"
+        }
+      },
+      {
+        "type": "item",
+        "settings": {
+          "category": "Shipping & Delivery",
+          "title": "What Are Your Shipping Policies?",
+          "text": "<p>At Apeiron Elementals, we are committed to ensuring that you have a great all-around experience when buying and using our products. This is why we offer our customers free standard shipping for orders above $150. Our standard shipping covers domestic orders which we define as covering the United States. Standard orders take 1-2 working days except Hawaii, Alaska, and Puerto Rico where shipping takes 1-2 weeks for the order to arrive. For our customers in Guam and the US Virgin Islands, standard orders will typically arrive between 3 and 5 weeks.</p>"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,52 @@
+<div
+  x-cloak
+  class="blur-overlay"
+  x-transition.opacity.duration.300ms
+  x-on:click.self="$store.drawer.hide();"
+  x-show="$store.quickOrder.visible || $store.cart.visible || $store.mobileMenu.visible || $store.drawer.visible"
+>
+  <!-- FOR CART -->
+  <div x-show="$store.cart.visible" id="cart-overlay" :data-hidden="!$store.cart.visible"></div>
+
+  <!-- FOR QUICK ORDER -->
+  <div
+    x-show="$store.quickOrder.visible"
+    class="flex h-full md:p-5"
+  >
+    <div
+      :class="$store.cart.visible && $store.quickOrder.initiator === 'cart' && 'blur-overlay-full blur-overlay--inner'"
+      x-transition.opacity.duration.300ms
+      x-show="$store.quickOrder.visible"
+      @click.self="$store.quickOrder.hide({})"
+    ></div>
+    <div
+      id="quick-order-overlay"
+      class="bg-sc-bg-secondary z-100 rounded-t-5 md:rounded-5 ml-auto mt-auto flex h-max max-h-full w-full flex-col overflow-hidden shadow md:max-w-[580px]"
+      x-show="$store.quickOrder.visible"
+      @click.outside="$store.quickOrder.hide()"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="translate-y-full"
+      x-transition:enter-end="translate-y-0"
+      x-transition:leave="transition ease-in duration-300"
+      x-transition:leave-start="translate-y-0"
+      x-transition:leave-end="translate-y-full"
+    ></div>
+  </div>
+
+  <!-- FOR MOBILE MENU -->
+  <div x-show="$store.mobileMenu.visible" id="mobile-menu-overlay"></div>
+
+  <!-- FOR ALL DRAWERS -->
+  <div
+    id="drawer-overlay"
+    x-show="$store.drawer.visible"
+    x-cloak
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="translate-y-full md:translate-y-0 md:translate-x-full"
+    x-transition:enter-end="translate-y-0 md:translate-x-0"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-y-0 md:translate-x-0"
+    x-transition:leave-end="translate-y-full md:translate-y-0 md:translate-x-full"
+    class="fixed right-0 top-0 z-10 h-full w-full max-w-[600px]"
+  ></div>
+</div>

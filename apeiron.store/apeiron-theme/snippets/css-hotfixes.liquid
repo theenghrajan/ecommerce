@@ -1,0 +1,107 @@
+{% if request.page_type == 'policy' %}
+  <style>
+    #main .shopify-policy__container {
+      padding: 1.875rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 900px;
+    }
+    #main .shopify-policy__title {
+      color: rgb(var(--c-title));
+      margin-bottom: 1rem;
+      text-align: left;
+      font-size: 2.25rem;
+      line-height: 2.875rem;
+      font-weight: 200;
+    }
+    #main .shopify-policy__body .rte {
+      color: rgb(var(--c-body-primary));
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-weight: 200;
+    }
+    #main .shopify-policy__body a {
+      color: rgb(var(--c-crimsonite));
+    }
+    @media (min-width: 744px) {
+      #main .shopify-policy__container {
+        padding-bottom: 6.25rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+      }
+    }
+    @media (min-width: 992px) {
+      #main .shopify-policy__title {
+        font-size: 3rem;
+        line-height: 3.75rem;
+      }
+    }
+    @media (min-width: 1900px) {
+      #main .shopify-policy__container {
+        max-width: 1080px;
+      }
+    }
+  </style>
+{% elsif request.path contains '/tools/recurring' %}
+  <style>
+    #binaery {
+      .flex {
+        flex: unset;
+        max-width: unset;
+      }
+      .container {
+        width: 100%;
+      }
+    }
+    @media (min-width: 365px) {
+      #binaery .container {
+        max-width: 365px;
+      }
+    }
+    @media (min-width: 500px) {
+      #binaery .container {
+        max-width: 500px;
+      }
+    }
+    @media (min-width: 744px) {
+      #binaery .container {
+        max-width: 744px;
+      }
+    }
+    @media (min-width: 992px) {
+      #binaery .container {
+        max-width: 992px;
+      }
+    }
+    @media (min-width: 1150px) {
+      #binaery .container {
+        max-width: 1150px;
+      }
+    }
+    @media (min-width: 1280px) {
+      #binaery .container {
+        max-width: 1280px;
+      }
+    }
+    @media (min-width: 1360px) {
+      #binaery .container {
+        max-width: 1360px;
+      }
+    }
+    @media (min-width: 1536px) {
+      #binaery .container {
+        max-width: 1536px;
+      }
+    }
+    @media (min-width: 1900px) {
+      #binaery .container {
+        max-width: 1900px;
+      }
+    }
+    @media (min-width: 2560px) {
+      #binaery .container {
+        max-width: 2560px;
+      }
+    }
+  </style>
+{% endif %}

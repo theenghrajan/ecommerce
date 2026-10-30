@@ -1,0 +1,172 @@
+{% doc %}
+@param {string} type - link / quick @param {object} meta - card metaobject @param {string} img_height - / img_height_lg
+- image height @param {boolean} disable_animation @param {boolean} init_animation @param {string} sizes @param {number}
+index @param {string} loading - 'lazy' / false
+{% enddoc %}
+
+{% liquid
+  assign meta = product.metafields.binaery.product_information
+  assign top_badge = meta.value.top_badge.value
+  assign slogan = meta.value.slogan.value
+  assign plp_benefits = meta.value.plp_benefits.value
+  assign plp_image = meta.value.plp_image.value | default: product.featured_image
+  assign default_hover_image = product.images[1] | default: plp_image
+  assign plp_image_hover = meta.value.plp_image_hover.value | default: default_hover_image
+
+  assign index = index | default: 1
+  assign animation_delay = index | times: 150
+  assign init_animation = init_animation | default: false
+  assign loading = loading | default: false
+%}
+
+<article
+  class="animate__animated animate__faster text-sc-title group relative flex h-full flex-col overflow-hidden rounded-lg bg-[#F9F9F9] {{ class }} {% unless disable_animation -%}opacity-0{%- endunless -%}"
+  {%- unless disable_animation -%}
+    {%- if init_animation -%}
+      x-init="setTimeout(() => { $el.classList.add('animate__fadeIn') }, {{ animation_delay }})"
+    {%- else -%}
+      x-intersect.threshold.25.once="setTimeout(() => { $el.classList.add('animate__fadeIn') }, {{ animation_delay }})"
+    {%- endif -%}
+  {%- endunless %}
+  {%- if style -%}
+    style="{{ style }}"
+  {%- endif -%}
+>
+  <a href="{{ product.url }}" class="relative flex h-full flex-col">
+    <div
+      class="image-overflow-hidden relative h-0 w-full rounded-t-lg pb-[var(--pb)] lg:pb-[var(--pb-lg)]"
+      style="--pb: {{ img_height | default: '100%' }}; --pb-lg: {{ img_height_lg | default: '100%' }}"
+    >
+      {% if plp_image != blank %}
+        {{
+          plp_image
+          | image_url: width: 900
+          | image_tag:
+            alt: plp_image.alt,
+            class: 'w-full h-full object-cover absolute inset-0',
+            loading: loading,
+            preload: preload,
+            widths: '150, 175, 305, 360, 450, 550, 650, 900',
+            sizes: sizes
+        }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover absolute inset-0' }}
+      {% endif %}
+
+      {% if top_badge %}
+        <span class="bg-c-sunhaze text-c-shadow font-third absolute left-3 top-3 rounded px-2 py-1 text-xs uppercase duration-500 ease-in-out lg:group-hover:opacity-0">
+          {{- top_badge -}}
+        </span>
+      {% endif %}
+
+      {% if template.name == 'collection' or show_benefits %}
+        {% if plp_benefits != blank %}
+          <span
+            class="invisible absolute inset-0 flex h-full w-full max-w-[var(--width)] flex-col space-y-5 bg-white/80 p-3 opacity-0 backdrop-blur-xl duration-500 ease-in-out will-change-[opacity] lg:group-hover:visible lg:group-hover:opacity-100"
+            style="--width: 70%;"
+          >
+            {% if top_badge %}
+              <span class="bg-c-sunhaze text-c-shadow font-third w-max max-w-full rounded px-2 py-1 text-xs uppercase">
+                {{- top_badge -}}
+              </span>
+            {% endif %}
+            <ul class="flex flex-col space-y-2">
+              {%- for ben in plp_benefits limit: 3 -%}
+                <li class="text-c-shadow flex items-baseline space-x-1.5 text-base">
+                  {% render 'icon', name: 'plp-checkmark', class: 'shrink-0' %}
+                  <span>
+                    {{- ben -}}
+                  </span>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </span>
+        {% else %}
+          <span class="invisible absolute inset-0 h-full w-full opacity-0 duration-500 ease-in-out will-change-[opacity] lg:group-hover:visible lg:group-hover:opacity-100">
+            {% if plp_image_hover != blank %}
+              {{
+                plp_image_hover
+                | image_url: width: 900
+                | image_tag:
+                  alt: plp_image_hover.alt,
+                  class: 'w-full h-full object-cover',
+                  loading: 'lazy',
+                  widths: '300, 400, 450, 550, 650, 900'
+              }}
+            {% endif %}
+          </span>
+        {% endif %}
+
+        <svg
+          class="text-c-navy absolute bottom-3 right-3 shrink-0 lg:hidden {% if section.settings.layout == 'grid' %} w-6 h-6 md:w-10 md:h-10 {% endif %}"
+          aria-hidden="true"
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="40" height="40" rx="6.53061" fill="currentColor"/>
+          <path d="M27.457 23.8015C27.8239 23.8015 28.1418 23.5434 28.2223 23.1793L30.1846 14.3758C30.2376 14.1377 30.1807 13.8896 30.0335 13.6995C29.8844 13.5094 29.6587 13.3994 29.4193 13.3994H14.3603L13.701 10.4201C13.6205 10.054 13.3026 9.7959 12.9356 9.7959H10.5808C10.1471 9.7959 9.7959 10.154 9.7959 10.5962C9.7959 11.0384 10.1471 11.3965 10.5808 11.3965H12.3077L12.9415 14.2557C12.9474 14.3457 12.9651 14.4317 12.9984 14.5098L14.8568 22.8992L13.9462 24.7559C13.7088 25.2401 13.7343 25.8063 14.013 26.2665C14.2916 26.7267 14.7763 27.0028 15.3081 27.0028H15.5279C15.3768 27.3029 15.2904 27.643 15.2904 28.0032C15.2904 29.2177 16.2579 30.2041 17.449 30.2041C18.6402 30.2041 19.6076 29.2177 19.6076 28.0032C19.6076 27.643 19.5213 27.3029 19.3702 27.0028H23.3792C23.2281 27.3029 23.1418 27.643 23.1418 28.0032C23.1418 29.2177 24.1093 30.2041 25.3004 30.2041C26.4915 30.2041 27.459 29.2177 27.459 28.0032C27.459 27.643 27.3726 27.3029 27.2215 27.0028H27.457C27.8907 27.0028 28.242 26.6447 28.242 26.2025C28.242 25.7603 27.8907 25.4021 27.457 25.4021H15.3828L16.1677 23.8015L27.457 23.8015ZM18.8226 17.9993H20.9812V15.7984C20.9812 15.4663 21.2442 15.1981 21.5699 15.1981C21.8957 15.1981 22.1587 15.4663 22.1587 15.7984V17.9993H24.3173C24.643 17.9993 24.906 18.2674 24.906 18.5995C24.906 18.9317 24.643 19.1998 24.3173 19.1998H22.1587V21.4007C22.1587 21.7328 21.8957 22.0009 21.5699 22.0009C21.2442 22.0009 20.9812 21.7328 20.9812 21.4007V19.1998H18.8226C18.4969 19.1998 18.2339 18.9317 18.2339 18.5995C18.2339 18.2674 18.4969 17.9993 18.8226 17.9993Z" fill="white"/>
+        </svg>
+      {% else %}
+        <span class="invisible absolute inset-0 h-full w-full opacity-0 duration-500 ease-in-out will-change-[opacity] lg:group-hover:visible lg:group-hover:opacity-100">
+          {% if plp_image_hover != blank %}
+            {{
+              plp_image_hover
+              | image_url: width: 900
+              | image_tag:
+                alt: plp_image_hover.alt,
+                class: 'w-full h-full object-cover',
+                loading: 'lazy',
+                widths: '300, 400, 450, 550, 650, 900'
+            }}
+          {% endif %}
+        </span>
+      {% endif %}
+    </div>
+
+    <div class="relative flex flex-1 flex-col p-4 lg:px-5">
+      <div class="mb-3 flex items-center space-x-2">
+        {% render 'icon', name: 'oke-star', class: '' %}
+        <span class="text-c-shadow text-sm">
+          {{ product.metafields.okendo.summaryData.reviewCount | default: 0 }}
+
+          ({{ product.metafields.okendo.summaryData.reviewAverageValue | default: 0 }})
+        </span>
+      </div>
+
+      <h2 class="text-c-shadow group-hover:text-c-navy line-clamp-3 text-lg font-semibold duration-500 ease-in-out lg:text-xl">
+        {{- product.title -}}
+      </h2>
+
+      {% if type == 'link' and plp_benefits != blank or show_benefits %}
+        <ul class="rte mt-2 list-none space-y-2">
+          {%- for ben in plp_benefits -%}
+            <li class="text-c-shadow flex items-baseline space-x-1.5">
+              {% render 'icon', name: 'plp-checkmark', class: 'shrink-0' %}
+              <span>
+                {{- ben -}}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {% elsif slogan != blank or template.name == 'collection' %}
+        <div class="text-c-shadow mt-auto line-clamp-3 flex min-h-[52px] pt-2 text-base duration-500 ease-in-out lg:line-clamp-2 lg:group-hover:opacity-0">
+          {{- slogan | metafield_tag -}}
+        </div>
+
+        <span class="invisible absolute bottom-4 left-0 w-full px-4 opacity-0 duration-500 ease-in-out md:px-5 lg:group-hover:visible lg:group-hover:opacity-100">
+          <span class="{% render 'btn-class', btn: 'btn_cta_fill' %} min-h-11 w-full px-4 py-2">
+            <span>{{- 'common.shop_now' | t -}}</span>
+
+            {% render 'icon',
+              name: 'btn-arrow',
+              class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+            %}
+          </span>
+        </span>
+      {% endif %}
+    </div>
+  </a>
+</article>

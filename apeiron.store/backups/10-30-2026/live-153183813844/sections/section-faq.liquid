@@ -1,0 +1,310 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign title = section.settings.title
+  assign description = section.settings.description
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+
+  assign blocks = section.blocks
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+  endif
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary"
+>
+  <div
+    class="space-y-7.5 container lg:flex lg:space-y-0 {{ animation }}"
+    {% if animation %}
+      x-intersect.once="$el.classList.add('animate__fadeIn')"
+    {% endif %}
+  >
+    {% if title != blank or description != blank or btn_text != blank %}
+      <div class="border-c-border lg:pr-15 w-full lg:mb-0 lg:mr-10 lg:max-w-[530px] lg:border-r">
+        {% if title != blank %}
+          <h2 class="rte text-sc-title mb-5 text-3xl font-semibold lg:text-5xl">
+            {{- title -}}
+          </h2>
+        {% endif %}
+
+        {% if description != blank %}
+          <div class="rte text-sc-body-primary mt-2.5 text-lg lg:text-xl">{{- description -}}</div>
+        {% endif %}
+
+        {% if btn_text != blank %}
+          <a
+            href="{{ btn_url }}"
+            class="{% render 'btn-class', btn: btn_type %} mt-5 w-max max-w-full lg:mt-10 {{ animation -}}"
+            aria-label="{{ btn_text }}"
+            {% if animation %}
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- btn_text -}}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if blocks.size > 0 %}
+      <div
+        class="border-c-border lg:space-y-7.5 w-full space-y-5 border-t pt-5 lg:border-none lg:p-0"
+        x-data="{active: 0}"
+      >
+        {% for block in blocks %}
+          {% liquid
+            assign b_title = block.settings.title
+            assign b_text = block.settings.text
+          %}
+
+          {% render 'faq-block',
+            block: block,
+            question: b_title,
+            answer: b_text,
+            active: forloop.index0,
+            class: 'pb-5 border-b border-c-border lg:pb-7.5 last:border-none'
+          %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+      {% for block in blocks -%}
+      {%- liquid
+        assign title = block.settings.title
+        assign text = block.settings.text
+      -%}
+      {
+        "@type":"Question",
+        "name":"{{- title | escape -}}",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"{{- text | escape -}}"
+        }
+      }{%- unless forloop.last -%},{%- endunless %}
+    {% endfor %}
+    ]
+  }
+</script>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "FAQ"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FEFBF9"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "header",
+      "content": "Content settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Section button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "Contact"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Section button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 120
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "blocks": [
+    {
+      "type": "block",
+      "name": "FAQ block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block question"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Block answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "category": "Sections",
+      "settings": {
+        "title": "Wholesale Account Terms & Requirements",
+        "description": "<p>If you have any further questions about our program, please feel free to contact our eCommerce Director.</p>"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Who is Apeiron Elementals?",
+            "text": "<p>We are a leading health and wellness supplement manufacturer with years of experience in this industry. We named our company Apeiron Elementals to reflect our core philosophy - that the fundamentals of lifestyle, diet, and environment are key to supporting our human potential across our lifespan.  Our company was created in 2018 to make superior supplements with the client’s needs in mind. Originally designed to support our medical centers, our products were specifically tailored to the individual needs of our patients. Over time, we accumulated enough data to understand that there were commonalities among individuals and that we could develop products that could benefit the wider community.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "What types of supplements does Apeiron Elementals offer?",
+            "text": "<p>Our diverse array of supplements is designed to provide high-quality nutritional support while also focused on the basics. This includes strengthening the foundation that can promote healthy aging, starting at the cellular level. We choose ingredients that help counteract the stresses of modern living - antioxidants to reduce inflammation, adaptogens to enhance resilience, and nutrients to nourish critical systems. Whether you're looking for comprehensive well-being or targeted support, our meticulously crafted supplements cater to a spectrum of health goals, ensuring a holistic approach to your nutritional needs.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "What Research Goes Into Apeiron Elementals Products?",
+            "text": "<p>At Apeiron Elementals, we understand that what gets measured gets managed. For this reason, we ensure that scientific principles, including working with evidence-based outcomes, are at the core of what we do. This allows us to offer products that effectively deliver the benefits you’re looking for, safe and efficiently. Our medical director designs formulas with outcomes in mind using his decades of clinical experience. Meanwhile, our manufacturers maintain FDA-registered facilities and ensure rigorous testing is performed throughout the manufacturing process in accordance with current Good Manufacturing Practices (cGMP).</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "What Are Your Shipping Policies?",
+            "text": "<p>At Apeiron Elementals, we are committed to ensuring that you have a great all-around experience when buying and using our products. This is why we offer our customers free standard shipping for orders above $150. Our standard shipping covers domestic orders which we define as covering the United States. Standard orders take 1-2 working days except Hawaii, Alaska, and Puerto Rico where shipping takes 1-2 weeks for the order to arrive. For our customers in Guam and the US Virgin Islands, standard orders will typically arrive between 3 and 5 weeks.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "How Do I Use Apeiron Elementals’ Products?",
+            "text": "<p>All our health and wellness products are clearly labeled with a full list of ingredients as well as the recommended dosage. Our products are designed to work alone and synergistically allowing our clients and customers to address multiple wellness goals at the same time. Your regimen may vary based on many factors such as your age, the type of supplement, your goals, and much more. All these factors are well detailed in our product documentation which is available on our website. We always recommend talking to your doctor first before starting on any supplement. This is to avoid any negative interaction with medication that you may be using. Of course, our experts are on hand to answer any questions that you may have about any of our products.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "How Safe Are Apeiron Elementals’ Health and Wellness Products?",
+            "text": "<p>All our health and wellness products are extensively tested to ensure that they are safe for use. We are committed to transparency when it comes to the ingredients that we use in our products so you know exactly what you are taking. Our focus on safety extends to our tamper-proof packaging that ensures you get your health and wellness products in as sterile a state as when they left our manufacturing plant. This guarantees you quality and safety, meaning you can use our products with confidence and peace of mind. For more information about our supplements, don’t hesitate to contact us today.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

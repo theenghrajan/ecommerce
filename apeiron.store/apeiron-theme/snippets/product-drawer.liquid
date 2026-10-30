@@ -1,0 +1,76 @@
+{% liquid
+  assign dr_bg = block.settings.bg
+  assign dr_title_color = block.settings.title_color
+  assign dr_title = block.settings.title
+  assign dr_btn_text = block.settings.btn_text
+  assign dr_margin = block.settings.bottom_margin
+  assign dr_image = block.settings.image
+  assign dr_image_mob = block.settings.image_mob | default: dr_image
+
+  assign dr_image_class = 'object-contain w-full h-auto hidden lg:block'
+  assign dr_image_mob_class = 'object-contain w-full h-auto lg:hidden'
+%}
+
+{% capture images %}
+  {% if dr_image_mob != blank %}
+    {{
+      dr_image_mob
+      | image_url: width: 744
+      | image_tag: alt: dr_image_mob.alt, class: dr_image_mob_class, widths: '315, 355, 744', draggable: false
+    }}
+  {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag: dr_image_mob_class }}
+  {% endif %}
+
+  {% if dr_image != blank %}
+    {{
+    dr_image
+      | image_url: width: 1200
+      | image_tag: alt: dr_image.alt, class: dr_image_class, widths: '744, 1200', draggable: false
+    }}
+  {% else %}
+    {{ 'lifestyle-2' | placeholder_svg_tag: dr_image_class }}
+  {% endif %}
+{% endcapture %}
+
+<button
+  class="text-sc-title bg-sc-bg-primary group mb-[var(--value)] flex w-full items-center justify-center space-x-2 rounded-lg px-4 py-2 text-sm font-semibold"
+  @click.prevent="$store.drawer.show({ id: '{{ section.id }}'})"
+  aria-label="{{ dr_btn_text }}"
+  style="--c-title: {{ dr_title_color.rgb }}; --c-bg-primary: {{ dr_bg.rgb }}; --value: {{ dr_margin | append: 'px' }};"
+  {{ block.shopify_attributes }}
+>
+  <span class="duration-300 ease-in-out hover:opacity-80">
+    {{- dr_btn_text -}}
+  </span>
+
+  {% render 'icon',
+    name: 'btn-arrow',
+    class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+  %}
+</button>
+
+<template x-if="$store.drawer.id === '{{ section.id }}'">
+  <template x-teleport="#drawer-overlay">
+    <div class="bg-c-white flex h-full w-full flex-col overflow-hidden" {{ block.shopify_attributes }}>
+      <div class="lg:px-7.5 bg-sc-bg-third border-c-border flex h-auto w-full items-center justify-between space-x-3 border-b px-5 py-2">
+        {% if dr_title != blank %}
+          <span class="text-sc-title text-lg font-semibold lg:text-2xl">{{ dr_title }}</span>
+        {% endif %}
+
+        <button
+          @click.prevent="$store.drawer.hide()"
+          class="text-c-shadow flex h-10 w-10 items-center justify-center"
+          aria-label="{{ 'layout.general.close_window' | t }}"
+        >
+          <span class="sr-only">{{ 'layout.general.close_window' | t }}</span>
+          {% render 'icon', name: 'close', class: 'w-4.5 h-4.5' %}
+        </button>
+      </div>
+
+      <div class="text-sc-title scrollbar-hide md:px-7.5 w-full flex-1 overflow-y-auto overflow-x-hidden p-5">
+        {{ images }}
+      </div>
+    </div>
+  </template>
+</template>

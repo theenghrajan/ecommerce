@@ -1,0 +1,159 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  SOCIAL MEDIA
+  ----------------------------------------------------------------------------------------------------------------------
+
+  Output a list of social media icons based on the social URL settings.
+
+  ********************************************
+  Supported variables
+  ********************************************
+
+  * size: can be "sm" or nothing. When setting is set to "sm", this only impacts the mobile (desktop uses the same size)
+{%- endcomment -%}
+
+{% assign size = size | default: 'lg' %}
+
+{%- capture social_media -%}
+  {%- if settings.social_facebook != blank or shop.brand.metafields.social_links.facebook != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_facebook | default: shop.brand.metafields.social_links.facebook }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Facebook' }}">
+          {%- render 'icon-social', name: 'facebook', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_twitter != blank or shop.brand.metafields.social_links.twitter != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_twitter | default: shop.brand.metafields.social_links.twitter }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Twitter' }}">
+        {%- render 'icon-social', name: 'twitter', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_instagram != blank or shop.brand.metafields.social_links.instagram != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_instagram | default: shop.brand.metafields.social_links.instagram }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Instagram' }}">
+        {%- render 'icon-social', name: 'instagram', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_pinterest != blank or shop.brand.metafields.social_links.pinterest != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_pinterest | default: shop.brand.metafields.social_links.pinterest }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Pinterest' }}">
+        {%- render 'icon-social', name: 'pinterest', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_youtube != blank or shop.brand.metafields.social_links.youtube != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_youtube | default: shop.brand.metafields.social_links.youtube }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'YouTube' }}">
+        {%- render 'icon-social', name: 'youtube', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_tiktok != blank or shop.brand.metafields.social_links.tiktok != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_tiktok | default: shop.brand.metafields.social_links.tiktok }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'TikTok' }}">
+        {%- render 'icon-social', name: 'tiktok', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_vimeo != blank or shop.brand.metafields.social_links.vimeo != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_vimeo | default: shop.brand.metafields.social_links.vimeo }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Vimeo' }}">
+        {%- render 'icon-social', name: 'vimeo', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_linkedin != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_linkedin }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'LinkedIn' }}">
+        {%- render 'icon-social', name: 'linkedin', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_snapchat != blank or shop.brand.metafields.social_links.snapchat != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_snapchat | default: shop.brand.metafields.social_links.snapchat }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Snapchat' }}">
+        {%- render 'icon-social', name: 'snapchat', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_whatsapp != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_whatsapp }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'WhatsApp' }}">
+        {%- render 'icon-social', name: 'whatsapp', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_tumblr != blank or shop.brand.metafields.social_links.tumblr != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_tumblr | default: shop.brand.metafields.social_links.tumblr }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Tumblr' }}">
+        {%- render 'icon-social', name: 'tumblr', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_fancy != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_fancy }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Fancy' }}">
+        {%- render 'icon-social', name: 'fancy', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_wechat != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_wechat }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'WeChat' }}">
+        {%- render 'icon-social', name: 'wechat', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_reddit != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_reddit }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Reddit' }}">
+        {%- render 'icon-social', name: 'reddit', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_line != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_line }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'LINE' }}">
+        {%- render 'icon-social', name: 'line', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_spotify != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_spotify }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: 'Spotify' }}">
+        {%- render 'icon-social', name: 'spotify', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+
+  {%- if settings.social_21buttons != blank -%}
+    <li>
+      <a class="{{ hover_class }}" href="{{ settings.social_21buttons }}" class="tap-area" target="_blank" rel="noopener" aria-label="{{ 'general.social.follow_on' | t: social_media: '21 Buttons' }}">
+        {%- render 'icon-social', name: '21buttons', size: size -%}
+      </a>
+    </li>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if social_media != blank -%}
+  <ul class="social-media {{ class }}" role="list">
+    {{- social_media -}}
+  </ul>
+{%- endif -%}

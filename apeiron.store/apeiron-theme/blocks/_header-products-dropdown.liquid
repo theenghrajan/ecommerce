@@ -1,0 +1,408 @@
+{% liquid
+  assign title = block.settings.title
+  assign subtitle = block.settings.subtitle
+  assign link = block.settings.link
+%}
+
+<span
+  class="group-hover:text-c-navy text-c-shadow relative flex after:invisible after:absolute after:left-0 after:top-full after:h-10 after:w-full after:content-[''] group-hover:after:visible"
+  {{ block.shopify_attributes }}
+>
+  {% if link == blank %}
+    <button class="flex h-full items-center text-lg font-semibold">
+      <span class="ease mr-0.5 block duration-200">{{ title }}</span>
+      {%- if block.settings.label_1 != blank -%}
+        {% render 'icon',
+          name: 'chevron-header',
+          class: 'text-c-shadow group-hover:rotate-90 ease-in-out duration-200 group-hover:text-c-navy'
+        %}
+      {%- endif -%}
+    </button>
+  {% else %}
+    <a
+      class="flex h-full items-center text-lg font-semibold duration-200"
+      href="{{ link }}"
+      aria-label="Redirect to {{ title }}"
+    >
+      <span>
+        {{ title }}
+      </span>
+      {%- if block.settings.label_1 != blank -%}
+        {% render 'icon',
+          name: 'chevron-header',
+          class: 'text-c-shadow group-hover:rotate-90 ease-in-out duration-200 group-hover:text-c-navy'
+        %}
+      {%- endif -%}
+    </a>
+  {% endif %}
+</span>
+
+{% if block.settings.label_1 != blank %}
+  <span class="bg-sc-bg-secondary absolute left-0 top-full z-10 flex w-full origin-top scale-y-0 flex-col overflow-hidden opacity-0 drop-shadow-lg delay-200 duration-200 will-change-[opacity,_transform] group-hover:scale-y-100 group-hover:opacity-100">
+    <span
+      class="pb-15 container grid min-h-[var(--same-height)] pt-10 opacity-0 duration-300 group-hover:opacity-100"
+      style="grid-template-columns: minmax(0, 280px) minmax(0, 1fr); --same-height: 428px;"
+      x-data="{ active: 1 }"
+    >
+      <ul
+        class="pr-5 bg-sc-bg-secondary z-1 after:bg-sc-bg-secondary border-c-border relative flex max-w-[var(--width)] shrink-0 flex-col space-y-4 border-r after:pointer-events-none after:absolute after:right-0 after:top-0 after:h-full after:w-[200vw] after:content-['']"
+        style="--width: 280px;"
+      >
+        {%- if subtitle != blank -%}
+          <li class="z-1 text-c-navy relative text-xl font-bold">{{- subtitle -}}</li>
+        {%- endif -%}
+
+        {%- for i in (1..6) -%}
+          {% liquid
+            assign item_label_key = 'label_' | append: i
+            assign item_link_key = 'link_' | append: i
+            assign item_badge_key = 'badge_' | append: i
+            assign item_label = block.settings[item_label_key]
+            assign item_badge = block.settings[item_badge_key]
+            assign item_link = block.settings[item_link_key]
+            if item_label == blank
+              continue
+            endif
+          %}
+          <li class="z-1 relative text-lg">
+            {%- if item_link != blank -%}
+              <a
+                href="{{- item_link -}}"
+                {%- if item_badge != blank -%}
+                  class="text-c-green flex w-max max-w-full flex-wrap items-baseline font-semibold"
+                {%- else -%}
+                  class="hover:text-c-navy text-c-shadow flex w-max max-w-full flex-wrap duration-300 ease-in-out"
+                  :class="active === {{ i }} && '!text-c-navy'"
+                {%- endif -%}
+                aria-label="{{- item_label -}}"
+              >
+                <span class="mr-2">{{- item_label -}}</span>
+                {%- if item_badge != blank -%}
+                  <span class="font-third text-c-green bg-c-light-green rounded px-2 py-1 text-sm font-normal leading-none">
+                    {{- item_badge -}}
+                  </span>
+                {%- endif -%}
+              </a>
+            {%- else -%}
+              <button
+                @click="active = {{ i }}"
+                {%- if item_badge != blank -%}
+                  class="text-c-green flex w-max max-w-full flex-wrap items-baseline font-semibold"
+                {%- else -%}
+                  class="hover:text-c-navy text-c-shadow flex underline underline-offset-2 decoration-2 w-max max-w-full flex-wrap duration-300 ease-in-out"
+                  :class="active === {{ i }} ? '!text-c-navy' : 'decoration-transparent'"
+                {%- endif -%}
+                aria-label="{{- item_label -}}"
+              >
+                <span class="mr-2">{{- item_label -}}</span>
+                {%- if item_badge != blank -%}
+                  <span class="font-third text-c-green bg-c-light-green rounded px-2 py-1 text-sm font-normal leading-none">
+                    {{- item_badge -}}
+                  </span>
+                {%- endif -%}
+              </button>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- for i in (1..6) -%}
+        {% liquid
+          assign item_label_key = 'label_' | append: i
+          assign item_products_key = 'products_' | append: i
+          assign item_label = block.settings[item_label_key]
+          assign item_products = block.settings[item_products_key]
+          if item_label == blank and item_products == blank
+            continue
+          endif
+        %}
+
+        <template x-if="active === {{ i }}">
+          <div class="flex flex-col space-y-4">
+            <span class="text-c-navy pl-12.5 text-xl font-bold">{{- item_label -}}</span>
+
+            <div
+              {% if request.design_mode %}
+                x-load="idle"
+              {% else %}
+                x-load="idle && media (min-width: 1280px)"
+              {% endif %}
+              x-data="splideSlider()"
+              data-splide='{ "arrows": false, "pagination": false, "rewind": true, "startAt": 0, "speed": 500, "gap": 20, "fixedWidth": "363px", "padding": { "left": 50 }, "breakpoints": { "1535": { "fixedWidth": "310px" } } }'
+              class="splide h-full w-full"
+            >
+              <div class="splide__track h-full overflow-visible">
+                <ul class="splide__list">
+                  {% for up_product in item_products %}
+                    {% assign up_product_badge = up_product.metafields.binaery.product_information.value.plp_badge.value %}
+                    <li
+                      class="splide__slide animate__animated group/link relative flex w-full max-w-[var(--width)] list-none flex-col opacity-0 duration-200 ease-in-out will-change-[opacity] 2xl:max-w-[var(--width-2xl)]"
+                      style="animation-delay: {{ forloop.index0 | times: 100 | append: 'ms' }}; --width: 310px; --width-2xl: 363px"
+                      x-init="$el.classList.add('animate__fadeIn')"
+                    >
+                      <a
+                        href="{{- up_product.url -}}"
+                        aria-label="{{- up_product.title -}}"
+                        class="flex h-full w-full flex-col"
+                        draggable="false"
+                      >
+                        <span class="image-overflow-hidden relative mb-3 h-[190px] w-full shrink-0 overflow-hidden rounded-lg 2xl:h-[240px]">
+                          {%- liquid
+                            assign up_image = up_product.featured_image
+                            for media in up_product.media
+                              if media.alt == 'megamenu-hidden'
+                                assign up_image = media
+                                break
+                              endif
+                            endfor
+                          -%}
+                          {{-
+                            up_image
+                            | image_url: width: 600
+                            | image_tag:
+                              alt: up_image.alt,
+                              loading: 'lazy',
+                              class: 'h-full w-full object-cover group-hover/link:scale-105 duration-500 ease-in-out will-change-transform',
+                              widths: '100, 200, 400, 600',
+                              draggable: false
+                          -}}
+
+                          {%- if up_product_badge != blank -%}
+                            <span class="bg-c-sunhaze text-c-shado font-third absolute left-3 top-3 rounded px-2 py-1 text-base uppercase">
+                              {{- up_product_badge -}}
+                            </span>
+                          {%- endif -%}
+                        </span>
+
+                        <span class="text-c-shadow text-lgw group-hover/link:text-c-navy mb-4 line-clamp-2 duration-200 ease-in-out will-change-[color]">
+                          {{- up_product.title -}}
+                        </span>
+
+                        <span class="text-c-navy mt-auto text-lg font-bold underline decoration-2 underline-offset-2">
+                          {{- 'common.shop_now' | t | capitalize -}}
+                        </span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </template>
+      {%- endfor -%}
+    </span>
+
+    {%- if section.settings.bottom_title != blank or section.settings.bottom_btn_text != blank -%}
+      <span class="bg-sc-bg-secondary text-c-shadow border-c-border mt-auto border-t py-5">
+        <span class="container flex items-center justify-between space-x-10">
+          {% if section.settings.bottom_title != blank %}
+            <span class="rte text-xl">{{ section.settings.bottom_title }}</span>
+          {% endif %}
+
+          {% if section.settings.bottom_btn_text != blank %}
+            <a
+              href="{{ section.settings.bottom_btn_url }}"
+              class="{% render 'btn-class', btn: section.settings.bottom_btn_type %}"
+            >
+              <span class="font-third">{{- section.settings.bottom_btn_text -}}</span>
+            </a>
+          {% endif %}
+        </span>
+      </span>
+    {%- endif -%}
+  </span>
+  <div
+    class="z-5 pointer-events-none absolute left-0 top-full h-screen w-full bg-black/20 opacity-0 delay-200 duration-200 will-change-[opacity] group-hover:opacity-100"
+  ></div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Dropdown",
+  "tag": "li",
+  "class": "group flex h-full",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Block title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Block subtitle"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Block link (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Block item"
+    },
+    {
+      "type": "text",
+      "id": "label_1",
+      "label": "Item label",
+      "info": "Use [] for the badge text -> [15% off]"
+    },
+    {
+      "type": "text",
+      "id": "badge_1",
+      "label": "Item badge"
+    },
+    {
+      "type": "product_list",
+      "id": "products_1",
+      "label": "Item products"
+    },
+    {
+      "type": "url",
+      "id": "link_1",
+      "label": "Item link (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Block item",
+      "visible_if": "{{ block.settings.label_1 }}"
+    },
+    {
+      "type": "text",
+      "id": "label_2",
+      "label": "Item label",
+      "visible_if": "{{ block.settings.label_1 }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_2",
+      "label": "Item badge",
+      "visible_if": "{{ block.settings.label_1 }}"
+    },
+    {
+      "type": "product_list",
+      "id": "products_2",
+      "label": "Item products"
+    },
+    {
+      "type": "url",
+      "id": "link_2",
+      "label": "Item link (optional)",
+      "visible_if": "{{ block.settings.label_2 }}"
+    },
+    {
+      "type": "header",
+      "content": "Block item",
+      "visible_if": "{{ block.settings.label_2 }}"
+    },
+    {
+      "type": "text",
+      "id": "label_3",
+      "label": "Item label",
+      "visible_if": "{{ block.settings.label_2 }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_3",
+      "label": "Item badge",
+      "visible_if": "{{ block.settings.label_2 }}"
+    },
+    {
+      "type": "product_list",
+      "id": "products_3",
+      "label": "Item products"
+    },
+    {
+      "type": "url",
+      "id": "link_3",
+      "label": "Item link (optional)",
+      "visible_if": "{{ block.settings.label_3 }}"
+    },
+    {
+      "type": "header",
+      "content": "Block item",
+      "visible_if": "{{ block.settings.label_3 }}"
+    },
+    {
+      "type": "text",
+      "id": "label_4",
+      "label": "Item label",
+      "visible_if": "{{ block.settings.label_3 }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_4",
+      "label": "Item badge",
+      "visible_if": "{{ block.settings.label_3 }}"
+    },
+    {
+      "type": "product_list",
+      "id": "products_4",
+      "label": "Item products"
+    },
+    {
+      "type": "url",
+      "id": "link_4",
+      "label": "Item link (optional)",
+      "visible_if": "{{ block.settings.label_4 }}"
+    },
+    {
+      "type": "header",
+      "content": "Block item",
+      "visible_if": "{{ block.settings.label_4 }}"
+    },
+    {
+      "type": "text",
+      "id": "label_5",
+      "label": "Item label",
+      "visible_if": "{{ block.settings.label_4 }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_5",
+      "label": "Item badge",
+      "visible_if": "{{ block.settings.label_4 }}"
+    },
+    {
+      "type": "product_list",
+      "id": "products_5",
+      "label": "Item products"
+    },
+    {
+      "type": "url",
+      "id": "link_5",
+      "label": "Item link (optional)",
+      "visible_if": "{{ block.settings.label_5 }}"
+    },
+    {
+      "type": "header",
+      "content": "Block item",
+      "visible_if": "{{ block.settings.label_5 }}"
+    },
+    {
+      "type": "text",
+      "id": "label_6",
+      "label": "Item label",
+      "visible_if": "{{ block.settings.label_5 }}"
+    },
+    {
+      "type": "text",
+      "id": "badge_6",
+      "label": "Item badge",
+      "visible_if": "{{ block.settings.label_6 }}"
+    },
+    {
+      "type": "product_list",
+      "id": "products_6",
+      "label": "Item products"
+    },
+    {
+      "type": "url",
+      "id": "link_6",
+      "label": "Item link (optional)",
+      "visible_if": "{{ block.settings.label_6 }}"
+    }
+  ],
+  "presets": [{ "name": "List item (products)" }]
+}
+{% endschema %}

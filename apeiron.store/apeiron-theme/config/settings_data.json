@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "favicon": "shopify://shop_images/Untitled_100_x_100_px_1.png",
+    "logo": "shopify://shop_images/bi-ap-logo.png",
+    "logo_max_w_desktop": 128,
+    "logo_small": "shopify://shop_images/bi-ap-logo.png",
+    "logo_max_w_mobile": 128,
+    "discount_type": "percents",
+    "delivery_mode": "no",
+    "delivery_days": "5",
+    "c-blue": "#AEE6F4",
+    "c-crimsonite": "#2e80ae",
+    "c-seabright": "#0C97A8",
+    "c-mintglow": "#D0E9D4",
+    "c-btn-cta-bg-default": "#1A4178",
+    "c-btn-cta-bg-hover": "#25282a",
+    "c-btn-primary-bg-default": "#08499D",
+    "c-btn-primary-bg-hover": "#25282A",
+    "c-btn-secondary-bg-default": "#ffffff",
+    "c-btn-secondary-text-default": "#25282a",
+    "c-btn-secondary-outline-text-default": "#ffffff",
+    "c-btn-secondary-outline-bg-hover": "#ffffff",
+    "c-btn-secondary-outline-text-hover": "#25282a",
+    "social_facebook": "https://www.facebook.com/AZElementals",
+    "social_twitter": "",
+    "social_pinterest": "",
+    "social_instagram": "https://www.instagram.com/apeironelementals/",
+    "social_youtube": "",
+    "social_tiktok": "",
+    "content_for_index": [],
+    "blocks": {
+      "733389323033596483": {
+        "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "17151115064775110295": {
+        "type": "shopify://apps/recharge-subscriptions/blocks/recharge-theme/371eed76-0b44-4869-9813-730372ea378e",
+        "disabled": false,
+        "settings": {
+          "color_brand": "#1A4178",
+          "contrast_color": "#ffffff",
+          "color_brand_secondary": "#1A4178",
+          "corners": "8px",
+          "app_background": "#f9f8f4",
+          "app_container": 1200,
+          "app_vertical_padding": 32,
+          "images_aspect_ratio": "1",
+          "cards_background": "#ffffff",
+          "cards_border_color": "rgba(0,0,0,0)"
+        }
+      },
+      "17676059084223943535": {
+        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
+        "disabled": false,
+        "settings": {}
+      },
+      "6098865773654951814": {
+        "type": "shopify://apps/atomato/blocks/atomato-app-embed/dd70bbfe-d622-4667-8927-f1ebb3006d79",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".kl-private-reset-css-Xuajs1[aria-modal=\"true\"] {z-index: 9999999999 !important;}"
+    ]
+  }
+}

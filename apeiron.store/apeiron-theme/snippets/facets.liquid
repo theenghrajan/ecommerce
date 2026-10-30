@@ -1,0 +1,63 @@
+<template x-if="$store.drawer.id === 'facets'">
+  <template x-teleport="#drawer-overlay">
+    <div
+      x-show="$store.drawer.id === 'facets'"
+      class="bg-sc-bg-primary text-sc-title flex h-full flex-col shadow"
+    >
+      <header class="no-select-all px-7.5 border-c-border flex w-full items-center justify-between space-x-5 border-b bg-[#F9F9F9] py-3">
+        <h4 class="text-sc-title text-lg font-semibold">{{- 'collection.sorting.title_mob' | t -}}</h4>
+
+        <button
+          type="button"
+          @click="$store.drawer.hide()"
+          aria-label="{{ 'layout.general.close_window' | t }}"
+          class="text-sc-title flex h-10 w-10 items-center justify-center"
+        >
+          <span class="sr-only">{{ 'layout.general.close_window' | t }}</span>
+          {% render 'icon', name: 'close', class: 'w-5 h-5' %}
+        </button>
+      </header>
+
+      <form
+        id="facets-mobile"
+        @submit.prevent
+        @change="!isLoading && setParams($el, false)"
+        class="md:p-7.5 scrollbar-hide flex w-full flex-1 flex-col items-start overflow-y-auto p-5 pb-0 md:pb-0"
+      >
+        <div class="w-full space-y-5">
+          {{ collection_list }}
+          {% render 'facets-list', show_sort: true, prefix: 'mob' %}
+        </div>
+
+        <div class="border-c-border bg-sc-bg-primary sticky bottom-0 mt-auto flex w-full justify-end space-x-5 border-t pb-10 pt-5">
+          <button
+            class="no-select-all text-sc-title text-base"
+            type="button"
+            aria-label="{{ 'collection.facets.clear_all' | t }}"
+            @click.prevent="clearFilters('{{ collection.url }}')"
+            x-cloak
+            x-show="facets_params.includes('filter')"
+          >
+            <span class="sr-only">{{ 'collection.facets.clear_all' | t }}</span>
+            <span>
+              {{ 'collection.facets.clear_all' | t }}
+            </span>
+          </button>
+
+          <button
+            class="{% render 'btn-class', btn: 'btn_primary_fill' %} no-select-all"
+            type="button"
+            :aria-busy="isLoading"
+            aria-label="{{ 'collection.facets.submit' | t }}"
+            @click.prevent="applyFilters().then(() => $store.drawer.hide())"
+          >
+            <span>
+              {{ 'collection.facets.submit' | t }}
+            </span>
+            {% render 'btn-loader' %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </template>
+</template>

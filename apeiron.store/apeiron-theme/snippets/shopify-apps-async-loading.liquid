@@ -1,0 +1,29 @@
+{% comment %} javascripts async loader {% endcomment %}
+<script defer>
+  let scriptsLoaded = false;
+
+  // Function to load a script dynamically.
+  function loadSingleScript(url) {
+      let script = document.createElement('script');
+      script.src = url;
+      document.head.appendChild(script);
+  }
+
+  // Load all third-party scripts after the page is fully loaded.
+  function loadScripts() {
+      if (!scriptsLoaded) {
+          scriptsLoaded = true;
+          setTimeout(() => {
+              {% for script in content_for_header_scripts %}
+              loadSingleScript({{- script -}}); // Load the script dynamically
+              {% endfor %}
+              // TIKTOK loadScript('https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=*******');
+              // GTM loadScript('https://www.googletagmanager.com/gtm.js?id=GTM-******l=dataLayer');
+          }, 200)
+      }
+  }
+
+  window.addEventListener('mousemove', loadScripts);
+  window.addEventListener('touchstart', loadScripts);
+</script>
+{% comment %} End javascripts async loader {% endcomment %}

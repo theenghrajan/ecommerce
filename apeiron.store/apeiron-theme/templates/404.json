@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "404",
+      "blocks": {
+        "block_y8MBCR": {
+          "type": "block",
+          "settings": {
+            "button_url": "shopify://collections/all",
+            "button_text": "Shop All",
+            "button_type": "btn_primary_fill"
+          }
+        }
+      },
+      "block_order": [
+        "block_y8MBCR"
+      ],
+      "settings": {
+        "section_anchor_id": "404 page",
+        "image": "shopify://shop_images/bi-ap-foundational.jpg",
+        "image_size": "small",
+        "headline": "404.",
+        "subtitle": "",
+        "text": "<p>Sorry 😔 — we couldn't find what you were looking for.</p><p>Need help finding something?</p>",
+        "pt_mob": 30,
+        "pb_mob": 40,
+        "pt_tab": 40,
+        "pb_tab": 60,
+        "pt_desk": 70,
+        "pb_desk": 50
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

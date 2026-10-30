@@ -1,0 +1,486 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {}
+    },
+    "main_product_LanJDb": {
+      "type": "main-product",
+      "blocks": {
+        "product_title_TXKkdm": {
+          "type": "product_title",
+          "settings": {
+            "title": "{{ product.title }}"
+          }
+        },
+        "okendo_star_rating_aFpKyw": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "product_price_ggbnmd": {
+          "type": "product_price",
+          "settings": {
+            "margin": 12
+          }
+        },
+        "product_description_GdJQCW": {
+          "type": "product_description",
+          "settings": {
+            "description": "<p>Elevate your longevity journey with the powerful addition of NMN (Nicotinamide Mononucleotide), the essential precursor to NAD+ and a cornerstone of healthy aging. This advanced formula blends NMN with cutting-edge nutrients like Urolithin A, Spermidine, and Ca-AKG, along with vital precursors needed to restore glutathione, the body’s master antioxidant. Together, this expertly crafted stack provides comprehensive support for cellular energy, resilience, and optimal aging—perfect for those ready to take their longevity regimen to the next level.*<br/><br/></p><ol><li>Rejuvenate UA</li><li>NMN</li><li>NAC+Glycine</li></ol>",
+            "bottom_margin": 16
+          }
+        },
+        "product_drawer_RE9PtT": {
+          "type": "product_drawer",
+          "disabled": true,
+          "settings": {
+            "bg": "#ecf3ff",
+            "title_color": "#25282a",
+            "btn_text": "Supplement facts",
+            "bottom_margin": 30,
+            "title": "Supplement Facts",
+            "image": "shopify://shop_images/bi-ap-drawer-m.png"
+          }
+        },
+        "product_form_GKxRJU": {
+          "type": "product_form",
+          "settings": {
+            "show_qty": true,
+            "show_terms": false,
+            "to_checkout": false,
+            "bottom_icon_1": "shopify://shop_images/bi-delivery-icon.svg",
+            "bottom_text_1": "Estimated <strong>delivery </strong>",
+            "bottom_text_divider": "yes",
+            "bottom_icon_2": "shopify://shop_images/lab.svg",
+            "bottom_text_2": "3rd Party Tested by an <strong>ISO Certified Lab</strong>",
+            "show_subscription": true,
+            "subscription_title": "Subscribe & Save",
+            "subscription_tooltip": "<p>Flexible frequency</p><p>Order reminders</p><p>Cancel anytime</p>",
+            "subscription_benefits": "<ol><li>Locked-in discount on every shipment</li><li>Earn 2–5% store credit + surprise gifts</li><li>Skip, delay, or cancel anytime—no fees</li></ol>",
+            "plan_name_remove": "Delivery every",
+            "review_star": "shopify://shop_images/bi-ap-stars-navy.svg",
+            "review_text": "{{ product.metafields.reviews.rating | metafield_tag }}",
+            "bottom_margin": 20
+          }
+        },
+        "product_review_block_yxHKRt": {
+          "type": "product_review_block",
+          "disabled": true,
+          "settings": {
+            "stars": 5,
+            "name": "Lagan W",
+            "text": "As skeptical as I was, I thought Id try it out. Im one month in and I DO absolutely notice a difference in my knees, shoulders, elbows, wrist and knuckles. Ill continue to use while available.",
+            "date": "10 Jun 2025",
+            "margin": 20
+          }
+        },
+        "product_open_accordions_fEdgAn": {
+          "type": "product_open_accordions",
+          "settings": {
+            "bot_border": false,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        },
+        "product_accordions_9XQaYF": {
+          "type": "product_accordions",
+          "settings": {
+            "index": 0,
+            "bot_border": true,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_title_TXKkdm",
+        "okendo_star_rating_aFpKyw",
+        "product_price_ggbnmd",
+        "product_description_GdJQCW",
+        "product_drawer_RE9PtT",
+        "product_form_GKxRJU",
+        "product_review_block_yxHKRt",
+        "product_open_accordions_fEdgAn",
+        "product_accordions_9XQaYF"
+      ],
+      "settings": {
+        "section_anchor_id": "Main product",
+        "hide_product_media": false,
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 80,
+        "pt_desk": 20,
+        "pb_desk": 120
+      }
+    },
+    "marquee_text_Qc8FdT": {
+      "type": "marquee-text",
+      "blocks": {
+        "item_Tbz48U": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text": "ISO Certified."
+          }
+        },
+        "item_dVcUAT": {
+          "type": "item",
+          "settings": {
+            "text": "Based in the USA 🇺🇸"
+          }
+        },
+        "item_xDbJXU": {
+          "type": "item",
+          "settings": {
+            "text": "Physician backed & formulated."
+          }
+        },
+        "item_VRymQ6": {
+          "type": "item",
+          "settings": {
+            "text": "Manufactured in cGMP certified facilities."
+          }
+        },
+        "item_QBknPA": {
+          "type": "item",
+          "settings": {
+            "text": "Third party lab tested peptides."
+          }
+        }
+      },
+      "block_order": [
+        "item_Tbz48U",
+        "item_dVcUAT",
+        "item_xDbJXU",
+        "item_VRymQ6",
+        "item_QBknPA"
+      ],
+      "name": "Marquee text",
+      "settings": {
+        "c-title": "#fefbf9",
+        "c-bg-primary": "#25282a",
+        "section_anchor_id": "Marquee text",
+        "marquee_reverse": false,
+        "marquee_speed": 20,
+        "center_fit": false,
+        "stop_on_hover": false,
+        "pt_mob": 20,
+        "pb_mob": 20,
+        "pt_tab": 30,
+        "pb_tab": 30,
+        "pt_desk": 30,
+        "pb_desk": 30
+      }
+    },
+    "section_ugc_slider_new_GBfJDy": {
+      "type": "section-ugc-slider-new",
+      "blocks": {
+        "block_BWNBAq": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "AWESOME!",
+            "description": "<p>Apeiron BPC-157 was recommended to me to support my recovery efforts.  The recommendation came from the spouse of a Navy Seal who advised that the Seals take this supplement for recovery.  What a recommendation which I can now echo!! This BPC has been amazing.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Frances H"
+          }
+        },
+        "block_ncJVje": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "The Best BPC-157 Around",
+            "description": "<p>Apeiron BPC-157 is the absolute best. It's top quality, and I felt the results almost immediately. If you're looking for authentic BPC, look no further. Apeiron has the best and I plan on setting up a subscription.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Stephanie M"
+          }
+        },
+        "block_RrMDLM": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Highly Recommend!",
+            "description": "<p>I was previously taking BPC-157 injections until I found this product by Apeiron Elementals. I decided to give the capsules a try, and I'm glad I did! They work just as well for me as the injections, without the hassle. I've noticed a positive difference in recovery from my workouts and my gut health has improved.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Jason F"
+          }
+        },
+        "block_PKbmBc": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Really Feel It",
+            "description": "<p>I think it's incredible! I can't believe how I feel, like I am younger than I have felt in a long time.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Bret C"
+          }
+        }
+      },
+      "block_order": [
+        "block_BWNBAq",
+        "block_ncJVje",
+        "block_RrMDLM",
+        "block_PKbmBc"
+      ],
+      "disabled": true,
+      "name": "Testimonials",
+      "settings": {
+        "section_anchor_id": "Testimonials",
+        "c-bg-primary": "#f7faff",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#525252",
+        "title": "What Customers Feel After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p><em>Individual results vary. Statements not evaluated by the FDA</em></p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_multi_columns_AVVBd3": {
+      "type": "section-multi-columns",
+      "blocks": {
+        "block_negP9P": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-daniel.jpg",
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        "block_B73B6E": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-mickra.jpg",
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "CEO | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_negP9P",
+        "block_B73B6E"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "section_anchor_id": "Multi-column",
+        "layout": "default",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "subtitle": "Healthcare Reinvented",
+        "title": "Developed by Doctors.  Trusted by experts.",
+        "description": "<p>Longevity leaders Dr. Dan Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>",
+        "btn_url": "",
+        "btn_text": "Our founders",
+        "btn_type": "btn_primary_outline",
+        "pagination_style": "pagination--dark",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 50,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "1753135980b51b8271": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_7zVEC8": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_7zVEC8"
+      ],
+      "settings": {
+        "container": false,
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_product_list_G4YCdD": {
+      "type": "section-product-list",
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Elementals Best Sellers",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "bpc",
+          "foundation-multivitamin",
+          "tb4-frag",
+          "d3-5000-k2",
+          "foundational-bundle1"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "",
+        "btn_text": "Shop Best Sellers",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_faq_y9M7Fh": {
+      "type": "section-faq",
+      "blocks": {
+        "block_7yVpGb": {
+          "type": "block",
+          "settings": {
+            "title": "What should I consider before taking this product?",
+            "text": "<p>Before using this product it is recommenced to consult your healthcare professional. If you are taking any medications and/or have pre-existing medical conditions, it’s important to discuss potential interactions with your healthcare provider. Do not use if tamper seal is damaged.</p>"
+          }
+        },
+        "block_3zQFyt": {
+          "type": "block",
+          "settings": {
+            "title": "Where is this product manufactured and what product quality control tests are performed?",
+            "text": "<p>Our products are manufactured in Nevada in a state-of-the-art, FDA-registered facility that meets or exceeds <a href=\"https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practice-cgmp#:~:text=What%20is%20CGMP%3F,of%20manufacturing%20processes%20and%20facilities.\">current Good Manufacturing Practices (cGMP)</a>. Quality control testing is carried out at each stage of the manufacturing process, starting with rigorous raw material assessments and continuing through to finished product testing. </p><p></p>"
+          }
+        },
+        "block_TN6HaT": {
+          "type": "block",
+          "settings": {
+            "title": "Should I take this on an empty stomach or with food?",
+            "text": ""
+          }
+        },
+        "block_Dwcda8": {
+          "type": "block",
+          "settings": {
+            "title": "Is this product vegan?",
+            "text": ""
+          }
+        },
+        "block_ed4GBi": {
+          "type": "block",
+          "settings": {
+            "title": "What other supplements work synergistically with this product?",
+            "text": ""
+          }
+        },
+        "block_RUeKCJ": {
+          "type": "block",
+          "settings": {
+            "title": "How long does it typically take to experience the benefits?",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_7yVpGb",
+        "block_3zQFyt",
+        "block_TN6HaT",
+        "block_Dwcda8",
+        "block_ed4GBi",
+        "block_RUeKCJ"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_anchor_id": "FAQ",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Frequently asked questions",
+        "description": "",
+        "btn_url": "shopify://pages/frequently-asked-questions",
+        "btn_text": "See all FAQs",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 120
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {}
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "main_product_LanJDb",
+    "marquee_text_Qc8FdT",
+    "section_ugc_slider_new_GBfJDy",
+    "section_multi_columns_AVVBd3",
+    "1753135980b51b8271",
+    "section_product_list_G4YCdD",
+    "section_faq_y9M7Fh",
+    "zp-product-footer-content"
+  ]
+}

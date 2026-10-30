@@ -1,0 +1,251 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "custom.cart",
+  "name": "Drawer group",
+  "sections": {
+    "mobile-menu": {
+      "type": "mobile-menu",
+      "blocks": {
+        "mobile_menu_dropdown_dwieRU": {
+          "type": "_mobile-menu-dropdown",
+          "name": "List item",
+          "settings": {
+            "title": "Best Sellers",
+            "list": "binaery-mobile-navigation-best-sellers"
+          },
+          "blocks": {
+            "mob_link_NHg9bY": {
+              "type": "_mob_link",
+              "name": "Image block",
+              "settings": {
+                "product": "bpc-157",
+                "badge": "",
+                "title": "",
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "mob_link_RXMx7x": {
+              "type": "_mob_link",
+              "name": "Image block",
+              "settings": {
+                "product": "bpc-tb4-frag",
+                "badge": "",
+                "title": "",
+                "link": ""
+              },
+              "blocks": {}
+            },
+            "mob_link_8zJj8q": {
+              "type": "_mob_link",
+              "name": "Image block",
+              "settings": {
+                "product": "d3-5000-k2",
+                "badge": "",
+                "title": "",
+                "link": ""
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "mob_link_NHg9bY",
+            "mob_link_RXMx7x",
+            "mob_link_8zJj8q"
+          ]
+        },
+        "mobile_menu_dropdown_da46fG": {
+          "type": "_mobile-menu-dropdown",
+          "name": "List item",
+          "settings": {
+            "title": "Shop by Goal",
+            "list": "binaery-shop-by-goal"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "mobile_menu_dropdown_dwieRU",
+        "mobile_menu_dropdown_da46fG"
+      ],
+      "settings": {
+        "active": "Best Sellers",
+        "linklist": "binaery-mobile-navigation",
+        "btn_text": "Shop All",
+        "btn_url": "shopify://collections/all",
+        "btn_type": "btn_primary_fill"
+      }
+    },
+    "cart_BjGi36": {
+      "type": "cart",
+      "blocks": {
+        "empty_cart_btn_AQ6QEg": {
+          "type": "empty_cart_btn",
+          "settings": {
+            "text": "Shop All",
+            "url": "shopify://collections/all",
+            "btn_type": "btn_cta_fill",
+            "btn_cta_bg_default": "#25282a",
+            "btn_cta_text_default": "#ffffff",
+            "btn_cta_bg_hover": "#1a4178",
+            "btn_cta_text_hover": "#ffffff"
+          }
+        },
+        "empty_cart_btn_He46gJ": {
+          "type": "empty_cart_btn",
+          "settings": {
+            "text": "Vitamins & Minerals",
+            "url": "shopify://collections/vitamins-minerals",
+            "btn_type": "btn_cta_fill",
+            "btn_cta_bg_default": "#25282a",
+            "btn_cta_text_default": "#ffffff",
+            "btn_cta_bg_hover": "#1a4178",
+            "btn_cta_text_hover": "#ffffff"
+          }
+        },
+        "empty_cart_btn_rrwDYQ": {
+          "type": "empty_cart_btn",
+          "settings": {
+            "text": "Best Sellers",
+            "url": "shopify://collections/elementals-top-sellers",
+            "btn_type": "btn_cta_fill",
+            "btn_cta_bg_default": "#25282a",
+            "btn_cta_text_default": "#ffffff",
+            "btn_cta_bg_hover": "#1a4178",
+            "btn_cta_text_hover": "#ffffff"
+          }
+        },
+        "empty_cart_btn_wkybQn": {
+          "type": "empty_cart_btn",
+          "settings": {
+            "text": "Bundle & Save",
+            "url": "shopify://collections/bundles",
+            "btn_type": "btn_cta_fill",
+            "btn_cta_bg_default": "#25282a",
+            "btn_cta_text_default": "#ffffff",
+            "btn_cta_bg_hover": "#1a4178",
+            "btn_cta_text_hover": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "empty_cart_btn_AQ6QEg",
+        "empty_cart_btn_He46gJ",
+        "empty_cart_btn_rrwDYQ",
+        "empty_cart_btn_wkybQn"
+      ],
+      "settings": {
+        "cart_title": "Your cart",
+        "empty_cart_title": "Your cart is empty",
+        "show_savings": true,
+        "show_saving_color": "#005f11",
+        "cart_progress_bar_enabled": true,
+        "cart_progress_bar_threshold": 150,
+        "cart_progress_message": "You are [amount_left] away from <strong>FREE SHIPPING</strong>",
+        "cart_progress_reached_message": "<strong>Congrats!</strong> You've unlocked <strong>FREE SHIPPING!</strong>",
+        "allow_subscriptions": false,
+        "cart_upsells_enabled": true,
+        "cart_upsells_title": "Complete Your Stack",
+        "cart_upsells": [
+          "tb4-frag",
+          "bpc-tb4-frag",
+          "bpc",
+          "bpc-157",
+          "marine-collagen",
+          "d3-5000-k2"
+        ],
+        "oke_reiews": false,
+        "review_star": "shopify://shop_images/bi-ap-stars-navy.svg",
+        "review_text": "<p>4.8/5 based on 1,630 reviews</p>",
+        "show_cc": false,
+        "cart_footer_label": "",
+        "cart_footer_shipping": "",
+        "cart_footer_shipping_free": "",
+        "cart_footer_privacy_rte": "<p>Have a discount code? Add it in the next step.</p>",
+        "cart_footer_interest": "",
+        "btn_cta_bg_default": "#1a4178",
+        "btn_cta_text_default": "#ffffff",
+        "btn_cta_bg_hover": "#25282a",
+        "btn_cta_text_hover": "#ffffff"
+      }
+    },
+    "search_drawer_TprknW": {
+      "type": "search-drawer",
+      "blocks": {
+        "block_YjndBM": {
+          "type": "block",
+          "settings": {
+            "label": "BPC-157",
+            "link": "shopify://products/bpc-157"
+          }
+        },
+        "block_dUEWWM": {
+          "type": "block",
+          "settings": {
+            "label": "Longevity",
+            "link": "shopify://collections/age-rejuvenation"
+          }
+        },
+        "block_bFdLzP": {
+          "type": "block",
+          "settings": {
+            "label": "BPC-TB4-FRAG",
+            "link": "shopify://products/bpc-tb4-frag"
+          }
+        },
+        "block_xNa9hK": {
+          "type": "block",
+          "settings": {
+            "label": "Elementals Best Sellers",
+            "link": "shopify://collections/elementals-top-sellers"
+          }
+        },
+        "block_Xpjmcb": {
+          "type": "block",
+          "settings": {
+            "label": "FAQ",
+            "link": "shopify://pages/frequently-asked-questions"
+          }
+        }
+      },
+      "block_order": [
+        "block_YjndBM",
+        "block_dUEWWM",
+        "block_bFdLzP",
+        "block_xNa9hK",
+        "block_Xpjmcb"
+      ],
+      "name": "Search drawer",
+      "settings": {}
+    },
+    "section_black_friday_bar_HHCmKP": {
+      "type": "section-black-friday-bar",
+      "disabled": true,
+      "name": "Black Friday Bar",
+      "settings": {
+        "section_anchor_id": "Black Friday Bar",
+        "c-bg-primary": "#0c3a6b",
+        "c-title": "#ffffff",
+        "left_width": 100,
+        "left_text": "Black Friday",
+        "center_text": "USE CODE • BF30",
+        "right_width": 100,
+        "right_text": "30% off"
+      }
+    }
+  },
+  "order": [
+    "mobile-menu",
+    "cart_BjGi36",
+    "search_drawer_TprknW",
+    "section_black_friday_bar_HHCmKP"
+  ]
+}

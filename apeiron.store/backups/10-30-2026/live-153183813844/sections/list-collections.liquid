@@ -1,0 +1,170 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign button_text = section.settings.button_text
+  assign button_type = section.settings.button_type
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary"
+>
+  <div class="gap-x-7.5 2xl:gap-7.5 container grid grid-cols-1 gap-y-10 md:grid-cols-3">
+    {% for col in collections %}
+      {% liquid
+        assign image = col.image
+        assign title = col.title
+        assign text = col.description | strip_html | truncate: 170
+        assign button_url = col.url
+      %}
+
+      <div
+        class="animate__animated group flex flex-col items-center opacity-0"
+        x-init="$el.classList.add('animate__fadeIn')"
+      >
+        <a
+          href="{{ button_url }}"
+          class="image-overflow-hidden 4k:pb-[500px] relative mb-5 w-full pb-[350px]"
+        >
+          {% if image != blank %}
+            {{
+              image
+              | image_url: width: 1000
+              | image_tag:
+                alt: image.alt,
+                class: 'absolute top-0 left-0 object-cover w-full h-full group-hover:scale-105 duration-500',
+                widths: '300, 400, 500, 600, 800, 1000'
+            }}
+          {% else %}
+            {{
+              'image'
+              | placeholder_svg_tag: 'absolute top-0 left-0 object-cover w-full h-full group-hover:scale-105 duration-500'
+            }}
+          {% endif %}
+        </a>
+        {% if title != blank %}
+          <h3 class="text-sc-title font-primary mb-3 text-center text-2xl font-medium">{{ title }}</h3>
+        {% endif %}
+        {% if text != blank %}
+          <div class="text-sc-body-primary rte text-center text-base">{{ text }}</div>
+        {% endif %}
+        {% if button_text != blank %}
+          <a href="{{ button_url }}" class="{% render 'btn-class', btn: button_type %} mb-2.5 mt-5">
+            <span>{{ button_text }}</span>
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "List collections",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "List collections"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Collection button text",
+      "default": "Button text"
+    },
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Collection button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "link_primary"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

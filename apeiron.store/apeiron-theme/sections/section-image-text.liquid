@@ -1,0 +1,624 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign subtitle = section.settings.subtitle
+  assign title = section.settings.title
+  assign desc = section.settings.desc
+  assign image = section.settings.image
+  assign image_mob = section.settings.image_mob | default: image
+  assign video = section.settings.video
+
+  if section.settings.btn_text or section.settings.btn_text_2
+    assign show_btn = true
+  endif
+
+  assign layout = section.settings.layout
+  assign grid = section.settings.grid
+  assign fit = section.settings.fit
+
+  assign mob_alignment = section.settings.mob_alignment
+  assign desk_alignment = section.settings.desk_alignment
+
+  assign option_blocks = section.blocks | where: 'type', 'option'
+  assign list_blocks = section.blocks | where: 'type', 'list'
+
+  case mob_alignment
+    when 'left'
+      assign align_class = ' text-left justify-start items-start'
+    when 'center'
+      assign align_class = ' text-center justify-center items-center'
+    when 'right'
+      assign align_class = ' text-right justify-end items-end'
+  endcase
+  case desk_alignment
+    when 'left'
+      assign align_class = align_class | append: ' lg:text-left lg:justify-start lg:items-start'
+    when 'center'
+      assign align_class = align_class | append: ' lg:text-center lg:justify-center lg:items-center'
+    when 'right'
+      assign align_class = align_class | append: ' lg:text-right lg:justify-end lg:items-end'
+  endcase
+
+  if grid == 'big'
+    case layout
+      when 'default'
+        assign grid = 'xl:grid-cols-[minmax(0,1fr)_minmax(0,520px)] 2xl:grid-cols-[minmax(0,1fr)_minmax(0,620px)]'
+      when 'rtl'
+        assign grid = 'xl:grid-cols-[minmax(0,520px)_minmax(0,1fr)] 2xl:grid-cols-[minmax(0,620px)_minmax(0,1fr)]'
+    endcase
+  elsif grid == 'cols'
+    assign grid = 'xl:gap-15'
+  endif
+
+  case fit
+    when 'cover'
+      assign image_mob_class = 'absolute inset-0 w-full h-full pointer-events-none lg:hidden object-cover'
+      assign image_class = 'absolute inset-0 w-full h-full pointer-events-none hidden lg:block object-cover'
+    when 'contain'
+      assign image_mob_class = 'w-full h-full pointer-events-none lg:hidden object-contain'
+      assign image_class = 'w-full h-full pointer-events-none hidden lg:block object-contain'
+  endcase
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  assign loading = 'lazy'
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+    assign loading = false
+  endif
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+{% capture images %}
+    {% if image_mob != blank %}
+        {{
+        image_mob
+        | image_url: width: 744
+        | image_tag:
+        alt: image_mob.alt,
+        class: image_mob_class,
+        loading: loading,
+        widths: '315, 355, 744',
+        draggable: false
+        }}
+    {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: image_mob_class }}
+    {% endif %}
+
+    {% if image != blank %}
+        {{
+        image
+        | image_url: width: 1200
+        | image_tag:
+        alt: image.alt,
+        class: image_class,
+        loading: loading,
+        widths: '744, 1200',
+        draggable: false
+        }}
+    {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: image_class }}
+    {% endif %}
+{% endcapture %}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary z-1 relative overflow-hidden"
+>
+  <div class="{{ grid }} container relative grid grid-cols-1 items-center gap-5 lg:grid-cols-2 {% if video != blank -%} lg:gap-10 {%- endif %}">
+    <div class="flex w-full flex-col space-y-3 lg:space-y-4 lg:py-10 {% if grid == 'big' -%} lg:max-w-[520px] 2xl:max-w-[620px] {%- elsif 'cols' -%} lg:px-10 xl:px-17.5 {%- endif %} {% if layout == 'default' -%} lg:pr-10 {%- elsif layout == 'rtl' -%} lg:pl-10 {%- endif %} {{ align_class -}}">
+      {% if subtitle != blank %}
+        <span class="text-sc-title font-third text-base lg:text-lg {{ align_class -}}">
+          {{- subtitle -}}
+        </span>
+      {% endif %}
+
+      {% if title != blank %}
+        <h2 class="text-sc-title text-3xl font-semibold lg:text-4xl xl:text-5xl {{ align_class -}}">
+          {{- title -}}
+        </h2>
+      {% endif %}
+
+      {% if desc != blank %}
+        <div class="rte text-sc-body-primary list-checkmark text-base lg:text-lg {{ align_class -}}">
+          {{- desc -}}
+        </div>
+      {% endif %}
+
+      {% if option_blocks.size > 0 %}
+        <ul
+          class="lg:gap-y-7.5 grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-x-2.5 md:gap-y-5 lg:pt-5 xl:grid-cols-3"
+        >
+          {% for block in option_blocks %}
+            {% liquid
+              assign icon = block.settings.icon
+              assign title = block.settings.title
+            %}
+            <li class="flex items-center space-x-4" {{ block.shopify_attributes }}>
+              {% if icon != blank %}
+                <span class="w-full max-w-10 shrink-0">
+                  {{
+                    icon
+                    | image_url: width: icon.width
+                    | image_tag:
+                      alt: icon.alt,
+                      loading: loading,
+                      class: 'object-contain w-full h-full pointer-events-none'
+                  }}
+                </span>
+              {% endif %}
+
+              {% if title != blank %}
+                <span class="text-sc-subtitle child-i:line-through child-i:not-italic text-base lg:text-lg">
+                  {{- title -}}
+                </span>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if list_blocks.size > 0 %}
+        <ul class="grid grid-cols-1 gap-5">
+          {% for block in list_blocks %}
+            {% liquid
+              assign title = block.settings.title
+              assign text = block.settings.text
+            %}
+            <li class="relative flex flex-col pl-7 text-left" {{ block.shopify_attributes }}>
+              <span
+                class="status-dot bg-c-crimsonite absolute left-0 flex h-2 w-2 rounded-full duration-200 ease-in-out {% if title != blank %} top-1.5 {% else %} top-2 {% endif %}"
+              ></span>
+
+              {% if title != blank %}
+                <span class="rte text-sc-title child-i:line-through child-i:not-italic mb-2.5 text-base font-semibold lg:text-lg">
+                  {{- title -}}
+                </span>
+              {% endif %}
+
+              {% if text != blank %}
+                <div class="rte text-sc-subtitle text-sm lg:text-base">{{- text -}}</div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      {% if show_btn %}
+        {% liquid
+          assign btn_count = 1
+          if section.settings.btn_text != blank and section.settings.btn_text_2 != blank
+            assign btn_count = 2
+          endif
+        %}
+        <div class="flex w-full flex-col flex-wrap gap-3 pt-2 md:flex-row md:gap-5 lg:pt-6">
+          {% for i in (1..2) %}
+            {% liquid
+              if i == 1
+                assign btn_text = section.settings.btn_text
+                assign btn_url = section.settings.btn_url
+                assign btn_type = section.settings.btn_type
+                assign btn_script = section.settings.btn_script
+              else
+                assign btn_text = section.settings.btn_text_2
+                assign btn_url = section.settings.btn_url_2
+                assign btn_type = section.settings.btn_type_2
+                assign btn_script = section.settings.btn_script_2
+              endif
+            %}
+
+            {% if btn_text != blank %}
+              {%- if btn_script != blank -%}
+                <button
+                  type="button"
+                  aria-label="{{ btn_text }}"
+                  @click="{{ btn_script }}"
+                  class="{% render 'btn-class', btn: btn_type %} group {% if btn_count == 1 %} w-max max-w-full {% else %} w-full max-w-full md:w-max {% endif %} {{ animation -}}"
+                  {% if animation %}
+                    x-intersect.once="$el.classList.add('animate__fadeIn')"
+                  {% endif %}
+                >
+                  <span>
+                    {{- btn_text -}}
+                  </span>
+                  {% render 'icon',
+                    name: 'btn-arrow',
+                    class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+                  %}
+                </button>
+              {%- else -%}
+                <a
+                  href="{{ btn_url }}"
+                  class="{% render 'btn-class', btn: btn_type %} group {% if btn_count == 1 %} w-max max-w-full {% else %} w-full max-w-full md:w-max {% endif %} {{ animation -}}"
+                  aria-label="{{ btn_text }}"
+                  {% if animation %}
+                    x-intersect.once="$el.classList.add('animate__fadeIn')"
+                  {% endif %}
+                >
+                  <span>
+                    {{- btn_text -}}
+                  </span>
+                  {% render 'icon',
+                    name: 'btn-arrow',
+                    class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+                  %}
+                </a>
+              {%- endif -%}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <a
+      href="{{ btn_url | default: '#' }}"
+      aria-label="{{ btn_text }}"
+      class="relative block w-full {% if fit == 'contain' and video == blank -%} h-full {%- else -%} h-0 pb-[100%] rounded-md overflow-hidden {%- endif %} {% if layout == 'default' %}-order-1{% elsif layout == 'rtl' %}-order-1 lg:order-1{% endif %} {% if btn_url == blank %}pointer-events-none{% endif %}"
+      draggable="false"
+    >
+      {% if video != blank %}
+        {% assign img_poster = none %}
+        {% if image != blank %}
+          {% assign img_poster = image | image_url: width: 407 %}
+        {% elsif video.preview_image != blank %}
+          {% assign img_poster = video.preview_image | image_url: width: 407 %}
+        {% endif %}
+
+        {{
+          video
+          | video_tag:
+            loop: true,
+            muted: true,
+            controls: false,
+            class: 'absolute inset-0 object-cover w-full h-full pointer-events-none rounded-md',
+            playsinline: true,
+            poster: img_poster,
+            preload: 'metadata',
+            x-data: 'videoToggler',
+            x-intersect: 'playVideo',
+            x-ref: 'video',
+            draggable: false
+        }}
+      {% else %}
+        {{ images }}
+      {% endif %}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Image with text"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FEFBF9"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-subtitle",
+      "label": "Blocks color",
+      "default": "#25282A"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Section description"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Section layout",
+      "options": [
+        {
+          "value": "default",
+          "label": "Left"
+        },
+        {
+          "value": "rtl",
+          "label": "Right"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "grid",
+      "label": "Section grid",
+      "options": [
+        {
+          "value": "cols",
+          "label": "2 columns"
+        },
+        {
+          "value": "big",
+          "label": "Big"
+        }
+      ],
+      "default": "big"
+    },
+    {
+      "type": "select",
+      "id": "fit",
+      "label": "Section image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Desktop settings"
+    },
+    {
+      "type": "text_alignment",
+      "id": "desk_alignment",
+      "label": "Content alignment",
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Section video (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Content alignment",
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Section image"
+    },
+    {
+      "type": "header",
+      "content": "First button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "SEE THE SCIENCE"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        }
+      ],
+      "default": "btn_primary_outline"
+    },
+    {
+      "type": "textarea",
+      "id": "btn_script",
+      "label": "Section button script (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Second button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url_2",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text_2",
+      "label": "Section button text"
+    },
+    {
+      "type": "select",
+      "id": "btn_type_2",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "textarea",
+      "id": "btn_script_2",
+      "label": "Section button script (optional)"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "option",
+      "name": "option",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Block icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Block title",
+          "info": "Use 'italic' for crossed-out text"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "name": "list",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Block text"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Image with text",
+      "category": "Sections",
+      "settings": {
+        "title": "BPC-157",
+        "desc": "<p>Clinically studied peptide that repairs tissue, strengthens the gut, and speeds recovery. <ul><li>✓ Supports muscle, tendon & bone recovery</li><li>✓ Helps maintain gut lining integrity</li><li>✓ Promotes a healthy inflammatory response</li></ul></p>"
+      }
+    }
+  ]
+}
+{% endschema %}

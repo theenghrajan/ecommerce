@@ -1,0 +1,570 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {}
+    },
+    "main_product_LanJDb": {
+      "type": "main-product",
+      "blocks": {
+        "product_title_TXKkdm": {
+          "type": "product_title",
+          "settings": {
+            "title": "{{ product.title }}"
+          }
+        },
+        "okendo_star_rating_aFpKyw": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "product_price_ggbnmd": {
+          "type": "product_price",
+          "settings": {
+            "margin": 12
+          }
+        },
+        "html_liquid_teQehx": {
+          "type": "html_liquid",
+          "settings": {
+            "html": "",
+            "liquid": "",
+            "richtext": "<p>30/60 Servings</p>"
+          }
+        },
+        "product_description_GdJQCW": {
+          "type": "product_description",
+          "settings": {
+            "description": "<p>Synergistic duo often referred to as the \"Wolverine Stack\"<br/><br/></p><ol><li>Assists the body's repair processes*</li><li>Supports joint and muscle health*</li><li>Supports a healthy inflammatory response*</li></ol>",
+            "bottom_margin": 16
+          }
+        },
+        "product_drawer_RE9PtT": {
+          "type": "product_drawer",
+          "settings": {
+            "bg": "#ecf3ff",
+            "title_color": "#25282a",
+            "btn_text": "Supplement facts",
+            "bottom_margin": 30,
+            "title": "Supplement Facts",
+            "image": "shopify://shop_images/BPCTB4bundleback_1275_x_2300_px_1275_x_2375_px_-2.png"
+          }
+        },
+        "product_form_GKxRJU": {
+          "type": "product_form",
+          "settings": {
+            "show_qty": true,
+            "show_terms": false,
+            "to_checkout": false,
+            "bottom_text_divider": "yes",
+            "bottom_icon_1": "shopify://shop_images/bi-delivery-icon.svg",
+            "bottom_text_1": "Estimated <strong>delivery </strong>",
+            "bottom_icon_2": "shopify://shop_images/lab.svg",
+            "bottom_text_2": "3rd Party Tested by an <strong>ISO Certified Lab</strong>",
+            "show_subscription": true,
+            "subscription_title": "Subscribe & Save",
+            "subscription_tooltip": "<p>Flexible frequency</p><p>Order reminders</p><p>Cancel anytime</p>",
+            "subscription_benefits": "<ol><li>Locked-in discount on every shipment</li><li>Earn 2–5% store credit + surprise gifts</li><li>Skip, delay, or cancel anytime—no fees</li></ol>",
+            "plan_name_remove": "Delivery every",
+            "review_star": "shopify://shop_images/bi-ap-stars-navy.svg",
+            "review_text": "{{ product.metafields.reviews.rating | metafield_tag }} {{ product.metafields[\"app--1576377--reviews\"].review_count.value }} Reviews",
+            "bottom_margin": 20
+          }
+        },
+        "product_review_block_yxHKRt": {
+          "type": "product_review_block",
+          "settings": {
+            "stars": 5,
+            "name": "Gary C",
+            "text": "Very satisfied with the results. It's the best I have felt in months!",
+            "date": "",
+            "margin": 20
+          }
+        },
+        "product_open_accordions_fEdgAn": {
+          "type": "product_open_accordions",
+          "settings": {
+            "bot_border": false,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        },
+        "product_accordions_9XQaYF": {
+          "type": "product_accordions",
+          "settings": {
+            "index": 0,
+            "bot_border": true,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_title_TXKkdm",
+        "okendo_star_rating_aFpKyw",
+        "product_price_ggbnmd",
+        "html_liquid_teQehx",
+        "product_description_GdJQCW",
+        "product_drawer_RE9PtT",
+        "product_form_GKxRJU",
+        "product_review_block_yxHKRt",
+        "product_open_accordions_fEdgAn",
+        "product_accordions_9XQaYF"
+      ],
+      "settings": {
+        "section_anchor_id": "Main product",
+        "hide_product_media": false,
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 80,
+        "pt_desk": 20,
+        "pb_desk": 120
+      }
+    },
+    "marquee_text_ezEETF": {
+      "type": "marquee-text",
+      "blocks": {
+        "item_tjyeFn": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text": "ISO Certified."
+          }
+        },
+        "item_CfDaWC": {
+          "type": "item",
+          "settings": {
+            "text": "Based in the USA 🇺🇸"
+          }
+        },
+        "item_wCd4wz": {
+          "type": "item",
+          "settings": {
+            "text": "Physician backed & formulated."
+          }
+        },
+        "item_dhpHpW": {
+          "type": "item",
+          "settings": {
+            "text": "Manufactured in cGMP certified facilities."
+          }
+        },
+        "item_X8BzYL": {
+          "type": "item",
+          "settings": {
+            "text": "Third party lab tested peptides."
+          }
+        }
+      },
+      "block_order": [
+        "item_tjyeFn",
+        "item_CfDaWC",
+        "item_wCd4wz",
+        "item_dhpHpW",
+        "item_X8BzYL"
+      ],
+      "name": "Marquee text",
+      "settings": {
+        "c-title": "#fefbf9",
+        "c-bg-primary": "#25282a",
+        "section_anchor_id": "Marquee text",
+        "marquee_reverse": false,
+        "marquee_speed": 20,
+        "center_fit": false,
+        "stop_on_hover": false,
+        "pt_mob": 20,
+        "pb_mob": 20,
+        "pt_tab": 30,
+        "pb_tab": 30,
+        "pt_desk": 30,
+        "pb_desk": 30
+      }
+    },
+    "section_ugc_slider_new_GBfJDy": {
+      "type": "section-ugc-slider-new",
+      "blocks": {
+        "block_BWNBAq": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Where Was This When I Was In College?!",
+            "description": "<p>Sore feet after long runs…GONE. Easier mornings after hard lifting days…CHECK. Less gut issues during stressful weeks… also CHECK. Not a miracle but if you know how to listen to your body and are very active with your hobbies. This is worth every cent.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Nick E"
+          }
+        },
+        "block_ncJVje": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "So Far, So Good!!",
+            "description": "<p>I don't have any ailments, so I take this product for recovery and gut health. After 1 month, I feel better, digestive issues aren't as noticeable and recovery is good enough to increase workout times. So far, so good!!</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Richard R"
+          }
+        },
+        "block_RrMDLM": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Exceptional",
+            "description": "<p>The BPC-157-TB4-Frag is a great product if you are a performance athlete constantly beating your body up like myself. I love the small package of the capsule as I take a lot of supplements. Will purchase again.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Paul S"
+          }
+        },
+        "block_PKbmBc": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Works Great for Exercise Recovery",
+            "description": "<p>Have used other brands without success. This is by far the best product I have used. A noticeable difference in joints after hard exercise sessions. Very noticeable difference in muscle recovery time also.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Ryan H"
+          }
+        }
+      },
+      "block_order": [
+        "block_BWNBAq",
+        "block_ncJVje",
+        "block_RrMDLM",
+        "block_PKbmBc"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_anchor_id": "Testimonials",
+        "c-bg-primary": "#f7faff",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#525252",
+        "title": "What Customers Feel After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p><em>Individual results vary. Statements not evaluated by the FDA</em></p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_text_w_icons_8Be9Fp": {
+      "type": "section-text-w-icons",
+      "blocks": {
+        "item_WKqYYP": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SCIENTIFICALLY_SUPPORTED.svg",
+            "width": 93,
+            "title": "<p>Scientifically Supported</p>"
+          }
+        },
+        "item_qp4A3D": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PREMIUM_INGREDIENTS_01.svg",
+            "width": 93,
+            "title": "<p>Premium</p><p>Ingredients</p>"
+          }
+        },
+        "item_TN4Daj": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PHYSICIAN_FORMULATED.svg",
+            "width": 93,
+            "title": "<p>Physician</p><p>Formulated</p>"
+          }
+        },
+        "item_jxNy79": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SKY_HIGH_STANDARDS_01.svg",
+            "width": 93,
+            "title": "<p>Rigorous</p><p>Standards</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_WKqYYP",
+        "item_qp4A3D",
+        "item_TN4Daj",
+        "item_jxNy79"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "section_anchor_id": "Text with icons",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "Products You Can Trust",
+        "description": "<p>Four pillars to protect your health at every step.</p>",
+        "mob_alignment": "center",
+        "alignment": "center",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_multi_columns_AVVBd3": {
+      "type": "section-multi-columns",
+      "blocks": {
+        "block_negP9P": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-daniel.jpg",
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        "block_B73B6E": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-mickra.jpg",
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "CEO | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_negP9P",
+        "block_B73B6E"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "section_anchor_id": "Multi-column",
+        "layout": "default",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "subtitle": "Healthcare Reinvented",
+        "title": "Developed by Doctors.  Trusted by experts.",
+        "description": "<p>Longevity leaders Dr. Dan Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>",
+        "btn_url": "",
+        "btn_text": "Our founders",
+        "btn_type": "btn_primary_outline",
+        "pagination_style": "pagination--dark",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 50,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "1753135980b51b8271": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_7zVEC8": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_7zVEC8"
+      ],
+      "settings": {
+        "container": false,
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_product_list_G4YCdD": {
+      "type": "section-product-list",
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Elementals Best Sellers",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "bpc",
+          "foundation-multivitamin",
+          "tb4-frag",
+          "d3-5000-k2",
+          "foundational-bundle1"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "",
+        "btn_text": "Shop Best Sellers",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_faq_XeGrmV": {
+      "type": "section-faq",
+      "blocks": {
+        "block_tak6ta": {
+          "type": "block",
+          "settings": {
+            "title": "Are there any precautions?",
+            "text": "<p>Before using this product it is recommenced to consult your healthcare professional. If you are taking any medications, it’s important to discuss potential interactions with your healthcare provider. Do not use if tamper seal is damaged.</p>"
+          }
+        },
+        "block_3MVhQ7": {
+          "type": "block",
+          "settings": {
+            "title": "Where is this product manufactured and what product quality control tests are performed?",
+            "text": "<p>Our BPC-157 products are manufactured in Nevada in a state-of-the-art, FDA-registered facility that meets or exceeds <a href=\"https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practice-cgmp#:~:text=What%20is%20CGMP%3F,of%20manufacturing%20processes%20and%20facilities.\">current Good Manufacturing Practices (cGMP)</a>. Quality control testing is carried out at each stage of the manufacturing process, starting with rigorous raw material assessments and continuing through to finished product testing. Our BPC-157 supplements are third-party tested by ISO certified, FDA registered laboratories for purity, potency and contaminates.</p>"
+          }
+        },
+        "block_AKtNdP": {
+          "type": "block",
+          "settings": {
+            "title": "Are Apeiron Elementals' peptides third-party lab verified?",
+            "text": "<p>Yes, all of our peptide products are third-party lab tested for purity, quality and consistency.</p>"
+          }
+        },
+        "block_caxTCm": {
+          "type": "block",
+          "settings": {
+            "title": "Should these capsules be taken with or without food?",
+            "text": "<p>Our BPC-157 & TB4-Frag supplements remain stable in the stomach, however, some reports suggest that the absorption is enhanced when taken after a meal.</p>"
+          }
+        },
+        "block_4XQyf9": {
+          "type": "block",
+          "settings": {
+            "title": "Does this product contain gluten, dairy, or soy?",
+            "text": "<p>No, this product is gluten-free, dairy-free, and soy-free.</p>"
+          }
+        },
+        "block_V7dCWj": {
+          "type": "block",
+          "settings": {
+            "title": "Are these capsules bioavailable?",
+            "text": "<p>Yes! Many peptides lack bioavailability and must be administered subcutaneously. However, BPC-157 and TB4-Frag (SDKP) are some of the few peptides that are bioavailable, allowing them to be effective when taken orally. BPC-157 was identified as bioavailable being naturally present in human gastric juices.</p>"
+          }
+        },
+        "block_RMJWmN": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "title": "How is your product different from other BPC 157 supplements?",
+            "text": "<p>We've formulated a truly synergistic blend, combining full-strength BPC-157 (500mcg) with 200mg of CurcuPrime™ in each capsule. This blend is entirely unique, making it the only one of its kind available on the market.</p>"
+          }
+        },
+        "block_CUzkg9": {
+          "type": "block",
+          "settings": {
+            "title": "“What is the difference between BPC-157 Prime and your other BPC-157 products?”",
+            "text": "<p>Our BPC-157 Prime includes a highly bioavailable form of curcumin, called tetrahydrocurcumin. This combination offers additional benefits including: Improved acetylcholine production and protection, a more balanced inflammatory response from powerful antioxidant properties, and support of a healthy lipid profile.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_tak6ta",
+        "block_3MVhQ7",
+        "block_AKtNdP",
+        "block_caxTCm",
+        "block_4XQyf9",
+        "block_V7dCWj",
+        "block_RMJWmN",
+        "block_CUzkg9"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_anchor_id": "FAQ",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Frequently asked questions",
+        "description": "",
+        "btn_url": "shopify://pages/frequently-asked-questions",
+        "btn_text": "See all FAQs",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 120
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {}
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "main_product_LanJDb",
+    "marquee_text_ezEETF",
+    "section_ugc_slider_new_GBfJDy",
+    "section_text_w_icons_8Be9Fp",
+    "section_multi_columns_AVVBd3",
+    "1753135980b51b8271",
+    "section_product_list_G4YCdD",
+    "section_faq_XeGrmV",
+    "zp-product-footer-content"
+  ]
+}

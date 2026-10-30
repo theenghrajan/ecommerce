@@ -1,0 +1,65 @@
+{% liquid
+  assign title = section.settings.title
+  assign alignment = section.settings.alignment | prepend: 'text-'
+
+  render 'css-variables-setter'
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="py-7.5 border-sc-title bg-sc-bg-primary md:py-9.5 border-y"
+>
+  <div class="rte text-sc-title font-third container text-lg lg:text-xl {{ alignment -}}">{{- title -}}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Section title",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "custom.cart"]
+  },
+  "presets": [
+    {
+      "category": "Sections",
+      "name": "Section title",
+      "settings": {
+        "title": "Lifelong Wellness Begins Here"
+      }
+    }
+  ]
+}
+{% endschema %}

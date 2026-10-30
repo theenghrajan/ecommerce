@@ -1,0 +1,359 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_banner_dTydpF": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#ffffff",
+        "c-body-primary": "#ffffff",
+        "bg": "",
+        "subtitle": "",
+        "title": "Redefining Health Through Limitless Human Potential",
+        "description": "<p>Unique formulations - powered by high-quality, cutting-edge ingredients to support your longevity and peak performance.</p>",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "",
+        "btn_url": "",
+        "btn_text": "",
+        "sec_btn_url": "",
+        "sec_btn_text": "",
+        "layout": "container",
+        "split_revese": false,
+        "desk_alignment": "center",
+        "image": "shopify://shop_images/bi-ap-about.jpg",
+        "image_height": "md",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_secondary_fill",
+        "layout_mob": "full",
+        "mob_alignment": "left",
+        "image_mob": "shopify://shop_images/bi-ap-about-mob.jpg",
+        "image_mob_height": "lg",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 40,
+        "pb_tab": 60,
+        "pt_desk": 40,
+        "pb_desk": 80
+      }
+    },
+    "section_image_overlay_mCVz7B": {
+      "type": "section-image-overlay",
+      "name": "Image overlay",
+      "settings": {
+        "section_anchor_id": "Image overlay",
+        "c-bg-primary": "#ffffff",
+        "c-bg-secondary": "#f7faff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Our Mission",
+        "subtitle": "",
+        "description": "<p>We envision a world where aging is vibrant, performance is boundless, and well-being is holistic. Apeiron Elementals empowers you to thrive by nourishing complex human systems with precision nutrition, merging cutting-edge science with timeless wisdom for optimal health and longevity.</p>",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_secondary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_features_accordion_eDftPz": {
+      "type": "section-features-accordion",
+      "blocks": {
+        "block_NCiiWg": {
+          "type": "block",
+          "settings": {
+            "title": "Quality First",
+            "subtitle": "Crafted with Precision",
+            "description": "<p>Our products are manufactured in current Good Manufacturing Practice (cGMP) certified, FDA registered facilities in the USA with globally sourced ingredients, ensuring consistent quality and safety standards.</p>"
+          }
+        },
+        "block_y7dPKF": {
+          "type": "block",
+          "settings": {
+            "title": "Pure, Lab Tested Ingredients",
+            "subtitle": "Rigorous Testing Standards",
+            "description": "<p>Every product batch undergoes multiple rounds of testing and is traceable down to the lot number—so you can verify purity, potency, and authenticity.</p>"
+          }
+        },
+        "block_X9HnFH": {
+          "type": "block",
+          "settings": {
+            "title": "Science-Driven Formulations",
+            "subtitle": "Rooted in Epigenetics and Systems Science",
+            "description": "<p>Unique, leading-edge formulations created by our research team, led by Dr. Daniel Stickler, and offered by physicians throughout the USA.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_NCiiWg",
+        "block_y7dPKF",
+        "block_X9HnFH"
+      ],
+      "name": "Features accordion",
+      "settings": {
+        "section_anchor_id": "Features accordion",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "Quality, Research, and Ingredients",
+        "description": "<p>Our commitment to you ensures:</p>",
+        "image": "shopify://shop_images/bi-ap-quality.jpg",
+        "layout": "default",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 45,
+        "pb_tab": 45,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "section_image_text_nyMzhT": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Eco-Conscious Commitment",
+        "title": "Sustainability at Our Core",
+        "desc": "<p>We prioritize regenerative practices and sustainable sourcing, supporting the health of both individuals and the planet with environmentally responsible production.</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-nature.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_about_richtext_nhXiwf": {
+      "type": "section-about-richtext",
+      "name": "About / richtext",
+      "settings": {
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Our Founders",
+        "subtitle": "",
+        "text": "<p>Together, they lead Apeiron’s mission to transform health through innovation and systems science.</p>",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "label_text": "",
+        "html": "",
+        "liquid": "",
+        "pt_mob": 30,
+        "pb_mob": 40,
+        "pt_tab": 45,
+        "pb_tab": 45,
+        "pt_desk": 80,
+        "pb_desk": 100
+      }
+    },
+    "section_image_text_AY3aNy": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Co-Founder and Chief Medical Officer",
+        "title": "Dr. Daniel L. Stickler",
+        "desc": "<p>Dr. Stickler is a visionary physician and systems‐science pioneer whose journey from vascular surgery to holistic systems health has redefined the frontiers of precision medicine. Grounded in both leading‐edge epigenetics and the timeless wisdom of Eastern practices, he leverages AI, wearable biosensing, and integrative neurobiology to craft personalized pathways toward human enhancement and enduring vitality. As a clinician, researcher, and formulator, Dr. Stickler brings unparalleled rigor to every intervention—treating the body as a complex adaptive system rather than a collection of isolated parts.</p><p><br/></p><p>Driven by an uncompromising commitment to quality and transparency, Dr. Stickler co‐founded Apeiron Elementals to translate his clinical insights into supplements he and his patients can trust. Every batch is tested to his exacting standards. By marrying rigorous science with a deep respect for natural processes, he has built a product line that supports peak performance and resilience and reflects the integrity of his own practice and reputation.</p>",
+        "layout": "default",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-dr-daniel.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 60,
+        "pt_desk": 0,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_GFBCwd": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Co-Founder and International Epigenetics Expert",
+        "title": "Dr. Mickra Hamilton",
+        "desc": "<p>Dr. Hamilton is a retired USAF Colonel and Co-Founder of Apeiron Elementals, where her 30+ years of human performance expertise meet deep holistic wisdom. As an international epigenetics authority, she brings the rigor of military science and the insight of spiritual practice to every endeavor, guiding individuals and organizations toward conscious evolution.</p><p><br/></p><p>At Apeiron Elementals, Dr. Hamilton personally scrutinizes every formulation through her dual lenses of science and spirituality, ensuring each product supports the body’s innate intelligence and the spirit’s drive toward wholeness. Her work exemplifies a rare fusion of precision and presence, empowering clients to optimize physiology, elevate awareness, and embrace their limitless potential.</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-dr-mickra.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_grid_collection_z76L6k": {
+      "type": "section-grid-collection",
+      "blocks": {
+        "block_XK3UDc": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Hormone & Skin",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-hormone.jpg",
+            "btn": "",
+            "link": ""
+          }
+        },
+        "block_n67NmC": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Mood & Brain",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-worker.jpg",
+            "btn": "Shop",
+            "link": ""
+          }
+        },
+        "block_FaG3Jb": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Gut & Detox",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-detox.jpg",
+            "btn": "Shop",
+            "link": ""
+          }
+        },
+        "block_iy3WMe": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Immunity",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-lady.jpg",
+            "btn": "Shop",
+            "link": ""
+          }
+        },
+        "block_nVNDaY": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Recovery & Performance",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-recovery.jpg",
+            "btn": "Shop",
+            "link": ""
+          }
+        },
+        "block_7cNTAb": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Longevity & Aging",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-longevity.jpg",
+            "btn": "Shop",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_XK3UDc",
+        "block_n67NmC",
+        "block_FaG3Jb",
+        "block_iy3WMe",
+        "block_nVNDaY",
+        "block_7cNTAb"
+      ],
+      "name": "Grid collection",
+      "settings": {
+        "section_anchor_id": "Grid collection",
+        "layout": "grid",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "Discover Elementals",
+        "description": "<p>Choose your top health priority and explore targeted formulas that deliver results.</p>",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "btn_url": "",
+        "btn_text": "Shop All",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_dTydpF",
+    "section_image_overlay_mCVz7B",
+    "section_features_accordion_eDftPz",
+    "section_image_text_nyMzhT",
+    "section_about_richtext_nhXiwf",
+    "section_image_text_AY3aNy",
+    "section_image_text_GFBCwd",
+    "section_grid_collection_z76L6k"
+  ]
+}

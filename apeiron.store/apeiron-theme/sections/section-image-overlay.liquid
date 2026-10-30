@@ -1,0 +1,260 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign title = section.settings.title
+  assign subtitle = section.settings.subtitle
+  assign description = section.settings.description
+  assign image = section.settings.image
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title overflow-hidden"
+  {% if image != blank %}
+    style="background-image: url('{{ image | image_url: width: 1700 }}'); background-size: cover;"
+  {% endif %}
+>
+  <div class="container">
+    <div
+      class="bg-sc-bg-secondary/40 xl:px-25 w-full rounded-lg p-4 md:p-10"
+      style="backdrop-filter: blur(52px)"
+    >
+      <div class="mx-auto w-full max-w-[1110px] text-center">
+        {% if title != blank %}
+          <h2
+            class="rte mb-4 text-xl font-semibold lg:text-3xl {{ animation -}}"
+            {% if animation %}
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- title -}}
+          </h2>
+        {% endif %}
+
+        {% if subtitle != blank %}
+          <span
+            class="font-third block text-sm lg:text-base {{ animation -}}"
+            {% if animation %}
+              style="animation-delay: 100ms"
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- subtitle -}}
+          </span>
+        {% endif %}
+
+        {% if description != blank %}
+          <div
+            class="rte text-sc-body-primary mt-4 text-xl xl:text-3xl {{ animation -}}"
+            {% if animation %}
+              style="animation-delay: 200ms"
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- description -}}
+          </div>
+        {% endif %}
+
+        {% if btn_text != blank %}
+          <a
+            href="{{ btn_url }}"
+            class="{% render 'btn-class', btn: btn_type %} mt-7.5 group mx-auto w-max max-w-full lg:mt-10 {{ animation }}"
+            aria-label="{{ btn_text }}"
+            {% if animation %}
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+            style="animation-delay: 300ms;"
+          >
+            <span>
+              {{- btn_text -}}
+            </span>
+            {% render 'icon',
+              name: 'btn-arrow',
+              class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+            %}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image overlay",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Image overlay"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-secondary",
+      "label": "Overlay color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "Our story"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_secondary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 70
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 70
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "category": "Sections",
+      "name": "Image overlay",
+      "settings": {
+        "title": "APEIRON",
+        "subtitle": "(/əˈpaɪˌrɒn/; ἄπειρον)",
+        "description": "<p>from ancient Greek meaning (that which is) unlimited; boundless; infinite; often describing the primordial substance from which all things come and return to. </p>"
+      }
+    }
+  ]
+}
+{% endschema %}

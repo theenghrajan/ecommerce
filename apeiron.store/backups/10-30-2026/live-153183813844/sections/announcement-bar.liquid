@@ -1,0 +1,49 @@
+{%- liquid
+  assign announcement_text = section.settings.announcement_text
+  render 'css-variables-setter'
+-%}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title md:min-h-8.5 flex items-center py-1.5 md:py-1"
+>
+  <div class="rte lg:px-7.5 container mx-auto flex max-w-5xl items-center justify-center text-center text-sm lg:text-base">
+    {{- announcement_text -}}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "richtext",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "<p>Free Shipping $35+</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar",
+      "category": "Sections"
+    }
+  ]
+}
+{% endschema %}

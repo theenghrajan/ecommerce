@@ -1,0 +1,61 @@
+{%- comment -%}
+  BLOG FEATURED ARTICLE COMPONENT
+
+  * blog
+  * article: the article to render. If no article is passed then a placeholder is generated
+  * class
+  * badge
+{%- endcomment -%}
+
+<article class="smD:grid smD:items-center smD:grid-cols-[minmax(450px,600px)_minmax(0,1fr)] smD:min-h-[400px] lg:gap-x-15 group container xl:grid-cols-[minmax(0,740px)_minmax(0,1fr)] 2xl:min-h-[500px] 2xl:grid-cols-[minmax(0,900px)_minmax(0,1fr)] {{ class -}}">
+  <div class="smD:m-0 mb-5 h-full">
+    {% if badge != blank %}
+      <span class="text-sc-title smD:hidden mx-auto mb-3 flex w-max max-w-full rounded bg-[#F4EEE1] px-3 py-1 text-xs font-semibold">
+        {{- badge -}}
+      </span>
+    {% endif %}
+
+    <a
+      href="{{ article.url }}"
+      aria-label="Open article - {{ article.title -}}"
+      class="image-overflow-hidden smD:pb-0 smD:h-full smD:rounded-xl relative block h-0 rounded pb-[95%] md:pb-[400px]"
+    >
+      {% assign img_class = 'absolute inset-0 h-full w-full object-cover object-top group-hover:scale-105 duration-500 ease-in-out' %}
+      {% if article.image %}
+        {{
+          article.image
+          | image_url: width: 1800
+          | image_tag:
+            loading: loading,
+            preload: preload,
+            widths: '300, 400, 500, 600, 700, 1100, 1480, 1800',
+            class: img_class
+        }}
+      {% else %}
+        {{ 'lifestyle-2' | placeholder_svg_tag: img_class }}
+      {% endif %}
+    </a>
+  </div>
+
+  <div class="smD:py-10 smD:text-left md:text-center">
+    {% if badge != blank %}
+      <span class="text-sc-title smD:block mb-5 hidden w-max max-w-full rounded bg-[#F4EEE1] px-3 py-1 text-xs font-semibold">
+        {{- badge -}}
+      </span>
+    {% endif %}
+
+    <a
+      href="{{ article.url }}"
+      aria-label="Open article - {{ article.title -}}"
+      class="text-sc-title smD:text-left smD:text-5xl mb-3 block text-4xl font-semibold"
+    >
+      {{- article.title -}}
+    </a>
+
+    {% if article.excerpt_or_content != blank %}
+      <div class="rte text-sc-body-primary smD:text-left text-lg">
+        {{- article.excerpt_or_content -}}
+      </div>
+    {% endif %}
+  </div>
+</article>

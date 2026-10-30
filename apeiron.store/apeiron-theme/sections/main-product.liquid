@@ -1,0 +1,1266 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign meta = product.metafields.binaery.product_information
+
+  assign accordions = meta.value.accordions.value
+  assign opened_accordions = meta.value.opened_accordions.value
+  assign top_badge = meta.value.top_badge.value
+  assign logos = meta.value.logos.value
+  assign upsells = meta.value.upsells.value
+
+  assign blocks = section.blocks
+
+  assign metaobject_color_swatches = shop.metaobjects.color_swatch
+  assign all_metaobject_color_swathes = ''
+  for color_swatch in metaobject_color_swatches.values
+    assign all_metaobject_color_swathes = all_metaobject_color_swathes | append: color_swatch.label.value | append: ','
+  endfor
+
+  assign blocks_offer = blocks | where: 'type', 'offer'
+  if blocks_offer.size > 0
+    assign has_offer = true
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="text-sc-title bg-c-white relative z-10"
+  x-data="product"
+>
+  <div class="xl:gap-15 items-start px-5 md:container lg:grid lg:grid-cols-[minmax(400px,640px)_minmax(400px,1fr)] lg:gap-x-10 xl:max-w-[1440px] xl:grid-cols-[minmax(600px,1fr)_minmax(480px,520px)]">
+    {%- liquid
+      assign has_color_swatch = false
+      unless product.has_only_default_variant
+        for option in product.options_with_values
+          if all_metaobject_color_swathes contains option.values[0]
+            assign has_color_swatch = true
+            assign color_option_index = forloop.index0
+            break
+          endif
+          for value in option.values
+            if value.swatch.image or value.swatch.color or all_metaobject_color_swathes contains value
+              assign has_color_swatch = true
+              assign color_option_index = forloop.parentloop.index0
+              break
+            endif
+          endfor
+        endfor
+      endunless
+    -%}
+
+    {%- if has_color_swatch -%}
+      {% render 'product-gallery-dynamic-new',
+        all_metaobject_color_swathes: all_metaobject_color_swathes,
+        color_option_index: color_option_index,
+        product: product,
+        top_badge: top_badge,
+        logos: logos
+      %}
+    {%- else -%}
+      {% render 'product-gallery-new', product: product, top_badge: top_badge, logos: logos %}
+    {%- endif -%}
+
+    <div class="h-max max-h-full" x-ref="ctaBlock">
+      {% for block in blocks %}
+        {% case block.type %}
+          {% when '@app' %}
+            <div class="mb-4" {{ block.shopify_attributes }}>{% render block %}</div>
+
+          {% when 'html_liquid' %}
+            <div {{ block.shopify_attributes }}>
+              {% if block.settings.html != blank %}
+                <div class="mb-3">
+                  {{ block.settings.html }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.liquid != blank %}
+                <div class="mb-3">
+                  {{ block.settings.liquid }}
+                </div>
+              {% endif %}
+
+              {% if block.settings.richtext != blank %}
+                <div class="rte child-b:font-semibold text-sc-title mb-1 text-base  md:mb-2">
+                  {{ block.settings.richtext }}
+                </div>
+              {% endif %}
+            </div>
+
+          {% when 'offer' %}
+            {% if block.settings.title != blank or block.settings.description != blank %}
+              <div
+                class="rte bg-sc-bg-primary text-sc-title mb-[var(--value)] flex flex-col space-y-1.5 rounded-lg p-3 text-base md:p-4"
+                style="--c-bg-primary: {{ block.settings.bg_color.rgb }}; --c-title: {{ block.settings.text_color.rgb }}; --value: {{ block.settings.margin | append: 'px' }};"
+                {{ block.shopify_attributes }}
+              >
+                {% if block.settings.title != blank %}
+                  <span class="font-semibold">
+                    {{ block.settings.title }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.description != blank %}
+                  <div>
+                    {{ block.settings.description }}
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+          {% when 'product_title' %}
+            <h1
+              class="text-sc-title mb-2 text-3xl font-semibold lg:text-4xl"
+              {{ block.shopify_attributes }}
+            >
+              {{- block.settings.title | default: product.title -}}
+            </h1>
+
+          {% when 'product_price' %}
+            <div
+              class="mb-[var(--value)] flex items-center"
+              style="--value: {{ block.settings.margin | append: 'px' }}"
+              {{ block.shopify_attributes }}
+            >
+              <del
+                class="text-c-gray mr-2 text-lg"
+                x-cloak
+                x-show="selectedVariant.biComparePrice > selectedVariant.biPrice"
+                x-text="window.biCurrency(selectedVariant.biComparePrice / qty)"
+              >
+                {{- product.selected_or_first_available_variant.compare_at_price | money_without_trailing_zeros -}}
+              </del>
+
+              <span
+                class="text-c-shadow text-xl font-semibold"
+                x-text="window.biCurrency(selectedVariant.biPrice / qty)"
+              >
+                {{- product.selected_or_first_available_variant.price | money_without_trailing_zeros -}}
+              </span>
+
+              <span
+                class="bg-c-light-green text-c-green ml-2 inline-flex h-full shrink-0 whitespace-nowrap rounded px-2 py-1 text-sm lg:text-base"
+                {% unless product.selected_or_first_available_variant.compare_at_price
+                    > selected_or_first_available_variant.price
+                %}
+                  x-cloak
+                {% endunless %}
+                x-show="selectedVariant.biComparePrice > selectedVariant.biPrice"
+              >
+                {% case settings.discount_type %}
+                  {% when 'currency' %}
+                    <span
+                      x-text="window.biCurrency((selectedVariant.biComparePrice - selectedVariant.biPrice) / qty) + '{{ 'common.off' | t | prepend: ' ' }}'"
+                    ></span>
+                  {% when 'percents' %}
+                    <span
+                      x-text="Math.ceil(((selectedVariant.biComparePrice - selectedVariant.biPrice) / qty) * 100.00 / (selectedVariant.biComparePrice / qty)) + '{{ 'common.off' | t | append: '%' | prepend: ' ' }}'"
+                    ></span>
+                {% endcase %}
+              </span>
+            </div>
+
+          {% when 'product_description' %}
+            {% if block.settings.description != blank or product.description != blank %}
+              <div
+                class="text-sc-body-primary list-checkmark rte child-a:text-c-crimsonite mb-[var(--value)] text-base"
+                style="--value: {{ block.settings.bottom_margin | append: 'px' }}"
+                {{ block.shopify_attributes }}
+              >
+                {{- block.settings.description | default: product.description -}}
+              </div>
+            {% endif %}
+
+          {% when 'product_accordions' %}
+            {% render 'product-accordions', accordions: accordions, block: block %}
+
+          {% when 'product_open_accordions' %}
+            {% render 'product-accordions', accordions: opened_accordions, block: block, opened_layout: true %}
+
+          {% when 'product_form' %}
+            {% liquid
+              assign show_qty = block.settings.show_qty
+              assign show_subscription = block.settings.show_subscription
+              assign show_terms = block.settings.show_terms
+              assign margin = block.settings.bottom_margin | append: 'px'
+
+              assign bottom_divider = block.settings.bottom_text_divider
+              assign to_checkout = block.settings.to_checkout
+              assign b_review_star = block.settings.review_star
+              assign b_review_text = block.settings.review_text
+
+              assign product_form_id = 'product-form-' | append: section.id
+            %}
+
+            <div class="mb-[var(--value)]" style="--value: {{ margin }}" {{ block.shopify_attributes }}>
+              {% form 'product', product, id: product_form_id %}
+                <input
+                  type="hidden"
+                  name="id"
+                  value="{{ product.selected_or_first_available_variant.id }}"
+                  :value="selectedVariant.id"
+                >
+
+                <input
+                  type="hidden"
+                  name="quantity"
+                  value="1"
+                  :value="qty"
+                >
+
+                {% unless product.has_only_default_variant or product.variants.size < 2 %}
+                  {%- for option in product.options_with_values -%}
+                    <div class="mb-5 flex flex-col text-base">
+                      <div class="mb-1 flex shrink-0">
+                        <span class="text-c-shadow mr-1 text-base font-semibold">
+                          {{- option.name | append: ': ' -}}
+                        </span>
+
+                        <span
+                          class="text-c-shadow text-sm font-semibold"
+                          x-text="selectedVariant.options[{{ forloop.index0 }}]"
+                        ></span>
+                      </div>
+
+                      {% if option.values[0].swatch.color %}
+                        <div class="flex flex-wrap gap-2">
+                          {%- for value in option.values -%}
+                            {%- liquid
+                              assign swatch_value = null
+                              if value.swatch.image
+                                assign image_url = value.swatch.image | image_url: width: 50
+                                assign swatch_value = 'url(' | append: image_url | append: ')'
+                                assign swatch_focal_point = value.swatch.image.presentation.focal_point
+                              elsif value.swatch.color
+                                assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+                              endif
+                            -%}
+
+                            <button
+                              type="button"
+                              @click="
+                                changeVariant({
+                                  name: '{{- option.name -}}',
+                                }, '{{- value -}}')
+                              "
+                              class="option-color"
+                              aria-label="{{ value }}"
+                              :class="
+                                {
+                                  active: selectedVariant.options.includes('{{- value -}}'),
+                                  unavailable: !product.variants.some(variant => variant.available && variant.options[{{ forloop.parentloop.index0 }}] === '{{- value -}}') && {{ forloop.parentloop.index0 }} == 0 ||
+                                    !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.options[{{ forloop.parentloop.index0 }}] === '{{- value -}}') && {{ forloop.parentloop.index0 }} == 1 ||
+                                    !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.option2 === selectedVariant.option2 && variant.options[{{ forloop.parentloop.index0 }}] === '{{- value -}}') && {{ forloop.parentloop.index0 }} == 2
+                                }
+                              "
+                            >
+                              <span class="sr-only">
+                                {{ value -}}
+                              </span>
+                              <svg
+                                class="relative h-8 w-8 shrink-0"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" class="duration-300 ease-in-out" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-sc-title' : 'stroke-0'"/>
+                                {% if value.swatch.color %}
+                                  <circle cx="20" cy="20" r="16" fill="{{ swatch_value }}" class="ease-in-out duration-300" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-0' : 'stroke-grey'"/>
+                                {% endif %}
+                              </svg>
+                              {% if value.swatch.image %}
+                                <span
+                                  class="swatch"
+                                  style="background: {{ swatch_value }}; {% if swatch_focal_point -%} --swatch-focal-point: {{ swatch_focal_point }};{% endif -%}"
+                                ></span>
+                              {% endif %}
+                            </button>
+                          {%- endfor -%}
+                        </div>
+                      {% elsif all_metaobject_color_swathes contains option.values[0] %}
+                        <div class="flex flex-wrap gap-2">
+                          {%- for value in option.values -%}
+                            {%- assign parent_loop = forloop.parentloop.index0 -%}
+                            {%- for color_swatch in metaobject_color_swatches.values -%}
+                              {%- liquid
+                                assign color_name = color_swatch.label.value
+                                assign color_value = color_swatch.color.value
+                                assign linear_gradient_value = color_swatch.linear_gradient.value
+                                assign swatch_image = color_swatch.image.value
+                              -%}
+                              {%- if value == color_name -%}
+                                <button
+                                  type="button"
+                                  @click="
+                                    changeVariant({
+                                      name: '{{- option.name -}}',
+                                    }, '{{- value -}}')
+                                  "
+                                  class="option-color"
+                                  aria-label="{{ value }}"
+                                  :class="
+                                    {
+                                      active: selectedVariant.options.includes('{{- value -}}'),
+                                      unavailable: !product.variants.some(variant => variant.available && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 0 ||
+                                        !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 1 ||
+                                        !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.option2 === selectedVariant.option2 && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 2
+                                    }
+                                  "
+                                >
+                                  <span class="sr-only">
+                                    {{ value -}}
+                                  </span>
+                                  <svg
+                                    class="relative h-8 w-8 shrink-0"
+                                    width="40"
+                                    height="40"
+                                    viewBox="0 0 40 40"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" class="duration-300 ease-in-out" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-sc-title' : 'stroke-0'"/>
+                                    {% if color_value != blank %}
+                                      <circle cx="20" cy="20" r="16" fill="{{ color_value }}" class="ease-in-out duration-300" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-0' : 'stroke-grey'"/>
+                                    {% endif %}
+                                  </svg>
+                                  {% if swatch_image != blank %}
+                                    <span
+                                      class="swatch"
+
+                                      style="background-image: url({{- swatch_image | image_url: width: 64, height: 64 -}});"
+                                    ></span>
+                                  {% elsif linear_gradient_value != blank %}
+                                    <span
+                                      class="swatch"
+                                      style="background: {{ linear_gradient_value }};"
+                                    ></span>
+                                  {% endif %}
+                                </button>
+                              {% endif %}
+                            {%- endfor -%}
+                          {%- endfor -%}
+                        </div>
+                      {% else %}
+                        <ul class="mt-1 flex w-full flex-wrap">
+                          {%- for value in option.values -%}
+                            <li class="mr-2">
+                              <button
+                                type="button"
+                                class="hover:border-c-shadow border-c-shadow text-c-shadow bg-c-white group flex h-full w-full cursor-pointer items-center rounded-lg border px-4 py-2 text-center text-base font-semibold duration-200 ease-in-out"
+                                :class="
+                                  {
+                                    'border-c-shadow': selectedVariant['{{ forloop.parentloop.index | prepend: 'option' }}'] === '{{- value -}}',
+                                    'cursor-not-allowed': !product.variants.some(variant => variant.available && variant.options[{{ forloop.parentloop.index0 }}] === '{{- value -}}') && {{ forloop.parentloop.index0 }} == 0 ||
+                                      !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.options[{{ forloop.parentloop.index0 }}] === '{{- value -}}') && {{ forloop.parentloop.index0 }} == 1 ||
+                                      !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.option2 === selectedVariant.option2 && variant.options[{{ forloop.parentloop.index0 }}] === '{{- value -}}') && {{ forloop.parentloop.index0 }} == 2
+                                  }
+                                "
+                                @click="
+                                  open = false;
+                                  changeVariant({
+                                    name: '{{- option.name -}}',
+                                  }, '{{- value -}}')
+                                "
+                              >
+                                {{ value }}
+                              </button>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </div>
+                  {%- endfor -%}
+                {% endunless %}
+
+                {% if show_subscription and product.selling_plan_groups != blank %}
+                  {% render 'subscription-plan-picker',
+                    product: product,
+                    product_form_id: product_form_id,
+                    block: block
+                  %}
+                {% endif %}
+
+                <div class="mt-4 flex flex-col">
+                  <div class="flex space-x-2.5">
+                    {% if show_qty %}
+                      <label
+                        for="{{ section.id | append: '-qty' }}"
+                        class="border-c-border bg-c-white xs:w-25 grid w-20 shrink-0 grid-cols-3 items-stretch overflow-hidden rounded-lg border md:w-[140px]"
+                      >
+                        <button
+                          aria-label="Minus"
+                          type="button"
+                          class="flex items-center justify-center outline-none"
+                          @click="changeQuantity(qty - 1)"
+                          :disabled="qty <= 1"
+                        >
+                          {% render 'icon', name: 'qty-minus', class: 'w-3 h-3 text-c-shadow' %}
+                        </button>
+                        <input
+                          type="number"
+                          pattern="[0-9]*"
+                          min="1"
+                          class="text-c-shadow bg-transparent text-center text-base font-semibold outline-none"
+                          id="{{ section.id | append: '-qty' }}"
+                          @input="
+                            (e) => {
+                              if (e.target.value === '' || e.target.value < 1) {
+                                e.target.value = 1
+                                return;
+                              }
+
+                              changeQuantity(e.target.value);
+                            }
+                          "
+                          value="1"
+                          :value="qty"
+                        >
+                        <button
+                          aria-label="Plus"
+                          type="button"
+                          class="flex items-center justify-center outline-none"
+                          @click="changeQuantity(qty + 1)"
+                        >
+                          {% render 'icon', name: 'qty-plus', class: 'w-3 h-3 text-c-shadow' %}
+                        </button>
+                      </label>
+                    {% endif %}
+                    <button
+                      type="button"
+                      :aria-busy="loading"
+                      class="{% render 'btn-class', btn: 'btn_cta_fill' %} min-h-15 w-full px-4 py-3"
+                      :disabled="!selectedVariant.available"
+                      @click="addToCart({{ to_checkout | default: false }})"
+                    >
+                      <span
+                        x-text="selectedVariant.available ? '{%- if has_offer -%}{{ 'common.pre_order' | t }}{%- elsif to_checkout -%}{{ 'common.buy_now' | t }}{%- else -%}{{ 'common.add_to_cart' | t }}{%- endif -%}' : '{{ 'common.sold_out' | t }}'"
+                      >
+                        {%- if product.selected_or_first_available_variant.available -%}
+                          {%- if has_offer -%}
+                            {{- 'common.pre_order' | t -}}
+                          {%- elsif to_checkout -%}
+                            {{- 'common.buy_now' | t -}}
+                          {%- else -%}
+                            {{- 'common.add_to_cart' | t -}}
+                          {%- endif -%}
+                        {%- else -%}
+                          {{- 'common.sold_out' | t -}}
+                        {%- endif -%}
+                      </span>
+                      {% render 'btn-loader' %}
+                    </button>
+                  </div>
+
+                  {% if show_terms %}
+                    <!-- payment_terms -->
+                    <div class="rte text-sc-body-primary mt-2.5 text-center text-sm">
+                      {{ form | payment_terms }}
+                    </div>
+                  {% endif %}
+
+                  <div class="delivery-promise__promise-container"></div>
+
+                  <div class="mt-3 flex flex-col {% if bottom_divider == 'yes' %} divide-y divide-[#E0E8F6] {% endif %}">
+                    {% liquid
+                      assign now_ts = 'now' | date: '%s' | plus: 0
+                      assign current_day = 'now' | date: '%u' | plus: 0
+                      assign current_hour = 'now' | date: '%H' | plus: 0
+                      assign delivery_days = settings.delivery_days | plus: 0
+                      assign delivery_mode = settings.delivery_mode
+                      assign data = ''
+                      if delivery_days == 3
+                        assign data = '2,3|2,3|2,5|4,4|3,5|4|3'
+                      elsif delivery_days == 4
+                        assign data = '3,4|3,6|5,5|4,4|4,6|5|4'
+                      elsif delivery_days == 5
+                        assign data = '4,7|6,6|5,5|5,5|5,7|6|5'
+                      endif
+                      if delivery_mode == 'no'
+                        if delivery_days == 3
+                          assign data = '2,3|2,3|2,5|4,5|4,5|4|3'
+                        elsif delivery_days == 4
+                          assign data = '3,4|3,6|5,6|5,6|5,6|5|4'
+                        elsif delivery_days == 5
+                          assign data = '4,7|6,7|6,7|6,7|6,7|6|5'
+                        endif
+                      endif
+                      assign day_data = data | split: '|'
+                      assign day_index = current_day | minus: 1
+                      assign value_str = day_data[day_index]
+                      assign days_to_delivery = 0
+                      if current_day <= 5
+                        assign values = value_str | split: ','
+                        if current_hour < 14
+                          assign days_to_delivery = values[0] | plus: 0
+                        else
+                          assign days_to_delivery = values[1] | plus: 0
+                        endif
+                      else
+                        assign days_to_delivery = value_str | plus: 0
+                      endif
+                      assign seconds_to_add = days_to_delivery | times: 86400
+                      assign arrival_ts = now_ts | plus: seconds_to_add
+                      assign bottom_date = arrival_ts | date: '%B %e'
+                    %}
+                    {% for i in (1..2) %}
+                      {% liquid
+                        assign text_key = 'bottom_text_' | append: i
+                        assign icon_key = 'bottom_icon_' | append: i
+                        assign bottom_text = block.settings[text_key]
+                        assign bottom_icon = block.settings[icon_key]
+                        unless forloop.first
+                          assign bottom_date = ''
+                        endunless
+                      %}
+                      {% if bottom_text != blank %}
+                        <div class="text-sc-title child-b:font-semibold rte flex w-full justify-start space-x-2 py-2 text-sm leading-tight lg:py-3 lg:text-base">
+                          {% if bottom_icon != blank %}
+                            <div class="h-6 w-6">
+                              {{
+                                bottom_icon
+                                | image_url: width: bottom_icon.width
+                                | image_tag: alt: bottom_icon.alt, class: 'object-contain w-full h-full'
+                              }}
+                            </div>
+                          {% endif %}
+                          <div class="py-[3px] lg:py-0.5">
+                            {{- bottom_text -}}
+                            {% if bottom_date != blank %}
+                              <span class="font-semibold">{{- bottom_date -}}</span>
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endform %}
+            </div>
+
+            {% render 'sticky-product-form',
+              product: product,
+              meta: meta,
+              section_anchor_id: section_anchor_id,
+              has_offer: has_offer,
+              to_checkout: to_checkout,
+              review_star: b_review_star,
+              review_text: b_review_text
+            %}
+
+          {% when 'product_drawer' %}
+            {% render 'product-drawer', block: block %}
+
+          {% when 'product_upsells' %}
+            {% render 'product-upsells', upsells: upsells, block: block %}
+
+          {% when 'product_review_block' %}
+            {% render 'product-review-block', block: block %}
+
+          {% when 'space' %}
+            <div style="height: {{ block.settings.space | append: 'px;' }}" {{ block.shopify_attributes }}></div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+  {% render 'product-json', product: product %}
+</div>
+
+{% schema %}
+{
+  "name": "Main product",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Main product"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_product_media",
+      "label": "Hide product media",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_title",
+      "name": "Product title",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Custom title"
+        }
+      ]
+    },
+    {
+      "type": "product_description",
+      "name": "Product description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Custom description"
+        },
+        {
+          "type": "number",
+          "id": "bottom_margin",
+          "label": "Bottom margin",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "type": "product_form",
+      "name": "Product form",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Form settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_qty",
+          "label": "Show quantity input",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_terms",
+          "label": "Show form terms",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "to_checkout",
+          "label": "Straight to checkout",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Form Bottom"
+        },
+        {
+          "type": "select",
+          "id": "bottom_text_divider",
+          "label": "Divide",
+          "options": [
+            {
+              "value": "yes",
+              "label": "Yes"
+            },
+            {
+              "value": "no",
+              "label": "No"
+            }
+          ],
+          "default": "yes"
+        },
+        {
+          "type": "image_picker",
+          "id": "bottom_icon_1",
+          "label": "Form bottom icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "bottom_text_1",
+          "label": "Form bottom text",
+          "default": "Estimated <strong>delivery </strong>"
+        },
+        {
+          "type": "image_picker",
+          "id": "bottom_icon_2",
+          "label": "Form bottom icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "bottom_text_2",
+          "label": "Form bottom text",
+          "default": "3rd Party Tested by an <strong>ISO Certified Lab</strong>"
+        },
+        {
+          "type": "header",
+          "content": "Subscription settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_subscription",
+          "label": "Show pricing widget",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "subscription_title",
+          "label": "Subscriptions title",
+          "default": "Subscribe & Save"
+        },
+        {
+          "type": "richtext",
+          "id": "subscription_tooltip",
+          "label": "Subscriptions tooltip"
+        },
+        {
+          "type": "richtext",
+          "id": "subscription_benefits",
+          "label": "Subscriptions benefits",
+          "default": "<ol><li>Locked-in discount on every shipment</li><li>Earn 2–5% store credit + surprise gifts</li><li>Skip, delay, or cancel anytime—no fees</li></ol>"
+        },
+        {
+          "type": "text",
+          "id": "plan_name_remove",
+          "label": "Short Subscription Plan Label",
+          "default": "Delivery every",
+          "info": "Automatically removes '{variable}' prefix for a cleaner display"
+        },
+        {
+          "type": "header",
+          "content": "Sticky ATC"
+        },
+        {
+          "type": "image_picker",
+          "id": "review_star",
+          "label": "Review stars"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "review_text",
+          "label": "Review text",
+          "default": "4.6 (84 reviews)"
+        },
+        {
+          "type": "number",
+          "id": "bottom_margin",
+          "label": "Bottom margin",
+          "default": 20
+        }
+      ]
+    },
+    {
+      "type": "product_drawer",
+      "name": "Product drawer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Button settings"
+        },
+        {
+          "type": "color",
+          "id": "bg",
+          "label": "Background color",
+          "default": "#ECF3FF"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Title color",
+          "default": "#25282A"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button text",
+          "default": "Supplement facts"
+        },
+        {
+          "type": "number",
+          "id": "bottom_margin",
+          "label": "Bottom margin",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "Drawer settings"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Drawer title",
+          "default": "Supplement Facts"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Drawer image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "Drawer image mobile"
+        }
+      ]
+    },
+    {
+      "type": "product_accordions",
+      "name": "Bottom accordions [META]",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Product accordions",
+          "info": "[PRODUCT METAOBJECT LINK](https://admin.shopify.com/store/apeiron-store/content/metaobjects/entries/product_information)"
+        },
+        {
+          "type": "number",
+          "id": "index",
+          "label": "Active accordion",
+          "default": 0
+        },
+        {
+          "type": "checkbox",
+          "id": "bot_border",
+          "label": "Bottom border",
+          "default": true
+        },
+        {
+          "type": "number",
+          "id": "bottom_margin",
+          "label": "Bottom margin",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "Custom accordions"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_meta",
+          "label": "Hide META accordions",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "acc_title_1",
+          "label": "Accordion title 1"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_1",
+          "label": "Accordion text 1"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_2",
+          "label": "Accordion title 2",
+          "visible_if": "{{ block.settings.acc_title_1 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_2",
+          "label": "Accordion text 2",
+          "visible_if": "{{ block.settings.acc_title_1 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_3",
+          "label": "Accordion title 3",
+          "visible_if": "{{ block.settings.acc_title_2 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_3",
+          "label": "Accordion text 3",
+          "visible_if": "{{ block.settings.acc_title_2 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_4",
+          "label": "Accordion title 4",
+          "visible_if": "{{ block.settings.acc_title_3 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_4",
+          "label": "Accordion text 4",
+          "visible_if": "{{ block.settings.acc_title_3 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_5",
+          "label": "Accordion title 5",
+          "visible_if": "{{ block.settings.acc_title_4 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_5",
+          "label": "Accordion text 5",
+          "visible_if": "{{ block.settings.acc_title_4 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_6",
+          "label": "Accordion title 6",
+          "visible_if": "{{ block.settings.acc_title_5 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_6",
+          "label": "Accordion text 6",
+          "visible_if": "{{ block.settings.acc_title_5 }}"
+        }
+      ]
+    },
+    {
+      "type": "product_open_accordions",
+      "name": "Top accordions [META]",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Product accordions",
+          "info": "[PRODUCT METAOBJECT LINK](https://admin.shopify.com/store/apeiron-store/content/metaobjects/entries/product_information)"
+        },
+        {
+          "type": "checkbox",
+          "id": "bot_border",
+          "label": "Bottom border",
+          "default": true
+        },
+        {
+          "type": "number",
+          "id": "bottom_margin",
+          "label": "Bottom margin",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "Custom accordions"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_meta",
+          "label": "Hide META accordions",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "acc_title_1",
+          "label": "Accordion title 1"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_1",
+          "label": "Accordion text 1"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_2",
+          "label": "Accordion title 2",
+          "visible_if": "{{ block.settings.acc_title_1 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_2",
+          "label": "Accordion text 2",
+          "visible_if": "{{ block.settings.acc_title_1 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_3",
+          "label": "Accordion title 3",
+          "visible_if": "{{ block.settings.acc_title_2 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_3",
+          "label": "Accordion text 3",
+          "visible_if": "{{ block.settings.acc_title_2 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_4",
+          "label": "Accordion title 4",
+          "visible_if": "{{ block.settings.acc_title_3 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_4",
+          "label": "Accordion text 4",
+          "visible_if": "{{ block.settings.acc_title_3 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_5",
+          "label": "Accordion title 5",
+          "visible_if": "{{ block.settings.acc_title_4 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_5",
+          "label": "Accordion text 5",
+          "visible_if": "{{ block.settings.acc_title_4 }}"
+        },
+        {
+          "type": "text",
+          "id": "acc_title_6",
+          "label": "Accordion title 6",
+          "visible_if": "{{ block.settings.acc_title_5 }}"
+        },
+        {
+          "type": "richtext",
+          "id": "acc_text_6",
+          "label": "Accordion text 6",
+          "visible_if": "{{ block.settings.acc_title_5 }}"
+        }
+      ]
+    },
+    {
+      "type": "product_upsells",
+      "name": "Product upsells",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Metaobject Upsells Priority"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Block badge"
+        },
+        {
+          "type": "product_list",
+          "id": "products",
+          "label": "Block products"
+        }
+      ]
+    },
+    {
+      "type": "space",
+      "name": "Space",
+      "settings": [
+        {
+          "type": "number",
+          "id": "space",
+          "label": "Space in px",
+          "default": 20
+        }
+      ]
+    },
+    {
+      "type": "offer",
+      "name": "Offer",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Block text color",
+          "default": "#1A4178"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Block background color",
+          "default": "#ECF3FF"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title",
+          "default": "Pre-Order Only"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Block description",
+          "default": "<p>Orders placed between <strong>May 25th - June 14th</strong> are <strong>pre-orders</strong> and will ship out on <strong>June 21st.</strong></p>"
+        },
+        {
+          "type": "number",
+          "id": "margin",
+          "label": "Bottom margin",
+          "default": 20
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "html_liquid",
+      "name": "Html / liquid component",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "Html component"
+        },
+        {
+          "type": "liquid",
+          "id": "liquid",
+          "label": "Liquid component"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Richtext"
+        }
+      ]
+    },
+    {
+      "type": "product_price",
+      "name": "Product price",
+      "settings": [
+        {
+          "type": "number",
+          "id": "margin",
+          "label": "Margin bottom",
+          "default": 12
+        }
+      ],
+      "limit": 1
+    },
+    {
+      "type": "image",
+      "name": "Carousel media",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Carousel image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Carousel video"
+        }
+      ]
+    },
+    {
+      "type": "product_review_block",
+      "name": "Product review block",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "default": 5,
+          "unit": "str",
+          "label": "Review stars"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Review name",
+          "default": "Lagan W"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Review text",
+          "default": "As skeptical as I was, I thought Id try it out. Im one month in and I DO absolutely notice a difference in my knees, shoulders, elbows, wrist and knuckles. Ill continue to use while available."
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Review date",
+          "default": "10 Jun 2025"
+        },
+        {
+          "type": "number",
+          "id": "margin",
+          "label": "Margin bottom",
+          "default": 20
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "presets": [
+    {
+      "name": "Main product",
+      "category": "Sections",
+      "blocks": [
+        {
+          "type": "product_title"
+        },
+        {
+          "type": "product_description"
+        },
+        {
+          "type": "product_form"
+        },
+        {
+          "type": "product_upsells"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

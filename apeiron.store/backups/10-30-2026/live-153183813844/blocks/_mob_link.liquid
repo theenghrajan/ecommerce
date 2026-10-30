@@ -1,0 +1,78 @@
+{% liquid
+  assign b_product = block.settings.product
+  assign b_badge = block.settings.badge
+  assign b_image = block.settings.image | default: b_product.featured_image
+  assign b_title = block.settings.title | default: b_product.title
+  assign b_link = block.settings.link | default: b_product.url
+%}
+<a
+  aria-label="{{- b_title -}}"
+  href="{{ b_link }}"
+  class="group-link flex flex-col space-y-5"
+  {{ block.shopify_attributes }}
+>
+  <span class="image-overflow-hidden relative shrink-0 rounded-lg">
+    {% if b_image != blank %}
+      {{
+        b_image
+        | image_url: width: 363
+        | image_tag:
+          alt: b_image.alt,
+          class: 'object-cover w-full h-full group-hover/link:scale-105 duration-500 ease-in-out will-change-transform',
+          widths: '235, 363',
+          loading: 'lazy',
+          draggable: false
+      }}
+    {% else %}
+      {{ 'lifestyle-2' | placeholder_svg_tag: 'object-cover w-full h-full' }}
+    {% endif %}
+
+    {% if b_badge != blank %}
+      <span class="bg-c-sunhaze text-c-shadow font-third absolute left-3 top-3 rounded px-2 py-1 text-xs uppercase">
+        {{- b_badge -}}
+      </span>
+    {% endif %}
+  </span>
+
+  {% if b_title %}
+    <span class="group-hover/link:text-c-navy text-c-shadow text-lg duration-200 ease-in-out will-change-[color]">
+      {{- b_title -}}
+    </span>
+  {% endif %}
+</a>
+
+{% schema %}
+{
+  "name": "Image block",
+  "class": "splide__slide",
+  "tag": "li",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Block product"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Block badge"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Block image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Block title"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Block link"
+    }
+  ],
+  "presets": [{ "name": "Image block" }]
+}
+{% endschema %}

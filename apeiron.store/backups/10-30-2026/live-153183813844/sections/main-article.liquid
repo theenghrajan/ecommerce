@@ -1,0 +1,509 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign article_blog_handle = article.handle | split: '/' | first
+  assign blog = blogs[article_blog_handle]
+  assign upsells = article.metafields.binaery.upsells
+  assign author = article.metafields.binaery.author
+  assign reviewer = article.metafields.custom.reviewer
+  assign reviewed_date = article.metafields.binaery.reviewed_date
+
+  assign fallback_author = shop.metaobjects.article_author['dr-hamilton']
+  assign fallback_reviewer = shop.metaobjects.article_reviewer['dr-mickra-hamilton']
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-c-white text-c-navy border-c-border flex flex-col border-b"
+>
+  <div class="bg-sc-bg-secondary border-c-border relative border-b">
+<div class="lg:px-15 xl:px-17.5 container relative grid grid-cols-1 items-center p-0 lg:min-h-[400px] lg:grid-cols-2 lg:pt-10 xl:min-h-[450px]">
+  {% if article.image != blank %}
+    {{-
+      article.image
+      | image_url: width: 1300
+      | image_tag:
+        widths: '375, 400, 500, 650, 900, 1100, 1300',
+        class: 'object-cover object-top w-full h-full lg:rounded-lg',
+        preload: true,
+        loading: 'eager',
+        fetchpriority: 'high',
+        draggable: false
+    -}}
+  {% else %}
+    {{ 'image' | placeholder_svg_tag: 'object-cover object-top w-full h-full lg:rounded-lg' }}
+  {% endif %}
+
+  <div class="md:px-15 lg:px-17.5 px-7.5 flex flex-col justify-center space-y-5 py-5">
+    <h1 class="text-sc-title text-3xl font-semibold lg:text-4xl">
+      {{- article.title -}}
+    </h1>
+
+    <div class="flex justify-between space-x-10">
+      <span class="text-sc-body-primary text-base">
+        {{- article.published_at | date: '%B %d, %Y' -}}
+      </span>
+
+      {% assign reading_time = article.content
+        | strip_html
+        | split: ' '
+        | size
+        | times: 1.0
+        | divided_by: 250
+        | plus: 1
+        | ceil
+      -%}
+
+      <span class="text-sc-body-primary text-base">
+        {% if reading_time > 1 %}
+          {{ 'blogs.article.read_time.other' | t: min: reading_time }}
+        {% else %}
+          {{ 'blogs.article.read_time.one' | t: min: reading_time }}
+        {% endif %}
+      </span>
+    </div>
+
+    <div class="flex items-center space-x-1">
+      <div class="text-sc-body-primary text-base font-semibold">{{- 'common.share' | t | append: ':' -}}</div>
+
+      <div class="flex items-center space-x-1">
+        <a
+          target="_blank"
+          aria-label="Facebook share - {{ article.title -}}"
+          href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}%2Fblogs%2F{{ article.handle | url_encode  }}&t={{ article.title }}"
+        >
+          {%- render 'icon-social',
+            name: 'article-facebook',
+            class: 'h-6 hover:text-sc-body-primary text-sc-title ease-in-out duration-300'
+          -%}
+        </a>
+        <a
+          target="_blank"
+          aria-label="Twitter share - {{ article.title }}"
+          href="https://twitter.com/intent/tweet?original_referer={{ shop.url }}%2F&text={{article.title}}&url={{ shop.url }}%2Fblogs%2F{{ article.handle | url_encode }}"
+        >
+          {%- render 'icon-social',
+            name: 'article-twitter',
+            class: 'h-6 hover:text-sc-body-primary text-sc-title ease-in-out duration-300'
+          -%}
+        </a>
+      </div>
+    </div>
+
+    {% comment %} Condensed byline directly under Share, visible on all breakpoints. Falls back to the Dr. Hamilton article_author metaobject entry when the binaery.author metafield isn't set. {% endcomment %}
+    {% liquid
+      assign hdr_au_name = fallback_author.name
+      assign hdr_au_link = fallback_author.link
+      assign hdr_au_credentials = fallback_author.credentials
+      assign hdr_au_title = fallback_author.title
+      if author != blank and author.value.name != blank
+        assign hdr_au_name = author.value.name
+        assign hdr_au_link = author.value.link
+        assign hdr_au_credentials = author.value.credentials
+        assign hdr_au_title = author.value.title
+      endif
+    %}
+    {% if hdr_au_name != blank %}
+<div class="text-sc-body-primary flex flex-col space-y-0.5 text-sm">
+  {% liquid
+    assign hdr_rev_name = blank
+    assign hdr_rev_link = blank
+    assign hdr_rev_credentials = blank
+    assign hdr_rev_date = article.published_at
+
+    if reviewer != blank and reviewer.value.name != blank
+      assign hdr_rev_name = reviewer.value.name
+      assign hdr_rev_link = reviewer.value.link
+      assign hdr_rev_credentials = reviewer.value.credentials
+    endif
+
+    if reviewed_date != blank
+      assign hdr_rev_date = reviewed_date
+    endif
+
+    if hdr_au_name == blank or hdr_rev_name == blank
+      assign hdr_au_name = 'Dr. Daniel Stickler'
+      assign hdr_au_link = blank
+      assign hdr_au_credentials = 'MD'
+      assign hdr_au_title = 'Chief Medical Officer, Apeiron Elementals'
+
+      assign hdr_rev_name = 'Dr. Mickra Hamilton'
+      assign hdr_rev_link = blank
+      assign hdr_rev_credentials = 'PhD'
+    endif
+  %}
+
+  <div>
+    <span>Written by</span>
+    {% if hdr_au_link != blank %}
+      <a href="{{- hdr_au_link -}}" target="_blank" class="hover:text-c-navy underline duration-200 ease-in-out">
+        {{- hdr_au_name -}}{% if hdr_au_credentials != blank %}, {{ hdr_au_credentials }}{% endif %}
+      </a>
+    {% else %}
+      <span class="underline">{{- hdr_au_name -}}{% if hdr_au_credentials != blank %}, {{ hdr_au_credentials }}{% endif %}</span>
+    {% endif %}
+    {% if hdr_au_title != blank %}
+      <span class="text-c-shadow"> - {{ hdr_au_title }}</span>
+    {% endif %}
+  </div>
+
+  {% if hdr_rev_name != blank or hdr_rev_date != blank %}
+    <div class="text-c-shadow">
+      {% if hdr_rev_name != blank %}
+        <span> and reviewed by </span>
+        {% if hdr_rev_link != blank %}
+          <a href="{{- hdr_rev_link -}}" target="_blank" class="hover:text-c-navy underline duration-200 ease-in-out">
+            {{- hdr_rev_name -}}{% if hdr_rev_credentials != blank %}, {{ hdr_rev_credentials }}{% endif %}
+          </a>
+        {% else %}
+          <span class="underline">{{- hdr_rev_name -}}{% if hdr_rev_credentials != blank %}, {{ hdr_rev_credentials }}{% endif %}</span>
+        {% endif %}
+      {% endif %}
+
+      {% if hdr_rev_date != blank %}
+        {% if hdr_rev_name != blank %}
+          <span>, on {{ hdr_rev_date | date: '%B %d, %Y' }}</span>
+        {% else %}
+          <span> on {{ hdr_rev_date | date: '%B %d, %Y' }}</span>
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+    {% endif %}
+  </div>
+</div>
+
+    <div class="font-third text-sc-title container py-5 text-sm uppercase lg:text-base">
+      <a
+        class="duration-300 ease-in-out hover:opacity-70"
+        href="{{ blog.url }}"
+        aria-label="{{ blog.title | prepend: 'Redirect to ' }}"
+      >
+        {{ 'blogs.general.name' | t }} / {{ blog.title }}
+      </a>
+      / {{ article.title }}
+    </div>
+  </div>
+
+  {% liquid
+    assign au_photo = fallback_author.photo
+    assign au_name = fallback_author.name
+    assign au_link = fallback_author.link
+    assign au_credentials = fallback_author.credentials
+    assign au_title = fallback_author.title
+    if author != blank and author.value.name != blank
+      assign au_photo = author.value.photo
+      assign au_name = author.value.name
+      assign au_link = author.value.link
+      assign au_credentials = author.value.credentials
+      assign au_title = author.value.title
+    endif
+  %}
+  {% capture author_block %}
+      {% if au_photo != blank or au_name != blank %}
+        <div class="flex items-center space-x-3">
+          {% if au_link != blank and au_photo != blank %}
+            <a href="{{- au_link -}}" aria-label="Open author page" target="_blank" class="flex shrink-0 rounded-full">
+              {{
+                au_photo
+                | image_url: width: 100
+                | image_tag:
+                  alt: au_photo.value.alt,
+                  class: 'w-12.5 h-12.5 object-cover pointer-events-none border-c-border border rounded-full shrink-0',
+                  widths: '50, 100',
+                  draggable: false,
+                  srcset: null
+              }}
+            </a>
+          {% elsif au_photo != blank %}
+            {{
+              au_photo
+              | image_url: width: 100
+              | image_tag:
+                alt: au_photo.value.alt,
+                class: 'w-12.5 h-12.5 object-cover pointer-events-none border-c-border border rounded-full shrink-0',
+                widths: '50, 100',
+                draggable: false,
+                srcset: null
+            }}
+          {% endif %}
+
+          {% if au_name != blank %}
+            <div class="text-c-shadow flex flex-col space-y-0.5">
+              <div class="flex items-baseline space-x-1">
+                {% if au_link != blank %}
+                  <span>By:</span>
+                  <a href="{{- au_link -}}" aria-label="Open author page" target="_blank" class="hover:text-c-navy text-base underline duration-200 ease-in-out">
+                    {{- au_name -}}{% if au_credentials != blank %}, {{ au_credentials }}{% endif %}
+                  </a>
+                {% else %}
+                  <span class="text-base underline">{{- au_name -}}{% if au_credentials != blank %}, {{ au_credentials }}{% endif %}</span>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endcapture %}
+
+  {% liquid
+    assign rev_name = blank
+    assign rev_link = blank
+    assign rev_credentials = blank
+    assign rev_date = blank
+    if reviewer != blank and reviewer.value.name != blank
+      assign rev_name = reviewer.value.name
+      assign rev_link = reviewer.value.link
+      assign rev_credentials = reviewer.value.credentials
+      assign rev_date = article.published_at
+      if reviewed_date != blank
+        assign rev_date = reviewed_date
+      endif
+    endif
+  %}
+  {% capture reviewer_block %}
+    {% if rev_name != blank %}
+      <div class="text-c-shadow flex items-baseline space-x-1 text-sm">
+        <span> and </span>
+        {% if rev_link != blank %}
+          <a href="{{- rev_link -}}" aria-label="Open reviewer page" target="_blank" class="hover:text-c-navy underline duration-200 ease-in-out">
+            {{- rev_name -}}{% if rev_credentials != blank %}, {{ rev_credentials }}{% endif %}
+          </a>
+        {% else %}
+          <span class="underline">{{- rev_name -}}{% if rev_credentials != blank %}, {{ rev_credentials }}{% endif %}</span>
+        {% endif %}
+        {% if rev_date != blank %}
+          <span>on {{ rev_date | date: '%B %d, %Y' }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endcapture %}
+
+  {% if upsells != blank %}
+    {% capture article_aside_upsells %}
+      {% for up_product in upsells.value %}
+        {%- unless up_product.template_suffix == 'hidden' -%}
+          <li class="w-full">
+            {% render 'product-card', product: up_product, disable_animation: true, show_benefits: true, class: 'bg-c-white' %}
+          </li>
+        {%- endunless -%}
+      {% endfor %}
+    {% endcapture %}
+  {% endif %}
+
+  <div class="xl:flex">
+    {% if author_block != blank or reviewer_block != blank or article_aside_upsells != blank %}
+      <div class="pb-15 z-1 xl:px-17.5 after:-z-1 border-c-border relative ml-auto hidden w-full max-w-[450px] border-r bg-[#F9F9F9] pt-10 after:pointer-events-none after:absolute after:right-0 after:top-0 after:h-full after:w-[200vw] after:bg-[#F9F9F9] after:content-[''] xl:flex xl:flex-col self-start">
+        <div class="space-y-7.5">
+          {{ author_block }}
+
+          {% liquid
+            assign show_author_upsell_divider = false
+            if author_block != blank or reviewer_block != blank
+              if article_aside_upsells != blank
+                assign show_author_upsell_divider = true
+              endif
+            endif
+          %}
+          {% if show_author_upsell_divider %}
+            <hr class="border-c-border">
+          {% endif %}
+
+          {% if article_aside_upsells != blank %}
+            <ul class="grid grid-cols-1 gap-5">
+              {{ article_aside_upsells }}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div
+      class="xl:pb-15 p-7.5 md:px-15 text-sc-body-primary overflow-hidden lg:pt-10 xl:max-w-[1150px] {% if author_block != blank or article_aside_upsells != blank %} mr-auto xl:px-17.5 {% else %} mx-auto {% endif %}"
+    >
+      <div class="rte-article">
+        {{- article.content -}}
+      </div>
+
+      {% liquid
+        assign show_mobile_author_block = false
+        if author_block != blank or reviewer_block != blank
+          if article_aside_upsells != blank
+            assign show_mobile_author_block = true
+          endif
+        endif
+      %}
+      {% if show_mobile_author_block %}
+        <div class="space-y-7.5 md:-mx-15 p-7.5 md:px-15 -mx-5 w-screen bg-[#F9F9F9] xl:hidden">
+          {{ author_block }}
+
+          {% if article_aside_upsells != blank %}
+            <ul class="grid grid-cols-1 gap-5 md:grid-cols-2">
+              {{ article_aside_upsells }}
+            </ul>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .rte-article h1:not([class]),
+  .rte-article h2:not([class]),
+  .rte-article h3:not([class]),
+  .rte-article h4:not([class]),
+  .rte-article h5:not([class]),
+  .rte-article h6:not([class]) {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h1:not([class]),
+  .rte-article h1 span:not([class]),
+  .rte-article h1 strong:not([class]),
+  .rte-article h1 b:not([class]) {
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h2:not([class]),
+  .rte-article h2 span:not([class]),
+  .rte-article h2 strong:not([class]),
+  .rte-article h2 b:not([class]) {
+    font-size: 1.875rem;
+    line-height: 2.375rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h3:not([class]),
+  .rte-article h3 span:not([class]),
+  .rte-article h3 strong:not([class]),
+  .rte-article h3 b:not([class]) {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h4:not([class]),
+  .rte-article h4 span:not([class]),
+  .rte-article h4 strong:not([class]),
+  .rte-article h4 b:not([class]) {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h5:not([class]),
+  .rte-article h5 span:not([class]),
+  .rte-article h6 span:not([class]),
+  .rte-article h5 strong:not([class]),
+  .rte-article h6:not([class]),
+  .rte-article h6 strong:not([class]),
+  .rte-article h5 b:not([class]),
+  .rte-article h6 b:not([class]) {
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article p:not([class]),
+  .rte-article span:not([class]),
+  .rte-article b:not([class]),
+  .rte-article strong:not([class]),
+  .rte-article a:not([class]) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 200;
+    color: rgb(var(--c-body-primary));
+  }
+  .rte-article a,
+  .rte-article a:not([class]),
+  .rte-article a span:not([class]) {
+    color: rgb(var(--c-navy));
+  }
+  .rte-article hr:not([class]),
+  .rte-article p:not([class]),
+  .rte-article img:not([class]) {
+    margin-bottom: 1.25rem;
+  }
+  .rte-article img:not([class]) {
+    border-radius: 20px;
+  }
+  .rte-article a:not([class]) {
+    color: rgb(var(--c-navy));
+    text-decoration-line: underline;
+  }
+  .rte-article ol:not([class]),
+  .rte-article ul:not([class]) {
+    padding-bottom: 1.25rem;
+    padding-left: 1.875rem;
+    text-align: left;
+  }
+  .rte-article ol:not([class]) {
+    list-style-type: disc;
+  }
+  .rte-article ul:not([class]) {
+    list-style-type: decimal;
+  }
+  @media (min-width: 992px) {
+    .rte-article h5:not([class]),
+    .rte-article h5 span:not([class]),
+    .rte-article h6 span:not([class]),
+    .rte-article h5 strong:not([class]),
+    .rte-article h6:not([class]),
+    .rte-article h6 strong:not([class]),
+    .rte-article h5 b:not([class]),
+    .rte-article h6 b:not([class]) {
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+    }
+    .rte-article h4:not([class]),
+    .rte-article h4 span:not([class]),
+    .rte-article h4 strong:not([class]),
+    .rte-article h4 b:not([class]) {
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+    .rte-article h3:not([class]),
+    .rte-article h3 span:not([class]),
+    .rte-article h3 strong:not([class]),
+    .rte-article h3 b:not([class]) {
+      font-size: 1.875rem;
+      line-height: 2.375rem;
+    }
+    .rte-article h2:not([class]),
+    .rte-article h2 span:not([class]),
+    .rte-article h2 strong:not([class]),
+    .rte-article h2 b:not([class]) {
+      font-size: 2.25rem;
+      line-height: 2.875rem;
+    }
+    .rte-article h1:not([class]),
+    .rte-article h1 span:not([class]),
+    .rte-article h1 strong:not([class]),
+    .rte-article h1 b:not([class]) {
+      font-size: 3rem;
+      line-height: 3.75rem;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Main article",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Main article"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.shop_bg_color }}">
+    {% assign pagewith_pagination = request.path | split: '?' | first %}
+    {% if request.page_type == 'collection' and current_page %}
+      <link rel="canonical" href="{{ shop.url }}{{ pagewith_pagination }}">
+    {% else %}
+    <link rel="canonical" href="{{ canonical_url }}">
+    {% endif %}
+    
+    {%- if current_tags -%}{%- assign meta_tags = current_tags | join: ', ' -%}{%- endif -%}
+    <title>
+      {%- if template.name == 'index' -%}
+        {{ page_title }}
+      {%- else -%}
+        {{ page_title -}}
+        {%- if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags }}{%- endif -%}
+        {% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} - {{ shop.name }}{% endunless -%}
+      {%- endif %}
+    </title>
+
+    <!--
+      Google Site Verification
+      <meta name="google-site-verification" content="******">
+    -->
+
+    <!-- DNS prefetches -->
+    <link rel="dns-prefetch" href="https://cdn.shopify.com">
+    <link rel="dns-prefetch" href="https://monorail-edge.shopifysvc.com">
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://monorail-edge.shopifysvc.com" crossorigin>
+    <link rel="preconnect" href="https://ajax.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <!-- Preloads -->
+    {{ 'Inter-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }}
+    {{ 'Inter-SemiBold.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }}
+    {{ 'Inter-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }}
+
+    <!-- Preload JS -->
+    {{ 'main.js' | asset_url | preload_tag: as: 'script' }}
+
+    {% if current_tags or current_page != 1 or request.path == '/collections' %}
+      <meta name="robots" content="noindex, follow">
+    {% else %}
+      <meta name="robots" content="index,follow">
+    {% endif %}
+
+    {%- if page_description -%}
+      <meta
+        name="description"
+        content="{{ page_description | escape }}{% if current_tags %} {{ 'general.meta.tagged_html' | t: tags: meta_tags | escape }}.{% endif %}{% if current_page != 1 %} {{ 'general.meta.page' | t: page_number: current_page }}.{% endif %}"
+      >
+    {%- endif -%}
+
+    {% if settings.favicon %}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {% endif %}
+
+    {% if request.page_type == 'product' %}
+      {{ 'splide-slider.css' | asset_url | stylesheet_tag: preload: true }}
+    {% else %}
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ 'splide-slider.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+    {% endif %}
+
+    {% render 'social-meta-tags' %}
+    {% render 'preloads' %}
+    {% render 'custom-redirects' %}
+    {% render 'js-variables' %}
+    {% render 'css-variables' %}
+    {% render 'fonts' %}
+    {% render 'polyfills' %}
+    {% render 'css-hotfixes' %}
+
+    {{ 'main.css' | asset_url | stylesheet_tag: preload: true }}
+
+    <!-- header hook for Shopify plugins -->
+    {% assign defer_scripts = true %}
+    {% if defer_scripts %}
+      {% assign content_for_header_scripts = content_for_header
+        | split: 'var urls = ['
+        | last
+        | split: '];'
+        | first
+        | split: ','
+      %}
+      {% assign content_for_header = content_for_header | replace: 'var scripts', 'var scripts = []; var oldSEC' %}
+      {% assign content_for_header = content_for_header | replace: 'var urls', 'var urls = []; var oldUrls' %}
+    {% endif %}
+
+    {%- render 'header-scripts.zipifypages', renderctx: 'thm', apprxhbl: zp_apprxhbl -%}
+    {{ content_for_header }}
+
+    {% render 'pixels' %}
+  
+
+
+
+
+
+
+<!-- TagadaPay Integration Script -->
+<script>
+(function() {
+  window.TgdShim = {
+    captured: null,
+    custom: [{"xpath":"#cart-drawer > div > div.bg-c-white.md\\:px-7\\.5.sticky.bottom-0.px-5.pb-5.lg\\:px-10 > a","label":"checkoutLink","config":null}],
+    defaults: {
+      checkoutLink: ['//*[@id="checkout"]', '//button[@name="checkout"]', '//form[@action="/cart"]//button[@type="submit"]'],
+      buyNowLink: ['.shopify-payment-button__button--unbranded', '.shopify-payment-button__button--branded']
+    }
+  };
+
+  function matches(el, xpath) {
+    try {
+      if (!el || !xpath) return false;
+      const isXpath = xpath.startsWith('//') || xpath.startsWith('/') || xpath.startsWith('(');
+      if (isXpath) {
+        const res = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        return res === el || res?.contains(el);
+      }
+      return el.matches(xpath) || el.closest(xpath);
+    } catch(e) { return false; }
+  }
+
+  document.addEventListener('click', function(e) {
+    if (window.TgdMapperInitialized) return;
+    const target = e.composedPath ? e.composedPath()[0] : e.target;
+
+    for (const item of window.TgdShim.custom) {
+      if (matches(target, item.xpath)) {
+        return capture(e, item.label);
+      }
+    }
+
+    for (const label in window.TgdShim.defaults) {
+      for (const selector of window.TgdShim.defaults[label]) {
+        if (matches(target, selector)) {
+          return capture(e, label);
+        }
+      }
+    }
+
+    function capture(event, label) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      window.TgdShim.captured = { target: target };
+      window.TgdShim.label = label;
+      return false;
+    }
+  }, true);
+})();
+</script>
+<script src="https://app.tagadapay.com/assets/js/tgdmap.js" async></script>
+<script>
+  window.addEventListener('load', function () {
+    if (window.TgdMapper) {
+      TgdMapper.initialize({
+        storeId: 'store_c423053c0bec',
+        appUrl: 'https://app.tagadapay.com',
+        enableShopifyIntegration: true,
+        enableSelector: true,
+        enableGenericBuyNow: true,
+        enableBuyNowButtonDetector: true,
+        enableCheckoutButtonDetector: true,
+        enableKachingBundle: true,
+        enableShopifyCartPreloader: false,
+        shopifyCheckoutSplitRatio: 100,
+        funnelId: 'funnelv2_c75e2f9f5ebb',
+        accountId: 'acc_282a17beda6f',
+        stepId: 'step_1774276708312',
+        buyNowButtonDetectorUrlPatterns: [],
+        buyNowButtonDetectorExcludeUrlPatterns: [],
+        checkoutButtonDetectorExcludeUrlPatterns: [],
+        selectors: [{"xpath":"#cart-drawer > div > div.bg-c-white.md\\:px-7\\.5.sticky.bottom-0.px-5.pb-5.lg\\:px-10 > a","label":"checkoutLink","config":null}],
+        mockMode: false
+      });
+    }
+  });
+</script>
+<!-- End TagadaPay Integration -->
+</head>
+
+  <body class="flex min-h-screen flex-col overflow-x-hidden">
+    {% render 'body-start-scripts' %}
+    <div
+      id="binaery"
+      class="flex min-h-screen flex-col"
+      x-data
+    >
+      <header class="z-full sticky top-0 flex w-full flex-col duration-200 will-change-transform">
+        {% sections 'header-group' %}
+      </header>
+
+      {% sections 'cart-group' %}
+
+      <main
+        id="main"
+        role="main"
+        class="flex-1 overflow-x-clip"
+      >
+        {{ content_for_layout }}
+      </main>
+
+      {% sections 'footer-group' %}
+
+      {% render 'blur-overlay' %}
+    </div>
+
+    <!-- webpack bundle -->
+    <script src="{{ 'main.js' | asset_url }}" defer></script>
+    <script src="{{ 'smoothscroll.min.js' | asset_url }}" defer="defer"></script>
+
+    {% render 'shopify-apps-async-loading', content_for_header_scripts: content_for_header_scripts %}
+
+    {% render 'body-end-scripts' %}
+    {% render 'structured-data' %}
+    {% render 'design-mode-scripts' %}
+    {%- render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: oneclickupsellapp -%}
+    {% include 'local-business' %}
+  </body>
+</html>

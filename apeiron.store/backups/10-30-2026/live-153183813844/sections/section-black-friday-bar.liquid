@@ -1,0 +1,180 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign left_image = section.settings.left_image
+  assign left_width = section.settings.left_width
+  assign left_text = section.settings.left_text
+  assign center_text = section.settings.center_text
+  assign right_image = section.settings.right_image
+  assign right_width = section.settings.right_width
+  assign right_text = section.settings.right_text
+
+  render 'css-variables-setter'
+%}
+
+<style>
+  .custom-brackets::before,
+  .custom-brackets::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    width: 16px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2214%22%20height%3D%2240%22%20viewBox%3D%220%200%2014%2040%22%20fill%3D%22none%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M3.9209%200C4.12185%200.462289%204.20009%200.98765%204.11328%201.5332L3.82129%203.37207C3.59039%204.82541%204.53772%206.2053%205.97754%206.5127L9.2793%207.21777C11.2452%207.63743%2012.1213%209.9457%2010.9307%2011.5645L10.1387%2012.6416C9.17191%2013.9549%209.54471%2015.8148%2010.9424%2016.6543L12.6094%2017.6553C14.3994%2018.7306%2014.3993%2021.3252%2012.6094%2022.4004L10.9424%2023.4014C9.54457%2024.241%209.17182%2026.1017%2010.1387%2027.415L10.9307%2028.4912C12.1217%2030.1099%2011.2453%2032.4181%209.2793%2032.8379L5.97754%2033.543C4.53783%2033.8504%203.59058%2035.2304%203.82129%2036.6836L4.11328%2038.5225C4.19662%2039.0462%204.12769%2039.5513%203.94434%2040H0V0H3.9209Z%22%20fill%3D%22%23DEE9F7%22/%3E%3C/svg%3E');
+  }
+  .custom-brackets::before {
+    right: 0;
+  }
+  .custom-brackets::after {
+    left: 0;
+    transform: translateY(-50%) translateX(-100%) rotate(180deg);
+  }
+</style>
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title flex w-full justify-center"
+>
+  <div class="grid items-center text-center" style="grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);">
+    {% if left_image != blank %}
+      <div class="flex justify-end px-2">
+        <div
+          class="flex w-[var(--value)] items-center justify-end"
+          style="--value: {{ left_width | append: 'px' }};"
+        >
+          {{
+            left_image
+            | image_url: width: 300
+            | image_tag:
+              alt: left_image.alt,
+              loading: 'lazy',
+              class: 'object-contain w-full h-full max-h-10',
+              draggable: false
+          }}
+        </div>
+      </div>
+    {% else %}
+      <div class="flex items-center justify-end">
+        <span class="px-2 text-sm font-medium leading-5 md:text-lg">
+          {{- left_text -}}
+        </span>
+      </div>
+    {% endif %}
+
+    <div class="custom-brackets relative mx-4 flex h-10 items-center justify-center bg-[#d9e4f1]">
+      <span class="text-c-navy text-nowrap text-base font-bold md:text-lg">{{- center_text -}}</span>
+    </div>
+
+    {% if right_image != blank %}
+      <div class="flex justify-start px-2">
+        <span
+          class="flex w-[var(--value)] items-center justify-start"
+          style="--value: {{ right_width | append: 'px' }};"
+        >
+          {{
+            right_image
+            | image_url: width: 300
+            | image_tag:
+              alt: right_image.alt,
+              loading: 'lazy',
+              class: 'object-contain w-full h-full max-h-10',
+              draggable: false
+          }}
+        </span>
+      </div>
+    {% else %}
+      <div class="flex items-center justify-start">
+        <span class="px-2 text-sm font-medium leading-5 md:text-lg">
+          {{- right_text -}}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Black Friday Bar"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#0C3A6B"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left image"
+    },
+    {
+      "type": "number",
+      "id": "left_width",
+      "label": "Image custom width",
+      "default": 100
+    },
+    {
+      "type": "inline_richtext",
+      "id": "left_text",
+      "label": "Left text",
+      "default": "Black Friday"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "center_text",
+      "label": "Center text",
+      "default": "USE CODE • BF30"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right image"
+    },
+    {
+      "type": "number",
+      "id": "right_width",
+      "label": "Image custom width",
+      "default": 100
+    },
+    {
+      "type": "inline_richtext",
+      "id": "right_text",
+      "label": "Right text",
+      "default": "30% off storewide"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer"]
+  },
+  "presets": [
+    {
+      "name": "Black Friday Bar",
+      "category": "Sections"
+    }
+  ]
+}
+{% endschema %}

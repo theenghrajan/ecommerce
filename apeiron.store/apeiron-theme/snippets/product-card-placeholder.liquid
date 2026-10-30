@@ -1,0 +1,89 @@
+{%- comment -%}
+  PRODUCT CARD COMPONENT
+
+  * product: the product to render
+  * show_bg
+  * content_align: text content align (left/center)
+  * show_atc
+{%- endcomment -%}
+
+{% liquid
+  assign card_content = ''
+  assign quick_add_btn_text = section.settings.quick_add_btn_text | default: 'Quick add'
+
+  if show_bg
+    assign card_content = card_content | append: 'bg-sc-bg-secondary'
+  endif
+  if show_bg or content_align == 'center' and show_bg == false
+    assign card_content = card_content | append: ' px-3'
+  endif
+  if content_align == 'center'
+    assign card_content = card_content | append: ' text-center items-center'
+  endif
+
+  assign index = index | default: 1
+  assign animation_delay = index | times: 100
+%}
+
+<article
+  class="animate__animated group flex flex-col opacity-0 {{ class }}"
+  x-init="setTimeout(() => { $el.classList.add('animate__fadeIn') }, {{ animation_delay }})"
+>
+  <a
+    href="#"
+    aria-label="Redirect to Product title"
+    class="image-overflow-hidden relative block pb-[100%]"
+  >
+    {{
+      placeholder_image
+      | placeholder_svg_tag: 'absolute top-0 left-0 h-full w-full object-cover duration-500 group-hover:scale-105'
+    }}
+    <!-- CIRCLE BTN -->
+    <button
+      type="button"
+      class="2k:hidden btn btn--circle btn--primary btn--primary__circle btn--primary__circle--fill z-5 absolute bottom-3 right-3"
+      aria-label="Open quick order popup"
+      @click.prevent
+    >
+      <span>
+        {% render 'icon', name: 'plus' %}
+      </span>
+    </button>
+    <!-- PILL BTN -->
+    <button
+      type="button"
+      class="btn btn--sm btn--pill btn--primary btn--primary__pill btn--primary__pill--fill 2k:flex z-5 absolute bottom-3 right-3 hidden"
+      aria-label="Open quick order"
+      @click.prevent
+    >
+      <span>{{ quick_add_btn_text }}</span>
+    </button>
+  </a>
+  <div class="flex h-full flex-col pb-5 pt-4 {{ card_content }}">
+    <!-- REVIEWS RATING START -->
+    {% assign rating_value = 5 %}
+    <div class="text-sc-subtitle mb-2 flex w-max items-center space-x-0.5">
+      {% for i in (1..rating_value) %}
+        <div>
+          {% render 'icon', name: 'star', class: 'shrink-0' %}
+        </div>
+      {% endfor %}
+    </div>
+    <!-- REVIEWS RATING END -->
+
+    <!-- TITLE -->
+    <a
+      href="#"
+      aria-label="Redirect to Product title"
+      class="mb-1 text-sm font-medium"
+    >
+      Product title
+    </a>
+
+    <!-- PRICE -->
+    <div class="flex items-center">
+      <s class="text-sc-body-primary mr-1 text-xs"> $34.99 </s>
+      <span class="price text-sm text-[#E34F4F]"> $54.99 </span>
+    </div>
+  </div>
+</article>

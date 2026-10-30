@@ -1,0 +1,211 @@
+{% liquid
+  assign btn_type = section.settings.btn_type | default: 'btn_primary_fill'
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div class="bg-[#fefbf9]" data-section-id="{{ section.id }}">
+  {% render 'account-navigation' %}
+
+  <div class="narrow-container smD:pt-14 px-7.5 md:px-15 smD:px-25 smD:max-w-7xl 2xl:px-7.5 smD:pb-20 flex py-10 2xl:py-20">
+    {% render 'account-navigation-aside' %}
+    <div class="2xl:pl-12.5 border-c-border w-full 2xl:border-l">
+      <h1 class="text-sc-title mb-5 text-3xl font-semibold md:mb-10 lg:text-4xl">
+        {{- 'customer.addresses.menage' | t -}}
+      </h1>
+
+      {%- paginate customer.addresses by 16 -%}
+        {%- if customer.addresses_count == 0 -%}
+          <div class="md:mt-15 mt-10 grid justify-center gap-5 text-center">
+            <div class="relative mx-auto w-max">
+              {%- render 'icon', name: 'picto-pin', class: 'md:h-12 md:w-12 block' -%}
+              <span class="bg-sc-title text-sc-bg-primary absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full text-xs md:h-7 md:w-7">
+                0
+              </span>
+            </div>
+
+            <div>
+              <h3 class="text-sc-title text-base font-medium">{{ 'customer.addresses.no_addresses' | t }}</h3>
+
+              <button
+                @click="$store.drawer.show({ id: 'customer-address-new'})"
+                class="mx-auto mt-10 {% render 'btn-class', btn: btn_type %}"
+              >
+                {{- 'customer.addresses.add' | t -}}
+              </button>
+            </div>
+          </div>
+        {%- else -%}
+          <div class="smD:gap-5 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-2.5">
+            {%- for address in customer.addresses -%}
+              <div class=" rounded-5 {%- if address == customer.default_address -%} border-sc-title {%- else -%} border-sc-title/20 {%- endif %} hover:border-sc-title flex w-full flex-col border-[2px] p-5 text-left duration-300 ease-in-out">
+                <p class="text-sc-title mb-2.5 flex items-center space-x-2 text-sm font-medium">
+                  {% render 'icon', name: 'home' %}
+                  <span>
+                    {%- if address == customer.default_address -%}
+                      {{ 'customer.addresses.default' | t }}
+                    {%- else -%}
+                      {{ 'customer.addresses.address_title' | t: position: forloop.index }}
+                    {%- endif -%}
+                  </span>
+                </p>
+
+                <div class="rte-p:text-sm rte-p:text-sc-body-primary mb-2.5">
+                  {{- address | format_address -}}
+                </div>
+
+                <div class="mt-auto flex items-center space-x-3">
+                  <button
+                    type="button"
+                    @click="$store.drawer.show({ id: 'customer-address-{{ address.id }}'})"
+                    aria-controls="customer-address-{{ address.id }}"
+                    aria-expanded="false"
+                  >
+                    <span class="text-c-navy hover:decoration-c-navy text-sm underline decoration-transparent duration-300 ease-in-out">
+                      {{- 'customer.addresses.edit' | t -}}
+                    </span>
+                  </button>
+
+                  <form
+                    x-data="
+                      {
+                        submit() {
+                           if (confirm('Are you sure you want to delete the address?')) {
+                            this.$el.submit()
+                           }
+                        }
+                      }
+                    "
+                    @submit.prevent="submit();"
+                    method="post"
+                    action="{{ address.url }}"
+                  >
+                    <input type="hidden" name="_method" value="delete">
+                    <button
+                      is="confirm-button"
+                      data-message="{{ 'customer.addresses.delete' | t | escape }}"
+                    >
+                      <span class="text-c-navy hover:decoration-c-navy text-sm underline decoration-transparent duration-300 ease-in-out">
+                        {{- 'customer.addresses.delete' | t -}}
+                      </span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+
+          <button
+            @click="$store.drawer.show({ id: 'customer-address-new'})"
+            class="mx-auto mt-10 {% render 'btn-class', btn: btn_type %}"
+          >
+            {{- 'customer.addresses.add' | t -}}
+          </button>
+
+          {% render 'layout-pagination', paginate: paginate %}
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+
+  {%- render 'address-form', address: customer.new_address -%}
+
+  {%- for address in customer.addresses -%}
+    {%- render 'address-form', address: address -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Customer addresses",
+  "settings": [
+    {
+      "type": "select",
+      "id": "button_type",
+      "label": "Section button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

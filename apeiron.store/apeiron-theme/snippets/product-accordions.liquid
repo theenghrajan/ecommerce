@@ -1,0 +1,147 @@
+{% if accordions or block.settings.acc_title_1 != blank %}
+  <div
+    {% unless opened_layout %}
+      x-data="{active: {{ block.settings.index }}}"
+    {% endunless %}
+    style="--value: {{ block.settings.bottom_margin | append: 'px' }}"
+    class="mb-[var(--value)] {% if block.settings.bot_border %} border-c-border border-b {% endif %}"
+    {{ block.shopify_attributes }}
+  >
+    {% assign accordion_class = 'border-t border-c-border py-5' %}
+    {% unless block.settings.hide_meta %}
+      {% for accordion in accordions %}
+        {% capture content %}
+          {% if accordion.list %}
+            {% if accordion.list.value.count > 3 %}
+              {% assign limit = 3 %}
+            {% endif %}
+            <div
+              {% if accordion.list.value.count > limit %}
+                x-data="{ showMore: true }"
+              {% endif %}
+            >
+              <ul class="!m-0 list-none !p-0">
+                {% for item in accordion.list.value limit: limit %}
+                  <li class="flex items-start space-x-2 {% unless forloop.first -%} !mt-4 {%- endunless -%}">
+                    {% if item.icon %}
+                      <div class="w-full max-w-3.5 shrink-0">
+                        {{
+                        item.icon
+                        | image_url: width: 28
+                        | image_tag:
+                        alt: item.icon.alt,
+                        class: 'object-contain w-full h-full',
+                        loading: 'lazy',
+                        widths: '14, 28'
+                        }}
+                      </div>
+                    {% endif %}
+
+                    <div>
+                      <span class="text-c-shadow text-base font-semibold">
+                        {{- item.title -}}
+                      </span>
+
+                      <div class="rte text-c-shadow pt-2 text-base">{{- item.content | metafield_tag -}}</div>
+                    </div>
+                  </li>
+                {% endfor %}
+                {% if accordion.list.value.count > limit %}
+                  <div class="!m-0 !p-0" x-cloak x-collapse x-show="!showMore">
+                    {% for item in accordion.list.value offset: limit %}
+                      <li class="flex items-start space-x-2 {% if forloop.first -%} !mt-4 {%- endif -%}">
+                        {% if item.icon %}
+                          <div class="w-full max-w-3.5 shrink-0">
+                            {{
+                            item.icon
+                            | image_url: width: 28
+                            | image_tag:
+                            alt: item.icon.alt,
+                            class: 'object-contain w-full h-full',
+                            loading: 'lazy',
+                            widths: '14, 28'
+                            }}
+                          </div>
+                        {% endif %}
+
+                        <div>
+                          <span class="text-c-shadow text-base font-semibold">
+                            {{- item.title -}}
+                          </span>
+
+                          <div class="rte text-c-shadow pt-2 text-base">{{- item.content | metafield_tag -}}</div>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </ul>
+              {% if accordion.list.value.count > limit %}
+                <button
+                  class="text-c-shadow bg-sc-bg-third mt-4 flex w-full items-center justify-center space-x-2 rounded-lg px-4 py-2 text-sm font-semibold"
+                  type="button"
+                  @click.prevent="showMore = !showMore"
+                  aria-label="{{ 'common.show_more' | t }} - {{ 'common.show_less' | t }}"
+                >
+                  <span class="duration-300 ease-in-out hover:opacity-80" x-text="showMore ? '{{ 'common.show_more' | t }}' : '{{ 'common.show_less' | t }}'"></span>
+
+                  <span :class="showMore && 'rotate-180'">
+                    {% render 'icon', name: 'btn-arrow', class: 'w-4 rotate-90' %}
+                  </span>
+                </button>
+              {% endif %}
+            </div>
+          {% elsif accordion.content %}
+            {{- accordion.content | metafield_tag -}}
+          {% endif %}
+        {% endcapture %}
+
+        {% if opened_layout %}
+          <div class="" x-data="{active: 1}">
+            {% render 'product-info-accordion-item',
+              active: 1,
+              title: accordion.title,
+              content: content,
+              class: accordion_class
+            %}
+          </div>
+        {% else %}
+          {% render 'product-info-accordion-item',
+            active: forloop.index,
+            title: accordion.title,
+            content: content,
+            class: accordion_class
+          %}
+        {% endif %}
+      {% endfor %}
+    {% endunless %}
+
+    {% for i in (1..6) %}
+      {% liquid
+        assign acc_title_key = 'acc_title_' | append: i
+        assign acc_text_key = 'acc_text_' | append: i
+        if block.settings[acc_title_key] == blank
+          continue
+        endif
+      %}
+
+      {% if opened_layout %}
+        <div x-data="{active: 1}">
+          {% render 'product-info-accordion-item',
+            active: 1,
+            title: block.settings[acc_title_key],
+            content: block.settings[acc_text_key],
+            class: accordion_class
+          %}
+        </div>
+      {% else %}
+        {% render 'product-info-accordion-item',
+          active: forloop.index,
+          title: block.settings[acc_title_key],
+          content: block.settings[acc_text_key],
+          class: accordion_class
+        %}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

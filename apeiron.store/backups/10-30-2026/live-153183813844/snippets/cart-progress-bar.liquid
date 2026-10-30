@@ -1,0 +1,41 @@
+{% comment %}
+  PARAMS:
+    cart_progress_bar_threshold => NUMBER
+    cart_progress_message => STRING
+    cart_progress_reached_message => STRING
+{% endcomment %}
+
+{% assign amount_left = '<span class="font-semibold" x-text="window.biCurrency($store.cart.cart_progress_bar_threshold - $store.cart.obj.total_price)"></span>' %}
+
+<div class="md:px-7.5 px-5 pb-2.5 pt-4">
+  <span
+    class="text-sc-title mb-2 block text-center text-sm md:text-base"
+    x-show="$store.cart.obj.total_price < $store.cart.cart_progress_bar_threshold"
+  >
+    {{ cart_progress_message | replace: '[amount_left]', amount_left }}
+  </span>
+  <span
+    class="text-sc-title mb-2 block text-center text-sm md:text-base"
+    x-show="$store.cart.obj.total_price >= $store.cart.cart_progress_bar_threshold"
+  >
+    {{ cart_progress_reached_message }}
+  </span>
+
+  <div
+    class="h-4 w-full overflow-hidden rounded"
+    style="background: #CACED9;"
+  >
+    <div
+      class="h-4 rounded transition-all duration-300"
+      :style="
+        {
+        width:
+          $store.cart.obj.total_price >= $store.cart.cart_progress_bar_threshold
+          ? '100%'
+          : `${($store.cart.obj.total_price * 100) / $store.cart.cart_progress_bar_threshold}%`,
+          background: '#103561'
+        }
+      "
+    ></div>
+  </div>
+</div>

@@ -1,0 +1,175 @@
+<template x-if="$store.drawer.id == 'customer-address-{{ address.id | default: 'new' }}'">
+  <template x-teleport="#drawer-overlay">
+    <div
+      x-cloak
+      x-show="$store.drawer.id == 'customer-address-{{ address.id | default: 'new' }}'"
+      class="bg-sc-bg-primary scrollbar-hide flex h-full flex-col overflow-y-auto shadow md:pt-10"
+    >
+      <div class="bg-sc-bg-primary z-5 p-7.5 sticky top-0 flex pb-5 duration-200 md:hidden">
+        <button
+          type="button"
+          @click="$store.drawer.hide()"
+          class="text-sc-title smD:hover:opacity-70 ml-auto"
+        >
+          <span class="sr-only">Close address drawer</span>
+          {% render 'icon', name: 'close', size: 'md' %}
+        </button>
+      </div>
+
+      <h3 class="text-sc-title px-7.5 md:px-15 font-primary text-title-sm mb-5 font-bold">
+        {%- if address.id != blank -%}
+          {{ 'customer.addresses.edit_address' | t }}
+        {%- else -%}
+          {{ 'customer.addresses.add_new' | t }}
+        {%- endif -%}
+      </h3>
+
+      {%- form 'customer_address', address, x-data: 'nativeForm' -%}
+        <div class="px-7.5 pb-7.5 md:px-15 relative grid grid-cols-1 gap-5 md:pb-10">
+          <div class="rte text-sc-body-primary text-left text-base">
+            {{ 'customer.addresses.fill_form_html' | t }}
+          </div>
+
+          <div class="grid grid-cols-1 gap-3">
+            <div class="grid grid-cols-1 gap-3">
+              {%- assign first_name_label = 'customer.addresses.first_name' | t -%}
+              {%- assign last_name_label = 'customer.addresses.last_name' | t -%}
+              {%- assign company_label = 'customer.addresses.company' | t -%}
+              {%- assign phone_label = 'customer.addresses.phone' | t -%}
+              {%- assign address1_label = 'customer.addresses.address1' | t -%}
+              {%- assign address2_label = 'customer.addresses.address2' | t -%}
+              {%- assign city_label = 'customer.addresses.city' | t -%}
+              {%- assign zip_label = 'customer.addresses.zip' | t -%}
+              {%- assign province_label = 'customer.addresses.province' | t -%}
+              {%- assign set_default_label = 'customer.addresses.set_default' | t -%}
+
+              <div class="grid grid-cols-2 gap-2.5">
+                {%- render 'input',
+                  name: 'address[first_name]',
+                  label: first_name_label,
+                  value: form.first_name,
+                  autocomplete: 'given-name',
+                  input_height: 54,
+                  required: true
+                -%}
+                {%- render 'input',
+                  name: 'address[last_name]',
+                  label: last_name_label,
+                  value: form.last_name,
+                  autocomplete: 'family-name',
+                  input_height: 54,
+                  required: true
+                -%}
+              </div>
+
+              {%- render 'input',
+                name: 'address[company]',
+                label: company_label,
+                value: form.company,
+                autocomplete: 'organization',
+                input_height: 54
+              -%}
+              {%- render 'input',
+                type: 'tel',
+                name: 'address[phone]',
+                label: phone_label,
+                value: form.phone,
+                autocomplete: 'tel',
+                input_height: 54
+              -%}
+              {%- render 'input',
+                name: 'address[address1]',
+                label: address1_label,
+                value: form.address1,
+                autocomplete: 'address-line1',
+                input_height: 54,
+                required: true
+              -%}
+              {%- render 'input',
+                name: 'address[address2]',
+                label: address2_label,
+                value: form.address2,
+                autocomplete: 'address-line2',
+                input_height: 54
+              -%}
+
+              <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
+                {%- render 'input',
+                  name: 'address[city]',
+                  label: city_label,
+                  value: form.city,
+                  autocomplete: 'address-level2',
+                  input_height: 54,
+                  required: true
+                -%}
+
+                {% capture provinces %}
+                    {% render 'provinces-list', form: form %}
+                  {% endcapture %}
+
+                {%- render 'select',
+                  name: 'address[province]',
+                  label: province_label,
+                  autocomplete: 'address-level1',
+                  options: provinces,
+                  input_height: 54
+                -%}
+                {%- render 'input',
+                  name: 'address[zip]',
+                  label: zip_label,
+                  value: form.zip,
+                  autocomplete: 'postal-code',
+                  autocapitalize: 'characters',
+                  input_height: 54,
+                  class: 'col-span-2 md:col-span-1',
+                  required: true
+                -%}
+              </div>
+
+              {%- render 'input',
+                name: 'address[country]',
+                label: '',
+                value: 'United States',
+                autocomplete: 'country',
+                autocapitalize: 'characters',
+                type: 'hidden'
+              -%}
+            </div>
+
+            <div class="checkbox-container">
+              {%- if address.id == customer.default_address.id -%}
+                {%- assign is_default_address = true -%}
+              {%- else -%}
+                {%- assign is_default_address = false -%}
+              {%- endif -%}
+
+              {%- render 'checkbox',
+                name: 'address[default]',
+                label: set_default_label,
+                value: 1,
+                checked: is_default_address,
+                class: 'accent-sc-title'
+              -%}
+            </div>
+
+            <div class="flex flex-col">
+              <input
+                type="submit"
+                class="w-full md:mt-2.5 {% render 'btn-class', btn: 'btn_primary_fill' %}"
+                value="{%- if address.id != blank -%}{{ 'customer.addresses.update' | t }}{%- else -%}{{ 'customer.addresses.add' | t }}{%- endif -%}"
+              >
+
+              <button
+                type="button"
+                @click="$store.drawer.hide()"
+                class="md:mt-7.5 mx-auto mt-3 {% render 'btn-class', btn: 'link_primary' %}"
+              >
+                {{ 'customer.addresses.cancel' | t }}
+              </button>
+            </div>
+          </div>
+        </div>
+      {%- endform -%}
+    </div>
+  </template>
+</template>

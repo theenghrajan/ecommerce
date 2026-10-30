@@ -1,0 +1,153 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_banner_dfzbYC": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "bg": "",
+        "subtitle": "",
+        "title": "Welcome Wholesale Members!",
+        "description": "",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "",
+        "btn_url": "shopify://collections/wholesale-collection",
+        "btn_text": "Wholesale Collection",
+        "sec_btn_url": "https://cdn.shopify.com/s/files/1/0047/2059/0937/files/Apeiron_Elementals_Wholesale_Catalog_b2997b80-27d7-4a42-86f6-9b5ee189c72b.pdf?v=1744212706",
+        "sec_btn_text": "Wholesale Catalog",
+        "layout": "full",
+        "split_revese": false,
+        "desk_alignment": "center",
+        "image_height": "auto",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_primary_outline",
+        "layout_mob": "full",
+        "mob_alignment": "center",
+        "image_mob_height": "auto",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_faq_LbYCLr": {
+      "type": "section-faq",
+      "blocks": {
+        "block_zr4FFJ": {
+          "type": "block",
+          "settings": {
+            "title": "Order minimum",
+            "text": "<p>The minimum order quantity is 1 case consisting of 24 units.</p>"
+          }
+        },
+        "block_EMy83D": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "title": "Requirements",
+            "text": "<p>Wholesale accounts are available for those who resell our wholesale catalog items.  We require a copy of your <strong>business license</strong> or other documentation showing your federal tax ID number, as well as your <strong>reseller permit</strong> (if applicable). Please note, you will need to have these available to load with your application (link above).<br/><br/>Apeiron Elementals reserves the right to cancel or revoke wholesale accounts at any time.</p>"
+          }
+        },
+        "block_nJxyFi": {
+          "type": "block",
+          "settings": {
+            "title": "Payment",
+            "text": "<p>All orders will be placed online through your portal and payment by credit card is required prior to shipment. </p>"
+          }
+        },
+        "block_CaaDTj": {
+          "type": "block",
+          "settings": {
+            "title": "Ordering",
+            "text": "<p>Orders may be submitted via our wholesale portal by clicking on the 'Wholesale Collection' link above. You may also submit your order via email, or phone (Mon-Fri 9am to 4pm CDT) and be invoiced. Payment will is required prior to shipment.</p>"
+          }
+        },
+        "block_LMV7mz": {
+          "type": "block",
+          "settings": {
+            "title": "Processing Time",
+            "text": "<p>We strive to ship all catalog item orders in timely manner, with processing time averaging 1-3 business days.  Should you need a large order, it may take longer and you will be notified of the delay.</p>"
+          }
+        },
+        "block_XLLFzi": {
+          "type": "block",
+          "settings": {
+            "title": "Shipping",
+            "text": "<p>Orders are shipped via UPS Ground, or USPS Priority. Shipping is an additional charge and is not included in the item price.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_zr4FFJ",
+        "block_EMy83D",
+        "block_nJxyFi",
+        "block_CaaDTj",
+        "block_LMV7mz",
+        "block_XLLFzi"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_anchor_id": "FAQ",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Wholesale Account Terms & Requirements",
+        "description": "<p>If you have any questions about our program, please contact our Director of Operations, Sarah Rae German, by email at sr@apeironcenter.com.</p>",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 120
+      }
+    },
+    "popup_blocker_fHgcgX": {
+      "type": "popup-blocker",
+      "name": "Popup blocker",
+      "settings": {
+        "title": "Wholesale Members Only",
+        "text": "<p><strong><br/><br/>Wholesale Practitioner Only Portal<br/><br/></strong>If you would like to become a wholesale customer, please submit your application below so that we can assess your suitability.<br/><br/><br/>Members please login to view this content</p>",
+        "liquid": "",
+        "tags": "wholesale",
+        "btn_url": "",
+        "btn_text": "APPLY HERE",
+        "btn_script": "window._klOnsite = window._klOnsite || []; \nwindow._klOnsite.push(['openForm', 'RSkEdu']);",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_url": "/account",
+        "sec_btn_text": "LOGIN",
+        "sec_btn_script": "",
+        "sec_btn_type": "btn_primary_outline"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_dfzbYC",
+    "section_faq_LbYCLr",
+    "popup_blocker_fHgcgX"
+  ]
+}

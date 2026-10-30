@@ -1,0 +1,267 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign title = section.settings.title
+  assign description = section.settings.description
+
+  assign mob_alignment = section.settings.mob_alignment | prepend: 'text-'
+  assign desk_alignment = section.settings.alignment | prepend: 'lg:text-'
+  assign alignment = mob_alignment | append: ' ' | append: desk_alignment
+
+  assign loading = 'lazy'
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+    assign loading = false
+  endif
+
+  assign blocks = section.blocks
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title overflow-hidden {{ alignment -}}"
+>
+  <div class="container">
+    {% if title != blank %}
+      <h2
+        class="rte mb-3 text-3xl font-semibold md:mb-4 lg:text-4xl xl:text-5xl {{ animation -}}"
+        {% if animation %}
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        {{- title -}}
+      </h2>
+    {% endif %}
+
+    {% if description != blank %}
+      <div
+        class="rte text-sc-body-primary text-base lg:text-lg {{ animation -}}"
+        {% if animation %}
+          style="animation-delay: 100ms"
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        {{- description -}}
+      </div>
+    {% endif %}
+
+    {% if blocks.size > 0 %}
+      <div
+        class="md:gap-15 xl:gap-x-17.5 flex flex-wrap items-baseline justify-center gap-5 {% if title != blank or description != blank -%} pt-5 md:pt-10 {%- endif %} {{ animation }}"
+        {% if animation %}
+          style="animation-delay: 200ms"
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        {% for block in blocks %}
+          {%- liquid
+            assign icon = block.settings.icon
+            assign title = block.settings.title
+            assign width = block.settings.width | append: 'px'
+          -%}
+
+          <div
+            class="xs:max-w-[var(--width)] h-auto w-full md:max-w-[195px]"
+            style="--width: calc(50% - 10px);"
+            {{ block.shopify_attributes }}
+          >
+            {% if icon != blank %}
+              <div
+                class="mx-auto mb-3 w-full max-w-[var(--width)] lg:mb-4"
+                style="--width: {{ width }}"
+              >
+                {{-
+                  icon
+                  | image_url: width: icon.width
+                  | image_tag: loading: loading, alt: icon.alt, class: 'object-contain w-full h-full', draggable: false
+                -}}
+              </div>
+            {% endif %}
+
+            {% if title != blank %}
+              <div class="text-sc-body-primary text-center text-lg font-semibold">
+                {{- title -}}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text with icons",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Text with icons"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#F7FAFF"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title",
+      "default": "We put safety first."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description",
+      "default": "<p>We’re committed to scientific rigour, investing in independent research and evidence-based development, so you can trust every capsule.</p>"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Mobile text alignment",
+      "default": "center"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Block icon"
+        },
+        {
+          "type": "number",
+          "id": "width",
+          "label": "Block icon width",
+          "default": 40
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Block title"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Text with icons",
+      "category": "Sections",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>Scientifically Supported</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>Made in the USA with global ingredients</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>GMP Certified</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "<p>Product Security</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

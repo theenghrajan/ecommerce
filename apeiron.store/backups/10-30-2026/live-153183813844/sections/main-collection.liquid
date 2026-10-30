@@ -1,0 +1,416 @@
+{% liquid
+  assign title = section.settings.title
+  assign collections = section.settings.collections
+  assign collections_title = section.settings.collections_title | default: 'Shop by Products'
+  assign layout = section.settings.layout
+
+  case layout
+    when 'stacked'
+      assign img_sizes = '"(max-width: 743px) calc(100vw - 60px), (max-width: 991px) calc((100vw - 150px) / 2), (max-width: 1440px) 305px, 360px"'
+    when 'grid'
+      assign img_sizes = '"(max-width: 743px) calc((100vw - 60px) / 2), (max-width: 991px) calc((100vw - 150px) / 2), (max-width: 1440px) 305px, 360px"'
+  endcase
+
+  assign has_collection = false
+  for b_coll in collections
+    if b_coll.handle == collection.handle
+      assign has_collection = true
+      break
+    endif
+  endfor
+
+  render 'css-variables-setter'
+%}
+
+{% capture collection_list %}
+  {% if collections != blank %}
+    <div class="border-c-border border-b pb-5" x-data="{ active: true }">
+      <button
+        @click="active = !active"
+        type="button"
+        class="no-select group flex w-full items-center justify-between text-left"
+        aria-controls="content-by-collection"
+      >
+        <span class="text-sc-title mr-2 text-lg font-semibold">{{- collections_title -}}</span>
+        {% render 'icon',
+          name: 'accordion-icon-rev',
+          class: 'shrink-0 text-sc-title duration-200 w-7 h-7 ease-in-out',
+          active: false
+        %}
+      </button>
+
+      <div
+        x-collapse
+        x-show="active"
+        :aria-hidden="!active"
+        id="content-by-collection"
+      >
+        <ul class="space-y-4 pt-4">
+          {%- for b_coll in collections -%}
+            <li>
+              <label
+                for="{{- b_coll.handle -}}"
+                class="text-c-shadow no-select group relative flex w-full cursor-pointer"
+              >
+                <input
+                  id="{{ b_coll.handle }}"
+                  class="peer hidden"
+                  type="radio"
+                  name="collections"
+                  value="{{ b_coll.handle }}"
+                  {% if b_coll.handle == collection.handle %}
+                    checked
+                  {% endif %}
+                >
+
+                <svg
+                  aria-hidden="true"
+                  class="peer-checked:child-rect:stroke-c-shadow absolute left-0 top-0 shrink-0"
+                  width="18"
+                  height="22"
+                  viewBox="0 0 18 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect class="duration-200 ease-in-out" x="0.5625" y="1.0625" width="16.875" height="16.875" rx="8.4375" stroke="#B3C6E0" stroke-width="1.125"/>
+                  <rect class="duration-200 ease-in-out" x="2.5625" y="3.0625" width="12.875" height="12.875" rx="8.4375" stroke="transparent" stroke-width="5.125"/>
+                </svg>
+
+                <span class="pl-7.5 group-hover:text-c-navy text-lg duration-200 ease-in-out {% if b_coll.metafields.binaery.badge != blank -%} font-semibold text-c-green {%- else -%} text-c-shadow {%- endif -%}">
+                  <span class="mr-2">{{- b_coll.title -}}</span>
+
+                  {% if b_coll.metafields.binaery.badge != blank -%}
+                    <span class="text-c-green bg-c-light-green font-third whitespace-nowrap rounded px-2 py-1 text-sm font-normal">
+                      {{- b_coll.metafields.binaery.badge -}}
+                    </span>
+                  {%- endif -%}
+                </span>
+              </label>
+            </li>
+          {%- endfor -%}
+          {%- unless has_collection -%}
+            <li>
+              <label
+                for="{{- collection.handle -}}"
+                class="text-c-shadow no-select group relative flex w-full cursor-pointer"
+              >
+                <input
+                  id="{{ collection.handle }}"
+                  class="peer hidden"
+                  type="radio"
+                  name="collections"
+                  value="{{ collection.handle }}"
+                  checked
+                >
+
+                <svg
+                  aria-hidden="true"
+                  class="peer-checked:child-rect:stroke-c-shadow absolute left-0 top-0 shrink-0"
+                  width="18"
+                  height="22"
+                  viewBox="0 0 18 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect class="duration-200 ease-in-out" x="0.5625" y="1.0625" width="16.875" height="16.875" rx="8.4375" stroke="#B3C6E0" stroke-width="1.125"/>
+                  <rect class="duration-200 ease-in-out" x="2.5625" y="3.0625" width="12.875" height="12.875" rx="8.4375" stroke="transparent" stroke-width="5.125"/>
+                </svg>
+
+                <span class="pl-7.5 group-hover:text-c-navy text-lg duration-200 ease-in-out {% if collection.metafields.binaery.badge != blank -%} font-semibold text-c-green {%- else -%} text-c-shadow {%- endif -%}">
+                  <span class="mr-2">{{- collection.title -}}</span>
+
+                  {% if collection.metafields.binaery.badge != blank -%}
+                    <span class="text-c-green bg-c-light-green font-third whitespace-nowrap rounded px-2 py-1 text-sm font-normal">
+                      {{- collection.metafields.binaery.badge -}}
+                    </span>
+                  {%- endif -%}
+                </span>
+              </label>
+            </li>
+          {%- endunless -%}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+{% endcapture %}
+
+<div
+  id="main-collection"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary"
+  x-data="
+    {
+      activeCollection: {
+        url: '{{ request.path }}',
+        handle: '{{ collection.handle }}'
+      },
+      isLoading: false,
+      facets_params: '',
+      changeUrl(url) {
+        window.history.replaceState({}, url, url);
+        this.activeCollection.url = url;
+      },
+      serializeForm(form) {
+        const elements = form.querySelectorAll('input');
+        const params = new URLSearchParams();
+
+        for (const element of elements) {
+          const { name, value, checked } = element;
+
+          if (checked && name.includes('collections') && this.activeCollection.handle !== value) {
+            this.activeCollection.handle = value;
+            return '';
+          }
+          if (checked && (name.includes('filter') || name.includes('sort_by'))) {
+            params.append(name, value);
+          }
+        }
+        return params.toString();
+      },
+      async setParams(form, apply = false) {
+        this.facets_params = this.serializeForm(form);
+        if (apply) {
+          await this.applyFilters();
+        }
+      },
+      async setSortBy(select) {
+        const params = new URLSearchParams();
+        params.append(select.name, select.value);
+
+        if (!this.facets_params.length) {
+          this.facets_params = params.toString();
+        } else {
+          this.facets_params += '&' + params.toString();
+        }
+
+        await this.applyFilters();
+      },
+      async applyFilters() {
+        this.isLoading = true;
+        this.changeUrl(this.createQueryParams());
+        await this.renderCollection(this.activeCollection.url);
+        this.isLoading = false;
+      },
+      async clearFilters(url) {
+        this.facets_params = '';
+        this.isLoading = true;
+        this.changeUrl(url);
+        await this.renderCollection(url);
+        this.isLoading = false;
+      },
+      createQueryParams() {
+        let query;
+        const shopifyRoute = window.Shopify.routes.root || '/';
+        const clearUrl = shopifyRoute + 'collections/' + this.activeCollection.handle;
+        if (this.facets_params) {
+          query = clearUrl + '?' + this.facets_params;
+        } else {
+          query = clearUrl;
+        }
+        return query;
+      },
+      async renderCollection(url) {
+        this.isLoading = true;
+        const currentLayout = document.getElementById('main-collection');
+
+        try {
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              Accept: 'text/html',
+            },
+          });
+
+          const text = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(text, 'text/html');
+          const newLayout = doc.getElementById('main-collection');
+
+          if (newLayout) {
+            currentLayout.outerHTML = newLayout.outerHTML;
+
+            requestAnimationFrame(() => {
+              const updated = document.getElementById('main-collection');
+              if (updated) {
+                const offsetPosition =
+                  updated.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  parseFloat(document.documentElement.style.getPropertyValue('--header-height') || 0);
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            });
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    }
+  "
+>
+  <div class="container flex items-center justify-center space-x-10 py-4 lg:justify-between lg:pb-5 lg:pt-10">
+    <h1 class="text-sc-title text-center text-3xl font-semibold lg:text-left lg:text-5xl">
+      {{- title | default: collection.title -}}
+    </h1>
+
+    <div class="lg:space-x-15 hidden shrink-0 items-baseline lg:flex">
+      <label for="sort_by_desktop" class="text-sc-title text-lg font-semibold">
+        {{- 'collection.sorting.title' | t -}}
+      </label>
+
+      <div class="relative">
+        <select
+          name="sort_by"
+          id="sort_by_desktop"
+          @change="setSortBy($el)"
+          class="border-c-shadow pr-7.5 peer h-9 w-max cursor-pointer appearance-none border-b outline-none"
+        >
+          {%- assign selected_sort_by = collection.sort_by | default: collection.default_sort_by -%}
+          {%- for option in collection.sort_options -%}
+            <option
+              value="{{ option.value }}"
+              {% if option.value == selected_sort_by -%}
+                selected
+              {%- endif -%}
+            >
+              {{ option.name }}
+            </option>
+          {%- endfor -%}
+        </select>
+
+        {% render 'icon', name: 'accordion-chevron', class: 'h-7 w-7 right-0 top-1/2 absolute -translate-y-1/2' %}
+      </div>
+    </div>
+  </div>
+
+  <div class="md:px-15 container sticky top-0 z-20 bg-[#F9F9F9] px-5 lg:hidden">
+    <button
+      type="button"
+      aria-label="{{- 'collection.sorting.title_mob' | t -}}"
+      @click="$store.drawer.show({ id: 'facets'});"
+      class="text-sc-title flex w-full cursor-pointer appearance-none justify-between space-x-4 py-4"
+    >
+      <span class="text-lg font-semibold">{{- 'collection.sorting.title_mob' | t -}}</span>
+
+      {% render 'icon', name: 'filter-ranges', class: 'w-7 text-sc-title' %}
+    </button>
+
+    {% render 'facets', collection_list: collection_list %}
+  </div>
+
+  <div
+    class="lg:space-x-12.5 md:px-15 lg:px-17.5 container flex w-full px-4 pb-10 pt-5 duration-200 ease-in-out"
+    data-hide-header
+    id="main-collection-container"
+    :class="isLoading && 'opacity-90 pointer-events-none'"
+  >
+    <form
+      @submit.prevent
+      @change="!isLoading && setParams($el, true)"
+      class="sticky top-10 hidden h-max w-full gap-5 lg:grid lg:max-w-[250px] xl:max-w-[290px]"
+      x-init="setParams($el)"
+    >
+      {{ collection_list }}
+      {% render 'facets-list', show_sort: false %}
+    </form>
+
+    <div class="w-full">
+      <div class="mb-7.5 lg:mb-10">
+        {% if collection.products.size > 0 %}
+          <div class="md:gap-7.5 grid gap-4 lg:gap-5 xl:grid-cols-3 {% if layout == 'stacked' -%} grid-cols-1 md:grid-cols-2 {%- else -%} grid-cols-2 {%- endif -%}">
+            {%- liquid
+              paginate collection.products by 1000
+                assign counter = 1
+                for product in collection.products
+                  assign loading = false
+                  assign animation_counter = counter | divided_by: 5.00
+                  if counter > 6
+                    assign loading = 'lazy'
+                  endif
+                  unless product.template_suffix == 'hidden'
+                    render 'product-card', product: product, init_animation: true, index: animation_counter, loading: loading, sizes: img_sizes
+                    assign counter = counter | plus: 1
+                  endunless
+                endfor
+              endpaginate
+            -%}
+          </div>
+        {% else %}
+          <div class="rte text-sc-title text-base font-semibold lg:text-lg">
+            {{ 'collection.general.empty' | t }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#713D43"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FEFBF9"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "text",
+      "id": "collections_title",
+      "label": "Collection list title",
+      "default": "Shop by Products"
+    },
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Collection list"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Mobile layout",
+      "options": [
+        {
+          "value": "stacked",
+          "label": "Stacked"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
+      "default": "stacked"
+    }
+  ]
+}
+{% endschema %}

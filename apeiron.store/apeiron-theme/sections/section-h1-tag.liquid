@@ -1,0 +1,28 @@
+{% liquid
+  assign h1_title = section.settings.h1_title | default: page_title
+%}
+
+<h1 class="sr-only">{{ h1_title }}</h1>
+
+{% schema %}
+{
+  "name": "Section h1 tag",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "h1_title",
+      "label": "H1 tag"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "category": "Sections",
+      "name": "Section h1 tag"
+    }
+  ]
+}
+{% endschema %}

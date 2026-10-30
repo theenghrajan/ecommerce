@@ -1,0 +1,62 @@
+<nav id="account-navigation" class="bg-sc-bg-primary 2xl:hidden">
+  <ul
+    class="scrollbar-hide md:gap-x-15 smD:gap-x-20 container relative flex snap-x items-center justify-between gap-x-5 overflow-x-auto overflow-y-hidden md:justify-center"
+    role="list"
+  >
+    {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' -%}
+      {%- assign orders_tab_active = true -%}
+    {%- elsif request.page_type == 'customers/addresses' -%}
+      {%- assign addresses_tab_active = true -%}
+    {%- endif -%}
+
+    <li
+      class="scroll-ml-7.5 snap-start"
+      {% if orders_tab_active %}
+        aria-current="page"
+      {% endif %}
+    >
+      <a
+        href="{{ routes.account_url }}"
+        aria-label="{{- 'layout.customer.orders' | t -}}"
+        class="hover:text-c-navy smD:pt-3.5 hover:border-sc-subtitle text-sc-body-primary block border-b-[2px] pb-2 pt-2.5 text-sm duration-300 ease-in-out md:text-base {% if orders_tab_active %} border-sc-subtitle text-sc-subtitle font-medium {% else %} border-transparent{% endif %}"
+      >
+        {{- 'layout.customer.orders' | t -}}
+      </a>
+    </li>
+
+    <li
+      class="snap-start"
+      {% if addresses_tab_active %}
+        aria-current="page"
+      {% endif %}
+    >
+      <a
+        href="{{ routes.account_addresses_url }}"
+        aria-label="{{- 'layout.customer.addresses' | t -}}"
+        class="hover:text-c-navy smD:pt-3.5 hover:border-sc-subtitle text-sc-body-primary block border-b-[2px] pb-2 pt-2.5 text-sm duration-300 ease-in-out md:text-base {% if addresses_tab_active %} border-sc-subtitle text-sc-subtitle font-medium {% else %} border-transparent{% endif %}"
+      >
+        {{- 'layout.customer.addresses' | t -}}
+      </a>
+    </li>
+
+    <li class="snap-start">
+      <a
+        href="/tools/recurring/login/"
+        aria-label="{{- 'layout.customer.subscriptions' | t -}}"
+        class="hover:text-c-navy smD:pt-3.5 hover:border-sc-subtitle text-sc-body-primary block border-b-[2px] pb-2 pt-2.5 text-sm duration-300 ease-in-out md:text-base {% if request.path contains '/tools/recurring/' %} border-sc-subtitle text-sc-subtitle font-medium {% else %} border-transparent{% endif %}"
+      >
+        {{- 'layout.customer.subscriptions' | t -}}
+      </a>
+    </li>
+
+    <li class="scroll-mr-7.5 smD:right-15 xl:right-25 smD:absolute snap-start">
+      <a
+        href="{{ routes.account_logout_url }}"
+        aria-label="{{- 'layout.customer.log_out' | t -}}"
+        class="text-sc-body-primary hover:text-c-navy block text-sm duration-300 ease-in-out md:text-base"
+      >
+        {{- 'layout.customer.log_out' | t -}}
+      </a>
+    </li>
+  </ul>
+</nav>

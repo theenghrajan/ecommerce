@@ -1,0 +1,400 @@
+{% liquid
+  assign sticky_header = section.settings.sticky_header
+
+  assign shop_all_btn_text = section.settings.shop_all_btn_text
+  assign shop_all_btn_url = section.settings.shop_all_btn_url
+  assign shop_all_btn = section.settings.shop_all_btn
+
+  assign hide_on = section.settings.hide_on
+  assign hide_navigation_on = section.settings.hide_navigation_on
+  assign hide_shop_btn_on = section.settings.hide_shop_btn_on
+  assign simple_header_on = section.settings.simple_header_on
+
+  assign show_header = true
+
+  if hide_on != blank
+    for l_page in hide_on.links
+      if l_page.url == request.path
+        assign show_header = false
+        break
+      endif
+    endfor
+  endif
+
+  assign hide_navigation = false
+
+  if hide_navigation_on != blank
+    for l_page in hide_navigation_on.links
+      if l_page.url == request.path
+        assign hide_navigation = true
+        break
+      endif
+    endfor
+  endif
+
+  assign hide_shop_btn = false
+
+  if hide_shop_btn_on != blank
+    for l_page in hide_shop_btn_on.links
+      if l_page.url == request.path
+        assign hide_shop_btn = true
+        break
+      endif
+    endfor
+  endif
+
+  assign simple_header = false
+
+  if simple_header_on != blank
+    for l_page in simple_header_on.links
+      if l_page.url == request.path
+        assign simple_header = true
+        break
+      endif
+    endfor
+  endif
+
+  unless show_header
+    break
+  endunless
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  x-data="header()"
+  @scroll.window.throttle.25ms="scrollHandler({{ sticky_header }})"
+  class="bg-c-white/10 hover:bg-c-white header-backdrop duration-200"
+>
+  <div class="md:px-15 xl:px-17.5 container flex min-h-12 items-center px-5 py-2 lg:py-2.5 xl:min-h-[84px]">
+    <!-- MOBILE/TABLET VIEW START -->
+    <div class="relative flex h-full w-full items-center justify-between xl:hidden">
+      {% unless hide_navigation or simple_header %}
+        <!-- BURGER/SEARCH -->
+        <div class="text-sc-title min-w-17.5 flex w-max max-w-full items-center justify-start space-x-5">
+          <button
+            type="button"
+            aria-label="toggle mobile menu"
+            @click="$store.mobileMenu.visible ? $store.mobileMenu.hide() : $store.mobileMenu.show()"
+          >
+            <span class="sr-only">Open navigation menu</span>
+            <span class="flex w-6 flex-col space-y-1.5">
+              <span class="bg-c-navy h-0.5 w-full rounded"></span>
+              <span class="bg-c-navy h-0.5 w-full rounded"></span>
+              <span class="bg-c-navy h-0.5 w-full rounded"></span>
+            </span>
+          </button>
+        </div>
+      {% endunless %}
+
+      <!-- LOGO -->
+      <div class="flex {% if simple_header %} mx-auto {% endif %}">
+        <a
+          href="{{ routes.root_url }}"
+          class="w-auto shrink-0 duration-300 ease-in-out"
+        >
+          {% if settings.logo_small != blank %}
+            <span class="sr-only">{{ shop.name }}</span>
+            <span class="block w-full max-w-[var(--logo-mob-w)] md:max-w-[var(--logo-desk-w)]">
+              <!-- if shop have short logo will be good display it on screens smaller then 375px -->
+              {% if settings.logo_small %}
+                {{
+                  settings.logo_small
+                  | image_url: width: settings.logo_small.width
+                  | image_tag: alt: 'store logo', class: 'w-full object-contain', draggable: false
+                }}
+              {% else %}
+                <span class="font-primary text-center font-bold">{{- shop.name -}}</span>
+              {% endif %}
+            </span>
+          {% else %}
+            <span class="font-primary text-center font-bold">{{- shop.name -}}</span>
+          {% endif %}
+        </a>
+      </div>
+
+      {% unless simple_header %}
+        <div class="text-sc-title min-w-17.5 flex items-center justify-end duration-300 ease-in-out" data-header-nav-mob>
+          {% unless hide_navigation %}
+            <button
+              type="button"
+              aria-label="search"
+              @click="$store.drawer.show({ id: 'search-drawer'})"
+              class="text-sc-title relative flex items-center"
+            >
+              {% render 'icon', name: 'search', class: 'w-6 h-6 text-c-shadow ml-1' %}
+            </button>
+
+            <button
+              type="button"
+              class="text-sc-title relative ml-4 flex items-center"
+              aria-label="Open cart"
+              aria-controls="cart-drawer"
+              :aria-expanded="$store.cart.visible"
+              @click="$store['cart'].visible ? $store['cart'].hide() : $store['cart'].show()"
+            >
+              {% render 'icon', name: 'cart', class: 'w-6 h-6 text-c-shadow' %}
+              <span
+                x-cloak
+                x-show="$store['cart'].obj.visibleItemCount"
+                x-text="$store['cart'].obj.visibleItemCount"
+                class="text-c-shadow h-4.5 absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-center rounded-full text-[10px] font-medium md:text-xs"
+              >
+                {{- cart.item_count -}}
+              </span>
+            </button>
+          {% endunless %}
+        </div>
+      {% endunless %}
+    </div>
+    <!-- MOBILE/TABLET VIEW END -->
+
+    <!-- DESKTOP HEADER LAYOUTS START -->
+    <div class="z-10 hidden h-full w-full items-stretch xl:flex">
+      <!-- LOGO -->
+      <div class="flex {% if simple_header %} mx-auto w-1/4 {% else %} mr-10 {% endif %}">
+        <a
+          href="{{ routes.root_url }}"
+          class="my-auto flex w-full max-w-[var(--logo-mob-w)] md:max-w-[var(--logo-desk-w)] {% if simple_header -%} mx-auto {%- endif -%}"
+        >
+          {% if settings.logo != blank %}
+            <span class="sr-only">{{ shop.name }}</span>
+            <span class="block w-full max-w-[var(--logo-mob-w)] md:max-w-[var(--logo-desk-w)]">
+              {{
+                settings.logo
+                | image_url: width: settings.logo.width
+                | image_tag: alt: 'store logo', class: 'w-full object-contain', draggable: false
+              }}
+            </span>
+          {% else %}
+            <span class="text-center text-xl uppercase duration-200 hover:opacity-70">{{- shop.name -}}</span>
+          {% endif %}
+        </a>
+      </div>
+
+      {% unless hide_navigation or simple_header %}
+        <!-- MENU -->
+        <ul class="hidden items-baseline justify-center gap-x-10 gap-y-3 xl:flex">
+          {% content_for 'blocks' %}
+        </ul>
+      {% endunless %}
+
+      <!-- ACTIONS -->
+      {% unless simple_header %}
+        <div class="text-sc-title ml-auto flex items-center justify-end" data-header-nav>
+          {% unless hide_navigation %}
+            <button
+              type="button"
+              aria-label="search"
+              @click="$store.drawer.show({ id: 'search-drawer'})"
+              class="relative flex items-center justify-center"
+            >
+              {% render 'icon', name: 'search', class: 'w-6 h-6 text-c-shadow duration-200 hover:text-c-navy ml-4' %}
+            </button>
+
+            {% unless request.page_type contains 'customers/' %}
+              <a
+                class="ml-7 flex items-center justify-center"
+                href="{{ routes.account_url }}"
+              >
+                <span class="sr-only">Login to your account</span>
+                {% render 'icon', name: 'account', class: 'h-6 w-6 text-c-shadow duration-200 hover:text-c-navy' %}
+              </a>
+            {% endunless %}
+
+            <button
+              type="button"
+              class="relative ml-7 flex items-center justify-center"
+              aria-label="Open cart"
+              aria-controls="cart-drawer"
+              :aria-expanded="$store.cart.visible"
+              @click="$store['cart'].visible ? $store['cart'].hide() : $store['cart'].show()"
+            >
+              <span class="sr-only">Open cart drawer</span>
+              {% render 'icon', name: 'cart', class: 'text-c-shadow duration-200 hover:text-c-navy' %}
+              <span
+                x-cloak
+                x-show="$store['cart'].obj.visibleItemCount"
+                x-text="$store['cart'].obj.visibleItemCount"
+                class="text-c-shadow hover:text-c-navy h-4.5 absolute bottom-0 left-1/2 flex -translate-x-1/2 items-center justify-center rounded-full text-[10px] font-medium duration-200 md:text-xs"
+              >
+                {{- cart.item_count -}}
+              </span>
+            </button>
+          {% endunless %}
+
+          {% unless hide_shop_btn %}
+            {% if shop_all_btn_text != blank and request.page_type != 'collection' and request.page_type != 'product' %}
+              <a
+                href="{{ shop_all_btn_url }}"
+                class="{% render 'btn-class', btn: shop_all_btn %} ml-7.5 min-h-9 px-4 text-base leading-none lg:min-h-11 lg:px-5"
+              >
+                <span>{{- shop_all_btn_text -}}</span>
+              </a>
+            {% endif %}
+          {% endunless %}
+        </div>
+      {% endunless %}
+    </div>
+    <!-- DESKTOP HEADER LAYOUTS END -->
+  </div>
+</div>
+
+{% if section.settings.seo_navigation != blank %}
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"SiteNavigationElement",
+      "name":"Main Navigation",
+      "url":[
+        {%- for link in section.settings.seo_navigation.links -%}
+          "{{ link.url }}"{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "div",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "A/B test"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Dynamic sticky header",
+      "default": true
+    },
+    {
+      "type": "link_list",
+      "id": "hide_on",
+      "label": "Hide Header On link list",
+      "info": "leave blank if not needed"
+    },
+    {
+      "type": "link_list",
+      "id": "hide_navigation_on",
+      "label": "Hide Navigation On link list",
+      "info": "leave blank if not needed"
+    },
+    {
+      "type": "link_list",
+      "id": "hide_shop_btn_on",
+      "label": "Hide Shop btn On link list",
+      "info": "leave blank if not needed"
+    },
+    {
+      "type": "link_list",
+      "id": "simple_header_on",
+      "label": "Show Simple Header On link list",
+      "info": "leave blank if not needed"
+    },
+    {
+      "type": "header",
+      "content": "SEO SiteNavigationElement"
+    },
+    {
+      "type": "link_list",
+      "id": "seo_navigation",
+      "label": "SEO Navigation"
+    },
+    {
+      "type": "header",
+      "content": "Desktop shop button settings"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_btn_text",
+      "label": "Button text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "select",
+      "id": "shop_all_btn",
+      "label": "Select button type",
+      "options": [
+        {
+          "value": "btn_cta_fill",
+          "label": "CTA fill"
+        },
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "header",
+      "content": "Link bottom button"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "bottom_title",
+      "label": "Bottom title",
+      "default": "Not sure where to start?"
+    },
+    {
+      "type": "text",
+      "id": "bottom_btn_text",
+      "label": "Link bottom button text",
+      "default": "Find Your Ritual"
+    },
+    {
+      "type": "url",
+      "id": "bottom_btn_url",
+      "label": "Link bottom button url"
+    },
+    {
+      "type": "select",
+      "id": "bottom_btn_type",
+      "label": "Link bottom button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_outline"
+    }
+  ],
+  "blocks": [{ "type": "_header-dropdown" }, { "type": "_header-products-dropdown" }]
+}
+{% endschema %}

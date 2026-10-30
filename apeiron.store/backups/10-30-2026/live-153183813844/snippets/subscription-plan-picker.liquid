@@ -1,0 +1,162 @@
+<template x-if="availableSellingPlanGroups">
+  <div>
+    <input type="hidden" name="selling_plan" x-model="sellPlanId" form="{{ product_form_id }}">
+
+    <label
+      for="selling_plan_picker_state"
+      class="border-c-border text-c-shadow hover:border-c-shadow bg-c-white flex cursor-pointer flex-col rounded-lg border p-4 duration-200 ease-in-out"
+      :class="sellPlanId !== null && 'border-c-shadow !cursor-default'"
+      @change="!sellPlanId && setSellingPlan(availableSellingPlanGroups[0].selling_plans[0]);"
+    >
+      <input type="checkbox" checked class="hidden" id="selling_plan_picker_state">
+
+      <span class="relative flex">
+        <svg
+          class="mr-2 mt-0.5 shrink-0 lg:mt-[1px] lg:h-5 lg:w-5"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect class="duration-200 transition-[opacity,transform] ease-in-out origin-center group-hover:scale-100 group-hover:opacity-100" :class="sellPlanId !== null ? 'scale-100 opacity-100' : 'scale-0 opacity-0'" x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="#25282A"/>
+          <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#25282A"/>
+          <path class="duration-200 transition-[opacity,transform] ease-in-out origin-center group-hover:scale-100 group-hover:opacity-100" :class="sellPlanId !== null ? 'scale-100 opacity-100' : 'scale-0 opacity-0'" fill-rule="evenodd" clip-rule="evenodd" d="M11.8438 5.35372C12.0521 5.55875 12.0521 5.89116 11.8438 6.09618L7.22157 10.6462C7.01329 10.8512 6.6756 10.8512 6.46732 10.6462L4.15621 8.37118C3.94793 8.16616 3.94793 7.83375 4.15621 7.62872C4.36449 7.42369 4.70218 7.42369 4.91046 7.62872L6.84444 9.53249L11.0895 5.35372C11.2978 5.14869 11.6355 5.14869 11.8438 5.35372Z" fill="white"/>
+        </svg>
+
+        {% if block.settings.subscription_title != blank %}
+          <span class="text-c-shadow xs:text-base text-left text-sm font-semibold xl:text-lg">
+            {{- block.settings.subscription_title -}}
+          </span>
+        {% endif %}
+
+        <span
+          class="font-third text-c-green bg-c-light-green absolute -top-4 right-0 ml-1 h-auto -translate-y-1/2 whitespace-nowrap rounded px-2 py-1 text-center text-sm font-normal capitalize leading-none xl:static xl:h-full xl:translate-y-0"
+          x-cloak
+          x-show="savingAmount"
+          x-text="savingAmount + '{{ 'common.off' | t | prepend: ' ' }}'"
+        ></span>
+
+        {% if block.settings.subscription_tooltip != blank %}
+          <div class="group/link ml-1 md:relative">
+            <svg width="18" height="22" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.52752 2.66753C-0.842507 6.03756 -0.842507 11.5025 2.52752 14.8725C5.89755 18.2425 11.3625 18.2425 14.7325 14.8725C18.1025 11.5025 18.1025 6.03756 14.7325 2.66753C11.3625 -0.702492 5.89755 -0.702492 2.52752 2.66753ZM8.97575 3.76052C9.7044 3.76052 10.2872 4.3618 10.2872 5.09046C10.2872 5.81911 9.68589 6.4204 8.97575 6.4204C8.24709 6.4204 7.64581 5.81911 7.64581 5.07268C7.64652 4.34331 8.24709 3.76052 8.97575 3.76052ZM10.8522 12.668C10.8159 12.7775 10.7426 12.9049 10.6701 12.9775C10.1961 13.4692 9.61336 13.7609 8.92099 13.7609C8.59295 13.7609 8.28342 13.7609 7.95538 13.7061C7.42739 13.6336 6.7528 12.9775 6.84389 12.2851C6.91647 11.8112 6.98976 11.338 7.06234 10.8641C7.20821 10.0444 7.35409 9.20612 7.49924 8.38631C7.49924 8.33152 7.51774 8.27673 7.51774 8.22265C7.51774 7.87683 7.40816 7.74873 7.06233 7.71244C6.91646 7.69394 6.77058 7.67615 6.62543 7.63986C6.46177 7.58507 6.37069 7.43919 6.38847 7.31182C6.40697 7.16595 6.49805 7.07486 6.68022 7.03858C6.7713 7.02007 6.8809 7.02008 6.98976 7.02008H8.21011H9.50376C9.81329 7.02008 9.99546 7.16595 9.99546 7.47548C9.99546 7.73022 9.95916 7.98569 9.90437 8.24043C9.74071 9.18753 9.55855 10.1169 9.39417 11.064C9.33938 11.3735 9.2668 11.683 9.23051 11.9933C9.21201 12.1392 9.23051 12.3028 9.2668 12.4487C9.32159 12.6494 9.46747 12.7582 9.66741 12.7404C9.83107 12.7219 9.99545 12.6679 10.1591 12.5946C10.2865 12.5398 10.3961 12.4487 10.5234 12.4124C10.7433 12.3405 10.907 12.468 10.8522 12.668Z" fill="#485568"/>
+            </svg>
+
+            <div class="rte bg-sc-bg-primary child-ul:m-0 text-c-shadow z-5 invisible absolute -left-3 bottom-full mb-2 w-[250px] rounded p-3 text-sm opacity-0 shadow duration-300 ease-in-out group-hover/link:visible group-hover/link:opacity-100 group-focus-visible/link:visible group-focus-visible/link:opacity-100 md:left-auto md:right-0">
+              {{- block.settings.subscription_tooltip -}}
+            </div>
+
+            <span
+              class="invisible absolute bottom-full right-[5px] h-2 w-2 -translate-y-1/2 rotate-45 border-white bg-white opacity-0 shadow duration-300 ease-in-out group-hover/link:visible group-hover/link:opacity-100 group-focus-visible/link:visible group-focus-visible/link:opacity-100"
+            ></span>
+          </div>
+        {% endif %}
+
+        <template x-if="sellPlanId !== null">
+          <span class="text-sc-body-primary ml-auto flex flex-wrap items-center justify-end text-right">
+            <del
+              x-cloak
+              x-show="selectedVariant.biComparePrice > selectedVariant.biPrice"
+              x-text="window.biCurrency(selectedVariant.biComparePrice / qty)"
+              class="text-c-gray xs:text-sm inline-block text-xs xl:text-base"
+            ></del>
+
+            <span
+              class="text-c-shadow xs:text-base inline-block shrink-0 text-sm font-semibold xl:text-lg"
+              :class="selectedVariant.biComparePrice > selectedVariant.biPrice && 'ml-1'"
+              x-text="window.biCurrency(selectedVariant.biPrice / qty)"
+            ></span>
+          </span>
+        </template>
+
+        <template x-if="sellPlanId === null">
+          <span class="text-sc-body-primary ml-auto flex flex-wrap items-center justify-end text-right">
+            <del
+              x-cloak
+              x-show="selectedVariant.price > selectedVariant.selling_plan_allocations[0].price"
+              x-text="window.biCurrency(selectedVariant.price)"
+              class="text-c-gray xs:text-sm inline-block text-xs xl:text-base"
+            ></del>
+
+            <span
+              class="text-c-shadow xs:text-base inline-block shrink-0 text-sm font-semibold xl:text-lg"
+              :class="selectedVariant.price > selectedVariant.selling_plan_allocations[0].price && 'ml-1'"
+              x-text="window.biCurrency(selectedVariant.selling_plan_allocations[0].price)"
+            ></span>
+          </span>
+        </template>
+      </span>
+
+      <span
+        x-show="sellPlanId !== null"
+        x-collapse
+      >
+        {% if block.settings.subscription_benefits != blank %}
+          <div class="rte list-checkmark text-c-shadow xs:text-sm mt-2 text-xs lg:text-base">
+            {{- block.settings.subscription_benefits -}}
+          </div>
+        {% endif %}
+
+        <div class="mt-3 space-y-1.5">
+          <span class="text-c-shadow text-xs font-semibold lg:text-sm">{{ 'product.form.deliver_every' | t }}</span>
+
+          <ul class="grid grid-cols-3 gap-2">
+            <template x-for="sell_group in availableSellingPlanGroups">
+              <template x-for="(selling_plan, index) in sell_group.selling_plans">
+                <li>
+                  <button
+                    type="button"
+                    class="hover:border-c-shadow border-c-border text-c-shadow bg-c-white xs:text-sm group flex h-full w-full cursor-pointer items-center justify-center rounded-lg border px-4 py-2 text-center text-xs font-semibold duration-200 ease-in-out"
+                    :class="sellPlanId === selling_plan.id && 'border-c-shadow'"
+                    @click="setSellingPlan(selling_plan)"
+                    x-text="selling_plan.name.replaceAll('{{ block.settings.plan_name_remove | escape }}', '')"
+                  ></button>
+                </li>
+              </template>
+            </template>
+          </ul>
+        </div>
+      </span>
+    </label>
+
+    {% unless product.requires_selling_plan %}
+      <div
+        class="border-c-border text-c-shadow hover:border-c-shadow bg-c-white mt-4 overflow-hidden rounded-lg border duration-200 ease-in-out"
+        :class="sellPlanId === null && 'border-c-shadow'"
+      >
+        <button
+          type="button"
+          class="group flex w-full px-3 py-2.5 duration-200 ease-in-out md:px-4 md:py-3"
+          @click="setSellingPlan()"
+          aria-label="{{ 'product.form.one_time' | t }}"
+        >
+          <span class="my-auto flex items-start">
+            <svg
+              class="mr-2 mt-0.5 shrink-0 lg:mt-[1px] lg:h-5 lg:w-5"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect class="duration-200 transition-[opacity,transform] ease-in-out origin-center group-hover:scale-100 group-hover:opacity-100" :class="sellPlanId === null ? 'scale-100 opacity-100' : 'scale-0 opacity-0'" x="0.5" y="0.5" width="15" height="15" rx="7.5" fill="#25282A"/>
+              <rect x="0.5" y="0.5" width="15" height="15" rx="7.5" stroke="#25282A"/>
+              <path class="duration-200 transition-[opacity,transform] ease-in-out origin-center group-hover:scale-100 group-hover:opacity-100" :class="sellPlanId === null ? 'scale-100 opacity-100' : 'scale-0 opacity-0'" fill-rule="evenodd" clip-rule="evenodd" d="M11.8438 5.35372C12.0521 5.55875 12.0521 5.89116 11.8438 6.09618L7.22157 10.6462C7.01329 10.8512 6.6756 10.8512 6.46732 10.6462L4.15621 8.37118C3.94793 8.16616 3.94793 7.83375 4.15621 7.62872C4.36449 7.42369 4.70218 7.42369 4.91046 7.62872L6.84444 9.53249L11.0895 5.35372C11.2978 5.14869 11.6355 5.14869 11.8438 5.35372Z" fill="white"/>
+            </svg>
+
+            <span class="text-c-shadow xs:text-base text-left text-sm font-semibold xl:text-lg">
+              {{- 'product.form.one_time' | t -}}
+            </span>
+          </span>
+
+          <span
+            class="text-c-shadow xs:text-base ml-auto flex flex-col items-end text-right text-sm font-semibold xl:text-lg"
+            x-text="window.biCurrency(selectedVariant.price)"
+          >
+          </span>
+        </button>
+      </div>
+    {% endunless %}
+  </div>
+</template>

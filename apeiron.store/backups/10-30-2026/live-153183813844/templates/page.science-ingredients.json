@@ -1,0 +1,395 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_banner_3CPHqm": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#ffffff",
+        "c-body-primary": "#ffffff",
+        "bg": "",
+        "subtitle": "Apeiron Elementals",
+        "title": "Systems-Based Wellness Solutions",
+        "description": "",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "",
+        "btn_url": "",
+        "btn_text": "",
+        "sec_btn_url": "",
+        "sec_btn_text": "",
+        "layout": "full",
+        "split_revese": false,
+        "desk_alignment": "center",
+        "image": "shopify://shop_images/bi-ap-sc-hero-2.jpg",
+        "image_height": "sm",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_secondary_fill",
+        "layout_mob": "full",
+        "mob_alignment": "left",
+        "image_mob": "shopify://shop_images/bi-ap-sc-hero-2-mob.jpg",
+        "image_mob_height": "lg",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_navigation_list_qrUHRN": {
+      "type": "section-navigation-list",
+      "blocks": {
+        "block_Lhpjm9": {
+          "type": "block",
+          "settings": {
+            "title": "Elemental Innovation",
+            "url": "shopify://pages/elemental-innovation"
+          }
+        },
+        "block_Tpw8Nn": {
+          "type": "block",
+          "settings": {
+            "title": "Ingredients",
+            "url": "shopify://pages/ingredients"
+          }
+        },
+        "block_bihEWJ": {
+          "type": "block",
+          "settings": {
+            "title": "Science",
+            "url": "shopify://pages/science"
+          }
+        }
+      },
+      "block_order": [
+        "block_Lhpjm9",
+        "block_Tpw8Nn",
+        "block_bihEWJ"
+      ],
+      "name": "Navigation list",
+      "settings": {
+        "section_anchor_id": "Navigation list",
+        "c-body-primary": "#25282a",
+        "c-title": "#1A4178",
+        "c-bg-primary": "#f7faff"
+      }
+    },
+    "section_image_text_rXACVA": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Why Use Our Supplements",
+        "title": "Quality First Approach",
+        "desc": "<p>Formulated by physicians, powered by science, and crafted with only the purest ingredients. Your health deserves nothing but the best.</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-supp.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_6gDMdD": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Trusted Quality",
+        "title": "Tested, Traceable, Transparent",
+        "desc": "<p>Every batch of product is rigorously tested, produced in FDA-registered & cGMP certified facilities, and traceable down to the lot number—so you can verify purity, potency, and safety.</p>",
+        "layout": "default",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/apeiron-logos_1_1.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_evidence_AhG9B8": {
+      "type": "section-evidence",
+      "blocks": {
+        "block_FV38Fm": {
+          "type": "block",
+          "settings": {
+            "title": "BPC-157",
+            "description": "<p>A peptide consisting of 15 amino acids that can promote healthy gut function, balance inflammatory response and enhance recovery and tissue healing.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0533-2.png",
+            "subtitle": "Found in:",
+            "btn": "BPC-157 Capsules",
+            "link": "shopify://collections/bpc"
+          }
+        },
+        "block_G44Kwe": {
+          "type": "block",
+          "settings": {
+            "title": "TB4-Frag",
+            "description": "<p>A naturally occurring tetrapeptide(Ac-Ser-Asp-Lys-Pro) from thymosin beta-4. Research underscores its regenerative properties, ability to modulate the immune system, address inflammaging, and its supportive roles in cardiovascular health and reducing kidney/liver fibrosis.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0526-2.png",
+            "subtitle": "Found in:",
+            "btn": "TB4-Frag 500",
+            "link": "shopify://products/tb4-frag"
+          }
+        },
+        "block_fK8yeE": {
+          "type": "block",
+          "settings": {
+            "title": "Paraxanthine",
+            "description": "<p>A naturally occurring caffeine metabolite that delivers clean energy without the jitters or crash. Paraxanthine also supports improved mood and provides neural protection by reducing oxidative stress.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0528-2.png",
+            "subtitle": "Found in:",
+            "btn": "Mind-PX  and Nutrigenomic Lean",
+            "link": "shopify://products/mind-px"
+          }
+        },
+        "block_awQWF3": {
+          "type": "block",
+          "settings": {
+            "title": "7,8 dihydroflavone",
+            "description": "<p>Best known as a potent TrkB receptor agonist and ability to cross the blood brain barrier (BBB), mimicking brain-derived neurotrophic factor (BDNF)—a key player in neuroplasticity, synaptic function, and overall brain health.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0528-2.png",
+            "subtitle": "Found in:",
+            "btn": "Mind-PX",
+            "link": "shopify://products/mind-px"
+          }
+        },
+        "block_zD94FJ": {
+          "type": "block",
+          "settings": {
+            "title": "Marine Collagen",
+            "description": "<p>This versatile supplement not only helps hair skin and nails by replenishing collagen levels, it also supports cartilage health and joint mobility, boosts gut health, and aids in muscle recovery and performance, helping you look, feel, and perform at your best every day.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0545-2.png",
+            "subtitle": "Found in:",
+            "btn": "Marine Collagen",
+            "link": "shopify://products/marine-collagen"
+          }
+        },
+        "block_DbBxPQ": {
+          "type": "block",
+          "settings": {
+            "title": "TMG (Trimethylglycine)",
+            "description": "<p>A naturally occurring compound formed by attaching three methyl groups to the amino acid glycine, is primarily recognized as a potent methyl donor, playing a critical role in methylation, the biochemical process vital for proper gene expression, detoxification, neurotransmitter production, and cardiovascular function.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0542-2.png",
+            "subtitle": "Found in:",
+            "btn": "Foundation Multivitamin and Bioactive B-Complex",
+            "link": "shopify://products/foundation-multivitamin"
+          }
+        },
+        "block_bbCETh": {
+          "type": "block",
+          "settings": {
+            "title": "Spermidine",
+            "description": "<p>Supports cellular growth and DNA stability; linked to increased life expectancy; key in AEON Longevity Formula.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0539-2.png",
+            "subtitle": "Found in:",
+            "btn": "Rejuvenate UA w/ Urolithin A",
+            "link": "shopify://products/rejuvenate-ua"
+          }
+        },
+        "block_k3UQqK": {
+          "type": "block",
+          "settings": {
+            "title": "Ca-AKG (Calcium Alpha-Ketoglutarate Monohydrate)",
+            "description": "<p>Shields against free radicals, improves blood vessel elasticity, and boosts cellular energy.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0539-2.png",
+            "subtitle": "Found in:",
+            "btn": "Rejuvenate UA w/ Urolithin A",
+            "link": "shopify://products/rejuvenate-ua"
+          }
+        },
+        "block_eibkbX": {
+          "type": "block",
+          "settings": {
+            "title": "Alpha-GPC (Non-Soy)",
+            "description": "<p>Bioavailable choline source, enhances acetylcholine levels, supports brain health, and aids those with low choline production.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0528-2.png",
+            "subtitle": "Found in:",
+            "btn": "Mind-PX",
+            "link": "shopify://products/mind-px"
+          }
+        },
+        "block_3YNHya": {
+          "type": "block",
+          "settings": {
+            "title": "MitoPrime™ (L-Ergothioneine)",
+            "description": "<p>Reduces oxidative stress, protects DNA and mitochondrial function, improves cognition, and lowers anxiety.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0539-2.png",
+            "subtitle": "Found in:",
+            "btn": "Rejuvenate UA w/ Urolithin A",
+            "link": "shopify://products/rejuvenate-ua"
+          }
+        },
+        "block_VdKCM3": {
+          "type": "block",
+          "settings": {
+            "title": "MitoBurn™ L-BAIBA",
+            "description": "<p>Amino acid metabolite enhances exercise signals, boosts mitochondrial function, increases ketones, protects muscles, and reduces appetite.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0536-2.png",
+            "subtitle": "Found in:",
+            "btn": "Nutrigenomic Lean",
+            "link": "shopify://products/nutrigenomic-lean"
+          }
+        },
+        "block_EMz4pt": {
+          "type": "block",
+          "settings": {
+            "title": "Fucoxanthin",
+            "description": "<p>Carotenoid with anti-obesity, anti-diabetes, and cardiovascular benefits; safe, derived from macroalgae and microalgae.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0536-2.png",
+            "subtitle": "Found in:",
+            "btn": "Nutrigenomic Lean",
+            "link": "shopify://products/nutrigenomic-lean"
+          }
+        },
+        "block_MhaMBn": {
+          "type": "block",
+          "settings": {
+            "title": "Dihydroberberine",
+            "description": "<p>a highly bioavailable form of dihydroberberine that has been shown to be up to 5x more bioavailable and 2x longer lasting than regular berberine.</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0532-2.png",
+            "subtitle": "Found in:",
+            "btn": "Dihydroberberine",
+            "link": "shopify://products/ampk-activator"
+          }
+        },
+        "block_xpGybF": {
+          "type": "block",
+          "settings": {
+            "title": "DHH-B (Dihydrohonokiol-B)",
+            "description": "<p>Can offer mood support by increasing GABA activity, a neurotransmitter that promotes a calming effect, by quieting excitatory neurons in the brain, resulting in a sense of calm.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0524-2.png",
+            "subtitle": "Found in:",
+            "btn": "DHH-B",
+            "link": "shopify://products/dhh-b"
+          }
+        },
+        "block_MUanr8": {
+          "type": "block",
+          "settings": {
+            "title": "Magnesium Glycinate",
+            "description": "<p>Plays a crucial role in ATP production, helping to maintain proper energy levels within cells and promotes relaxation helping to regulate healthy sleep patterns and wakefulness.*</p>",
+            "image": "shopify://shop_images/Samuel_Stickler_r1_03F_0541-2.png",
+            "subtitle": "Found in:",
+            "btn": "Magnesium Glycinate",
+            "link": "shopify://products/magnesium-glycinate"
+          }
+        }
+      },
+      "block_order": [
+        "block_FV38Fm",
+        "block_G44Kwe",
+        "block_fK8yeE",
+        "block_awQWF3",
+        "block_zD94FJ",
+        "block_DbBxPQ",
+        "block_bbCETh",
+        "block_k3UQqK",
+        "block_eibkbX",
+        "block_3YNHya",
+        "block_VdKCM3",
+        "block_EMz4pt",
+        "block_MhaMBn",
+        "block_xpGybF",
+        "block_MUanr8"
+      ],
+      "name": "Evidence",
+      "settings": {
+        "section_anchor_id": "Evidence",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "c-bg-secondary": "#f9f9f9",
+        "title": "Premium Ingredients for Optimal Health",
+        "description": "<p>Apeiron Elementals uses top-quality, clinically supported ingredients to support diverse health goals. Below is a breakdown of key compounds in our products:</p>",
+        "mob_alignment": "center",
+        "alignment": "center",
+        "btn_text": "Load more ingredients",
+        "btn_text_less": "Load less ingredients",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 0,
+        "pt_tab": 40,
+        "pb_tab": 0,
+        "pt_desk": 80,
+        "pb_desk": 0
+      }
+    },
+    "section_image_overlay_zDrLAR": {
+      "type": "section-image-overlay",
+      "name": "Image overlay",
+      "settings": {
+        "section_anchor_id": "Image overlay",
+        "c-bg-primary": "#ffffff",
+        "c-bg-secondary": "#e2ecff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Start Your Wellness Journey Today",
+        "subtitle": "",
+        "description": "<p>Explore Apeiron Elementals’ innovative supplements and elevate your health now.</p>",
+        "btn_url": "shopify://collections/all-supplements",
+        "btn_text": "Get Started",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_3CPHqm",
+    "section_navigation_list_qrUHRN",
+    "section_image_text_rXACVA",
+    "section_image_text_6gDMdD",
+    "section_evidence_AhG9B8",
+    "section_image_overlay_zDrLAR"
+  ]
+}

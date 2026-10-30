@@ -1,0 +1,161 @@
+<div class="bg-sc-bg-primary">
+  <div class="px-7.5 pt-12.5 md:pb-25 2k:max-w-[1080px] mx-auto max-w-[910px] pb-5 md:px-20">
+    <h1 class="mb-7.5 text-sc-title mb-4 text-center text-3xl font-semibold lg:text-4xl xl:text-5xl">
+      {{ page.title }}
+    </h1>
+
+    <div class="text-sc-body-primary rte-article text-base">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .rte-article h1:not([class]),
+  .rte-article h2:not([class]),
+  .rte-article h3:not([class]),
+  .rte-article h4:not([class]),
+  .rte-article h5:not([class]),
+  .rte-article h6:not([class]) {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h1:not([class]),
+  .rte-article h1 span:not([class]),
+  .rte-article h1 strong:not([class]),
+  .rte-article h1 b:not([class]) {
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h2:not([class]),
+  .rte-article h2 span:not([class]),
+  .rte-article h2 strong:not([class]),
+  .rte-article h2 b:not([class]) {
+    font-size: 1.875rem;
+    line-height: 2.375rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h3:not([class]),
+  .rte-article h3 span:not([class]),
+  .rte-article h3 strong:not([class]),
+  .rte-article h3 b:not([class]) {
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h4:not([class]),
+  .rte-article h4 span:not([class]),
+  .rte-article h4 strong:not([class]),
+  .rte-article h4 b:not([class]) {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article h5:not([class]),
+  .rte-article h5 span:not([class]),
+  .rte-article h6 span:not([class]),
+  .rte-article h5 strong:not([class]),
+  .rte-article h6:not([class]),
+  .rte-article h6 strong:not([class]),
+  .rte-article h5 b:not([class]),
+  .rte-article h6 b:not([class]) {
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+    color: rgb(var(--c-title));
+    padding-bottom: 1.25rem;
+  }
+  .rte-article p:not([class]),
+  .rte-article span:not([class]),
+  .rte-article b:not([class]),
+  .rte-article strong:not([class]),
+  .rte-article a:not([class]) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 200;
+    color: rgb(var(--c-body-primary));
+  }
+  .rte-article a,
+  .rte-article a:not([class]),
+  .rte-article a span:not([class]) {
+    color: rgb(var(--c-navy));
+  }
+  .rte-article hr:not([class]),
+  .rte-article p:not([class]),
+  .rte-article img:not([class]) {
+    margin-bottom: 1.25rem;
+  }
+  .rte-article img:not([class]) {
+    border-radius: 20px;
+  }
+  .rte-article a:not([class]) {
+    color: rgb(var(--c-navy));
+    text-decoration-line: underline;
+  }
+  .rte-article ol:not([class]),
+  .rte-article ul:not([class]) {
+    padding-bottom: 1.25rem;
+    padding-left: 1.875rem;
+    text-align: left;
+  }
+  .rte-article ol:not([class]) {
+    list-style-type: disc;
+  }
+  .rte-article ul:not([class]) {
+    list-style-type: decimal;
+  }
+  @media (min-width: 992px) {
+    .rte-article h5:not([class]),
+    .rte-article h5 span:not([class]),
+    .rte-article h6 span:not([class]),
+    .rte-article h5 strong:not([class]),
+    .rte-article h6:not([class]),
+    .rte-article h6 strong:not([class]),
+    .rte-article h5 b:not([class]),
+    .rte-article h6 b:not([class]) {
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+    }
+    .rte-article h4:not([class]),
+    .rte-article h4 span:not([class]),
+    .rte-article h4 strong:not([class]),
+    .rte-article h4 b:not([class]) {
+      font-size: 1.5rem;
+      line-height: 1.875rem;
+    }
+    .rte-article h3:not([class]),
+    .rte-article h3 span:not([class]),
+    .rte-article h3 strong:not([class]),
+    .rte-article h3 b:not([class]) {
+      font-size: 1.875rem;
+      line-height: 2.375rem;
+    }
+    .rte-article h2:not([class]),
+    .rte-article h2 span:not([class]),
+    .rte-article h2 strong:not([class]),
+    .rte-article h2 b:not([class]) {
+      font-size: 2.25rem;
+      line-height: 2.875rem;
+    }
+    .rte-article h1:not([class]),
+    .rte-article h1 span:not([class]),
+    .rte-article h1 strong:not([class]),
+    .rte-article h1 b:not([class]) {
+      font-size: 3rem;
+      line-height: 3.75rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Main page",
+  "settings": []
+}
+{% endschema %}

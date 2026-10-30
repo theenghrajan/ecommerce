@@ -1,0 +1,50 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "custom_css": [],
+      "settings": {
+        "c-title": "#103561",
+        "c-body-primary": "#103561",
+        "c-bg-primary": "#ffffff",
+        "title": "{{ collection.title }}",
+        "collections_title": "Shop by Products",
+        "collections": [
+          "wholesale-collection"
+        ],
+        "layout": "stacked"
+      }
+    },
+    "popup_blocker_hVx8ja": {
+      "type": "popup-blocker",
+      "name": "Popup blocker",
+      "settings": {
+        "title": "Wholesale Members Only",
+        "text": "<p><strong><br/><br/>Wholesale Practitioner Only Portal<br/><br/></strong>If you would like to become a wholesale customer, please submit your application below so that we can assess your suitability.<br/><br/><br/>Members please login to view this content</p>",
+        "liquid": "",
+        "tags": "wholesale",
+        "btn_url": "",
+        "btn_text": "APPLY HERE",
+        "btn_script": "window._klOnsite = window._klOnsite || []; \nwindow._klOnsite.push(['openForm', 'RSkEdu']);",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_url": "/account",
+        "sec_btn_text": "LOGIN",
+        "sec_btn_script": "",
+        "sec_btn_type": "btn_primary_outline"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "popup_blocker_hVx8ja"
+  ]
+}

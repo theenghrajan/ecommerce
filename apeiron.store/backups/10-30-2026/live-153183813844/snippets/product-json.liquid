@@ -1,0 +1,20 @@
+{% comment %}
+  PARAMS:
+    product => OBJECT
+{% endcomment %}
+{%- liquid
+  assign product = all_products[product.handle]
+  if settings.allow_subscriptions == false
+    assign allow_subscriptions = false
+  else
+    assign allow_subscriptions = true
+  endif
+-%}
+
+<script type="application/json" data-product-info>
+  {
+    "product": {{ product | json }},
+    "productOptions": {{ product.options_with_values | json }},
+    "allowSubscriptions": {{ allow_subscriptions }}
+  }
+</script>

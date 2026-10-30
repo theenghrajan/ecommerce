@@ -1,0 +1,230 @@
+<div class="mt-4 first-of-type:mt-0">
+  <div class="rounded-lg bg-[#F9F9F9] p-4">
+    <div class="flex w-full items-start">
+      <!-- LINE ITEM IMAGE -->
+      <a
+        :data-line-item-img="item.key"
+        :aria-busy="item.key === $store['cart'].keyUpdating"
+        class="h-15 w-15 relative mr-4 block shrink-0 md:mr-4 md:h-[76px] md:w-[76px]"
+        :href="item.redirect ? item.redirect : item.url"
+        draggable="false"
+      >
+        <img
+          :src="`${item.image}&width=160`"
+          :alt="item.product_title"
+          class="h-full w-full rounded-lg border border-[#F9F9F9] object-cover"
+          width="76"
+          height="76"
+          draggable="false"
+        >
+        {% render 'btn-loader' %}
+      </a>
+
+      <!-- LINE ITEM INFO -->
+      <div class="flex w-full flex-col">
+        <!-- TEXT -->
+        <div class="flex flex-col space-y-1">
+          <a
+            class="text-sc-title line-clamp-2 text-base font-semibold md:text-lg"
+            :href="item.redirect ? item.redirect : item.url"
+            x-text="item.product_title"
+          ></a>
+
+          <template x-if="item.cart_slogan && !item.selling_plan_allocation">
+            <span
+              class="text-c-shadow line-clamp-2 text-xs md:text-sm"
+              x-text="item.cart_slogan"
+            ></span>
+          </template>
+
+          <template x-if="item.subscription_cart_slogan && item.selling_plan_allocation">
+            <span
+              class="text-c-shadow line-clamp-2 text-xs md:text-sm"
+              x-text="item.subscription_cart_slogan"
+            ></span>
+          </template>
+
+          <template x-if="item.selling_plan_allocation">
+            <span
+              class="text-c-shadow text-xs md:text-sm"
+              x-text="item.selling_plan_allocation.selling_plan.name"
+            ></span>
+          </template>
+
+          <template x-if="item.product_title !== item.title">
+            <span
+              class="text-c-shadow text-xs md:text-sm"
+              x-text="item.variant_title"
+            ></span>
+          </template>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="mt-3 flex items-center justify-between">
+          <!-- QTY BUTTONS -->
+          <template x-if="item.handle !== 'order-coverage'">
+            <div class="mr-3 shrink-0">
+              <div class="border-c-border bg-c-white rounded-7.5 grid h-6 w-[76px] shrink-0 grid-cols-3 items-stretch overflow-hidden border md:h-8">
+                <button
+                  aria-label="Minus"
+                  type="button"
+                  class="flex items-center justify-center pl-2 outline-none md:pl-3"
+                  :class="{ 'pointer-events-none' : $store['cart'].isUpdating }"
+                  @click="
+                    $store['cart'].changeQuantity({
+                      key: item.key,
+                      quantity: item.quantity - 1
+                    })
+                  "
+                >
+                  <span class="block w-2.5" x-show="item.quantity === 1">
+                    {% render 'icon', name: 'trash', class: 'w-2 h-2.5 text-sc-title' %}
+                  </span>
+                  <span x-show="item.quantity > 1">
+                    {% render 'icon', name: 'qty-minus', class: 'w-2.5 h-2.5 text-sc-title' %}
+                  </span>
+                </button>
+                <input
+                  type="number"
+                  pattern="[0-9]*"
+                  min="1"
+                  class="text-sc-title bg-transparent text-center text-sm outline-none"
+                  @input="
+                    (e) => {
+                      if(e.target.value === '') {
+                        return;
+                      }
+
+                      $store['cart'].changeQuantity({
+                        key: item.key,
+                        quantity: +e.target.value
+                      })
+                    }
+                  "
+                  :value="item.quantity"
+                >
+                <button
+                  aria-label="Plus"
+                  type="button"
+                  class="flex items-center justify-center pr-2 outline-none md:pr-3"
+                  :class="{ 'pointer-events-none' : $store['cart'].isUpdating }"
+                  @click="
+                    $store['cart'].changeQuantity({
+                      key: item.key,
+                      quantity: item.quantity + 1
+                    })
+                  "
+                >
+                  {% render 'icon', name: 'qty-plus', class: 'w-2.5 h-2.5 text-sc-title' %}
+                </button>
+              </div>
+            </div>
+          </template>
+
+          <div class="flex flex-col items-end">
+            <span class="text-sc-title flex flex-wrap items-center">
+              <template x-if="item.compare_at_price > item.final_price && !item.selling_plan_allocation || (item.selling_plan_allocation && item.compare_at_price > item.selling_plan_allocation.compare_at_price)">
+                <del
+                  class="text-sc-title mr-1 inline-block text-sm leading-none md:mr-0"
+                  x-text="window.biCurrency(item.compare_at_price * item.quantity)"
+                ></del>
+              </template>
+
+              <template x-if="item.selling_plan_allocation && item.selling_plan_allocation.compare_at_price * item.quantity > item.final_line_price && item.compare_at_price <= item.selling_plan_allocation.compare_at_price">
+                <del
+                  class="text-sc-title mr-1 inline-block text-sm leading-none md:mr-0"
+                  x-text="window.biCurrency(item.selling_plan_allocation.compare_at_price * item.quantity)"
+                ></del>
+              </template>
+
+              <span
+                class="text-sc-title inline-block text-sm font-semibold leading-none md:ml-1 md:text-base"
+                x-text="item.final_line_price && window.biCurrency(item.final_line_price) || '{{ 'cart.general.price_free' | t }}'"
+              ></span>
+            </span>
+
+            {% if section.settings.show_savings %}
+              <template x-if="item.selling_plan_allocation && item.selling_plan_allocation.compare_at_price * item.quantity > item.final_line_price">
+                <span
+                  class="text-sc-title whitespace-nowrap text-right text-xs lowercase"
+                  x-text="window.biCurrency(item.selling_plan_allocation.compare_at_price * item.quantity - item.final_line_price) + ' {{ 'cart.general.savings' | t | downcase }}'"
+                  style="--c-title: {{ section.settings.show_saving_color.rgb }};"
+                ></span>
+              </template>
+              <template x-if="!item.selling_plan_allocation && item.compare_at_price * item.quantity > item.final_line_price">
+                <span
+                  class="text-sc-title whitespace-nowrap text-right text-xs lowercase"
+                  x-text="window.biCurrency(item.compare_at_price * item.quantity - item.final_line_price) + ' {{ 'cart.general.savings' | t }}'"
+                  style="--c-title: {{ section.settings.show_saving_color.rgb }};"
+                ></span>
+              </template>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.allow_subscriptions %}
+      <template x-if="!item.requires_selling_plan && item.selling_plans && !item.has_components">
+        <div
+          class="mt-4 flex w-full flex-col"
+          x-data="sellingPlan({ lineItem: item })"
+          :class="$store['cart'].isUpdating && 'pointer-events-none'"
+        >
+          <div class="relative w-full">
+            <button
+              type="button"
+              @click="opened = !opened"
+              class="bg-sc-bg-third text-sc-title flex w-full cursor-pointer appearance-none items-start truncate rounded-lg border-none py-3 pl-4 pr-10 text-sm font-semibold outline-none"
+            >
+              <span
+                x-text="lineItemSellingPlan.planName ? lineItemSellingPlan.planName : '{{- 'cart.general.subscribe_and_save' | t | append: ' ' }}' + savingAmount + '{{ 'common.off' | t | prepend: ' ' }}'"
+              ></span>
+
+              <span
+                class="absolute right-2 top-1/2 h-6 w-6 -translate-y-1/2 duration-200 ease-in-out"
+                :class="opened && 'rotate-90'"
+              >
+                {% render 'icon', name: 'chevron-header', class: 'text-c-shadow w-6 h-6' %}
+              </span>
+            </button>
+
+            <ul
+              x-show="opened"
+              @click.outside="opened = false"
+              class="border-c-border bg-c-white absolute z-10 mt-1 w-full overflow-hidden rounded-lg border"
+            >
+              <li class="border-c-border border-b">
+                <button
+                  type="button"
+                  class="hover:bg-sc-bg-third w-full px-4 py-2 text-left text-sm duration-200 ease-in-out"
+                  @click="changeSellingPlan({id: null, name: '{{- 'cart.general.subscribe_and_save' | t | append: ' ' }}' + savingAmount })"
+                  :disabled="!lineItemSellingPlan.id"
+                >
+                  <span>{{ 'product.form.one_time' | t }}</span>
+                </button>
+              </li>
+
+              <template x-for="sell_plan in item.selling_plans">
+                <li>
+                  <button
+                    type="button"
+                    class="hover:bg-sc-bg-third w-full px-4 py-2 text-left text-sm duration-200 ease-in-out"
+                    @click="changeSellingPlan({id: sell_plan.id, name: sell_plan.name })"
+                    :disabled="lineItemSellingPlan.id === sell_plan.id"
+                  >
+                    <span x-text="sell_plan.name"></span>
+                  </button>
+                </li>
+              </template>
+            </ul>
+          </div>
+
+          <span class="text-c-shadow mt-1 block text-xs">
+            {{- 'cart.general.subscribe_cancel' | t -}}
+          </span>
+        </div>
+      </template>
+    {% endif %}
+  </div>
+</div>

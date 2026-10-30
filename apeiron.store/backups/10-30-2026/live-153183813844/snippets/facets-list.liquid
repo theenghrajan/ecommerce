@@ -1,0 +1,142 @@
+{% if show_sort %}
+  {%- capture accordion_content -%}
+    <ul class="space-y-4">
+      {%- assign selected_sort_by = collection.sort_by | default: collection.default_sort_by -%}
+
+      {%- for option in collection.sort_options -%}
+        <li>
+          <label
+            for="{{- option.value | handleize | prepend: prefix -}}"
+            class="text-c-shadow no-select group relative w-full cursor-pointer"
+          >
+            <input
+              id="{{ option.value | handleize | prepend: prefix }}"
+              class="peer hidden"
+              type="radio"
+              name="sort_by"
+              value="{{ option.value }}"
+              {%- if option.value == selected_sort_by -%}
+                checked
+              {% endif %}
+            >
+            <svg
+              aria-hidden="true"
+              class="peer-checked:child-rect:fill-c-shadow peer-checked:child-path:fill-c-white peer-checked:child-rect:stroke-c-shadow absolute left-0 top-0"
+              width="18"
+              height="19"
+              viewBox="0 0 18 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect class="duration-200 ease-in-out" x="0.5625" y="1.0625" width="16.875" height="16.875" rx="3.9375" fill="transparent"/>
+              <rect class="duration-200 ease-in-out" x="0.5625" y="1.0625" width="16.875" height="16.875" rx="3.9375" stroke="#B3C6E0" stroke-width="1.125"/>
+              <path class="duration-200 ease-in-out" fill-rule="evenodd" clip-rule="evenodd" d="M14.1549 5.89457C14.4343 6.17392 14.4343 6.62683 14.1549 6.90617L7.95557 13.1055C7.67622 13.3849 7.22331 13.3849 6.94396 13.1055L3.84428 10.0059C3.56493 9.72651 3.56493 9.2736 3.84428 8.99426C4.12362 8.71491 4.57653 8.71491 4.85588 8.99426L7.44977 11.5881L13.1433 5.89457C13.4227 5.61522 13.8756 5.61522 14.1549 5.89457Z" fill="transparent"/>
+            </svg>
+
+            <span class="pl-7.5 text-c-shadow group-hover:text-c-navy text-lg duration-200 ease-in-out">
+                      {{- option.name -}}
+                    </span>
+          </label>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endcapture -%}
+
+  {%- assign sort_by_label = 'collection.sorting.title' | t -%}
+  {%- render 'facet-accordion', label: sort_by_label, content: accordion_content, index: accordion-sort-by -%}
+{% endif %}
+
+{%- for filter in collection.filters -%}
+  {% if filter.type == 'price_range' or filter.param_name == 'filter.v.availability' %}
+    {% continue %}
+  {% endif %}
+  {%- if filter.type == 'boolean' -%}
+    <label
+      for="{{ filter.type }}-{{ filter.param_name }}"
+      class="border-c-border flex cursor-pointer items-center justify-between border-b pb-5 last-of-type:border-none"
+    >
+      <input
+        id="{{ filter.type }}-{{ filter.param_name }}"
+        type="checkbox"
+        class="checkbox-switch"
+        name="{{ filter.param_name }}"
+        value="1"
+        {% if filter.active_values.size > 0 %}
+          checked
+        {% endif %}
+      >
+      <span class="font-primary no-select group-hover:text-c-navy text-base font-medium duration-300 ease-in-out">
+        {{- filter.label -}}
+      </span>
+      <span class="span-switch"></span>
+    </label>
+  {%- else -%}
+    {%- capture accordion_content -%}
+      {%- case filter.type -%}
+        {%- when 'list' -%}
+          {%- if filter.param_name contains 'color' -%}
+            <div class="flex flex-wrap gap-2">
+              {%- for filter_value in filter.values -%}
+                {%- assign disabled = false -%}
+                {%- if filter_value.count == 0 and filter_value.active == false -%}
+                  {%- assign disabled = true -%}
+                {%- endif -%}
+
+                {% render 'checkbox', style: 'color', checked: filter_value.active, value: filter_value.label, name: filter_value.param_name, disabled: disabled %}
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <ul class="space-y-4">
+              {%- for filter_value in filter.values -%}
+                {%- assign disabled = false -%}
+                {%- if filter_value.count == 0 and filter_value.active == false -%}
+                  {%- assign disabled = true -%}
+                {%- endif -%}
+
+                <li>
+                  <label
+                    for="{{- filter_value.value | handleize | prepend: prefix -}}"
+                    class="text-c-shadow no-select group relative w-full {% if disabled -%} opacity-50 {%- else -%} cursor-pointer {%- endif -%}"
+                  >
+                    <input
+                      id="{{ filter_value.value | handleize | prepend: prefix }}"
+                      class="peer hidden"
+                      type="checkbox"
+                      name="{{ filter_value.param_name }}"
+                      value="{{ filter_value.value }}"
+                      {% if filter_value.active %}
+                        checked
+                      {% endif %}
+                      {% if disabled %}
+                        disabled
+                      {% endif %}
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="peer-checked:child-rect:fill-c-shadow peer-checked:child-path:fill-c-white peer-checked:child-rect:stroke-c-shadow absolute left-0 top-0"
+                        width="18"
+                        height="19"
+                        viewBox="0 0 18 19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect class="duration-200 ease-in-out" x="0.5625" y="1.0625" width="16.875" height="16.875" rx="3.9375" fill="transparent"/>
+                        <rect class="duration-200 ease-in-out" x="0.5625" y="1.0625" width="16.875" height="16.875" rx="3.9375" stroke="#B3C6E0" stroke-width="1.125"/>
+                        <path class="duration-200 ease-in-out" fill-rule="evenodd" clip-rule="evenodd" d="M14.1549 5.89457C14.4343 6.17392 14.4343 6.62683 14.1549 6.90617L7.95557 13.1055C7.67622 13.3849 7.22331 13.3849 6.94396 13.1055L3.84428 10.0059C3.56493 9.72651 3.56493 9.2736 3.84428 8.99426C4.12362 8.71491 4.57653 8.71491 4.85588 8.99426L7.44977 11.5881L13.1433 5.89457C13.4227 5.61522 13.8756 5.61522 14.1549 5.89457Z" fill="transparent"/>
+                      </svg>
+
+                    <span class="pl-7.5 text-c-shadow group-hover:text-c-navy text-lg duration-200 ease-in-out">
+                      {{- filter_value.label -}}
+                    </span>
+                  </label>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endcapture -%}
+
+    {%- assign accordion_id = 'accordion-' | append: filter.param_name | handle -%}
+    {%- render 'facet-accordion', label: filter.label, content: accordion_content, index: accordion_id -%}
+  {%- endif -%}
+{%- endfor -%}

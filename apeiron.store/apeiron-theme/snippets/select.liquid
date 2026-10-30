@@ -1,0 +1,64 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  SELECT COMPONENT
+  ----------------------------------------------------------------------------------------------------------------------
+
+  This snippet generates a styled select using the native "select" element. If you wish to create a styled select, you
+  need to use the "dropdown" snippet instead.
+
+  ********************************************
+  Supported variables
+  ********************************************
+
+  * name: the HTML name attribute that is used when the field is submitted.
+  * form: if specified, define the form ID linked to this input
+  * label: the label to show
+  * options: if the type is "select", HTML of the rendered options
+  * required: if set to true, the "required" attribute is added to the input
+  * autocomplete: a hint to the browser for help autocompletion. List can be found here: https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values
+  * chevron
+{%- endcomment -%}
+
+{%- capture id -%}select-{{ 'now' | date: '%N' }}{%- endcapture -%}
+
+{% liquid
+  assign border_color = border_color | default: '#ED3293'
+%}
+
+{%- capture optional_attributes -%}
+  {% if form %}form="{{ form }}"{% endif %}
+  {% if autocomplete %}autocomplete="{{ autocomplete }}"{% endif %}
+  {% if required %}required{% endif %}
+{%- endcapture -%}
+
+<div
+  style="--ring: {{ border_color }}; --input-height: {{ input_height | default: 48 }}px;"
+  class="relative h-[var(--input-height)] text-left"
+  {{ block.shopify_attributes }}
+>
+  <select
+    id="{{ id }}"
+    class="text-sc-body-primary ring-c-border peer h-[var(--input-height)] w-full cursor-pointer appearance-none rounded-lg border-none bg-transparent p-4 pb-3 text-base outline-none ring-[1px] ring-inset duration-200 ease-in-out"
+    name="{{ name }}"
+    {{ optional_attributes }}
+  >
+    {{- options -}}
+  </select>
+
+  {%- if label != blank -%}
+    <label
+      for="{{ id }}"
+      class="text-sc-body-primary pointer-events-none absolute left-0 top-0 ml-4 grid h-full origin-left items-center text-base opacity-50 duration-200 ease-in-out peer-focus:-translate-y-[1rem] peer-focus:scale-[.65] peer-[&:not(:placeholder-shown)]:-translate-y-[1rem] peer-[&:not(:placeholder-shown)]:scale-[.65]"
+    >
+      {{- label -}}
+    </label>
+  {%- endif -%}
+
+  {% if chevron %}
+    {% render 'icon',
+      name: 'chevron',
+      size: 'md',
+      class: 'rotate-90 right-3 top-1/2 absolute -translate-y-1/2 peer-focus:rotate-[270deg] duration-300 ease-in-out'
+    %}
+  {% endif %}
+</div>

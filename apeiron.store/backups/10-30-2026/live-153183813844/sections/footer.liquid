@@ -1,0 +1,219 @@
+{% liquid
+  assign logo = section.settings.logo
+  assign logo_width = section.settings.logo_width
+  assign navlist = section.settings.linklist
+
+  assign store_info = section.settings.store_info
+  assign bottom_text = section.settings.bottom_text
+  assign copyright_text = section.settings.copyright_text
+  assign show_payments = section.settings.show_payments
+
+  render 'css-variables-setter'
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title pt-7.5 pb-5 lg:py-10"
+>
+  <div class="container">
+    <div class="pb-7.5 grid grid-cols-1 gap-5 lg:pb-10 xl:gap-10 {% if store_info != blank -%} lg:grid-cols-5 xl:grid-cols-[minmax(0,340px)_repeat(4,_minmax(0,1fr))] {%- else -%} lg:grid-cols-4 {%- endif -%}">
+      {% if store_info != blank %}
+        <div class="rte text-sc-body-primary rte-h:font-medium rte-h:text-lg rte-h:text-sc-title rte-p:!mt-3 lg:rte-p:!mt-2 space-y-5 text-lg lg:space-y-3">
+          {{- store_info -}}
+        </div>
+      {% endif %}
+
+      {% for link in navlist.links %}
+        <div class="hidden space-y-3 lg:block">
+          <h3 class="text-sc-title text-left text-lg font-medium">
+            {{- link.title -}}
+          </h3>
+
+          <ul class="flex flex-col space-y-2">
+            {% for c_link in link.links %}
+              <li class="text-sc-body-primary text-lg">
+                <a
+                  aria-label="{{ c_link.title }}"
+                  class="duration-200 ease-in-out hover:opacity-80"
+                  href="{{- c_link.url -}}"
+                >
+                  {{- c_link.title -}}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% comment %}MOBILE CONTENT START{% endcomment %}
+    <div class="space-y-5 pb-5 lg:hidden">
+      {% for link in navlist.links %}
+        <div
+          x-data="{ isOpen: false }"
+          aria-label="Open {{ link.title }} accordion"
+          aria-labelledby="nav-heading-{{ forloop.index }}"
+        >
+          <button
+            @click="isOpen = !isOpen"
+            role="button"
+            aria-controls="nav-list-{{ forloop.index }}"
+            class="flex w-full items-start justify-between"
+          >
+            <h3
+              class="text-sc-title text-left text-lg font-medium"
+              id="nav-heading-{{ forloop.index }}"
+            >
+              {{- link.title -}}
+            </h3>
+            {% render 'icon', name: 'accordion' %}
+          </button>
+
+          {% if link.links != blank %}
+            <ul
+              id="nav-list-{{ forloop.index }}"
+              x-show="isOpen"
+              x-cloak
+              x-collapse
+              class="space-y-2"
+            >
+              {% for c_link in link.links %}
+                <li class="text-sc-body-primary text-lg {% if forloop.first -%} mt-3 {%- endif -%}">
+                  <a
+                    aria-label="{{ c_link.title }}"
+                    href="{{- c_link.url -}}"
+                  >
+                    {{- c_link.title -}}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    {% comment %}MOBILE CONTENT END{% endcomment %}
+
+    {% if logo != blank %}
+      <div class="mx-auto w-full max-w-[var(--width)]" style="--width: {{ logo_width | append: 'px' }}">
+        {{
+          logo
+          | image_url: width: logo.width
+          | image_tag: alt: logo.alt, class: 'w-full h-full object-contain', draggable: false
+        }}
+      </div>
+    {% endif %}
+
+    {% render 'social-media',
+      class: 'flex flex-wrap py-5 lg:py-10 gap-5 justify-center text-sc-body-primary',
+      size: 'h-6 w-6 md:h-7.5 md:w-7.5'
+    %}
+
+    {% if bottom_text != blank %}
+      <div class="rte text-sc-body-primary border-c-border rounded-lg border p-3 text-sm lg:p-5 lg:text-center">
+        {{- bottom_text -}}
+      </div>
+    {% endif %}
+
+    <div class="space-y-7.5 flex flex-col justify-between pt-5 text-center lg:flex-row lg:space-x-10 lg:space-y-0 lg:pt-10">
+      {% if copyright_text != blank %}
+        <div class="rte text-sc-body-primary text-sm lg:text-base">{{- copyright_text -}}</div>
+      {% endif %}
+
+      {% if show_payments %}
+        <ul class="text-c-navy flex list-none flex-wrap justify-center gap-2" role="list">
+          {%- for type in shop.enabled_payment_types -%}
+            {% unless type == 'amazon_pay' or type == 'google_pay' or type == 'diners_club' or type == 'jcb' %}
+              <li class="">
+                {{ type | payment_type_svg_tag: class: '' }}
+              </li>
+            {% endunless %}
+          {%- endfor -%}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": "footer",
+  "limit": 1,
+  "enabled_on": {
+    "groups": ["footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#F7FAFF"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "header",
+      "content": "Footer settings"
+    },
+    {
+      "type": "richtext",
+      "id": "store_info",
+      "label": "Store Info",
+      "default": "<h3>Corporate Office</h3><p>919 Congress Ave Ste 525 Austin, TX 78701 USA</p><h3>Phone</h3><p>512-688-6207</p><h3>Email</h3><p>store@apeiron.store</p>"
+    },
+    {
+      "type": "link_list",
+      "id": "linklist",
+      "label": "Navigation linklist"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "number",
+      "id": "logo_width",
+      "label": "Logo width",
+      "default": 150
+    },
+    {
+      "type": "header",
+      "content": "Bottom content"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_text",
+      "label": "Bottom text",
+      "default": "<p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "<p>© Solawave 2024 • All Rights Reserved</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payments",
+      "label": "Show payment icons",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

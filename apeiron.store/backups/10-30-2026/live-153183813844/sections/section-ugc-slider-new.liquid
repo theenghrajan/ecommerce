@@ -1,0 +1,553 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign title = section.settings.title
+  assign description = section.settings.description
+  assign bottom = section.settings.bottom
+
+  assign mob_alignment = section.settings.mob_alignment | prepend: 'text-'
+  assign desk_alignment = section.settings.alignment | prepend: 'lg:text-'
+  assign alignment = mob_alignment | append: ' ' | append: desk_alignment
+
+  assign autoplay = section.settings.autoplay | times: 1000
+  assign pagination_style = section.settings.pagination_style
+
+  assign loading = 'lazy'
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+    assign loading = false
+  endif
+
+  assign blocks = section.blocks
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title overflow-hidden"
+>
+  <div class="container {{ alignment -}}">
+    {% if title != blank %}
+      <h2
+        class="rte mb-3 text-3xl font-semibold md:mb-4 lg:text-4xl xl:text-5xl {{ animation -}}"
+        {% if animation %}
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        {{- title -}}
+      </h2>
+    {% endif %}
+
+    {% if description != blank %}
+      <div
+        class="rte text-sc-body-primary text-base lg:text-lg {{ animation -}}"
+        {% if animation %}
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        {{- description -}}
+      </div>
+    {% endif %}
+
+    {% if blocks.size > 0 %}
+      <div
+        class="splide {% if title != blank or description != blank %} mt-5 lg:mt-10 {% endif %} p-0 {{ animation -}}"
+        x-ignore
+        x-load="visible (300px 300px 300px 300px)"
+        x-data="splideSlider()"
+        data-splide='{ {%- if autoplay > 0 -%}"autoplay": true, "interval": {{ autoplay -}},{%- endif %} "arrows": false, "pagination": false, "rewind": true, "startAt": 0, "fixedWidth": "360px", "type": "loop", "focus": "center", "speed": 500, "gap": 0, "padding": { "right": 60 }, "breakpoints": { "743": { "fixedWidth": "320px", "gap": 20, "type": "slide", "focus": 0, "padding": { "right": 0 } }, "475": { "fixedWidth": "260px", "gap": 12 } } }'
+        {% if animation %}
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        <div class="splide__track overflow-visible">
+          <ul class="splide__list md:!gap-7.5 h-full">
+            {% for block in blocks %}
+              {% case block.type %}
+                {% when 'block' %}
+                  {% liquid
+                    assign icon = block.settings.icon
+                    assign title = block.settings.title
+                    assign subtitle = block.settings.subtitle
+                    assign description = block.settings.description
+                    assign name = block.settings.name
+                    assign image = block.settings.image
+                    assign link = block.settings.link
+                    assign link_text = block.settings.link_text
+                  %}
+                  <li
+                    class="splide__slide lg:p-7.5 border-c-border bg-sc-bg-secondary group relative flex h-80 flex-col rounded-lg border p-4 md:h-[420px] lg:h-[500px] lg:text-sm"
+                    {{ block.shopify_attributes }}
+                  >
+                    {% if subtitle != blank %}
+                      <span
+                        class="text-c-green mb-4 flex items-center justify-center space-x-1 text-xs font-semibold lg:mb-5"
+                      >
+                        {% if icon != blank %}
+                          <span class="max-w-[var(--width)]" style="--width: 18px;">
+                            {{
+                              icon
+                              | image_url: width: 18
+                              | image_tag:
+                                alt: icon.alt,
+                                class: 'w-full h-full object-contain',
+                                widths: '18',
+                                draggable: false
+                            }}
+                          </span>
+                        {% endif %}
+
+                        <span>
+                          {{- subtitle -}}
+                        </span>
+                      </span>
+                    {% endif %}
+
+                    {% if title != blank %}
+                      <span class="text-sc-body-primary mb-3 text-center text-base font-semibold lg:mb-4 lg:text-lg">
+                        {{- title -}}
+                      </span>
+                    {% endif %}
+
+                    {% if description != blank %}
+                      <div class="rte text-sc-body-primary mb-5 {% if link_text != blank -%} line-clamp-5 {%- else -%} line-clamp-6 {%- endif %} text-center text-lg md:line-clamp-[8] lg:text-xl lg:leading-normal">
+                        {{- description -}}
+                      </div>
+                    {% endif %}
+
+                    {% if link_text != blank or name != blank or image != blank %}
+                      <div class="mt-auto">
+                        {% if link_text != blank %}
+                          <a
+                            aria-label="{{- link_text -}}"
+                            href="{{- link -}}"
+                            class="text-sc-body-primary text mx-auto flex w-max max-w-full justify-center text-xs font-medium leading-tight underline underline-offset-4 lg:text-base lg:font-semibold"
+                          >
+                            {{- link_text -}}
+                          </a>
+                        {% endif %}
+
+                        {% if name != blank or image != blank %}
+                          <div class="mt-4 flex items-center justify-center space-x-3 lg:mt-5 lg:space-x-5">
+                            {% if image != blank %}
+                              <span class="image-overflow-hidden h-6 w-6 rounded-full lg:h-10 lg:w-10">
+                                {{
+                                  image
+                                  | image_url: width: 80
+                                  | image_tag:
+                                    alt: image.alt,
+                                    class: 'w-full h-full object-cover',
+                                    widths: '26, 40, 80',
+                                    draggable: false,
+                                    loading: loading
+                                }}
+                              </span>
+                            {% endif %}
+
+                            {% if name != blank %}
+                              <span class="text-sc-body-primary text-base font-semibold lg:text-lg">{{- name -}}</span>
+                            {% endif %}
+                          </div>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  </li>
+                {% when 'video' %}
+                  {% liquid
+                    assign video = block.settings.video
+                  %}
+                  {% if video != blank %}
+                    <li
+                      class="splide__slide border-c-border bg-sc-bg-secondary group relative flex h-80 flex-col overflow-hidden rounded-lg border md:h-[420px] lg:h-[500px]"
+                      {{ block.shopify_attributes }}
+                    >
+                      <div
+                        x-data="videoToggler"
+                        class="relative h-full w-full"
+                        tabindex="0"
+                        @mouseenter="playVideo()"
+                        @mouseleave="pauseVideo()"
+                        @click.stop="window.isTouchScreen && togglePlay()"
+                      >
+                        <div x-show="poster">
+                          <img
+                            src="{{ video.preview_image.src | img_url: '400x' }}"
+                            alt="{{ video.alt }}"
+                            loading="{{ loading }}"
+                            class="absolute inset-0 h-full w-full object-cover"
+                          >
+                        </div>
+
+                        {{
+                          video
+                          | video_tag:
+                            autoplay: false,
+                            loop: true,
+                            controls: false,
+                            class: 'w-full h-full object-cover',
+                            x-ref: 'video'
+                        }}
+
+                        <button
+                          type="button"
+                          @click.stop="togglePlay()"
+                          aria-label="play/pause video"
+                          class="absolute bottom-4 left-4 flex h-7 w-7 items-center justify-center rounded-full bg-white md:h-9 md:w-9 lg:h-11 lg:w-11"
+                        >
+                          <svg
+                            x-show="!play"
+                            class="h-2 w-2 lg:h-3.5 lg:w-3.5"
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M12.6284 7.06598L1.11524 12.9127H1.11388C0.883677 13.0294 0.600644 13.0294 0.370458 12.9127C0.141602 12.796 -0.000579834 12.5804 -0.000579834 12.347V0.653521C-0.000579834 0.420085 0.141609 0.204498 0.370458 0.0877826C0.600665 -0.0289354 0.883698 -0.0289354 1.11388 0.0877826L12.627 5.93451H12.6284C12.8572 6.05122 12.9994 6.26678 12.9994 6.50024C12.9994 6.73371 12.8572 6.94927 12.6284 7.06598Z" fill="#1A4178"/>
+                          </svg>
+
+                          <svg
+                            x-show="play"
+                            x-cloak
+                            class="h-2 w-2 lg:h-3.5 lg:w-3.5"
+                            width="13"
+                            height="13"
+                            viewBox="0 0 13 13"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect width="13" height="13" fill="#1A4178"/>
+                            <path d="M12.6284 7.06598L1.11524 12.9127H1.11388C0.883677 13.0294 0.600644 13.0294 0.370458 12.9127C0.141602 12.796 -0.000579834 12.5804 -0.000579834 12.347V0.653521C-0.000579834 0.420085 0.141609 0.204498 0.370458 0.0877826C0.600665 -0.0289354 0.883698 -0.0289354 1.11388 0.0877826L12.627 5.93451H12.6284C12.8572 6.05122 12.9994 6.26678 12.9994 6.50024C12.9994 6.73371 12.8572 6.94927 12.6284 7.06598Z" fill="#1A4178"/>
+                          </svg>
+                        </button>
+
+                        <button
+                          type="button"
+                          @click="toggleVolume()"
+                          aria-label="mute/unmute video"
+                          class="absolute bottom-4 right-4 flex h-7 w-7 items-center justify-center rounded-full md:h-9 md:w-9 lg:h-11 lg:w-11"
+                        >
+                          <svg
+                            x-show="!muted"
+                            x-cloak
+                            class="h-full w-full"
+                            viewBox="0 0 44 44"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M6.35676 16.2803H9.48146C10.3202 16.2803 10.9991 17.119 10.9991 17.7979V26.2028C10.9991 27.0415 10.3202 27.7205 9.48146 27.7205H6.35676C5.51803 27.7205 4.83911 26.8817 4.83911 26.2028V17.7979C4.83911 16.9592 5.51803 16.2803 6.35676 16.2803Z" fill="white"/>
+                            <path d="M22.6135 8.4926L12.6964 16.2062C12.4592 16.3919 12.3182 16.6772 12.3182 16.9814V27.0222C12.3182 27.3264 12.4592 27.6117 12.6964 27.7973L22.6135 35.511C23.2563 36.0128 24.1982 35.5557 24.1982 34.7358V9.26555C24.1982 8.45085 23.2615 7.99025 22.6135 8.4904V8.4926Z" fill="white"/>
+                            <path d="M28.594 28.3714C30.5087 26.9328 31.6791 24.6572 31.6791 22.2202C31.6791 19.7832 30.5035 17.5038 28.594 16.069C28.0525 15.6634 27.2791 16.0518 27.2791 16.7238V16.8734C27.2791 17.138 27.4115 17.3752 27.6177 17.5385C29.0426 18.6522 29.9191 20.3762 29.9191 22.2205C29.9191 24.0649 29.0477 25.7938 27.6177 26.9026C27.4115 27.0659 27.2791 27.3031 27.2791 27.5677V27.7173C27.2791 28.3945 28.0543 28.7829 28.594 28.3721V28.3714Z" fill="white"/>
+                            <path d="M28.4238 32.9914C32.7362 31.2142 35.6389 26.9722 35.6389 22.2202C35.6389 17.4682 32.7308 13.2261 28.4238 11.449C27.879 11.2238 27.2791 11.6157 27.2791 12.2052V12.3324C27.2791 12.6573 27.4682 12.9581 27.7672 13.0801C31.4196 14.5943 33.8793 18.1933 33.8793 22.2237C33.8793 26.2542 31.4198 29.8533 27.7672 31.3673C27.4682 31.4911 27.2791 31.7936 27.2791 32.115V32.2422C27.2791 32.8317 27.8772 33.2236 28.4238 32.9985V32.9914Z" fill="white"/>
+                            <path d="M28.3258 7.22048C27.8016 7.07095 27.2791 7.46626 27.2791 8.01283V8.13142C27.2791 8.4872 27.5077 8.81378 27.8549 8.91515C33.7073 10.6133 37.8389 16.0308 37.8389 22.2252C37.8389 28.4195 33.7071 33.8372 27.8549 35.5352C27.5111 35.6366 27.2791 35.958 27.2791 36.3189V36.4375C27.2791 36.9823 27.8033 37.3793 28.3258 37.2298C34.9346 35.3203 39.5991 29.217 39.5991 22.2302C39.5991 15.2435 34.9311 9.13494 28.3258 7.23062V7.22048Z" fill="white"/>
+                          </svg>
+
+                          <svg
+                            x-show="muted"
+                            class="h-full w-full"
+                            viewBox="0 0 44 44"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M6.35676 16.2803H9.48146C10.3202 16.2803 10.9991 17.119 10.9991 17.7979V26.2028C10.9991 27.0415 10.3202 27.7205 9.48146 27.7205H6.35676C5.51803 27.7205 4.83911 26.8817 4.83911 26.2028V17.7979C4.83911 16.9592 5.51803 16.2803 6.35676 16.2803Z" fill="white"/>
+                            <path d="M22.6135 8.4926L12.6964 16.2062C12.4592 16.3919 12.3182 16.6772 12.3182 16.9814V27.0222C12.3182 27.3264 12.4592 27.6117 12.6964 27.7973L22.6135 35.511C23.2563 36.0128 24.1982 35.5557 24.1982 34.7358V9.26555C24.1982 8.45085 23.2615 7.99025 22.6135 8.4904V8.4926Z" fill="white"/>
+                            <path d="M40 16L28 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M28 16L40 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </li>
+                  {% endif %}
+              {% endcase %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if blocks.size > 1 %}
+          <div
+            class="md:mt-7.5 mt-5 flex lg:hidden"
+            data-pagination-bar-inner
+          >
+            {% render 'splide-pagination', bar: true, style: pagination_style %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if bottom != blank %}
+      <div class="rte text-sc-subtitle mt-5 text-left text-xs lg:mt-10 lg:text-base">{{- bottom -}}</div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Testimonials"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#F7FAFF"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-secondary",
+      "label": "Card background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-subtitle",
+      "label": "Bottom text color",
+      "default": "#525252"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom",
+      "label": "Section bottom text"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Mobile text alignment",
+      "default": "left"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "select",
+      "id": "pagination_style",
+      "label": "Pagination style",
+      "options": [
+        {
+          "value": "pagination--light",
+          "label": "Light"
+        },
+        {
+          "value": "pagination--dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "pagination--dark"
+    },
+    {
+      "type": "range",
+      "id": "autoplay",
+      "label": "Slider autoplay duration",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 90
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 90
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Block icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subtitle",
+          "label": "Block subtitle"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Block description"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "link text"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Reviewer photo"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "category": "Sections",
+      "name": "Testimonials",
+      "settings": {
+        "title": "What Customers Feel After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p>Individual results vary. Statements not evaluated by the FDA</p>"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Rotator cuff injury",
+            "subtitle": "Verified Customer",
+            "description": "<p>I underwent lower back surgery in April 2023 and have been struggling ever since with ongoing lower back and lower extremity pain. I’ve dealt with severe muscle spasms and significant arthritis in my lower body, and up until February 2025, nothing seemed to bring real relief. A friend recommended BPC-157 to me, so I decided to give it a try. Within about 30 to 45 days of starting it, I noticed a real difference—my arthritis pain eased up, and my mobility noticeably improved. Just two weeks ago, I was able to ride my snowmobile for the first time in over three and a half years, something I thought I might never do again. Honestly, my back hasn’t felt this good in years, and I feel like I’ve regained the energy and freedom of my late 20s. I am telling everyone about this stuff. Thank you!</p>",
+            "name": "Bret C"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Rotator cuff injury",
+            "subtitle": "Verified Customer",
+            "description": "<p>I underwent lower back surgery in April 2023 and have been struggling ever since with ongoing lower back and lower extremity pain. I’ve dealt with severe muscle spasms and significant arthritis in my lower body, and up until February 2025, nothing seemed to bring real relief. A friend recommended BPC-157 to me, so I decided to give it a try. Within about 30 to 45 days of starting it, I noticed a real difference—my arthritis pain eased up, and my mobility noticeably improved. Just two weeks ago, I was able to ride my snowmobile for the first time in over three and a half years, something I thought I might never do again. Honestly, my back hasn’t felt this good in years, and I feel like I’ve regained the energy and freedom of my late 20s. I am telling everyone about this stuff. Thank you!</p>",
+            "name": "Bret C"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Rotator cuff injury",
+            "subtitle": "Verified Customer",
+            "description": "<p>I underwent lower back surgery in April 2023 and have been struggling ever since with ongoing lower back and lower extremity pain. I’ve dealt with severe muscle spasms and significant arthritis in my lower body, and up until February 2025, nothing seemed to bring real relief. A friend recommended BPC-157 to me, so I decided to give it a try. Within about 30 to 45 days of starting it, I noticed a real difference—my arthritis pain eased up, and my mobility noticeably improved. Just two weeks ago, I was able to ride my snowmobile for the first time in over three and a half years, something I thought I might never do again. Honestly, my back hasn’t felt this good in years, and I feel like I’ve regained the energy and freedom of my late 20s. I am telling everyone about this stuff. Thank you!</p>",
+            "name": "Bret C"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Rotator cuff injury",
+            "subtitle": "Verified Customer",
+            "description": "<p>I underwent lower back surgery in April 2023 and have been struggling ever since with ongoing lower back and lower extremity pain. I’ve dealt with severe muscle spasms and significant arthritis in my lower body, and up until February 2025, nothing seemed to bring real relief. A friend recommended BPC-157 to me, so I decided to give it a try. Within about 30 to 45 days of starting it, I noticed a real difference—my arthritis pain eased up, and my mobility noticeably improved. Just two weeks ago, I was able to ride my snowmobile for the first time in over three and a half years, something I thought I might never do again. Honestly, my back hasn’t felt this good in years, and I feel like I’ve regained the energy and freedom of my late 20s. I am telling everyone about this stuff. Thank you!</p>",
+            "name": "Bret C"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

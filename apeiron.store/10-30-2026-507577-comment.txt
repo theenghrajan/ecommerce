@@ -1,0 +1,21 @@
+Regarding the quick summary and FAQs to the blog post needed code-level changes. The live theme is managed through Git (see the screenshot below), so changing its code directly could conflict with the client developer's updates. Because of this, we have made these updates in a DRAFT theme for your review, and the live site has not been changed.
+Reference screenshot: https://drive.google.com/file/d/19kguPsVynSmPO5tWn406lO9SCE-vWxoo/view?usp=sharing
+
+Draft theme: [DRAFT] Apeiron 2.0 - Summary + FAQs 507577 10-30
+Preview link: https://apeiron-store.myshopify.com/blogs/news/epa-and-dha-for-cholesterol-5-benefits-for-heart-health?preview_theme_id=189970284756
+
+1. Quick summary: the summary from the post's Excerpt field now shows as a "Summary" box at the top of the post, above the content.
+Reference screenshot: https://drive.google.com/file/d/1TJxBYNvQv7EK5c7levbmJw2P_BeyVqHZ/view?usp=sharing
+
+2. FAQs: the FAQs added in the "SS FAQs" field of the blog post now show as an expandable list at the end of the post. FAQ schema is added automatically from the same FAQs, so any edits there update both the page and the schema.
+Reference screenshot: https://drive.google.com/file/d/1toWEt7vqAG1sNFOBc6Ewqf7wDFj-kY_u/view?usp=sharing
+
+Note: other blog posts that already have a summary or FAQs added will also show them once this goes live.
+
+We have also kept a backup of the current live theme ("Copy of [PROD] Binaery - Apeiron 2.0 (SHOPIFY)").
+
+Once reviewed, please let us know how you would like to take this live:
+- Option 1: you approve and we publish the DRAFT theme. Please note the DRAFT theme is not connected to Git, so after publishing, any future updates the client's developer makes through Git will not reach the live site until they connect it again.
+- Option 2: the client's developer reviews the DRAFT and adds the changes to the live theme through Git, since we do not have access to the Git repository.
+
+Thanks!

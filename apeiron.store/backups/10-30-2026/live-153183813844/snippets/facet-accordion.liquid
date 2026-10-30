@@ -1,0 +1,28 @@
+<div x-data="{ active: true }" class="border-c-border overflow-hidden border-b pb-5 last-of-type:border-none">
+  <button
+    @click="active = !active"
+    type="button"
+    class="no-select group flex w-full items-center justify-between text-left"
+    aria-controls="content-{{ index }}"
+  >
+    <span class="text-sc-title mr-2 text-lg font-semibold">
+      {{ label }}
+    </span>
+    {% render 'icon',
+      name: 'accordion-icon-rev',
+      class: 'shrink-0 text-sc-title duration-200 w-7 h-7 ease-in-out',
+      active: false
+    %}
+  </button>
+
+  <div
+    x-collapse
+    x-show="active"
+    :aria-hidden="!active"
+    id="content-{{ index }}"
+  >
+    <div class="pt-4">
+      {{ content }}
+    </div>
+  </div>
+</div>

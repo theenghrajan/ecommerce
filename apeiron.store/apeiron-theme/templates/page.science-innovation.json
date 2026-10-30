@@ -1,0 +1,241 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_banner_3CPHqm": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#ffffff",
+        "c-body-primary": "#ffffff",
+        "bg": "",
+        "subtitle": "Apeiron Elementals",
+        "title": "Redefining Health",
+        "description": "",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "",
+        "btn_url": "",
+        "btn_text": "",
+        "sec_btn_url": "",
+        "sec_btn_text": "",
+        "layout": "full",
+        "split_revese": false,
+        "desk_alignment": "center",
+        "image": "shopify://shop_images/bi-ap-sc-hero.jpg",
+        "image_height": "sm",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_secondary_fill",
+        "layout_mob": "full",
+        "mob_alignment": "left",
+        "image_mob": "shopify://shop_images/bi-ap-sc-hero-mob.jpg",
+        "image_mob_height": "lg",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_navigation_list_WJmWA7": {
+      "type": "section-navigation-list",
+      "blocks": {
+        "block_b7JCFW": {
+          "type": "block",
+          "settings": {
+            "title": "Elemental Innovation",
+            "url": "shopify://pages/elemental-innovation"
+          }
+        },
+        "block_FgrVUz": {
+          "type": "block",
+          "settings": {
+            "title": "Ingredients",
+            "url": "shopify://pages/ingredients"
+          }
+        },
+        "block_dQC4dV": {
+          "type": "block",
+          "settings": {
+            "title": "Science",
+            "url": "shopify://pages/science"
+          }
+        }
+      },
+      "block_order": [
+        "block_b7JCFW",
+        "block_FgrVUz",
+        "block_dQC4dV"
+      ],
+      "name": "Navigation list",
+      "settings": {
+        "section_anchor_id": "Navigation list",
+        "c-body-primary": "#25282a",
+        "c-title": "#1A4178",
+        "c-bg-primary": "#f7faff"
+      }
+    },
+    "section_image_text_rXACVA": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Our Formulas",
+        "title": "Pioneering Supplement Solutions",
+        "desc": "<p>At Apeiron Elementals, we work to continuously update formulas with the latest scientific advancements, offering supplement and peptide blends that reflect the forefront of nutritional innovation for optimal health.</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-supp.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_6gDMdD": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "How to Choose Supplements",
+        "title": "Selecting the Right Supplement",
+        "desc": "<p>Choosing supplements involves considering quality, ingredients, and personal health goals. Apeiron Elementals ensures trust through high-quality products, clear ingredient labels, and goal-specific solutions.</p>",
+        "layout": "default",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/getty-images-XfbdrrF91W8-unsplash_1_1.png",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_features_accordion_JL9P3L": {
+      "type": "section-features-accordion",
+      "blocks": {
+        "block_KtXgG6": {
+          "type": "block",
+          "settings": {
+            "title": "Evidence-Based Formulations",
+            "subtitle": "Grounded in Scientific Rigor",
+            "description": "<p>Every ingredient is meticulously selected and dosed based on research to ensure our formulations deliver superior bioavailability and tangible benefits.</p>"
+          }
+        },
+        "block_MqBy47": {
+          "type": "block",
+          "settings": {
+            "title": "Precision-Engineered Nutrition",
+            "subtitle": "Targeted Cellular Optimization",
+            "description": "<p>We leverage cutting-edge nutritional science to engineer supplements for targeted impact, moving beyond a one-size-fits-all approach.</p>"
+          }
+        },
+        "block_6me3Ff": {
+          "type": "block",
+          "settings": {
+            "title": "Elite Performance & Longevity",
+            "subtitle": "Unlocking Human Potential",
+            "description": "<p>Our ultimate purpose is to empower you to achieve your most ambitious goals. We provide the tools to enhance daily cognitive and physical output, boost vitality, and build a robust foundation for your long-term healthspan.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_KtXgG6",
+        "block_MqBy47",
+        "block_6me3Ff"
+      ],
+      "name": "Features accordion",
+      "settings": {
+        "section_anchor_id": "Features accordion",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "Holistic and Research-Driven Supplementation",
+        "description": "<p>At Apeiron Elementals, we translate scientific breakthroughs into powerful nutritional tools. Our precision-engineered formulas are designed to elevate your performance, optimize your health, and support your long-term longevity goals.</p>",
+        "image": "shopify://shop_images/bi-ap-ve.jpg",
+        "layout": "rtl",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 45,
+        "pb_tab": 45,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "section_image_overlay_zDrLAR": {
+      "type": "section-image-overlay",
+      "name": "Image overlay",
+      "settings": {
+        "section_anchor_id": "Image overlay",
+        "c-bg-primary": "#ffffff",
+        "c-bg-secondary": "#e2ecff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Start Your Wellness Journey Today",
+        "subtitle": "",
+        "description": "<p>Explore Apeiron Elementals’ innovative supplements to elevate your health.</p>",
+        "btn_url": "shopify://collections/all-supplements",
+        "btn_text": "Get Started",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_3CPHqm",
+    "section_navigation_list_WJmWA7",
+    "section_image_text_rXACVA",
+    "section_image_text_6gDMdD",
+    "section_features_accordion_JL9P3L",
+    "section_image_overlay_zDrLAR"
+  ]
+}

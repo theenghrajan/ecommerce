@@ -1,0 +1,33 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  BANNER COMPONENT
+  ----------------------------------------------------------------------------------------------------------------------
+
+  This component is used to create banner. This is used on every form status or to convey information.
+
+  ********************************************
+  Supported variables
+  ********************************************
+
+  * status: can be "success", "error" or "warning"
+  * content: the textual content to use
+{%- endcomment -%}
+
+{%- case status -%}
+  {%- when 'success' -%}
+    {%- assign banner_background = 'bg-c-accent-success/10 text-c-accent-success border-c-accent-success' -%}
+  {%- when 'error' -%}
+    {%- assign banner_background = 'bg-c-accent-error/10 text-c-accent-error border-c-accent-error' -%}
+  {%- when 'warning' -%}
+    {%- assign banner_background = 'bg-c-accent-warning/10 text-c-accent-warning border-c-accent-warning' -%}
+{%- endcase -%}
+
+<div
+  data-status-message
+  class="flex items-center space-x-2 border px-5 py-2 text-sm {{ class }} {{ banner_background -}}"
+>
+  {% render 'icon', name: 'status-exclamation', class: 'shrink-0' %}
+  <span>
+    {{- content -}}
+  </span>
+</div>

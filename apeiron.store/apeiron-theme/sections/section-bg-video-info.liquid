@@ -1,0 +1,288 @@
+{% liquid
+  assign video = section.settings.video
+  assign image = section.settings.image
+  assign videowise = section.settings.videowise
+
+  assign title = section.settings.title
+  assign subtitle = section.settings.subtitle
+  assign text = section.settings.text
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+
+  assign label_icon = section.settings.label_icon
+  assign label_text = section.settings.label_text
+
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title lg:px-15"
+>
+  <div class="border-sc-bg-secondary lg:rounded-5 relative mx-auto max-w-[1300px] overflow-hidden border-y lg:border">
+    {% if videowise %}
+      <div style="position:absolute;height:100%;width:100%">
+        {{ videowise }}
+      </div>
+    {% else %}
+      {% if video != blank %}
+        {% liquid
+          assign img_poster = none
+          if video.preview_image != blank
+            assign img_poster = video.preview_image | image_url: width: 1000
+          endif
+        %}
+        {{
+          video
+          | video_tag:
+            loop: true,
+            controls: false,
+            muted: true,
+            class: 'absolute z-0 inset-0 h-full w-full object-cover overflow-hidden lg:rounded-5',
+            playsinline: true,
+            poster: img_poster,
+            preload: 'metadata',
+            x-data: 'videoToggler',
+            x-intersect: 'playVideo',
+            x-ref: 'video'
+        }}
+      {% elsif image != blank %}
+        {{
+          image
+          | image_url: width: 1300
+          | image_tag:
+            alt: image.alt,
+            class: 'absolute z-0 inset-0 h-full w-full object-cover overflow-hidden lg:rounded-5'
+        }}
+      {% endif %}
+    {% endif %}
+
+    <div class="py-15 z-1 container relative flex min-h-[490px] max-w-[833px] flex-col items-center justify-center px-5 text-center lg:min-h-[450px]">
+      {% if subtitle != blank %}
+        <p class="rte font-third mb-3 text-base md:mb-4 lg:text-lg">{{- subtitle -}}</p>
+      {% endif %}
+
+      {% if title != blank %}
+        <h2 class="rte font-primary text-4xl  lg:text-5xl">{{- title -}}</h2>
+      {% endif %}
+
+      {% if text != blank %}
+        <div class="rte mt-3 text-lg  md:mt-4 lg:text-xl">{{- text -}}</div>
+      {% endif %}
+
+      {% if btn_text != blank %}
+        <div class="mt-7.5 md:mt-10">
+          <a
+            href="{{ btn_url }}"
+            class="{% render 'btn-class', btn: btn_type %} mx-auto w-max max-w-full {{ animation -}}"
+            aria-label="{{ btn_text }}"
+            {% if animation %}
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            <span>
+              {{- btn_text -}}
+            </span>
+          </a>
+        </div>
+      {% endif %}
+
+      {% if label_text != blank %}
+        <div class="mt-4 flex items-center space-x-2.5">
+          {% if label_icon != blank %}
+            <div class="w-full max-w-4">
+              {{
+                label_icon
+                | image_url: width: 32
+                | image_tag: alt: label_icon.alt, class: 'h-full w-full object-contain', widths: '16, 32'
+              }}
+            </div>
+          {% endif %}
+
+          <div class="rte font-third text-sc-title text-sm">{{- label_text -}}</div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Background video w/ info",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#AD686F"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-secondary",
+      "label": "Frame color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Text color",
+      "default": "#FEFBF9"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Section video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section image (optional)"
+    },
+    {
+      "type": "liquid",
+      "id": "videowise",
+      "label": "Videowise widget"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title",
+      "default": "SECTION TITLE"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Section text"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "GET SOLAWAVE"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        }
+      ],
+      "default": "btn_secondary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Bottom label"
+    },
+    {
+      "type": "image_picker",
+      "id": "label_icon",
+      "label": "Label icon"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "label_text",
+      "label": "Label text"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 45
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 45
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 60
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  }
+}
+{% endschema %}

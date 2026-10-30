@@ -1,0 +1,37 @@
+{% style %}
+  [data-section-id='{{ section.id }}'] {
+    {% if section.settings.c-title -%}
+      --c-title: {{- section.settings.c-title.rgb -}};
+    {% endif -%}
+    {% if section.settings.c-subtitle -%}
+      --c-subtitle: {{- section.settings.c-subtitle.rgb -}};
+    {% endif -%}
+    {% if section.settings.c-body-primary -%}
+      --c-body-primary: {{- section.settings.c-body-primary.rgb -}};
+    {% endif -%}
+    {% if section.settings.c-bg-primary -%}
+      {%- if section.settings.c-bg-primary.alpha == 0.0 or section.settings.c-bg-primary == blank -%}
+          {%- assign c-bg-primary= 'transparent' -%}
+      {%- else -%}
+          {%- assign c-bg-primary = section.settings.c-bg-primary.rgb -%}
+      {%- endif -%}
+      --c-bg-primary: {{- c-bg-primary -}};
+    {% endif -%}
+    {% if section.settings.c-bg-secondary -%}
+      {%- if section.settings.c-bg-secondary.alpha == 0.0 or section.settings.c-bg-secondary == blank -%}
+          {%- assign c-bg-secondary = 'transparent' -%}
+      {%- else -%}
+          {%- assign c-bg-secondary = section.settings.c-bg-secondary.rgb -%}
+      {%- endif %}
+      --c-bg-secondary: {{- c-bg-secondary -}};
+    {% endif -%}
+    {% if section.settings.c-bg-third -%}
+      {%- if section.settings.c-bg-third.alpha == 0.0 or section.settings.c-bg-third == blank -%}
+        {%- assign c-bg-third = 'transparent' -%}
+      {%- else -%}
+        {%- assign c-bg-third = section.settings.c-bg-third.rgb -%}
+      {%- endif %}
+      --c-bg-third: {{- c-bg-third -}};
+    {% endif -%}
+  }
+{% endstyle %}

@@ -1,0 +1,602 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {}
+    },
+    "main_product_LanJDb": {
+      "type": "main-product",
+      "blocks": {
+        "product_title_TXKkdm": {
+          "type": "product_title",
+          "settings": {
+            "title": "{{ product.title }}"
+          }
+        },
+        "okendo_star_rating_aFpKyw": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "product_price_ggbnmd": {
+          "type": "product_price",
+          "settings": {
+            "margin": 12
+          }
+        },
+        "html_liquid_CVN8Qa": {
+          "type": "html_liquid",
+          "settings": {
+            "html": "",
+            "liquid": "",
+            "richtext": "<p>90 Servings</p>"
+          }
+        },
+        "product_description_GdJQCW": {
+          "type": "product_description",
+          "settings": {
+            "description": "<p>Pure, high quality Creatine Monohydrate powder to support power, performance and cognitive function*<br/><br/></p><ol><li>5g of creatine monohydrate in every serving*</li><li>Supports muscle growth and recovery*</li><li>Supports cognitive function and energy production*</li></ol>",
+            "bottom_margin": 16
+          }
+        },
+        "product_drawer_RE9PtT": {
+          "type": "product_drawer",
+          "settings": {
+            "bg": "#ecf3ff",
+            "title_color": "#25282a",
+            "btn_text": "Supplement facts",
+            "bottom_margin": 30,
+            "title": "Supplement Facts",
+            "image": "shopify://shop_images/creatineback_pdf_L_1069767_SUP_9x8x3.5_Apeiron_Elementals_MCM_BG-346.jpg"
+          }
+        },
+        "product_form_GKxRJU": {
+          "type": "product_form",
+          "settings": {
+            "show_qty": true,
+            "show_terms": false,
+            "to_checkout": false,
+            "bottom_text_divider": "yes",
+            "bottom_icon_1": "shopify://shop_images/bi-delivery-icon.svg",
+            "bottom_text_1": "Estimated <strong>delivery </strong>",
+            "bottom_icon_2": "shopify://shop_images/lab.svg",
+            "bottom_text_2": "3rd Party Tested by an <strong>ISO Certified Lab</strong>",
+            "show_subscription": true,
+            "subscription_title": "Subscribe & Save",
+            "subscription_tooltip": "<p>Flexible frequency</p><p>Order reminders</p><p>Cancel anytime</p>",
+            "subscription_benefits": "<ol><li>Locked-in discount on every shipment</li><li>Earn 2–5% store credit + surprise gifts</li><li>Skip, delay, or cancel anytime—no fees</li></ol>",
+            "plan_name_remove": "Delivery every",
+            "review_star": "shopify://shop_images/bi-ap-stars-navy.svg",
+            "review_text": "{{ product.metafields.reviews.rating | metafield_tag }} {{ product.metafields[\"app--1576377--reviews\"].review_count.value }} Reviews",
+            "bottom_margin": 20
+          }
+        },
+        "product_review_block_yxHKRt": {
+          "type": "product_review_block",
+          "disabled": true,
+          "settings": {
+            "stars": 5,
+            "name": "Lagan W",
+            "text": "As skeptical as I was, I decided to try it. After one month, I absolutely notice more comfort and ease in my knees, shoulders, elbows, wrists, and knuckles. I’ll definitely keep using it.",
+            "date": "",
+            "margin": 20
+          }
+        },
+        "product_open_accordions_fEdgAn": {
+          "type": "product_open_accordions",
+          "settings": {
+            "bot_border": false,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        },
+        "product_accordions_9XQaYF": {
+          "type": "product_accordions",
+          "settings": {
+            "index": 0,
+            "bot_border": true,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_title_TXKkdm",
+        "okendo_star_rating_aFpKyw",
+        "product_price_ggbnmd",
+        "html_liquid_CVN8Qa",
+        "product_description_GdJQCW",
+        "product_drawer_RE9PtT",
+        "product_form_GKxRJU",
+        "product_review_block_yxHKRt",
+        "product_open_accordions_fEdgAn",
+        "product_accordions_9XQaYF"
+      ],
+      "settings": {
+        "section_anchor_id": "Main product",
+        "hide_product_media": false,
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 80,
+        "pt_desk": 20,
+        "pb_desk": 120
+      }
+    },
+    "marquee_text_Qc8FdT": {
+      "type": "marquee-text",
+      "blocks": {
+        "item_Tbz48U": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text": "ISO Certified."
+          }
+        },
+        "item_dVcUAT": {
+          "type": "item",
+          "settings": {
+            "text": "Based in the USA 🇺🇸"
+          }
+        },
+        "item_xDbJXU": {
+          "type": "item",
+          "settings": {
+            "text": "Physician backed & formulated."
+          }
+        },
+        "item_VRymQ6": {
+          "type": "item",
+          "settings": {
+            "text": "Manufactured in cGMP certified facilities."
+          }
+        },
+        "item_QBknPA": {
+          "type": "item",
+          "settings": {
+            "text": "Third party lab tested peptides."
+          }
+        }
+      },
+      "block_order": [
+        "item_Tbz48U",
+        "item_dVcUAT",
+        "item_xDbJXU",
+        "item_VRymQ6",
+        "item_QBknPA"
+      ],
+      "name": "Marquee text",
+      "settings": {
+        "c-title": "#fefbf9",
+        "c-bg-primary": "#25282a",
+        "section_anchor_id": "Marquee text",
+        "marquee_reverse": false,
+        "marquee_speed": 20,
+        "center_fit": false,
+        "stop_on_hover": false,
+        "pt_mob": 20,
+        "pb_mob": 20,
+        "pt_tab": 30,
+        "pb_tab": 30,
+        "pt_desk": 30,
+        "pb_desk": 30
+      }
+    },
+    "section_ugc_slider_new_GBfJDy": {
+      "type": "section-ugc-slider-new",
+      "blocks": {
+        "block_BWNBAq": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "AWESOME!",
+            "description": "<p>Apeiron BPC-157 was recommended to me to support my recovery efforts.  The recommendation came from the spouse of a Navy Seal who advised that the Seals take this supplement for recovery.  What a recommendation which I can now echo!! This BPC has been amazing.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Frances H"
+          }
+        },
+        "block_ncJVje": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "The Best BPC-157 Around",
+            "description": "<p>Apeiron BPC-157 is the absolute best. It's top quality, and I felt the results almost immediately. If you're looking for authentic BPC, look no further. Apeiron has the best and I plan on setting up a subscription.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Stephanie M"
+          }
+        },
+        "block_RrMDLM": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Highly Recommend!",
+            "description": "<p>I was previously taking BPC-157 injections until I found this product by Apeiron Elementals. I decided to give the capsules a try, and I'm glad I did! They work just as well for me as the injections, without the hassle. I've noticed a positive difference in recovery from my workouts and my gut health has improved.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Jason F"
+          }
+        },
+        "block_PKbmBc": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Really Feel It",
+            "description": "<p>I think it's incredible! I can't believe how I feel, like I am younger than I have felt in a long time.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Bret C"
+          }
+        }
+      },
+      "block_order": [
+        "block_BWNBAq",
+        "block_ncJVje",
+        "block_RrMDLM",
+        "block_PKbmBc"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_anchor_id": "Testimonials",
+        "c-bg-primary": "#f7faff",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#525252",
+        "title": "What Customers Feel After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p><em>Individual results vary. Statements not evaluated by the FDA</em></p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_text_w_icons_JBxx7C": {
+      "type": "section-text-w-icons",
+      "blocks": {
+        "item_4YDqmH": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SCIENTIFICALLY_SUPPORTED.svg",
+            "width": 93,
+            "title": "<p>Scientifically Supported</p>"
+          }
+        },
+        "item_waigHU": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PREMIUM_INGREDIENTS_01.svg",
+            "width": 93,
+            "title": "<p>Premium</p><p>Ingredients</p>"
+          }
+        },
+        "item_fAHmJj": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PHYSICIAN_FORMULATED.svg",
+            "width": 93,
+            "title": "<p>Physician</p><p>Formulated</p>"
+          }
+        },
+        "item_fiXTfW": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SKY_HIGH_STANDARDS_01.svg",
+            "width": 93,
+            "title": "<p>Rigorous</p><p>Standards</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_4YDqmH",
+        "item_waigHU",
+        "item_fAHmJj",
+        "item_fiXTfW"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "section_anchor_id": "Text with icons",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "Products You Can Trust",
+        "description": "<p>Four pillars to protect your health at every step.</p>",
+        "mob_alignment": "center",
+        "alignment": "center",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_multi_columns_AVVBd3": {
+      "type": "section-multi-columns",
+      "blocks": {
+        "block_negP9P": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-daniel.jpg",
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        "block_B73B6E": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-mickra.jpg",
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "CEO | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_negP9P",
+        "block_B73B6E"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "section_anchor_id": "Multi-column",
+        "layout": "default",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "subtitle": "Healthcare Reinvented",
+        "title": "Developed by Doctors.  Trusted by experts.",
+        "description": "<p>Longevity leaders Dr. Dan Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>",
+        "btn_url": "",
+        "btn_text": "Our founders",
+        "btn_type": "btn_primary_outline",
+        "pagination_style": "pagination--dark",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 50,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "1753135980b51b8271": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_7zVEC8": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_7zVEC8"
+      ],
+      "settings": {
+        "container": false,
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_product_list_G4YCdD": {
+      "type": "section-product-list",
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Elementals Best Sellers",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "bpc",
+          "foundation-multivitamin",
+          "tb4-frag",
+          "d3-5000-k2",
+          "foundational-bundle1"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "",
+        "btn_text": "Shop Best Sellers",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_faq_XeGrmV": {
+      "type": "section-faq",
+      "blocks": {
+        "block_tak6ta": {
+          "type": "block",
+          "settings": {
+            "title": "What should I consider before taking this product?",
+            "text": "<p>Before using this product it is recommended that you consult your healthcare professional. If you are taking any medications, it’s important to discuss potential interactions with your healthcare provider. Do not use if tamper seal is damaged.</p>"
+          }
+        },
+        "block_3MVhQ7": {
+          "type": "block",
+          "settings": {
+            "title": "Where is this product manufactured and what product quality control tests are performed?",
+            "text": "<p>Our BPC-157 products are manufactured in Nevada in a state-of-the-art, FDA-registered facility that meets or exceeds <a href=\"https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practice-cgmp#:~:text=What%20is%20CGMP%3F,of%20manufacturing%20processes%20and%20facilities.\">current Good Manufacturing Practices (cGMP)</a>. Quality control testing is carried out at each stage of the manufacturing process, starting with rigorous raw material assessments and continuing through to finished product testing. </p><p>Our Creatine Monohydrate is third-party tested by ISO certified, FDA registered laboratories for purity, potency and contaminates.</p>"
+          }
+        },
+        "block_AKtNdP": {
+          "type": "block",
+          "settings": {
+            "title": "Is Apeiron Elementals Creatine Monohydrate third-party verified?",
+            "text": "<p>Yes, our Creatine Monohydrate is third-party tested for purity, quality and consistency.</p>"
+          }
+        },
+        "block_caxTCm": {
+          "type": "block",
+          "settings": {
+            "title": "Should I take this on an empty stomach or with food?",
+            "text": "<p>You can take creatine with our without food, though taking near a meal may improve absorption.  Best taken 30-90 minutes before or after exercise. For best results take consistently and use along side a balanced diet and exercise routine.</p>"
+          }
+        },
+        "block_8WQY6L": {
+          "type": "block",
+          "settings": {
+            "title": "What other supplements work synergistically with this product?",
+            "text": "<p>Many supplements can taken along side Creatine, but folks can also take BPC-157, Marine Collagen, and/or EPA/DHA (Omega-3) to create improved recovery and strength building.</p>"
+          }
+        },
+        "block_4XQyf9": {
+          "type": "block",
+          "settings": {
+            "title": "Is this product vegan?",
+            "text": "<p>Yes, our Creatine is also formulated without gluten, dairy, and soy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_tak6ta",
+        "block_3MVhQ7",
+        "block_AKtNdP",
+        "block_caxTCm",
+        "block_8WQY6L",
+        "block_4XQyf9"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_anchor_id": "FAQ",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Frequently asked questions",
+        "description": "",
+        "btn_url": "shopify://pages/frequently-asked-questions",
+        "btn_text": "See all FAQs",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 120
+      }
+    },
+    "section_vertical_accordion_9HaqdD": {
+      "type": "section-vertical-accordion",
+      "blocks": {
+        "block_pDkGXU": {
+          "type": "block",
+          "settings": {
+            "title": "People Requiring:",
+            "subtitle": "",
+            "text": "<ul><li>Digestive Support; Both Upper & Lower</li><li>Musculoskeletal Support</li><li>Gut Brain Axis Protocols</li><li>Immune System Support</li></ul>"
+          }
+        },
+        "block_cyFrFt": {
+          "type": "block",
+          "settings": {
+            "title": "Research",
+            "subtitle": "",
+            "text": "<ol><li>Perovic, D., Vukojevic, J., & Zemba Cilic, M. (2019). BPC 157 resolves neuronal damage and prevents memory, locomotor, and coordination deficits. Neurotherapeutics, 17(4), 1990-1995. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8504390/</li><li>Lojo, N., Medvidovic-Grubisic, M., & Drmic, D. (2017). Gastric juice: a unique combination of hydrochloric acid. Journal of Gastroenterology and Hepatology, 35(2), 80-85. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6928904/</li><li>Chang, C. H., Tsai, W. C., & Pang, J. H. (2011). Pentadecapeptide BPC 157 enhances the growth hormone receptor expression in tendon fibroblasts. Tendon Research, 23(5), 374-380. https://pubmed.ncbi.nlm.nih.gov/21030672/</li><li>Sikiric, P., Seiwerth, S., & Cesarec, V. (2017). Stable gastric pentadecapeptide BPC 157 is an anti-ulcer peptidergic. Peptides, 67, 14-18. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5333585/</li><li>Duzel, A., Vlainic, J., & Seiwerth, S. (2012). Stable gastric pentadecapeptide BPC 157 is an anti-ulcer peptidergic. International Journal of Pharmacology, 29(6), 121-126. https://pubmed.ncbi.nlm.nih.gov/22950504/</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "block_pDkGXU",
+        "block_cyFrFt"
+      ],
+      "disabled": true,
+      "name": "Vertical accordion",
+      "settings": {
+        "section_anchor_id": "Vertical accordion",
+        "c-bg-primary": "#f9f9f9",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#ffffff",
+        "c-body-primary": "#25282a",
+        "title": "Practitioner Resources",
+        "description": "For professionals looking to help their patients.",
+        "image": "shopify://shop_images/bi-ver-desk-min.png",
+        "image_mob": "shopify://shop_images/bi-ver-mob-min.png",
+        "btn_url": "",
+        "btn_text": "Vew information sheet",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {}
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "main_product_LanJDb",
+    "marquee_text_Qc8FdT",
+    "section_ugc_slider_new_GBfJDy",
+    "section_text_w_icons_JBxx7C",
+    "section_multi_columns_AVVBd3",
+    "1753135980b51b8271",
+    "section_product_list_G4YCdD",
+    "section_faq_XeGrmV",
+    "section_vertical_accordion_9HaqdD",
+    "zp-product-footer-content"
+  ]
+}

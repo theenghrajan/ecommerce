@@ -1,0 +1,130 @@
+{% style -%}
+  :root {
+
+  /* BRAND COLORS */
+    --c-navy: {{ settings.c-navy.rgb }};
+    --c-white: {{ settings.c-white.rgb }};
+    --c-shadow: {{ settings.c-shadow.rgb }};
+    --c-blue: {{ settings.c-blue.rgb }};
+    --c-gray: {{ settings.c-gray.rgb }};
+    --c-sunhaze: {{ settings.c-sunhaze.rgb }};
+    --c-crimsonite: {{ settings.c-crimsonite.rgb }};
+    --c-seabright: {{ settings.c-seabright.rgb }};
+    --c-mintglow: {{ settings.c-mintglow.rgb }};
+    --c-green: 0 95 17;
+    --c-light-green: 237 255 219;
+
+  /* MAIN THEME COLORS */
+    --c-title: {{ settings.c-navy.rgb }};
+    --c-subtitle: {{ settings.c-navy.rgb }};
+    --c-bg-primary: {{ settings.c-white.rgb }};
+    --c-bg-secondary: 243 249 252;
+    --c-bg-third: 236 243 255;
+    --c-border: 179 198 224;
+    --c-body-primary: {{ settings.c-shadow.rgb }};
+    --c-bg-lineargradient: {{ settings.c-bg-lineargradient }};
+
+  /* BUTTONS */
+    {% liquid
+     if settings.c-btn-cta-bg-default.alpha == 0.0 or settings.c-btn-cta-bg-default == blank
+       assign c-btn-cta-bg-default = 'transparent'
+     else
+       assign c-btn-cta-bg-default = settings.c-btn-cta-bg-default.rgb
+     endif
+
+     if settings.c-btn-cta-bg-hover.alpha == 0.0 or settings.c-btn-cta-bg-hover == blank
+       assign c-btn-cta-bg-hover = 'transparent'
+     else
+       assign c-btn-cta-bg-hover = settings.c-btn-cta-bg-hover.rgb
+     endif
+
+     if settings.c-btn-primary-bg-default.alpha == 0.0 or settings.c-btn-primary-bg-default == blank
+       assign c-btn-primary-bg-default = 'transparent'
+     else
+       assign c-btn-primary-bg-default = settings.c-btn-primary-bg-default.rgb
+     endif
+
+     if settings.c-btn-primary-bg-hover.alpha == 0.0 or settings.c-btn-primary-bg-hover == blank
+       assign c-btn-primary-bg-hover = 'transparent'
+     else
+       assign c-btn-primary-bg-hover = settings.c-btn-primary-bg-hover.rgb
+     endif
+
+     if settings.c-btn-primary-outline-bg-default.alpha == 0.0 or settings.c-btn-primary-outline-bg-default == blank
+       assign c-btn-primary-outline-bg-default = 'transparent'
+     else
+       assign c-btn-primary-outline-bg-default = settings.c-btn-primary-outline-bg-default.rgb
+     endif
+
+     if settings.c-btn-primary-outline-bg-hover.alpha == 0.0 or settings.c-btn-primary-outline-bg-hover == blank
+       assign c-btn-primary-outline-bg-hover = 'transparent'
+     else
+       assign c-btn-primary-outline-bg-hover = settings.c-btn-primary-outline-bg-hover.rgb
+     endif
+
+     if settings.c-btn-secondary-bg-default.alpha == 0.0 or settings.c-btn-secondary-bg-default == blank
+       assign c-btn-secondary-bg-default = 'transparent'
+     else
+       assign c-btn-secondary-bg-default = settings.c-btn-secondary-bg-default.rgb
+     endif
+
+     if settings.c-btn-secondary-bg-hover.alpha == 0.0 or settings.c-btn-secondary-bg-hover == blank
+       assign c-btn-secondary-bg-hover = 'transparent'
+     else
+       assign c-btn-secondary-bg-hover = settings.c-btn-secondary-bg-hover.rgb
+     endif
+
+     if settings.c-btn-secondary-outline-bg-default.alpha == 0.0 or settings.c-btn-secondary-outline-bg-default == blank
+       assign c-btn-secondary-outline-bg-default = 'transparent'
+     else
+       assign c-btn-secondary-outline-bg-default = settings.c-btn-secondary-outline-bg-default.rgb
+     endif
+
+     if settings.c-btn-secondary-outline-bg-hover.alpha == 0.0 or settings.c-btn-secondary-outline-bg-hover == blank
+       assign c-btn-secondary-outline-bg-hover = 'transparent'
+     else
+       assign c-btn-secondary-outline-bg-hover = settings.c-btn-secondary-outline-bg-hover.rgb
+     endif
+    -%}
+
+    --c-btn-cta-bg-default: {{ c-btn-cta-bg-default }};
+    --c-btn-cta-text-default: {{ settings.c-btn-cta-text-default.rgb }};
+    --c-btn-cta-bg-hover: {{ c-btn-cta-bg-hover }};
+    --c-btn-cta-text-hover: {{ settings.c-btn-cta-text-hover.rgb }};
+
+    --c-btn-primary-bg-default: {{ c-btn-primary-bg-default }};
+    --c-btn-primary-text-default: {{ settings.c-btn-primary-text-default.rgb }};
+    --c-btn-primary-bg-hover: {{ c-btn-primary-bg-hover }};
+    --c-btn-primary-text-hover: {{ settings.c-btn-primary-text-hover.rgb }};
+
+    --c-btn-primary-outline-bg-default: {{ c-btn-primary-outline-bg-default }};
+    --c-btn-primary-outline-text-default: {{ settings.c-btn-primary-outline-text-default.rgb }};
+    --c-btn-primary-outline-bg-hover: {{ c-btn-primary-outline-bg-hover }};
+    --c-btn-primary-outline-text-hover: {{ settings.c-btn-primary-outline-text-hover.rgb }};
+
+    --c-btn-secondary-bg-default: {{ c-btn-secondary-bg-default }};
+    --c-btn-secondary-text-default: {{ settings.c-btn-secondary-text-default.rgb }};
+    --c-btn-secondary-bg-hover: {{ c-btn-secondary-bg-hover }};
+    --c-btn-secondary-text-hover: {{ settings.c-btn-secondary-text-hover.rgb }};
+
+    --c-btn-secondary-outline-bg-default: {{ c-btn-secondary-outline-bg-default }};
+    --c-btn-secondary-outline-text-default: {{ settings.c-btn-secondary-outline-text-default.rgb }};
+    --c-btn-secondary-outline-bg-hover: {{ c-btn-secondary-outline-bg-hover }};
+    --c-btn-secondary-outline-text-hover: {{ settings.c-btn-secondary-outline-text-hover.rgb }};
+
+    --c-link-primary-text: {{ settings.c-link-primary-text.rgb }};
+    --c-link-secondary-text: {{ settings.c-link-secondary-text.rgb }};
+
+  /* OVERLAY */
+    --c-blur-overlay: {{ settings.c-blur-overlay.rgb }};
+
+  /* ACCENT COLORS */
+    --c-accent-success: {{ settings.c-accent-success.rgb }};
+    --c-accent-warning: {{ settings.c-accent-warning.rgb }};
+    --c-accent-error: {{ settings.c-accent-error.rgb }};
+
+  /* LOGO WIDTHS */
+    --logo-mob-w: {{ settings.logo_max_w_mobile | append: 'px' }};
+    --logo-desk-w: {{ settings.logo_max_w_desktop | append: 'px' }};
+  }
+{% endstyle -%}

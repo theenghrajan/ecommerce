@@ -1,0 +1,94 @@
+{%- capture result -%}
+  {% comment %}
+    DESCIPTION:
+      group: 'btn' or 'link'
+      variant: 'primary' or 'secondary'
+      modification: 'fill', 'outline'
+
+    PARAMS:
+      btn: abstract value 'group_modification', example value 'btn_fill'
+
+    HOW TO USE:
+      <a class="{% render 'btn-class', btn: btn %}">
+        <span>Btn Text</span>
+      </a>
+    CHECK SHEMA BELOW
+
+  {% endcomment %}
+
+  {% assign keys = btn | split: '_' %}
+  {% assign group = keys[0] %}
+  {% assign variant = keys[1] %}
+  {% assign modification = keys[2] %}
+
+  {% case group %}
+    {% when 'btn' %}
+       {% case variant %}
+        {% when 'primary' %}
+          {% case modification %}
+            {% when 'fill' %}
+              btn btn--main btn--primary btn--primary__main--fill btn--md
+            {% when 'outline' %}
+              btn btn--main btn--primary btn--primary__main--outline btn--outline btn--md
+          {% endcase %}
+
+        {% when 'secondary' %}
+          {% case modification %}
+            {% when 'fill' %}
+              btn btn--main btn--secondary btn--secondary__main--fill btn--md
+            {% when 'outline' %}
+              btn btn--main btn--secondary btn--secondary__main--outline btn--md
+          {% endcase %}
+
+         {% when 'cta' %}
+           {% case modification %}
+             {% when 'fill' %}
+               btn btn--main btn--cta
+           {% endcase %}
+       {% endcase %}
+
+    {% when 'link' %}
+      {% case variant %}
+        {% when 'primary' %}
+          link btn-link-anim link--primary link--md
+        {% when 'secondary' %}
+          link btn-link-anim link--secondary link--md
+      {% endcase %}
+
+  {% endcase %}
+  {% comment %}
+    SCHEMA:
+    {
+      "type": "select",
+      "id": "btn",
+      "label": "Select button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+         {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+         {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "btn_primary_fill"
+    }
+  {% endcomment %}
+{%- endcapture -%}{{ result | strip | strip_newlines }}

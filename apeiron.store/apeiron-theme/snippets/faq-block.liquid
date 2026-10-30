@@ -1,0 +1,31 @@
+<article class="{{ class }}" {{ block.shopify_attributes }}>
+  <!-- ITEM HEAD -->
+  <button
+    @click="active === {{ active }} ? active = null : active = {{ active }}"
+    type="button"
+    class="no-select text-sc-body-primary flex w-full items-center justify-between text-left"
+    aria-controls="content-{{ active | append: section.id }}"
+  >
+    <span class="mr-2 text-xl lg:text-2xl">
+      {{- question -}}
+    </span>
+    {% render 'icon',
+      name: 'accordion-icon',
+      class: 'shrink-0 text-sc-title duration-200 w-7 h-7 ease-in-out',
+      active: active
+    %}
+  </button>
+
+  <!-- ITEM CONTENT -->
+  <div
+    x-cloak
+    x-collapse
+    x-show="active === {{ active }}"
+    :aria-hidden="active !== {{ active }}"
+    id="content-{{ active | append: section.id }}"
+  >
+    <div class="pt-3">
+      <div class="rte text-sc-body-primary child-a:text-c-crimsonite text-base">{{- answer -}}</div>
+    </div>
+  </div>
+</article>

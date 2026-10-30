@@ -1,0 +1,141 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "common": {
+    "headline": "Headline",
+    "text": "Text",
+    "content": "Content",
+    "link": "Link",
+    "author": "Author",
+    "image": "Image",
+    "collection": "Collection",
+    "button": {
+      "text": "Button text",
+      "url": "Button URL",
+      "button_type": "Button type"
+    },
+    "button_secondary": {
+      "text": "Button Secondary text",
+      "url": "Button Secondary URL",
+      "button_type": "Button Secondary type"
+    },
+    "button-third": {
+      "text": "Button Third text",
+      "url": "Button Third URL",
+      "button_type": "Button Third type"
+    }
+  },
+  "settings_schema": {
+    "custom_settings": {
+      "name": "Custom settings",
+      "settings": {
+        "header": "About JSON settings",
+        "paragraph": "The settings_schema.json file controls the content of the Theme settings area of the theme editor. Settings in this file translate to global theme settings, which can be accessed through the Liquid settings object. [Learn more](https:\/\/shopify.dev\/themes\/architecture\/settings)"
+      }
+    }
+  },
+  "sections": {
+    "header": {
+      "name": "Header",
+      "settings": {
+        "bg_color": "Background Color",
+        "text_color": "Text Color",
+        "logo_image": "Logo Image",
+        "main_link_list": "Main Menu",
+        "shop_btn_text": "Shop button text",
+        "shop_btn_url": "Shop button url",
+        "help_url": "Help url",
+        "menu_item": "Menu Item",
+        "product_list": "Menu Products",
+        "accounts_logo_image": "Accounts Logo Image",
+        "login_type": "Login type",
+        "menu_item_link": "Menu item link",
+        "menu_item_mobile_img": "Menu item mobile image",
+        "is_mega_menu": "Is mega menu?"
+      }
+    },
+    "footer": {
+      "name": "Footer",
+      "settings": {
+        "header": {
+          "content": "Social Icons",
+          "info": "Select which social icons to display"
+        },
+        "show-icon": "Show Icon"
+      }
+    },
+    "mobile-navigation": {
+      "name": "Mobile Navigation",
+      "settings": {
+      }
+    },
+    "announcement-bar": {
+      "name": "Announcement bar",
+      "settings": {
+        "show-announcement-bar": "Show Announcement bar",
+        "show-only-on-home-page": "Show only on home page",
+        "link-list": "Announcement Menu",
+        "text_color": "Text Color",
+        "bg_color": "Background Color"
+      }
+    },
+    "banner": {
+      "name": "Banner",
+      "settings": {
+      }
+    },
+    "collection": {
+      "name": "Collection",
+      "settings": {
+        "max-products-to-display": "Max. products to display",
+        "4-products": "4 Products",
+        "8-products": "8 Products"
+      }
+    },
+    "hero": {
+      "name": "Hero",
+      "settings": {
+      }
+    },
+    "hero_slider": {
+      "name": "Hero Slider",
+      "settings": {
+        "slide_type_1": "Slide Type 1",
+        "slide_type_2": "Slide Type 2",
+        "slide_type_3": "Slide Type 3",
+        "enable_nav_arrow": "Enable Navigation Buttons",
+        "enable_pagination": "Enable Pagination",
+        "image_column": "Image Column",
+        "image_position": "Image Position",
+        "image_width": "Image Width",
+        "color_background": "Box Background Color",
+        "box_position": "Box position",
+        "content_align": "Content align",
+        "content_color": "Content color"
+      }
+    },
+    "image-row": {
+      "name": "Image row",
+      "settings": {
+      }
+    },
+    "newsletter": {
+      "name": "Newsletter",
+      "settings": {
+      }
+    },
+    "quotes": {
+      "name": "Quotes",
+      "settings": {
+        "quote": "Quote"
+      }
+    }
+  }
+}

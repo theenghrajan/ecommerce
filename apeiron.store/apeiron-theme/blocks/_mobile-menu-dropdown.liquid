@@ -1,0 +1,112 @@
+{% liquid
+  assign title = block.settings.title
+  assign title_hand = title | handleize
+  assign list = block.settings.list
+%}
+
+<span class="md:px-7.5 w-full px-5" {{ block.shopify_attributes }}>
+  <button
+    @click="active === '{{ title_hand }}' ? active = null : active = '{{ title_hand }}'"
+    role="button"
+    aria-controls="{{- title_hand | prepend: 'nav-list-' -}}"
+    class="group flex w-full items-start justify-between"
+  >
+    <span
+      class="text-sc-title pr-2 text-left text-lg font-semibold leading-6"
+      id="{{- title_hand | prepend: 'nav-list-' -}}"
+    >
+      {{- title -}}
+    </span>
+
+    {% render 'icon',
+      name: 'accordion-mob-menu',
+      class: 'shrink-0 duration-200 w-6 h-6 ease-in-out ml-auto text-c-shadow',
+      active: title_hand
+    %}
+  </button>
+</span>
+
+<span
+  class="w-full"
+  x-cloak
+  x-collapse
+  x-show="active === '{{ title_hand }}'"
+  :aria-hidden="active !== '{{ title_hand }}'"
+>
+  <span
+    {% if section.settings.active != title %}
+      class="md:px-7.5 flex flex-col px-5 pt-5 opacity-0 duration-300 ease-in-out"
+      :class="{'opacity-100' : active === '{{ title_hand }}'}"
+    {% else %}
+      class="md:px-7.5 flex flex-col px-5 pt-5"
+    {% endif %}
+  >
+    {% if block.blocks.size > 0 %}
+      <div
+        {% if request.design_mode %}
+          x-load="idle"
+        {% else %}
+          x-load="idle && media (max-width: 1279px)"
+        {% endif %}
+        x-data="splideSlider()"
+        data-splide='{ "arrows": false, "pagination": false, "rewind": true, "startAt": 0, "speed": 500, "gap": 20, "fixedWidth": "363px", "breakpoints": { "450": { "fixedWidth": "235px" } } }'
+        class="splide h-full w-full"
+      >
+        <div class="splide__track h-full overflow-visible">
+          <ul class="splide__list">
+            {% content_for 'blocks' %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if list != blank %}
+      <ul class="flex flex-col space-y-3 {% if block.blocks.size > 0 -%} mt-7.5 pt-7.5 border-t border-c-border {%- endif -%}">
+        {% for link in list.links %}
+          {% assign l_title = link.title | remove: '[new]' %}
+          <li class="group w-full rounded-lg border px-5 py-3 text-xl font-semibold duration-200 ease-in-out {% if link.title contains '[new]' -%} border-c-green text-c-green hover:bg-c-green hover:text-c-white bg-c-light-green {%- else -%} border-c-navy text-c-navy hover:bg-c-navy hover:text-c-white bg-c-white {%- endif -%}">
+            <a
+              class="flex items-center justify-between space-x-2"
+              aria-label="{{ l_title }}"
+              href="{{- link.url -}}"
+            >
+              <span>{{- l_title -}}</span>
+              {% render 'icon',
+                name: 'btn-arrow',
+                class: 'transition-transform duration-200 ease-in-out group-hover:translate-x-1.5'
+              %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </span>
+</span>
+
+<span class="md:px-7.5 border-c-border pointer-events-none w-full border-b px-5 pt-5"></span>
+
+{% schema %}
+{
+  "name": "Dropdown",
+  "tag": "li",
+  "class": "flex flex-col w-full pb-5",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Block title"
+    },
+    {
+      "type": "link_list",
+      "id": "list",
+      "label": "Dropdown list"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "_mob_link"
+    }
+  ],
+  "presets": [{ "name": "List item" }]
+}
+{% endschema %}

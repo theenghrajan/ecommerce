@@ -1,0 +1,46 @@
+{% layout none %}
+{% comment %}{% endcomment %}
+{% assign json = '' %}
+{% for item in cart.items %}
+  {% assign handle = item.handle %}
+  {% if json != '' %}
+    {% assign json = json | append: ',' %}
+  {% endif %}
+
+  {% capture item_json %}
+    "{{- item.id -}}": {
+    "id": {{ item.id }},
+    "compare_at_price": {{ item.variant.compare_at_price | default: 0 | json }}
+    {% if item.variant.selling_plan_allocations != blank %}
+      ,"selling_plans": [
+      {% for sell_alocation in item.variant.selling_plan_allocations %}
+        {{ sell_alocation.selling_plan | json }}
+        {%- unless forloop.last -%},{%- endunless -%}
+      {% endfor %}
+      ]
+    {% endif %}
+    {% if item.product.metafields.binaery.product_information.value.slogan.value != blank %}
+      ,"slogan": {{ item.product.metafields.binaery.product_information.value.slogan.value | strip_html | json }}
+    {% endif %}
+    {% if item.product.metafields.binaery.product_information.value.cart_slogan.value != blank %}
+      ,"cart_slogan": {{ item.product.metafields.binaery.product_information.value.cart_slogan.value | strip_html | json }}
+    {% endif %}
+    {% if item.product.metafields.binaery.product_information.value.subscription_cart_slogan.value != blank %}
+      ,"subscription_cart_slogan": {{ item.product.metafields.binaery.product_information.value.subscription_cart_slogan.value | strip_html | json }}
+    {% endif %}
+    {% if item.product.metafields.binaery.product_information.value.redirect_product.value != blank %}
+      ,"redirect": {{ item.product.metafields.binaery.product_information.value.redirect_product.value.url | json }}
+    {% endif %}
+      ,"requires_selling_plan": {{ item.product.requires_selling_plan }}
+    {% comment %}
+      ///// example how to add simple mf /////
+      "mf_custom_category": {{ all_products[item.handle].metafields.custom.custom_category | json }}
+    {% endcomment %}
+    }
+  {% endcapture %}
+
+  {% assign json = json | append: item_json %}
+{%- endfor -%}
+{
+{{ json }}
+}

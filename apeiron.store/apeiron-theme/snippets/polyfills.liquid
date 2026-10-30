@@ -1,0 +1,43 @@
+<!-- ios 12 AlpineJS polyfills -->
+<script>
+  if (typeof window.queueMicrotask !== 'function') {
+    window.queueMicrotask = function (callback) {
+      Promise.resolve()
+        .then(callback)
+        .catch((e) =>
+          setTimeout(() => {
+            throw e;
+          }),
+        );
+    };
+  }
+
+  function removeOpacity() {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.animate__animated.opacity-0').forEach((item) => {
+        item.classList.remove('opacity-0');
+      });
+    });
+  }
+
+  if (
+    !('IntersectionObserver' in window) ||
+    !('IntersectionObserverEntry' in window) ||
+    !('intersectionRatio' in window.IntersectionObserverEntry.prototype) ||
+    !('isIntersecting' in window.IntersectionObserverEntry.prototype)
+  ) {
+    removeOpacity();
+  }
+
+  function coalesceSupport() {
+    try {
+      new Function('null ?? false;');
+      return true;
+    } catch (e) {
+      removeOpacity();
+      return false;
+    }
+  }
+
+  coalesceSupport();
+</script>

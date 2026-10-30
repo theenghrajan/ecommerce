@@ -1,0 +1,58 @@
+<div class="mr-12.5 hidden w-full max-w-[190px] flex-col 2xl:flex">
+  <h3 class="text-sc-title border-c-border border-b pb-3 text-lg font-medium">
+    {{ 'customer.account.settings' | t }}
+  </h3>
+
+  {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' -%}
+    {%- assign orders_tab_active = true -%}
+  {%- elsif request.page_type == 'customers/addresses' -%}
+    {%- assign addresses_tab_active = true -%}
+  {%- endif -%}
+  <ul class="mt-4 flex flex-col space-y-4">
+    <li
+      {% if orders_tab_active %}
+        aria-current="page"
+      {% endif %}
+    >
+      <a
+        href="{{ routes.account_url }}"
+        aria-label="{{- 'customer.orders.title' | t -}}"
+        class="hover:text-c-navy flex w-max max-w-full space-x-1 text-base {% if orders_tab_active %} text-sc-subtitle font-medium {% else %} text-sc-body-primary{% endif %}"
+      >
+        <!-- {% render 'icon', name: 'basket' %} -->
+        <span>{{- 'customer.orders.title' | t -}}</span>
+      </a>
+    </li>
+    <li
+      {% if addresses_tab_active %}
+        aria-current="page"
+      {% endif %}
+    >
+      <a
+        href="{{ routes.account_addresses_url }}"
+        aria-label="{{- 'customer.addresses.title' | t -}}"
+        class="hover:text-c-navy flex w-max max-w-full space-x-1 text-base {% if addresses_tab_active %} text-sc-subtitle font-medium {% else %} text-sc-body-primary{% endif %}"
+      >
+        <span>{{- 'customer.addresses.title' | t -}}</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/tools/recurring/login/"
+        aria-label="{{- 'layout.customer.subscriptions' | t -}}"
+        class="text-sc-body-primary hover:text-c-navy flex w-max max-w-full space-x-1 text-base"
+      >
+        <span>{{- 'layout.customer.subscriptions' | t -}}</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="{{ routes.account_logout_url }}"
+        aria-label="{{- 'layout.customer.log_out' | t -}}"
+        class="text-sc-body-primary hover:text-c-navy flex w-max max-w-full space-x-1 text-base"
+      >
+        <span>{{- 'layout.customer.log_out' | t -}}</span>
+      </a>
+    </li>
+  </ul>
+</div>

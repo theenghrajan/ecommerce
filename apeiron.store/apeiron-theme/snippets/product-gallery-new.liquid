@@ -1,0 +1,354 @@
+{% liquid
+  assign hide_product_media = section.settings.hide_product_media
+  assign image_blocks = section.blocks | where: 'type', 'image'
+%}
+<div class="lg:top-7.5 lg:sticky">
+  <div
+    x-ignore
+    x-load="idle"
+    x-data="splideSlider({ thumb: true })"
+  >
+    <div
+      x-ref="mainSlider"
+      class="splide md:-mx-15 group relative -mx-5 mb-5 w-screen overflow-hidden lg:m-0 lg:w-full lg:rounded-lg"
+      data-splide='{ "arrows": true, "pagination": false, "rewind": true, "startAt": 0, "perPage": 1, "speed": 700, "rewindSpeed": 700, "gap": 0 }'
+      style="visibility: visible;"
+    >
+      <div class="splide__track">
+        <ul class="splide__list overflow-initial">
+          {% liquid
+            assign media_size = 0
+            assign counter = 1
+
+            unless hide_product_media
+              for media in product.media
+                if media.alt contains 'hidden'
+                  continue
+                endif
+
+                assign media_size = media_size | plus: 1
+              endfor
+            endunless
+
+            for block in image_blocks
+              assign media_size = media_size | plus: 1
+            endfor
+          %}
+
+          {% unless hide_product_media %}
+            {% for media in product.media %}
+              {% liquid
+                if media.alt contains 'hidden'
+                  continue
+                endif
+
+                assign lazy_load = 'eager'
+                assign preload = true
+                if counter > 1
+                  assign lazy_load = 'lazy'
+                  assign preload = false
+                endif
+              %}
+              <li class="splide__slide no-select-all group relative flex h-0 w-full snap-start scroll-ml-0 list-none flex-col overflow-hidden pb-[100%] lg:pb-[100%]">
+                {% case media.media_type %}
+                  {% when 'image' %}
+                    {{
+                      media
+                      | image_url: width: 760
+                      | image_tag:
+                        alt: media.alt,
+                        class: 'h-full w-full absolute inset-0 object-cover no-select pointer-events-none',
+                        widths: '246, 315, 414, 493, 600, 760, 823, 990, 1100, 1200',
+                        sizes: '(max-width: 991px) 100vw, (max-width: 1919px) 660px, 760px',
+                        loading: lazy_load,
+                        preload: preload
+                    }}
+
+                    {% if counter == 1 %}
+                      {% if top_badge %}
+                        <span class="bg-c-sunhaze text-c-shadow font-third lg:top-7.5 absolute left-5 top-5 w-max max-w-full rounded px-2 py-1 text-xs uppercase">
+                          {{- top_badge -}}
+                        </span>
+                      {% endif %}
+                    {% endif %}
+                  {% when 'video' %}
+                    <span
+                      class="absolute inset-0 overflow-hidden"
+                      x-data="videoToggler()"
+                      x-intersect:leave="pauseVideo()"
+                    >
+                      <button
+                        type="button"
+                        @click.stop="togglePlay()"
+                        aria-label="play/pause video"
+                        :class="play && 'opacity-0 group-hover:opacity-100'"
+                        class="h-15 w-15 bg-c-shadow absolute left-1/2 top-1/2 z-[2] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-white duration-300"
+                      >
+                        <span x-show="!play" x-cloak>
+                          {%- render 'icon', name: 'play-btn', class: 'w-7.5 h-7.5' -%}
+                        </span>
+                        <span x-show="play" x-cloak>
+                          {%- render 'icon', name: 'pause-btn', class: 'w-7.5 h-7.5' -%}
+                        </span>
+                      </button>
+
+                      <button
+                        type="button"
+                        @click="toggleVolume()"
+                        aria-label="mute/unmute video"
+                        class="z-1 bg-c-shadow absolute left-2 top-2 hidden h-7 w-7 items-center justify-center rounded-full md:left-5 md:top-5 md:h-10 md:w-10 lg:flex"
+                      >
+                        <span class="text-white" x-show="muted">
+                          {%- render 'icon', name: 'muted', class: 'w-4 h-4' -%}
+                        </span>
+                        <span class="text-white" x-show="!muted" x-cloak>
+                          {%- render 'icon', name: 'unmuted', class: 'w-3 h-4' -%}
+                        </span>
+                      </button>
+
+                      {% assign img_poster = none %}
+                      {% if media.preview_image != blank %}
+                        {% assign img_poster = media.preview_image | image_url: width: 520 %}
+                      {% endif %}
+
+                      <span class="block h-full w-full cursor-pointer" @click.stop="togglePlay()">
+                        {{
+                          media
+                          | video_tag:
+                            loop: true,
+                            controls: false,
+                            class: 'h-full w-full object-cover',
+                            x-ref: 'video',
+                            playsinline: true,
+                            poster: img_poster,
+                            preload: 'metadata'
+                        }}
+                      </span>
+                    </span>
+                {% endcase %}
+              </li>
+              {% assign counter = counter | plus: 1 %}
+            {% endfor %}
+          {% endunless %}
+
+          {% for block in image_blocks %}
+            {% liquid
+              if hide_product_media
+                assign lazy_load = 'eager'
+                assign preload = true
+                if counter > 1
+                  assign lazy_load = 'lazy'
+                  assign preload = false
+                endif
+              endif
+            %}
+            <li class="splide__slide no-select-all group relative flex h-0 w-full snap-start scroll-ml-0 list-none flex-col overflow-hidden pb-[100%] lg:pb-[100%]">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 760
+                  | image_tag:
+                    alt: block.settings.image.alt,
+                    class: 'h-full w-full absolute inset-0 object-cover no-select pointer-events-none',
+                    widths: '246, 315, 414, 493, 600, 760, 823, 990, 1100, 1200',
+                    sizes: '(max-width: 991px) 100vw, (max-width: 1919px) 660px, 760px',
+                    loading: lazy_load,
+                    preload: preload
+                }}
+
+                {% if counter == 1 %}
+                  {% if top_badge %}
+                    <span class="bg-c-sunhaze text-c-shadow font-third lg:top-7.5 absolute left-5 top-5 w-max max-w-full rounded px-2 py-1 text-xs uppercase">
+                      {{- top_badge -}}
+                    </span>
+                  {% endif %}
+                {% endif %}
+              {% elsif block.settings.video != blank %}
+                <span
+                  class="absolute inset-0 overflow-hidden"
+                  x-data="videoToggler()"
+                  x-intersect:leave="pauseVideo()"
+                >
+                  <button
+                    type="button"
+                    @click.stop="togglePlay()"
+                    aria-label="play/pause video"
+                    :class="play && 'opacity-0 group-hover:opacity-100'"
+                    class="h-15 w-15 bg-c-shadow absolute left-1/2 top-1/2 z-[2] flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-white duration-300"
+                  >
+                    <span x-show="!play" x-cloak>
+                      {%- render 'icon', name: 'play-btn', class: 'w-7.5 h-7.5' -%}
+                    </span>
+                    <span x-show="play" x-cloak>
+                      {%- render 'icon', name: 'pause-btn', class: 'w-7.5 h-7.5' -%}
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    @click="toggleVolume()"
+                    aria-label="mute/unmute video"
+                    class="z-1 bg-c-shadow absolute left-2 top-2 hidden h-7 w-7 items-center justify-center rounded-full md:left-5 md:top-5 md:h-10 md:w-10 lg:flex"
+                  >
+                    <span class="text-white" x-show="muted">
+                      {%- render 'icon', name: 'muted', class: 'w-4 h-4' -%}
+                    </span>
+                    <span class="text-white" x-show="!muted" x-cloak>
+                      {%- render 'icon', name: 'unmuted', class: 'w-3 h-4' -%}
+                    </span>
+                  </button>
+
+                  {% assign img_poster = none %}
+                  {% if block.settings.video.preview_image != blank %}
+                    {% assign img_poster = block.settings.video.preview_image | image_url: width: 520 %}
+                  {% endif %}
+
+                  <span class="block h-full w-full cursor-pointer" @click.stop="togglePlay()">
+                    {{
+                      block.settings.video
+                      | video_tag:
+                        loop: true,
+                        controls: false,
+                        class: 'h-full w-full object-cover',
+                        x-ref: 'video',
+                        playsinline: true,
+                        poster: img_poster,
+                        preload: 'metadata'
+                    }}
+                  </span>
+                </span>
+              {% endif %}
+            </li>
+            {% assign counter = counter | plus: 1 %}
+          {% endfor %}
+        </ul>
+
+        {% if media_size > 1 %}
+          <div class="px-7.5 absolute bottom-4 flex w-full justify-center space-x-2 lg:hidden">
+            {% assign thumb_counter = 1 %}
+            {% for i in (1..media_size) %}
+              <button
+                class="bg-c-white border-c-navy h-4 w-4 shrink-0 rounded-full border duration-300 ease-in-out"
+                :class="index === {{ thumb_counter | minus: 1 }} && '!bg-c-navy'"
+                @click="slider.go({{ thumb_counter | minus: 1 }})"
+                aria-label="slide to {{ thumb_counter }} slide"
+              ></button>
+              {% assign thumb_counter = thumb_counter | plus: 1 %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="splide__arrows absolute top-1/2 hidden w-full -translate-y-1/2 justify-between px-5 lg:flex xl:px-14">
+        <button class="splide__arrow--prev border-c-shadow text-c-white hover:bg-c-white hover:text-c-shadow bg-c-shadow flex h-11 w-12 items-center justify-center rounded-lg border duration-200 ease-in-out">
+          {% render 'icon', name: 'chevron-header', class: 'ease-in-out duration-200 rotate-180' %}
+        </button>
+        <button class="splide__arrow--next border-c-shadow text-c-white hover:bg-c-white hover:text-c-shadow bg-c-shadow flex h-11 w-12 items-center justify-center rounded-lg border duration-200 ease-in-out">
+          {% render 'icon', name: 'chevron-header', class: 'ease-in-out duration-200' %}
+        </button>
+      </div>
+    </div>
+
+    {% if media_size > 1 %}
+      <div
+        class="splide hidden items-center pt-6 lg:flex [&:not(.is-overflow)_.splide--list]:justify-center"
+        x-ref="thumbSlider"
+        data-splide='{ "arrows": false, "pagination": false, "startAt": 0, "speed": 700, "rewindSpeed": 700, "fixedWidth": "130px", "fixedHeight": "130px", "gap": 12 }'
+        style="visibility: visible;"
+      >
+        <div class="splide__track w-full">
+          <ul class="splide__list overflow-initial splide--list">
+            {% assign counter = 1 %}
+
+            {% unless hide_product_media %}
+              {% for media in product.media %}
+                {% liquid
+                  if media.alt contains 'hidden'
+                    continue
+                  endif
+
+                  assign lazy_load = false
+                  if counter > 5
+                    assign lazy_load = 'lazy'
+                  endif
+                %}
+                <li
+                  class="splide__slide no-select-all smD:mr-3 relative mr-2 flex h-[130px] w-[130px] shrink-0 list-none overflow-hidden rounded-lg ring-1 ring-inset ring-transparent transition-shadow"
+                  :class="index == {{ counter | minus: 1 }} && '!ring-c-navy'"
+                >
+                  <button
+                    aria-label="Slide to slide - {{ media.alt }}"
+                    @click="slider.go({{ counter | minus: 1 }})"
+                    class="h-full w-full"
+                  >
+                    {% case media.media_type %}
+                      {% when 'image' %}
+                        {{
+                          media
+                          | image_url: width: 260
+                          | image_tag:
+                            alt: media.alt,
+                            class: 'h-full w-full object-cover relative no-select pointer-events-none -z-1',
+                            widths: '44, 88, 130, 260',
+                            loading: lazy_load
+                        }}
+                      {% when 'video' %}
+                        {{
+                          media.preview_image
+                          | image_url: width: 260
+                          | image_tag:
+                            alt: media.preview_image.alt,
+                            class: 'h-full w-full object-cover relative no-select pointer-events-none -z-1',
+                            widths: '44, 88, 130, 260'
+                        }}
+                    {% endcase %}
+                  </button>
+                </li>
+                {% assign counter = counter | plus: 1 %}
+              {% endfor %}
+            {% endunless %}
+
+            {% for block in image_blocks %}
+              {% liquid
+                unless hide_product_media
+                  assign lazy_load = false
+                endunless
+                if counter > 5
+                  assign lazy_load = 'lazy'
+                endif
+                assign b_image = false
+                if block.settings.image != blank
+                  assign b_image = block.settings.image
+                elsif block.settings.video != blank
+                  assign b_image = block.settings.video.preview_image
+                endif
+              %}
+              <li
+                class="splide__slide no-select-all relative mr-3 flex h-[130px] w-[130px] shrink-0 list-none overflow-hidden rounded-lg ring-1 ring-inset ring-transparent transition-shadow"
+                :class="index == {{ counter | minus: 1 }} && '!ring-c-navy'"
+              >
+                <button
+                  aria-label="Slide to slide - {{ b_image.alt }}"
+                  @click="thumbSlider.go({{ counter | minus: 1 }})"
+                  class="absolute inset-0 h-full w-full"
+                >
+                  {% if b_image != blank %}
+                    {{
+                      b_image
+                      | image_url: width: 260
+                      | image_tag:
+                        alt: b_image.alt,
+                        class: 'h-full w-full object-cover relative no-select pointer-events-none -z-1',
+                        widths: '44, 88, 130, 260'
+                    }}
+                  {% endif %}
+                </button>
+              </li>
+              {% assign counter = counter | plus: 1 %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>

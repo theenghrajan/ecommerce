@@ -1,0 +1,163 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  CHECKBOX COMPONENT
+  ----------------------------------------------------------------------------------------------------------------------
+
+  This component is used to create the necessary markup to create an input checkbox
+
+  ********************************************
+  Supported variables
+  ********************************************
+
+  * name: the HTML name attribute that is used when the field is submitted.
+  * type: by default the snippet generates a checkbox, but you can pass a "radio" type to generate radio buttons
+  * form: if specified, define the form ID linked to this input
+  * checked: if the checkbox is checked or not
+  * disabled: if the checkbox is disabled or not
+  * required: if true, the checkbox must be checked
+  * value: the value to use (use 1 if none is passed)
+  * label: the label to show
+{%- endcomment -%}
+{% unless id %}
+  {%- capture id -%}checkbox-{{ 'now' | date: '%N' }}{%- endcapture -%}
+{% endunless %}
+
+{% case style %}
+  {% when 'big' %}
+    <div class="no-select-all relative flex h-auto items-center" {{ block.shopify_attributes }}>
+      <input
+        id="{{ id }}"
+        class="border-sc-title/70 checked:border-sc-title peer relative h-5 w-5 shrink-0 cursor-pointer appearance-none rounded border duration-300 ease-in-out {{ class }}"
+        type="{{ type | default: 'checkbox' }}"
+        name="{{ name }}"
+        {% if form %}
+          form="{{ form }}"
+        {% endif %}
+        {% if disabled %}
+          disabled
+        {% endif %}
+        {% if required %}
+          data-rules='["required", "min:1"]'
+          value="0"
+          @input.debounce="$el.checked ? $el.value = 1 : $el.value = 0; invalidElements['{{ id }}'] = false;"
+          :class="{ '!border-c-accent-error !accent-c-accent-error': invalidElements['{{ id }}'] }"
+        {% endif %}
+        {% if checked %}
+          checked
+        {% endif %}
+      >
+      {% render 'icon',
+        name: 'checkmark',
+        class: 'absolute peer-checked:opacity-100 opacity-0 z-1 top-0 left-0 text-white w-5 h-5'
+      %}
+
+      {%- if label != blank -%}
+        <label
+          for="{{ id }}"
+          class="text-sc-title cursor-pointer pl-3 text-sm opacity-70 duration-200 ease-in-out peer-checked:opacity-100"
+        >
+          {{- label -}}
+        </label>
+      {%- endif -%}
+    </div>
+  {% when 'color' %}
+    <label class="relative cursor-pointer {% if disabled -%}pointer-events-none{%- endif -%}" for="{{ id }}">
+      <input
+        id="{{ id }}"
+        class="peer hidden"
+        type="{{ type | default: 'checkbox' }}"
+        name="{{ name }}"
+        value="{{ value | default: 1 }}"
+        {% if form %}
+          form="{{ form }}"
+        {% endif %}
+        {% if disabled %}
+          disabled
+        {% endif %}
+        {% if required %}
+          data-rules='["required"]'
+          @input.debounce="$el.checked ? $el.value = 1 : $el.value = 0; invalidElements['{{ id }}'] = false;"
+          :class="{ '!border-c-accent-error !accent-c-accent-error': invalidElements['{{ id }}'] }"
+        {% endif %}
+        {% if checked %}
+          checked
+        {% endif %}
+      >
+      <span
+        title="{{- value -}}"
+        tabindex="0"
+        class="option-color peer-checked:border-sc-subtitle group block overflow-visible peer-checked:p-0.5 {% if disabled -%}unavailable{%- endif -%}"
+      >
+        <span
+          class="swatch absolute left-0 top-0 block h-6 w-6"
+          data-color-swatch="{{ value | handleize }}"
+        ></span>
+      </span>
+    </label>
+  {% when 'radio' %}
+    <div class="no-select-all flex items-center" {{ block.shopify_attributes }}>
+      <input
+        id="{{ id }}"
+        class="peer hidden"
+        type="{{ type | default: 'radio' }}"
+        name="{{ name }}"
+        value="{{ value | default: 1 }}"
+        {% if form %}
+          form="{{ form }}"
+        {% endif %}
+        {% if disabled %}
+          disabled
+        {% endif %}
+        {% if required %}
+          data-rules='["required"]'
+          @input.debounce="invalidElements['{{ id }}'] = false;"
+          :class="{ '!accent-c-accent-error !border-c-accent-error': invalidElements['{{ id }}'] }"
+        {% endif %}
+        {% if checked %}
+          checked
+        {% endif %}
+      >
+
+      {%- if label != blank -%}
+        <label
+          for="{{ id }}"
+          class="text-sc-title cursor-pointer text-sm font-medium opacity-70 duration-200 ease-in-out hover:opacity-100 peer-checked:opacity-100"
+        >
+          <span>{{- label -}}</span>
+        </label>
+      {%- endif -%}
+    </div>
+  {% else %}
+    <div class="no-select-all flex items-center" {{ block.shopify_attributes }}>
+      <input
+        id="{{ id }}"
+        class="peer relative h-4 w-4 shrink-0 cursor-pointer rounded-sm duration-300 ease-in-out {{ class -}}"
+        type="{{ type | default: 'checkbox' }}"
+        name="{{ name }}"
+        value="{{ value | default: 1 }}"
+        {% if form %}
+          form="{{ form }}"
+        {% endif %}
+        {% if disabled %}
+          disabled
+        {% endif %}
+        {% if required %}
+          data-rules='["required"]'
+          @input.debounce="invalidElements['{{ id }}'] = false;"
+          :class="{ '!accent-c-accent-error !border-c-accent-error': invalidElements['{{ id }}'] }"
+        {% endif %}
+        {% if checked %}
+          checked
+        {% endif %}
+      >
+
+      {%- if label != blank -%}
+        <label
+          for="{{ id }}"
+          class="text-sc-title cursor-pointer pl-2 text-sm opacity-70 duration-200 ease-in-out peer-checked:opacity-100"
+        >
+          {{- label -}}
+        </label>
+      {%- endif -%}
+    </div>
+{% endcase %}

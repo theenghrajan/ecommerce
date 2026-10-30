@@ -1,0 +1,408 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign layout = section.settings.layout
+
+  assign subtitle = section.settings.subtitle
+  assign title = section.settings.title
+  assign description = section.settings.description
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+
+  assign pagination_style = section.settings.pagination_style
+
+  assign blocks = section.blocks
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+
+  assign animation = 'animate__animated opacity-0'
+  case section.index0
+    when 1
+      assign loading = 'eager'
+      assign preload = true
+      assign animation = ''
+    when 2
+      assign loading = 'eager'
+      assign preload = false
+    else
+      assign loading = 'lazy'
+      assign preload = false
+  endcase
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary overflow-hidden"
+>
+  <div class="xl:space-x-15 container overflow-visible xl:flex xl:items-center {% if layout == 'reverse' -%} !space-x-reverse xl:flex-row-reverse {%- endif -%}">
+    <div class="w-full shrink-0 lg:py-7 xl:max-w-[470px] 2xl:max-w-[500px]">
+      {% if subtitle != blank %}
+        <span class="text-sc-title font-third mb-3 block text-base md:mb-4 lg:text-center lg:text-lg xl:text-left">
+          {{- subtitle -}}
+        </span>
+      {% endif %}
+
+      {% if title != blank %}
+        <h2 class="text-sc-title mb-3 text-3xl font-semibold md:mb-4 lg:text-center lg:text-4xl xl:text-left xl:text-5xl">
+          {{- title -}}
+        </h2>
+      {% endif %}
+
+      {% if description != blank %}
+        <div class="rte text-sc-body-primary text-base lg:text-center lg:text-lg xl:text-left">
+          {{- description -}}
+        </div>
+      {% endif %}
+
+      {% if btn_text != blank %}
+        <a
+          href="{{ btn_url }}"
+          class="{% render 'btn-class', btn: btn_type %} group mt-5 w-max max-w-full lg:mx-auto lg:mt-10 xl:m-0 xl:mt-10 {{ animation }}"
+          aria-label="{{ btn_text }}"
+          {% if animation %}
+            x-intersect.once="$el.classList.add('animate__fadeIn')"
+          {% endif %}
+        >
+          <span>
+            {{- btn_text -}}
+          </span>
+          {% render 'icon',
+            name: 'btn-arrow',
+            class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+          %}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if blocks.size > 0 %}
+      <div
+        class="splide pt-5 md:pt-10 {{ animation -}}"
+        x-intersect.once="$el.classList.add('animate__fadeIn')"
+        x-ignore
+        x-load="visible (300px 300px 300px 300px)"
+        x-data="splideSlider()"
+        data-splide='{ "arrows": false, "pagination": false, "rewind": true, "startAt": 0, "destroy": true, "speed": 500, "gap": 30, "breakpoints": { "743": { "perPage": 1, "destroy": false, "fixedWidth": "360px", "gap": 12 }, "500": { "perPage": 1, "destroy": false, "fixedWidth": "260px", "gap": 12 } } }'
+        {% if animation %}
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        <div class="splide__track overflow-visible">
+          <ul class="splide__list md:!gap-7.5 md:!grid md:!grid-cols-2">
+            {% for block in blocks %}
+              {% liquid
+                assign image = block.settings.image
+                assign block_title = block.settings.title
+                assign block_subtitle = block.settings.subtitle
+                assign block_description = block.settings.description
+              %}
+
+              <li
+                class="splide__slide border-c-border relative flex w-full list-none flex-col rounded-md border p-3 lg:p-5"
+                {{ block.shopify_attributes }}
+              >
+                <div class="relative h-[67vw] md:h-[40vw] xl:h-[384px]">
+                  {% if image != blank %}
+                    {{
+                      image
+                      | image_url: width: 670
+                      | image_tag:
+                        alt: image.alt,
+                        loading: loading,
+                        preload: preload,
+                        class: 'h-full w-full rounded-md object-cover',
+                        widths: '236, 335, 670',
+                        draggable: false
+                    }}
+                  {% else %}
+                    {{
+                      'lifestyle-1'
+                      | placeholder_svg_tag: 'h-[67vw] md:h-[40vw] xl:h-[384px] w-full rounded-md object-cover'
+                    }}
+                  {% endif %}
+                </div>
+
+                <div class="flex flex-col pt-3">
+                  {% if block_title != blank %}
+                    <span class="text-sc-title mb-1 text-base font-semibold lg:text-xl">{{- block_title -}}</span>
+                  {% endif %}
+
+                  {% if block_subtitle != blank %}
+                    <span class="text-sc-body-primary text-xs font-medium lg:text-base">{{- block_subtitle -}}</span>
+                  {% endif %}
+
+                  {% if block_description != blank %}
+                    <div class="rte text-sc-body-primary mt-2 text-sm lg:text-lg">
+                      {{- block_description -}}
+                    </div>
+                  {% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if blocks.size > 1 %}
+          <div
+            class="md:mt-7.5 mt-5 flex lg:hidden"
+            data-pagination-bar-inner
+          >
+            {% render 'splide-pagination', bar: true, style: pagination_style %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Multi-column",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Multi-column"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "reverse",
+          "label": "Reverse"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Description color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#F7FAFF"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Section subtitle",
+      "default": "Healthcare Reinvented"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title",
+      "default": "Developed by Doctors. Trusted by experts."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description",
+      "default": "<p>Longevity leaders Dr. Dan Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "Our founders"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "btn_primary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "select",
+      "id": "pagination_style",
+      "label": "Pagination style",
+      "options": [
+        {
+          "value": "pagination--light",
+          "label": "Light"
+        },
+        {
+          "value": "pagination--dark",
+          "label": "Dark"
+        }
+      ],
+      "default": "pagination--dark"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 110
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 110
+    }
+  ],
+  "blocks": [
+    {
+      "name": "block",
+      "type": "block",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Block subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Block description"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Multi-column",
+      "category": "Sections",
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "CEO | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

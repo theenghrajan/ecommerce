@@ -1,0 +1,31 @@
+{%- if request.page_type == 'cart' -%}
+  <script>
+    window.stop();
+    sessionStorage.setItem('cart-redirected', 'yes');
+    window.location.href = '/';
+  </script>
+{%- elsif request.page_type contains 'product'
+  and product.metafields.binaery.product_information.value.redirect_product.value != blank
+  and request.design_mode == false
+-%}
+  <script>
+    window.stop();
+    window.location.href = '{{ product.metafields.binaery.product_information.value.redirect_product.value.url }}';
+  </script>
+{%- endif %}
+<script defer>
+  document.addEventListener('alpine:init', () => {
+    if (
+      (sessionStorage.getItem('cart-redirected') && '{{ template.name }}' === 'index') ||
+      (sessionStorage.getItem('cart-redirected') && '{{ template.name }}' === 'account')
+    ) {
+      const openCartDrawer = setInterval(() => {
+        if (!Alpine.store('cart').isFetching) {
+          clearInterval(openCartDrawer);
+          sessionStorage.removeItem('cart-redirected');
+          Alpine.store('cart').show();
+        }
+      });
+    }
+  });
+</script>

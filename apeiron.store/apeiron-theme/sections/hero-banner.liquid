@@ -1,0 +1,802 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign bg = section.settings.bg
+
+  assign subtitle = section.settings.subtitle
+  assign title = section.settings.title
+  assign description = section.settings.description
+  assign image = section.settings.image
+  assign image_mob = section.settings.image_mob | default: image
+
+  assign layout = section.settings.layout
+  assign layout_mob = section.settings.layout_mob
+
+  assign split_revese = section.settings.split_revese
+
+  assign video = section.settings.video
+
+  assign oke_reiews = section.settings.oke_reiews
+
+  assign review_text = section.settings.review_text
+  assign review_star = section.settings.review_star
+  assign review_position = section.settings.review_position
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+  assign btn_type_mob = section.settings.btn_type_mob
+
+  assign sec_btn_url = section.settings.sec_btn_url
+  assign sec_btn_text = section.settings.sec_btn_text
+  assign sec_btn_type = section.settings.sec_btn_type
+  assign sec_btn_type_mob = section.settings.sec_btn_type_mob
+
+  assign desk_alignment = section.settings.desk_alignment
+  assign mob_alignment = section.settings.mob_alignment
+
+  assign image_mob_height = section.settings.image_mob_height
+  assign image_height = section.settings.image_height
+
+  case mob_alignment
+    when 'left'
+      assign align_class = ' text-left justify-start items-start'
+    when 'center'
+      assign align_class = ' text-center justify-center items-center'
+    when 'right'
+      assign align_class = ' text-right justify-end items-end'
+  endcase
+  case desk_alignment
+    when 'left'
+      assign align_class = align_class | append: ' lg:text-left lg:justify-start'
+      assign box_class = ' lg:mr-auto lg:ml-0'
+      if layout == 'container'
+        assign box_class = box_class | append: ' xl:pl-17.5 lg:max-w-[525px] 2k:max-w-[625px]'
+      elsif layout == 'full'
+        assign box_class = box_class | append: ' xl:pl-0 lg:max-w-[425px] 2k:max-w-[525px]'
+      elsif layout == 'wide'
+        assign box_class = box_class | append: ' xl:pl-0 lg:max-w-none'
+      endif
+    when 'center'
+      assign align_class = align_class | append: ' lg:text-center lg:justify-center'
+      assign box_class = ' lg:mx-auto'
+      if layout == 'container' or layout == 'full'
+        assign box_class = box_class | append: ' xl:px-17.5'
+      endif
+      if layout == 'wide'
+        assign box_class = box_class | append: ' xl:px-17.5 lg:max-w-none'
+      endif
+    when 'right'
+      assign align_class = align_class | append: ' lg:text-right lg:justify-end'
+      assign box_class = ' lg:ml-auto lg:mr-0'
+      if layout == 'container'
+        assign box_class = box_class | append: ' xl:pr-17.5 lg:max-w-[525px] 2k:max-w-[625px]'
+      elsif layout == 'full'
+        assign box_class = box_class | append: ' xl:pr-0 lg:max-w-[425px] 2k:max-w-[525px]'
+      elsif layout == 'wide'
+        assign box_class = box_class | append: ' xl:pr-0 lg:max-w-none'
+      endif
+  endcase
+
+  assign video_class = 'object-cover w-full h-full no-select-all no-select-all overflow-hidden'
+
+  assign section_height = ''
+  case image_mob_height
+    when 'sm'
+      assign section_height = 'min-h-[200px]'
+    when 'md'
+      assign section_height = 'min-h-[350px]'
+    when 'lg'
+      assign section_height = 'min-h-[450px]'
+    when 'xl'
+      assign section_height = 'min-h-[550px]'
+  endcase
+  assign image_mob_class = 'object-cover w-full h-full lg:hidden'
+  if layout_mob == 'split'
+    assign image_mob_class = image_mob_class | append: ' md:h-[500px]'
+  endif
+
+  if layout_mob == 'full'
+    unless image_mob_height == 'auto' and title == blank and description == blank
+      assign image_mob_class = image_mob_class | append: ' absolute inset-0'
+      assign video_class = video_class | append: ' absolute inset-0'
+    endunless
+  endif
+
+  case image_height
+    when 'sm'
+      assign section_height = section_height | append: ' lg:min-h-[400px]'
+    when 'md'
+      assign section_height = section_height | append: ' lg:min-h-[550px] hd:min-h-[700px]'
+    when 'lg'
+      assign section_height = section_height | append: ' lg:min-h-[650px] hd:min-h-[800px]'
+  endcase
+  assign image_class = 'object-cover w-full h-full hidden lg:block'
+
+  unless image_height == 'auto' and layout == 'full' and title == blank and description == blank
+    assign image_class = image_class | append: ' absolute inset-0'
+  endunless
+
+  unless layout == 'split'
+    assign video_class = video_class | append: ' lg:absolute lg:inset-0'
+    if layout == 'container'
+      assign video_class = video_class | append: ' lg:rounded-7.5'
+    endif
+  endunless
+
+  if layout contains 'split' and layout_mob == 'split'
+    assign image_class = image_class | append: ' absolute inset-0'
+  endif
+
+  case section.index
+    when 1
+      assign loading = 'eager'
+      assign preload = true
+      assign fetch_priority = 'high'
+    when 2
+      assign loading = 'eager'
+      assign preload = false
+      assign fetch_priority = 'auto'
+    else
+      assign loading = 'lazy'
+      assign preload = false
+      assign fetch_priority = 'auto'
+  endcase
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+{% capture images %}
+  {% if video != blank %}
+      <div
+        x-data="videoToggler"
+        x-intersect:enter.once="playVideo()"
+        class="{{ video_class }}"
+      >
+        {% assign video_tag_class = section_height | append: ' h-full w-full object-cover' %}
+        {% assign img_poster = none %}
+        {% if video.preview_image != blank %}
+          {% assign img_poster = video.preview_image | image_url: width: 700 %}
+          <link
+            rel="preload"
+            as="image"
+            href="{{ img_poster }}"
+            fetchpriority="high"
+          >
+        {% endif %}
+        {{
+          video | video_tag:
+            loop: true,
+            controls: false,
+            autoplay: true,
+            x-ref: 'video',
+            class: video_tag_class,
+            playsinline: true,
+            poster: img_poster,
+            preload: 'none'
+          }}
+      </div>
+    {% else %}
+      {% if image_mob != blank %}
+        {{
+          image_mob
+            | image_url: width: 1200
+            | image_tag:
+              alt: image_mob.alt,
+              class: image_mob_class,
+              loading: loading,
+              preload: preload,
+              fetchpriority: fetch_priority,
+              draggable: false
+        }}
+      {% endif %}
+
+      {% if image != blank %}
+        {{
+          image
+            | image_url: width: 1700
+            | image_tag:
+              alt: image.alt,
+              class: image_class,
+              loading: loading,
+              preload: preload,
+              fetchpriority: fetch_priority,
+              draggable: false
+        }}
+      {% endif %}
+    {% endif %}
+{% endcapture %}
+
+{% capture content %}
+  <div class="space-y-3 lg:space-y-4 {{ align_class -}}">
+    {% if subtitle != blank %}
+      <span class="text-sc-title font-third text-base lg:text-lg">{{- subtitle -}}</span>
+    {% endif %}
+
+    {% if title != blank %}
+      {% if section.index == 1 %}
+        <h1 class="text-sc-title text-4xl font-semibold lg:text-5xl">
+          {{- title -}}
+        </h1>
+      {% else %}
+        <h2 class="text-sc-title text-4xl font-semibold lg:text-5xl">
+          {{- title -}}
+        </h2>
+      {% endif %}
+    {% endif %}
+
+    {% if description != blank %}
+      <div class="rte text-sc-body-primary text-lg lg:pt-2">
+        {{- description -}}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if btn_text != blank %}
+    <div
+      class="grid-cols-center-2 flex flex-wrap items-center lg:pt-3 {{ align_class -}}"
+      style="--gap: 16px;"
+    >
+      {% comment %}First button{% endcomment %}
+      <a
+        href="{{ btn_url }}"
+        class="{% render 'btn-class', btn: btn_type_mob %} group w-max max-w-full lg:hidden"
+        aria-label="{{ btn_text }}"
+      >
+        <span>{{- btn_text -}}</span>
+        {% render 'icon',
+          name: 'btn-arrow',
+          class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+        %}
+      </a>
+      <a
+        href="{{ btn_url }}"
+        class="{% render 'btn-class', btn: btn_type %} group hidden w-max max-w-full lg:flex"
+        aria-label="{{ btn_text }}"
+      >
+        <span>{{- btn_text -}}</span>
+        {% render 'icon',
+          name: 'btn-arrow',
+          class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+        %}
+      </a>
+
+      {% comment %}Second button{% endcomment %}
+      {% if sec_btn_text != blank %}
+        <a
+          href="{{ sec_btn_url }}"
+          class="{% render 'btn-class', btn: sec_btn_type_mob %} group w-max max-w-full lg:hidden"
+          aria-label="{{ sec_btn_text }}"
+        >
+          <span>{{- sec_btn_text -}}</span>
+          {% render 'icon',
+            name: 'btn-arrow',
+            class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+          %}
+        </a>
+        <a
+          href="{{ sec_btn_url }}"
+          class="{% render 'btn-class', btn: sec_btn_type %} group hidden w-max max-w-full lg:flex"
+          aria-label="{{ sec_btn_text }}"
+        >
+          <span>{{- sec_btn_text -}}</span>
+          {% render 'icon',
+            name: 'btn-arrow',
+            class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+          %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if oke_reiews %}
+    <div data-image-banner-oke data-oke-badge data-oke-layout="minimal" data-oke-star-height-px="23" class="rte text-sc-body-primary flex font-semibold {% if review_position == 'bottom' -%} lg:text-base text-xs mt-5 {%- else -%} -order-1 text-xl pb-5 !m-0 {%- endif %} {{ align_class -}}"></div>
+  {% endif %}
+
+  {% if review_star != blank or review_text != blank %}
+    <div class="flex {% if review_position == 'bottom' -%} mt-5 items-center space-x-1 md:space-x-2 {%- else -%} -order-1 pb-5 !m-0 flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-2 {%- endif -%} {{ align_class -}}">
+      {% if review_star != blank %}
+        <div class="lg:max-w-25 w-full max-w-20">
+          {{
+            review_star
+            | image_url: width: review_star.width
+            | image_tag:
+              alt: review_star.alt,
+              class: 'object-contain w-full h-full pointer-events-none',
+              loading: loading,
+              preload: preload,
+              draggable: false
+          }}
+        </div>
+      {% endif %}
+
+      {% if review_text != blank %}
+        <div class="rte text-sc-body-primary font-semibold {% if review_position == 'bottom' -%} lg:text-base text-xs {%- else -%} text-xl {%- endif -%}">
+          {{- review_text -}}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endcapture %}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-c-bg-lineargradient relative overflow-hidden"
+  style="--c-bg-lineargradient: {{ bg }}"
+>
+  <div class="overflow-hidden {% if layout == 'container' -%} lg:container {%- endif -%}">
+    {% case layout %}
+      {% when 'container' %}
+        <div class="relative mx-auto flex flex-col {% if layout_mob == 'full' %} justify-center {% endif %} lg:rounded-7.5 items-center overflow-hidden {{ section_height -}}">
+          {{ images }}
+
+          {% if title != blank or description != blank %}
+            <div class="py-7.5 xl:py-25 lg:py-15 md:px-15 relative mx-auto flex flex-1 flex-col justify-center space-y-5 px-5 lg:m-0 {% if layout_mob == 'split_rev' %} -order-1 lg:order-none {% endif %} {{ box_class }}">
+              {{ content }}
+            </div>
+          {% endif %}
+        </div>
+
+      {% when 'full', 'wide' %}
+        <div class="relative flex flex-col lg:items-center {% if layout_mob == 'full' %} justify-center {% endif %} items-center {{ section_height -}}">
+          {{ images }}
+
+          {% if title != blank or description != blank %}
+            <div class="{%- unless layout_mob == 'full' -%} bg-c-bg-lineargradient {%- endunless %} py-7.5 lg:py-15 md:px-15 xl:px-17.5 xl:py-25 container relative flex flex-1 px-5 lg:bg-none {% if layout_mob == 'split_rev' %} -order-1 lg:order-none {% endif %}">
+              <div class="m-auto flex h-full flex-col space-y-5 {{ box_class -}}">
+                {{ content }}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+      {% when 'split' %}
+        <div class="relative grid grid-cols-1 lg:grid-cols-2 xl:items-center {{ section_height -}}">
+          <div class="relative w-full overflow-hidden lg:h-full lg:pb-0">
+            {{ images }}
+          </div>
+
+          <div class="lg:px-17.5 relative flex w-full p-5 lg:max-w-[800px] {% if layout_mob == 'split_rev' %} -order-1 {% unless split_revese %} lg:order-none {% endunless %} {% endif %} {% if split_revese %} lg:-order-1 lg:ml-auto {% endif %} md:py-10 {{ align_class }}">
+            <div class="flex h-full flex-col space-y-5 lg:max-w-[660px]">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+    {% endcase %}
+  </div>
+</div>
+
+{% if video != blank %}
+  <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"VideoObject",
+      "name": {{ video.alt | escape | json }},
+      "description": {{ video.alt | escape | json }},
+      "thumbnailUrl":"{{ img_poster }}",
+      "contentUrl":"{{ video.sources[1].url | default: video.sources[0].url }}",
+      "uploadDate": "2025-06-23T01:29:43Z",
+      "duration": "PT7S"
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Hero banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Hero banner"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "bg",
+      "label": "Background color",
+      "default": "linear-gradient(168.83deg, #737058 11.84%, #B8A582 46.58%, #C7B28D 90.06%)"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subtitle",
+      "label": "Section subtitle"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Section video"
+    },
+    {
+      "type": "header",
+      "content": "Reviews settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "oke_reiews",
+      "label": "Okendo reviews",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "review_position",
+      "label": "Review position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "richtext",
+      "id": "review_text",
+      "label": "Review text"
+    },
+    {
+      "type": "image_picker",
+      "id": "review_star",
+      "label": "Review stars"
+    },
+    {
+      "type": "header",
+      "content": "First button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "Button text"
+    },
+    {
+      "type": "header",
+      "content": "Second button settings"
+    },
+    {
+      "type": "url",
+      "id": "sec_btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "sec_btn_text",
+      "label": "Section button text",
+      "default": "Button text"
+    },
+    {
+      "type": "header",
+      "content": "Desktop settings"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Section desktop layout",
+      "options": [
+        {
+          "value": "container",
+          "label": "Container"
+        },
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "wide",
+          "label": "Wide"
+        },
+        {
+          "value": "split",
+          "label": "Split"
+        }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "checkbox",
+      "id": "split_revese",
+      "label": "Split layout reverse",
+      "default": false
+    },
+    {
+      "type": "text_alignment",
+      "id": "desk_alignment",
+      "label": "Content alignment",
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section image"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "label": "Section desktop height",
+      "options": [
+        {
+          "value": "auto",
+          "label": "auto"
+        },
+        {
+          "value": "sm",
+          "label": "sm"
+        },
+        {
+          "value": "md",
+          "label": "md"
+        },
+        {
+          "value": "lg",
+          "label": "lg"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "First button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "select",
+      "id": "sec_btn_type",
+      "label": "Second button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_secondary_fill"
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "select",
+      "id": "layout_mob",
+      "label": "Section mobile layout",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "split",
+          "label": "Split"
+        },
+        {
+          "value": "split_rev",
+          "label": "Split reverse"
+        }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Content alignment",
+      "default": "center"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Section image"
+    },
+    {
+      "type": "select",
+      "id": "image_mob_height",
+      "label": "Section mobile height",
+      "options": [
+        {
+          "value": "auto",
+          "label": "auto"
+        },
+        {
+          "value": "sm",
+          "label": "sm"
+        },
+        {
+          "value": "md",
+          "label": "md"
+        },
+        {
+          "value": "lg",
+          "label": "lg"
+        },
+        {
+          "value": "xl",
+          "label": "xl"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "select",
+      "id": "btn_type_mob",
+      "label": "First button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "select",
+      "id": "sec_btn_type_mob",
+      "label": "Second button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_secondary_fill"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 80
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Hero banner",
+      "category": "Sections",
+      "settings": {
+        "title": "Lifelong Wellness Begins Here",
+        "description": "<p>Clinician-formulated supplements and peptides that extend healthspan and elevate daily performance.</p>",
+        "subtitle": "FOUNDATIONAL. BIO-SPECIFIC. LONGEVITY.",
+        "btn_text": "Shop Best Sellers",
+        "sec_btn_text": "Start your stack"
+      }
+    }
+  ]
+}
+{% endschema %}

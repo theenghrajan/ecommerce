@@ -1,0 +1,336 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary"
+  x-data="searchPage()"
+>
+  <div class="container">
+    <h1 class="font-primary text-sc-title smD:text-5xl 2k:text-6xl text-center text-3xl font-medium md:text-4xl xl:text-6xl">
+      {% if search.terms != blank %}
+        <span>
+          {% case search.results_count %}
+            {% when 0 %}
+              <span>
+                {{- 'general.search.results_count.zero' | t: count: search.results_count, search_terms: search.terms -}}
+              </span>
+            {% when 1 %}
+              <span>
+                {{- 'general.search.results_count.one' | t: count: search.results_count, search_terms: search.terms -}}
+              </span>
+            {% else %}
+              <span>
+                {{-
+                  'general.search.results_count.other'
+                  | t: count: search.results_count, search_terms: search.terms
+                -}}
+              </span>
+          {% endcase %}
+        </span>
+      {% else %}
+        <span>
+          {{ 'general.search.no_results' | t }}
+        </span>
+      {% endif %}
+    </h1>
+
+    <form
+      action="{{ routes.search_url }}"
+      method="get"
+      role="search"
+      class="mt-15 relative mx-auto flex max-w-[470px] items-center pb-2"
+      @submit.prevent
+    >
+      <label
+        for="search-input"
+        class="relative -mr-7 h-7 w-7 duration-300 ease-in-out"
+        :class="searchQuery.length ? 'text-sc-title' : 'text-sc-title/70'"
+      >
+        {% render 'icon', name: 'search' %}
+      </label>
+      <input
+        type="text"
+        id="search-input"
+        class="text-sc-title placeholder:text-sc-title/70 w-full border-none bg-transparent pl-10 text-base outline-none"
+        placeholder="Searching for..."
+        x-model="searchQuery"
+        name="q"
+        autocomplete="off"
+        x-init="searchQuery = '{{ search.terms }}'"
+        @input.debounce.1000ms="renderSearch()"
+      >
+      <button
+        class="text-sc-body-primary ml-2 flex shrink-0 items-center duration-300 ease-in-out hover:opacity-70"
+        x-show="searchQuery.length"
+        x-cloak
+        x-transition.opacity.delay.300ms
+        type="button"
+        @click.prevent="searchQuery = '';"
+      >
+        <span class="sr-only">Clear search query</span>
+        <span class="text-sc-title mr-1 whitespace-nowrap">
+          {{- 'general.search.clear' | t -}}
+        </span>
+
+        {% render 'icon', name: 'close', size: 'sm', class: 'text-sc-title/60' %}
+      </button>
+    </form>
+
+    <hr class="border-sc-subtitle mb-12.5 mx-auto max-w-[470px] border-b-[2px] md:mb-20">
+
+    {% paginate search.results by 20 %}
+      <div
+        class="pt-5 duration-500 ease-in-out"
+        :class="isLoading ? 'opacity-50' : 'opacity-100'"
+      >
+        {% if search.performed and search.results_count > 0 %}
+          <div
+            id="coll-grid"
+            class="md:gap-7.5 smD:grid-cols-3 grid w-full grid-cols-2 gap-x-2.5 gap-y-5 2xl:grid-cols-4"
+          >
+            {% for product in search.results %}
+              {% if product.object_type == 'product' %}
+                {%- unless product.template_suffix == 'hidden' -%}
+                  {% render 'product-card', product: product, index: 0 %}
+                {%- endunless -%}
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <div
+            class="animate__animated text-sc-title py-7.5 md:py-15 flex h-full flex-col items-center justify-center space-y-3 opacity-0"
+            x-init="$el.classList.add('animate__fadeIn')"
+          >
+            {% render 'icon', name: 'serach-not-found', class: 'w-20 h-20' %}
+            <h4 class="text-sc-title font-primary text-center text-xl font-medium">
+              {{ 'general.search.no_results' | t }}
+            </h4>
+          </div>
+        {% endif %}
+
+        <!-- LOAD MORE -->
+        {% if paginate.next %}
+          <div
+            x-cloak
+            x-show="hasNextPage && !isLoading"
+            data-next-page
+            class="h-2 bg-transparent"
+            x-intersect:enter.margin.25%="loadMoreProducts"
+          ></div>
+        {% endif %}
+      </div>
+    {% endpaginate %}
+  </div>
+</div>
+
+{% javascript %}
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('searchPage', () => ({
+      isLoading: false,
+      searchQuery: '',
+      searchResult: false,
+      nextPageCount: 1,
+      hasNextPage: false,
+      init() {
+        const params = new URLSearchParams(window.location.search);
+        const page = params.get('page');
+
+        this.getHasNextPage(document, page || this.nextPageCount);
+
+        window.onpopstate = () => {
+          window.location.reload();
+        };
+      },
+      addNextPageItems(items) {
+        const collectionItemsGrid = document.getElementById('coll-grid');
+        items.forEach((item) => {
+          collectionItemsGrid.append(item);
+        });
+      },
+      getHasNextPage(node, counter = 1) {
+        this.nextPageCount = counter;
+        this.hasNextPage = !!node.querySelector('[data-next-page]');
+      },
+      getNewItems(response) {
+        return response.querySelectorAll('#coll-grid article');
+      },
+      scrollToAnchor(node) {
+        const anchorBlock = node;
+
+        if (anchorBlock) {
+          const elementPosition = anchorBlock.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition +
+            window.pageYOffset -
+            parseFloat(document.documentElement.style.getPropertyValue('--header-height') || 0);
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      },
+      changeUrl(url) {
+        window.history.pushState({}, url, url);
+      },
+      async renderSearch() {
+        this.isLoading = true;
+        this.resultsCount = 0;
+
+        const url = `/search?q=${this.searchQuery}&type=product`;
+        this.changeUrl(url);
+
+        try {
+          if (!this.searchQuery.length) {
+            this.searchResult = false;
+            this.isLoading = false;
+            return;
+          }
+
+          const currentLayout = document.getElementById(`main-search`);
+
+          const response = await this.get(url, { responseType: 'document' });
+          const newLayout = response.getElementById(`main-search`);
+
+          if (newLayout) {
+            currentLayout.outerHTML = newLayout.outerHTML;
+          }
+
+          this.searchResult = true;
+          this.isLoading = false;
+        } catch (e) {
+          this.isLoading = false;
+          console.log(e);
+        }
+      },
+      async get(url, config = {}) {
+        try {
+          const options = Object.assign(
+            {
+              method: 'GET',
+              headers: config.headers || {},
+            },
+            config,
+          );
+
+          const response = await fetch(url, options);
+
+          if (!response.ok) {
+            throw new Error(`Fetch error: ${response.status} ${response.statusText}`);
+          }
+
+          const text = await response.text();
+          return new DOMParser().parseFromString(text, 'text/html');
+        } catch (e) {
+          console.log(e);
+        }
+      },
+      async loadMore(newURL) {
+        this.isLoading = true;
+
+        try {
+          const response = await this.get(newURL, { responseType: 'document' });
+
+          const newItems = this.getNewItems(response);
+          if (newItems && newItems.length) {
+            this.addNextPageItems(newItems);
+            this.isLoading = false;
+          }
+
+          this.getHasNextPage(response, this.nextPageCount);
+
+          this.isLoading = false;
+        } catch (e) {
+          console.log(e);
+          this.isLoading = false;
+        }
+      },
+      async loadMoreProducts() {
+        this.nextPageCount++;
+
+        const newURL =
+          window.location.href.split('?').shift() +
+          '?q=' +
+          this.searchQuery +
+          '&type=product&page=' +
+          this.nextPageCount;
+        await this.loadMore(newURL);
+      },
+    }));
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Main search",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Main search"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 66
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 130
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 90
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 150
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 50
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 200
+    }
+  ]
+}
+{% endschema %}

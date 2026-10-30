@@ -1,0 +1,557 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {}
+    },
+    "main_product_LanJDb": {
+      "type": "main-product",
+      "blocks": {
+        "product_title_TXKkdm": {
+          "type": "product_title",
+          "settings": {
+            "title": "{{ product.title }}"
+          }
+        },
+        "okendo_star_rating_aFpKyw": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "product_price_ggbnmd": {
+          "type": "product_price",
+          "settings": {
+            "margin": 12
+          }
+        },
+        "html_liquid_JURB3U": {
+          "type": "html_liquid",
+          "settings": {
+            "html": "",
+            "liquid": "",
+            "richtext": "<p>30 Servings</p>"
+          }
+        },
+        "product_description_GdJQCW": {
+          "type": "product_description",
+          "settings": {
+            "description": "<p>Thymosin Beta 4 fragment with SNAC.<br/><br/></p><ol><li>Supports tissue repair*</li><li>Supports joint and muscle health*</li><li>Modulates immune response*</li></ol>",
+            "bottom_margin": 16
+          }
+        },
+        "product_drawer_RE9PtT": {
+          "type": "product_drawer",
+          "settings": {
+            "bg": "#ecf3ff",
+            "title_color": "#25282a",
+            "btn_text": "Supplement facts",
+            "bottom_margin": 30,
+            "title": "Supplement Facts",
+            "image": "shopify://shop_images/TB4_2025-08-18_at_11.40.22_AM.png"
+          }
+        },
+        "product_form_GKxRJU": {
+          "type": "product_form",
+          "settings": {
+            "show_qty": true,
+            "show_terms": false,
+            "to_checkout": false,
+            "bottom_text_divider": "yes",
+            "bottom_icon_1": "shopify://shop_images/bi-delivery-icon.svg",
+            "bottom_text_1": "Estimated <strong>delivery </strong>",
+            "bottom_icon_2": "shopify://shop_images/lab.svg",
+            "bottom_text_2": "3rd Party Tested by an <strong>ISO Certified Lab</strong>",
+            "show_subscription": true,
+            "subscription_title": "Subscribe & Save",
+            "subscription_tooltip": "<p>Flexible frequency</p><p>Order reminders</p><p>Cancel anytime</p>",
+            "subscription_benefits": "<ol><li>Locked-in discount on every shipment</li><li>Earn 2–5% store credit + surprise gifts</li><li>Skip, delay, or cancel anytime—no fees</li></ol>",
+            "plan_name_remove": "Delivery every",
+            "review_star": "shopify://shop_images/bi-ap-stars-navy.svg",
+            "review_text": "{{ product.metafields.reviews.rating | metafield_tag }} {{ product.metafields[\"app--1576377--reviews\"].review_count.value }} Reviews",
+            "bottom_margin": 20
+          }
+        },
+        "product_review_block_yxHKRt": {
+          "type": "product_review_block",
+          "settings": {
+            "stars": 5,
+            "name": "David S",
+            "text": "After a few days, I felt more focused and clear-headed. After four weeks, I noticed greater ease and comfort in how I move.",
+            "date": "",
+            "margin": 20
+          }
+        },
+        "product_open_accordions_fEdgAn": {
+          "type": "product_open_accordions",
+          "settings": {
+            "bot_border": false,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        },
+        "product_accordions_9XQaYF": {
+          "type": "product_accordions",
+          "settings": {
+            "index": 0,
+            "bot_border": true,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_title_TXKkdm",
+        "okendo_star_rating_aFpKyw",
+        "product_price_ggbnmd",
+        "html_liquid_JURB3U",
+        "product_description_GdJQCW",
+        "product_drawer_RE9PtT",
+        "product_form_GKxRJU",
+        "product_review_block_yxHKRt",
+        "product_open_accordions_fEdgAn",
+        "product_accordions_9XQaYF"
+      ],
+      "settings": {
+        "section_anchor_id": "Main product",
+        "hide_product_media": false,
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 80,
+        "pt_desk": 20,
+        "pb_desk": 120
+      }
+    },
+    "marquee_text_Tw4c9Y": {
+      "type": "marquee-text",
+      "blocks": {
+        "item_mczExA": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text": "ISO Certified."
+          }
+        },
+        "item_FNC9yd": {
+          "type": "item",
+          "settings": {
+            "text": "Based in the USA 🇺🇸"
+          }
+        },
+        "item_QwtNPF": {
+          "type": "item",
+          "settings": {
+            "text": "Physician backed & formulated."
+          }
+        },
+        "item_7W9gaY": {
+          "type": "item",
+          "settings": {
+            "text": "Manufactured in cGMP certified facilities."
+          }
+        },
+        "item_FxzyUK": {
+          "type": "item",
+          "settings": {
+            "text": "Third party lab tested peptides."
+          }
+        }
+      },
+      "block_order": [
+        "item_mczExA",
+        "item_FNC9yd",
+        "item_QwtNPF",
+        "item_7W9gaY",
+        "item_FxzyUK"
+      ],
+      "name": "Marquee text",
+      "settings": {
+        "c-title": "#fefbf9",
+        "c-bg-primary": "#25282a",
+        "section_anchor_id": "Marquee text",
+        "marquee_reverse": false,
+        "marquee_speed": 20,
+        "center_fit": false,
+        "stop_on_hover": false,
+        "pt_mob": 20,
+        "pb_mob": 20,
+        "pt_tab": 30,
+        "pb_tab": 30,
+        "pt_desk": 30,
+        "pb_desk": 30
+      }
+    },
+    "section_ugc_slider_new_GBfJDy": {
+      "type": "section-ugc-slider-new",
+      "blocks": {
+        "block_BWNBAq": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Game-Changer For Recovery & Performance",
+            "description": "<p>I’ve been using TB4-Frag from AE for several weeks now, and the results have been outstanding. Recovery time after workouts has significantly decreased, inflammatory response is improving, and I feel an overall boost in energy and resilience. This product feels like it’s working with my body, not against it.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Joinel S"
+          }
+        },
+        "block_ncJVje": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Crushing the Gym",
+            "description": "<p>This product works very well. I can tear down muscle during workouts and feel great afterwards. I have been able to add more sets and feel ready to go the next day all over again. Happy I gave it a try. Will stick with it.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "David R"
+          }
+        },
+        "block_RrMDLM": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Highly Recommend",
+            "description": "<p>I have noticed a big difference in how I feel after a week. Really saw the difference at month two. Over time I experienced more comfort, better recovery, and overall balance in my routine. Highly recommended. Excellent company.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Brandon A"
+          }
+        },
+        "block_PKbmBc": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Works as Advertised",
+            "description": "<p>I started on TB4-Frag about a month ago. Adding it to my stack has been a Godsend! I'm back to playing 3 hours of tennis on a hard court each week. I also have a little more flexibility. I highly recommend this along!</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Alex C"
+          }
+        }
+      },
+      "block_order": [
+        "block_BWNBAq",
+        "block_ncJVje",
+        "block_RrMDLM",
+        "block_PKbmBc"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_anchor_id": "Testimonials",
+        "c-bg-primary": "#f7faff",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#1a4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#525252",
+        "title": "What Customers Feel After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p><em>Individual results vary. Statements not evaluated by the FDA</em></p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_multi_columns_AVVBd3": {
+      "type": "section-multi-columns",
+      "blocks": {
+        "block_negP9P": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-daniel.jpg",
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        "block_B73B6E": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-mickra.jpg",
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "CEO | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_negP9P",
+        "block_B73B6E"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "section_anchor_id": "Multi-column",
+        "layout": "default",
+        "c-title": "#1a4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "subtitle": "Healthcare Reinvented",
+        "title": "Developed by Doctors.  Trusted by experts.",
+        "description": "<p>Longevity leaders Dr. Dan Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>",
+        "btn_url": "",
+        "btn_text": "Our founders",
+        "btn_type": "btn_primary_outline",
+        "pagination_style": "pagination--dark",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 50,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "1753135980b51b8271": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_7zVEC8": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_7zVEC8"
+      ],
+      "settings": {
+        "container": false,
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_product_list_G4YCdD": {
+      "type": "section-product-list",
+      "disabled": true,
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1a4178",
+        "c-body-primary": "#25282a",
+        "title": "Elementals Best Sellers",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "bpc",
+          "foundation-multivitamin",
+          "tb4-frag",
+          "d3-5000-k2"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "",
+        "btn_text": "Shop Best Sellers",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_product_list_gTdzyM": {
+      "type": "section-product-list",
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1a4178",
+        "c-body-primary": "#25282a",
+        "title": "Featured Products",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "creatine",
+          "foundation-multivitamin",
+          "d3-5000-k2",
+          "nmn"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "",
+        "btn_text": "Shop Best Sellers",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_faq_mLBhnV": {
+      "type": "section-faq",
+      "blocks": {
+        "block_qxLeyX": {
+          "type": "block",
+          "settings": {
+            "title": "What is TB4-Frag?",
+            "text": "<p>TB4-Frag is a bioactive fragment derived from thymosin beta-4 (TB4), a naturally occurring peptide in the body. It is designed to provide the benefits of full-length TB4 in an orally bioavailable form.</p>"
+          }
+        },
+        "block_xPjPHh": {
+          "type": "block",
+          "settings": {
+            "title": "What are the differences between Elementals' TB4-Frag, TB4 and TB-500?",
+            "text": "<p>Both TB-500 and TB4-Frag are derived from the full peptide: TB4 or Thymosin Beta-4. TB4 Fragment: SDKP or Ac-SDKP, used in our TB4-Frag products, is a modified form of the peptide TB4. It is a shorter fragment of the original peptide, which has been found to have better oral bioavailability compared to the full-length peptide. This is due to its smaller size and modified structure, which allows it to be more easily absorbed by the body when taken orally.</p>"
+          }
+        },
+        "block_KqdKPH": {
+          "type": "block",
+          "settings": {
+            "title": "Why should I choose Elementals' TB4-Frag over other TB4 Frag products?",
+            "text": "<p>Our TB4-Frag is more potent than full-length TB4, providing similar or greater benefits at a lower dosage. It includes SNAC, to maximize absorption, and is delivered in delayed release capsules to ensure stability. It is 3rd party lab tested and manufactured in a cGMP-certified facility for quality and purity.</p>"
+          }
+        },
+        "block_9zY7jw": {
+          "type": "block",
+          "settings": {
+            "title": "Is this product third-party tested?",
+            "text": "<p>Yes, our TB4-Frag is tested by a third-party laboratory for purity, potency, and authenticity. </p>"
+          }
+        },
+        "block_8tmC9A": {
+          "type": "block",
+          "settings": {
+            "title": "What should I consider before taking this product?",
+            "text": "<p>Before using this product it is recommenced to consult your healthcare professional. If you are taking any medications and/or have pre-existing medical conditions, it’s important to discuss potential interactions with your healthcare provider. Do not use if tamper seal is damaged.</p>"
+          }
+        },
+        "block_cTrLzz": {
+          "type": "block",
+          "settings": {
+            "title": "Where is this product manufactured and what product quality control tests are performed?",
+            "text": "<p>Our products are manufactured in Nevada in a state-of-the-art, FDA-registered facility that meets or exceeds <a href=\"https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practice-cgmp#:~:text=What%20is%20CGMP%3F,of%20manufacturing%20processes%20and%20facilities.\">current Good Manufacturing Practices (cGMP)</a>. Quality control testing is carried out at each stage of the manufacturing process, starting with rigorous raw material assessments and continuing through to finished product testing. </p><p></p>"
+          }
+        },
+        "block_6GzbB7": {
+          "type": "block",
+          "settings": {
+            "title": "Should I take this on an empty stomach or with food?",
+            "text": "<p>Typically peptides are better absorbed when taken on an empty stomach. However, our TB4-Frag uses delayed release capsules, designed to bypass the stomach and slowly release in the small intestine. As a result, our TB4-Frag can be taken with or without food.</p>"
+          }
+        },
+        "block_F8CJBM": {
+          "type": "block",
+          "settings": {
+            "title": "Is this product vegan?",
+            "text": "<p>Yes, it is also formulated without dairy, gluten or soy.</p>"
+          }
+        },
+        "block_tm4zML": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "title": "What other supplements work synergistically with this product?",
+            "text": "<p>Stacking any of the following can be beneficial depending on your health goals: BPC-157 can work synergistically on recovery after strenuous training. Collagen (type I & III) is vital for supporting connective tissues and joint health. Curcumin may support a healthier inflammatory response. Magnesium supports muscle function and offers stress support while reducing cramping. Omega 3's like DHA and EPA can also support a healthy inflammatory response and assist with overall wellbeing.</p>"
+          }
+        },
+        "block_XUkFbi": {
+          "type": "block",
+          "settings": {
+            "title": "How long does it typically take to experience the benefits?",
+            "text": "<p>The time needed to experience the benefits of TB4-Frag varies by individual. Many people will typically notice improvementsonly after 6-8 weeks. Regular supplementation is key to achieving long-term benefits.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_qxLeyX",
+        "block_xPjPHh",
+        "block_KqdKPH",
+        "block_9zY7jw",
+        "block_8tmC9A",
+        "block_cTrLzz",
+        "block_6GzbB7",
+        "block_F8CJBM",
+        "block_tm4zML",
+        "block_XUkFbi"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_anchor_id": "FAQ",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1a4178",
+        "c-body-primary": "#25282a",
+        "title": "Frequently asked questions",
+        "description": "",
+        "btn_url": "shopify://pages/frequently-asked-questions",
+        "btn_text": "See all FAQs",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 120
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {}
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "main_product_LanJDb",
+    "marquee_text_Tw4c9Y",
+    "section_ugc_slider_new_GBfJDy",
+    "section_multi_columns_AVVBd3",
+    "1753135980b51b8271",
+    "section_product_list_G4YCdD",
+    "section_product_list_gTdzyM",
+    "section_faq_mLBhnV",
+    "zp-product-footer-content"
+  ]
+}

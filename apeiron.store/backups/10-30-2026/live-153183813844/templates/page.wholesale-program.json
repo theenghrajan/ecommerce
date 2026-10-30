@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "section_image_text_84hzzn": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1a4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "",
+        "title": "Apeiron Elementals Wholesale",
+        "desc": "<p>If you're interested in setting up a wholesale account with us, please use our interest form below. Let us know a little about your company and provide a website link if applicable. If you have any other questions, please let us know!</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-wholesale-img.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "Apply Here",
+        "btn_type": "btn_primary_fill",
+        "btn_script": "window._klOnsite = window._klOnsite || []; \nwindow._klOnsite.push(['openForm', 'RSkEdu']);",
+        "btn_url_2": "shopify://pages/wholesale-practitioner-portal",
+        "btn_text_2": "Shop Wholesale",
+        "btn_type_2": "btn_primary_fill",
+        "btn_script_2": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_image_text_84hzzn"
+  ]
+}

@@ -1,0 +1,715 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "zp-product-header-content": {
+      "type": "product-header-content-zipifypages",
+      "settings": {}
+    },
+    "main_product_LanJDb": {
+      "type": "main-product",
+      "blocks": {
+        "product_title_TXKkdm": {
+          "type": "product_title",
+          "settings": {
+            "title": "{{ product.title }}"
+          }
+        },
+        "okendo_star_rating_aFpKyw": {
+          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}"
+          }
+        },
+        "product_price_ggbnmd": {
+          "type": "product_price",
+          "settings": {
+            "margin": 12
+          }
+        },
+        "html_liquid_h4X3tN": {
+          "type": "html_liquid",
+          "settings": {
+            "html": "",
+            "liquid": "",
+            "richtext": "<p>30/60 Servings</p>"
+          }
+        },
+        "product_description_GdJQCW": {
+          "type": "product_description",
+          "settings": {
+            "description": "<p>Clinician-formulated peptide with CurcuPrime® to support digestive health, accelerate recovery and promote daily performance.*<br/><br/></p><ol><li>Supports gut and digestive health*</li><li>Supports a healthy inflammatory response*</li><li>Supports cognitive function via acetylcholine protection*</li></ol>",
+            "bottom_margin": 16
+          }
+        },
+        "product_drawer_RE9PtT": {
+          "type": "product_drawer",
+          "settings": {
+            "bg": "#ecf3ff",
+            "title_color": "#25282a",
+            "btn_text": "Supplement facts",
+            "bottom_margin": 30,
+            "title": "Supplement Facts",
+            "image": "shopify://shop_images/BPCprime60back2025-07-20_at_5.16.52_PM.png"
+          }
+        },
+        "product_form_GKxRJU": {
+          "type": "product_form",
+          "settings": {
+            "show_qty": true,
+            "show_terms": false,
+            "to_checkout": false,
+            "bottom_text_divider": "yes",
+            "bottom_icon_1": "shopify://shop_images/bi-delivery-icon.svg",
+            "bottom_text_1": "Estimated <strong>delivery </strong>",
+            "bottom_icon_2": "shopify://shop_images/lab.svg",
+            "bottom_text_2": "3rd Party Tested by an <strong>ISO Certified Lab</strong>",
+            "show_subscription": true,
+            "subscription_title": "Subscribe & Save",
+            "subscription_tooltip": "<p>Flexible frequency</p><p>Order reminders</p><p>Cancel anytime</p>",
+            "subscription_benefits": "<ol><li>Locked-in discount on every shipment</li><li>Earn 2–5% store credit + surprise gifts</li><li>Skip, delay, or cancel anytime—no fees</li></ol>",
+            "plan_name_remove": "Delivery every",
+            "review_star": "shopify://shop_images/bi-ap-stars-navy.svg",
+            "review_text": "{{ product.metafields.reviews.rating | metafield_tag }} {{ product.metafields[\"app--1576377--reviews\"].review_count.value }} Reviews",
+            "bottom_margin": 20
+          }
+        },
+        "product_review_block_yxHKRt": {
+          "type": "product_review_block",
+          "settings": {
+            "stars": 5,
+            "name": "Lagan W",
+            "text": "As skeptical as I was, I decided to try it. After one month, I absolutely notice more comfort and ease in my knees, shoulders, elbows, wrists, and knuckles. I’ll definitely keep using it.",
+            "date": "",
+            "margin": 20
+          }
+        },
+        "product_open_accordions_fEdgAn": {
+          "type": "product_open_accordions",
+          "settings": {
+            "bot_border": false,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        },
+        "product_accordions_9XQaYF": {
+          "type": "product_accordions",
+          "settings": {
+            "index": 0,
+            "bot_border": true,
+            "bottom_margin": 0,
+            "hide_meta": false,
+            "acc_title_1": "",
+            "acc_text_1": "",
+            "acc_title_2": "",
+            "acc_text_2": "",
+            "acc_title_3": "",
+            "acc_text_3": "",
+            "acc_title_4": "",
+            "acc_text_4": "",
+            "acc_title_5": "",
+            "acc_text_5": "",
+            "acc_title_6": "",
+            "acc_text_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_title_TXKkdm",
+        "okendo_star_rating_aFpKyw",
+        "product_price_ggbnmd",
+        "html_liquid_h4X3tN",
+        "product_description_GdJQCW",
+        "product_drawer_RE9PtT",
+        "product_form_GKxRJU",
+        "product_review_block_yxHKRt",
+        "product_open_accordions_fEdgAn",
+        "product_accordions_9XQaYF"
+      ],
+      "settings": {
+        "section_anchor_id": "Main product",
+        "hide_product_media": false,
+        "pt_mob": 0,
+        "pb_mob": 40,
+        "pt_tab": 0,
+        "pb_tab": 80,
+        "pt_desk": 20,
+        "pb_desk": 120
+      }
+    },
+    "marquee_text_Qc8FdT": {
+      "type": "marquee-text",
+      "blocks": {
+        "item_Tbz48U": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text": "ISO Certified."
+          }
+        },
+        "item_dVcUAT": {
+          "type": "item",
+          "settings": {
+            "text": "Based in the USA 🇺🇸"
+          }
+        },
+        "item_xDbJXU": {
+          "type": "item",
+          "settings": {
+            "text": "Physician backed & formulated."
+          }
+        },
+        "item_VRymQ6": {
+          "type": "item",
+          "settings": {
+            "text": "Manufactured in cGMP certified facilities."
+          }
+        },
+        "item_QBknPA": {
+          "type": "item",
+          "settings": {
+            "text": "Third party lab tested peptides."
+          }
+        }
+      },
+      "block_order": [
+        "item_Tbz48U",
+        "item_dVcUAT",
+        "item_xDbJXU",
+        "item_VRymQ6",
+        "item_QBknPA"
+      ],
+      "name": "Marquee text",
+      "settings": {
+        "c-title": "#fefbf9",
+        "c-bg-primary": "#25282a",
+        "section_anchor_id": "Marquee text",
+        "marquee_reverse": false,
+        "marquee_speed": 20,
+        "center_fit": false,
+        "stop_on_hover": false,
+        "pt_mob": 20,
+        "pb_mob": 20,
+        "pt_tab": 30,
+        "pb_tab": 30,
+        "pt_desk": 30,
+        "pb_desk": 30
+      }
+    },
+    "section_ugc_slider_new_GBfJDy": {
+      "type": "section-ugc-slider-new",
+      "blocks": {
+        "block_BWNBAq": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "AWESOME!",
+            "description": "<p>Apeiron BPC-157 was recommended to me to support my recovery efforts.  The recommendation came from the spouse of a Navy Seal who advised that the Seals take this supplement for recovery.  What a recommendation which I can now echo!! This BPC has been amazing.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Frances H"
+          }
+        },
+        "block_ncJVje": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "The Best BPC-157 Around",
+            "description": "<p>Apeiron BPC-157 is the absolute best. It's top quality, and I felt the results almost immediately. If you're looking for authentic BPC, look no further. Apeiron has the best and I plan on setting up a subscription.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Stephanie M"
+          }
+        },
+        "block_RrMDLM": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Highly Recommend!",
+            "description": "<p>I was previously taking BPC-157 injections until I found this product by Apeiron Elementals. I decided to give the capsules a try, and I'm glad I did! They work just as well for me as the injections, without the hassle. I've noticed a positive difference in recovery from my workouts and my gut health has improved.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Jason F"
+          }
+        },
+        "block_PKbmBc": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Really Feel It",
+            "description": "<p>I think it's incredible! I can't believe how I feel, like I am younger than I have felt in a long time.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Bret C"
+          }
+        }
+      },
+      "block_order": [
+        "block_BWNBAq",
+        "block_ncJVje",
+        "block_RrMDLM",
+        "block_PKbmBc"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_anchor_id": "Testimonials",
+        "c-bg-primary": "#f7faff",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#525252",
+        "title": "What Customers Feel After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p><em>Individual results vary. Statements not evaluated by the FDA</em></p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_text_w_icons_JBxx7C": {
+      "type": "section-text-w-icons",
+      "blocks": {
+        "item_4YDqmH": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SCIENTIFICALLY_SUPPORTED.svg",
+            "width": 93,
+            "title": "<p>Scientifically Supported</p>"
+          }
+        },
+        "item_waigHU": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PREMIUM_INGREDIENTS_01.svg",
+            "width": 93,
+            "title": "<p>Premium</p><p>Ingredients</p>"
+          }
+        },
+        "item_fAHmJj": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PHYSICIAN_FORMULATED.svg",
+            "width": 93,
+            "title": "<p>Physician</p><p>Formulated</p>"
+          }
+        },
+        "item_fiXTfW": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SKY_HIGH_STANDARDS_01.svg",
+            "width": 93,
+            "title": "<p>Rigorous</p><p>Standards</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_4YDqmH",
+        "item_waigHU",
+        "item_fAHmJj",
+        "item_fiXTfW"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "section_anchor_id": "Text with icons",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "Products You Can Trust",
+        "description": "<p>Four pillars to protect your health at every step.</p>",
+        "mob_alignment": "center",
+        "alignment": "center",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_h38hhy": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "BPC-157 with CurcuPrime™",
+        "title": "BPC-157, the “Body Protection Compound”",
+        "desc": "<p>A pentadecapeptide composed of 15 amino acids discovered in the 1970s. It has gained recognition in the health and wellness community for its potential to support healing and recovery by promoting various bodily functions, making them a popular choice among healthcare professionals.*</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-swi-min.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_specifications_KML3rG": {
+      "type": "section-specifications",
+      "blocks": {
+        "block_JMiAcb": {
+          "type": "block",
+          "settings": {
+            "title": "When to Take",
+            "icon": "shopify://shop_images/bi-calendar-icon.svg",
+            "text": "<p>Take 1 capsule up to 2 times per day with food. For higher dosages, please consult your healthcare provider.</p>"
+          }
+        },
+        "block_P8rzD7": {
+          "type": "block",
+          "settings": {
+            "title": "Onset Time",
+            "icon": "shopify://shop_images/bi-clock-icon.svg",
+            "text": "<p>7 days, estimated optimal impacts after 3-4 weeks of regular use.</p>"
+          }
+        },
+        "block_yLWVkx": {
+          "type": "block",
+          "disabled": true,
+          "settings": {
+            "title": "Contraindications",
+            "icon": "shopify://shop_images/bi-pill-icon.svg",
+            "text": "<p><strong>ALLERGY WARNING<br/></strong><br/>This product is contraindicated in an individual with a history of hypersensitivity to any of its ingredients. <br/> The omega-3 fatty acids in Super EPA are derived from fish.<br/><br/><strong>PREGNANCY <br/></strong><br/>If pregnant, consult your health-care practitioner before using this product.<br/><br/><strong>INTERACTIONS <br/></strong><br/>There are no known adverse interactions or contraindications at publication date.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_JMiAcb",
+        "block_P8rzD7",
+        "block_yLWVkx"
+      ],
+      "name": "Specifications",
+      "settings": {
+        "section_anchor_id": "Specifications",
+        "c-bg-primary": "#ffffff",
+        "c-bg-secondary": "#f7faff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "What to Expect with BPC-157 Prime Capsules",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_multi_columns_AVVBd3": {
+      "type": "section-multi-columns",
+      "blocks": {
+        "block_negP9P": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-daniel.jpg",
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        "block_B73B6E": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-mickra.jpg",
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "CEO | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_negP9P",
+        "block_B73B6E"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "section_anchor_id": "Multi-column",
+        "layout": "default",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "subtitle": "Healthcare Reinvented",
+        "title": "Developed by Doctors.  Trusted by experts.",
+        "description": "<p>Longevity leaders Dr. Dan Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>",
+        "btn_url": "",
+        "btn_text": "Our founders",
+        "btn_type": "btn_primary_outline",
+        "pagination_style": "pagination--dark",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 50,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "1753135980b51b8271": {
+      "type": "apps",
+      "blocks": {
+        "okendo_reviews_widget_7zVEC8": {
+          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+          "settings": {
+            "product": "{{product}}",
+            "widget_type": "reviews_widget"
+          }
+        }
+      },
+      "block_order": [
+        "okendo_reviews_widget_7zVEC8"
+      ],
+      "settings": {
+        "container": false,
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_product_list_G4YCdD": {
+      "type": "section-product-list",
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Elementals Best Sellers",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "bpc",
+          "foundation-multivitamin",
+          "tb4-frag",
+          "d3-5000-k2",
+          "foundational-bundle1"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "",
+        "btn_text": "Shop Best Sellers",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_faq_XeGrmV": {
+      "type": "section-faq",
+      "blocks": {
+        "block_tak6ta": {
+          "type": "block",
+          "settings": {
+            "title": "What should I consider before taking this product?",
+            "text": "<p>Before using this product it is recommended that you consult your healthcare professional. If you are taking any medications, it’s important to discuss potential interactions with your healthcare provider. Do not use if tamper seal is damaged.</p>"
+          }
+        },
+        "block_3MVhQ7": {
+          "type": "block",
+          "settings": {
+            "title": "Where is this product manufactured and what product quality control tests are performed?",
+            "text": "<p>Our BPC-157 products are manufactured in Nevada in a state-of-the-art, FDA-registered facility that meets or exceeds <a href=\"https://www.fda.gov/drugs/pharmaceutical-quality-resources/facts-about-current-good-manufacturing-practice-cgmp#:~:text=What%20is%20CGMP%3F,of%20manufacturing%20processes%20and%20facilities.\">current Good Manufacturing Practices (cGMP)</a>. Quality control testing is carried out at each stage of the manufacturing process, starting with rigorous raw material assessments and continuing through to finished product testing. </p><p>Our BPC-157 supplements are third-party tested by ISO certified, FDA registered laboratories for purity, potency and contaminates.</p>"
+          }
+        },
+        "block_AKtNdP": {
+          "type": "block",
+          "settings": {
+            "title": "Is Apeiron Elementals BPC 157 third-party verified?",
+            "text": "<p>Yes, our BPC-157 products are third-party tested for purity, quality and consistency.</p>"
+          }
+        },
+        "block_caxTCm": {
+          "type": "block",
+          "settings": {
+            "title": "Should I take this on an empty stomach or with food?",
+            "text": "<p>Our BPC-157 supplement remains stable in the stomach. However, some reports suggest that the absorption of BPC-157 is enhanced when taken after a meal.</p>"
+          }
+        },
+        "block_8WQY6L": {
+          "type": "block",
+          "settings": {
+            "title": "What other supplements work synergistically with this product?",
+            "text": "<p>BPC-157 works well alongside most other dietary supplements. Our favorite adds are TB4-Frag, Marine Collagen, High Potency EPA+DHA and Magnesium Glycinate. All of which can support recovery, repair and optimize resilience.</p>"
+          }
+        },
+        "block_4XQyf9": {
+          "type": "block",
+          "settings": {
+            "title": "Is this product vegan?",
+            "text": "<p>Yes, our BPC-157 products are also formulated without gluten, dairy, and soy.</p>"
+          }
+        },
+        "block_3Rez4d": {
+          "type": "block",
+          "settings": {
+            "title": "Do you test for lipopolysaccharides or LPS?",
+            "text": "<p>Yes! Our product is tested specifically for LPS. Levels have to be &lt;10 EU/mg to pass quality control.</p>"
+          }
+        },
+        "block_V7dCWj": {
+          "type": "block",
+          "settings": {
+            "title": "Are BPC 157 capsules bioavailable?",
+            "text": "<p>Yes. Many peptides lack stability in the digestive tract and must be administered subcutaneously. However, BPC-157 is one of the few peptides that is stable, making it effective when taken orally. BPC-157 was identified as bioavailable being naturally present in human gastric juices. Our dosage of 500mcg per capsule offers similar benefits without the need for injections.</p>"
+          }
+        },
+        "block_RMJWmN": {
+          "type": "block",
+          "settings": {
+            "title": "How is your product different from other BPC 157 supplements?",
+            "text": "<p>We've formulated a truly synergistic blend, combining full-strength BPC-157 (500mcg) with 200mg of CurcuPrime™ in each capsule. This blend is entirely unique, making it the only one of its kind available on the market.</p>"
+          }
+        },
+        "block_CUzkg9": {
+          "type": "block",
+          "settings": {
+            "title": "What is the difference between BPC-157 Prime and your other BPC-157 products?",
+            "text": "<p>Our BPC-157 Prime includes a highly bioavailable form of curcumin, called tetrahydrocurcumin. This combination offers additional benefits including: Improved acetylcholine production and protection, a more balanced inflammatory response from powerful antioxidant properties, and support of a healthy lipid profile.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_tak6ta",
+        "block_3MVhQ7",
+        "block_AKtNdP",
+        "block_caxTCm",
+        "block_8WQY6L",
+        "block_4XQyf9",
+        "block_3Rez4d",
+        "block_V7dCWj",
+        "block_RMJWmN",
+        "block_CUzkg9"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "section_anchor_id": "FAQ",
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Frequently asked questions",
+        "description": "",
+        "btn_url": "shopify://pages/frequently-asked-questions",
+        "btn_text": "See all FAQs",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 120
+      }
+    },
+    "section_vertical_accordion_9HaqdD": {
+      "type": "section-vertical-accordion",
+      "blocks": {
+        "block_pDkGXU": {
+          "type": "block",
+          "settings": {
+            "title": "People Requiring:",
+            "subtitle": "",
+            "text": "<ul><li>Digestive Support; Both Upper & Lower</li><li>Musculoskeletal Support</li><li>Gut Brain Axis Protocols</li><li>Immune System Support</li></ul>"
+          }
+        },
+        "block_cyFrFt": {
+          "type": "block",
+          "settings": {
+            "title": "Research",
+            "subtitle": "",
+            "text": "<ol><li>Perovic, D., Vukojevic, J., & Zemba Cilic, M. (2019). BPC 157 resolves neuronal damage and prevents memory, locomotor, and coordination deficits. Neurotherapeutics, 17(4), 1990-1995. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8504390/</li><li>Lojo, N., Medvidovic-Grubisic, M., & Drmic, D. (2017). Gastric juice: a unique combination of hydrochloric acid. Journal of Gastroenterology and Hepatology, 35(2), 80-85. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6928904/</li><li>Chang, C. H., Tsai, W. C., & Pang, J. H. (2011). Pentadecapeptide BPC 157 enhances the growth hormone receptor expression in tendon fibroblasts. Tendon Research, 23(5), 374-380. https://pubmed.ncbi.nlm.nih.gov/21030672/</li><li>Sikiric, P., Seiwerth, S., & Cesarec, V. (2017). Stable gastric pentadecapeptide BPC 157 is an anti-ulcer peptidergic. Peptides, 67, 14-18. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5333585/</li><li>Duzel, A., Vlainic, J., & Seiwerth, S. (2012). Stable gastric pentadecapeptide BPC 157 is an anti-ulcer peptidergic. International Journal of Pharmacology, 29(6), 121-126. https://pubmed.ncbi.nlm.nih.gov/22950504/</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "block_pDkGXU",
+        "block_cyFrFt"
+      ],
+      "disabled": true,
+      "name": "Vertical accordion",
+      "settings": {
+        "section_anchor_id": "Vertical accordion",
+        "c-bg-primary": "#f9f9f9",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#ffffff",
+        "c-body-primary": "#25282a",
+        "title": "Practitioner Resources",
+        "description": "For professionals looking to help their patients.",
+        "image": "shopify://shop_images/bi-ver-desk-min.png",
+        "image_mob": "shopify://shop_images/bi-ver-mob-min.png",
+        "btn_url": "",
+        "btn_text": "Vew information sheet",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "zp-product-footer-content": {
+      "type": "product-footer-content-zipifypages",
+      "settings": {}
+    }
+  },
+  "order": [
+    "zp-product-header-content",
+    "main_product_LanJDb",
+    "marquee_text_Qc8FdT",
+    "section_ugc_slider_new_GBfJDy",
+    "section_text_w_icons_JBxx7C",
+    "section_image_text_h38hhy",
+    "section_specifications_KML3rG",
+    "section_multi_columns_AVVBd3",
+    "1753135980b51b8271",
+    "section_product_list_G4YCdD",
+    "section_faq_XeGrmV",
+    "section_vertical_accordion_9HaqdD",
+    "zp-product-footer-content"
+  ]
+}

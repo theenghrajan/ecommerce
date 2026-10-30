@@ -1,0 +1,20 @@
+{%- liquid
+  case style
+    when 'pagination--light'
+      assign btn_class = '!text-c-white !bg-c-white'
+      assign btn_def_class = 'ring-c-white text-c-white bg-transparent'
+    when 'pagination--dark'
+      assign btn_class = '!bg-c-navy ring-c-navy !text-c-white'
+      assign btn_def_class = 'ring-c-navy text-c-navy bg-c-white'
+  endcase
+-%}
+<div class="flex flex-wrap items-center gap-2 {{ style }}" data-pagination>
+  <template x-for="i in slider.length">
+    <button
+      :aria-label="'Slide ' + i"
+      :class="i - 1 === index && '{{ btn_class }}'"
+      @click.debounce.300ms="slider.go(i-1)"
+      class="{{ btn_def_class }} z-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ring-1 ring-inset duration-200 ease-in-out"
+    ></button>
+  </template>
+</div>

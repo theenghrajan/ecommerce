@@ -1,0 +1,270 @@
+{% comment %}
+  PARAMS:
+    product => OBJECT shopify product object
+    id => STRING uniq
+{% endcomment %}
+
+<template x-if="$store.quickOrder.id === qoId">
+  <template x-teleport="#quick-order-overlay">
+    <div
+      class="flex w-full flex-col overflow-y-auto"
+      x-data="productQuickOrder"
+    >
+      <!-- QUICK ORDER HEADER -->
+      <div class="bg-c-bg-lineargradient xs:px-5 flex min-h-10 items-center justify-between px-4 py-2">
+        <button
+          @click="$store.quickOrder.hide({ el: $root })"
+          class="text-c-navy group ml-auto flex items-center whitespace-nowrap uppercase"
+          aria-label="{{ 'layout.general.close_window' | t }}"
+        >
+          <span class="sr-only">{{ 'layout.general.close_window' | t }}</span>
+          {% render 'icon', name: 'close-small', class: 'group-hover:rotate-90 ease-in-out duration-300 w-5 h-5' %}
+          {{ 'layout.general.close_window' | t }}
+        </button>
+      </div>
+
+      <!-- QUICK ORDER CONTENT -->
+      <div class="bg-c-white xs:p-5 overflow-y-auto p-4">
+        <div class="rounded-lg md:p-4">
+          <div class="flex">
+            <a
+              href="{{ product.url }}"
+              :src="selectedVariant.link"
+              class="h-15 w-15 mr-3 block shrink-0 md:h-20 md:w-20"
+            >
+              {% if product.variants.size < 2 %}
+                {% assign prod_image = product.variants[0].featured_image
+                  | default: product.featured_image
+                  | image_url: width: 160
+                %}
+                {{
+                  prod_image
+                  | image_url: width: 160
+                  | image_tag:
+                    loading: 'eager',
+                    alt: prod_image.alt,
+                    class: 'h-full w-full rounded-lg object-cover border border-[#F9F9F9]'
+                }}
+              {% else %}
+                <img
+                  class="h-full w-full rounded-lg border border-[#F9F9F9] object-cover"
+                  src="{{ product.variants[0].featured_image | default: product.featured_image | image_url: width: 160 }}"
+                  :src="selectedVariant.featured_image ? `${selectedVariant.featured_image.src}&width=160` : `${product.featured_image}&width=160`"
+                  alt="Product image"
+                  :alt="product.title"
+                  height="160"
+                  width="160"
+                >
+              {% endif %}
+            </a>
+
+            <div class="flex flex-1 items-baseline">
+              <div class="text-c-navy flex flex-col">
+                <span
+                  class="mb-1 line-clamp-2 text-xl font-semibold"
+                  x-text="product.title"
+                ></span>
+
+                {% if product.metafields.binaery.product_information.value.slogan.value != blank %}
+                  <div class="rte text-c-shadow mb-1 line-clamp-2 text-sm">
+                    {{ product.metafields.binaery.product_information.value.slogan.value | metafield_tag }}
+                  </div>
+                {% endif %}
+              </div>
+
+              <span class="ml-auto flex flex-col items-end pl-3 text-right">
+                <del
+                  x-show="selectedVariant.compare_at_price && selectedVariant.compare_at_price > selectedVariant.price"
+                  x-text="window.biCurrency(selectedVariant.compare_at_price)"
+                  class="text-c-shadow text-base"
+                ></del>
+
+                <span
+                  x-text="window.biCurrency(selectedVariant.price)"
+                  class="text-c-shadow text-lg font-semibold"
+                ></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="flex w-full flex-col space-y-3 pt-5" x-show="product.variants.length > 1">
+            {% unless product.has_only_default_variant %}
+              {% liquid
+                assign metaobject_color_swatches = shop.metaobjects.color_swatch
+                assign all_metaobject_color_swathes = ''
+                for color_swatch in metaobject_color_swatches.values
+                  assign all_metaobject_color_swathes = all_metaobject_color_swathes | append: color_swatch.label.value | append: ','
+                endfor
+              %}
+              {%- for option in product.options_with_values -%}
+                <div class="flex flex-col md:flex-row md:items-baseline md:justify-between">
+                  <div class="text-c-navy w-full shrink-0 text-base md:max-w-[33%]">
+                    <span class="text-sc-title mr-1 font-semibold">{{ option.name | append: ':' }}</span>
+                    <span
+                      x-text="selectedVariant['{{- option.position | prepend: 'option' -}}']"
+                    ></span>
+                  </div>
+
+                  {% liquid
+                    assign has_color = false
+                    if all_metaobject_color_swathes contains option.values[0]
+                      assign has_color = true
+                    endif
+                  %}
+
+                  <div class="mt-2 flex flex-wrap gap-x-3 gap-y-2 md:m-0 md:ml-5">
+                    {%- for value in option.values -%}
+                      {%- liquid
+                        assign parent_loop = forloop.parentloop.index0
+                        assign swatch_value = null
+                        if value.swatch.image
+                          assign image_url = value.swatch.image | image_url: width: 54
+                          assign swatch_value = 'url(' | append: image_url | append: ')'
+                          assign swatch_focal_point = value.swatch.image.presentation.focal_point
+                        elsif value.swatch.color
+                          assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+                        endif
+                      -%}
+
+                      {% if has_color %}
+                        {%- for color_swatch in metaobject_color_swatches.values -%}
+                          {%- liquid
+                            assign color_name = color_swatch.label.value
+                            assign color_value = color_swatch.color.value
+                            assign linear_gradient_value = color_swatch.linear_gradient.value
+                            assign swatch_image = color_swatch.image.value
+                          -%}
+                          {%- if value == color_name -%}
+                            <button
+                              type="button"
+                              @click="
+                                changeVariant({
+                                  name: '{{- option.name -}}',
+                                }, '{{- value -}}')
+                              "
+                              class="option-color"
+                              aria-label="{{ value }}"
+                              :class="
+                                {
+                                  active: selectedVariant.options.includes('{{- value -}}'),
+                                  unavailable: !product.variants.some(variant => variant.available && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 0 ||
+                                    !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 1 ||
+                                    !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.option2 === selectedVariant.option2 && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 2
+                                }
+                              "
+                            >
+                              <span class="sr-only">
+                                {{ value -}}
+                              </span>
+                              <svg
+                                class="relative h-8 w-8 shrink-0"
+                                width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" class="duration-300 ease-in-out" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-sc-title' : 'stroke-0'"/>
+                                {% if color_value != blank %}
+                                  <circle cx="20" cy="20" r="16" fill="{{ color_value }}" class="ease-in-out duration-300" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-0' : 'stroke-grey'"/>
+                                {% endif %}
+                              </svg>
+                              {% if swatch_image != blank %}
+                                <span
+                                  class="swatch"
+
+                                  style="background-image: url({{- swatch_image | image_url: width: 64, height: 64 -}});"
+                                ></span>
+                              {% elsif linear_gradient_value != blank %}
+                                <span
+                                  class="swatch"
+                                  style="background: {{ linear_gradient_value }};"
+                                ></span>
+                              {% endif %}
+                            </button>
+                          {% endif %}
+                        {%- endfor -%}
+                      {% else %}
+                        <button
+                          type="button"
+                          @click="
+                            changeVariant({
+                              name: '{{- option.name -}}',
+                            }, '{{- value -}}')
+                          "
+                          {%- if swatch_value %}
+                            class="option-color"
+                          {% else %}
+                            class="option-default max-w-max"
+                          {% endif %}
+                          aria-label="{{ value }}"
+                          :class="
+                            {
+                              active: selectedVariant.options.includes('{{- value -}}'),
+                              unavailable: !product.variants.some(variant => variant.available && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 0 ||
+                                !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 1 ||
+                                !product.variants.some(variant => variant.available && variant.option1 === selectedVariant.option1 && variant.option2 === selectedVariant.option2 && variant.options[{{ parent_loop }}] === '{{- value -}}') && {{ parent_loop }} == 2
+                            }
+                          "
+                        >
+                          {% if swatch_value %}
+                            <span class="sr-only">
+                              {{ value -}}
+                            </span>
+                            <svg
+                              class="relative shrink-0"
+                              width="40"
+                              height="40"
+                              viewBox="0 0 40 40"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" class="duration-300 ease-in-out" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-c-navy' : 'stroke-c-mintglow'"/>
+                              {% if value.swatch.color %}
+                                <circle cx="20" cy="20" r="14.5" fill="{{ swatch_value }}" class="ease-in-out duration-300" :class="selectedVariant.options.includes('{{- value -}}') ? 'stroke-0' : 'stroke-c-white'"/>
+                              {% endif %}
+                            </svg>
+                            {% if value.swatch.image %}
+                              <span
+                                class="swatch"
+                                style="background: {{ swatch_value }}; {% if swatch_focal_point -%} --swatch-focal-point: {{ swatch_focal_point }};{% endif -%}"
+                              ></span>
+                            {% endif %}
+                          {% else %}
+                            <span>
+                              {{ value -}}
+                            </span>
+                          {% endif %}
+                        </button>
+                      {% endif %}
+                    {%- endfor -%}
+                  </div>
+                </div>
+              {%- endfor -%}
+            {% endunless %}
+          </div>
+        </div>
+
+        <button
+          type="button"
+          :aria-busy="loading"
+          @click="addToCart"
+          class="{% render 'btn-class', btn: 'btn_cta_fill' %} mt-5 min-h-12 w-full"
+          :class="!selectedVariant.available && 'opacity-50 pointer-events-none'"
+        >
+          <span
+            x-text="selectedVariant.available ? '{{ 'common.add_to_cart' | t }}' : '{{ 'common.sold_out' | t }}'"
+          >
+            {%- if product.selected_or_first_available_variant.available -%}
+              {{- 'common.add_to_cart' | t -}}
+            {%- else -%}
+              {{- 'common.sold_out' | t -}}
+            {%- endif -%}
+          </span>
+          {% render 'btn-loader' %}
+        </button>
+      </div>
+      {% render 'product-json', product: product %}
+    </div>
+  </template>
+</template>

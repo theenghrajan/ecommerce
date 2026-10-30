@@ -1,0 +1,57 @@
+{% assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros: gift_card.currency %}
+{% assign formatted_initial_value_stripped = formatted_initial_value | strip_html %}
+
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" class="min-h-screen">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    <!-- Preloads -->
+    {{ 'Inter-Regular.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }}
+    {{ 'Inter-SemiBold.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }}
+    {{ 'Inter-Medium.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' }}
+
+    <!-- Preload JS -->
+    {{ 'main.js' | asset_url | preload_tag: as: 'script' }}
+
+    {% if settings.favicon %}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png">
+    {% endif %}
+
+    <!-- Title and description -->
+    <title>{{ 'gift_card.issued.title' | t: value: formatted_initial_value_stripped, shop: shop.name }}</title>
+    <meta name="description" content="{{ 'gift_card.issued.subtext' | t }}">
+
+    {% if canonical_url != blank %}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {% endif %}
+
+    {% render 'social-meta-tags' %}
+    {% render 'custom-redirects' %}
+    {% render 'js-variables' %}
+    {% render 'css-variables' %}
+    {% render 'fonts' %}
+    {% render 'polyfills' %}
+
+    {{ 'main.css' | asset_url | stylesheet_tag: preload: true }}
+
+    <!-- header hook for Shopify plugins -->
+    {{ content_for_header }}
+  </head>
+
+  <body class="flex min-h-screen flex-col">
+    <main id="app" role="main" class="flex-1">
+      {{ content_for_layout }}
+    </main>
+
+    <!-- webpack bundle -->
+    <script src="{{ 'main.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'smoothscroll.min.js' | asset_url }}" defer="defer"></script>
+
+    {% render 'structured-data' %}
+  </body>
+</html>

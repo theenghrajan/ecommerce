@@ -1,0 +1,461 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign title = section.settings.title
+  assign description = section.settings.description
+
+  assign mob_alignment = section.settings.mob_alignment | prepend: 'text-'
+  assign desk_alignment = section.settings.alignment | prepend: 'lg:text-'
+  assign alignment = mob_alignment | append: ' ' | append: desk_alignment
+
+  assign btn_text = section.settings.btn_text
+  assign btn_text_less = section.settings.btn_text_less
+  assign btn_type = section.settings.btn_type
+
+  assign blocks = section.blocks
+  assign iterations = 1
+  if blocks.size > 6
+    assign iterations = 2
+  endif
+
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title"
+>
+  <div class="container" x-data="{ loaded: false }">
+    {% if title != blank or description != blank %}
+      <div class="mb-10 space-y-4 {{ alignment -}}">
+        {% if title != blank %}
+          <h2
+            class="rte mb-4 text-3xl font-semibold lg:text-4xl xl:text-5xl {{ animation -}}"
+            {% if animation %}
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- title -}}
+          </h2>
+        {% endif %}
+
+        {% if description != blank %}
+          <div
+            class="rte text-sc-body-primary text-base lg:text-lg {{ animation -}}"
+            {% if animation %}
+              style="animation-delay: 100ms"
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {{- description -}}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if blocks.size > 0 %}
+      {% for i in (1..iterations) %}
+        {% liquid
+          if forloop.first
+            assign limit = 6
+          else
+            assign offset = 6
+          endif
+        %}
+        <div
+          class="-mx-7.5 w-screen md:m-0 md:w-full"
+          {% if i == 2 %}
+            x-cloak x-show="loaded" x-collapse
+          {% endif %}
+        >
+          <ul class="lg:gap-7.5 grid grid-cols-1 md:grid-cols-2 md:gap-5 lg:grid-cols-3 {% if i == 2 -%} md:mt-5 mt:mt-7.5 {%- endif -%}">
+            {%- for block in blocks offset: offset limit: limit -%}
+              {%- liquid
+                assign b_title = block.settings.title
+                assign b_descr = block.settings.description
+                assign b_image = block.settings.image
+                assign b_subtitle = block.settings.subtitle
+                assign b_btn = block.settings.btn
+                assign b_link = block.settings.link
+              -%}
+              <li
+                class="bg-sc-bg-secondary border-c-border border-b p-5 opacity-0 md:rounded-lg md:border-none {% if i == 1 -%} animate__animated animate__fadeIn {%- endif -%}"
+                {{ block.shopify_attributes }}
+                style="animation-delay: {{ forloop.index0 | times: 50 | append: 'ms' }};"
+                {% if i == 2 %}
+                  :class="{ 'animate__animated animate__fadeIn': loaded }"
+                {% endif %}
+              >
+                {% if b_title != blank %}
+                  <h3 class="text-sc-title mb-1 text-xl font-semibold">
+                    {{- b_title -}}
+                  </h3>
+                {% endif %}
+
+                {% if b_descr != blank %}
+                  <dev class="rte text-sc-body-primary text-base">
+                    {{- b_descr -}}
+                  </dev>
+                {% endif %}
+
+                {% if b_image != blank or b_btn != blank %}
+                  <div class="mt-5 flex items-center space-x-2">
+                    {%- if b_image != blank -%}
+                      <div class="h-12.5 w-12.5">
+                        {{-
+                          b_image
+                          | image_url: width: 100
+                          | image_tag:
+                            widths: '50, 100',
+                            alt: b_image.alt,
+                            class: 'object-cover w-full h-full',
+                            draggable: false
+                        -}}
+                      </div>
+                    {%- endif -%}
+
+                    {% if b_btn != blank %}
+                      <div class="flex flex-col">
+                        {% if b_subtitle != blank %}
+                          <span class="text-sc-title mb-1 text-base font-semibold">{{- b_subtitle -}}</span>
+                        {% endif %}
+
+                        <a
+                          href="{{- b_link -}}"
+                          aria-label="{{- b_btn -}}"
+                          class="text-sc-title group text-base"
+                        >
+                          <span class="underline underline-offset-2">
+                            {{- b_btn -}}
+                          </span>
+
+                          {% render 'icon',
+                            name: 'btn-arrow',
+                            class: 'transition-transform inline-flex w-5 text-sc-title duration-200 ease-in-out group-hover:translate-x-1'
+                          %}
+                        </a>
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    {% if btn_text != blank and blocks.size > 6 %}
+      <button
+        @click="loaded = !loaded"
+        class="{% render 'btn-class', btn: btn_type %} mt-7.5 group mx-auto h-full w-max max-w-full lg:mt-10 {{ animation -}}"
+        aria-label="{{ btn_text }}"
+        {% if animation %}
+          style="animation-delay: 100ms"
+          x-intersect.once="$el.classList.add('animate__fadeIn')"
+        {% endif %}
+      >
+        <span x-show="!loaded">
+          {{- btn_text -}}
+        </span>
+
+        <span x-show="loaded" x-cloak>
+          {{- btn_text_less -}}
+        </span>
+
+        <span class="transition-transform duration-200 ease-in-out" :class="loaded && 'rotate-180'">
+          {% render 'icon', name: 'btn-arrow', class: 'w-5 rotate-90' %}
+        </span>
+      </button>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Evidence",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Evidence"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Description color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-secondary",
+      "label": "Card background color",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Mobile text alignment",
+      "default": "center"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button load more text",
+      "default": "Load more ingredients"
+    },
+    {
+      "type": "text",
+      "id": "btn_text_less",
+      "label": "Button load less text",
+      "default": "Load less ingredients"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "btn_primary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Block description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block image"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Link subtitle",
+          "default": "Found in:"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Link text",
+          "default": "Rejuvenate UA w/ Urolithin A"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link url"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Evidence",
+      "category": "Sections",
+      "settings": {
+        "title": "Premium Ingredients for Optimal Health",
+        "description": "<p>Apeiron Elementals uses top-quality, clinically supported ingredients to support diverse health goals. Below is a breakdown of key compounds in our products:</p>"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Spermidine",
+            "description": "<p>Supports cellular growth and DNA stability; linked to increased life expectancy; key in AEON Longevity Formula.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Ca-AKG (Calcium Alpha-Ketoglutarate Monohydrate)",
+            "description": "<p>Shields against free radicals, improves blood vessel elasticity, and boosts cellular energy.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Alpha-GPC (Non-Soy)",
+            "description": "<p>Bioavailable choline source, enhances acetylcholine levels, supports brain health, and aids those with low choline production.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "MitoPrime™ (L-Ergothioneine)",
+            "description": "<p>Reduces oxidative stress, protects DNA and mitochondrial function, improves cognition, and lowers anxiety.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "MitoBurn™ L-BAIBA",
+            "description": "<p>Amino acid metabolite enhances exercise signals, boosts mitochondrial function, increases ketones, protects muscles, and reduces appetite.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Fucoxanthin",
+            "description": "<p>Carotenoid with anti-obesity, anti-diabetes, and cardiovascular benefits; safe, derived from macroalgae and microalgae.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Dihydroberberine",
+            "description": "<p>Reduces oxidative stress, protects DNA and mitochondrial function, improves cognition, and lowers anxiety.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "DHH-B (Dihydrohonokiol-B)",
+            "description": "<p>Amino acid metabolite enhances exercise signals, boosts mitochondrial function, increases ketones, protects muscles, and reduces appetite.</p>"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Magnesium Glycinate & Threonate",
+            "description": "<p>Carotenoid with anti-obesity, anti-diabetes, and cardiovascular benefits; safe, derived from macroalgae and microalgae.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,217 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "hero_banner_3CPHqm": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "bg": "",
+        "subtitle": "Apeiron Elementals",
+        "title": "Innovative Health Solutions",
+        "description": "",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "",
+        "btn_url": "",
+        "btn_text": "",
+        "sec_btn_url": "",
+        "sec_btn_text": "",
+        "layout": "full",
+        "split_revese": false,
+        "desk_alignment": "center",
+        "image": "shopify://shop_images/bi-ap-sc-hero-3.jpg",
+        "image_height": "sm",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_secondary_fill",
+        "layout_mob": "full",
+        "mob_alignment": "left",
+        "image_mob": "shopify://shop_images/bi-ap-sc-hero-3-mob.jpg",
+        "image_mob_height": "lg",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_navigation_list_P6gUdK": {
+      "type": "section-navigation-list",
+      "blocks": {
+        "block_Qng7gV": {
+          "type": "block",
+          "settings": {
+            "title": "Elemental Innovation",
+            "url": "shopify://pages/elemental-innovation"
+          }
+        },
+        "block_fDLzkE": {
+          "type": "block",
+          "settings": {
+            "title": "Ingredients",
+            "url": "shopify://pages/ingredients"
+          }
+        },
+        "block_mQUMm9": {
+          "type": "block",
+          "settings": {
+            "title": "Science",
+            "url": "shopify://pages/science"
+          }
+        }
+      },
+      "block_order": [
+        "block_Qng7gV",
+        "block_fDLzkE",
+        "block_mQUMm9"
+      ],
+      "name": "Navigation list",
+      "settings": {
+        "section_anchor_id": "Navigation list",
+        "c-body-primary": "#25282a",
+        "c-title": "#1A4178",
+        "c-bg-primary": "#f7faff"
+      }
+    },
+    "section_image_text_rXACVA": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Rooted in Evidence",
+        "title": "Data-Driven Innovation",
+        "desc": "<p>Since 2009, Dr. Stickler and his team have used real-world clinical data to understand how nutrients and other compounds influence human systems. These insights shaped the foundation of Apeiron Elementals, ensuring every formula is grounded in measurable outcomes, not trends.</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-sc-data-driven.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_6gDMdD": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Built on Scientific Rigor",
+        "title": "Research at the Core",
+        "desc": "<p>Our supplements are developed using peer-reviewed research and systems health principles. Each ingredient is chosen for its purity, quality and substantiated role in supporting core physiological functions.</p>",
+        "layout": "default",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-sc-science.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_W9ckzq": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#f9f9f9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Advancing with the Science",
+        "title": "Continuous Evolution",
+        "desc": "<p>Science never stands still, and neither do we. Our team continually reviews emerging research in performance, longevity, and systems health, integrating new insights into the way we formulate and refine every product. This commitment ensures Apeiron Elementals stays aligned with the leading edge of human health innovation.</p>",
+        "layout": "rtl",
+        "grid": "cols",
+        "fit": "cover",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-sc-truested-health.jpg",
+        "mob_alignment": "left",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "btn_script": "",
+        "pt_mob": 40,
+        "pb_mob": 40,
+        "pt_tab": 60,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 100
+      }
+    },
+    "section_image_overlay_nPhxQG": {
+      "type": "section-image-overlay",
+      "name": "Image overlay",
+      "settings": {
+        "section_anchor_id": "Image overlay",
+        "c-bg-primary": "#ffffff",
+        "c-bg-secondary": "#e2ecff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Start Your Wellness Journey Today",
+        "subtitle": "",
+        "description": "<p>Explore Apeiron Elementals’ innovative supplements to elevate your health.</p>",
+        "btn_url": "shopify://collections/all-supplements",
+        "btn_text": "Get Started",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_3CPHqm",
+    "section_navigation_list_P6gUdK",
+    "section_image_text_rXACVA",
+    "section_image_text_6gDMdD",
+    "section_image_text_W9ckzq",
+    "section_image_overlay_nPhxQG"
+  ]
+}

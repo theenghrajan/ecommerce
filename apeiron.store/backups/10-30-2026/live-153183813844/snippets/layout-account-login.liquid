@@ -1,0 +1,89 @@
+<h2 class="text-sc-title mb-3 text-4xl font-semibold">
+  {{ 'customer.login.sign_in' | t }}
+</h2>
+
+<div class="text-c-shadow text-base">
+  {{ 'customer.login.welcome_text' | t }}
+</div>
+
+<form class="mt-7.5" @submit.prevent="loginFormSubmit()">
+  <div x-show="statusState" data-status-paste class="mb-3 "></div>
+
+  {% assign placeholder = 'form.email' | t %}
+  {%- render 'input',
+    name: 'customer[email]',
+    label: placeholder,
+    type: 'text',
+    required: true,
+    input_height: 54,
+    autocomplete: 'email',
+    x_model: 'loginEmail',
+    x_input: 'clearStatus()',
+    class: 'block mb-4'
+  -%}
+
+  {% assign placeholder = 'form.password' | t %}
+  {%- render 'input',
+    name: 'customer[password]',
+    label: placeholder,
+    type: 'password',
+    required: true,
+    input_height: 54,
+    autocomplete: 'password',
+    x_model: 'loginPassword',
+    x_input: 'clearStatus()'
+  -%}
+
+  <div class="mt-7.5 flex flex-col">
+    <button
+      type="submit"
+      :aria-busy="loading"
+      aria-label="{{ 'customer.login.sign_in' | t }}"
+      class="min-h-10 w-full rounded-md py-1 {% render 'btn-class', btn: 'btn_primary_fill' %}"
+    >
+      <span>{{ 'customer.login.sign_in' | t }}</span>
+      {% render 'btn-loader' %}
+    </button>
+
+    <a
+      href="/tools/recurring/get-subscription-access"
+      aria-label="Manage subscriptions"
+      class="min-h-10 w-full rounded-md py-1 mt-4 {% render 'btn-class', btn: 'btn_primary_outline' %}"
+    >
+      <span>Manage subscriptions</span>
+    </a>
+
+    <div class="md:mt-7.5 border-c-border pt-7.5 mt-5 w-full space-y-5 border-t">
+      <div class="flex w-full space-x-2">
+        <span class="text-c-shadow text-base lg:text-lg">
+          {{- 'customer.login.new_customer_label' | t -}}
+        </span>
+        <button
+          {% if request.page_type contains 'customers/' %}
+            @click.prevent="login_tab = 'register'; changeUrl('/account/register')"
+          {% else %}
+            @click.prevent="login_tab = 'register'"
+          {% endif %}
+          aria-label="{{ 'customer.login.create_account' | t }}"
+          class="text-c-shadow w-max max-w-full text-left text-lg font-semibold underline"
+        >
+          <span>{{ 'customer.login.create_account' | t }}</span>
+        </button>
+      </div>
+      <div class="flex w-full space-x-2">
+        <span class="text-c-shadow text-base lg:text-lg">{{ 'customer.login.trouble_login' | t }}</span>
+        <button
+          {% if request.page_type contains 'customers/' %}
+            @click.prevent="login_tab = 'forgot_password'; changeUrl('/account')"
+          {% else %}
+            @click.prevent="login_tab = 'forgot_password'"
+          {% endif %}
+          aria-label="{{ 'customer.reset_password.submit' | t }}"
+          class="text-c-shadow w-max max-w-full text-left text-lg font-semibold underline"
+        >
+          <span>{{ 'customer.reset_password.submit' | t }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

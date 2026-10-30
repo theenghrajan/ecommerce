@@ -1,0 +1,732 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_ytayKE": {
+      "type": "hero-banner",
+      "disabled": true,
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#ffffff",
+        "c-body-primary": "#ffffff",
+        "bg": "",
+        "subtitle": "",
+        "title": "",
+        "description": "",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "",
+        "btn_url": "shopify://collections/elementals-top-sellers",
+        "btn_text": "Shop Best Sellers",
+        "sec_btn_url": "",
+        "sec_btn_text": "Start your stack",
+        "layout": "full",
+        "split_revese": false,
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/BlackFriday_Sale_ccdddd77-2c4c-4f43-ab4e-92dd343572a7.svg",
+        "image_height": "auto",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_secondary_fill",
+        "layout_mob": "full",
+        "mob_alignment": "left",
+        "image_mob": "shopify://shop_images/BlackFriday_1.svg",
+        "image_mob_height": "auto",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "hero_banner_rw3PWR": {
+      "type": "hero-banner",
+      "name": "Hero banner",
+      "settings": {
+        "section_anchor_id": "Hero banner",
+        "c-title": "#ffffff",
+        "c-body-primary": "#ffffff",
+        "bg": "linear-gradient(168.83deg, rgba(115, 112, 88, 1) 11.84%, rgba(184, 165, 130, 1) 46.58%, rgba(199, 178, 141, 1) 90.06%)",
+        "subtitle": "FOUNDATIONAL. BIO-SPECIFIC. LONGEVITY.",
+        "title": "Lifelong Wellness Begins Here",
+        "description": "<p>Unique formulations - powered by high-quality, leading-edge ingredients to support your longevity and peak performance.</p>",
+        "oke_reiews": false,
+        "review_position": "bottom",
+        "review_text": "<p>Trusted by 61,000+ customers</p>",
+        "review_star": "shopify://shop_images/bi-ap-stars.svg",
+        "btn_url": "shopify://collections/elementals-top-sellers",
+        "btn_text": "Shop Best Sellers",
+        "sec_btn_url": "shopify://collections/bundles",
+        "sec_btn_text": "Start your stack",
+        "layout": "full",
+        "split_revese": false,
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-hero.jpg",
+        "image_height": "md",
+        "btn_type": "btn_primary_fill",
+        "sec_btn_type": "btn_secondary_fill",
+        "layout_mob": "split",
+        "mob_alignment": "left",
+        "image_mob": "shopify://shop_images/new-hero_1.jpg",
+        "image_mob_height": "sm",
+        "btn_type_mob": "btn_primary_fill",
+        "sec_btn_type_mob": "btn_secondary_fill",
+        "pt_mob": 0,
+        "pb_mob": 0,
+        "pt_tab": 0,
+        "pb_tab": 0,
+        "pt_desk": 0,
+        "pb_desk": 0
+      }
+    },
+    "section_product_list_iHFCnm": {
+      "type": "section-product-list",
+      "name": "Product list slider",
+      "settings": {
+        "c-bg-primary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "title": "Featured Products",
+        "subtitle": "",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "products": [
+          "bpc",
+          "bpc-157",
+          "tb4-frag",
+          "d3-5000-k2"
+        ],
+        "card_type": "link",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "btn_url": "shopify://collections/all",
+        "btn_text": "Shop All",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "marquee_text_AVjece": {
+      "type": "marquee-text",
+      "blocks": {
+        "item_hRMAqH": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "text": "ISO Certified."
+          }
+        },
+        "item_D6nbKi": {
+          "type": "item",
+          "settings": {
+            "text": "Based in the USA 🇺🇸"
+          }
+        },
+        "item_G3yM6L": {
+          "type": "item",
+          "settings": {
+            "text": "Physician backed & formulated."
+          }
+        },
+        "item_VjCmEF": {
+          "type": "item",
+          "settings": {
+            "text": "Manufactured in cGMP certified facilities."
+          }
+        },
+        "item_g39GDK": {
+          "type": "item",
+          "settings": {
+            "text": "Third party lab tested peptides."
+          }
+        }
+      },
+      "block_order": [
+        "item_hRMAqH",
+        "item_D6nbKi",
+        "item_G3yM6L",
+        "item_VjCmEF",
+        "item_g39GDK"
+      ],
+      "name": "Marquee text",
+      "settings": {
+        "c-title": "#fefbf9",
+        "c-bg-primary": "#1A4178",
+        "section_anchor_id": "Marquee text",
+        "marquee_reverse": false,
+        "marquee_speed": 20,
+        "center_fit": false,
+        "stop_on_hover": false,
+        "pt_mob": 20,
+        "pb_mob": 20,
+        "pt_tab": 30,
+        "pb_tab": 30,
+        "pt_desk": 30,
+        "pb_desk": 30
+      }
+    },
+    "section_grid_collection_MzkhHy": {
+      "type": "section-grid-collection",
+      "blocks": {
+        "block_iMmqPg": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Hormone & Skin",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-hormone.jpg",
+            "btn": "",
+            "link": "shopify://collections/hormone-hair-skin"
+          }
+        },
+        "block_Niy7mm": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Cognitive Function",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-worker.jpg",
+            "btn": "Shop",
+            "link": "shopify://collections/mood-brain-stress-sleep"
+          }
+        },
+        "block_cUzEYp": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Gut & Detox",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-detox.jpg",
+            "btn": "Shop",
+            "link": "shopify://collections/gut-detox-metabolic"
+          }
+        },
+        "block_mEPH3X": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Immunity",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-lady.jpg",
+            "btn": "Shop",
+            "link": "shopify://collections/immunity-seasonal-support"
+          }
+        },
+        "block_fYhiHt": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Recovery & Performance",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-recovery.jpg",
+            "btn": "Shop",
+            "link": "shopify://collections/performance-energy"
+          }
+        },
+        "block_8HqxhA": {
+          "type": "block",
+          "settings": {
+            "collection": "all",
+            "title": "Longevity & Aging",
+            "description": "",
+            "image": "shopify://shop_images/bi-ap-longevity.jpg",
+            "btn": "Shop",
+            "link": "shopify://collections/age-rejuvenation"
+          }
+        }
+      },
+      "block_order": [
+        "block_iMmqPg",
+        "block_Niy7mm",
+        "block_cUzEYp",
+        "block_mEPH3X",
+        "block_fYhiHt",
+        "block_8HqxhA"
+      ],
+      "name": "Grid collection",
+      "settings": {
+        "section_anchor_id": "Grid collection",
+        "layout": "grid",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "title": "Shop By Category",
+        "description": "<p>Choose your focus and explore targeted formulas that deliver results.</p>",
+        "mob_alignment": "left",
+        "alignment": "left",
+        "btn_url": "shopify://collections/all-supplements",
+        "btn_text": "Shop All",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_text_w_icons_jtYbxa": {
+      "type": "section-text-w-icons",
+      "blocks": {
+        "item_hmWG4x": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SCIENTIFICALLY_SUPPORTED.svg",
+            "width": 93,
+            "title": "<p>Scientifically Supported</p>"
+          }
+        },
+        "item_gNBNtm": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PREMIUM_INGREDIENTS_01.svg",
+            "width": 93,
+            "title": "<p>Premium</p><p>Ingredients</p>"
+          }
+        },
+        "item_nXgTGH": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__PHYSICIAN_FORMULATED.svg",
+            "width": 93,
+            "title": "<p>Physician</p><p>Formulated</p>"
+          }
+        },
+        "item_VqiJUf": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/IC__SKY_HIGH_STANDARDS_01.svg",
+            "width": 93,
+            "title": "<p>Rigorous</p><p>Standards</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_hmWG4x",
+        "item_gNBNtm",
+        "item_nXgTGH",
+        "item_VqiJUf"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "section_anchor_id": "Text with icons",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "title": "Products You Can Trust",
+        "description": "<p>Four pillars to protect your health at every step.</p>",
+        "mob_alignment": "center",
+        "alignment": "center",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 60,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_HHWTxn": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#fefbf9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "The Recovery Peptide",
+        "title": "BPC-157",
+        "desc": "<p>Clinically studied peptide found to assist with recovery, promote a healthy inflammatory response, and strengthen the gut.*<br/><br/></p><ol><li>Supports muscle, tendon & soft tissue recovery*</li><li>Helps maintain gut lining integrity*</li><li>Nourishes resilience at the cellular level*</li></ol><p></p>",
+        "layout": "default",
+        "grid": "big",
+        "fit": "contain",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/bi-ap-it-1.png",
+        "mob_alignment": "left",
+        "btn_url": "shopify://collections/bpc",
+        "btn_text": "Shop BPC-157",
+        "btn_type": "btn_primary_fill",
+        "btn_script": "",
+        "pt_mob": 30,
+        "pb_mob": 0,
+        "pt_tab": 60,
+        "pb_tab": 40,
+        "pt_desk": 100,
+        "pb_desk": 60
+      }
+    },
+    "section_image_text_hDWMc4": {
+      "type": "section-image-text",
+      "name": "Image with text",
+      "settings": {
+        "section_anchor_id": "Image with text",
+        "c-bg-primary": "#fefbf9",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#25282a",
+        "subtitle": "Functional Recovery",
+        "title": "TB4-Frag",
+        "desc": "<p>A synthetic fragment of the Thymosin Beta-4 protein, often paired with BPC-157 for its recovery benefits.*<br/><br/></p><ol><li>Supports joint & muscle health*</li><li>Promotes cardiovascular health*</li><li>Balances inflammatory response*</li></ol>",
+        "layout": "rtl",
+        "grid": "big",
+        "fit": "contain",
+        "desk_alignment": "left",
+        "image": "shopify://shop_images/Tb4_1.png",
+        "mob_alignment": "left",
+        "btn_url": "shopify://products/tb4-frag",
+        "btn_text": "Shop TB4-Frag",
+        "btn_type": "btn_primary_fill",
+        "btn_script": "",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 60,
+        "pt_desk": 60,
+        "pb_desk": 100
+      }
+    },
+    "section_image_overlay_hXjnxE": {
+      "type": "section-image-overlay",
+      "name": "Image overlay",
+      "settings": {
+        "section_anchor_id": "Image overlay",
+        "c-bg-primary": "#1A4178",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#ffffff",
+        "c-body-primary": "#ffffff",
+        "title": "APEIRON",
+        "subtitle": "(/əˈpaɪˌrɒn/; ἄπειρον)",
+        "description": "<p>from ancient Greek meaning (that which is) unlimited; boundless; infinite; often describing the primordial substance from which all things come and return to. </p>",
+        "image": "shopify://shop_images/bi-image-overlay.webp",
+        "btn_url": "shopify://pages/about-us",
+        "btn_text": "Our story",
+        "btn_type": "btn_secondary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "section_ugc_slider_new_FMxcff": {
+      "type": "section-ugc-slider-new",
+      "blocks": {
+        "block_rMkRjN": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Where Was This When I Was In College?!",
+            "description": "<p>Sore feet after long runs…GONE. Easier mornings after hard lifting days…CHECK. Less gut issues during stressful weeks… also CHECK. Not a miracle but if you know how to listen to your body and are very active with your hobbies. This is worth every cent.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Nick E",
+            "image": "shopify://shop_images/Screenshot_2025-08-19_at_8.57.10_PM.jpg"
+          }
+        },
+        "block_cF4rhy": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Game-Changer For Recovery & Performance",
+            "description": "<p>I’ve been using TB4-Frag from AE for several weeks now, and the results have been outstanding. Recovery time after workouts has significantly decreased, inflammatory response is improving, and I feel an overall boost in energy and resilience. This product feels like it’s working with my body, not against it.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Joinel S",
+            "image": "shopify://shop_images/Screenshot_2025-08-19_at_2.22.00_PM.jpg"
+          }
+        },
+        "block_XA9X4N": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Living Life In The Long Run",
+            "description": "<p>Living long remains a major goal, but living daily requires immediate attention. My experience with Rejuvenate UA in my initial monthly dosage has for some reason allowed me to work harder, accomplish more, while avoiding my standard fatigue. These things will pay off in the long run. And I plan to be there.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Phillip S",
+            "image": "shopify://shop_images/Screenshot_2025-08-20_at_1.05.49_PM.jpg"
+          }
+        },
+        "block_qDBw3H": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "Highly Recommend!",
+            "description": "<p>I was previously taking BPC-157 injections until I found this product by Apeiron Elementals. I decided to give the capsules a try, and I'm glad I did! They work just as well for me as the injections, without the hassle. I've noticed a positive difference in recovery from my workouts and my gut health has improved.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Jason F",
+            "image": "shopify://shop_images/Screenshot_2025-08-19_at_2.23.05_PM.jpg"
+          }
+        },
+        "block_j6UjcY": {
+          "type": "block",
+          "settings": {
+            "icon": "shopify://shop_images/shield-icon.svg",
+            "subtitle": "Verified Customer",
+            "title": "One Month Results",
+            "description": "<p>I’ve been taking BPC-157 for approximately one month. Discomfort in my knees has reduced significantly, even after working out. I train in both Muay Thai and BJJ, and have been able to increase the intensity of my workouts since starting on this product. I hope to resume full contact with continued use.</p>",
+            "link": "",
+            "link_text": "",
+            "name": "Ervin L",
+            "image": "shopify://shop_images/Screenshot_2025-08-19_at_2.21.49_PM.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "block_rMkRjN",
+        "block_cF4rhy",
+        "block_XA9X4N",
+        "block_qDBw3H",
+        "block_j6UjcY"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "section_anchor_id": "Testimonials",
+        "c-bg-primary": "#f7faff",
+        "c-bg-secondary": "#ffffff",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-subtitle": "#525252",
+        "title": "What Customers Say After 30 Days",
+        "description": "<p>Average rating 4.8/5 from 61,000+ verified buyers.</p>",
+        "bottom": "<p><em>Individual results vary. Statements not evaluated by the FDA.</em></p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 90,
+        "pb_desk": 90
+      }
+    },
+    "section_features_accordion_aiVLN7": {
+      "type": "section-features-accordion",
+      "blocks": {
+        "block_nEaann": {
+          "type": "block",
+          "settings": {
+            "title": "Quality",
+            "subtitle": "Tested • Traceable • Transparent",
+            "description": "<p>Every batch of product is rigorously tested, produced in FDA-registered & cGMP certified facilities, and traceable down to the lot number—so you can verify purity, potency, and safety.</p>"
+          }
+        },
+        "block_t9Cznm": {
+          "type": "block",
+          "settings": {
+            "title": "Research",
+            "subtitle": "Evidence-based • Data-driven",
+            "description": "<p>Our formulas are grounded in scientific research and developed using the latest data to ensure effective and reliable results.</p>"
+          }
+        },
+        "block_98Jabh": {
+          "type": "block",
+          "settings": {
+            "title": "Purpose",
+            "subtitle": "Performance • Longevity • Vitality",
+            "description": "<p>Supplements designed to support your physical and cognitive performance, long-term health, and overall vitality. Our purpose is to empower you to live a longer, healthier, and more vibrant life.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_nEaann",
+        "block_t9Cznm",
+        "block_98Jabh"
+      ],
+      "name": "Features accordion",
+      "settings": {
+        "section_anchor_id": "Features accordion",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#ffffff",
+        "title": "The Apeiron Promise",
+        "description": "<p>Advancing well-being through rigor, not rhetoric. Every formula is tested, traceable, and transparent.</p>",
+        "image": "shopify://shop_images/bi-features-accordions.jpg",
+        "layout": "default",
+        "btn_url": "shopify://pages/science",
+        "btn_text": "Learn more",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 45,
+        "pb_tab": 45,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "section_multi_columns_Lkmb39": {
+      "type": "section-multi-columns",
+      "blocks": {
+        "block_B86Wam": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-daniel.jpg",
+            "title": "Dr. Daniel L. Stickler",
+            "subtitle": "Co-Founder | Chief Medical Officer",
+            "description": "<p>Leading groundbreaking clinical trials in human enhancement and longevity.</p>"
+          }
+        },
+        "block_fpHKTN": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/bi-dr-mickra.jpg",
+            "title": "Dr. Mickra Hamilton",
+            "subtitle": "Co-Founder | International Epigenetics Expert",
+            "description": "<p>Pioneering Force in Precision Human Performance</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_B86Wam",
+        "block_fpHKTN"
+      ],
+      "name": "Multi-column",
+      "settings": {
+        "section_anchor_id": "Multi-column",
+        "layout": "default",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "subtitle": "Healthcare Reinvented",
+        "title": "Developed by Doctors.  Trusted by experts.",
+        "description": "<p>Longevity leaders Dr. Daniel Stickler and Dr. Mickra Hamilton aren’t just optimizing health.</p>",
+        "btn_url": "shopify://pages/about-us",
+        "btn_text": "Our founders",
+        "btn_type": "btn_primary_outline",
+        "pagination_style": "pagination--dark",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 50,
+        "pb_tab": 50,
+        "pt_desk": 110,
+        "pb_desk": 110
+      }
+    },
+    "section_grid_collection_36bEY3": {
+      "type": "section-grid-collection",
+      "blocks": {
+        "block_gWaFBJ": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "title": "Foundational",
+            "description": "Nourish every system, every day",
+            "image": "shopify://shop_images/bi-ap-foundational.jpg",
+            "btn": "Shop Foundational",
+            "link": "shopify://collections/gut-detox-metabolic"
+          }
+        },
+        "block_DyQkw4": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "title": "Precision Formulas",
+            "description": "Personalized nutrients for your biology",
+            "image": "shopify://shop_images/bi-ap-precision.jpg",
+            "btn": "Shop Precision",
+            "link": "shopify://collections/performance-energy"
+          }
+        },
+        "block_r9UXYE": {
+          "type": "block",
+          "settings": {
+            "collection": "",
+            "title": "Longevity",
+            "description": "Protect cells and age gracefully",
+            "image": "shopify://shop_images/bi-ap-longevity-b.jpg",
+            "btn": "Shop Longevity",
+            "link": "shopify://collections/age-rejuvenation"
+          }
+        }
+      },
+      "block_order": [
+        "block_gWaFBJ",
+        "block_DyQkw4",
+        "block_r9UXYE"
+      ],
+      "name": "Grid collection",
+      "settings": {
+        "section_anchor_id": "Grid collection",
+        "layout": "column",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f7faff",
+        "title": "Choose Your Solution",
+        "description": "<p>Explore options from each of our expertly designed wellness categories.</p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "btn_url": "",
+        "btn_text": "",
+        "btn_type": "btn_primary_outline",
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 70,
+        "pb_desk": 70
+      }
+    },
+    "blog_posts_FDQdXA": {
+      "type": "blog-posts",
+      "name": "Blog posts",
+      "settings": {
+        "section_anchor_id": "Blog posts",
+        "c-title": "#1A4178",
+        "c-body-primary": "#25282a",
+        "c-bg-primary": "#f9f9f9",
+        "headline": "The Elementals Blog",
+        "description": "<p>Evidence-based guides for optimal performance and healthy living.</p>",
+        "mob_alignment": "left",
+        "alignment": "center",
+        "blog": "news",
+        "limit": 4,
+        "pagination_style": "pagination--dark",
+        "autoplay": 0,
+        "pt_mob": 30,
+        "pb_mob": 30,
+        "pt_tab": 40,
+        "pb_tab": 40,
+        "pt_desk": 80,
+        "pb_desk": 80
+      }
+    }
+  },
+  "order": [
+    "hero_banner_ytayKE",
+    "hero_banner_rw3PWR",
+    "section_product_list_iHFCnm",
+    "marquee_text_AVjece",
+    "section_grid_collection_MzkhHy",
+    "section_text_w_icons_jtYbxa",
+    "section_image_text_HHWTxn",
+    "section_image_text_hDWMc4",
+    "section_image_overlay_hXjnxE",
+    "section_ugc_slider_new_FMxcff",
+    "section_features_accordion_aiVLN7",
+    "section_multi_columns_Lkmb39",
+    "section_grid_collection_36bEY3",
+    "blog_posts_FDQdXA"
+  ]
+}

@@ -1,0 +1,63 @@
+diff --git a/live/sections/main-article.liquid b/new/sections/main-article.liquid
+index 05d897e..56f7c2e 100644
+--- a/live/sections/main-article.liquid
++++ b/new/sections/main-article.liquid
+@@ -323,10 +323,19 @@
+     <div
+       class="xl:pb-15 p-7.5 md:px-15 text-sc-body-primary overflow-hidden lg:pt-10 xl:max-w-[1150px] {% if author_block != blank or article_aside_upsells != blank %} mr-auto xl:px-17.5 {% else %} mx-auto {% endif %}"
+     >
++      {% if article.excerpt != blank %}
++        <div class="ss-article-summary rte-article mb-10 bg-[#F9F9F9] p-5" style="border-left: 4px solid #103561;">
++          <h2 class="text-sc-title mb-3 text-2xl font-semibold">Summary</h2>
++          {{- article.excerpt -}}
++        </div>
++      {% endif %}
++
+       <div class="rte-article">
+         {{- article.content -}}
+       </div>
+ 
++      {% render 'ss-article-faqs', article: article %}
++
+       {% liquid
+         assign show_mobile_author_block = false
+         if author_block != blank or reviewer_block != blank
+diff --git a/live/snippets/ss-article-faqs.liquid b/new/snippets/ss-article-faqs.liquid
+new file mode 100644
+index 0000000..dfd9612
+--- /dev/null
++++ b/new/snippets/ss-article-faqs.liquid
+@@ -0,0 +1,33 @@
++{%- comment -%} FAQs from article metafield custom.ss_faqs (list of ss_article_faqs metaobjects: question, answer) + FAQPage schema {%- endcomment -%}
++{%- assign faqs = article.metafields.custom.ss_faqs.value -%}
++{%- if faqs != blank -%}
++  <div class="ss-article-faqs mt-10">
++    <h2 class="text-sc-title mb-5 text-3xl font-semibold">Frequently Asked Questions</h2>
++    <div class="border-c-border lg:space-y-7.5 space-y-5 border-t pt-5" x-data="{active: 0}">
++      {%- for faq in faqs -%}
++        {%- assign answer = faq.answer | metafield_tag -%}
++        {% render 'faq-block',
++          question: faq.question,
++          answer: answer,
++          active: forloop.index0,
++          class: 'pb-5 border-b border-c-border lg:pb-7.5 last:border-none'
++        %}
++      {%- endfor -%}
++    </div>
++  </div>
++  <script type="application/ld+json">
++    {
++      "@context": "https://schema.org",
++      "@type": "FAQPage",
++      "mainEntity": [
++        {%- for faq in faqs -%}
++        {
++          "@type": "Question",
++          "name": {{ faq.question.value | json }},
++          "acceptedAnswer": { "@type": "Answer", "text": {{ faq.answer | metafield_text | json }} }
++        }{% unless forloop.last %},{% endunless %}
++        {%- endfor -%}
++      ]
++    }
++  </script>
++{%- endif -%}

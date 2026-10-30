@@ -1,0 +1,252 @@
+{% liquid
+  assign title = section.settings.title
+  assign text = section.settings.text
+  assign liquid = section.settings.liquid
+  assign tags = section.settings.tags | split: ','
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+  assign btn_script = section.settings.btn_script
+
+  assign sec_btn_url = section.settings.sec_btn_url
+  assign sec_btn_text = section.settings.sec_btn_text
+  assign sec_btn_type = section.settings.sec_btn_type
+  assign sec_btn_script = section.settings.sec_btn_script
+
+  assign show = true
+  if customer
+    assign show = false
+  endif
+  for tag in tags
+    unless customer.tags contains tag
+      assign show = true
+    endunless
+  endfor
+%}
+
+{% if show or request.design_mode %}
+  <div
+    {% if request.design_mode %}
+      class="blur-overlay bg-c-shadow/80 z-full fixed inset-0 hidden h-full w-full p-5"
+      x-init="document.addEventListener('shopify:section:select', (event) => { $el.classList.toggle('hidden', !event.target.className.includes('bi-blocker')) })"
+    {% else %}
+      class="blur-overlay bg-c-shadow/80 z-full fixed inset-0 h-full w-full p-5"
+    {% endif %}
+  >
+    <div class="bg-c-white scrollbar-hide flex h-full w-full overflow-y-auto overflow-x-hidden rounded-lg p-5 shadow">
+      <div
+        class="mx-auto flex max-w-[var(--width)] flex-col items-center justify-center space-y-3 text-center"
+        style="--width: 800px;"
+      >
+        {% if title != blank %}
+          <span class="text-c-navy text-3xl font-semibold lg:text-4xl xl:text-5xl">{{- title -}}</span>
+        {% endif %}
+
+        {% if text != blank %}
+          <div class="rte text-c-shadow text-base lg:text-lg">{{- text -}}</div>
+        {% endif %}
+
+        {% if liquid != blank %}
+          <div class="rte text-c-shadow text-base lg:text-lg">{{- liquid -}}</div>
+        {% endif %}
+
+        {% if btn_text != blank or sec_btn_text != blank %}
+          <div class="pt-7.5 flex flex-wrap justify-center gap-4">
+            {%- if btn_text != blank and btn_script != blank -%}
+              <button
+                type="button"
+                aria-label="{{ btn_text }}"
+                @click="{{- btn_script -}}"
+                class="{% render 'btn-class', btn: btn_type %} group w-max max-w-full"
+              >
+                <span>
+                  {{- btn_text -}}
+                </span>
+                {% render 'icon',
+                  name: 'btn-arrow',
+                  class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+                %}
+              </button>
+            {%- elsif btn_text != blank -%}
+              <a
+                href="{{ btn_url }}"
+                class="{% render 'btn-class', btn: btn_type %} group w-max max-w-full"
+                aria-label="{{ btn_text }}"
+              >
+                <span>
+                  {{- btn_text -}}
+                </span>
+                {% render 'icon',
+                  name: 'btn-arrow',
+                  class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+                %}
+              </a>
+            {%- endif -%}
+
+            {%- if sec_btn_text != blank and sec_btn_script != blank -%}
+              <button
+                type="button"
+                aria-label="{{ sec_btn_text }}"
+                @click="{{- sec_btn_script -}}"
+                class="{% render 'btn-class', btn: sec_btn_type %} group w-max max-w-full"
+              >
+                <span>
+                  {{- sec_btn_text -}}
+                </span>
+                {% render 'icon',
+                  name: 'btn-arrow',
+                  class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+                %}
+              </button>
+            {%- elsif sec_btn_text != blank -%}
+              <a
+                href="{{ sec_btn_url }}"
+                class="{% render 'btn-class', btn: sec_btn_type %} group w-max max-w-full"
+                aria-label="{{ sec_btn_text }}"
+              >
+                <span>
+                  {{- sec_btn_text -}}
+                </span>
+                {% render 'icon',
+                  name: 'btn-arrow',
+                  class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+                %}
+              </a>
+            {%- endif -%}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Popup blocker",
+  "tag": "div",
+  "class": "bi-blocker",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Popup title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Popup text"
+    },
+    {
+      "type": "liquid",
+      "id": "liquid",
+      "label": "Popup liquid"
+    },
+    {
+      "type": "header",
+      "content": "Display conditions"
+    },
+    {
+      "type": "text",
+      "id": "tags",
+      "label": "Customer tags",
+      "info": "use a comma to separate"
+    },
+    {
+      "type": "header",
+      "content": "First button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text"
+    },
+    {
+      "type": "textarea",
+      "id": "btn_script",
+      "label": "Button script (optional)"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_fill"
+    },
+    {
+      "type": "header",
+      "content": "Second button settings"
+    },
+    {
+      "type": "url",
+      "id": "sec_btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "sec_btn_text",
+      "label": "Section button text"
+    },
+    {
+      "type": "textarea",
+      "id": "sec_btn_script",
+      "label": "Button script (optional)"
+    },
+    {
+      "type": "select",
+      "id": "sec_btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        }
+      ],
+      "default": "btn_primary_outline"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Popup blocker",
+      "category": "Sections"
+    }
+  ]
+}
+{% endschema %}

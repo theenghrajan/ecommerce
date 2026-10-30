@@ -1,0 +1,21 @@
+<div class="{{ class }}">
+  <button
+    type="button"
+    class="flex w-full items-center justify-between text-left text-lg font-semibold duration-200 ease-in-out"
+    :class="active === {{ active }} ? 'text-sc-body-primary' : 'text-sc-title'"
+    aria-label="{{- title -}}"
+    @click="active === {{ active }} ? active = null : active = {{ active }}"
+  >
+    <span class="pr-4">{{- title -}}</span>
+
+    {% render 'icon', name: 'accordion-icon', class: 'shrink-0 duration-200 w-6 h-6 ease-in-out', active: active %}
+  </button>
+  <div x-cloak x-show="active === {{ active }}" x-collapse>
+    <div
+      class="text-sc-body-primary list-checkmark child-a:text-c-crimsonite rte pt-3 text-base opacity-0 duration-300 ease-in-out will-change-[opacity]"
+      :class="active === {{ active }} && 'opacity-100'"
+    >
+      {{ content }}
+    </div>
+  </div>
+</div>

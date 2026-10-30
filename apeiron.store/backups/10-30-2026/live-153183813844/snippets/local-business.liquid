@@ -1,0 +1,105 @@
+{% comment %}
+  Sitewide + product-page structured data.
+  Everything lives in ONE @graph so @id references (author, reviewedBy,
+  worksFor, isPartOf) resolve to full entities instead of staying as
+  unresolved pointers across separate <script> blocks.
+{% endcomment %}
+
+{% assign author_id = "https://apeiron.store/pages/about-us#dr-stickler" %}
+{% assign reviewer_id = "https://apeiron.store/pages/about-us#dr-hamilton" %}
+
+{% if template.name == 'product' %}
+  {% if product.metafields.custom.schema_author != blank %}
+    {% assign author_id = product.metafields.custom.schema_author.value %}
+  {% endif %}
+  {% if product.metafields.custom.schema_reviewer != blank %}
+    {% assign reviewer_id = product.metafields.custom.schema_reviewer.value %}
+  {% endif %}
+  {% if product.metafields.custom.last_reviewed_date != blank %}
+    {% assign last_reviewed = product.metafields.custom.last_reviewed_date.value | date: '%Y-%m-%d' %}
+  {% else %}
+    {% assign last_reviewed = product.updated_at | date: '%Y-%m-%d' %}
+  {% endif %}
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://apeiron.store/#organization",
+      "name": "Apeiron Elementals",
+      "url": "https://apeiron.store/",
+      "logo": "https://apeiron.store/cdn/shop/files/bi-ap-logo.png",
+      "image": "https://apeiron.store/cdn/shop/files/bi-ap-logo.png",
+      "telephone": "512-688-6207",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "919 Congress Ave. Suite 525",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "postalCode": "78701",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 30.271415,
+        "longitude": -97.7410761
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://apeiron.store/pages/about-us#dr-stickler",
+      "name": "Dr. Daniel L. Stickler, MD",
+      "url": "https://apeiron.store/pages/about-us#dr-stickler",
+      "image": "https://apeiron.store/cdn/shop/files/bi-ap-dr-daniel.jpg?v=1752537669",
+      "jobTitle": "Co-Founder & Chief Medical Officer",
+      "worksFor": { "@id": "https://apeiron.store/#organization" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "West Virginia University School of Medicine" },
+        { "@type": "CollegeOrUniversity", "name": "University of Pittsburgh" }
+      ],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Doctor of Medicine (MD)"
+      },
+      "sameAs": ["https://www.linkedin.com/in/drstickler"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://apeiron.store/pages/about-us#dr-hamilton",
+      "name": "Dr. Mickra Hamilton",
+      "url": "https://apeiron.store/pages/about-us#dr-hamilton",
+      "image": "https://apeiron.store/cdn/shop/files/bi-ap-dr-mickra.jpg?v=1752537670",
+      "jobTitle": "Co-Founder & International Epigenetics Expert",
+      "worksFor": { "@id": "https://apeiron.store/#organization" },
+      "sameAs": [
+        "https://www.linkedin.com/in/mickra-hamilton-a772684a",
+        "https://drmickrahamilton.com/"
+      ]
+    }
+    {% if template.name == 'product' %}
+    ,
+    {
+      "@type": "MedicalWebPage",
+      "@id": "{{ shop.url }}{{ product.url }}#medicalwebpage",
+      "url": "{{ shop.url }}{{ product.url }}",
+      "name": {{ product.title | json }},
+      "description": {{ product.description | strip_html | truncate: 300 | json }},
+      "author": { "@id": {{ author_id | json }} },
+      "reviewedBy": { "@id": {{ reviewer_id | json }} },
+      "lastReviewed": "{{ last_reviewed }}",
+      "isPartOf": { "@id": "https://apeiron.store/#organization" }
+    }
+    {% endif %}
+  ]
+}
+</script>

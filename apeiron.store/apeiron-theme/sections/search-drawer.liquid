@@ -1,0 +1,326 @@
+<template x-if="$store.drawer.id === 'search-drawer'">
+  <template x-teleport="#drawer-overlay">
+    <div
+      x-show="$store.drawer.id === 'search-drawer'"
+      x-load="visible"
+      x-data="search"
+      class="bg-sc-bg-primary text-sc-title md:pt-7.5 scrollbar-hide flex h-full flex-col overflow-y-auto overflow-x-hidden p-5 pt-0 shadow md:p-10"
+    >
+      <div class="bg-sc-bg-primary z-5 sticky top-0 mb-5 flex w-full items-center justify-between pb-2.5 pt-5 md:hidden">
+        <button
+          type="button"
+          aria-label="toggle mobile menu"
+          @click="$store.drawer.hide()"
+        >
+          <span class="sr-only">Open navigation menu</span>
+          {% render 'icon', name: 'close', class: 'w-5 h-5' %}
+        </button>
+
+        {% if settings.logo != blank %}
+          <span class="block w-full max-w-[var(--logo-mob-w)]" style="--logo-mob-w: 100px;">
+            {{
+              settings.logo
+              | image_url: width: settings.logo.width, height: settings.logo.height
+              | image_tag: alt: 'store logo', class: 'w-full object-contain'
+            }}
+          </span>
+        {% else %}
+          <span>{{- shop.name -}}</span>
+        {% endif %}
+      </div>
+
+      <div class="border-c-navy relative flex justify-between space-x-2 border-b pb-2.5 md:pb-5">
+        <form
+          action="{{ routes.search_url }}"
+          method="get"
+          role="search"
+          class="flex flex-1"
+          @submit.prevent
+        >
+          <label for="search-input">
+            <input
+              type="text"
+              id="search-input"
+              class="placeholder:text-c-shadow text-c-shadow h-7.5 w-full text-lg focus:outline-0 md:h-11 lg:text-2xl"
+              placeholder="{{- 'general.search.input' | t-}}"
+              x-model="searchText"
+              name="q"
+              autocomplete="off"
+              x-init="$el.focus()"
+              @input.debounce.500ms="renderSearch()"
+            >
+          </label>
+        </form>
+
+        <div class="flex items-center">
+          <button
+            class="hover:text-c-navy text-c-shadow flex items-center space-x-2 text-base duration-300 ease-in-out md:space-x-4 md:text-lg lg:text-xl"
+            x-cloak
+            x-show="searchResult"
+            @click="searchText = ''; renderSearch()"
+            aria-label="Clear search result"
+          >
+            <span>{{ 'general.search.clear' | t }}</span>
+            {% render 'icon', name: 'close', class: 'text-c-navy w-5 h-5 md:w-6 md:h-6' %}
+          </button>
+
+          <button
+            @click="renderSearch()"
+            aria-label="Search query"
+            x-show="!searchResult"
+          >
+            {% render 'icon', name: 'search', class: 'text-c-navy w-7.5 h-7.5 lg:h-10 lg:w-10' %}
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-5">
+        <div class="space-y-4" x-show="!searchResult || !resultsCount">
+          <span class="text-c-shadow text-base font-bold md:text-lg">{{- 'general.search.suggestions' | t -}}</span>
+
+          {% if section.blocks.size > 0 %}
+            <ul class="flex flex-col space-y-3">
+              {% for block in section.blocks %}
+                <li
+                  class="text-c-navy hover:decoration-c-navy w-max max-w-full text-lg font-semibold underline decoration-transparent underline-offset-2 duration-200 ease-in-out lg:text-xl"
+                  {{ block.shopify_attributes }}
+                >
+                  <a href="{{ block.settings.link }}" aria-label="{{ block.settings.label }}">
+                    {{- block.settings.label -}}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+
+        <ul class="flex flex-wrap items-center gap-x-3 gap-y-2 md:gap-x-7" x-cloak x-show="searchResult">
+          <li
+            x-show="products.length"
+            @click="activeTab = 'products'"
+          >
+            <button
+              type="button"
+              class="text-base font-bold text-[#ACACAC] duration-200 ease-in-out md:text-lg"
+              :class="activeTab === 'products' && '!text-c-navy underline decoration-2 underline-offset-2'"
+            >
+              {{- 'general.search.products' | t -}}
+            </button>
+          </li>
+
+          <li
+            x-show="articles.length"
+            @click="activeTab = 'articles'"
+          >
+            <button
+              type="button"
+              class="text-base font-bold text-[#ACACAC] duration-200 ease-in-out md:text-lg"
+              :class="activeTab === 'articles' && '!text-c-navy underline decoration-2 underline-offset-2'"
+            >
+              {{- 'general.search.posts' | t -}}
+            </button>
+          </li>
+
+          <li
+            x-show="collections.length"
+            @click="activeTab = 'collections'"
+          >
+            <button
+              type="button"
+              class="text-base font-bold text-[#ACACAC] duration-200 ease-in-out md:text-lg"
+              :class="activeTab === 'collections' && '!text-c-navy underline decoration-2 underline-offset-2'"
+            >
+              {{- 'general.search.collections' | t -}}
+            </button>
+          </li>
+
+          <li
+            x-show="pages.length"
+            @click="activeTab = 'pages'"
+          >
+            <button
+              type="button"
+              class="text-base font-bold text-[#ACACAC] duration-200 ease-in-out md:text-lg"
+              :class="activeTab === 'pages' && '!text-c-navy underline decoration-2 underline-offset-2'"
+            >
+              {{- 'general.search.pages' | t -}}
+            </button>
+          </li>
+        </ul>
+
+        <ul
+          class="mt-4 grid grid-cols-1 gap-4 overflow-auto"
+          x-cloak
+          x-show="products.length > 0 && activeTab == 'products'"
+        >
+          <template x-for="(product, index) in products" :key="product.id">
+            <li>
+              <a
+                :href="product.url"
+                :aria-label="`Redirect to ${product.title}`"
+                class="animate__animated group flex shrink-0 items-center space-x-5 rounded-lg bg-[#F9F9F9] p-4 opacity-0 duration-500 ease-in-out"
+                x-intersect.once="$el.classList.add('animate__fadeIn')"
+                :style="{ animationDelay: index * 50 + 'ms' }"
+              >
+                <img
+                  :src="`${product.image}&width=192`"
+                  :alt="product.title"
+                  width="80"
+                  height="80"
+                  class="h-20 w-20 rounded object-cover"
+                >
+
+                <span class="flex flex-col space-y-2">
+                  <span
+                    class="text-c-shadow text-base md:text-lg"
+                    x-html="product.title"
+                  ></span>
+                  <span class="text-c-navy text-base font-bold underline decoration-2 underline-offset-2 md:text-lg">
+                    {{- 'common.shop_now' | t | capitalize -}}
+                  </span>
+                </span>
+              </a>
+            </li>
+          </template>
+        </ul>
+
+        <ul
+          class="mt-4 grid grid-cols-1 gap-4 overflow-auto"
+          x-cloak
+          x-show="articles.length > 0 && activeTab == 'articles'"
+        >
+          <template x-for="(article, index) in articles" :key="article.handle">
+            <li>
+              <a
+                :href="article.url"
+                :aria-label="`Redirect to ${article.title}`"
+                class="animate__animated group flex shrink-0 items-center space-x-5 rounded-lg bg-[#F9F9F9] p-4 opacity-0 duration-500 ease-in-out"
+                x-intersect.once="$el.classList.add('animate__fadeIn')"
+                :style="{ animationDelay: index * 50 + 'ms' }"
+              >
+                <img
+                  :src="`${article.featured_image.url}&width=192`"
+                  :alt="article.title"
+                  width="80"
+                  height="80"
+                  class="h-20 w-20 rounded object-cover"
+                >
+
+                <span class="flex flex-col space-y-2">
+                  <span
+                    class="text-c-shadow text-base md:text-lg"
+                    x-html="article.title"
+                  ></span>
+                  <span class="text-c-navy text-base font-bold underline decoration-2 underline-offset-2 md:text-lg">
+                    {{- 'common.learn_more' | t | capitalize -}}
+                  </span>
+                </span>
+              </a>
+            </li>
+          </template>
+        </ul>
+
+        <ul
+          class="mt-4 grid grid-cols-1 gap-4 overflow-auto"
+          x-cloak
+          x-show="collections.length > 0 && activeTab == 'collections'"
+        >
+          <template x-for="(collection, index) in collections" :key="collection.handle">
+            <li>
+              <a
+                :href="collection.url"
+                :aria-label="`Redirect to ${collection.title}`"
+                class="animate__animated group flex shrink-0 items-center space-x-5 rounded-lg bg-[#F9F9F9] p-4 opacity-0 duration-500 ease-in-out"
+                x-intersect.once="$el.classList.add('animate__fadeIn')"
+                :style="{ animationDelay: index * 50 + 'ms' }"
+              >
+                <img
+                  :src="`${collection.featured_image.url}&width=192`"
+                  :alt="collection.title"
+                  width="80"
+                  height="80"
+                  class="h-20 w-20 rounded object-cover"
+                >
+
+                <span class="flex flex-col space-y-2">
+                  <span
+                    class="text-c-shadow text-base md:text-lg"
+                    x-html="collection.title"
+                  ></span>
+                  <span class="text-c-navy text-base font-bold underline decoration-2 underline-offset-2 md:text-lg">
+                    {{- 'common.shop_now' | t | capitalize -}}
+                  </span>
+                </span>
+              </a>
+            </li>
+          </template>
+        </ul>
+
+        <ul
+          class="mt-4 grid grid-cols-1 gap-4 overflow-auto"
+          x-cloak
+          x-show="pages.length > 0 && activeTab == 'pages'"
+        >
+          <template x-for="(page, index) in pages" :key="page.handle">
+            <li>
+              <a
+                :href="page.url"
+                :aria-label="`Redirect to ${page.title}`"
+                class="animate__animated group flex shrink-0 items-center rounded-lg bg-[#F9F9F9] p-4 opacity-0 duration-500 ease-in-out"
+                x-intersect.once="$el.classList.add('animate__fadeIn')"
+                :style="{ animationDelay: index * 50 + 'ms' }"
+              >
+                <span class="flex flex-col space-y-2">
+                  <span
+                    class="text-c-shadow text-base md:text-lg"
+                    x-html="page.title"
+                  ></span>
+                  <span class="text-c-navy text-base font-bold underline decoration-2 underline-offset-2 md:text-lg">
+                    {{- 'common.learn_more' | t | capitalize -}}
+                  </span>
+                </span>
+              </a>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+  </template>
+</template>
+
+{% schema %}
+{
+  "name": "Search drawer",
+  "tag": "section",
+  "class": "bi-section--search",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link url"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "groups": ["custom.cart"]
+  },
+  "limit": 1,
+  "presets": [
+    {
+      "name": "Search drawer",
+      "category": "Sections"
+    }
+  ]
+}
+{% endschema %}

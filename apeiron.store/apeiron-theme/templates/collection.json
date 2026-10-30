@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_h1_tag_tDtpFd": {
+      "type": "section-h1-tag",
+      "settings": {
+        "h1_title": "All Products"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "custom_css": [],
+      "settings": {
+        "c-title": "#103561",
+        "c-body-primary": "#103561",
+        "c-bg-primary": "#ffffff",
+        "title": "{{ collection.title }}",
+        "collections_title": "Shop by Products",
+        "collections": [
+          "all",
+          "all-supplements",
+          "vitamins-minerals",
+          "elementals-top-sellers",
+          "bundles"
+        ],
+        "layout": "grid"
+      }
+    }
+  },
+  "order": [
+    "section_h1_tag_tDtpFd",
+    "main"
+  ]
+}

@@ -1,0 +1,53 @@
+{% assign link_class = 'w-8 h-8 flex justify-center items-center rounded-sm' %}
+{% assign link_class_arrow = 'hover:bg-sc-title duration-300 ease-in-out hover:text-sc-bg-primary' %}
+{% assign link_class_arrow_disabled = 'opacity-50 cursor-not-allowed' %}
+
+{% if paginate.pages > 1 %}
+  <nav class="mt-16 flex select-none justify-center space-x-2">
+    <a
+      href="{{ paginate.previous.url }}"
+      aria-label="Paginate link - previous"
+      class="
+        {{ link_class }}
+        {% if paginate.previous %}{{ link_class_arrow }}{% else %}{{ link_class_arrow_disabled }}
+        {% endif %}
+      "
+    >
+      {% render 'icon', name: 'chevron', class: 'w-4 h-auto rotate-180' %}
+    </a>
+
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <a
+          href="{{ part.url }}"
+          aria-label="Paginate link - {{ part.title }}"
+          class="{{ link_class }} {{ link_class_arrow }}"
+        >
+          {{ part.title }}
+        </a>
+      {% else %}
+        {% if part.title == paginate.current_page %}
+          <div class="{{ link_class }} bg-sc-bg-secondary text-sc-title">
+            {{ part.title }}
+          </div>
+        {% else %}
+          <div class="{{ link_class }}">
+            {{ part.title }}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <a
+      href="{{ paginate.next.url }}"
+      aria-label="Paginate link - next"
+      class="
+        {{ link_class }}
+        {% if paginate.next %}{{ link_class_arrow }}{% else %}{{ link_class_arrow_disabled }}
+        {% endif %}
+      "
+    >
+      {% render 'icon', name: 'chevron', class: 'w-4 h-auto' %}
+    </a>
+  </nav>
+{% endif %}

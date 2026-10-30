@@ -1,0 +1,296 @@
+{% liquid
+  assign cart_upsells = section.settings.cart_upsells
+  assign cart_progress_bar_threshold = section.settings.cart_progress_bar_threshold | times: 100
+  assign cart_item_count = cart.item_count
+  for item in cart.items
+    if item.handle == 'order-coverage'
+      assign cart_item_count = cart.item_count | minus: 1
+      break
+    endif
+  endfor
+%}
+
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('cart').obj.visibleItemCount = {{ cart_item_count | json }};
+    {% for upsell_product in cart_upsells -%}
+    Alpine.store('cart').upsells.push(Number({{- upsell_product.id -}}));
+    {%- endfor %}
+    Alpine.store('cart').cart_progress_bar_threshold = {{ cart_progress_bar_threshold }};
+  });
+</script>
+
+{% render 'css-variables-setter' %}
+
+<template x-teleport="#cart-overlay">
+  <div data-section-id="{{ section.id }}">
+    {% render 'layout-cart-drawer' %}
+  </div>
+</template>
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "section",
+  "class": "bi-section--cart",
+  "settings": [
+    {
+      "type": "text",
+      "id": "cart_title",
+      "label": "Cart drawer title",
+      "default": "Shopping Cart"
+    },
+    {
+      "type": "text",
+      "id": "empty_cart_title",
+      "label": "Empty cart drawer title",
+      "default": "Your cart is empty"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_savings",
+      "label": "Show savings",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "show_saving_color",
+      "label": "Show savings color",
+      "default": "#F93822"
+    },
+    {
+      "type": "header",
+      "content": "Cart drawer progress bar settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_progress_bar_enabled",
+      "label": "Progress bar enabled ?",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "cart_progress_bar_threshold",
+      "label": "Progress bar threshold",
+      "default": 100
+    },
+    {
+      "type": "inline_richtext",
+      "id": "cart_progress_message",
+      "label": "Progress bar message",
+      "default": "Spend [amount_left] more and get free shipping!",
+      "info": "[amount_left] don't remove, will be replaced to value"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "cart_progress_reached_message",
+      "label": "Progress bar reached message",
+      "default": "Congrats! You've unlocked FREE SHIPPING!"
+    },
+    {
+      "type": "header",
+      "content": "Cart drawer subscription settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_subscriptions",
+      "label": "Show subscription widget",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Cart drawer upsells settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "cart_upsells_enabled",
+      "label": "Upsells enabled ?",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cart_upsells_title",
+      "label": "Upsells title",
+      "default": "Why Not Try These?"
+    },
+    {
+      "type": "product_list",
+      "id": "cart_upsells",
+      "label": "Upsell products",
+      "limit": 6
+    },
+    {
+      "type": "header",
+      "content": "Cart drawer reviews settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "oke_reiews",
+      "label": "Okendo reviews",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "review_star",
+      "label": "Review stars"
+    },
+    {
+      "type": "richtext",
+      "id": "review_text",
+      "label": "Review text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cc",
+      "label": "Show credit cards",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Cart drawer footer settings"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "cart_footer_label",
+      "label": "Cart footer bar title",
+      "default": "Science-Backed Results || 60-Day Free Returns || 1-Year Warranty",
+      "info": "use || to separate"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_shipping",
+      "label": "Cart drawer shipping price label",
+      "default": "$5"
+    },
+    {
+      "type": "text",
+      "id": "cart_footer_shipping_free",
+      "label": "Cart drawer FREE shipping price label",
+      "default": "Free"
+    },
+    {
+      "type": "richtext",
+      "id": "cart_footer_privacy_rte",
+      "label": "Cart drawer privacy"
+    },
+    {
+      "type": "richtext",
+      "id": "cart_footer_interest",
+      "label": "Cart drawer interest",
+      "default": "<p>or 4 interest-free payments of {interest}</p>",
+      "info": "Use {interest} to show customer interest"
+    },
+    {
+      "type": "header",
+      "content": "Cart checkout button styles"
+    },
+    {
+      "type": "color",
+      "id": "btn_cta_bg_default",
+      "label": "Button bg default",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "btn_cta_text_default",
+      "label": "Button text default",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "btn_cta_bg_hover",
+      "label": "Button bg hover",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "btn_cta_text_hover",
+      "label": "Button text hover",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "empty_cart_btn",
+      "name": "Empty cart button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Button text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button link"
+        },
+        {
+          "type": "select",
+          "id": "btn_type",
+          "label": "Button type",
+          "options": [
+            {
+              "value": "btn_cta_fill",
+              "label": "CTA fill"
+            },
+            {
+              "value": "btn_primary_fill",
+              "label": "Primary fill"
+            },
+            {
+              "value": "btn_primary_outline",
+              "label": "Primary outline"
+            },
+            {
+              "value": "btn_secondary_fill",
+              "label": "Secondary fill"
+            },
+            {
+              "value": "btn_secondary_outline",
+              "label": "Secondary outline"
+            }
+          ],
+          "default": "btn_cta_fill"
+        },
+        {
+          "type": "header",
+          "content": "CTA fill button styles"
+        },
+        {
+          "type": "color",
+          "id": "btn_cta_bg_default",
+          "label": "Button bg default",
+          "default": "#25282A"
+        },
+        {
+          "type": "color",
+          "id": "btn_cta_text_default",
+          "label": "Button text default",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "btn_cta_bg_hover",
+          "label": "Button bg hover",
+          "default": "#1A4178"
+        },
+        {
+          "type": "color",
+          "id": "btn_cta_text_hover",
+          "label": "Button text hover",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "limit": 1,
+  "presets": [
+    {
+      "name": "Cart"
+    }
+  ],
+  "enabled_on": {
+    "groups": ["custom.cart"]
+  }
+}
+{% endschema %}

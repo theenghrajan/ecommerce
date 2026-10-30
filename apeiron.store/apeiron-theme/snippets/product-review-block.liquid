@@ -1,0 +1,41 @@
+{% liquid
+  assign r_name = block.settings.name
+  assign r_text = block.settings.text
+  assign r_stars = block.settings.stars
+  assign r_date = block.settings.date
+  assign r_margin = block.settings.margin
+%}
+
+{% if r_text != blank or r_name != blank %}
+  <div
+    class="mb-[var(--value)] flex w-full flex-col rounded-lg bg-[#F9F9F9] p-3"
+    style="--value: {{- r_margin | append: 'px' -}};"
+    {{ block.shopify_attributes }}
+  >
+    <div class="mb-2 flex items-center space-x-0.5">
+      {% for i in (1..r_stars) %}
+        {% render 'icon', name: 'rev-star', class: 'text-sc-title' %}
+      {% endfor %}
+    </div>
+
+    <span class="flex justify-between space-x-3">
+      {% if r_name != blank %}
+        <span class="text-c-shadow flex items-center space-x-1.5 text-sm font-semibold">
+          <span>
+            {{- r_name -}}
+          </span>
+
+          {% render 'icon', name: 'pdp-checkmark' %}
+        </span>
+      {% endif %}
+
+      {% if r_date != blank %}
+        <span class="text-c-shadow text-sm">{{- r_date -}}</span>
+      {% endif %}
+    </span>
+
+    {% if r_text != blank %}
+      <span class="rte text-sc-body-primary mt-3 text-sm">{{- r_text -}}</span>
+    {% endif %}
+  </div>
+{% endif %}

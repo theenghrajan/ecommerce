@@ -1,0 +1,439 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign title = section.settings.title
+  assign description = section.settings.description
+  assign layout = section.settings.layout
+  assign grid = 'grid gap-3 lg:grid-cols-3'
+  case layout
+    when 'grid'
+      assign grid = grid | append: ' grid-cols-2'
+    when 'column'
+      assign grid = grid | append: ' grid-cols-1'
+  endcase
+
+  assign mob_alignment = section.settings.mob_alignment | prepend: 'text-'
+  assign desk_alignment = section.settings.alignment | prepend: 'lg:text-'
+  assign alignment = mob_alignment | append: ' ' | append: desk_alignment
+
+  case section.settings.mob_alignment
+    when 'left'
+      assign class_layout = 'flex flex-col space-y-5'
+    when 'center'
+      assign class_layout = 'flex flex-col items-center space-y-5'
+    when 'right'
+      assign class_layout = 'flex flex-col items-end space-y-5'
+  endcase
+
+  case section.settings.alignment
+    when 'left'
+      assign class_layout = class_layout | append: ' lg:space-y-0 lg:flex-row justify-between'
+      assign btc_class = 'lg:ml-5'
+    when 'center'
+      assign class_layout = class_layout | append: ' space-y-5 items-center'
+      assign btc_class = ''
+    when 'right'
+      assign class_layout = class_layout | append: ' lg:space-y-0 lg:flex-row-reverse justify-between'
+      assign btc_class = 'lg:mr-5'
+  endcase
+
+  assign btn_url = section.settings.btn_url
+  assign btn_text = section.settings.btn_text
+  assign btn_type = section.settings.btn_type
+
+  assign blocks = section.blocks
+
+  assign loading = 'lazy'
+  assign animation = 'animate__animated opacity-0'
+  if section.index0 == 0 or section.index0 == 1
+    assign animation = ''
+    assign loading = false
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary text-sc-title"
+>
+  <div class="container space-y-5 lg:space-y-10">
+    <div class="{{ class_layout }} {{ alignment -}}">
+      {% if title != blank or description != blank %}
+        <div class="space-y-3 lg:space-y-4">
+          {% if title != blank %}
+            <h2
+              class="rte mb-4 text-3xl font-semibold lg:text-4xl xl:text-5xl {{ animation -}}"
+              {% if animation %}
+                x-intersect.once="$el.classList.add('animate__fadeIn')"
+              {% endif %}
+            >
+              {{- title -}}
+            </h2>
+          {% endif %}
+
+          {% if description != blank %}
+            <div
+              class="rte text-sc-body-primary text-base lg:text-lg {{ animation -}}"
+              {% if animation %}
+                style="animation-delay: 100ms"
+                x-intersect.once="$el.classList.add('animate__fadeIn')"
+              {% endif %}
+            >
+              {{- description -}}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if btn_text != blank %}
+        <a
+          href="{{ btn_url }}"
+          class="{% render 'btn-class', btn: btn_type %} {{ btc_class }} group h-full w-max max-w-full {{ animation -}}"
+          aria-label="{{ btn_text }}"
+          {% if animation %}
+            style="animation-delay: 100ms"
+            x-intersect.once="$el.classList.add('animate__fadeIn')"
+          {% endif %}
+        >
+          <span>
+            {{- btn_text -}}
+          </span>
+          {% render 'icon',
+            name: 'btn-arrow',
+            class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1.5'
+          %}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if blocks.size > 0 %}
+      <ul class="{{- grid -}}">
+        {%- for block in blocks -%}
+          {%- liquid
+            assign b_coll = block.settings.collection
+            assign b_title = block.settings.title | default: b_coll.title
+            assign b_descr = block.settings.description
+            assign b_image = block.settings.image | default: b_coll.image
+            assign b_btn = block.settings.btn
+            assign b_link = block.settings.link | default: b_coll.url
+          -%}
+          <li
+            class="image-overflow-hidden text-c-white relative h-0 rounded-lg {% if layout == 'column' -%} pb-[64%] md:pb-[350px] lg:pb-[650px] {% elsif layout == 'grid' -%} pb-[100%] md:pb-[250px] {%- endif %} {{ animation -}}"
+            {{ block.shopify_attributes }}
+            {% if animation %}
+              style="animation-delay: {{ forloop.index0 | times: 100 | append: 'ms' }};"
+              x-intersect.once="$el.classList.add('animate__fadeIn')"
+            {% endif %}
+          >
+            {%- capture b_content -%}
+              {%- if b_image != blank -%}
+                {{-
+                  b_image
+                    | image_url: width: 800
+                    | image_tag:
+                      widths: '150, 315, 413, 800',
+                      alt: b_image.alt,
+                      class: 'absolute inset-0 object-cover w-full h-full group-hover:scale-105 duration-500 will-change-transform',
+                      draggable: false,
+                      loading: loading
+                -}}
+              {%- else -%}
+                {{-
+                'image'
+                | placeholder_svg_tag: 'absolute inset-0 object-cover w-full h-full group-hover:scale-105 duration-500 will-change-transform'
+                -}}
+              {%- endif -%}
+
+              <div class="absolute flex h-full w-full flex-col bg-black/30 p-4 {% if layout == 'column' -%} md:p-7.5 {% elsif layout == 'grid' -%} text-center items-center justify-center {%- endif -%}">
+                {% if b_title != blank %}
+                  <span class="line-clamp-2 text-xl font-semibold md:text-3xl lg:text-4xl">
+                  {{- b_title -}}
+                </span>
+                {% endif %}
+
+                {% if layout == 'column' %}
+                  {% if b_descr != blank %}
+                    <span class="rte line-clamp-2 text-base">
+                      {{- b_descr -}}
+                    </span>
+                  {% endif %}
+
+                  {% if b_btn != blank and b_link != blank %}
+                    <span class="bg-c-white text-c-shadow mt-auto flex w-max max-w-full space-x-1 rounded-lg px-3 py-1.5 text-base font-semibold lg:mx-auto lg:px-4 lg:py-3">
+                      <span>
+                        {{- b_btn -}}
+                      </span>
+                      {% render 'icon',
+                        name: 'btn-arrow',
+                        class: 'transition-transform w-5 duration-200 ease-in-out group-hover:translate-x-1'
+                      %}
+                    </span>
+                  {% endif %}
+                {% endif %}
+              </div>
+            {%- endcapture -%}
+
+            {%- if b_link != blank -%}
+              <a href="{{- b_link -}}" class="group flex h-full w-full" aria-label="{{- b_title -}}">
+                {{- b_content -}}
+              </a>
+            {%- else -%}
+              {{- b_content -}}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grid collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Grid collection"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Section layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "column",
+          "label": "Column"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-body-primary",
+      "label": "Description color",
+      "default": "#25282A"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#F7FAFF"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section description"
+    },
+    {
+      "type": "text_alignment",
+      "id": "mob_alignment",
+      "label": "Mobile text alignment",
+      "default": "left"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Button settings"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button url"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Section button text",
+      "default": "Shop All"
+    },
+    {
+      "type": "select",
+      "id": "btn_type",
+      "label": "Button type",
+      "options": [
+        {
+          "value": "btn_primary_fill",
+          "label": "Primary fill"
+        },
+        {
+          "value": "btn_primary_outline",
+          "label": "Primary outline"
+        },
+        {
+          "value": "btn_secondary_fill",
+          "label": "Secondary fill"
+        },
+        {
+          "value": "btn_secondary_outline",
+          "label": "Secondary outline"
+        },
+        {
+          "value": "link_primary",
+          "label": "Link primary"
+        },
+        {
+          "value": "link_secondary",
+          "label": "Link secondary"
+        }
+      ],
+      "default": "btn_primary_outline"
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 70
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 70
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "block",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Block collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block title"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "description",
+          "label": "Block description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block image"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Button text",
+          "default": "Shop"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Block url"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.cart"]
+  },
+  "presets": [
+    {
+      "name": "Grid collection",
+      "category": "Sections",
+      "settings": {
+        "title": "Choose Your Wellness Path",
+        "description": "<p>Choose your top health priority and explore targeted formulas that deliver results.</p>"
+      },
+      "blocks": [
+        {
+          "type": "block",
+          "settings": {
+            "title": "Foundational",
+            "description": "Nourish every system, every day"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Precision Formulas",
+            "description": "Personalized nutrients for your biology"
+          }
+        },
+        {
+          "type": "block",
+          "settings": {
+            "title": "Longevity",
+            "description": "Protect cells and slow biological aging"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

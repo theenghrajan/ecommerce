@@ -1,0 +1,140 @@
+{% liquid
+  if request.page_type contains 'register'
+    assign init_tab = 'register'
+  elsif request.page_type contains 'activate_account'
+    assign init_tab = 'activate_account'
+  elsif request.page_type contains 'reset_password'
+    assign init_tab = 'reset_password'
+  endif
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div
+  x-data="account()"
+  {% if init_tab %}
+    x-init="login_tab = '{{ init_tab }}'"
+  {% endif %}
+  class="bg-sc-bg-primary"
+  data-section-id="{{ section.id }}"
+>
+  <h1 class="sr-only">
+    {{ page_title }}
+  </h1>
+
+  <div class="hidden">
+    {% form 'recover_customer_password' %}
+      {% if form.errors %}
+        {% capture error_text %}
+          {{ form.errors | default_errors }}
+        {% endcapture %}
+
+        {%- render 'layout-message', status: 'error', content: error_text -%}
+      {% endif %}
+
+      {% if form.posted_successfully? %}
+        {% assign translation_response = 'customer.recover_password.success' | t %}
+        {%- render 'layout-message', status: 'success', content: translation_response -%}
+      {% endif %}
+    {% endform %}
+    {% form 'customer_login' %}
+      {% if form.errors %}
+        {% capture error_text %}
+          {{ form.errors | default_errors }}
+        {% endcapture %}
+
+        {%- render 'layout-message', status: 'error', content: error_text -%}
+      {% endif %}
+    {% endform %}
+  </div>
+  <div class="mx-auto flex max-w-[var(--width)] flex-col px-5" style="--width: 480px;">
+    <template x-if="login_tab == 'login'">
+      <div class="text-sc-title mt-5 w-full">
+        {% render 'layout-account-login' %}
+      </div>
+    </template>
+    <template x-if="login_tab == 'register'">
+      <div class="text-sc-title mt-5 w-full">
+        {% render 'layout-account-register' %}
+      </div>
+    </template>
+    <template x-if="login_tab == 'forgot_password'">
+      <div class="text-sc-title mt-5 w-full">
+        {% render 'layout-account-forgot-password' %}
+      </div>
+    </template>
+    <template x-if="login_tab == 'activate_account'">
+      <div class="text-sc-title mt-5 w-full">
+        {% render 'layout-account-activate-account' %}
+      </div>
+    </template>
+    <template x-if="login_tab == 'reset_password'">
+      <div class="text-sc-title mt-5 w-full">
+        {% render 'layout-account-reset-password' %}
+      </div>
+    </template>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer login",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

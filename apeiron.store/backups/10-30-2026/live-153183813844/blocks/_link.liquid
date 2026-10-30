@@ -1,0 +1,90 @@
+{% liquid
+  assign b_product = block.settings.product
+  assign b_badge = block.settings.badge
+  assign b_image = block.settings.image | default: b_product.featured_image
+  assign b_title = block.settings.title | default: b_product.title
+  assign b_link = block.settings.link | default: b_product.url
+  assign b_link_def = 'common.shop_now' | t | capitalize
+  assign b_link_text = block.settings.b_link_text | default: b_link_def
+%}
+<a
+  href="{{- b_link -}}"
+  aria-label="{{- b_title | escape -}}"
+  class="group/link flex flex-col"
+  {{ block.shopify_attributes }}
+>
+  <span class="image-overflow-hidden relative mb-3 h-[190px] w-full overflow-hidden rounded-lg 2xl:h-[240px]">
+    {% if b_image != blank %}
+      {{
+        b_image
+        | image_url: width: 600
+        | image_tag:
+          alt: b_image.alt,
+          loading: 'lazy',
+          class: 'object-cover w-full h-full duration-500 ease will-change-transform group-hover/link:scale-110',
+          draggable: false
+      }}
+    {% else %}
+      {{
+        'lifestyle-2'
+        | placeholder_svg_tag: 'object-cover w-full h-full duration-500 ease will-change-transform group-hover/link:scale-110'
+      }}
+    {% endif %}
+    {% if b_badge != blank %}
+      <span class="bg-c-sunhaze text-c-shadow font-third absolute left-3 top-3 rounded px-2 py-1 text-xs uppercase">
+        {{- b_badge -}}
+      </span>
+    {% endif %}
+  </span>
+
+  {% if b_title %}
+    <span class="group-hover/link:text-c-navy text-c-shadow text-lg duration-200 ease-in-out will-change-[color]">
+      {{- b_title -}}
+    </span>
+  {% endif %}
+
+  <span class="text-c-navy mt-auto pt-2 text-lg font-bold underline decoration-2 underline-offset-2">
+    {{- b_link_text -}}
+  </span>
+</a>
+
+{% schema %}
+{
+  "name": "Image block",
+  "class": "flex-1",
+  "tag": "li",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Block product"
+    },
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Block badge"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Block image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Block title"
+    },
+    {
+      "type": "text",
+      "id": "b_link_text",
+      "label": "Block link text"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Block link"
+    }
+  ],
+  "presets": [{ "name": "Image block" }]
+}
+{% endschema %}

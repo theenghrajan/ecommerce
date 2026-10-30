@@ -1,0 +1,63 @@
+{% comment %}
+  PARAMS:
+    product => shopify product OBJECT
+    id => uniq id
+    modi => modifier
+{% endcomment %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+<article
+  class="bg-c-white flex h-full w-full rounded p-3 {{ class }}"
+  x-data="{ qoId: Math.random() }"
+>
+  <a
+    href="{{ product.url }}"
+    aria-label="{{ product.name }}"
+    class="w-15 h-15 relative mr-4 flex shrink-0 overflow-hidden md:h-20 md:w-20"
+    draggable="false"
+  >
+    {{
+      product.featured_image
+      | image_url: width: 160
+      | image_tag:
+        loading: 'lazy',
+        alt: product.featured_image.alt,
+        class: 'block w-full h-full object-cover rounded pointer-events-none',
+        draggable: false
+    }}
+  </a>
+
+  <div class="flex w-full flex-col">
+    <h1 class="text-sc-title mb-1 line-clamp-1 text-base font-semibold md:text-lg">
+      {{- product.title -}}
+    </h1>
+
+    {% if product.metafields.binaery.product_information.value.slogan.value != blank %}
+      <div class="rte text-sc-title line-clamp-2 text-sm">
+        {{ product.metafields.binaery.product_information.value.slogan.value | metafield_tag }}
+      </div>
+    {% endif %}
+
+    <div class="mt-auto flex items-center justify-between space-x-5 pt-2">
+      <span class="flex">
+        <del class="text-c-gray mr-2 text-sm {% if current_variant.compare_at_price <= current_variant.price %} hidden {% endif %}">
+          {{- current_variant.compare_at_price | money_without_trailing_zeros -}}
+        </del>
+
+        <span class="text-c-shadow text-base font-semibold">
+          {{- current_variant.price | money_without_trailing_zeros -}}
+        </span>
+      </span>
+
+      <button
+        aria-label="Open quick order popup"
+        @click.prevent="$store.quickOrder.show({ id: qoId, initiator: 'cart' });"
+        class="btn bg-c-white border-c-shadow hover:bg-c-shadow hover:text-c-white min-h-0 w-max min-w-0 rounded-md border px-3 py-2 text-base font-semibold"
+      >
+        <span>{{ 'common.add_to_cart_small' | t }}</span>
+      </button>
+    </div>
+  </div>
+
+  {% render 'quick-order', product: product %}
+</article>

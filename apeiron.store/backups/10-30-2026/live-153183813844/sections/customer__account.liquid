@@ -1,0 +1,260 @@
+{% liquid
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+%}
+
+{% render 'section-paddings',
+  section_id: section.id,
+  pt_mob: pt_mob,
+  pb_mob: pb_mob,
+  pt_tab: pt_tab,
+  pb_tab: pb_tab,
+  pt_desk: pt_desk,
+  pb_desk: pb_desk
+%}
+
+<div class="bg-[#fefbf9]" data-section-id="{{ section.id }}">
+  {% render 'account-navigation' %}
+
+  <div class="narrow-container smD:pt-14 px-7.5 md:px-15 smD:px-25 smD:max-w-7xl 2xl:px-7.5 smD:pb-20 flex py-10 2xl:py-20">
+    {% render 'account-navigation-aside' %}
+    <div class="2xl:pl-12.5 border-c-border w-full 2xl:border-l">
+      <h1 class="text-sc-title mb-5 text-3xl font-semibold lg:text-4xl">
+        {{- 'customer.account.title' | t: name: customer.name -}}
+      </h1>
+
+      <div class="rte text-sc-body-primary mb-5 text-sm  md:text-base">
+        {{- 'customer.account.description_html' | t -}}
+      </div>
+
+      {% if customer.orders.size > 0 %}
+        <div class="smD:gap-x-4 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-y-5">
+          {%- for order in customer.orders -%}
+            {% liquid
+              assign status_label = ''
+              assign requeires_shipping = false
+              assign line_items_size = order.line_items.size
+
+              for line_item in order.line_items
+                if line_item.requires_shipping
+                  assign requeires_shipping = true
+                  break
+                endif
+              endfor
+
+              case true
+                when order.fulfillment_status_label
+                  assign status_label = 'Delivered'
+                  assign icon = 'location-ping'
+
+                when requeires_shipping
+                  assign status_label = 'On its way'
+                  assign icon = 'car'
+
+                when requeires_shipping
+                  assign status_label = 'Confirmed'
+                  assign icon = 'confirmed'
+
+                when order.cancelled
+                  assign status_label = 'Canceled'
+                  assign icon = 'canceled'
+              endcase
+
+              case line_items_size
+                when 1
+                  assign card_grid = 'grid-rows-1'
+                when 2
+                  assign card_grid = 'grid-cols-2'
+                else
+                  assign card_grid = 'grid-cols-2 grid-rows-2'
+              endcase
+            %}
+
+            <div class="bg-sc-bg-primary flex flex-col p-5">
+              <div class="bg-c-seabright mb-2.5 flex space-x-3 px-3 py-2">
+                <div class="">
+                  {% render 'icon', name: icon %}
+                </div>
+                <div class="">
+                  <h5 class="text-sc-title text-xs font-medium">{{ status_label }}</h5>
+                  <p class="text-sc-body-primary text-xs">Created at {{ order.created_at | date: '%B %d, %Y' }}</p>
+                </div>
+              </div>
+              <a class="group h-full" href="{{ order.customer_url }}">
+                <div class="grid h-52 gap-2.5 {{ card_grid }}">
+                  {% comment %}
+                    for line_item in order.line_items
+                     for i in (1..3)
+                  {% endcomment %}
+                  {%- for line_item in order.line_items -%}
+                    {% if forloop.index == 4 and line_items_size > 4 %}
+                      {% assign plus_products = line_items_size | minus: forloop.index0 %}
+                      <div class="bg-sc-bg-secondary flex items-center justify-center">
+                        <p class="text-sc-title font-primary text-sm font-medium">
+                          +{{ plus_products }}
+                          {{ plus_products | pluralize: 'product', 'products' }}
+                        </p>
+                      </div>
+                      {% break %}
+                    {% else %}
+                      {% assign img_class = 'block w-full object-cover h-full group-hover:scale-105 ease-in-out duration-500' %}
+                      <div class="image-overflow-hidden {% if forloop.first and line_items_size == 3 %} row-span-2{% endif %}">
+                        {% if line_item.image %}
+                          {{
+                            line_item.image
+                            | image_url: width: 400
+                            | image_tag:
+                              alt: line_item.image.alt,
+                              class: img_class,
+                              loading: 'lazy',
+                              widths: '100, 200, 300, 400'
+                          }}
+                        {% else %}
+                          {{ 'image' | placeholder_svg_tag: img_class }}
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                  {%- endfor -%}
+                </div>
+                <div class="mt-3">
+                  <h4 class="text-sc-title text-base font-medium">
+                    {{ 'customer.order.name' | t: name: order.name | downcase }}
+                  </h4>
+                  <p class="text-sc-body-primary text-sm">
+                    {{ line_items_size }}
+                    {{ line_items_size | pluralize: 'item', 'items' }}
+                  </p>
+                  <p class="text-sc-title mt-3 block text-base font-medium">{{ order.total_price | money }}</p>
+                </div>
+              </a>
+
+              {% assign show_buy_again = true %}
+              {% for line_item in order.line_items %}
+                {% assign has_variant = false %}
+
+                {% if all_products[line_item.product.handle] != blank %}
+                  {% for variant in all_products[line_item.product.handle].variants %}
+                    {% if variant.id == line_item.variant_id %}
+                      {% assign has_variant = true %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% if has_variant %}
+                    {% for variant in all_products[line_item.product.handle].variants %}
+                      {% if variant.id == line_item.variant_id and variant.available == false %}
+                        {% assign show_buy_again = false %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    {% assign show_buy_again = false %}
+                    {% break %}
+                  {% endif %}
+                {% else %}
+                  {% assign show_buy_again = false %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+
+              {% if show_buy_again %}
+                <button
+                  x-data="{ loading: false }"
+                  :aria-busy="loading"
+                  @click="
+                    async () => {
+                      loading = true;
+                      await $store.cart.addToCart(
+                       [
+                       {%- for line_item in order.line_items -%}
+                         {
+                           id: {{ line_item.variant_id }},
+                           quantity: {{ line_item.quantity }},
+                         },
+                       {%- endfor -%}
+                       ]
+                      );
+                      loading = false;
+                    }
+                  "
+                  class="relative z-10 mt-3 w-full uppercase {% render 'btn-class', btn: 'btn_primary_outline' %}"
+                >
+                  {% render 'btn-loader' %}
+                  <span>{{ 'customer.order.buy_it_again' | t }}</span>
+                </button>
+              {% endif %}
+            </div>
+          {%- endfor -%}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Customer account",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "                when order.fulfillment_status_label == 'complete'"
+  to: "                when order.fulfillment_status_label"
+  position: 1648..1699
+- from: "                when requeires_shipping and order.fulfillment.tracking_number"
+  to: "                when requeires_shipping"
+  position: 1801..1840
+- from: "                when requeires_shipping and order.fulfillment.tracking_number
+    == 'blank'"
+  to: "                when requeires_shipping"
+  position: 1933..1972
+{% endcomment %}

@@ -1,0 +1,492 @@
+{% liquid
+  assign section_anchor_id = section.settings.section_anchor_id | handleize
+
+  assign featured_article = section.settings.featured_article
+  assign bg = section.settings.bg
+
+  assign show_count = section.settings.show_count
+
+  assign title = section.settings.title
+
+  assign blocks = section.blocks
+  assign main_blog = section.settings.main_blog
+  assign main_blog_title = section.settings.main_blog_title | default: section.settings.main_blog.title
+
+  assign all_blogs = false
+  assign all_articles = false
+
+  for block in blocks
+    if all_blogs
+      assign all_blogs = all_blogs | append: block.settings.blog.handle | append: ','
+    else
+      assign all_blogs = block.settings.blog.handle | append: ','
+    endif
+  endfor
+  assign all_blogs = all_blogs | split: ','
+
+  if all_blogs contains blog.handle
+    assign initial_blog = blog.handle
+  else
+    assign initial_blog = main_blog.handle
+  endif
+
+  for uniq_blog in all_blogs
+    if all_articles
+      assign all_articles = all_articles | concat: blogs[uniq_blog].articles
+    else
+      assign all_articles = blogs[uniq_blog].articles
+    endif
+  endfor
+  assign all_articles = all_articles | sort: 'published_at' | reverse
+
+  assign pt_mob = section.settings.pt_mob
+  assign pb_mob = section.settings.pb_mob
+  assign pt_tab = section.settings.pt_tab
+  assign pb_tab = section.settings.pb_tab
+  assign pt_desk = section.settings.pt_desk
+  assign pb_desk = section.settings.pb_desk
+
+  render 'css-variables-setter'
+  render 'section-paddings', section_id: section.id, pt_mob: pt_mob, pb_mob: pb_mob, pt_tab: pt_tab, pb_tab: pb_tab, pt_desk: pt_desk, pb_desk: pb_desk
+%}
+
+<div
+  id="{{ section_anchor_id }}"
+  data-section-id="{{ section.id }}"
+  class="bg-sc-bg-primary"
+>
+  {% if title != blank %}
+    <div
+      class="py-15 border-c-border relative flex min-h-[300px] items-center justify-center border-b lg:min-h-[315px] 2xl:min-h-[400px]"
+      {% if bg != blank %}
+        style="background-image: url({{ bg | image_url: width: 1700 }}); background-size: cover;"
+      {% endif %}
+    >
+      <h2 class="text-sc-title container relative max-w-[833px] px-4 text-center text-3xl font-semibold lg:text-5xl">
+        {{- title -}}
+      </h2>
+    </div>
+  {% endif %}
+
+  <div data-hide-header x-data="blog('{{ initial_blog }}', {{ show_count }})">
+    <!-- Blog navigation -->
+    <div class="sticky top-0 z-10 bg-[#F9F9F9]">
+      <ul
+        data-blog-list
+        class="scrollbar-hide md:space-x-7.5 animate__animated relative mx-auto flex w-max max-w-full snap-x items-center space-x-5 overflow-x-auto overflow-y-hidden scroll-smooth px-5 opacity-0 md:px-10"
+        x-intersect.once="$el.classList.add('animate__fadeIn')"
+        @wheel.prevent.throttle="
+          $el.scrollBy({
+            left: $event.deltaY < 0 ? -500 : 500,
+            behavior: 'smooth'
+          });
+        "
+      >
+        {% if main_blog != blank %}
+          <li
+            class="hover:border-c-navy hover:text-c-navy snap-start scroll-ml-5 border-b-[2px] transition-colors duration-200 ease-in-out md:scroll-ml-10"
+            :class="activeBlogLink === '{{- main_blog.handle -}}' ? 'border-c-navy text-c-navy font-semibold' : 'border-transparent text-c-shadow'"
+            :data-active-blog="activeBlog === '{{ main_blog.handle }}'"
+          >
+            <button
+              type="button"
+              aria-label="{{- main_blog_title | prepend: 'Open blog - ' -}}"
+              class="flex items-center whitespace-nowrap py-4 text-lg"
+              @click="changeActiveBlog('{{- main_blog.handle -}}')"
+              :disabled="activeBlogLink === '{{- main_blog.handle -}}'"
+            >
+              <svg
+                x-cloak
+                x-show="activeBlogLink === '{{- main_blog.handle -}}'"
+                class="mr-2"
+                width="8"
+                height="9"
+                viewBox="0 0 8 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M4 0.5L8 4.5L4 8.5L0 4.5L4 0.5Z" fill="#1A4178"/>
+              </svg>
+
+              <span>
+                {{- main_blog_title -}}
+              </span>
+            </button>
+          </li>
+        {% endif %}
+
+        {% for block in blocks %}
+          {% liquid
+            assign block_blog = block.settings.blog
+            assign block_blog_handle = block_blog.handle
+            assign block_title = block.settings.title | default: block_blog.title
+            if block_blog.handle == main_blog.handle
+              continue
+            endif
+          %}
+          <li
+            class="hover:border-c-navy hover:text-c-navy snap-start scroll-ml-5 border-b-[2px] transition-colors duration-200 ease-in-out md:scroll-ml-10"
+            :class="activeBlogLink === '{{- block_blog_handle -}}' ? 'border-c-navy text-c-navy font-semibold' : 'border-transparent text-c-shadow'"
+            :data-active-blog="activeBlog === '{{ block_blog_handle }}'"
+          >
+            <button
+              type="button"
+              aria-label="{{- block_title | prepend: 'Open blog - ' -}}"
+              class="flex items-center whitespace-nowrap py-4 text-lg"
+              @click="changeActiveBlog('{{- block_blog_handle -}}')"
+              :disabled="activeBlogLink === '{{- block_blog_handle -}}'"
+            >
+              <svg
+                x-cloak
+                x-show="activeBlogLink === '{{- block_blog_handle -}}'"
+                class="mr-2"
+                width="8"
+                height="9"
+                viewBox="0 0 8 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M4 0.5L8 4.5L4 8.5L0 4.5L4 0.5Z" fill="#1A4178"/>
+              </svg>
+
+              <span>
+                {{- block_title -}}
+              </span>
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="mt-7.5 container lg:mt-10">
+      {% for block in blocks %}
+        {% assign block_blog = block.settings.blog %}
+        <div
+          class="gap-7.5 lg:gap-y-15 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3"
+          x-show="activeBlog === '{{ block_blog.handle }}'"
+          x-cloak
+        >
+          {% if featured_article != blank %}
+            {% liquid
+              assign featured_article_blog_handle = featured_article.handle | split: '/' | first
+              assign featured_blog = blogs[featured_article_blog_handle]
+              assign counter = 1
+            %}
+            <article
+              class="image-overflow-hidden group relative flex h-full min-h-[var(--same-height)] w-full flex-col overflow-hidden rounded-lg xl:col-span-2 xl:row-span-2"
+              style="--same-height: 398px;"
+            >
+              {%- if featured_article.image != blank -%}
+                <a
+                  href="{{ featured_article.url }}"
+                  class="image-overflow-hidden block h-full w-full"
+                  aria-label="Redirect to article"
+                >
+                  {{-
+                    featured_article.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      widths: '315, 620, 1400',
+                      class: 'object-cover w-full h-full group-hover:scale-105 duration-500',
+                      draggable: false
+                  -}}
+
+                  <span class="text-c-shadow min-w-15 bg-c-white/70 absolute right-3 top-3 flex justify-center px-4 py-2 text-sm font-medium lg:right-5 lg:top-5">
+                    {{- featured_blog.title -}}
+                  </span>
+                </a>
+              {%- else -%}
+                <div class="image-overflow-hidden relative h-full w-full">
+                  {{-
+                    'image'
+                    | placeholder_svg_tag: 'object-cover w-full h -full group-hover:scale-105 duration-500'
+                  -}}
+                </div>
+              {%- endif -%}
+
+              <div class="p-7.5 text-c-white bg-c-navy/70 absolute bottom-0 left-0 flex w-full flex-col backdrop-blur-xl lg:p-10 xl:max-w-[400px] xl:rounded-tr-lg">
+                <div class="mb-2 flex items-center space-x-2">
+                  {% render 'icon', name: 'calendar', class: 'text-c-white' %}
+                  <span class="text-sm lg:text-base">
+                    {{- featured_article.published_at | date: '%B %d, %Y' -}}
+                  </span>
+                </div>
+
+                <h1 class="mb-3">
+                  <a
+                    href="{{ featured_article.url }}"
+                    class="text-c-white line-clamp-3 text-xl duration-300 ease-in-out hover:opacity-90 lg:text-3xl"
+                    aria-label="Redirect to article"
+                  >
+                    {{- featured_article.title | default: 'Article title' -}}
+                  </a>
+                </h1>
+
+                {% if featured_article.excerpt_or_content != blank %}
+                  <div class="rte text-c-white line-clamp-3 text-base xl:text-lg">
+                    {{ featured_article.excerpt_or_content | strip_html }}
+                  </div>
+                {% endif %}
+
+                <a
+                  href="{{ featured_article.url }}"
+                  class="border-c-white mt-5 w-max max-w-full border-b duration-300 ease-in-out hover:border-transparent"
+                  aria-label="Redirect to article"
+                >
+                  {{- 'blogs.general.continue_reading_html' | t -}}
+                </a>
+              </div>
+            </article>
+          {% endif %}
+
+          {% if block_blog.handle == main_blog.handle %}
+            {% assign counter = counter | default: 0 %}
+            {% for article in all_articles %}
+              {% liquid
+                assign article_blog_handle = article.handle | split: '/' | first
+                assign blog = blogs[article_blog_handle]
+
+                assign loading = false
+                if counter > show_count
+                  assign loading = 'lazy'
+                endif
+              %}
+
+              {% unless article.handle == featured_article.handle %}
+                <div
+                  x-show="{{ counter }} <= articleShowCount"
+                  class="animate__animated opacity-0"
+                  :class="{'animate__fadeIn' : {{ counter }} <= articleShowCount }"
+                >
+                  {% render 'blog-post-card', blog: blog, article: article, loading: loading %}
+                </div>
+                {% assign counter = counter | plus: 1 %}
+              {% endunless %}
+            {% endfor %}
+          {% else %}
+            {% assign counter = counter | default: 0 %}
+
+            {% paginate block_blog.articles by 1000 %}
+              {% for article in block_blog.articles %}
+                {% unless article.handle == featured_article.handle and block_blog.articles.size > 1 %}
+                  {% liquid
+                    assign loading = false
+                    if counter > show_count
+                      assign loading = 'lazy'
+                    endif
+                  %}
+                  <div
+                    x-show="{{ counter }} <= articleShowCount"
+                    class="animate__animated opacity-0"
+                    :class="{'animate__fadeIn' : {{ counter }} <= articleShowCount }"
+                  >
+                    {% render 'blog-post-card', blog: block_blog, article: article, loading: loading %}
+                  </div>
+                  {% assign counter = counter | plus: 1 %}
+                {% endunless %}
+              {% endfor %}
+            {% endpaginate %}
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      <div class="invisible h-1 opacity-0" x-intersect:enter="loadMoreArticles"></div>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('blog', (initActiveBlog, showCount) => ({
+      activeBlog: initActiveBlog,
+      activeBlogLink: initActiveBlog,
+      initShowCount: showCount,
+      articleShowCount: showCount,
+      top: 0,
+      init() {
+        this.top = this.$root.getBoundingClientRect().top;
+        this.slideToActiveBlog();
+
+        window.onpopstate = () => {
+          window.location.reload();
+        };
+      },
+      changeActiveBlog(blog) {
+        this.activeBlogLink = blog;
+        window.scrollTo({
+          top: this.top,
+          behavior: 'smooth',
+        });
+        setTimeout(() => {
+          this.activeBlog = blog;
+          this.articleShowCount = this.initShowCount;
+          const shopifyRoute = window.Shopify.routes.root || '/';
+          this.changeUrl(`${shopifyRoute}blogs/${blog}`);
+          this.slideToActiveBlog();
+        }, 600);
+      },
+      loadMoreArticles() {
+        this.articleShowCount += this.initShowCount;
+      },
+      slideToActiveBlog() {
+        setTimeout(() => {
+          // mobile slide to
+          const parentAnchorBlock = this.$root.querySelector('[data-active-blog]');
+
+          if (parentAnchorBlock) {
+            const parentList = parentAnchorBlock.closest('[data-blog-list]');
+            parentList.scrollLeft = parentAnchorBlock.getBoundingClientRect().left;
+          }
+        }, 50);
+      },
+      changeUrl(url) {
+        window.history.replaceState({}, url, url);
+      },
+    }));
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Main blog",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_anchor_id",
+      "label": "Section anchor id",
+      "default": "Main blog"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "c-title",
+      "label": "Title color",
+      "default": "#1A4178"
+    },
+    {
+      "type": "color",
+      "id": "c-bg-primary",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg",
+      "label": "Banner background image"
+    },
+    {
+      "type": "header",
+      "content": "Section content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Weekly news and education from our dermatology experts"
+    },
+    {
+      "type": "blog",
+      "id": "main_blog",
+      "label": "Main Blog"
+    },
+    {
+      "type": "text",
+      "id": "main_blog_title",
+      "label": "Main Blog title"
+    },
+    {
+      "type": "header",
+      "content": "Featured article"
+    },
+    {
+      "type": "article",
+      "id": "featured_article",
+      "label": "Featured article"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "min": 2,
+      "max": 18,
+      "step": 2,
+      "unit": "un",
+      "id": "show_count",
+      "label": "Article show count",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Padding Y settings"
+    },
+    {
+      "type": "number",
+      "id": "pt_mob",
+      "label": "Mobile padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_mob",
+      "label": "Mobile padding bottom in px",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "pt_tab",
+      "label": "Tablet padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_tab",
+      "label": "Tablet padding bottom in px",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "pt_desk",
+      "label": "Desktop padding top in px",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "pb_desk",
+      "label": "Desktop padding bottom in px",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Blog"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Blog title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main blog"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["blog"]
+  }
+}
+{% endschema %}
