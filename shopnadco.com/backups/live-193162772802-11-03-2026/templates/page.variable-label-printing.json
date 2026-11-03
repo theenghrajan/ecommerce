@@ -1,0 +1,1010 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Variable Image Label Printing | Variable Data Label Printing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>NADCO offers antimicrobial film as a coating which can be placed over any substrate. The material is resistant to the growth of bacteria, fungi, and mildew, which makes it a popular choice for industrial applications where cleanliness is a priority. By design, antimicrobial film fights the propagation of harmful bacteria and other biological contaminants. These films provide a barrier that <a href=\"/pages/social-distancing-decals\" title=\"Social Distancing Decals & Tapes\">limits the transmission </a>of harmful microbial agents between humans and equipment.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/variable-label-printing_amarula-hero_jpg.webp",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_7aJqxK": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_VLi3gJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "What is Digital Variable Printing?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_y8rPNw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Digital variable data printing (VDP), also called variable imaging (VI) or variable information printing (VIP), is a type of digital printing that allows you to change specific elements on your printed materials, like text or graphics, to customize each piece. This on-demand printing is much faster than creating a new design for each item because it pulls information automatically from a database or an external file. It’s commonly used for direct marketing, advertising, barcoding, and inventory management.</p><p>By harnessing computer databases, digital print devices, and highly effective software, digital VDP and VIP can create high-quality, full-color labels and tapes with different elements such as unique barcodes, consecutive numbering, and other various information, all in-line on a finished roll or sheet. It also enables complete customization and personalization of labels to create individualized user experiences.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_VLi3gJ",
+        "text_y8rPNw"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/variableimageprinting-vip.gif",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "rich_text_qEUUj7": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_irCHMc": {
+      "type": "custom-content",
+      "blocks": {
+        "image_fTLiVQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/infographic-how-digital-variable-data-work_png.webp",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_fTLiVQ"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_YPV7Pp": {
+      "type": "rich-text",
+      "blocks": {
+        "text_x7JCTp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Digital variable data printing is a different process than simply printing multiple designs. The whole purpose of digital VDP is to speed up the design and printing process while still being able to customize each item with the variable data. It uses the same layout and basic design and fills in the holes with unique text or images.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_x7JCTp"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_JthBeH": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_FLB7rm": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/nad-coffee-lbls-on-press_jpg.webp",
+            "image_ratio": "1/1",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_JJcYpq": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Creating an Enhanced Consumer Experience",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p>One of the biggest benefits of variable image label printing is its ability to create personalized, unique labels that can improve the overall consumer experience. By including customized details, these labels can create a sense of exclusivity and increase consumer engagement.</p><p>Some specific ways that variable image label printing can boost the consumer experience include:</p>"
+          }
+        },
+        "collapsible_item_3U8h8q": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Reflecting a consumer’s unique taste.",
+            "content": "<p>Customized and personalized labels make it easy to reflect a consumer’s individual preferences. This can mean personalizing everything from fonts, designs, and colors to specific graphics and messaging.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_kLQMz4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Illustrating a consumer’s values.",
+            "content": "<p>Consumers like to purchase brands that say something about their values and who they are as a person. Variable image printing can create labels that promote brand initiatives such as “for every product bought, we’ll donate to charity.” Labels like this can attract consumers looking to make “good” purchases that align with their values.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_g8g7xE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Limited-edition personalized packaging.",
+            "content": "<p>Variable image label printing offers a great way to rollout limited-time-only personalized packaging. This can create unique connections with consumers and increase brand loyalty by making products that speak to each individual.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_nn7UWe": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Creating a sense of exclusivity and security.",
+            "content": "<p>Because variable image printing can be used to create personalized, custom products, they create a sense of exclusivity and security. For example, event organizers can use variable label printing to make personalized invitations, tickets, or badges to deliver a tailored experience and make it simpler to identify attendees.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_FLB7rm",
+        "heading_JJcYpq",
+        "collapsible_item_3U8h8q",
+        "collapsible_item_kLQMz4",
+        "collapsible_item_g8g7xE",
+        "collapsible_item_nn7UWe"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_HCAqe8": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_9dJjcL": {
+          "type": "heading",
+          "settings": {
+            "heading": "\"With the help of HP Indigo's exclusive software & digital print technology, Nadco ELEVATES VDP to VIP\"",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_9dJjcL"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/6KFRONTDemoCA342096902_202003091935142_jpg.webp",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "rich_text_iTN7VL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dQGXtn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Applications of Variable Label Printing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_8QAUY7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Variable label printing is ideal for a wide range of labeling applications, including:</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dQGXtn",
+        "text_8QAUY7"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_slider_P9XWhy": {
+      "type": "image-with-text-slider",
+      "blocks": {
+        "image_slide_kTTW4K": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/20260302_1404_Barcode_Labels_Roll_remix_01kjpwm68nfw18gphrg717hctb.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Product Labeling",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p>Manufacturers commonly utilize variable data label printing to label specific products with barcodes, serial numbers, and other unique identifiers. The system enables efficient inventory management and helps companies track products throughout the supply chain.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_BjAfHR": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/bottles_02455cd8-afc7-4d71-a1a7-5b524bc8792e.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Retail Labeling",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p>Retailers utilize variable imaging printing to create customizable shelf labels, price tags, and promotional materials that include pricing, offer details, and other product information.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_PPrMFU": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/pharmaceutical-labeling_jpg.webp",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Pharmaceutical Labeling",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p>Variable data label printing allows the pharmaceutical industry to print patient-specific information on medication labels. This information can include lot numbers, expiration dates, and dosages.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_3dnLjf": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/nutela.png",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Food Labeling",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p>Variable data label printing can be used throughout the food industry to print labels with expiration dates, batch codes, and other data required by law. Using this process is a great way to ensure compliance with food labeling regulations.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_iJ3zWN": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/logistic_jpg.webp",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Logistics Labeling",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p>Variable data label printing proves effective in the logistics industry for creating shipping labels with tracking information and barcodes that facilitate real-time shipment tracking of packages.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        },
+        "image_slide_gd4GAz": {
+          "type": "image-slide",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/security_jpg.webp",
+            "desktop_content_position": "middle-center",
+            "desktop_content_alignment": "left",
+            "mobile_content_alignment": "left",
+            "subheading": "",
+            "heading": "Security Labeling",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "text": "<p>Variable data printing services can be utilized to print security labels with unique scannable barcodes that can prevent counterfeiting and verify authenticity.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_kTTW4K",
+        "image_slide_BjAfHR",
+        "image_slide_PPrMFU",
+        "image_slide_3dnLjf",
+        "image_slide_iJ3zWN",
+        "image_slide_gd4GAz"
+      ],
+      "name": "t:sections.image-with-text-slider.presets.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "image_height": "medium",
+        "image_width": 70,
+        "image_position": "right",
+        "show_controls": true,
+        "autoplay": true,
+        "autoplay_delay": 3,
+        "desktop_controls_position": "start",
+        "mobile_controls_position": "inherit",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_icon_JhFFp6": {
+      "type": "multicolumn-icon",
+      "blocks": {
+        "column_ajykDD": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/warehouse-applications_png.webp",
+            "max_width": 50,
+            "max_width_mb": 28,
+            "title": "Warehouse/Inventory Control",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>NADCO provides a broad range of manufacturing and warehouse inventory control labels that include barcodes (including QR codes and data matrix), lot numbers, serial numbers, and other identifiers to assist with inventory management.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_8Wdxd4": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/retail-applications-1_png.webp",
+            "max_width": 50,
+            "max_width_mb": 28,
+            "title": "Retail Labeling and Packaging",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>NADCO can print unique images, backgrounds, custom messages, and color schemes on packaging and product labels. Doing so allows us to accommodate various retail needs, including running sweepstakes, increasing brand awareness, providing a personalized customer experience, and testing market label designs for different demographics.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_p3qPmh": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/measurements-applications_png.webp",
+            "max_width": 50,
+            "max_width_mb": 28,
+            "title": "Sequential Numbering",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>Sequential numbering can prove effective for many different purposes, including measurement units on floor marking tape with the inches and feet markings identified.</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_YwLc7D": {
+          "type": "column",
+          "settings": {
+            "icon": "none",
+            "image": "shopify://shop_images/die-cutting-applications_png.webp",
+            "max_width": 50,
+            "max_width_mb": 28,
+            "title": "Die-cutting",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h6",
+            "heading_font": "heading",
+            "text": "<p>NADCO offers premium die-cutting capabilities for variable printed labels using high-quality tools and equipment. Our specific die-cutting service offerings include slitting, sheeting, scoring, serrating, kiss cutting, perforating, and more. Die-cut labels have a print width of up to 12.75″ wide x 25″ Repeat (the label length plus gap = total repeat).</p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_ajykDD",
+        "column_8Wdxd4",
+        "column_p3qPmh",
+        "column_YwLc7D"
+      ],
+      "name": "t:sections.multicolumn-with-icon.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "NADCO’s Variable Data Label Printing & Variable Image Printing Services",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "<p>With the help of our HP Indigo’s exclusive software & digital print technology, NADCO Tapes & Labels, Inc. ELEVATES VDP to VIP. Our variable label printing services include:</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "enable_sticky": false,
+        "card_color_scheme": "scheme-10",
+        "content_alignment": "left",
+        "image_position": "top",
+        "icon_color": "#1d349a",
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "show_divider_col": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_Njcwhz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_Cke49d": {
+          "type": "heading",
+          "settings": {
+            "heading": "Label Customization Options",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_hiVkxf": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer a range of customization options with our variable image label printing services. We can produce barcodes and sequential numbering on any of our tape or label products – simply provide us with the necessary number range. It is also possible to generate repeating number patterns, such as 5, 10, 15, 20, etc., without a CSV file when customers identify the desired number pattern and supply the stop and start numbers.</p><p>However, some customization options do require the use of CSV files. Customers can create an Excel spreadsheet saved as a CSV UTF-8 (comma delimited) with a .CSV file extension. In these situations, such as in the example below, the file must include the changing records saved in individual cells and columns.</p><p>One label can accommodate several areas of variable data and customization. For example, if a customer requires a labeling solution that combines sequential numbering, personal images and barcodes, we can do that. Customers can also change background colors and images in two ways: sending a CSV file or using our stock seed files (graphic files with various repeating colors and patterns). Using our software, we can flip, rotate, reduce, or enlarge these files to produce unlimited variations. Additionally, we can change the color schemes to meet customer requirements, such as changing pastels to primary colors.</p><p>If you have questions on whether you need to provide us with a CSV or not, <a href=\"/pages/contact-us\" title=\"Contact us\">contact us</a> and we will be happy to help.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_Cke49d",
+        "text_hiVkxf"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/label-customization-options_jpg.webp",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "collapsible_tabs_QQVfX4": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "collapsible_item_mPTqYe": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "We can work with the following labeling and packaging substrates",
+            "content": "<ul><li>Various paper label stock</li><li>Vinyl</li><li>BOPP</li><li>Transparent BOPP</li><li>Clear polypropylene or polyester</li><li>Silver BOPP</li><li>Tag stock</li><li>Holographic film</li><li>Flexible packaging films</li><li>PET</li><li>Estate papers (premium label stock)</li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_jLnfXf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "We also offer the following ink types and finishes",
+            "content": "<ul><li>Faux foil with digital silver ink</li><li>Digital opaque white ink</li><li>Invisible inks (for added customer experience or security – i.e. print a secret message only visible when exposed to a black/UV light)</li><li>Matte or glossy protective lamination and/or varnishes (including UV varnish)</li></ul>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_item_mPTqYe",
+        "collapsible_item_jLnfXf"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_Et7LaA": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Pztkha": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Choose NADCO’s Variable Data Printing & Variable Image Printing for Your Next Job?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_aUnKrN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At NADCO Tapes & Labels, Inc., we’re proud to offer digital variable data printing and variable image printing, and we have upgraded our hardware and software to better serve you. If a company is using outdated equipment, digital VDP and VIP is fairly time-consuming; by investing in the latest technology, we’re able to manage larger orders with faster turnarounds.</p><p>While we’ve long been recognized as an industry leader for customized tapes and labels, we remain the best-kept secret in the labeling industry because of our extensive capabilities, including digital VDP and VIP. Our custom labeling capabilities include company logos, customized text and design, and so much more.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Pztkha",
+        "text_aUnKrN"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_VrkCTq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_JBaQQp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Use Digital Variable Printing for Your Next Project",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_CrgxiM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Digital variable data printing is a simple, cost-effective way to change specific elements on printed materials such as tape, labels, and more. By using information from a database or external file, VDP can change texts, graphics, colors, barcodes, and images from one printed piece to the next without slowing down or stopping the printing process.</p><p>For decades, NADCO has been a leading manufacturer and converter of tapes and labels. With our digital VDP services, we can deliver high-quality printed materials that meet your specifications with custom images, logos, text, and more. To learn more about our digital variable data printing capabilities, <a href=\"/pages/contact-us\" title=\"Contact us\">contact us</a> or <a href=\"/pages/request-a-quote\" title=\"Request a Quote\">request a quote</a> today.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "button_GV798y": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact-us",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JBaQQp",
+        "text_CrgxiM",
+        "button_GV798y"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_en8NeD": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_9bFUiK": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_9bFUiK"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "image_with_text_7aJqxK",
+    "rich_text_qEUUj7",
+    "custom_content_irCHMc",
+    "rich_text_YPV7Pp",
+    "collapsible_tabs_JthBeH",
+    "image_with_text_HCAqe8",
+    "rich_text_iTN7VL",
+    "image_with_text_slider_P9XWhy",
+    "multicolumn_icon_JhFFp6",
+    "image_with_text_Njcwhz",
+    "collapsible_tabs_QQVfX4",
+    "rich_text_Et7LaA",
+    "rich_text_VrkCTq",
+    "apps_en8NeD",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

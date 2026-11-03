@@ -178,6 +178,16 @@ class CartItems extends HTMLElement {
   }
 
   onChange(event) {
+    const quantityInput = event.target;
+    quantityInput.setCustomValidity('');
+
+    const quantity = parseInt(quantityInput.value);
+    const minQuantity = parseInt(quantityInput.getAttribute('data-min')) || 1;
+    if (quantity > 0 && quantity < minQuantity) {
+      this.setMinQuantityError(quantityInput, FoxTheme.quickOrderListStrings.minError.replace('[min]', minQuantity));
+      return;
+    }
+
     this.updateQuantity(
       event.target.dataset.index,
       event.target.value,
@@ -195,6 +205,15 @@ class CartItems extends HTMLElement {
       window.location.href = FoxTheme.routes.cart_url;
     }
     alert(errors);
+  }
+
+  setMinQuantityError(target, message) {
+    target.setCustomValidity(message);
+    target.reportValidity();
+    // Clear on blur so the leftover custom error cannot block the checkout form submit.
+    target.addEventListener('blur', () => target.setCustomValidity(''), { once: true });
+    target.value = target.defaultValue;
+    target.select();
   }
 
   setValidity(target, message) {

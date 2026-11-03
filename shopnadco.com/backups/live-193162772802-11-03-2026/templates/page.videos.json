@@ -1,0 +1,593 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_PD4Gem": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_BwxrQV": {
+          "type": "heading",
+          "settings": {
+            "heading": "Company Videos",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_J9UDLz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At NADCO Tapes & Labels, we strive to produce the highest quality work. The videos below are provided to share insights, best practices, and helpful guidance to support your projects and ensure the best possible results.</p>",
+            "text_size": "text-inherit"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BwxrQV",
+        "text_J9UDLz"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/Firefly_make_an_image_of_someone_video_taping_employees_working_at_a_printing_press_365415.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "custom_content_iRhHyP": {
+      "type": "custom-content",
+      "blocks": {
+        "video_xEYXg8": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://youtu.be/PkwV3ybSVrY",
+            "cover_image": "shopify://shop_images/Rectangle_3534.png",
+            "video_ratio": "1/1",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "text_wfRF4J": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "description": "<p><br/>NADCO is a leading provider of tape and label products, providing customized solutions for a wide range of industries and applications. Whether engineers require assistance determining the best materials for their projects or need help solving complex adhesive challenges, the experts at NADCO can deliver a tailored solution to meet their needs.<br/><br/>With years of industry experience and extensive manufacturing capabilities, we can work with our clients from start to finish to create quality tape and label products that meet your requirements for adhesion performance, safety, advertisement, and more. At NADCO, “If you can imagine it, we will make it stick!”<br/><br/></p>",
+            "text_size": "text-base",
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_xEYXg8",
+        "text_wfRF4J"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_U9iRNF": {
+      "type": "custom-content",
+      "blocks": {
+        "video_HgGzxU": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "video_zDBYWx": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "video_K3PhRW": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "33%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_HgGzxU",
+        "video_zDBYWx",
+        "video_K3PhRW"
+      ],
+      "disabled": true,
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "media_card_grid_qFGCfW": {
+      "type": "media-card-grid",
+      "blocks": {
+        "card_iGD8Y8": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://youtu.be/mCxGACf2Phg",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Digital Label Printing</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_hkQ7jL": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=OJDXODdCWOg?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Energy And Utilities Industry</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_tJrrYG": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=i3GFzCCsE98?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>OSHA Compliance</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_UMCxAg": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=aJJgSnNcUmE?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Inside Look At NADCO</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_f3VXaA": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=vnohFxf3jpw?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Food and Beverage Industry</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_BCHhU7": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=SxSthDud-2E?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>The Nuclear Tape Industry</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_yUBgKn": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=PkwV3ybSVrY?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>NADCO Tapes and Labels, Inc. - Factory Tour Video</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_wWPxxK": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=3_IKZ0eK8-0?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Nadco Bridges The Gap</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_LbNmjL": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=PDY-TZxZq-A?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Variable Data Printing</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_qVHnUA": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=yhWNdihJrIU?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Tamper-Evident Labels from NADCO</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_qpaFEB": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=4RDb43Jww6M?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Custom Pressure Sensitive Adhesive Tapes</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_JMfp4h": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=0tSnTuyQCR0?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Digital Printing & Digital Die Cutting</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_FbGAhM": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=I8UQnzXszIk?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Die Cutting Services</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_iCefN8": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=mzHtN-hhDW0?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Custom Printed Tapes & Labels</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_pdXDrg": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=Y4R_1yxiEqs?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>3M Dual Lock Reclosable Fastener Application Tips</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_a9dehH": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=Ud4cNYqLm9M?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Custom Printed Tapes Labels</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_RgY8TG": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=B0E05GHd0NE?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Custom Labels & Tapes for Every Industry</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "card_74Ye6T": {
+          "type": "card",
+          "settings": {
+            "youtube_id": "https://www.youtube.com/watch?v=P9xTSVi8HkU?autoplay=1&rel=0&enablejsapi=1",
+            "vimeo_id": "",
+            "autoplay": false,
+            "loop": false,
+            "mute": true,
+            "media_height_desktop": 260,
+            "heading": "",
+            "text": "<h5>Custom Labels for Food & Beverage Products</h5>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_iGD8Y8",
+        "card_hkQ7jL",
+        "card_tJrrYG",
+        "card_UMCxAg",
+        "card_f3VXaA",
+        "card_BCHhU7",
+        "card_yUBgKn",
+        "card_wWPxxK",
+        "card_LbNmjL",
+        "card_qVHnUA",
+        "card_qpaFEB",
+        "card_JMfp4h",
+        "card_FbGAhM",
+        "card_iCefN8",
+        "card_pdXDrg",
+        "card_a9dehH",
+        "card_RgY8TG",
+        "card_74Ye6T"
+      ],
+      "name": "Media Card Grid",
+      "settings": {
+        "bg_color": "#ffffff",
+        "card_bg": "#f5f5f5",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "grid_gap": 24,
+        "card_radius": 12,
+        "card_shadow": false,
+        "text_align_desktop": "center",
+        "text_align_mobile": "center",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "media_height_mobile": 260
+      }
+    },
+    "apps_bBFBmy": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_BH9id8": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_DwmLgd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_QDW7n9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DwmLgd",
+        "button_QDW7n9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_PD4Gem",
+    "custom_content_iRhHyP",
+    "custom_content_U9iRNF",
+    "media_card_grid_qFGCfW",
+    "apps_bBFBmy",
+    "image_with_text_overlay_BH9id8"
+  ]
+}

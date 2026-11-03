@@ -1,0 +1,849 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_RrPEUh": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_YGnMGE": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Home / About us</p>",
+            "text_size": "text-base"
+          }
+        },
+        "heading_XRNARy": {
+          "type": "heading",
+          "settings": {
+            "heading": "About us",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "text_YGnMGE",
+        "heading_XRNARy"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/NADCO_Team_Image_FINAL_65e2bbf1-16c8-463d-9974-4ca3a0cd922d.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_8xxMPY": {
+      "type": "image-with-text",
+      "blocks": {
+        "badge_p6JWUa": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-3",
+            "text": "garace - where design meet function -",
+            "position_mobile": "right"
+          }
+        },
+        "cstm_badge_qxdTL6": {
+          "type": "cstm-badge",
+          "settings": {
+            "bg_color": "#15679b",
+            "text_color": "#ffffff",
+            "top_position": 76,
+            "left_position": 0,
+            "mobile_top_position": 1,
+            "mobile_left_position": 1,
+            "border_width": 3,
+            "border_color": "#ffffff",
+            "padding": 20,
+            "brder_radius": 14,
+            "cst_main_head": "1.2k+",
+            "description": "Happy Customers",
+            "first_img": "shopify://shop_images/8e734298e6b2960cc2ce4c1b59be7a4ae2210c6c.png",
+            "second_img": "shopify://shop_images/e8a75070c4b9d12d7b998ff7698e5a06bd4e8d9e.png",
+            "third_img": "shopify://shop_images/040afc1039e73f507f019be533711f77e67ed55f.png",
+            "fourth_img": "shopify://shop_images/a7adab70cea3b99779ca5eab3bf50be053a4d004.png",
+            "fifth_img": "shopify://shop_images/58c588dad2794161fbe84e8eb292d32968fef88d.png",
+            "sixth_img": "shopify://shop_images/8276e6349829ef6f4ef96fdfa6273b0c36367f63.png"
+          }
+        },
+        "subheading_HweQVa": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "<strong>About Us</strong>"
+          }
+        },
+        "heading_84Hrka": {
+          "type": "heading",
+          "settings": {
+            "heading": "NADCO Tapes & Labels, Inc.",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_tyK8ac": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>NADCO® Tapes & Labels, Inc.’s</strong>capabilities are only limited to our customers’ imagination. Not only have we been recognized as an excellent company for our tapes and labels, but we are the best kept secret in the label industry today. We offer custom labeling to include company logos with customized text.<br/><br/>After 12 years headquartered in New Hampshire, NADCO® relocated to larger facilities in Sarasota, Florida, in 2005. The warehouse offers 35,000 square feet to stock a large supply of quality inventory. We can manufacture tapes and label products up to 20″ wide and print 4-color process or up to 7 spot colors. Customization is our specialty! We carry items such as vinyl, film, cloth and duct tapes, metal foil, paper tapes and labels, high performance products, double-coated products, pipe markers, dots / arrows and safety products. We’re also an UL-authorized label supplier and the first Florida <a href=\"/blogs/news/what-it-means-to-be-florida-s-first-usgbc-leed-silver-certified-manufacturer\" title=\"What it Means to be Florida’s First USGBC LEED Silver–Certified Manufacturer\">LEED Silver Certified manufacturer!</a></p>",
+            "subtext_color": true
+          }
+        },
+        "icon_with_text_wzNAVR": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "map-pin",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "Product locally in New York",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "icon_with_text_BAttVB": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "smiley",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "4,8 Review Score",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "icon_with_text_m8mYUK": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "stool",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "Over 50 Products",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "button_kFf3mp": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "badge_p6JWUa",
+        "cstm_badge_qxdTL6",
+        "subheading_HweQVa",
+        "heading_84Hrka",
+        "text_tyK8ac",
+        "icon_with_text_wzNAVR",
+        "icon_with_text_BAttVB",
+        "icon_with_text_m8mYUK",
+        "button_kFf3mp"
+      ],
+      "custom_css": [
+        ".image-with-text__content {/* max-width: 45rem; */ /* --text-margin-top: 2rem; */}",
+        "@media (min-width: 1280px) {.image-with-text__media {padding-inline-start: 5rem; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 120
+      }
+    },
+    "image_with_text_Ekz99W": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_AVJgaP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In addition, our Customer Service Department offers service from Monday – Friday 8:30 a.m. – 5:00 p.m. EST to serve all of your needs. We would be happy to research your special project and provide you with a quote. Our creative R & D department can assist you in developing new products. NADCO® remains dedicated to providing the best in customer service by handling your order from start to finish. Remember, if you can imagine it, NADCO® will make it stick!</p>",
+            "subtext_color": true
+          }
+        },
+        "button_r4Uegr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact us",
+            "button_link": "https://info.nadco-inc.com/contact-us",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right",
+            "sec_button_label": "Request a Quote",
+            "sec_button_link": "shopify://pages/request-a-quote",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "text_AVJgaP",
+        "button_r4Uegr"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".image-with-text__content {/* max-width: 45rem; */ /* --text-margin-top: 2rem; */}",
+        "@media (min-width: 1280px) {.image-with-text__media {padding-inline-start: 5rem; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/image_25.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 120
+      }
+    },
+    "multicolumn_rkNwwQ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_9rWqV3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/building.png",
+            "title": "Company Founded",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>June 1988</strong><br/>NADCO® Tapes & Labels, Inc.’s was founded in West Haven, Connecticut.</p>",
+            "text_max_limit": 200,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_VMkhYV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/factory.png",
+            "title": "Company Growth",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>June 1993<br/></strong>NADCO® Tapes & Labels, Inc.’s relocated to New Hampshire due to a growing tape market and expansion into commercial label printing.</p>",
+            "text_max_limit": 200,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_3wgkF8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/fact.png",
+            "title": "<strong>Relocated to Florida</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>June 2005</strong><br/>After 12 years headquartered in New Hampshire, NADCO® relocated to larger facilities in Sarasota, Florida, in 2005. The warehouse offers 35,000 square feet to stock a large supply of quality inventory.</p>",
+            "text_max_limit": 300,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_AAb3TJ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/manufacturing_industry.png",
+            "title": "<strong>Customization is Our Specialty!</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>June 2005</strong><br/>7 Color Process<br/>We can manufacture tapes and label products up to 20\" wide and print 4-color process or up to 7 spot colors.</p>",
+            "text_max_limit": 200,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_ArqhPe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20260128_1027_Enhanced_Printer_Display_remix_01kg1h3aefenqrjsmk1fdaz73a.png",
+            "title": "Digital Printing",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>June 2010</strong><br/>In 2010 NADCO® implemented digital printing capabilities expanding productivity in addition to analog press processes.</p>",
+            "text_max_limit": 200,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_WPtiYP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/custom_tapes_and_labels_20_years_2.jpg",
+            "title": "20 Years In Florida!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>June 2025<br/></strong>We moved our entire company to the Gulf coast of Florida back in 2005. This year we are celebrating 20 years in paradise!</p><p>We can't thank all of YOU enough for trusting us with your 'sticky' projects over the years.</p><p>Remember.....If you can imagine it, we'll make it stick!</p><p>Sincerely,<br/><strong>Rena' & Neil</strong></p>",
+            "text_max_limit": 400,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_9rWqV3",
+        "column_VMkhYV",
+        "column_3wgkF8",
+        "column_AAb3TJ",
+        "column_ArqhPe",
+        "column_WPtiYP"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#ffffff",
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Since 1988",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p>Remember…..<br/>If you can imagine it NADCO will make it stick®<br/><br/><br/><br/></p>",
+        "text_size": "text-lg",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 3,
+        "column_gap": "small",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_tjEkad": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_GHjni7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Achievements & Certifications",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_xNq8Db": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At <strong>NADCO Tapes & Labels</strong>, quality, compliance, and environmental responsibility are foundational to everything we manufacture. Our certifications reflect our commitment to operational excellence, regulatory compliance, and sustainable innovation.</p><p><strong>ISO 9001:2015 Certified</strong></p><p>NADCO operates under an<strong> ISO 9001:2015</strong>–certified Quality Management System, ensuring consistent product performance, documented processes, traceability, and continuous improvement across all tape and label manufacturing operations.<br/><br/><strong>WBENC Certified Woman-Owned Business</strong></p><p>NADCO is proudly certified by the <strong>Women’s Business Enterprise National Council (WBENC)</strong> — the most widely recognized and respected national certification for women-owned businesses in the United States. This designation reflects our leadership, innovation, and commitment to supplier diversity initiatives.</p><p><strong>UL Authorized Label Supplier</strong></p><p>As a <strong>UL-authorized label supplier</strong>, NADCO manufactures labeling solutions that meet strict safety, durability, and compliance standards required across regulated industries including electrical, industrial, and manufacturing environments.</p><p><strong>LEED® Silver Certified Manufacturing Facility</strong></p><p>NADCO is proud to be <strong>Florida’s first USGBC LEED Silver–certified tape and label manufacturer</strong>.</p><p>Our certification recognizes environmentally responsible manufacturing practices focused on:</p><ul><li>Sustainable facility development<br/></li><li>Improved water efficiency<br/></li><li>Reduced energy consumption and emissions<br/></li><li>Responsible material sourcing<br/></li><li>Waste reduction initiatives<br/></li><li>Enhanced indoor environmental quality<br/></li></ul><p>Our green manufacturing practices help customers meet sustainability goals while supporting healthier communities and reduced environmental impact.<br/><strong><br/>Commitment to Sustainability</strong></p><p>We continuously invest in environmentally responsible technologies and processes to reduce resource consumption, minimize waste, and deliver innovative labeling and tape solutions aligned with modern sustainability standards.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_tWdcX4": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GHjni7",
+        "text_xNq8Db",
+        "button_tWdcX4"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/asst_certs_image_for_about_pg-FINAL.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_CYJkkR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_X9FTFU": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_11.png",
+            "title": "Rená Doniger",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>President</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_VJteEz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_12.png",
+            "title": "Neil Doniger",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Vice President</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_bdteKj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_13.png",
+            "title": "Vicky Edgerly",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Prepress/Graphic Supervisor<br/></p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        },
+        "column_QtwV8U": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_14.png",
+            "title": "Shelby Johnson",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Production Manager</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_r8Mpj9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_17.png",
+            "title": "Tobie Daniels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Account Representative/Office Manager</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_UndG4M": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_15.png",
+            "title": "Erika Estrada",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Production Manager</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_CUAMzY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_19.png",
+            "title": "Stacie Jones",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Account Representative / ISO Document Coordinator</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_J83T9a": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/image_16.png",
+            "title": "Jared Doniger",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Account Representative</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_X9FTFU",
+        "column_VJteEz",
+        "column_bdteKj",
+        "column_QtwV8U",
+        "column_r8Mpj9",
+        "column_UndG4M",
+        "column_CUAMzY",
+        "column_J83T9a"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#f5f5f5",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Professional Team",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p><strong>NADCO® Tapes & Labels, Inc.’s</strong> capabilities are limited only by our customers’ imagination. Not only have we been recognized as an excellent company for our tapes, but we are the best kept secret in the label industry today. We offer custom labeling to include company logos with customized text.</p>",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_PAHpe9": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_iP4RnC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20260126_1121_Image_Generation_remix_01kfwfbfkrfzr8t6dws8v779f0_d2f85a73-bc5a-4961-ac9e-aafed7fa1ec4.png",
+            "title": "Automated Label Solutions Fuel Growth For Co-packer Wlc's Brand Expansion",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>In 2010, West Street Liquor Company (WLC) emerged under the umbrella of Aruba Trading Company, a fixture in the community since 1923. </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/case-study-wlc",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_kKxCGx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/20260126_1200_Image_Generation_remix_01kfwhj9fbfekb4jmrvy4ccjvg.png",
+            "title": "All-in-One Labeling Solution Boosts Efficiency and Savings for Co-Packer",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Founded in 2013 by Craig Marquette, CBM Marketing, Inc. In Sarasota, Florida, has carved a niche in the retail sector</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/cbm-marketing-inc",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_etP9TB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/cover-express-labels_png.webp",
+            "title": "Mobility Scooter Cover Business Rides To Success With Nadco’s Stock Holding Program",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Cover Express specializes in crafting weather covers tailored specifically for scooters and power wheelchairs.</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "Learn more",
+            "button_link": "shopify://pages/case-study-cover-express",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_iP4RnC",
+        "column_kKxCGx",
+        "column_etP9TB"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": true,
+        "card_bg_color": "#f5f5f5",
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Case Studies",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": true,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "apps_Gqqyjq": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_M868CG": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_hqMFXx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_emLL9z": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hqMFXx",
+        "button_emLL9z"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "scheme-inverse",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_RrPEUh",
+    "image_with_text_8xxMPY",
+    "image_with_text_Ekz99W",
+    "multicolumn_rkNwwQ",
+    "image_with_text_tjEkad",
+    "multicolumn_CYJkkR",
+    "multicolumn_PAHpe9",
+    "apps_Gqqyjq",
+    "image_with_text_overlay_M868CG"
+  ]
+}

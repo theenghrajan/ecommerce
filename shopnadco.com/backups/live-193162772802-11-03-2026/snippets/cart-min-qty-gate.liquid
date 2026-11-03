@@ -1,0 +1,38 @@
+{% comment %}
+  Gates checkout while any cart line is below its variant's minimum purchase quantity
+  (see variant-min-qty). Outputs nothing when every line meets its minimum.
+  Accepts:
+  - output: {String} what to output when a line is below its minimum:
+    'notice'   - the error message
+    'disabled' - the disabled attribute, for the checkout button
+    'hidden'   - the hidden class, for the accelerated checkout buttons
+
+  Usage:
+  {% render 'cart-min-qty-gate', output: 'notice' %}
+  <button type="submit" name="checkout" {% render 'cart-min-qty-gate', output: 'disabled' %}>
+{% endcomment %}
+{%- liquid
+  assign below_min = false
+  for item in cart.items
+    capture item_min_qty
+      render 'variant-min-qty', variant: item.variant
+    endcapture
+    assign item_min_qty = item_min_qty | plus: 0
+    if item.quantity < item_min_qty
+      assign below_min = true
+      break
+    endif
+  endfor
+-%}
+{%- if below_min -%}
+  {%- case output -%}
+    {%- when 'notice' -%}
+      <div class="alert alert--error blocks-radius-md" role="alert">
+        {{ 'sections.cart.min_quantity_error' | t }}
+      </div>
+    {%- when 'disabled' -%}
+      disabled
+    {%- when 'hidden' -%}
+      hidden
+  {%- endcase -%}
+{%- endif -%}

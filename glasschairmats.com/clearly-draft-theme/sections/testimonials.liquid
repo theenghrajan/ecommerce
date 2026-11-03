@@ -1,0 +1,394 @@
+{%- style -%}
+  .testimonials-{{ section.id }} {
+    background-color: {{ section.settings.color_background }};
+    color: {{ section.settings.color_text }};
+  }
+{%- endstyle -%}
+
+<div
+  class="text-center testimonials-section testimonials-{{ section.id }}{% if section.settings.color_background == settings.color_body_bg %} testimonials-section--with-divider{% endif %}"
+  data-section-id="{{ section.id }}"
+  data-section-type="testimonials"
+  data-aos>
+
+  {%- if section.settings.title != blank -%}
+    <div class="page-width">
+      <div class="section-header">
+        <h2>{{ section.settings.title | escape }}</h2>
+        <p><a class="btn btn--inverse btn-nofloat" href="/pages/reviews">Read All Reviews</a></p>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="slideshow-wrapper tc-premium-wrapper">
+      <div class="tc-premium-stage">
+        <div class="tc-premium-track" id="tc-premium-{{ section.id }}">
+          {%- for block in section.blocks -%}
+            <div class="tc-premium-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+              <blockquote class="tc-premium-blockquote">
+
+                {%- if block.settings.icon == 'quote' -%}
+                  <span class="quote-icon"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-quote" viewBox="0 0 41 35"><path d="M10.208 17.711h6.124v16.332H0V21.684C0 8.184 5.444.956 16.332 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766zm24.498 0h6.124v16.332H24.498V21.684C24.498 8.184 29.942.956 40.83 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766z" fill="#000" fill-rule="evenodd"/></svg></span>
+                {%- elsif block.settings.icon == '5-stars' -%}
+                  <span class="testimonial-stars tc-stars">★★★★★</span>
+                {%- elsif block.settings.icon == '4-stars' -%}
+                  <span class="testimonial-stars tc-stars">★★★★</span>
+                {%- elsif block.settings.icon == '3-stars' -%}
+                  <span class="testimonial-stars tc-stars">★★★</span>
+                {%- elsif block.settings.icon == '2-stars' -%}
+                  <span class="testimonial-stars tc-stars">★★</span>
+                {%- elsif block.settings.icon == '1-star' -%}
+                  <span class="testimonial-stars tc-stars">★</span>
+                {%- endif -%}
+
+                {%- if block.settings.testimonial != blank -%}
+                  <div class="rte-setting text-spacing tc-text">{{ block.settings.testimonial }}</div>
+                {%- endif -%}
+
+                {%- if block.settings.image != blank or block.settings.author != blank or block.settings.author_info != blank -%}
+                  <div class="testimonial-meta tc-meta">
+                    {%- if block.settings.image != blank -%}
+                      <div class="image-wrap testimonail-image{% if section.settings.round_images %} testimonail-image--round{% endif %}">
+                        <img
+                          src="{{ block.settings.image | image_url: width: 180 }}"
+                          alt="{{ block.settings.image.alt | escape }}"
+                          loading="lazy"
+                          width="{{ block.settings.image.width }}"
+                          height="{{ block.settings.image.height }}"
+                        >
+                      </div>
+                    {%- endif -%}
+                    {%- if block.settings.author != blank -%}
+                      <cite>{{ block.settings.author | escape }}</cite>
+                    {%- endif -%}
+                    {%- if block.settings.author_info != blank -%}
+                      <p>{{ block.settings.author_info | escape }}</p>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
+              </blockquote>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div class="tc-premium-dots" id="tc-dots-{{ section.id }}"></div>
+    </div>
+  {%- endif -%}
+
+</div>
+
+<style>
+.tc-premium-wrapper {
+  padding: 0 0 40px;
+}
+
+.tc-premium-stage {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.tc-premium-track {
+  display: flex;
+  align-items: stretch;
+  will-change: transform;
+}
+
+.tc-premium-card {
+  flex: 0 0 360px;
+  width: 360px;
+  padding: 36px 32px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.55s cubic-bezier(0.65, 0, 0.35, 1);
+  opacity: 0.4;
+  transform: scale(0.93);
+  cursor: pointer;
+}
+
+.tc-premium-card.tc-active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  cursor: default;
+}
+
+.tc-premium-blockquote {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: none;
+}
+
+.tc-stars {
+  display: block;
+  color: #c8a951;
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.tc-text {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 14px;
+  line-height: 1.75;
+  color: inherit;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.tc-meta {
+  margin-top: auto;
+}
+
+.tc-meta cite {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 13px;
+  color: #888;
+  font-style: normal;
+}
+
+.tc-premium-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tc-premium-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.tc-premium-dot.tc-dot-active {
+  background: #464644;
+  transform: scale(1.35);
+}
+
+@media (max-width: 749px) {
+  .tc-premium-card {
+    flex: 0 0 280px;
+    width: 280px;
+    padding: 28px 22px;
+    margin: 10px 8px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var track = document.getElementById('tc-premium-' + sectionId);
+  var dotsWrap = document.getElementById('tc-dots-' + sectionId);
+  if (!track) return;
+
+  var originalCards = Array.from(track.querySelectorAll('.tc-premium-card'));
+  var total = originalCards.length;
+  if (total === 0) return;
+
+  originalCards.slice(0, 3).forEach(function(card) {
+    var clone = card.cloneNode(true);
+    clone.classList.add('tc-clone');
+    clone.removeAttribute('data-index');
+    track.appendChild(clone);
+  });
+
+  var allCards = Array.from(track.querySelectorAll('.tc-premium-card'));
+  var current = 0;
+  var autoplay;
+  var INTERVAL = 4200;
+  var isTransitioning = false;
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    originalCards.forEach(function(_, i) {
+      var btn = document.createElement('button');
+      btn.className = 'tc-premium-dot' + (i === 0 ? ' tc-dot-active' : '');
+      btn.setAttribute('aria-label', 'Review ' + (i + 1));
+      btn.addEventListener('click', function() {
+        if (!isTransitioning) { goTo(i); resetAutoplay(); }
+      });
+      dotsWrap.appendChild(btn);
+    });
+  }
+
+  function updateDots(index) {
+    var dots = dotsWrap.querySelectorAll('.tc-premium-dot');
+    dots.forEach(function(d) { d.classList.remove('tc-dot-active'); });
+    dots[index % total].classList.add('tc-dot-active');
+  }
+
+  function setActive(index) {
+    allCards.forEach(function(c) { c.classList.remove('tc-active'); });
+    if (allCards[index]) allCards[index].classList.add('tc-active');
+  }
+
+  function getOffset(index) {
+    var cardW = allCards[0].offsetWidth + 20;
+    var stageW = track.parentElement.offsetWidth;
+    var centerOffset = (stageW / 2) - (allCards[0].offsetWidth / 2);
+    return centerOffset - (index * cardW);
+  }
+
+  function goTo(index) {
+    isTransitioning = true;
+    current = index;
+    setActive(current);
+    updateDots(current);
+    track.style.transition = 'transform 0.6s cubic-bezier(0.65, 0, 0.35, 1)';
+    track.style.transform = 'translateX(' + getOffset(current) + 'px)';
+
+    if (current >= total) {
+      setTimeout(function() {
+        track.style.transition = 'none';
+        current = current - total;
+        setActive(current);
+        updateDots(current);
+        track.style.transform = 'translateX(' + getOffset(current) + 'px)';
+        setTimeout(function() { isTransitioning = false; }, 50);
+      }, 620);
+    } else {
+      setTimeout(function() { isTransitioning = false; }, 620);
+    }
+  }
+
+  function next() {
+    if (!isTransitioning) goTo(current + 1);
+  }
+
+  function startAutoplay() { autoplay = setInterval(next, INTERVAL); }
+  function resetAutoplay() { clearInterval(autoplay); startAutoplay(); }
+
+  originalCards.forEach(function(card, i) {
+    card.addEventListener('click', function() {
+      if (i !== current && !isTransitioning) { goTo(i); resetAutoplay(); }
+    });
+  });
+
+  track.parentElement.addEventListener('mouseenter', function() { clearInterval(autoplay); });
+  track.parentElement.addEventListener('mouseleave', function() { startAutoplay(); });
+
+  var touchStartX = 0;
+  track.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    clearInterval(autoplay);
+  }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40 && !isTransitioning) {
+      diff > 0 ? next() : goTo(current - 1 < 0 ? total - 1 : current - 1);
+    }
+    startAutoplay();
+  });
+
+  buildDots();
+  goTo(0);
+  startAutoplay();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.testimonials.name",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.testimonials.settings.title.label",
+      "default": "Don't take our word for it"
+    },
+    {
+      "type": "checkbox",
+      "id": "round_images",
+      "label": "t:sections.testimonials.settings.round_images.label",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "color_background",
+      "label": "t:sections.testimonials.settings.color_background.label",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "label": "t:sections.testimonials.settings.color_text.label",
+      "default": "#1c1d1d"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.testimonials.blocks.testimonial.name",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.icon.label",
+          "default": "5-stars",
+          "options": [
+            {"value": "none", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.none.label"},
+            {"value": "quote", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.quote.label"},
+            {"value": "5-stars", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.5-stars.label"},
+            {"value": "4-stars", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.4-stars.label"},
+            {"value": "3-stars", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.3-stars.label"},
+            {"value": "2-stars", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.2-stars.label"},
+            {"value": "1-star", "label": "t:sections.testimonials.blocks.testimonial.settings.icon.options.1-star.label"}
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "testimonial",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.testimonial.label",
+          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.author.label",
+          "default": "Author name"
+        },
+        {
+          "type": "text",
+          "id": "author_info",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.author_info.label",
+          "default": "Los Angeles, CA"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.testimonials.presets.customer_testimonials.name",
+      "blocks": [
+        {"type": "testimonial"},
+        {"type": "testimonial"},
+        {"type": "testimonial"},
+        {"type": "testimonial"},
+        {"type": "testimonial"}
+      ]
+    }
+  ]
+}
+{% endschema %}

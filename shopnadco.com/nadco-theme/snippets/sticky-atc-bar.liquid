@@ -154,6 +154,15 @@
                 endunless
 
                 assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id
+
+                capture variant_min_qty
+                  render 'variant-min-qty', variant: product.selected_or_first_available_variant
+                endcapture
+                assign variant_min_qty = variant_min_qty | plus: 0
+                assign enforce_min_attr = ''
+                if variant_min_qty > 1
+                  assign enforce_min_attr = 'data-enforce-min'
+                endif
               -%}
               <quantity-input
                 class="quantity {{ qty_class }}"
@@ -173,10 +182,11 @@
                   id="Quantity-{{ section.id }}"
                   data-cart-quantity="{{ cart_qty }}"
                   step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                  value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                  value="{{ variant_min_qty }}"
                   data-quantity-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                  data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                  min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                  data-min="{{ variant_min_qty }}"
+                  {{ enforce_min_attr }}
+                  min="{{ variant_min_qty }}"
                   {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
                     data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                     max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"

@@ -1,0 +1,537 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Eco-Friendly Labels & Sustainability Practices",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The industrial-scale printing sector has historically posed environmental concerns stemming from the unregulated use of chemicals and energy-intensive material production processes. This is especially true of traditional packing tapes, product labels, and solvent inks containing numerous hazardous substances.</p><p>Efforts to make recyclable and compostable materials the new standard haven’t yet outpaced the prevalence of toxic print materials like solvent inks, over-print varnishes (OPVs), and silicone release liners. Such materials are hard on the environment and require further harmful byproducts during production.</p><p>We’ll discuss NADCO’s eco-friendly labels and other efforts aimed at making a significant impact on environmental sustainability in the printing industry at large.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/525e1417312f176a8c664b2edcba3bd1c689fb30.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_xNWeBz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cgzPxD": {
+          "type": "heading",
+          "settings": {
+            "heading": "NADCO’s Sustainability Practices & How We Create Eco-Friendly Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_6MtbWW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO is doing our part to make our print labels more eco-friendly and we are committed to continuing to take other bold steps towards greater environmental stewardship, such as:</p><ul><li>Upgrading outdated equipment for greater energy efficiency</li><li>Collaborating with HP to secure more sustainable materials, including their eco-friendly line of ElectroInks</li><li>Leveraging HP’s oil-based 6K Press to clean and repurpose imaging oil into a parts-cleaning solution</li><li>Harnessing the distilled water produced by our site-wide dehumidifiers to supply our press-wash system</li><li>Relying on flexo presses designed for water-based inks and primers instead of traditional solvents</li><li>Partnering with a third-party material-recycling specialist to repurpose and recycle packaging waste</li><li>Prioritizing vendors with robust commitments to environmental sustainability</li></ul>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cgzPxD",
+        "text_6MtbWW"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_4_a15c1136-5eba-4123-9be2-a0b6bf67b7cc.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 30
+      }
+    },
+    "environmental_certification_cBPYnf": {
+      "type": "environmental-certification",
+      "blocks": {
+        "point_Y4K7Gg": {
+          "type": "point",
+          "settings": {
+            "point": "HP Electrolnk is not classified as harmfull to environment and health and does not contain substances of specific concern, heavy metals or aromatic amines."
+          }
+        },
+        "point_dMbWhr": {
+          "type": "point",
+          "settings": {
+            "point": "More than 90 media with environmental sustainability certification have been qualified for use on the press and are identified to customers."
+          }
+        },
+        "point_dN3Ht4": {
+          "type": "point",
+          "settings": {
+            "point": "Liquid Electrophotographic (LEP) digital printing process; eliminates the use of many hazardous substances typically used in offset printing while producing print that maintains the look and feels like offset."
+          }
+        },
+        "point_akRLMe": {
+          "type": "point",
+          "settings": {
+            "point": "Ink cartridge recycling program and Binary Ink Developer (BID) take-back and parts reuse program; ensure environmentally sound recovery and/or treatment of used consumables."
+          }
+        },
+        "point_JHBUiM": {
+          "type": "point",
+          "settings": {
+            "point": "Fully-automated Imaging oil recycling: the system enables the press to be self-sustainable in terms of Imaging oil usage."
+          }
+        }
+      },
+      "block_order": [
+        "point_Y4K7Gg",
+        "point_dMbWhr",
+        "point_dN3Ht4",
+        "point_akRLMe",
+        "point_JHBUiM"
+      ],
+      "disabled": true,
+      "name": "Environmental Certification",
+      "settings": {
+        "heading": "HP Indigo 6K Digital Press - Independently Verified for Environmental Credentials",
+        "main_bg": "#0a9f5a",
+        "content_bg": "#c6e1d0",
+        "text_color": "#0a9f5a",
+        "link_color": "#ffffff",
+        "footer_text": "Learn more about this product, environmental verification, and applicable exemptions by visiting:",
+        "link_text": "www.intertek.com/marks/green-leaf",
+        "link_url": "https://www.intertek.com/marks/green-leaf",
+        "cert_image": "shopify://shop_images/image_31.png",
+        "cert_number": ""
+      }
+    },
+    "image_with_text_overlay_xhMWMe": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/Frame_1000008074.png",
+        "desktop_height": "adapt",
+        "overlay_opacity": 0,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-left",
+        "content_alignment": "left",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "custom_content_WeG37U": {
+      "type": "custom-content",
+      "blocks": {
+        "image_card_bkWyXe": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "image": "shopify://shop_images/Frame_1000008074.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "bottom-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "https://shopnadco.com/wp-content/smush-webp/HP-Inks-IntertekGreenLabelCertification-1.png.webp",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "show_badge": false,
+            "badge_color_scheme": "scheme-1",
+            "badge_shape": "circle",
+            "badge_position": "top-right",
+            "badge_subtext": "Save",
+            "badge_text": "99$",
+            "color_scheme_mobile": "scheme-1",
+            "show_text_below": false,
+            "content_alignment_mobile": "center",
+            "width": "100%",
+            "alignment": "center",
+            "block_custom_class": "",
+            "enable_preload_image": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_bkWyXe"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_4ACFmc": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_GKaqzC": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/Frame_1000008008.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_jQMHbU": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Eco-Friendly Inks",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "rich_text_cstm": "<p>NADCO proudly relies on HP’s innovative Indigo 6K Digital Press and ElectroInks, an eco-friendly alternative to standard inks made from energy-intensive processes involving heavy metals, aromatic amines, and other harmful substances. By contrast, HP Indigo ElectroInks are certified “OK to compost” and leverage a breakthrough Liquid Electrophotographic (LEP) printing technology that functions well with more natural resources.</p><p>Further, the Indigo 6K Digital Press was independently certified by Intertek for various measures of environmental sustainability.</p><p>NADCO is also equipped with fast-curing UV inks, which do not require additional coatings or laminates. UV inks also don’t release volatile organic compounds (VOCs) into the atmosphere, reducing harm to the environment, consumers, and workforces alike.</p>"
+          }
+        },
+        "collapsible_item_VpcgKE": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Eco-Friendly Labels Selection: A Breakdown",
+            "content": "<p>Our commitment to sustainability carries numerous benefits that support industrial-scale production while reducing negative impacts on the environment. Part of that commitment is an eco-friendly label selection process, emphasizing a four-tiered approach:</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_TVUjY6": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Recycled",
+            "content": "<p>NADCO’s label stock contains a high quantity of post-consumer waste whenever possible, reducing the need to consume more resources to begin with.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_Npi4JQ": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Recyclable",
+            "content": "<p>Our eco-friendly labels are also fully recyclable. While not all of our pressure-sensitive labels are recyclable (due to their adhesive), we’re currently introducing more specialized and recyclable adhesive alternatives.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_zx6ing": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Renewable",
+            "content": "<p>NADCO’s eco-friendly labels use raw materials that quickly regrow in their natural environments, including sugar cane, bamboo, potato, and corn.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_X8Lbcf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Compostable",
+            "content": "<p>By using organic, raw materials, our <a href=\"https://shopnadco.com/pages/compostable-labels\" title=\"https://shopnadco.com/pages/compostable-labels\">labels are highly compostable</a> and rapidly break down into their constituent elements. Not to be confused with biodegradable, compostable materials can actually replenish the environment they return to, much like a fertilizer.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_GKaqzC",
+        "heading_jQMHbU",
+        "collapsible_item_VpcgKE",
+        "collapsible_item_TVUjY6",
+        "collapsible_item_Npi4JQ",
+        "collapsible_item_zx6ing",
+        "collapsible_item_X8Lbcf"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_4cFJDQ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_cFWAUR": {
+          "type": "heading",
+          "settings": {
+            "heading": "LEED-Certified Eco-Friendly Labels Company",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_XT9GfL": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO is honored to be the first manufacturing company in Florida granted a <a href=\"https://shopnadco.com/blogs/news/what-it-means-to-be-florida-s-first-usgbc-leed-silver-certified-manufacturer\" title=\"https://shopnadco.com/blogs/news/what-it-means-to-be-florida-s-first-usgbc-leed-silver-certified-manufacturer\">LEED Silver building certification</a> from the U.S. Green Building Council (USGBC). The Silver building certificate reflects our facility’s stringent standards for environmentally sustainable building practices, including:</p><ul><li>Non-toxic building materials  </li><li>Energy-efficient industrial equipment </li><li>Optimal power and utility consumption </li></ul><h3>Learn How NADCO is  Printing Our Way to a Cleaner Future</h3><p>Irresponsible printing practices are one of the most environmentally damaging aspects of traditional manufacturing processes, but NADCO is leading the way to making the print industry one of the cleanest. By emphasizing the latest environmentally responsible printing technologies, including reusable and compostable materials, we’re showing the power of our industry to slow and even reverse the negative impacts of industrial-scaled printing.</p><p>Consumers are demanding a greater amount of eco-friendly labels and packaging materials made from sustainable resources and fabrication processes. Our experience shows that consumers are actively seeking non-toxic, environmentally responsible materials, and NADCO continually seeks new ways to support these efforts to achieve greater environmental stewardship.</p><p>By continually leveraging the most sustainable print technologies, NADCO is printing our way to a cleaner future with our fully in-house printing and packaging solutions. If you have any questions about our eco-friendly label printing services, <a href=\"https://info.nadco-inc.com/contact-us\" target=\"_blank\">contact us</a> or <a href=\"https://www.nadco-inc.com/request-quote/\">request a quote</a> for all your sustainable printing and packaging needs.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_cFWAUR",
+        "text_XT9GfL"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_5_b9efa839-b83d-4fd0-aeed-bbc1e0e44719.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "1768922159a26b3048": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_MgRkjy": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_MgRkjy"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "image_with_text_xNWeBz",
+    "environmental_certification_cBPYnf",
+    "image_with_text_overlay_xhMWMe",
+    "custom_content_WeG37U",
+    "collapsible_tabs_4ACFmc",
+    "image_with_text_4cFJDQ",
+    "1768922159a26b3048",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

@@ -1,0 +1,757 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Automotive Adhesive Tape & Label Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO Tapes and Labels is a leading <a href=\"https://shopnadco.com/\" title=\"https://shopnadco.com/\">manufacturer of standard and custom tapes </a>and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/automotive_main_hero_AI.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 0,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_KckTAy": {
+      "type": "rich-text",
+      "blocks": {
+        "text_i3qdf3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There is currently an increased need for PPE, including masks, face shields, and goggles. These products cover the mouth, nose, and eyes in order to limit exposure to germs, chemicals, and more. To meet demands and keep up with technological advancements, many manufacturers have started experimenting with smart and connected PPE, as well as taking into consideration cost, comfort, and weight.</p><p>With many frontline workers and first responders lacking the necessary protection, NADCO’s specialty tapes and adhesives help supply the desperate need for PPE, while preventing contamination of the equipment and improving comfort.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_i3qdf3"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collection_list_pxKfxW": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_WeTKif": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-labels",
+            "title": ""
+          }
+        },
+        "featured_collection_FUEBzj": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "5-masking-paper-temporary-marking",
+            "image": "shopify://shop_images/WHITE-VINYL-ANTISLIP-1-x-60_188W-1_GE1A2720.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_mT8wd8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "6-film-vinyl-specialty-surface-products-tapes",
+            "image": "shopify://shop_images/T188-KAPTON_GROUP.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_zNPa3a": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "7-metal-foil-shielding-products-tapes",
+            "image": "shopify://shop_images/298681.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_DcGDmk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "4-shipping-logistics-inventory-control-labels",
+            "image": "shopify://shop_images/DVSG-1-2-half_inch_sun_gold_vinyl_dots_1000_per_roll.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_3b6YWd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "8-bonding-mounting-specialty-components-tapes",
+            "image": "shopify://shop_images/SINGLE-SIDED_GRAY_FOAM-0.375_IN_THICK-PV80_64675b26-034b-4217-8d26-0d93bb2ee847.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_WeTKif",
+        "featured_collection_FUEBzj",
+        "featured_collection_mT8wd8",
+        "featured_collection_zNPa3a",
+        "featured_collection_DcGDmk",
+        "featured_collection_3b6YWd"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_kK4AKq": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_Jx6kqb": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Industries We Support"
+          }
+        },
+        "heading_DMkPBE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Various Tapes and Films Used in the Automotive Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_BqiPHj": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesive tapes used in automotive production are distinctly different from other industrial tapes, and they must be able to withstand a variety of stresses to meet specialized needs. Common types of automotive tapes include:</p><ul><li>Mounting foam tapes</li><li>Automotive masking tape</li><li>Double-side tapes</li><li>Temporary protection tape</li></ul><p>At NADCO, our die-cutting and converting capabilities allow us to create fully customized automotive tape and label solutions. With our knowledgeable team and high-quality tools, we can create the best possible solution for your needs. Depending on your requirements, we can die-cut automotive tapes in various shapes and sizes as well as add creases, perforations, and more.</p><p>We can work with a wide range of materials, regardless of the type of adhesive used. Materials we work with include fabrics, single and <a href=\"https://shopnadco.com/collections/double-coated-foam-tape\" title=\"https://shopnadco.com/collections/double-coated-foam-tape\">double-sided foam tape</a>, foils, paper, rubber, vinyl and more. Whether you need strong adhesive tapes for mounting automotive components or dealership decals, we can work with you to create the best possible die-cut products.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_Jx6kqb",
+        "heading_DMkPBE",
+        "text_BqiPHj"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/task_01kfqdcbk6f6rsz6br266tkjeb_1769238617_img_1.jpg",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_yAzyfQ": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_7TtDHz": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Tapes For The Automotive Industry"
+          }
+        },
+        "heading_HbPCQe": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are Some Common Applications",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_6YRzjD": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Adhesive tapes are used in a wide range of applications in the automotive industry. Common applications include:</li><li>Protective films and tapes with removable adhesives are often used to cover windows, mirrors, taillights, freshly painted or unpainted plastic/metal surfaces, and other areas that require protection from dirt, scratching, and damage that may occur during assembly, transport, and storage.</li><li>Automotive masking tapes are often used to achieve clean lines during multi-color painting and finishing processes. These tapes must be able to withstand high temperatures and be able to conform to odd angles and shapes of a car.</li><li>Mounting foam tapes can be used to secure molding and cladding to the body of a vehicle. Mounting foam tapes must be able to create durable, long-lasting bonds and withstand elements such as cold temperatures, UV exposure, and more.</li><li><strong>Vehicles interiors.</strong> Double-sided tapes and other mounting tapes are often used in vehicle interiors to hold and bond certain parts together. They can also be used to secure cables on rough or irregular interior surfaces</li></ul>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_7TtDHz",
+        "heading_HbPCQe",
+        "text_6YRzjD"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/FOAM-TAPE-AUTOMOTIVE-INDUSTRY.jpg",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "video_4KXjdb": {
+      "type": "video",
+      "disabled": true,
+      "name": "t:sections.video.name",
+      "settings": {
+        "container": "fixed",
+        "video_url": "https://youtu.be/tOvQRrAtqlc",
+        "cover_image": "shopify://shop_images/sddefault_4.jpg",
+        "video_ratio": "16/9",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_BBr47R": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dpmmMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are Some Common Applications for Adhesive Tapes in the Automotive Industry?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_aHMH7i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesive tapes are used in a wide range of applications in the automotive industry. Common applications include:</p><ul><li>Protective films and tapes with removable adhesives are often used to cover windows, mirrors, taillights, freshly painted or unpainted plastic/metal surfaces, and other areas that require protection from dirt, scratching, and damage that may occur during assembly, transport, and storage.</li><li>Automotive masking tapes are often used to achieve clean lines during multi-color painting and finishing processes. These tapes must be able to withstand high temperatures and be able to conform to odd angles and shapes of a car.</li><li>Mounting foam tapes can be used to secure molding and cladding to the body of a vehicle. Mounting foam tapes must be able to create durable, long-lasting bonds and withstand elements such as cold temperatures, UV exposure, and more.</li><li><strong>Vehicles interiors.</strong> Double-sided tapes and other mounting tapes are often used in vehicle interiors to hold and bond certain parts together. They can also be used to secure cables on rough or irregular interior surfaces.</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dpmmMR",
+        "text_aHMH7i"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_TQxFft": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_4WgkgN": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/automotive-industry-spray-painting-using-masking-tape.jpg",
+            "image_ratio": "1/1",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_gVEpY4": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "<strong>Superior Custom</strong> <strong>Capabilities</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p>We handle all of our projects in-house and work directly with customers to create <a href=\"https://shopnadco.com/collections/tapes\" title=\"https://shopnadco.com/collections/tapes\">custom tape</a> and label solutions that meet their exact specifications and requirements.</p>"
+          }
+        },
+        "collapsible_item_j8VwcB": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Reduced Lead Times",
+            "content": "<p>Having a full-service manufacturing line means we don’t lose time waiting on components from other facilities. This ensures fast, efficient production and boosts our accountability.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_MYpFe4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Consistent Quality and Service",
+            "content": "<p>By offering fully customized tape and label products, we ensure that nothing gets lost in translation with other vendors. This means we can maintain the same level of service and quality each time you work with us.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_yzMrQf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Partner With NADCO",
+            "content": "<p>From custom printed tapes and pressure-sensitive labels to masking tape and die-cutting tapes, NADCO has the skills and experience to deliver quality automotive tapes and labels to meet your needs. For more information about our automotive tape capabilities, or to get started on your custom solution, <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">contact us</a> or request a quote below today.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_97DEaz": {
+          "type": "collapsible_item",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "heading": "Partner With NADCO",
+            "content": "<p>From custom printed tapes and pressure-sensitive labels to masking tape and die-cutting tapes, NADCO has the skills and experience to deliver quality automotive tapes and labels to meet your needs. For more information about our automotive tape capabilities, or to get started on your custom solution, <a href=\"https://info.nadco-inc.com/contact-us\" target=\"_blank\" title=\"https://info.nadco-inc.com/contact-us\">contact us</a> or <a href=\"/pages/request-a-quote\" title=\"Request a Quote\">request a quote</a> today.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_4WgkgN",
+        "heading_gVEpY4",
+        "collapsible_item_j8VwcB",
+        "collapsible_item_MYpFe4",
+        "collapsible_item_yzMrQf",
+        "collapsible_item_97DEaz"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "card",
+        "item_color_scheme": "scheme-10",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_nhLdDT": {
+      "type": "image-with-text",
+      "blocks": {
+        "button_igmFjz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us for Details",
+            "button_link": "shopify://pages/contact-us",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        },
+        "subheading_xKePYe": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Automotive Industry"
+          }
+        },
+        "heading_zRrweB": {
+          "type": "heading",
+          "settings": {
+            "heading": "PTFE Coated Fiberglass Tape for high-heat resistance",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_4EBHCP": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>High-performance PTFE coated fiberglass tape designed for extreme heat and non-stick release applications. PTFE coated fiberglass tape offers outstanding abrasion resistance, dimensional stability, and clean release performance up to 500°F — ideal for heat sealers, packaging equipment, composites, guide rails, and industrial processing environments.<br/><br/></p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_igmFjz",
+        "subheading_xKePYe",
+        "heading_zRrweB",
+        "text_4EBHCP"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/PTFE_Coated_Fiberglass_Tape_roll.jpg",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "apps_k8Aqp4": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_tHcqWg": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_tHcqWg"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".globo-form-app .gfb-with-image .gfb-with-image-img {height: fit-content;}"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_kKUMrC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_hCdrdF": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_VHxpCJ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hCdrdF",
+        "button_VHxpCJ"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_iF648D": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_MaeVhW": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_wxpMLQ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MaeVhW",
+        "button_wxpMLQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "rich_text_KckTAy",
+    "collection_list_pxKfxW",
+    "image_with_text_kK4AKq",
+    "image_with_text_yAzyfQ",
+    "video_4KXjdb",
+    "rich_text_BBr47R",
+    "collapsible_tabs_TQxFft",
+    "image_with_text_nhLdDT",
+    "apps_k8Aqp4",
+    "image_with_text_overlay_zjphJC",
+    "image_with_text_overlay_kKUMrC",
+    "image_with_text_overlay_iF648D"
+  ]
+}

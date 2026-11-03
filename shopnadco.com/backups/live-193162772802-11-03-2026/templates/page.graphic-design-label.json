@@ -1,0 +1,991 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Graphic Design & Label Prototyping Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With <strong>NADCO® Tapes & Labels Inc.</strong>’s graphic design and prototyping services, we can help bring your innovation and entrepreneurial drive to reality. Our graphic design services are the perfect fit whether you’ve just invented a product or want to market your family’s secret-recipe BBQ sauce, or need a new logo or redesign for an existing product. NADCO® Tapes & Labels Inc. features graphic design expertise from concept to creation to help you create an eye-catching design. Our graphic design team will use their talents and skills to help you get your message across in the most effective way possible.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/image_10_b84cba5f-413e-4b18-ab8d-fd3c2de29dc2.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_epikxp": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_URRrWG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Label Prototyping",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_M7cLqM": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Let’s take that invention a step further. You’ve decided to market the family BBQ sauce, but need label prototyping services for some sample bottles to show investors and buyers. As a start-up, you can’t afford to invest in labels for thousands of bottles. With NADCO®’s label prototyping services, you can get 10 custom designed, custom printed, custom die-cut labels. Our prototyping services are driven by our digital printing and digital die-cutting capabilities, getting your small prototype runs produced without high volume commitments, plate costs, or die costs. At NADCO®, our graphic design and prototyping services help us partner with our customers to make their dreams become realities.</p><p>Once your dream becomes a success, check out our <a href=\"/pages/custom-printed-tapes\" title=\"Custom Printed Tapes\">flexographic printing</a> and <a href=\"/pages/die-cutting-and-material-converting-services\" title=\"Die Cutting and Material Converting Services\">die-cutting</a> capabilities for high volume orders.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_URRrWG",
+        "text_M7cLqM"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Firefly_create_an_image_showing_a_graphic_artist_designing_a_dish_soap_label_on_a_computer_sc_734243_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "multicolumn_9FyAHQ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_rXQb8w": {
+          "type": "column",
+          "settings": {
+            "title": "Design & Prototyping Processes",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_U4XiBU": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p> Design using Adobe Creative Suite<br/>Digital Die Cutting<br/>Digital Printing</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_rXQb8w",
+        "column_U4XiBU"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Graphic Design & Label Prototyping Capabilities",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h2",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_pXQwLg": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_7BLddK": {
+          "type": "column",
+          "settings": {
+            "title": "Resolution",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_PUmJQV": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>300 DPI preferred</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_7BLddK",
+        "column_PUmJQV"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_Paq7dH": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3NFXGm": {
+          "type": "column",
+          "settings": {
+            "title": "Length",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_jNCnik": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Max (Digital Die Cutting)<br/></strong>24 in<br/>609.6 mm</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_ciTjAk": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Max (Digital)<br/></strong>Infinite</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_3NFXGm",
+        "column_jNCnik",
+        "column_ciTjAk"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_eTgtHV": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Y8WWVA": {
+          "type": "column",
+          "settings": {
+            "title": "Width",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_wkbzy4": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Max (Flexographic)<br/></strong>16 in<br/>406.4 mm</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_87mcKa": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p><strong>Max (Digital)<br/></strong>60 in<br/>1524 mm</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_Y8WWVA",
+        "column_wkbzy4",
+        "column_87mcKa"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_QCXEPU": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_jYdUTQ": {
+          "type": "column",
+          "settings": {
+            "title": "Industries Served",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_NcUGXL": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Advertising<br/>Aerospace<br/>Automotive<br/>Chemical<br/>Clothing<br/>Consumer Goods<br/>Cosmetics<br/>Electrical<br/>Food/Beverage<br/>Industrial</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_ewCyiW": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Laundry<br/>Machine Tools<br/>Medical<br/>Military<br/>Railroad<br/>Packaging<br/>Pharmaceuticals<br/>Semi-Conductor<br/>Signage<br/>Waste Management</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_jYdUTQ",
+        "column_NcUGXL",
+        "column_ewCyiW"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_mzJPdE": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_MRTy8K": {
+          "type": "column",
+          "settings": {
+            "title": "Intended Application",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_GG8yDD": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Banners<br/>Bumper Stickers<br/>Clothing ID<br/>Food Products<br/>Instruction Sheets<br/>Interior/Exterior Products<br/>Parachutes</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_VRGLig": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Product Identification<br/>Signs<br/>Sign Faces/Inserts<br/>Stand-Up Banners<br/>Sterilization Process Labeling<br/>Tapes<br/><strong>Plus Much More!</strong></p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_MRTy8K",
+        "column_GG8yDD",
+        "column_VRGLig"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_kLNYXY": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_8FKrLL": {
+          "type": "column",
+          "settings": {
+            "title": "Industry Standards",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_7GMpzX": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>FDA<br/>ISO 9001:2015<br/>UL</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_VA3anU": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Mil-Spec<br/>RoHS</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_8FKrLL",
+        "column_7GMpzX",
+        "column_VA3anU"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_CKbFAN": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_zz7KeL": {
+          "type": "column",
+          "settings": {
+            "title": "Production Volume",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_xUrhHr": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Min<br/>1 unit</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_zz7KeL",
+        "column_xUrhHr"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_YbAcqV": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xDtFPM": {
+          "type": "column",
+          "settings": {
+            "title": "File Formats",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h5",
+            "text": "<p> </p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "column_AeR76J": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4",
+            "text": "<p>Vector Preferred<br/>Can accept many other file types</p>",
+            "text_max_limit": 100,
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "column_xDtFPM",
+        "column_AeR76J"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "card_bg_color_enabled": false,
+        "card_bg_color": "",
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "content_alignment": "left",
+        "show_col_count": false,
+        "show_image": false,
+        "columns_desktop": 3,
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 30,
+        "padding_bottom": 20
+      }
+    },
+    "17697831803f36609a": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "#",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "image_with_text_epikxp",
+    "multicolumn_9FyAHQ",
+    "multicolumn_pXQwLg",
+    "multicolumn_Paq7dH",
+    "multicolumn_eTgtHV",
+    "multicolumn_QCXEPU",
+    "multicolumn_mzJPdE",
+    "multicolumn_kLNYXY",
+    "multicolumn_CKbFAN",
+    "multicolumn_YbAcqV",
+    "17697831803f36609a",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

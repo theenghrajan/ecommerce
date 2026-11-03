@@ -1,0 +1,716 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ww3wqL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "text_wUBUUw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Home / Our Roll</p>",
+            "text_size": "text-base"
+          }
+        },
+        "heading_CY6hUd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Roll",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "text_wUBUUw",
+        "heading_CY6hUd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_hBYe4x": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UecfhN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Roll in Your World",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UecfhN"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "tight",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_wdKUhY": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XYBrgb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Custom Printed Tapes & Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_k4jRXa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO supplies one-stop solutions for a variety of industrial labels, safety decals, and customized stickers for manufacturing, advertising, or recreation. We also provide graphic designing, digital printing, die cutting, prototyping, and more.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_7KGtnj": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our custom services",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XYBrgb",
+        "text_k4jRXa",
+        "button_7KGtnj"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Frame_38949_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "custom_img_text_7JKeap": {
+      "type": "custom-img-text",
+      "blocks": {
+        "small_images_micnd4": {
+          "type": "small-images",
+          "settings": {
+            "small_bg_color": "#ffffff",
+            "sec_brder_radius": 4,
+            "first_sm_img": "shopify://shop_images/66a061501030b0b77824e32f961462310edb9ff1.png",
+            "second_sm_img": "shopify://shop_images/6e1719615d579aeca95ead3c2d405f1f962475d7.png",
+            "sec_top_position": 88,
+            "sec_left_position": 4,
+            "sec_mobile_top_position": 85,
+            "sec_mobile_left_position": 0
+          }
+        },
+        "heading_wQidmx": {
+          "type": "heading",
+          "settings": {
+            "heading": "Custom Printed Tapes & Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_4CwRXB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO supplies one-stop solutions for a variety of industrial labels, safety decals, and customized stickers for manufacturing, advertising, or recreation. We also provide graphic designing, digital printing, die cutting, prototyping, and more.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_kepgff": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our custom services",
+            "button_link": "shopify://pages/contact-us",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "small_images_micnd4",
+        "heading_wQidmx",
+        "text_4CwRXB",
+        "button_kepgff"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "cst_bg_color": "#dae9f2",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": true,
+        "rotationg_speed": 60,
+        "image": "shopify://shop_images/820fadf4253bff686ffacd25efaed3140ee90dc5.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "custom_img_text_fd7c89": {
+      "type": "custom-img-text",
+      "blocks": {
+        "small_images_FY3i6x": {
+          "type": "small-images",
+          "disabled": true,
+          "settings": {
+            "small_bg_color": "#ffffff",
+            "sec_brder_radius": 20,
+            "first_sm_img": "shopify://shop_images/66a061501030b0b77824e32f961462310edb9ff1.png",
+            "second_sm_img": "shopify://shop_images/6e1719615d579aeca95ead3c2d405f1f962475d7.png",
+            "sec_top_position": 88,
+            "sec_left_position": 4,
+            "sec_mobile_top_position": 0,
+            "sec_mobile_left_position": 0
+          }
+        },
+        "head_img_NFjrFF": {
+          "type": "head-img",
+          "settings": {
+            "left_head_img": "shopify://shop_images/Rectangle_3521.png",
+            "right_head_img": "shopify://shop_images/Rectangle_3522.png"
+          }
+        },
+        "heading_JX3qhz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Die Cutting And Material Converting Service",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_4axbtF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO Tapes & Labels provides a wide range of die cutting and material converting services for manufacturing and industry. Operating from our 35,000-square-foot facility in Sarasota, FL, we supply a full spectrum of tape and labeling solutions as well as a host of other valuable services.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_WJpzTz": {
+          "type": "button",
+          "settings": {
+            "button_label": "View die cutting & material services",
+            "button_link": "shopify://pages/die-cutting-and-material-converting-services",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "small_images_FY3i6x",
+        "head_img_NFjrFF",
+        "heading_JX3qhz",
+        "text_4axbtF",
+        "button_WJpzTz"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "cst_bg_color": "#ffffff",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": true,
+        "rotationg_speed": 60,
+        "image": "shopify://shop_images/90dd317aa3194f99ffc192fb8a23838ef75c2df2.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "custom_img_text_jUncjc": {
+      "type": "custom-img-text",
+      "blocks": {
+        "small_images_LyGGNW": {
+          "type": "small-images",
+          "settings": {
+            "small_bg_color": "#ffffff",
+            "sec_brder_radius": 4,
+            "first_sm_img": "shopify://shop_images/76305200690db3ed825dae7188219a3ca831d7f4_1.png",
+            "second_sm_img": "shopify://shop_images/76305200690db3ed825dae7188219a3ca831d7f4.png",
+            "sec_top_position": 88,
+            "sec_left_position": 4,
+            "sec_mobile_top_position": 85,
+            "sec_mobile_left_position": 0
+          }
+        },
+        "head_img_MgLna7": {
+          "type": "head-img",
+          "disabled": true,
+          "settings": {
+            "left_head_img": "shopify://shop_images/Rectangle_3521.png",
+            "right_head_img": "shopify://shop_images/Rectangle_3522.png"
+          }
+        },
+        "heading_P4iexL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Digital Printing & Digital Die - Cutting",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_ka8xLq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>While we’re known for our high-quality tapes and labels, many customers don’t realize that NADCO® also offers a wide range of graphic design services. From banners to signs, we can produce unique, full-color graphics for indoor or outdoor use in almost any size.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_Efkjck": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our digital printing solutions",
+            "button_link": "shopify://pages/digital-printing-solutions",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "small_images_LyGGNW",
+        "head_img_MgLna7",
+        "heading_P4iexL",
+        "text_ka8xLq",
+        "button_Efkjck"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "cst_bg_color": "#dae9f2",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": true,
+        "rotationg_speed": 60,
+        "image": "shopify://shop_images/c83c19509248c0dee1890ce788e801b9b9545e8e.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "custom_img_text_eQ4Wrh": {
+      "type": "custom-img-text",
+      "blocks": {
+        "small_images_Te3aXy": {
+          "type": "small-images",
+          "disabled": true,
+          "settings": {
+            "small_bg_color": "#ffffff",
+            "sec_brder_radius": 4,
+            "first_sm_img": "shopify://shop_images/76305200690db3ed825dae7188219a3ca831d7f4_1.png",
+            "second_sm_img": "shopify://shop_images/76305200690db3ed825dae7188219a3ca831d7f4.png",
+            "sec_top_position": 88,
+            "sec_left_position": 4,
+            "sec_mobile_top_position": 0,
+            "sec_mobile_left_position": 0
+          }
+        },
+        "head_img_KhVJF9": {
+          "type": "head-img",
+          "settings": {
+            "left_head_img": "shopify://shop_images/Rectangle_3521_1.png",
+            "right_head_img": "shopify://shop_images/Rectangle_3522_1.png"
+          }
+        },
+        "heading_ezMLrE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Digital Printing & Digital Die - Cutting",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_gyYTBP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With NADCO® Tapes & Labels, LLC’s graphic design and prototyping services, we can help bring your innovation and entrepreneurial drive to reality.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_npEwgc": {
+          "type": "button",
+          "settings": {
+            "button_label": "View graphic design services",
+            "button_link": "shopify://pages/graphic-design-label-prototyping",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "small_images_Te3aXy",
+        "head_img_KhVJF9",
+        "heading_ezMLrE",
+        "text_gyYTBP",
+        "button_npEwgc"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "cst_bg_color": "#dae9f2",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": true,
+        "rotationg_speed": 60,
+        "image": "shopify://shop_images/17d5e74e819c8108b055070ddff83b297c1b152a.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_NnBEnm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zBCeML": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Custom-Made Tape and Label Process",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_Kpm6GK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From conceptual design to completion of full production runs, NADCO is by your side each step of the way. When you partner with us to create your custom tape or label solution, we’ll follow these steps:</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zBCeML",
+        "text_Kpm6GK"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "full",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "fitted",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_PVnBm8": {
+      "type": "image-with-text",
+      "blocks": {
+        "badge_RrbDiP": {
+          "type": "badge",
+          "disabled": true,
+          "settings": {
+            "color_scheme": "scheme-3",
+            "text": "garace - where design meet function -",
+            "position_mobile": "right"
+          }
+        },
+        "cstm_badge_bbC8ct": {
+          "type": "cstm-badge",
+          "settings": {
+            "bg_color": "#15679b",
+            "text_color": "#ffffff",
+            "top_position": 76,
+            "left_position": 0,
+            "mobile_top_position": 1,
+            "mobile_left_position": 1,
+            "border_width": 3,
+            "border_color": "#ffffff",
+            "padding": 20,
+            "brder_radius": 14,
+            "cst_main_head": "1.2k+",
+            "description": "Happy Customers",
+            "first_img": "shopify://shop_images/8e734298e6b2960cc2ce4c1b59be7a4ae2210c6c.png",
+            "second_img": "shopify://shop_images/e8a75070c4b9d12d7b998ff7698e5a06bd4e8d9e.png",
+            "third_img": "shopify://shop_images/040afc1039e73f507f019be533711f77e67ed55f.png",
+            "fourth_img": "shopify://shop_images/a7adab70cea3b99779ca5eab3bf50be053a4d004.png",
+            "fifth_img": "shopify://shop_images/58c588dad2794161fbe84e8eb292d32968fef88d.png",
+            "sixth_img": "shopify://shop_images/8276e6349829ef6f4ef96fdfa6273b0c36367f63.png"
+          }
+        },
+        "subheading_AakwRD": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "<strong>About Us</strong>"
+          }
+        },
+        "heading_w3rifw": {
+          "type": "heading",
+          "settings": {
+            "heading": "NADCO Tapes & Labels, LLC",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_QwCVPJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>NADCO® Tapes & Labels, LLC’s</strong>capabilities are only limited to our customers’ imagination. Not only have we been recognized as an excellent company for our tapes and labels, but we are the best kept secret in the label industry today. We offer custom labeling to include company logos with customized text.<br/><br/>After 12 years headquartered in New Hampshire, NADCO® relocated to larger facilities in Sarasota, Florida, in 2005. The warehouse offers 35,000 square feet to stock a large supply of quality inventory. We can manufacture tapes and label products up to 20″ wide and print 4-color process or up to 7 spot colors. Customization is our specialty! We carry items such as vinyl, film, cloth and duct tapes, metal foil, paper tapes and labels, high performance products, double-coated products, pipe markers, dots / arrows and safety products. We’re also an UL-authorized label supplier and the first Florida LEED Silver Certified manufacturer!</p>",
+            "subtext_color": true
+          }
+        },
+        "icon_with_text_H9ky9P": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "map-pin",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "Product locally in New York",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "icon_with_text_MxTmAC": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "smiley",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "4,8 Review Score",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "icon_with_text_qhQJ9C": {
+          "type": "icon_with_text",
+          "disabled": true,
+          "settings": {
+            "icon": "stool",
+            "icon_width": 24,
+            "color": "#000000",
+            "heading": "Over 50 Products",
+            "heading_size": "h5",
+            "text": "",
+            "vertical_alignment": "start"
+          }
+        },
+        "button_ABg8hR": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "button_link": "shopify://pages/about-us",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "badge_RrbDiP",
+        "cstm_badge_bbC8ct",
+        "subheading_AakwRD",
+        "heading_w3rifw",
+        "text_QwCVPJ",
+        "icon_with_text_H9ky9P",
+        "icon_with_text_MxTmAC",
+        "icon_with_text_qhQJ9C",
+        "button_ABg8hR"
+      ],
+      "custom_css": [
+        ".image-with-text__content {/* max-width: 45rem; */ /* --text-margin-top: 2rem; */}",
+        "@media (min-width: 1280px) {.image-with-text__media {padding-inline-start: 5rem; }}"
+      ],
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Rectangle_52_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 120
+      }
+    },
+    "image_with_text_overlay_79MJD4": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_DxJJHB": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_Mibnj6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DxJJHB",
+        "button_Mibnj6"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ww3wqL",
+    "rich_text_hBYe4x",
+    "image_with_text_wdKUhY",
+    "custom_img_text_7JKeap",
+    "custom_img_text_fd7c89",
+    "custom_img_text_jUncjc",
+    "custom_img_text_eQ4Wrh",
+    "rich_text_NnBEnm",
+    "image_with_text_PVnBm8",
+    "image_with_text_overlay_79MJD4"
+  ]
+}

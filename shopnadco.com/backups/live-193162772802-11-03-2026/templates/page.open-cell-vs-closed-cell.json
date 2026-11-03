@@ -1,0 +1,607 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_wRXjxd": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_zjkfVr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Open Cell vs. Closed Cell Tape: What’s the Difference?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_Vr6B6q": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zjkfVr",
+        "text_Vr6B6q"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_8mdLXc": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_xCf8qR": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NADCO University"
+          }
+        },
+        "heading_LneFwG": {
+          "type": "heading",
+          "settings": {
+            "heading": "Open Cell vs. Closed Cell Tape: What’s the Difference?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_dJdBeG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Foam tapes are available in a variety of carriers, sizes, thicknesses, and adhesives to suit a variety of product needs. Additionally, foam tapes withstand temperatures from -40° F to 300°F since their high bonding strength makes up for dissimilar thermal contractions and expansions. They hold up well against moisture, chemical solvents and exposure to the sun.</p><p>Common applications for foam tapes include:</p><ul><li>Cushioning and padding</li><li>Insulations</li><li>Gaskets</li><li>Seals</li></ul><p>The right type of foam tape can improve both the visual appeal and functional performance of various household and industrial products. Foam tapes come in two major categories: open cell and closed cell. It is important to know the differences between the materials in open cell and closed cell foam tapes to ensure appropriate selection of the right tape for your application.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "subheading_xCf8qR",
+        "heading_LneFwG",
+        "text_dJdBeG"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/ChatGPT_Image_Jan_30_2026_02_09_40_PM.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "start",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "collapsible_tabs_BNigX4": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_fnRnBh": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "start",
+            "image": "shopify://shop_images/ChatGPT_Image_Jan_30_2026_02_17_28_PM.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_RAn3aN": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Foam Tape Materials and Structure",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p>The cell structure of the materials used to make open cell foam tapes are porous enough to allow air, fine particles, and water to pass through. Conversely, the materials used for making closed cell foam tapes have a closed cell structure that does not allow the passage of air, partical matter, and water.</p>"
+          }
+        },
+        "collapsible_item_emzzUm": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Open Cell Foam",
+            "content": "<p>Open cell foam tape is typically made from EPDM rubber, polyurethane, or PVC/Nitrile, which are all airy and lightweight—these materials weigh about ½ to ¾ pounds per cubic foot. The low density of these materials gives them a high expansion/contraction capacity, which makes it easier to package and transport them. Open cell foams are resistant to molds, trap particulate matter like dust, and have good soundproofing characteristics.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_kP94Fy": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Closed Cell Foam",
+            "content": "<p>Closed cell foam tape is typically made from EVA foam, polyethylene foam, neoprene foam, PVC/Nitrile foam rubber, or SBR foam rubber. Their closed cell structure makes these materials tough and dense, with densities falling in the 2–3 pounds per cubic foot range.</p><p>The higher density makes closed cell foam more expensive, but they are strong, have a higher R-value, and feature better resistances to air and moisture. As such, they are excellent for protective packaging and soundproofing applications.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_fnRnBh",
+        "heading_RAn3aN",
+        "collapsible_item_emzzUm",
+        "collapsible_item_kP94Fy"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_3w4MYb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qPjMM7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Foam Tape Resistance Capabilities: Open Vs. Closed",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_YnDQqn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>While open cell foam tapes are resistant to oxygen and have a high degree of flexibility and dexterity, they don’t offer much in terms of resistance to water or moisture vapors. Closed cell foam tape offers a variety of beneficial features, such as excellent leak resistance, good soundproofing and shock capabilities, and high resistances to heat, moisture, and vapors.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qPjMM7",
+        "text_YnDQqn"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_GEi6wg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tpU6V9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Open vs. Closed Foam Tape Applications",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_CAAtBW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Open cell foam tapes offer an ideal solution for indoor soundproofing applications. However, their tendency to absorb and retain water makes them poorly suited for outdoor construction or building applications.</p><p>Closed cell foam tapes better suited for these projects. Other applications that use closed cell foam tapes include:</p><ul><li>Aerospace and aircraft projects</li><li>HVAC systems</li><li>Medical disposables</li><li>Shock absorption</li><li>Thermal insulation</li></ul><p>The better insulation characteristics of closed cell foam tapes come from the structure of their cells. The cells have robust walls that make it more rigid and trap a large volume of air. This makes the material sturdier, providing better insulation.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tpU6V9",
+        "text_CAAtBW"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_7hLpHY": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_DgzEPq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Foam Tapes from NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_DbymrK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO Tapes & Labels, Inc., designs and manufactures open and closed cell foam tapes. We supply <a href=\"https://shopnadco.com/collections/double-coated-foam-tape\" title=\"https://shopnadco.com/collections/double-coated-foam-tape\">double-sided</a> and single-sided foam tapes for a variety of critical industries, such as the aerospace and medical sectors. NADCO can<a href=\"https://shopnadco.com/pages/custom-printed-tapes\" target=\"_blank\" title=\"https://shopnadco.com/pages/custom-printed-tapes\"> customize the design</a> and properties of these tapes to suit different applications.</p><p>Our <a href=\"/pages/ebook-library\" target=\"_blank\" title=\"eBook Library\">downloadable eBook</a> offers guidance for selecting the right foam tapes for specific use cases. Our subject matter experts are also available to our customers for consultations. <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Contact us</a> today to learn about NADCO’s products and services, and how we can help you in selecting the right foam tape for your project.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DgzEPq",
+        "text_DbymrK"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_gi8Abz": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_ybCxgH": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom-digital-printing_tapes_labels_800_600.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_RJLY7X": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": ""
+          }
+        },
+        "collapsible_item_WX4BVm": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aerospace Industry",
+            "content": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. To withstand the operational challenges posed by aerospace equipment, tapes must meet stringent standards and requirements for temperature resistance, flammability, low weight, and adhesion.</p><p><a href=\"/pages/aerospace\" title=\"Aerospace\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_yW4a7e": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automotive Industry",
+            "content": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p><p><a href=\"/pages/automotive\" title=\"Automotive\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_AbnTyR": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Contruction Industry",
+            "content": "<p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry.</p><p><a href=\"/pages/construction-municipal\" title=\"Construction Municipal\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_cQPNeL": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electronics Industry",
+            "content": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p><p><a href=\"/pages/electronics\" title=\"Electronics\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_Xp4pdG": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Medical Industry",
+            "content": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization. The tapes used in medical applications have the potential of being exposed to varying conditions, so they must have biocompatibility and be able to withstand intense environments.</p><p><a href=\"/pages/adhesive-tapes-medical-industry\" title=\"Adhesive Tapes Medical Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_KwE7Yb": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Nuclear Industry",
+            "content": "<p>At NADCO, we understand that each application is different, which is why we provide a wide range of nuclear tape and label designs, features, and customization options. We aim to enhance the safety of nuclear applications with quality adhesive solutions for every situation, from nuclear warning labels and RAD wipes to hazard tape and radioactivity indicator signage.</p><p><a href=\"/pages/nuclear-industry\" title=\"Nuclear Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_6JwhXa": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Personal Protective Equipment Industry",
+            "content": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions. Different types of PPE are required across various industries, depending upon the unique risks posed on the job site. These include face and eye protection as well as hard hats for the construction industry.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_9Pi7bF": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Industry",
+            "content": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk. In order to establish safe facilities, many companies incorporate safety tapes.</p><p><a href=\"/pages/safety-industry\" title=\"Safety Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_ybCxgH",
+        "heading_RJLY7X",
+        "collapsible_item_WX4BVm",
+        "collapsible_item_yW4a7e",
+        "collapsible_item_AbnTyR",
+        "collapsible_item_cQPNeL",
+        "collapsible_item_Xp4pdG",
+        "collapsible_item_KwE7Yb",
+        "collapsible_item_6JwhXa",
+        "collapsible_item_9Pi7bF"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_3ckfmY": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_iy9ncC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_CFaxtM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_iy9ncC",
+        "button_CFaxtM"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_wRXjxd",
+    "image_with_text_8mdLXc",
+    "collapsible_tabs_BNigX4",
+    "rich_text_3w4MYb",
+    "rich_text_GEi6wg",
+    "rich_text_7hLpHY",
+    "collapsible_tabs_gi8Abz",
+    "image_with_text_overlay_3ckfmY"
+  ]
+}

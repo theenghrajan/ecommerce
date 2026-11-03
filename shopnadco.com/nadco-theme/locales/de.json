@@ -376,7 +376,8 @@
       },
       "update": "Aktualisieren",
       "cart_error": "Beim Aktualisieren Ihres Warenkorbs ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
-      "cart_quantity_error_html": "Sie können nur {{ quantity }} dieses Artikels in Ihren Warenkorb legen."
+      "cart_quantity_error_html": "Sie können nur {{ quantity }} dieses Artikels in Ihren Warenkorb legen.",
+      "min_quantity_error": "Einige Artikel liegen unter ihrer Mindestmenge. Bitte erhöhen Sie die Menge dieser Artikel, um zur Kasse zu gehen."
     },
     "collection_template": {
       "title": "Sammlung"

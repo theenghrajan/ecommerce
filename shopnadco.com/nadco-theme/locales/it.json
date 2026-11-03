@@ -376,7 +376,8 @@
       },
       "update": "Aggiornamento",
       "cart_error": "Si è verificato un errore durante l'aggiornamento del carrello. Per favore riprova.",
-      "cart_quantity_error_html": "Puoi aggiungere solo {{ quantity }} di questo articolo al tuo carrello."
+      "cart_quantity_error_html": "Puoi aggiungere solo {{ quantity }} di questo articolo al tuo carrello.",
+      "min_quantity_error": "Alcuni articoli sono al di sotto della quantità minima. Aumenta la quantità di questi articoli per procedere al pagamento."
     },
     "collection_template": {
       "title": "Collezione"

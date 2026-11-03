@@ -1,0 +1,315 @@
+{% style %}
+.custom-process-section {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+
+.custom-process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.custom-process-left {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  color: {{ section.settings.left_text_color }};
+  padding: 40px;
+  display: flex;
+
+  {% if section.settings.left_text_postion == "above" %}
+  flex-direction: column-reverse;
+  {% else %}
+    flex-direction: column;
+  {% endif %}  
+  justify-content: {{ section.settings.left_vertical_align }};
+  text-align: {{ section.settings.left_text_align }};
+  background-image:
+    url() {% if section.settings.enabled_gradient == true %}, {{ section.settings.first_bg_color }} {%  endif %};
+  background-position: center, center;
+  {% if section.settings.enabled_gradient == true %}
+  background-size: 90% 90%, cover;
+  {% else %}
+    background-size: 100% 100%, cover;
+  {% endif %}
+  background-repeat: no-repeat;
+  background-color: {{ section.settings.left_bg_fallback }};
+  align-items: center;
+}
+.custom-process-left img{
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  object-fit: contain;
+  justify-content: end;
+}
+.custom-process-left div h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: {{ section.settings.left_text_color }};
+}
+
+.custom-process-left div p {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.custom-process-btn {
+  margin-top: 14px;
+  background: {{ section.settings.button_bg }};
+  color: {{ section.settings.button_color }};
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  align-self: {{ section.settings.button_align }};
+}
+
+.custom-process-right {
+  background: {{ section.settings.right_bg }};
+  border-radius: 16px;
+  padding: 24px 24px;
+}
+
+.process-step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.process-icon {
+  min-width: 60px;
+  min-height: 60px;
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+  background: {{ section.settings.icon_bg }};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.process-content span {
+  font-size: 12px;
+  font-weight: 700;
+  color: {{ section.settings.step_label_color }};
+  text-transform: uppercase;
+}
+
+.process-content h4 {
+  margin: 4px 0 6px;
+  font-size: 16px;
+  /* color: {{ section.settings.right_heading_color }}; */
+}
+
+.process-content p {
+  font-size: 14px;
+  color: {{ section.settings.right_text_color }};
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .custom-process-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .custom-process-left {
+    padding: 20px;
+    min-height: {{ section.settings.left_height_mobile }}px;
+    background-size: 85% 85%, cover;
+    text-align: center;
+    align-items: center;
+  }
+
+  .custom-process-left h2 {
+    font-size: 24px;
+  }
+
+  .custom-process-left p {
+    font-size: 14px;
+  }
+
+  .custom-process-btn {
+    align-self: center;
+  }
+
+  .custom-process-right {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .process-step {
+    gap: 10px;
+  }
+
+  .process-icon {
+          min-width: 48px;
+        min-height: 48px;
+          max-width: 48px;
+        max-height: 48px;
+  }
+
+  .process-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .process-content h4 {
+    font-size: 15px;
+  }
+
+  .process-content p {
+    font-size: 13px;
+  }
+}
+{% endstyle %}
+
+<section class="custom-process-section">
+  <div class="page-width">
+    <div class="custom-process-grid">
+      <div class="custom-process-left">
+        <img src="{{ section.settings.left_image | image_url: width: 1200 }}" alt="Custom Process"/>
+        <div>
+          <h2>{{ section.settings.left_heading }}</h2>
+          <p>{{ section.settings.left_text }}</p>
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="custom-process-btn">
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+        </div> 
+      </div>
+
+      <div class="custom-process-right">
+        {% for block in section.blocks %}
+          <div class="process-step">
+            <div class="process-icon">
+              {% if block.settings.icon_image != blank %}
+                <img src="{{ block.settings.icon_image | image_url: width: 64 }}" alt="" loading="lazy">
+              {% endif %}
+            </div>
+            <div class="process-content">
+              <span>{{ block.settings.step_label }}</span>
+              <h4>{{ block.settings.title }}</h4>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Custom Process Section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled_gradient",
+      "label": "Enabled Background Gradient"
+    },
+    {
+      "type": "color_background",
+      "id": "first_bg_color",
+      "label": "Gradiens",
+    },
+    { "type": "image_picker", "id": "left_image", "label": "Left Background Image" },
+    { "type": "color", "id": "left_bg_fallback", "label": "Left Background Fallback Color", "default": "#242543" },
+
+    { "type": "text", "id": "left_heading", "label": "Left Heading", "default": "Our Custom-Made Tape and Label Process" },
+    { "type": "textarea", "id": "left_text", "label": "Left Text" },
+
+    {
+      "type": "select",
+      "id": "left_text_align",
+      "label": "Left Text Alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ]
+    },
+      {
+      "type": "select",
+      "id": "left_text_postion",
+      "label": "Left Text Postion",
+      "default": "above",
+      "options": [
+        { "value": "above", "label": "Above The Image" },
+        { "value": "below", "label": "Below The Image" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_align",
+      "label": "Left Button Alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+    },
+    {
+      "type": "select",
+      "id": "left_vertical_align",
+      "label": "Left Vertical Position",
+      "default": "center",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "Bottom" }
+      ]
+    },
+
+    { "type": "color", "id": "left_text_color", "label": "Left Text Color", "default": "#ffffff" },
+
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "Request a Quote" },
+    { "type": "url", "id": "button_link", "label": "Button Link" },
+    { "type": "color", "id": "button_bg", "label": "Button Background", "default": "#ffffff" },
+    { "type": "color", "id": "button_color", "label": "Button Text Color", "default": "#000000" },
+
+    { "type": "color", "id": "right_bg", "label": "Right Background Color", "default": "#f7f7f7" },
+    { "type": "color", "id": "right_heading_color", "label": "Right Heading Color", "default": "#000000" },
+    { "type": "color", "id": "right_text_color", "label": "Right Text Color", "default": "#555555" },
+    { "type": "color", "id": "step_label_color", "label": "Step Label Color", "default": "#2f6cff" },
+    { "type": "color", "id": "icon_bg", "label": "Icon Background Color", "default": "#eaf1ff" },
+
+    {
+      "type": "textarea",
+      "id": "mobile_custom_css",
+      "label": "Mobile CSS",
+      "info": "Yahan sirf mobile ki CSS likho"
+    },
+
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "label": "Padding Top", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "label": "Padding Bottom", "default": 60 }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Process Step",
+      "settings": [
+        { "type": "image_picker", "id": "icon_image", "label": "Icon Image" },
+        { "type": "text", "id": "step_label", "label": "Step Label", "default": "STEP 1" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Custom Process Section" }
+  ]
+}
+{% endschema %}

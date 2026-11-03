@@ -1,0 +1,656 @@
+{% comment %}
+  Section: Foil Tapes / Industrial Applications (2-column) — styled like provided image
+  - Uses Shopify "page-width" and optional "page-width--fixed" (no max-width setting)
+  - Left column: intro + "Types" list (parallelogram cards)
+  - Right column: "Industrial Applications" list (red title bar + blue body + icon)
+  - Everything customizable via settings + blocks
+{% endcomment %}
+
+{%- liquid
+  assign container_class = 'page-width'
+  if section.settings.use_fixed_width
+    assign container_class = 'page-width page-width--fixed'
+  endif
+-%}
+
+<section class="ftapes-{{ section.id }}">
+  <div class="{{ container_class }}">
+    <div class="ftapes__grid">
+      <!-- LEFT PANEL -->
+      <div class="ftapes__panel ftapes__panel--left">
+        <div class="ftapes__left-inner">
+          {%- if section.settings.left_top_title != blank -%}
+            <div class="ftapes__top-pill ftapes__top-pill--left">
+              <span>{{ section.settings.left_top_title }}</span>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.left_title != blank -%}
+            <h2 class="ftapes__title ftapes__title--left">{{ section.settings.left_title }}</h2>
+          {%- endif -%}
+
+          {%- if section.settings.left_intro != blank -%}
+            <div class="ftapes__intro ftapes__intro--left">
+              {{ section.settings.left_intro }}
+            </div>
+          {%- endif -%}
+
+          <div class="ftapes__type-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'left_type' -%}
+                {%- assign has_title = block.settings.title -%}
+                {%- assign has_text  = block.settings.text -%}
+                {%- if has_title or has_text != blank  -%}
+                  <div class="ftapes__type-card" {{ block.shopify_attributes }}>
+                    <div class="ftapes__type-card-inner">
+                      {%- if has_title  != blank -%}
+                        <div class="ftapes__type-card-title">{{ block.settings.title }}</div>
+                      {%- endif -%}
+                      {%- if has_text  != blank -%}
+                        <div class="ftapes__type-card-text">{{ block.settings.text }}</div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <div class="ftapes__footer ftapes__footer--left">
+            {%- if section.settings.left_footer_text != blank -%}
+              <div class="ftapes__footer-text">{{ section.settings.left_footer_text }}</div>
+            {%- endif -%}
+
+            <div class="ftapes__brand-row">
+              {%- if section.settings.brand_logo != blank -%}
+                <div class="ftapes__logo-wrap">
+                  <img
+                    src="{{ section.settings.brand_logo | image_url: width: 220 }}"
+                    alt="{{ section.settings.brand_logo.alt | escape }}"
+                    loading="lazy"
+                    width="220"
+                    height="{{ 220 | divided_by: section.settings.brand_logo.aspect_ratio | round }}"
+                  >
+                </div>
+              {%- endif -%}
+
+              {%- if section.settings.brand_url_text != blank -%}
+                <div class="ftapes__brand-url">
+                  {%- if section.settings.brand_url_link != blank -%}
+                    <a href="{{ section.settings.brand_url_link }}" class="ftapes__brand-url-pill">
+                      {{ section.settings.brand_url_text }}
+                    </a>
+                  {%- else -%}
+                    <span class="ftapes__brand-url-pill">
+                      {{ section.settings.brand_url_text }}
+                    </span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="ftapes__panel ftapes__panel--right">
+        <div class="ftapes__right-inner">
+          {%- if section.settings.right_title != blank -%}
+            <div class="ftapes__right-title-wrap">
+              <h2 class="ftapes__title ftapes__title--right">{{ section.settings.right_title }}</h2>
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.right_intro != blank -%}
+            <div class="ftapes__intro ftapes__intro--right">
+              {{ section.settings.right_intro }}
+            </div>
+          {%- endif -%}
+
+          <div class="ftapes__apps">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'right_app' -%}
+                {%- assign has_title = block.settings.title  -%}
+                {%- assign has_text  = block.settings.text -%}
+                {%- if has_title != blank or has_text != blank  -%}
+                  <div class="ftapes__app" {{ block.shopify_attributes }}>
+                    <div class="ftapes__app-head">
+                      <div class="ftapes__app-title">{{ block.settings.title }}</div>
+
+                      
+                    </div>
+
+                    {%- if has_text != blank  -%}
+                      <div class="ftapes__app-body">
+                        {{ block.settings.text }}
+
+                        {%- if block.settings.icon != blank -%}
+                        <div class="ftapes__app-icon">
+                          <img
+                            src="{{ block.settings.icon | image_url: width: 120 }}"
+                            alt="{{ block.settings.icon.alt | escape }}"
+                            loading="lazy"
+                            width="60"
+                            height="{{ 60 | divided_by: block.settings.icon.aspect_ratio | round }}"
+                          >
+                        </div>
+                      {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+          <div class="ftapes__footer ftapes__footer--right">
+            {%- if section.settings.right_footer_text != blank -%}
+              <div class="ftapes__footer-text">{{ section.settings.right_footer_text }}</div>
+            {%- endif -%}
+
+            <div class="ftapes__brand-row">
+              {%- if section.settings.brand_logo != blank -%}
+                <div class="ftapes__logo-wrap">
+                  <img
+                    src="{{ section.settings.brand_logo | image_url: width: 220 }}"
+                    alt="{{ section.settings.brand_logo.alt | escape }}"
+                    loading="lazy"
+                    width="220"
+                    height="{{ 220 | divided_by: section.settings.brand_logo.aspect_ratio | round }}"
+                  >
+                </div>
+              {%- endif -%}
+
+              {%- if section.settings.brand_url_text != blank -%}
+                <div class="ftapes__brand-url">
+                  {%- if section.settings.brand_url_link != blank -%}
+                    <a href="{{ section.settings.brand_url_link }}" class="ftapes__brand-url-pill">
+                      {{ section.settings.brand_url_text }}
+                    </a>
+                  {%- else -%}
+                    <span class="ftapes__brand-url-pill">
+                      {{ section.settings.brand_url_text }}
+                    </span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .ftapes-{{ section.id }}{
+      --left-bg: {{ section.settings.left_bg }};
+      --right-bg: {{ section.settings.right_bg }};
+      --left-top-pill-bg: {{ section.settings.left_top_pill_bg }};
+      --left-top-pill-text: {{ section.settings.left_top_pill_text }};
+      --left-title-bg: {{ section.settings.left_title_bg }};
+      --left-title-text: {{ section.settings.left_title_text }};
+      --left-intro-text: {{ section.settings.left_intro_text }};
+      --type-card-bg: {{ section.settings.type_card_bg }};
+      --type-card-border: {{ section.settings.type_card_border }};
+      --type-title: {{ section.settings.type_title_text }};
+      --type-text: {{ section.settings.type_text }};
+      --right-title-bg: {{ section.settings.right_title_bg }};
+      --right-title-text: {{ section.settings.right_title_text }};
+      --right-intro-text: {{ section.settings.right_intro_text }};
+      --app-head-bg: {{ section.settings.app_head_bg }};
+      --app-head-text: {{ section.settings.app_head_text }};
+      --app-body-bg: {{ section.settings.app_body_bg }};
+      --app-body-text: {{ section.settings.app_body_text }};
+      --footer-bg: {{ section.settings.footer_bg }};
+      --footer-text: {{ section.settings.footer_text }};
+      --url-pill-bg: {{ section.settings.url_pill_bg }};
+      --url-pill-text: {{ section.settings.url_pill_text }};
+      --section-radius: {{ section.settings.panel_radius }}px;
+      --gap: {{ section.settings.column_gap }}px;
+      padding: {{ section.settings.section_padding_y }}px 0;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      align-items: stretch;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__panel{
+      border-radius: var(--section-radius);
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__panel--left{
+      background: var(--left-bg);
+      color: #fff;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__panel--right{
+      background: var(--right-bg);
+      color: #111;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__left-inner,
+    .ftapes-{{ section.id }} .ftapes__right-inner{
+      padding: {{ section.settings.panel_padding }}px;
+    }
+
+    /* Top pill (left) */
+    .ftapes-{{ section.id }} .ftapes__top-pill{
+      display:flex;
+      justify-content:center;
+      margin: 6px auto 14px;
+    }
+    .ftapes-{{ section.id }} .ftapes__top-pill span{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 22px;
+      border-radius: 6px;
+      background: var(--left-top-pill-bg);
+      color: var(--left-top-pill-text);
+      font-weight: 700;
+      letter-spacing: .2px;
+      border: 1px solid rgba(255,255,255,.35);
+      min-width: 200px;
+      text-align:center;
+    }
+
+    /* Left title red capsule */
+    .ftapes-{{ section.id }} .ftapes__title--left{
+      margin: 0 auto 12px;
+      width: fit-content;
+      padding: 10px 22px;
+      background: var(--left-title-bg);
+      color: var(--left-title-text);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: {{ section.settings.left_title_size }}px;
+      line-height: 1.1;
+      text-align:center;
+    }
+
+    /* Right title capsule */
+    .ftapes-{{ section.id }} .ftapes__right-title-wrap{
+      display:flex;
+      justify-content:center;
+      margin: 6px auto 10px;
+    }
+    .ftapes-{{ section.id }} .ftapes__title--right{
+      margin: 0;
+      padding: 12px 26px;
+      background: var(--right-title-bg);
+      color: var(--right-title-text);
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: {{ section.settings.right_title_size }}px;
+      line-height: 1.1;
+      text-align:center;
+      border: 2px solid rgba(0,0,0,.08);
+    }
+
+    /* Intro */
+    .ftapes-{{ section.id }} .ftapes__intro{
+      font-size: {{ section.settings.intro_size }}px;
+      line-height: 1.45;
+      opacity: .95;
+      margin: 0 auto 16px;
+      max-width: 560px;
+      text-align: center;
+    }
+    .ftapes-{{ section.id }} .ftapes__intro--left{ color: var(--left-intro-text); }
+    .ftapes-{{ section.id }} .ftapes__intro--right{ color: var(--right-intro-text); }
+
+    /* Left type cards (parallelogram look) */
+    .ftapes-{{ section.id }} .ftapes__type-list{
+      display:flex;
+      flex-direction: column;
+      gap: {{ section.settings.type_gap }}px;
+      margin-top: 6px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__type-card{
+      position: relative;
+      padding: {{ section.settings.type_card_border_size }}px; /* border thickness */
+      background: transparent;
+      border-radius: 2px;
+      transform: skewX(-10deg);
+    }
+
+    .ftapes-{{ section.id }} .ftapes__type-card::before{
+      content: "";
+    position: absolute;
+    inset: 0px;
+    background: var(--type-card-border);
+     clip-path: polygon(4% 0%, 100% 0%, 97% 100%, 0 100%);
+    border-radius: 3px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__type-card-inner{
+       position: relative;
+    background: var(--type-card-bg);
+    clip-path: polygon(5% 0, 100% 0, 96% 100%, 0 100%);
+    padding: 14px 24px;
+    transform: skewX(4deg);
+
+    }
+
+    .ftapes-{{ section.id }} .ftapes__type-card-title{
+      font-weight: 800;
+      font-size: {{ section.settings.type_title_size }}px;
+      color: var(--type-title);
+      text-align:center;
+      margin-bottom: 6px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__type-card-text{
+      font-size: {{ section.settings.type_text_size }}px;
+      line-height: 1.45;
+      color: var(--type-text);
+      text-align:left;
+    }
+
+    /* Right apps list */
+    .ftapes-{{ section.id }} .ftapes__apps{
+      display:flex;
+      flex-direction: column;
+      gap: {{ section.settings.app_gap }}px;
+      margin-top: 4px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__app{
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.08);
+      background: #fff;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__app-head{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--app-head-bg);
+      color: var(--app-head-text);
+    }
+
+    .ftapes-{{ section.id }} .ftapes__app-title{
+      font-weight: 900;
+      font-size: {{ section.settings.app_title_size }}px;
+      letter-spacing: .2px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__app-icon{
+      width: {{ section.settings.app_icon_size }}px;
+      height: {{ section.settings.app_icon_size }}px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      opacity: .95;
+    }
+    .ftapes-{{ section.id }} .ftapes__app-icon img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display:block;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__app-body{
+      padding: 12px 14px;
+      background: var(--app-body-bg);
+      color: var(--app-body-text);
+      font-size: {{ section.settings.app_text_size }}px;
+      line-height: 1.45;
+          display: flex;
+    gap: 20px; 
+    }
+
+    /* Footer bar (both) */
+    .ftapes-{{ section.id }} .ftapes__footer{
+      margin-top: {{ section.settings.footer_margin_top }}px;
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__footer-text{
+      font-size: {{ section.settings.footer_text_size }}px;
+      line-height: 1.35;
+      text-align:center;
+      margin-bottom: 10px;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__brand-row{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__logo-wrap{
+      background: #ffffff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__logo-wrap img{
+      display:block;
+      max-height: {{ section.settings.logo_max_height }}px;
+      width: auto;
+      height: auto;
+    }
+
+    .ftapes-{{ section.id }} .ftapes__brand-url-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--url-pill-bg);
+      color: var(--url-pill-text);
+      font-weight: 800;
+      text-decoration:none;
+      border: 1px solid rgba(255,255,255,.12);
+      white-space: nowrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+        .ftapes-{{ section.id }} .ftapes__title--right{
+      margin: 0;
+      padding: 7px 15px;
+      background: var(--right-title-bg);
+      color: var(--right-title-text);
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: {{ section.settings.right_title_size | divided_by: 1.5 }}px;
+    }
+       .ftapes-{{ section.id }} .ftapes__intro{
+      font-size:14px;
+    }
+        .ftapes-{{ section.id }} .ftapes__type-card::before{
+      content: "";
+    position: absolute;
+    inset: 0px;
+    background: var(--type-card-border);
+     clip-path: polygon(1% 0%, 96% 0%, 100% 100%, 3% 105%);
+    border-radius: 3px;
+    }
+      .ftapes-{{ section.id }} .ftapes__grid{
+        grid-template-columns: 1fr;
+      }
+      .ftapes-{{ section.id }} .ftapes__intro{
+        max-width: 100%;
+      }
+      .ftapes-{{ section.id }} .ftapes__brand-row{
+        justify-content: center;
+      }
+    }
+  </style>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Tapes",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_fixed_width",
+      "label": "Use fixed page width (adds page-width--fixed)",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "section_padding_y",
+      "label": "Section padding (top/bottom)",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "panel_radius",
+      "label": "Panel corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "panel_padding",
+      "label": "Panel padding",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "default": 20
+    },
+
+    { "type": "header", "content": "Left Panel Content" },
+    { "type": "text", "id": "left_top_title", "label": "Top pill title (left)", "default": "Foil Tapes" },
+    { "type": "text", "id": "left_title", "label": "Main title (left)", "default": "Types Of Foil Tapes" },
+    { "type": "richtext", "id": "left_intro", "label": "Intro text (left)", "default": "<p>Extremely adaptable, foam tape allows for endless customization, catering to the demands of nearly any application. Using foam tape yields numerous benefits, including both time- and cost-effectiveness, extended service life, as well as adaptability and flexibility.</p>" },
+
+    { "type": "header", "content": "Right Panel Content" },
+    { "type": "text", "id": "right_title", "label": "Main title (right)", "default": "Industrial Applications Of Foil Tapes" },
+    { "type": "richtext", "id": "right_intro", "label": "Intro text (right)", "default": "<p>Foil tapes find use in applications across a wide range of industries. For example:</p>" },
+
+    { "type": "header", "content": "Brand / Footer (both panels)" },
+    { "type": "image_picker", "id": "brand_logo", "label": "Brand logo" },
+    { "type": "text", "id": "brand_url_text", "label": "Website pill text", "default": "www.nadco-inc.com" },
+    { "type": "url", "id": "brand_url_link", "label": "Website link (optional)" },
+    { "type": "text", "id": "left_footer_text", "label": "Left footer text", "default": "For additional information about our foil tape offerings or assistance choosing one for your application, browse our catalog or contact us today." },
+    { "type": "text", "id": "right_footer_text", "label": "Right footer text", "default": "To learn more about NADCO’s superior foam tapes and other adhesive solutions, contact us today." },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "left_title_size", "label": "Left title size", "min": 16, "max": 34, "step": 1, "default": 24 },
+    { "type": "range", "id": "right_title_size", "label": "Right title size", "min": 16, "max": 34, "step": 1, "default": 20 },
+    { "type": "range", "id": "intro_size", "label": "Intro text size", "min": 12, "max": 18, "step": 1, "default": 12 },
+    { "type": "range", "id": "type_title_size", "label": "Type card title size", "min": 14, "max": 22, "step": 1, "default": 18 },
+    { "type": "range", "id": "type_text_size", "label": "Type card text size", "min": 11, "max": 16, "step": 1, "default": 12 },
+    { "type": "range", "id": "app_title_size", "label": "App title size", "min": 14, "max": 22, "step": 1, "default": 16 },
+    { "type": "range", "id": "app_text_size", "label": "App text size", "min": 11, "max": 16, "step": 1, "default": 12 },
+    { "type": "range", "id": "footer_text_size", "label": "Footer text size", "min": 10, "max": 16, "step": 1, "default": 11 },
+
+    { "type": "header", "content": "Left Type Cards Layout" },
+    { "type": "range", "id": "type_gap", "label": "Type cards gap", "min": 6, "max": 24, "step": 2, "default": 14 },
+    { "type": "range", "id": "type_card_border_size", "label": "Type card border thickness", "min": 2, "max": 10, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "Right App Cards Layout" },
+    { "type": "range", "id": "app_gap", "label": "App cards gap", "min": 6, "max": 18, "step": 1, "default": 10 },
+    { "type": "range", "id": "app_icon_size", "label": "App icon size", "min": 28, "max": 70, "step": 2, "default": 44 },
+
+    { "type": "header", "content": "Footer Layout" },
+    { "type": "range", "id": "footer_margin_top", "label": "Footer margin top", "min": 8, "max": 40, "step": 2, "default": 16 },
+    { "type": "range", "id": "logo_max_height", "label": "Logo max height", "min": 18, "max": 80, "step": 2, "default": 34 },
+
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "left_bg", "label": "Left panel background", "default": "#0B75B9" },
+    { "type": "color", "id": "right_bg", "label": "Right panel background", "default": "#F4F5F7" },
+
+    { "type": "color", "id": "left_top_pill_bg", "label": "Left top pill background", "default": "#0B75B9" },
+    { "type": "color", "id": "left_top_pill_text", "label": "Left top pill text", "default": "#FFFFFF" },
+
+    { "type": "color", "id": "left_title_bg", "label": "Left title background", "default": "#FFFFFF" },
+    { "type": "color", "id": "left_title_text", "label": "Left title text", "default": "#D60000" },
+
+    { "type": "color", "id": "left_intro_text", "label": "Left intro text", "default": "#EAF6FF" },
+
+    { "type": "color", "id": "type_card_bg", "label": "Type card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "type_card_border", "label": "Type card border color", "default": "#D60000" },
+    { "type": "color", "id": "type_title_text", "label": "Type card title color", "default": "#111111" },
+    { "type": "color", "id": "type_text", "label": "Type card text color", "default": "#222222" },
+
+    { "type": "color", "id": "right_title_bg", "label": "Right title background", "default": "#EAEAEA" },
+    { "type": "color", "id": "right_title_text", "label": "Right title text", "default": "#D60000" },
+    { "type": "color", "id": "right_intro_text", "label": "Right intro text", "default": "#333333" },
+
+    { "type": "color", "id": "app_head_bg", "label": "App header background", "default": "#B80000" },
+    { "type": "color", "id": "app_head_text", "label": "App header text", "default": "#FFFFFF" },
+    { "type": "color", "id": "app_body_bg", "label": "App body background", "default": "#0B75B9" },
+    { "type": "color", "id": "app_body_text", "label": "App body text", "default": "#FFFFFF" },
+
+    { "type": "color", "id": "footer_bg", "label": "Footer background", "default": "#0A0A0A" },
+    { "type": "color", "id": "footer_text", "label": "Footer text", "default": "#FFFFFF" },
+    { "type": "color", "id": "url_pill_bg", "label": "Website pill background", "default": "#D60000" },
+    { "type": "color", "id": "url_pill_text", "label": "Website pill text", "default": "#FFFFFF" }
+  ],
+  "blocks": [
+    {
+      "type": "left_type",
+      "name": "Left: Type card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Aluminum" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Aluminum foil tapes are highly conformable to irregular surfaces and provide a barrier against vapor. They are often used for hot joints and seams of aluminum backed duct board and fiberglass and shielding and covering thermal insulation." }
+      ]
+    },
+    {
+      "type": "right_app",
+      "name": "Right: Application item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Aerospace" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Foil tapes are used as masking for airplane seams, wheels, and windows during paint stripping and painting operations." },
+        { "type": "image_picker", "id": "icon", "label": "Icon (image)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Foil Tapes",
+      "blocks": [
+        { "type": "left_type", "settings": { "title": "Aluminum" } },
+        { "type": "left_type", "settings": { "title": "Copper" } },
+        { "type": "left_type", "settings": { "title": "Lead" } },
+        { "type": "left_type", "settings": { "title": "Stainless Steel" } },
+
+        { "type": "right_app", "settings": { "title": "Aerospace" } },
+        { "type": "right_app", "settings": { "title": "Building & Construction" } },
+        { "type": "right_app", "settings": { "title": "Electrical" } },
+        { "type": "right_app", "settings": { "title": "HVAC" } },
+        { "type": "right_app", "settings": { "title": "Marine" } },
+        { "type": "right_app", "settings": { "title": "Packaging" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

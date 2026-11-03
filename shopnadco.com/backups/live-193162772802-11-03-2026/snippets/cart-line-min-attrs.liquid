@@ -1,0 +1,23 @@
+{% comment %}
+  Outputs the min and data-min attributes for the quantity input of a cart line.
+  data-min is the variant's minimum purchase quantity (see variant-min-qty). min stays 0
+  for variants without a minimum so the minus button can still remove the line, and is
+  raised to the minimum otherwise so the minus button cannot step the line below it.
+  Accepts:
+  - variant: {Object} variant object of the cart line.
+
+  Usage:
+  <input ... {% render 'cart-line-min-attrs', variant: item.variant %}>
+{% endcomment %}
+{%- liquid
+  capture variant_min_qty
+    render 'variant-min-qty', variant: variant
+  endcapture
+  assign variant_min_qty = variant_min_qty | plus: 0
+
+  assign input_min = 0
+  if variant_min_qty > 1
+    assign input_min = variant_min_qty
+  endif
+-%}
+min="{{ input_min }}" data-min="{{ variant_min_qty }}"

@@ -376,7 +376,8 @@
       },
       "update": "Actualizar",
       "cart_error": "Se produjo un error al actualizar su carrito. Por favor inténtalo de nuevo.",
-      "cart_quantity_error_html": "Solo puedes agregar {{ quantity }} de este artículo a tu carrito."
+      "cart_quantity_error_html": "Solo puedes agregar {{ quantity }} de este artículo a tu carrito.",
+      "min_quantity_error": "Algunos artículos están por debajo de su cantidad mínima. Aumenta la cantidad de esos artículos para finalizar la compra."
     },
     "collection_template": {
       "title": "Recopilación"

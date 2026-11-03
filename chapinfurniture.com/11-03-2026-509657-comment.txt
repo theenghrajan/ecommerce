@@ -1,0 +1,11 @@
+As per comment #6,
+
+Re: Is there a way they can build into the Ship to Information where customers are required to put in a physical address as sometimes customers enter a PO Box and we are unable to ship to that.
+...
+This is done. If a customer enters a PO Box as their shipping address, checkout now shows "Shipping not available" with no delivery options, so they cannot place the order until they enter a street address. This works for all delivery options, both the South Carolina local delivery rates and out of state shipping. Customers with a street address see the same delivery options and prices as before, and in-store pickup is not affected.
+
+We tested this with "PO Box 123" and "p.o. box 45" (blocked), and with street addresses in Irmo, SC and Atlanta, GA (delivery options shown as normal).
+Please note the message customers see is Shopify's standard "Shipping not available" text. If you would like it to mention PO Boxes (for example "We are unable to ship to PO Boxes. Please enter a street address."), please let us know and we will update it.
+Reference screenshot: https://drive.google.com/file/d/197AR90ZHL75PXQjSFrcF6Zzb-Vj-1XgP/view?usp=sharing
+
+Thanks!

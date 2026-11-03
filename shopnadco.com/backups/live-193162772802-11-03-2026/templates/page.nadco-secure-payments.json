@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "apps_zPxmMU": {
+      "type": "apps",
+      "blocks": {
+        "hulk_form_builder_form_block_XMt9kk": {
+          "type": "shopify://apps/hulk-form-builder/blocks/form-block/b6b8dd14-356b-4725-a4ed-77232212b3c3",
+          "settings": {
+            "form_uuid": "MMJJQYyd-7Ju7hPGNTMetA",
+            "form_settings": true,
+            "font_color": "#000000",
+            "size": 14,
+            "input_background_color": "#ffffff",
+            "input_background_color_focus": "#FFFFFF",
+            "input_border_radius": 1,
+            "input_border_color": "#000000",
+            "input_border_color_focus": "#2d2727",
+            "input_font_color": "#3d3131",
+            "input_size": 14,
+            "border_color": "#ffffff",
+            "border_radius": 0,
+            "border": 0,
+            "fill_color": "#ffffff",
+            "padding": 35,
+            "form_width": 1000,
+            "btn_text": "Submit",
+            "sub_btn_txt_color": "#f3f3f3",
+            "sub_btn_bg_color": "#0b61cd",
+            "sub_btn_font_size": 24,
+            "sub_btn_bdr_color": "#ffffff",
+            "sub_btn_bdr_rad": 12,
+            "sub_btn_bdr_width": 1,
+            "fonts": "Arial"
+          }
+        },
+        "powerful_form_builder_app_block_eLKtY8": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "disabled": true,
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTM0ODQx\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "hulk_form_builder_form_block_XMt9kk",
+        "powerful_form_builder_app_block_eLKtY8"
+      ],
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "apps_zPxmMU"
+  ]
+}

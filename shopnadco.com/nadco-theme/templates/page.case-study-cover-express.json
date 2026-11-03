@@ -1,0 +1,577 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_XRWKnM": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_ArpDxa": {
+          "type": "heading",
+          "settings": {
+            "heading": "Mobility Scooter Cover Business Rides to Success with NADCO’s Stock Holding Program",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_AejeA6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cover Express specializes in crafting weather covers tailored specifically for scooters and power wheelchairs. Founded by Bill Shehwen over nineteen years ago, the company recognized the demand for this niche product early on.<br/><br/>“When I started this business,” Shehwen explains, “we were in the medical mobility and equipment industry, but I wasn’t satisfied with the available covers. So, we decided to create our own high-quality ones.”<br/><br/>However, Cover Express initially faced challenges in finding a reliable label manufacturer for their new venture. They needed custom labels that could be delivered promptly without compromising quality or breaking the bank..</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_ArpDxa",
+        "text_AejeA6"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collapsible_tabs_bARwPy": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_yVcKy3": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/cover-express-labels_png.webp",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "collapsible_item_UNMqmV": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Challenge",
+            "content": "<p>Faster turnaround time for custom labels</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_XLpbx7": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Solution",
+            "content": "<p>Stock holding option</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_qawHgr": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Throughput",
+            "content": "<p>Expedited orders and tailored service</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_yVcKy3",
+        "collapsible_item_UNMqmV",
+        "collapsible_item_XLpbx7",
+        "collapsible_item_qawHgr"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_taMeHM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RKCyYd": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Success with NADCO’s Stock Holding Program</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RKCyYd"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_wDYM6C": {
+      "type": "custom-content",
+      "blocks": {
+        "video_BmVDFn": {
+          "type": "video",
+          "settings": {
+            "video_url": "http://vimeo.com/951661430?fl=pl&fe=cm",
+            "cover_image": "shopify://shop_images/1860923393-21f23405d3228d898ea1bdd610fdddfcda1ef2c8a48fc0b023794c4c73c0413a-d_640.jpg",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "text_jjt8ER": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "Challenge",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "description": "<p> The labels weren’t merely for branding; they also had to incorporate crucial care and usage instructions for each cover type. Although sourcing labels overseas was an option, Shehwen feared potential compromises in quality and logistical hurdles.<br/><br/>Moreover, because Cover Express prioritized catering to individuals with specific mobility needs, they soon garnered the attention of the Veterans Administration. However, to onboard the VA as a customer, both the products and labels needed to be 100% American-made.<br/><br/>This posed an additional obstacle in acquiring customized, high-quality, and cost-effective labels manufactured domestically.<br/><br/></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_BmVDFn",
+        "text_jjt8ER"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "Working with One Person",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_w9mYa3": {
+      "type": "custom-content",
+      "blocks": {
+        "text_NWGJqA": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "Solution",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "description": "<p>In search of a solution to its labeling dilemma, Cover Express found an ideal partner in NADCO Tapes & Labels. With its home base in Sarasota, Florida, and its reputation for providing innovative solutions and efficient processes, it seemed the perfect partner.<br/><br/>First things first, NADCO assigned them a dedicated account manager to ensure seamless communication and a consistent understanding of their needs.<br/><br/>The assurance of great customer service provided by this dedicated account manager was a huge relief. However, the question remained: could NADCO offer their services at a competitive price?<br/><br/>To address this, NADCO proposed a tailored approach called the “stock holding program.”<br/><br/>This program allows companies like Cover Express to streamline their supply chain and access products promptly when needed.<br/><br/></p><h2><br/><br/></h2>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "video_wf7TbA": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://vimeo.com/951662445?fl=pl&fe=cm",
+            "cover_image": "shopify://shop_images/1860924848-3d2d19907296bbd478525d961e369a287377b3e8fcbd026fff482e030b2d20ab-d_640.jpg",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_NWGJqA",
+        "video_wf7TbA"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "How Cover Express Uses NADCO",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_JqHApq": {
+      "type": "rich-text",
+      "blocks": {
+        "text_prxxq7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It’s designed to save money through bulk purchasing, improved inventory management, and optimized production schedules.<br/><br/>“We set ourselves apart by offering this service,” Neil Doniger, Co-owner of NADCO, explained. “It’s the best way to handle inventory for our clients, so when they need it urgently, we’ve got them covered. It’s about building relationships, not just making sales.”</p><p>Partnering with NADCO as their label provider, Cover Express benefits from swift label production, enabling them to meet tight deadlines and customer demands seamlessly.<br/><br/>Additionally, with a dedicated account manager prioritizing their business needs, there’s a meticulously maintained order history, ensuring each processing step is efficient and accurate.<br/><br/>Leveraging NADCO’s expertise and unwavering support, Cover Express can focus on delivering top-notch products while upholding efficiency and cost-effectiveness in its day-to-day operations.<br/><br/>Today, Cover Express continues to rely on NADCO for agile labeling solutions. Whether it’s adapting to new cover sizes, styles, or colors or promptly addressing customer requests through its stock holding program, the future of its robust partnership remains bright.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_prxxq7"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_detEc8": {
+      "type": "custom-content",
+      "blocks": {
+        "text_6tmmUV": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "<strong>Results</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "description": "<p>Partnering with NADCO as their label provider, Cover Express benefits from swift label production, enabling them to meet tight deadlines and customer demands seamlessly.<br/><br/>Additionally, with a dedicated account manager prioritizing their business needs, there’s a meticulously maintained order history, ensuring each processing step is efficient and accurate.<br/><br/>Leveraging NADCO’s expertise and unwavering support, Cover Express can focus on delivering top-notch products while upholding efficiency and cost-effectiveness in its day-to-day operations.<br/><br/>Today, Cover Express continues to rely on NADCO for agile labeling solutions. Whether it’s adapting to new cover sizes, styles, or colors or promptly addressing customer requests through its stock holding program, the future of its robust partnership remains bright.<br/><br/></p>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "video_bmhcVb": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://vimeo.com/951654061?fl=pl&fe=cm",
+            "cover_image": "shopify://shop_images/1860913023-c26f0b2d68111a844c6726d168ee04dd22c4f37b619aa94254fee046344b5e31-d_640.jpg",
+            "video_ratio": "adapt",
+            "description": "",
+            "enable_video_autoplay": false,
+            "enable_video_looping": false,
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_6tmmUV",
+        "video_bmhcVb"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "<strong>Importance of Labels to Cover Expense</strong>",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_Ff9wNM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_R3qAJJ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Result",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_jJdTpd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Partnering with NADCO as their label provider, Cover Express benefits from swift label production, enabling them to meet tight deadlines and customer demands seamlessly.</p><p>Additionally, with a dedicated account manager prioritizing their business needs, there’s a meticulously maintained order history, ensuring each processing step is efficient and accurate.</p><p>Leveraging NADCO’s expertise and unwavering support, Cover Express can focus on delivering top-notch products while upholding efficiency and cost-effectiveness in its day-to-day operations.</p><p>Today, Cover Express continues to rely on NADCO for agile labeling solutions. Whether it’s adapting to new cover sizes, styles, or colors or promptly addressing customer requests through its stock holding program, the future of its robust partnership remains bright.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_R3qAJJ",
+        "text_jJdTpd"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_YMKh9j": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_XQAA8q": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_XQAA8q"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_PbDD8J": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_Dxi3Gt": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_wAgACK": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Dxi3Gt",
+        "button_wAgACK"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_XRWKnM",
+    "collapsible_tabs_bARwPy",
+    "rich_text_taMeHM",
+    "custom_content_wDYM6C",
+    "custom_content_w9mYa3",
+    "rich_text_JqHApq",
+    "custom_content_detEc8",
+    "rich_text_Ff9wNM",
+    "apps_YMKh9j",
+    "image_with_text_overlay_PbDD8J"
+  ]
+}

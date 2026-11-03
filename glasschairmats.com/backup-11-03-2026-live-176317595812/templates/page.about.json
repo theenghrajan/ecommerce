@@ -1,0 +1,295 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow-0": {
+          "type": "image",
+          "settings": {
+            "title": "We Knew There Was a Better Way",
+            "title_size": 50,
+            "subheading": "A commitment to creating the best glass home & office products",
+            "link": "",
+            "link_text": "",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/CI_HERO_RECTANGLE_2880x2_4c5a0a57-b55d-493a-aece-0c6f874c67e6.jpg",
+            "parallax_direction": "left",
+            "overlay_opacity": 10,
+            "focal_point": "bottom center"
+          }
+        }
+      },
+      "block_order": [
+        "slideshow-0"
+      ],
+      "settings": {
+        "section_height": "450px",
+        "mobile_height": "400px",
+        "parallax": false,
+        "style": "arrows",
+        "autoplay": false,
+        "autoplay_speed": 7
+      }
+    },
+    "1c05493f-5d80-4470-b0c4-f5a006865a39": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--15919760801956__1c05493f-5d80-4470-b0c4-f5a006865a39-1670456142818a6102-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CI_FOUNDERS_VERT.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "template--15919760801956__1c05493f-5d80-4470-b0c4-f5a006865a39-1670456142818a6102-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h1 id=\"story\" class=\"anchor\">Our Story</h1><p>In 2007, our founder, <a href=\"https://youtu.be/VFr0K0Hslug?si=oVqTABL6k1MYc-Ey\" target=\"_blank\">Ken James</a> , retired from a successful career in golf course management but felt he had more to accomplish. He thought about what problems people endured with no solution and looked down from his desk chair, and it was right in front of him - a dented, thin <a href=\"https://glasschairmats.com/blogs/news/invest-in-glass-chair-mats-over-cheap-plastic-mats\">plastic chair mat</a> that looked awful, was hard to roll on, and had to be replaced frequently. He knew there had to be a better solution for an office chair to have a smooth rolling surface.</p><p>He started Clearly Innovative™ to develop a sturdy, heavyweight, smooth, crystal clear tempered glass chair mat. He realized immediately that rolling off a 1/4\" thick mat was not a pleasant experience, so he developed a full 1\" <a href=\"https://glasschairmats.com/pages/benefits-of-glass\">beveled edge</a> as a transition to smoothly roll off and on the mat and patented the feature. </p><p>Since then, the company has expanded, adding Hirrum Shetrone as a partner, handling all Operations, Logistics and Customer Service. We are also continuing to <a href=\"https://glasschairmats.com/collections/all\">add products</a> while still satisfying tens of thousands of customers and never deviating from our focus on providing beautiful yet functional solutions. We are humbled by the reviews from our customers and our five-star rating.</p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919760801956__1c05493f-5d80-4470-b0c4-f5a006865a39-1670456142818a6102-0",
+        "template--15919760801956__1c05493f-5d80-4470-b0c4-f5a006865a39-1670456142818a6102-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "2578d1d5-f3cc-47d0-baf8-1d20d5cf760e": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--15919760801956__2578d1d5-f3cc-47d0-baf8-1d20d5cf760e-1670456688cdd9cfc5-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2 id=\"customer-service\" class=\"anchor\">Customer Service</h2><p>We're committed to providing an excellent experience with our products. Have questions? We've got the answers, or contact us today.</p>\t\n<ul>\n<li><a href=\"https://glasschairmats.com/blogs/news/frequently-asked-questions-about-glass-floor-mats\">Read our FAQs  »</a></li>\n<li><a href=\"https://glasschairmats.com/policies/refund-policy\">Returns & Exchanges  »</a></li>\n<li><a href=\"https://glasschairmats.com/pages/lifetime-limited-warranty\">Lifetime Limited Warranty  »</a></li>\n<li><a href=\"https://glasschairmats.com/pages/reviews\">Verified Customer Reviews  »</a></li>\n<li><a href=\"https://glasschairmats.com/pages/contact\">Contact Us  »</a></li>\n</p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "template--15919760801956__2578d1d5-f3cc-47d0-baf8-1d20d5cf760e-1670456688cdd9cfc5-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CI_CUSTOMER-SERVICE_1080X_6995c1d3-ad3c-40c7-9f60-593fa459da0a.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919760801956__2578d1d5-f3cc-47d0-baf8-1d20d5cf760e-1670456688cdd9cfc5-1",
+        "template--15919760801956__2578d1d5-f3cc-47d0-baf8-1d20d5cf760e-1670456688cdd9cfc5-0"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "59e865d9-fd72-4843-904e-ac41881eacd7": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--15919760801956__59e865d9-fd72-4843-904e-ac41881eacd7-1670456688cdd9cfc5-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CI_CUSTOM-ORDER_1080X_2e6d382e-4ab6-46e9-8b27-6f24af92158a.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "template--15919760801956__59e865d9-fd72-4843-904e-ac41881eacd7-1670456688cdd9cfc5-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2 id=\"bulk\" class=\"anchor\">Custom or Bulk Orders</h2><p>If one of our standard sizes or shapes doesn't work for your needs, <a href=\"https://glasschairmats.com/pages/contact\">contact us</a> to create your perfect size. We offer discounts on orders of 5 or more mats.</p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919760801956__59e865d9-fd72-4843-904e-ac41881eacd7-1670456688cdd9cfc5-0",
+        "template--15919760801956__59e865d9-fd72-4843-904e-ac41881eacd7-1670456688cdd9cfc5-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "c81d73aa-209b-4c62-946e-ff842d4b36eb": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--15919760801956__c81d73aa-209b-4c62-946e-ff842d4b36eb-1670456870bb0b5951-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2 id=\"blog\" class=\"anchor\">Blog</h2><p>Learn more about our products, philosophy, and work-from-home or commercial office environment trends.</p>\n<p><a href=\"https://glasschairmats.com/blogs/news\" class=\"btn\">View Our Blog</a></p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "template--15919760801956__c81d73aa-209b-4c62-946e-ff842d4b36eb-1670456870bb0b5951-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/CI_BLOG_1600x_47dd9df4-40cb-4955-ae2c-a192a44c3ad0.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--15919760801956__c81d73aa-209b-4c62-946e-ff842d4b36eb-1670456870bb0b5951-1",
+        "template--15919760801956__c81d73aa-209b-4c62-946e-ff842d4b36eb-1670456870bb0b5951-0"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "rich_text_hKyDmF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MwxWNa": {
+          "type": "heading",
+          "settings": {
+            "title": "Video Gallery"
+          }
+        },
+        "text_4DF7Gz": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Check out some of our marketing videos and those shared by satisfied customers!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MwxWNa",
+        "text_4DF7Gz"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "advanced_content_L33Dkd": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_mGdX8Q": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/yKIRfMrriNM?si=FZfqH9_aBJXvNGwu\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_DmtAjE": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/2uSC0Xwgok4?si=BkWmCw1w_oF1LY4e\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_mGdX8Q",
+        "liquid_DmtAjE"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "advanced_content_trCqBE": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_KKRrnG": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/I1VDBCORQvI?si=VQYbz0AljLBSj39C\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_cQVbjc": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/YyMcZq8ffZE?si=dWZCX8aKtRZmxE32\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_KKRrnG",
+        "liquid_cQVbjc"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "advanced_content_cGFWfF": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_MMynpc": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/7QmiPLj4v6o?si=-3ExKuJIJ6GafqN7\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_bDKM6H": {
+          "type": "liquid",
+          "settings": {
+            "code": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/rTw5F8seeo8?si=m4faLZKxXP00oFhq\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_MMynpc",
+        "liquid_bDKM6H"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow",
+    "1c05493f-5d80-4470-b0c4-f5a006865a39",
+    "2578d1d5-f3cc-47d0-baf8-1d20d5cf760e",
+    "59e865d9-fd72-4843-904e-ac41881eacd7",
+    "c81d73aa-209b-4c62-946e-ff842d4b36eb",
+    "rich_text_hKyDmF",
+    "advanced_content_L33Dkd",
+    "advanced_content_trCqBE",
+    "advanced_content_cGFWfF"
+  ]
+}

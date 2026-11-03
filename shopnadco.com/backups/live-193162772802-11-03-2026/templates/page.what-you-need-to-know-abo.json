@@ -1,0 +1,590 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_rfJUgi": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_RwL7yX": {
+          "type": "heading",
+          "settings": {
+            "heading": "What You Need to Know About Foil Tapes",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_YJiH6g": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RwL7yX",
+        "text_YJiH6g"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_THyzaq": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_REmWaN": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "NADCO University"
+          }
+        },
+        "heading_zaxRiR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Foil Adhesive Tape",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_cfkzBP": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Foil adhesive tapes are an extremely versatile and durable solution for rugged and harsh applications. Reliable adhesion, good thermal/electrical conductivity, and resistances to chemicals, humidity, and UV radiation make foil tape one of the most popular options for military, aerospace, and industrial applications — particularly in outdoor operations.</p><p>At NADCO Tapes and Labels, Inc., we specialize in the development and production of custom tapes and labels for use in nearly any industry. With more than 30 years of experience, we have developed innovative adhesive tape solutions to withstand a broad range of extreme conditions. Our foil tapes are custom-manufactured for situational requirements using a variety of foil materials and designs.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_REmWaN",
+        "heading_zaxRiR",
+        "text_cfkzBP"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_m8MwkJ": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_PWRw6A": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/enhanced_37a94c17-bb7e-4030-a3eb-2f5112e3b4ae.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_Eq3pwh": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "What are the Key Materials Used and Their Applications?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p><a href=\"https://shopnadco.com/pages/foil-tape\" target=\"_blank\" title=\"https://shopnadco.com/pages/foil-tape\">Foil tapes</a> are available from a wide range of materials, including aluminum, lead, copper, and steel.<br/><br/></p>"
+          }
+        },
+        "collapsible_item_hdLycG": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aluminum tapes.",
+            "content": "<p>Aluminum tapes incorporate aluminum foil and reliable adhesives into a highly durable tape that conforms easily to uneven surfaces. With high resistances to moisture, vapor, and temperature fluctuations, aluminum tape can provide a barrier over thermal insulation, such as aluminum-backed duct board and fiberglass. It is often used in packaging to protect sensitive contents from moisture intrusion and temperature fluctuations during shipping.<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_YF3XDf": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Copper tapes. ",
+            "content": "<p>Copper foil tapes can be manufactured in conductive and non-conductive variants. Available in lined and unlined designs, copper tape offers a high level of chemical and weather resistance, making it perfect for use in outdoor communication cable wrapping and electrostatic shielding.<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_gFEkQc": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Lead tapes.",
+            "content": "<p>Lead tapes are uniquely suited for masking applications in chemical mills, x-ray applications, and electroplating. They offer excellent moisture resistance and sometimes see use as a moisture barrier around windows and doors.<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_TyAx4d": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Stainless steel tapes.",
+            "content": "<p>Valued for its exceptional strength and corrosion resistance, stainless steel foil tape is used in applications that require an adhesive tape product with superior durability and the ability to conform easily to corners and uneven surfaces. Often found in outdoor applications, stainless steel tape resists UV radiation, thermal fluctuations, wear, and corrosion.<br/><br/></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_PWRw6A",
+        "heading_Eq3pwh",
+        "collapsible_item_hdLycG",
+        "collapsible_item_YF3XDf",
+        "collapsible_item_gFEkQc",
+        "collapsible_item_TyAx4d"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_YDRt3G": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EHgdj6": {
+          "type": "heading",
+          "settings": {
+            "heading": "5 Key Benefits of Foil Tape",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_L6CVqK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Foil tape provides a number of advantages for critical industries and applications. Here are five of the primary benefits offered by foil tape:</p><p> </p><ul><li><strong>Extreme cold and heat resistance. </strong>Foil tape with any metal presents a high level of temperature versatility. Our extensive selection of foil tapes can withstand temperatures from -22°F to 248°F and can be applied to products in temperatures from 14°F to 104°F. Unlike traditional adhesive tapes that will harden and perform poorly in cold temperatures, foil tapes retain adhesion even in freezing temperatures.</li><li><strong>Extended service life. </strong>Our foil tapes are manufactured using state-of-the-art acrylic adhesive technology, which offers exceptional cohesion, adhesion, and thermal stability. Foil tapes perform better over time compared with standard rubber adhesives, making them ideal for limited access applications where replacement is difficult, such as insulation or drainage layers in new construction.</li><li><strong>Moisture resistance. </strong>The moisture resistance of foil tapes makes them well suited to use in the marine industry, where they can be applied to patching without becoming waterlogged or losing adhesion. The moisture resistance of foil tapes is so superior that Scientific American once suggested it could be used to manufacture a boat that could carry cargo.</li><li><strong>Resistant to harsh chemicals. </strong>Foil tape is especially resistant to harsh chemicals, which makes it ideal in extreme conditions where saltwater, oil, fuel, and corrosive chemicals are found. For this reason, it is often employed by the Navy to protect wheels, windows, and seams during paint stripping. It is also used to seal equipment used for anodizing and electroplating applications.</li><li><strong>Recyclable</strong>. Aluminum foil tape is recyclable and requires only 5% of the energy needed for its initial production for recycling. This makes it one of the most sustainable adhesive tape materials on the market.</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EHgdj6",
+        "text_L6CVqK"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_LJRYjp": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_b9EYCq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Working with an Industry Leader like NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_jCAjir": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As one of the industry’s premier providers of custom adhesive tape products and labels, NADCO maintains a reputation for exceptional quality adhesive solutions. Our 35,000-square-foot warehouse allows us to maintain a comprehensive stock of adhesive tapes and labels suitable for nearly any application. Our facility features state-of-the-art equipment that allows us to manufacture custom-printed tapes and labels up to 20 inches wide with four-color processing or up to seven spot colors.</p><p>We maintain ISO 9001:2015 quality certification and our shipping capabilities include everything from local delivery to international freight. No matter what your project requires, you can rest assured that NADCO’s adhesive tapes and labels will meet and exceed the most stringent industry standards and customer expectations. Our extensive selection of foil tapes can be custom-designed to meet the particular needs of even the most extreme applications.</p><p>To learn more about our foil tapes and other adhesive products, <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">contact us today</a>!</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_b9EYCq",
+        "text_jCAjir"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_77iYjT": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_jDgCDY": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom-digital-printing_tapes_labels_800_600.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_HNiTed": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": ""
+          }
+        },
+        "collapsible_item_E9qc9r": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aerospace Industry",
+            "content": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. To withstand the operational challenges posed by aerospace equipment, tapes must meet stringent standards and requirements for temperature resistance, flammability, low weight, and adhesion.</p><p><a href=\"/pages/aerospace\" title=\"Aerospace\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_Tf9rmY": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automotive Industry",
+            "content": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p><p><a href=\"/pages/automotive\" title=\"Automotive\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_QR8C8T": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Contruction Industry",
+            "content": "<p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry.</p><p><a href=\"/pages/construction-municipal\" title=\"Construction Municipal\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_pj8MgH": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electronics Industry",
+            "content": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p><p><a href=\"/pages/electronics\" title=\"Electronics\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_qgEaXA": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Medical Industry",
+            "content": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization. The tapes used in medical applications have the potential of being exposed to varying conditions, so they must have biocompatibility and be able to withstand intense environments.</p><p><a href=\"/pages/adhesive-tapes-medical-industry\" title=\"Adhesive Tapes Medical Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_CcMfCb": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Nuclear Industry",
+            "content": "<p>At NADCO, we understand that each application is different, which is why we provide a wide range of nuclear tape and label designs, features, and customization options. We aim to enhance the safety of nuclear applications with quality adhesive solutions for every situation, from nuclear warning labels and RAD wipes to hazard tape and radioactivity indicator signage.</p><p><a href=\"/pages/nuclear-industry\" title=\"Nuclear Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_98QHPF": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Personal Protective Equipment Industry",
+            "content": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions. Different types of PPE are required across various industries, depending upon the unique risks posed on the job site. These include face and eye protection as well as hard hats for the construction industry.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_dMB4Fk": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Industry",
+            "content": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk. In order to establish safe facilities, many companies incorporate safety tapes.</p><p><a href=\"/pages/safety-industry\" title=\"Safety Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_jDgCDY",
+        "heading_HNiTed",
+        "collapsible_item_E9qc9r",
+        "collapsible_item_Tf9rmY",
+        "collapsible_item_QR8C8T",
+        "collapsible_item_pj8MgH",
+        "collapsible_item_qgEaXA",
+        "collapsible_item_CcMfCb",
+        "collapsible_item_98QHPF",
+        "collapsible_item_dMB4Fk"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_MaD4ff": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_bwR8gP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_7dLJXq": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bwR8gP",
+        "button_7dLJXq"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_rfJUgi",
+    "rich_text_THyzaq",
+    "collapsible_tabs_m8MwkJ",
+    "rich_text_YDRt3G",
+    "rich_text_LJRYjp",
+    "collapsible_tabs_77iYjT",
+    "image_with_text_overlay_MaD4ff"
+  ]
+}

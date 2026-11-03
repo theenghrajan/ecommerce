@@ -1,0 +1,391 @@
+{%- liquid
+  assign per_row = section.settings.per_row
+  assign product_limit = per_row | times: section.settings.rows
+  assign collection = collections[section.settings.home_featured_products]
+
+  assign grid_item_width = 'small--one-half medium-up--one-third'
+
+  case per_row
+    when 1
+      assign grid_item_width = ''
+    when 2
+      assign grid_item_width = 'medium-up--one-half'
+    when 3
+      assign grid_item_width = 'small--one-half medium-up--one-third'
+    when 4
+      assign grid_item_width = 'small--one-half medium-up--one-quarter'
+    when 5
+      assign grid_item_width = 'small--one-half medium-up--one-fifth'
+  endcase
+-%}
+
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+
+<div id="CollectionSection-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="featured-collection">
+  {%- if section.settings.title != blank -%}
+    <div class="page-width">
+      <div class="section-header fc-header">
+        <h2 class="section-header__title fc-title">
+          {{ section.settings.title }}
+        </h2>
+        {% if section.settings.view_all and section.settings.rows == 1 %}
+          <a href="/collections/all" class="section-header__link fc-viewall">{{ 'collections.general.all_of_collection' | t }}</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="fc-carousel-outer">
+    <div class="fc-fade fc-fade--left"></div>
+    <div class="fc-track-wrapper">
+      <div class="fc-track" id="fc-track-{{ section.id }}">
+
+        {% unless section.settings.home_featured_products == blank or collections[section.settings.home_featured_products].empty? or collections[section.settings.home_featured_products].products_count == 0 %}
+
+          {% for loop in (1..3) %}
+            {%- for product in collections[section.settings.home_featured_products].products limit: product_limit -%}
+              <div class="fc-item">
+                <a href="{{ product.url | within: collection }}" class="fc-item__link">
+                  <div class="fc-item__image-wrap">
+                    {% if product.featured_image %}
+                      <img
+                        src="{{ product.featured_image | image_url: width: 800 }}"
+                        alt="{{ product.title | escape }}"
+                        class="fc-item__img fc-item__img--primary"
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                      >
+                      {% if product.images[1] %}
+                        <img
+                          src="{{ product.images[1] | image_url: width: 800 }}"
+                          alt="{{ product.title | escape }}"
+                          class="fc-item__img fc-item__img--secondary"
+                          loading="lazy"
+                          width="800"
+                          height="600"
+                        >
+                      {% endif %}
+                    {% endif %}
+                    <div class="fc-shop-btn">
+                      <span>Shop</span>
+                      <span>Now</span>
+                    </div>
+                  </div>
+                  <div class="fc-item__info">
+                    <p class="fc-item__title">{{ product.title }}</p>
+                    <div class="fc-item__price">
+                      {% if product.compare_at_price > product.price %}
+                        <span class="fc-price--compare">{{ product.compare_at_price | money }}</span>
+                        <span class="fc-price--sale">{{ product.price | money }}</span>
+                        <span class="fc-price--badge">Save {{ product.compare_at_price | minus: product.price | money }}</span>
+                      {% else %}
+                        <span class="fc-price--regular">{{ product.price | money }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            {%- endfor -%}
+          {% endfor %}
+
+        {% endunless %}
+
+      </div>
+    </div>
+    <div class="fc-fade fc-fade--right"></div>
+  </div>
+
+</div>
+
+{%- if section.settings.divider -%}</div>{%- endif -%}
+
+<style>
+.fc-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.fc-title {
+  text-align: center !important;
+  width: 100%;
+}
+
+.fc-viewall {
+  position: absolute;
+  right: 0;
+  font-size: 13px;
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.fc-viewall:hover {
+  opacity: 0.6;
+}
+
+.fc-carousel-outer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fc-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.fc-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: fc-scroll 45s linear infinite;
+}
+
+.fc-track:hover {
+  animation-play-state: paused;
+}
+
+.fc-item {
+  flex: 0 0 340px;
+  width: 340px;
+}
+
+.fc-item__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.fc-item__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f5f5f3;
+}
+
+.fc-item__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.fc-item__img--secondary {
+  opacity: 0;
+}
+
+.fc-item__link:hover .fc-item__img--primary {
+  opacity: 0;
+  transform: scale(1.03);
+}
+
+.fc-item__link:hover .fc-item__img--secondary {
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+.fc-shop-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.fc-item__link:hover .fc-shop-btn {
+  opacity: 1;
+}
+
+.fc-item__info {
+  padding: 12px 2px 0;
+}
+
+.fc-item__title {
+  font-family: var(--font-body-family, sans-serif);
+  font-size: 16px;
+  color: #1a1a1a;
+  margin: 0 0 5px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.fc-item__price {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.fc-price--regular {
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.fc-price--compare {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+  font-family: var(--font-body-family, sans-serif);
+  font-weight: 400;
+}
+
+.fc-price--sale {
+  font-size: 16px;
+  color: #d72b2b;
+  font-weight: 600;
+  font-family: var(--font-body-family, sans-serif);
+}
+
+.fc-price--badge {
+  font-size: 11px;
+  background: #d72b2b;
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 2px;
+  font-weight: 500;
+  white-space: nowrap;
+  font-family: var(--font-body-family, sans-serif);
+}
+
+.fc-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 70px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fc-fade--left {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, transparent 100%);
+}
+
+.fc-fade--right {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+}
+
+@keyframes fc-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@media (max-width: 749px) {
+  .fc-carousel-outer {
+    padding: 0 20px;
+  }
+
+  .fc-item {
+    flex: 0 0 240px;
+    width: 240px;
+  }
+
+  .fc-track {
+    animation-duration: 32s;
+    gap: 14px;
+  }
+
+  .fc-fade {
+    width: 40px;
+  }
+}
+</style>
+
+<script>
+(function() {
+  var track = document.getElementById('fc-track-{{ section.id }}');
+  if (!track) return;
+  track.addEventListener('touchstart', function() {
+    track.style.animationPlayState = 'paused';
+  }, { passive: true });
+  track.addEventListener('touchend', function() {
+    setTimeout(function() {
+      track.style.animationPlayState = 'running';
+    }, 2500);
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.featured-collection.name",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.featured-collection.settings.title.label",
+      "default": "Featured collection"
+    },
+    {
+      "type": "collection",
+      "id": "home_featured_products",
+      "label": "t:sections.featured-collection.settings.home_featured_products.label"
+    },
+    {
+      "type": "range",
+      "id": "per_row",
+      "label": "t:sections.featured-collection.settings.per_row.label",
+      "default": 4,
+      "min": 1,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "rows",
+      "label": "t:sections.featured-collection.settings.rows.label",
+      "default": 1,
+      "min": 1,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "view_all",
+      "label": "t:sections.featured-collection.settings.view_all.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "divider",
+      "label": "t:sections.featured-collection.settings.divider.label",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.featured_collection.name"
+    }
+  ],
+  "blocks": []
+}
+{% endschema %}

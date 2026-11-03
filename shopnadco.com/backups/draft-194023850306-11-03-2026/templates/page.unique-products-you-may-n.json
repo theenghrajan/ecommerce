@@ -1,0 +1,616 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_ayYXRa": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_7teB3x": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unique Products You May Not Know NADCO® Offers.",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_qmwqff": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_7teB3x",
+        "text_qmwqff"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/0bd2916bb0f5eac0ed27a12f8b31a4d40686a655.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 26,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_YgJBFM": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_3QHtUc": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unique products you may not know NADCO® offers.",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_JhKpH7": {
+          "type": "text",
+          "settings": {
+            "text": "<h2><strong>Unique Products You May Not Know NADCO® Offers</strong></h2><p>NADCO is known for pressure-sensitive adhesive tapes and labels, but our capabilities extend far beyond traditional offerings. We manufacture a wide range of specialty materials—both adhesive and non-adhesive—designed to support diverse industrial, commercial, and promotional applications.</p><p>Below are a few examples of unique products we produce in-house.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_3QHtUc",
+        "text_JhKpH7"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_wYBXHf": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_AWbqzq": {
+          "type": "heading",
+          "settings": {
+            "heading": "Banners",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_gWRgzR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO offers two banner formats to support promotional and informational displays:</p><ul><li><strong>Hanging banners</strong>, available in virtually any size</li><li><strong>Retractable banners</strong>, featuring a durable aluminum cassette and ground-level stand</li></ul><p>Both options are fully customizable and produced using durable, waterproof vinyl suitable for indoor and outdoor use. The smooth surface ensures high-quality imagery and crisp graphics.</p><p><strong>Common uses:</strong> trade shows, retail displays, events, promotions, and facilities signage.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_AWbqzq",
+        "text_gWRgzR"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/banner.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_8HCGeh": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_8mYj8y": {
+          "type": "heading",
+          "settings": {
+            "heading": "Barricade Tape",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_brefmq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Barricade tape is a high-strength vinyl tape engineered for durability and visibility in demanding environments. It resists most common solvents, water, oils, sunlight, acids, alkalis, and corrosive chemicals.</p><p>With excellent abrasion resistance and moisture-vapor barrier properties, barricade tape performs reliably in outdoor conditions.</p><p><strong>Common uses:</strong> construction zones, hazard marking, crowd control, and restricted-area identification.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_8mYj8y",
+        "text_brefmq"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/tape_5e8de725-3ec3-4fb8-8754-d517869a5db1.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 42
+      }
+    },
+    "image_with_text_6Ve6Xj": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_hkUgXe": {
+          "type": "heading",
+          "settings": {
+            "heading": "Foam Materials",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_Ndzije": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our foam products offer premium <strong>conformability, adhesion, and cushioning</strong>, making them ideal for irregular or textured surfaces. Foam tapes are available in multiple densities and thicknesses to support a wide range of functional applications.</p><p><strong>Common uses:</strong></p><ul><li>Insulation</li><li>Appliance assembly</li><li>Humidity and moisture protection</li><li>Vibration and impact damping</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_hkUgXe",
+        "text_Ndzije"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Spiralled_foam_with_adhesive_backing.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_rxDVMJ": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_p9Uh3F": {
+          "type": "heading",
+          "settings": {
+            "heading": "Foils",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_TB8x7G": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO foil tapes are highly malleable and conform easily to uneven or irregular surfaces. Their strength and versatility make them well suited for applications requiring sealing, masking, or environmental resistance.</p><p>Foil tapes perform exceptionally well in conditions involving <strong>heat, moisture, and harsh environments</strong>.</p><p><strong>Common uses:</strong> HVAC systems, aerospace, automotive, industrial sealing, and long-term durability applications.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_p9Uh3F",
+        "text_TB8x7G"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/foil.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "rich_text_PkPKTx": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_W3GWGj": {
+          "type": "heading",
+          "settings": {
+            "heading": "Posters",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_8wbcxK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our posters are printed on bright white, scratch- and water-resistant paper designed for both indoor and outdoor durability. This material provides excellent image quality while maintaining strength and longevity.</p><p><strong>Common uses:</strong> billboards, construction signage, outdoor displays, advertising, and promotional materials.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_W3GWGj",
+        "text_8wbcxK"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_EDpCBr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_BRdibe": {
+          "type": "heading",
+          "settings": {
+            "heading": "More Than Just Tapes & Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_eGahEx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From specialty materials to custom graphics and signage, NADCO delivers solutions that go beyond standard pressure-sensitive products. Our in-house manufacturing capabilities allow us to customize materials, formats, and finishes to meet your exact requirements.</p><p><strong>Contact us</strong> to learn more about these products or explore how NADCO can support your next project.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_BRdibe",
+        "text_eGahEx"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_exUD4H": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_hJpmWq": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "right",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/custom-digital-printing_tapes_labels_800_600.jpg",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_Bqk6kb": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "Industries We Serve",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": ""
+          }
+        },
+        "collapsible_item_GM7VgR": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Aerospace Industry",
+            "content": "<p>The aerospace industry uses adhesive tapes to hold and insulate critical components under exposure to a wide variety of harsh conditions, including extreme temperatures, high moisture, fluctuating pressures, and UV radiation. To withstand the operational challenges posed by aerospace equipment, tapes must meet stringent standards and requirements for temperature resistance, flammability, low weight, and adhesion.</p><p><a href=\"/pages/aerospace\" title=\"Aerospace\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": true,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_gdcrja": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Automotive Industry",
+            "content": "<p>NADCO Tapes and Labels is a leading manufacturer of standard and custom tapes and pressure-sensitive labels. With our 35,000 square foot facility full of the latest manufacturing technology, we can create custom products for countless industries, including the automotive industry.</p><p><a href=\"/pages/automotive\" title=\"Automotive\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_K9iCb9": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Contruction Industry",
+            "content": "<p>There are many applications for adhesive tapes on construction sites both within a structure’s interior and around the exterior, and many types of construction tapes exist that provide solutions for this industry.</p><p><a href=\"/pages/construction-municipal\" title=\"Construction Municipal\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_V6DNWx": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Electronics Industry",
+            "content": "<p>Adhesive tapes are common in the electronics industry. While they’re typically used for insulation and other safety reasons, there are a number of specific applications that require different custom tapes. At NADCO, we’re proud to offer a wide range of materials and adhesive options that can be used for electronic products and applications, from masking and shielding to mounting and more. Over the years, we’ve worked with countless clients in the electronics space, and not only are we familiar with industry requirements and expectations, we’ve worked to create custom solutions for these companies.</p><p><a href=\"/pages/electronics\" title=\"Electronics\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_6KFFRc": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Medical Industry",
+            "content": "<p>Adhesive tapes used in the medical industry must meet strict medical-grade standards that often require customization. The tapes used in medical applications have the potential of being exposed to varying conditions, so they must have biocompatibility and be able to withstand intense environments.</p><p><a href=\"/pages/adhesive-tapes-medical-industry\" title=\"Adhesive Tapes Medical Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_dXkgzr": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Nuclear Industry",
+            "content": "<p>At NADCO, we understand that each application is different, which is why we provide a wide range of nuclear tape and label designs, features, and customization options. We aim to enhance the safety of nuclear applications with quality adhesive solutions for every situation, from nuclear warning labels and RAD wipes to hazard tape and radioactivity indicator signage.</p><p><a href=\"/pages/nuclear-industry\" title=\"Nuclear Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_FVdnzU": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Personal Protective Equipment Industry",
+            "content": "<p>Personal protective equipment (PPE) is a broad term that refers to the equipment used to reduce your risk of injury or illness caused by exposure to germs and dangerous working conditions. Different types of PPE are required across various industries, depending upon the unique risks posed on the job site. These include face and eye protection as well as hard hats for the construction industry.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_x4dJ7R": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Safety Industry",
+            "content": "<p>Safety is a crucial aspect of any work environment. Employees need a safe work environment, and customers must be able to access products and services without undue risk. In order to establish safe facilities, many companies incorporate safety tapes.</p><p><a href=\"/pages/safety-industry\" title=\"Safety Industry\">Learn More...</a></p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_hJpmWq",
+        "heading_Bqk6kb",
+        "collapsible_item_GM7VgR",
+        "collapsible_item_gdcrja",
+        "collapsible_item_K9iCb9",
+        "collapsible_item_V6DNWx",
+        "collapsible_item_6KFFRc",
+        "collapsible_item_dXkgzr",
+        "collapsible_item_FVdnzU",
+        "collapsible_item_x4dJ7R"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_9cPm6h": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_TBdqTr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_QQPyfz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_TBdqTr",
+        "button_QQPyfz"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_ayYXRa",
+    "rich_text_YgJBFM",
+    "image_with_text_wYBXHf",
+    "image_with_text_8HCGeh",
+    "image_with_text_6Ve6Xj",
+    "image_with_text_rxDVMJ",
+    "rich_text_PkPKTx",
+    "rich_text_EDpCBr",
+    "collapsible_tabs_exUD4H",
+    "image_with_text_overlay_9cPm6h"
+  ]
+}

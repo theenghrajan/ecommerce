@@ -1,0 +1,752 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Medical Adhesive Tape & Labeling Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>Nadco supplies the medical industry with <strong>custom-engineered, medical-grade tapes and labels</strong> designed to meet strict regulatory standards and withstand the most demanding environments.<br/><br/></p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/medical_industry_hero_AI.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_KckTAy": {
+      "type": "rich-text",
+      "blocks": {
+        "text_i3qdf3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There is currently an increased need for PPE, including masks, face shields, and goggles. These products cover the mouth, nose, and eyes in order to limit exposure to germs, chemicals, and more. To meet demands and keep up with technological advancements, many manufacturers have started experimenting with smart and connected PPE, as well as taking into consideration cost, comfort, and weight.</p><p>With many frontline workers and first responders lacking the necessary protection, NADCO’s specialty tapes and adhesives help supply the desperate need for PPE, while preventing contamination of the equipment and improving comfort.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_i3qdf3"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collection_list_X4EeaW": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_XCWiBw": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-tapes",
+            "image": "shopify://shop_images/199-CRH_3_X_1000_FT_CAUTION_REVIEW_HAZARDS_-_BLACK_YELLOW_BARRICADE_TAPE.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_NidAhn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "6-film-vinyl-specialty-surface-products-labels",
+            "image": "shopify://shop_images/WIDE-TWL-SMR.-3-x-4-12-500B_TSW_GE1A3321.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_pL9bVY": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "4-shipping-logistics-inventory-control-labels",
+            "image": "shopify://shop_images/custom_packing_tape_-_carton_sealing_tape-_main_category_image.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_de9QrL": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-labels",
+            "title": ""
+          }
+        },
+        "featured_collection_E4QPdC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "double-coated-foam-tape",
+            "image": "shopify://shop_images/DOUBLE-COATED_WHITE_FOAM-.03125_INCH_THICK-FWD2.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_ch6YVw": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "swt",
+            "image": "shopify://shop_images/6-x-24-VNYL-ANTISLIP-YB-25_Pack_188YB-6X24.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_XCWiBw",
+        "featured_collection_NidAhn",
+        "featured_collection_pL9bVY",
+        "featured_collection_de9QrL",
+        "featured_collection_E4QPdC",
+        "featured_collection_ch6YVw"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "collapsible_tabs_XcMBAm": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_MKnQ7m": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/20260124_1610_Enhanced_Tape_Therapy_remix_01kfqv44k9f08bmya7kana51qd.png",
+            "image_ratio": "adapt",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_wPhVgD": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "Industries We Support",
+            "heading": "<strong>Common Adhesive Tapes Used in the</strong> <strong>Medical Industry</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3",
+            "rich_text_cstm": "<p>Widely used in the medical industry, adhesive tapes are seen throughout many applications. Some common medical-grade tapes include:</p>"
+          }
+        },
+        "collapsible_item_w8RiKT": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Single-Coated Tapes",
+            "content": "<p>These tapes feature film, foam, non-woven, or metal substrate on one side and pressure-sensitive medical-grade adhesive on the other. A silicone release line protects the adhesive side to ensure the tape’s integrity while offering ease of use. Single-coated adhesive tapes are often used for medical devices and applications requiring direct skin contact.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_tVVp8w": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Double-Coated Tapes",
+            "content": "<p>As the name suggests, double-coated tapes have film, foam, woven, or non-woven substrates coated on both sides with a pressure-sensitive medical-grade adhesive. These tapes offer a wide range of adhesion strength, thickness, and backing materials to suit the needs of various medical applications.</p><p>Depending on the adhesion strength, double-coated tapes are ideal for both short and long-term applications. Since these tapes have adhesive properties on both sides, they are commonly used for temporarily attaching a device to the skin. For skin applications, double-coated tapes offer hypoallergenic, breathable, comfortable, and reposition-able options.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_c4a4p8": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Foam Tapes",
+            "content": "<p>As a softer, cushioned, and more comfortable option than other tape styles, <a href=\"/pages/foam-tape\" title=\"Foam Tape\">foam tapes </a>are an increasingly popular adhesion solution for the medical industry. They are lightweight, easy to use, and feature a soft texture, making foam tapes ideal for many medical applications. Foam tapes are used for medical device sealing, patient and medical device cushioning, and fluid management for long-wear wound dressings.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        },
+        "collapsible_item_JgUQL4": {
+          "type": "collapsible_item",
+          "settings": {
+            "icon": "none",
+            "heading": "Adhesive Transfer Tapes",
+            "content": "<p>These tapes offer a pressure-sensitive medical-grade adhesive coated directly onto a silicone release liner. With their rigid and durable properties, adhesive transfer tapes allow for more accurate production of finished parts to meet strict specifications. The medical industry often uses adhesive transfer tapes for device mounting, foam bonding, and surgical and wound care applications.</p>",
+            "custom_liquid": "",
+            "page": "",
+            "open": false,
+            "use_subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "image_card_MKnQ7m",
+        "heading_wPhVgD",
+        "collapsible_item_w8RiKT",
+        "collapsible_item_tVVp8w",
+        "collapsible_item_c4a4p8",
+        "collapsible_item_JgUQL4"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_7CFgKR": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_pT4Q9U": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Medical Industry Tapes"
+          }
+        },
+        "heading_Mnm7bM": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Key Medical Applications for</strong> <strong>Adhesive Tapes?</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h3"
+          }
+        },
+        "text_fc9TGQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Medical adhesive tapes offer a practical and cost-effective way to simplify medical procedures. Various types of adhesive tapes are used to seal wounds, attach dressings, attach wearable technologies, or protect against infections. Adhesive tapes within the medical industry must be gentle on the skin while having the necessary strength and durability required for medical applications.</p><p>The medical sector uses adhesive tapes in many applications, including the following:</p><ul><li>Sealing medical device LCD screens</li><li>Sealing ostomy equipment</li><li>Medical device cushioning</li><li>Prosthetic padding</li><li>Wound dressing</li><li>Electrode device attachment</li><li>Sealing control panels and keyboards</li><li>Device mounting</li><li>Surgical patches</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pT4Q9U",
+        "heading_Mnm7bM",
+        "text_fc9TGQ"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/20260124_1615_Image_Generation_remix_01kfqvcvr6eb1scggqkeka964m.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "full",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_VMrqUK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LQHxqN": {
+          "type": "heading",
+          "settings": {
+            "heading": "What are the key medical applications for adhesive tapes?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_RmfAAG": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Medical adhesive tapes offer a practical and cost-effective way to simplify medical procedures. Various types of adhesive tapes are used to seal wounds, attach dressings, attach wearable technologies, or protect against infections. Adhesive tapes within the medical industry must be gentle on the skin while having the necessary strength and durability required for medical applications.</p><p>The medical sector uses adhesive tapes in many applications, including the following:</p><ul><li>Sealing medical device LCD screens</li><li>Sealing ostomy equipment</li><li>Medical device cushioning</li><li>Prosthetic padding</li><li>Wound dressing</li><li>Electrode device attachment</li><li>Sealing control panels and keyboards</li><li>Device mounting</li><li>Surgical patches</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LQHxqN",
+        "text_RmfAAG"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_xtXxbK": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_tUiPGr": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Medical Industry Tapes"
+          }
+        },
+        "heading_XL8GL6": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Choosing A Supplier</strong> <strong>with NADCO</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_VEUCFh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At NADCO, we offer a wide range of products and solutions for our partners in the medical industry. When you partner with us, you gain access to reduced lead times, dedication to customer service, consistent quality, and superior custom production capabilities. As an ISO 10993-certified and UL-authorized label supplier, we specialize in customization to ensure adhesive tape solutions that meet medical specifications.</p><p>Services we offer include:</p><ul><li>Tamper-evident label printing</li><li>Pressure-sensitive label printing</li><li>Digital printing</li><li>Full-service graphic design</li><li>Die cutting</li><li>Prototyping</li><li>And more!</li></ul>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_tUiPGr",
+        "heading_XL8GL6",
+        "text_VEUCFh"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/medical_industry-asst._products.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_nCJkWX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_AAnnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choosing an Optimal Supplier with NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_HdHJQn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At NADCO, we offer a wide range of products and solutions for our partners in the medical industry. When you partner with us, you gain access to reduced lead times, dedication to customer service, consistent quality, and superior custom production capabilities. As an ISO 10993-certified and UL-authorized label supplier, we specialize in customization to ensure adhesive tape solutions that meet medical specifications.</p><p>Services we offer include:</p><ul><li>Tamper-evident label printing</li><li>Pressure-sensitive label printing</li><li>Digital printing</li><li>Full-service graphic design</li><li>Die cutting</li><li>Prototyping</li><li>And more!</li></ul>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AAnnhT",
+        "text_HdHJQn"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_6KqU6m": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_GjnpQt": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Medical Industry Tapes"
+          }
+        },
+        "heading_ftRjH3": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Partner</strong> <strong>with NADCO</strong>",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "hd2"
+          }
+        },
+        "text_azMVGW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From medical device sealing to device mounting, wound dressing, and more, adhesive tapes play a crucial role in the medical industry. Partnering with an established tape supplier ensures that you have the right type of adhesive tape for your medical application while ensuring compliance with strict industry standards and requirements.</p><p>At NADCO, we offer high-performance custom adhesive tape and label solutions to meet your unique needs. To learn more about how we can customize our products for your medical applications, <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">contact us</a> today.</p>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_GjnpQt",
+        "heading_ftRjH3",
+        "text_azMVGW"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/9ee42fb8d76e790a03d13a19e014ddac757789e3_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_BBr47R": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dpmmMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Partner with NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_aHMH7i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From medical device sealing to device mounting, wound dressing, and more, adhesive tapes play a crucial role in the medical industry. Partnering with an established tape supplier ensures that you have the right type of adhesive tape for your medical application while ensuring compliance with strict industry standards and requirements. At NADCO, we offer high-performance custom adhesive tape and label solutions to meet your unique needs. To learn more about how we can customize our products for your medical applications,<a href=\"https://info.nadco-inc.com/contact-us\" title=\"https://info.nadco-inc.com/contact-us\">contact us </a>today.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dpmmMR",
+        "text_aHMH7i"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_BwNQyG": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_M9K36Y": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_M9K36Y"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_4bRE8q": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_HtiNah": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_fhVKR9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HtiNah",
+        "button_fhVKR9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "rich_text_KckTAy",
+    "collection_list_X4EeaW",
+    "collapsible_tabs_XcMBAm",
+    "image_with_text_7CFgKR",
+    "rich_text_VMrqUK",
+    "image_with_text_xtXxbK",
+    "rich_text_nCJkWX",
+    "image_with_text_6KqU6m",
+    "rich_text_BBr47R",
+    "apps_BwNQyG",
+    "image_with_text_overlay_zjphJC",
+    "image_with_text_overlay_4bRE8q"
+  ]
+}

@@ -1,0 +1,520 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ww3wqL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_CY6hUd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Paper Tapes",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_wUBUUw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Tape can be made from a variety of materials, each of which has properties that make it suitable for different purposes. <a href=\"/collections/5-masking-paper-temporary-marking-labels\" target=\"_blank\" title=\"Masking, Paper & Temporary Marking - LABELS\"><em>Paper tape</em>, often called<em> masking tape</em></a>, is a broad category of <a href=\"/collections/vinyl-aisle-floor-marking-adhesive-tape\" title=\"VINYL AISLE & FLOOR MARKING ADHESIVE TAPE\">adhesive tape</a> that can feature a variety of different types of paper, including, for example:</p><ul><li>Flatback paper</li><li>Crepe paper</li><li>Tissue paper</li><li>Fish paper</li><li>Kraft paper</li><li>Clay-coat paper</li></ul><p>These paper-backed tapes can be used in a <a href=\"/blogs/news/why-use-paper-tapes\" title=\"Why Use Paper Tapes?\">variety of applications</a>, from color-coding to splicing, mounting, and packaging. They come in all colors and can be designed to offer varying degrees of holding power, removability, and temperature-resistance.</p>",
+            "text_size": "text-base"
+          }
+        },
+        "button_n8UpQM": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Contact Us Today",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CY6hUd",
+        "text_wUBUUw",
+        "button_n8UpQM"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/image.png",
+        "desktop_height": "small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "left",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_hBYe4x": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UecfhN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Roll in Your World",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UecfhN"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "tight",
+        "content_alignment": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_wdKUhY": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XYBrgb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Custom Printed Tapes & Labels",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_k4jRXa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>NADCO supplies one-stop solutions for a variety of industrial labels, safety decals, and customized stickers for manufacturing, advertising, or recreation. We also provide graphic designing, digital printing, die cutting, prototyping, and more.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_7KGtnj": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our custom services",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "",
+            "sec_button_link": "",
+            "sec_button_style": "btn--primary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_XYBrgb",
+        "text_k4jRXa",
+        "button_7KGtnj"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/Frame_38949_1.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "custom_img_text_7JKeap": {
+      "type": "custom-img-text",
+      "blocks": {
+        "heading_wQidmx": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are Paper Tapes?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_4CwRXB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In 1925, Richard Drew invented masking tape after witnessing workers in the automotive industry using butcher paper to cover the cars they were painting. When the workers needed to mask off areas of the vehicle during painting, it became clear the process was frustrating and frequently led to mistakes. Drew’s search for a better, inexpensive alternative led to the development of masking tape and other impregnated paper tapes.</p><p>Paper tapes are manufactured in different grades, and the adhesion value and thickness of the paper can be adjusted according to the user’s needs. Kraft, marking, and packing paper tapes, for example, use a natural, rubber-based adhesive that provides an excellent bond to most surfaces.</p><ul><li>Kraft paper tape features a durable backing that’s moisture-resistant and is often used for carton sealing, packing, splicing, freezer tape, straight-line masking, and outdoor applications.</li><li>Marking tape is also heavy-duty and durable, and it’s usually brightly colored, making it perfect for <a href=\"/collections/1-floor-marking-tapes\" title=\"Facility, Aisle & Floor Marking - TAPES\">floor markings</a>, hazard identification, and delineating aisles or partitions.</li><li>Packing tape (sometimes called <em>packaging tape</em> or <em>shipping tape</em>) is clear so it doesn’t obstruct shipping labels. It’s also durable, temperature-stable, and approved for shipping by the U.S. Postal Service and UPS.</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_wQidmx",
+        "text_4CwRXB"
+      ],
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "cst_bg_color": "#dae9f2",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": false,
+        "rotationg_speed": 0,
+        "image": "shopify://shop_images/f2e5dbc92d658d942e13969a0974a017c56a28e6.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "image_with_text_6YNP3J": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_3yrFHf": {
+          "type": "heading",
+          "settings": {
+            "heading": "Paper Tape Properties",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_3KEaa6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Paper tapes use a water-activated adhesive and can be applied manually or with an applicator. Most types are recyclable. Different kinds of paper tape feature various properties—for example, you can order custom or standard tape with the following qualities:</p><ul><li>Colors</li><li>Varying degrees of transparency</li><li>Printability for text and images</li><li>Tearable by hand</li><li>Tensile strength</li><li>Temperature tolerance</li><li>Adhesive strength</li><li>Abrasion-resistance</li><li>Removability</li><li>Weight limit</li><li>Water penetration rate</li></ul>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_3yrFHf",
+        "text_3KEaa6"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/af17b2d9f359ab65853d18cfb642acd3146af8ff.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 50
+      }
+    },
+    "image_with_text_JPhWc9": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_XAjYEy": {
+          "type": "heading",
+          "settings": {
+            "heading": "Paper Tape Applications",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_YnRQzt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Paper tape is commonly used for general purpose bonding, bonding of irregular surfaces, and applications where temporary holds are required. It’s compatible with a variety of surface materials, including paper, corrugated cardboard, fabric, plastic, and film. Many types can be torn by hand during application.</p><p>Paper tapes are used for color separation when hand painting or spray painting to create crisp, clean lines and prevent overspray. They’re common elements in many manufacturing processes, including furniture making, <a href=\"/pages/automotive\" title=\"Automotive\">automobile</a> and aircraft painting, appliance manufacturing, decorative glassmaking, powder coating, plating, and sandblasting. Many industries also use paper tape for <a href=\"/pages/eco-friendly-labels-and-sustainability-practices\" title=\"Eco-Friendly Labels & Sustainability Practices\">sustainable packaging</a> and because it’s <a href=\"/pages/tamper-evident-labels\" title=\"Tamper-Evident Labels\">tamper-evident</a>.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_XAjYEy",
+        "text_YnRQzt"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/695613a0d1e95f7e0c1711e7dee9455911982c14.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "custom_img_text_jUncjc": {
+      "type": "custom-img-text",
+      "blocks": {
+        "small_images_LyGGNW": {
+          "type": "small-images",
+          "settings": {
+            "small_bg_color": "#ffffff",
+            "sec_brder_radius": 4,
+            "first_sm_img": "shopify://shop_images/76305200690db3ed825dae7188219a3ca831d7f4_1.png",
+            "second_sm_img": "shopify://shop_images/76305200690db3ed825dae7188219a3ca831d7f4.png",
+            "sec_top_position": 88,
+            "sec_left_position": 4,
+            "sec_mobile_top_position": 0,
+            "sec_mobile_left_position": 0
+          }
+        },
+        "head_img_MgLna7": {
+          "type": "head-img",
+          "disabled": true,
+          "settings": {
+            "left_head_img": "shopify://shop_images/Rectangle_3521.png",
+            "right_head_img": "shopify://shop_images/Rectangle_3522.png"
+          }
+        },
+        "heading_P4iexL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Digital Printing & Digital Die - Cutting",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_ka8xLq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>While we’re known for our high-quality tapes and labels, many customers don’t realize that NADCO® also offers a wide range of graphic design services. From banners to signs, we can produce unique, full-color graphics for indoor or outdoor use in almost any size.</p>",
+            "subtext_color": true
+          }
+        },
+        "button_Efkjck": {
+          "type": "button",
+          "settings": {
+            "button_label": "View our digital printing solutions",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "caret-right"
+          }
+        }
+      },
+      "block_order": [
+        "small_images_LyGGNW",
+        "head_img_MgLna7",
+        "heading_P4iexL",
+        "text_ka8xLq",
+        "button_Efkjck"
+      ],
+      "disabled": true,
+      "name": "custom image text",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-1",
+        "cst_bg_color": "#dae9f2",
+        "sec_padd": 0,
+        "inner_radius": 0,
+        "spin_animation": true,
+        "rotationg_speed": 60,
+        "image": "shopify://shop_images/c83c19509248c0dee1890ce788e801b9b9545e8e.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 50,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_NnBEnm": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zBCeML": {
+          "type": "heading",
+          "settings": {
+            "heading": "Learn More About NADCO’s Paper Tapes",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_Kpm6GK": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When it comes to picking the right tape for your unique application, there are many factors to consider, including:</p><ul><li>The surface material and texture</li><li>Environmental exposure</li><li>Tension and frictional force</li><li>How much tape is needed and its dimensions</li><li>The tape opacity and color</li></ul><p>To save you time and money and ensure you get the best tape for the job, NADCO is available to help with selection and ordering. At NADCO, we offer a wide assortment of paper tapes and can provide custom tapes and labels to meet any specification.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        },
+        "button_9cpNpr": {
+          "type": "button",
+          "settings": {
+            "button_label": "Contact Us Today",
+            "button_link": "shopify://pages/contact-us",
+            "button_style": "btn--primary",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zBCeML",
+        "text_Kpm6GK",
+        "button_9cpNpr"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "scheme-10",
+        "use_color_scheme_in_container": true,
+        "content_spacing": "fitted",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_9xcWPN": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_KYxzrJ": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_KYxzrJ"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_wpXJz6": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_GTHLcL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_JfdgUM": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_GTHLcL",
+        "button_JfdgUM"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ww3wqL",
+    "rich_text_hBYe4x",
+    "image_with_text_wdKUhY",
+    "custom_img_text_7JKeap",
+    "image_with_text_6YNP3J",
+    "image_with_text_JPhWc9",
+    "custom_img_text_jUncjc",
+    "rich_text_NnBEnm",
+    "apps_9xcWPN",
+    "image_with_text_overlay_wpXJz6"
+  ]
+}

@@ -1,0 +1,592 @@
+/* won't work unless you edit theme.css.liquid
+@media only screen and (max-width:920px){.medium-down--show{display:block !important;}.medium-down--hide{display:none !important;}.medium-down--text-left{text-align:left !important;}.medium-down--text-right{text-align:right !important;}.medium-down--text-center{text-align:center !important;}}
+@media only screen and (min-width:921px){.large-up--show{display:block !important;} .large-up--hide{display:none !important;}.large-up--text-left{text-align:left !important;}.large-up--text-right{text-align:right !important;}.large-up--text-center{text-align:center !important;}}
+*/
+
+/* Blog */
+.template-article blockquote {
+  padding: 40px !important;
+  border-bottom: 5px solid #a79170;
+  margin: 80px auto !important;
+  border-top: 5px solid #a79170;
+}
+
+.template-article blockquote p {
+  letter-spacing: -.01em;
+  text-transform: none;
+  font-size: 22px;
+  padding: 0 40px;
+}
+
+.template-article blockquote p strong {
+  font-size: 13px;
+  text-transform: uppercase;
+  display: block;
+  margin: 20px 0 0;
+}
+ hr {
+    margin: 60px 0;
+ }
+
+.page-width--narrow {
+    max-width: 850px;
+}
+
+.rte a {
+  color: #8d744f;
+}
+
+
+/* Columns in Blog */
+.blog-col {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-col-3 .blog-col-item {
+  width: 32%;
+  text-align: center;
+}
+
+@media only screen and (max-width:767px) {
+  .blog-col  {
+    flex-direction: column;
+  }
+
+  .blog-col-3 .blog-col-item {
+    width: 90%;
+    margin: 0 auto 30px;
+  }
+}
+
+/* Home */
+.hero__link {
+    display: block;
+    margin: 10px 0 0;
+}
+
+/* Header */
+
+.site-header {
+  box-shadow: 0 0 14px rgb(0,0,0,.1);
+}
+
+.site-header__logo svg {
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: 0;
+}
+
+
+.site-navigation .site-nav__link {
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+@media only screen and (max-width:1130px) {
+  .site-navigation .site-nav__link {
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+}
+
+@media only screen and (max-width:1066px) {
+  .site-navigation .site-nav__link {
+      padding-left: 9px;
+      padding-right: 9px;
+  }
+}
+
+@media only screen and (max-width:980px) {
+  .site-navigation .site-nav__link {
+      padding-left: 8px;
+      padding-right: 8px;
+  }
+  .site-nav__link, .site-nav__dropdown-link {
+    font-size: 15px !important;
+  }
+}
+
+@media only screen and (max-width:960px) {
+  body .header-layout--left-center .header-item--icons{
+    flex: 0 0 100px;
+  }
+}
+
+@media only screen and (min-width:769px) {
+  .header-wrapper {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+
+  #MainContent {
+    padding-top: 110px;
+  }
+}
+
+/* Footer */
+
+.footer__title {
+  font-weight: 600;
+  font-family: 'Open Sans' !important;
+}
+.site-footer .footer__logo a {
+  height: 59px;
+  width: 187px;
+}
+.footer__logo svg {
+    display: block;
+    transform: translateZ(0);
+    max-height: 100%;
+}
+
+.btn-footer {
+  border: solid 1px #e8e1d6;
+  background-color: #857354 !important;
+}
+
+/* Hero */
+
+.hero__subtitle {max-width: 800px;}
+
+/* Buttons */
+
+.btn, .rte .btn, .shopify-payment-button .shopify-payment-button__button--unbranded, .spr-container .spr-button, .spr-container .spr-summary-actions a {
+  text-transform: uppercase !important;
+  font-weight: 600 !important; 
+  font-family: 'Open Sans' !important;
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+.btn--inverse {
+  background-color: #E8E4DB !important;
+  border-width: 1px;
+  color: #464644 !important;
+}
+
+/* Home - last section */
+#shopify-section-template--15919760736420__09c2beb5-d893-4a98-9d76-f2ea3e7ea19f{
+  background: #f2f1ec;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* Text with Icons Section - Home */
+.template-index #shopify-section-template--15919760736420__5f893cd1-c3c9-425b-95fb-d6564a620457 {
+  background: #2A4A55;
+  padding: 40px 0;
+  margin: 0;
+}
+
+.template-index .text-with-icons__block-title {display: none;}
+
+.template-index .text-with-icons__block-text p {
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.glass-custom-icon {
+ height: 63px;
+}
+
+
+/* Resources */
+.anchor {
+  scroll-margin-top: 250px;
+}
+
+/* Section Padding */
+@media only screen and (min-width: 590px) {
+  .index-section {
+      margin: 50px 0;
+  }
+
+  .testimonials-section {
+    padding: 50px 0 80px;
+  }
+}
+/*============================================================================ 
+	Glass vs Plastic section
+==============================================================================*/
+.glass-vs-plastic {
+  text-align: center;
+  background-color: #2A4A55;
+  color: #fff;
+  padding: 50px 0;
+  position: relative;
+}
+
+.glass-vs-plastic .left-image-box {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: calc(100% + 60px);
+  background-position: left;
+}
+
+.glass-vs-plastic .right-image-box {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 100%;
+  background-position: right;
+}
+
+.glass-vs-plastic .right-image-box.parallax {
+  background-attachment: fixed;
+}
+
+.glass-vs-plastic .left-image-box.parallax {
+  background-attachment: fixed;
+}
+
+.glass-vs-plastic .top-container {
+  position: relative;
+  z-index: 1;
+}
+
+.glass-vs-plastic .background-image {
+  background-color: var(--purple);
+}
+
+.glass-vs-plastic .head-box .h1 span {
+  display: block;
+  color: #f2f1ec;
+}
+
+.glass-vs-plastic .head-box .h1 {
+  max-width: 929px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.glass-vs-plastic .head-box .h4 {
+  max-width: 1001px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+.glass-vs-plastic .compare-box {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.glass-vs-plastic .compare-box .left-box {
+  flex: 0 1 50%;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 440px;
+}
+
+.glass-vs-plastic .compare-box .right-box {
+  flex: 0 1 50%;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 440px;
+}
+
+/*.glass-vs-plastic .compare-box .border-line {
+  width: 1px;
+  background-color: rgba(255,255,255,.4);
+}*/
+
+.glass-vs-plastic .compare-box .img-box {
+  height: 60px;
+  width: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.glass-vs-plastic .compare-box .p2 p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    height: 80px;
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 1px solid #fff6;
+    vertical-align: middle;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-vs-plastic .bottom-box .h4 {
+  margin-bottom: 0;
+  color: #fff;
+}
+
+.glass-vs-plastic .bottom-box .h4 p {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.glass-vs-plastic .bottom-box .h4 a {
+  color: #eee9e2;
+  text-decoration: underline;
+}
+
+.glass-vs-plastic .bottom-box .h4 a:hover {
+  color: var(--green);
+}
+
+@media only screen and (min-width:589px) {
+  .glass-vs-plastic .parallax-container {
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width:992px) and (max-width:1600px) {
+  .glass-vs-plastic .left-image-box.parallax {
+    background-size: 15%;
+  }
+
+  .glass-vs-plastic .right-image-box.parallax {
+    background-size: 25%;
+  }
+}
+
+@media only screen and (max-width:1049px) {
+  .glass-vs-plastic .compare-box {
+    flex-wrap: wrap;
+  }
+
+  .glass-vs-plastic .compare-box .border-line {
+    display: none;
+  }
+
+  .glass-vs-plastic .compare-box .left-box {
+    flex: 0 1 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .glass-vs-plastic .compare-box .right-box {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width:991px) {
+  .glass-vs-plastic .left-image-box.parallax {
+    background-size: 35%;
+  }
+
+  .glass-vs-plastic .right-image-box.parallax {
+    background-size: 35%;
+  }
+}
+
+@media only screen and (max-width:589px) {
+  .glass-vs-plastic .compare-box .p2 p {
+    font-size: 16px;
+    height: auto;
+  }
+
+  .glass-vs-plastic {
+    padding: 34px 0;
+  }
+
+  .glass-vs-plastic .bottom-box .h4 p {
+    font-size: 20px;
+  }
+
+  .glass-vs-plastic .head-box .h4 {
+    margin-bottom: 20px;
+  }
+
+  .glass-vs-plastic .compare-box {
+    margin-bottom: 20px;
+  }
+
+  .glass-vs-plastic .head-box .h1 {
+    margin-bottom: 20px;
+  }
+
+  .glass-vs-plastic .background-media-text__container {
+    display: none;
+  }
+
+  .glass-vs-plastic .left-image-box {
+    top: -30px;
+    height: calc(100% + 30px);
+    background-size: contain;
+  }
+
+  .glass-vs-plastic .right-image-box {
+    background-size: contain;
+  }
+}
+
+
+/* PRODUCT PAGE */
+/* Show ATL as CAPTIONS. JS on product-images.liquid */
+.product__main-photos {padding-bottom: 60px;}
+.flickity-viewport {
+  overflow: visible;
+  overflow-x: clip;
+}
+.product-image-main span.product-img-caption {
+  display: block;
+  position: relative;
+  color: #464644;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 12px;
+  z-index: 100000;
+}
+
+/* hides shipping calculated at checkout - free shipping no need */
+.product__policies.rte {display: none;}
+
+/* HubSpot Form - Contact Page */
+.hbspt-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* HubSpot PopUp Form - Newsletter */
+
+.leadinModal.leadinModal-theme-default.leadinModal-v3 .dyno-image {
+    width: 200px !important;
+}
+.leadinModal .dyno-image img {
+    max-width: 200px !important;
+}
+.leadinModal.leadinModal-theme-default.leadinModal-v3.leadinModal-preview .advance-wrapper,
+.leadinModal.leadinModal-theme-default.leadinModal-v3.leadinModal-form .leadin-form-wrapper {
+    margin-left: 222px !important;
+}
+
+.leadinModal .leadin-input-wrapper label {
+  padding-top: 0 !important;
+}
+
+.leadinModal .leadin-close-button {
+  color: #a79170 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .leadinModal.leadinModal-theme-default.leadinModal-v3 .dyno-image {
+      width: 100% !important;
+  }
+  .leadinModal.leadinModal-v3 .dyno-image img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  .leadinModal.leadinModal-theme-default.leadinModal-v3.leadinModal-preview .advance-wrapper,
+  .leadinModal.leadinModal-theme-default.leadinModal-v3.leadinModal-form .leadin-form-wrapper {
+    margin-left: 0 !important;
+  }
+}
+
+.announcement__text {
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 642px) {
+    .announcement__text {
+      padding: 0px 10px 0px;
+      font-size: 18px;
+    }
+}
+
+.announcement__text span {
+  background: #221F20;
+  padding:12px;
+  margin: 0;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 641px) {
+  .announcement__text {
+    padding: 5px 0 4px;
+    font-size: 12px;
+  }
+    
+  .announcement__text span {
+    padding: 3px 8px;
+    margin: 5px 0 0;
+  }
+}
+
+/* Sale Price */
+
+.product-block--header {
+  margin: 0 0 10px;
+}
+
+.jdgm-prev-badge {
+    font-size: 15px;
+}
+
+.product__price.product__price--compare, .grid-product__price--original {
+  color: #999;
+}
+
+.product__price.product__price--compare {
+  font-weight: 500;
+  font-size: 21px;
+}
+
+
+.product-single__meta .sale-price, .product__price {
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.product-block--price {
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0 25px;
+}
+
+.productprice-savings {
+  background: #d30000;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  font-family: 'circular', 'open sans', sans-serif;
+}
+
+.product__price.sale-price, .sale-price {
+  color: #d30000;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.btn-nofloat, .section-header .btn.btn-nofloat {float: none;}
+
+#judgeme_all_reviews_page {margin: 60px auto;}
+
+.section-header__title.collection-title {margin-top: 60px;}
+
+@media only screen and (max-width: 641px) {
+  .section-header__title.collection-title {margin-top: 20px;}
+}

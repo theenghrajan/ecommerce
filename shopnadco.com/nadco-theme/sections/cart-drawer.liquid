@@ -217,6 +217,11 @@
                         </div>
                         <div class="cart-item__action cart-item__action flex items-center justify-between gap-3">
                           {%- liquid 
+                            capture item_min_qty
+                              render 'variant-min-qty', variant: item.variant
+                            endcapture
+                            assign item_min_qty = item_min_qty | plus: 0
+
                             assign has_qty_rules = false
                             if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
                               assign has_qty_rules = true
@@ -338,8 +343,8 @@
                                   data-index="{{ item.index | plus: 1 }}"
                                   data-quantity-variant-id="{{ item.variant.id }}"
                                   data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                  min="{{ item.variant.metafields.custom.min_qty | default: 1 }}"
-                                  data-min="{{ item.variant.metafields.custom.min_qty | default: 1}}"
+                                  min="{{ item_min_qty }}"
+                                  data-min="{{ item_min_qty }}"
                                   {% if item.variant.quantity_rule.max != null %}
                                     max="{{ item.variant.quantity_rule.max }}"
                                   {% endif %}
@@ -887,11 +892,12 @@
                   -%}
                 </div>
               </div>
+              {%- render 'cart-min-qty-gate', output: 'notice' -%}
               <form action="{{ routes.cart_url }}" method="POST" novalidate class="drawer__footer-buttons flex gap-2">
                 {% comment %} <a href="{{ routes.cart_url }}" class="btn btn--secondary">
                   <span class="btn__text">{{ 'general.cart.view_empty_cart' | t }}</span>
                 </a> {% endcomment %}
-                <button class="btn rounded  btn--primary flex-grow" type="submit" name="checkout">
+                <button class="btn rounded  btn--primary flex-grow" type="submit" name="checkout" {% render 'cart-min-qty-gate', output: 'disabled' %}>
                   <span class="btn__text">{{ 'sections.cart.checkout' | t }}</span>
                 </button>
               </form>

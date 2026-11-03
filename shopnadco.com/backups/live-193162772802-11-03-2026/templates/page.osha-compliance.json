@@ -1,0 +1,491 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "OSHA Compliance",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The Occupational Safety and Health Administration (OSHA) is a federal government agency that works to establish guidelines to protect employees. NADCO, Inc. offers high-quality US-made label and tape products to help you comply with OSHA standards.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/image_27.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collection_list_wpMmF6": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_zYydeE": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-labels",
+            "image": "shopify://shop_images/2x36YD_Caution_High_Contamination_Area-Blue_and_white_vinyl_coated_cloth_tape-FST230BLW-HCCA.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_AmpxGq": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-tapes",
+            "image": "shopify://shop_images/2_inch_x_36_YD_Vinyl_Coated_Cloth_tape-Yellow_Magenta-_CONTAMINATED_AREA_with_RAD_symbols-GZ1268-CTD1_0141c983-d341-4a74-a052-d1804da6fbda.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_TLeMbL": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "swt",
+            "title": ""
+          }
+        },
+        "featured_collection_UbtxC7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "3-pipe-marking-facility-identification-labels",
+            "image": "shopify://shop_images/SPRINKLER_FIRE-12_X5.5_RED_WHITE_PIPE_MARKERS-PM-SF-12_a0526e1c-1c13-497a-b564-1844bc0e8e1a.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_VmprxU": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "7-metal-foil-shielding-products-tapes",
+            "image": "shopify://shop_images/Aluminum_Tape.png",
+            "title": ""
+          }
+        },
+        "featured_collection_YfJPDb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "8-bonding-mounting-specialty-components-tapes",
+            "image": "shopify://shop_images/non-printed_duct_tape_Silver.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_zYydeE",
+        "featured_collection_AmpxGq",
+        "featured_collection_TLeMbL",
+        "featured_collection_UbtxC7",
+        "featured_collection_VmprxU",
+        "featured_collection_YfJPDb"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "video_B3YkgC": {
+      "type": "video",
+      "name": "t:sections.video.name",
+      "settings": {
+        "container": "fixed",
+        "video_url": "https://youtu.be/i3GFzCCsE98",
+        "cover_image": "shopify://shop_images/osha.png",
+        "video_ratio": "adapt",
+        "description": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_KckTAy": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fqNbJU": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Is OSHA Compliance Crucial?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_i3qdf3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>OSHA’s promotion of a healthy and safe work environment is essential to a functioning workplace. They are a source of education, training, assistance, and outreach for employees and employers. OSHA also enforces standards for workplace safety that employers must follow.</p><p>Employers must maintain a workplace where serious hazards are not present under the General Duty Clause stated under the Occupational Safety and Health (OSH) Act. Employees have the right to work in a safe environment. The OSH Act was signed into law in 1970 to prevent the severe harm and death of employees while working. Employers must provide working conditions where known and recognized dangers are not present under federal law.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fqNbJU",
+        "text_i3qdf3"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_LDCpPz": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_zQYxJC": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are the Various Adhesive Tapes and Labels Used for OSHA Worker Health and Safety?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_zrLgKm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Adhesive tapes and labels are vital to maintaining OSHA workplace standards. NADCO custom prints the following adhesive tapes and labels to promote OSHA workplace standards:</p><ul><li><strong>Highway Reflective Tape</strong>. This type of tape is worn by employees to improve nighttime and low-light visibility. The tape reflects light to the driver’s eyes when an automobile headlight or another light source illuminates the reflective surface. It guarantees higher visibility for safety during an emergency when lighting conditions are poor.</li><li><a href=\"https://shopnadco.com/pages/safety-tapes\" target=\"_blank\" title=\"https://shopnadco.com/pages/safety-tapes\"><strong>Anti-Slip Tape</strong></a>. Anti-slip tape offers a physical slip prevention measure for ramps, decks, ladders, bathtubs, and other accident-prone areas. NADCO relies on materials with high longevity that exceed several OSHA standards for anti-slip tape. Our anti-slip tape comes in various styles, for use in boats, houses, and buildings.</li><li><a href=\"/pages/social-distancing-decals\" title=\"Social Distancing Decals & Tapes\"><strong>Social Distancing Tape</strong></a>. Social distancing tape provides a clear visual boundary to help customers practice social distancing without confusion. We use eye-catching bold colors and designs to ensure customers are immediately aware that social distancing guidelines are in place.</li><li><strong>Department of Transportation (DOT) Hazard Warning Labels</strong>. These types of labels are used on trucks and vessels to warn that they are containing or transporting hazardous chemicals, flammable liquids, and other dangerous cargo.</li></ul>",
+            "subtext_color": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_zQYxJC",
+        "text_zrLgKm"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/enhanced-1_4803e3af-b316-4e59-8080-4b10cfe4c9c6.png",
+        "image_position": "left",
+        "image_width": 50,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "rich_text_BBr47R": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dpmmMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Should You Work With an Industry Leader in NADCO?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_aHMH7i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At NADCO, we firmly believe that rugged and high-visibility safety tapes and labels are essential to any work environment. We carry an expansive selection of standard safety tape and labels to improve employee awareness and promote a safe workplace in various work environments. We can also design <a href=\"https://shopnadco.com/collections/labels\" title=\"https://shopnadco.com/collections/labels\">custom labels</a> and tapes for specialized applications.</p><p>We efficiently manufacture high-quality tapes and labels, including glow-in-the-dark tape, barricades, and anti-slip tape. Our selection of indoor and outdoor products offers versatility to serve residential, municipal, industrial, commercial, and retail applications. As an industry leader, NADCO delivers US-made products at competitive prices with quick lead times. Our team can also design custom solutions for specialized or complex applications.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dpmmMR",
+        "text_aHMH7i"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_PnPP8T": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fXUjHz": {
+          "type": "heading",
+          "settings": {
+            "heading": "OSHA Compliant Tapes and Labels From NADCO",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_e3BrBD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Complying with OSHA is essential to maintaining a safe, healthy, and productive workplace. Labels and tapes made from durable and high visibility materials help workers stay safe and help employers maintain OSHA compliance. NADCO delivers safety tapes and labels made from rugged materials with eye-catching designs to meet or exceed OSHA standards. <a href=\"https://info.nadco-inc.com/contact-us\" target=\"_blank\">Contact us</a> to learn how our products can improve workplace safety for your facility or <a href=\"/pages/request-a-quote\" title=\"Request a Quote\">request a quote</a> today.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fXUjHz",
+        "text_e3BrBD"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "apps_YY9cA8": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_K9AEdM": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_K9AEdM"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_8z7JB6": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_6pCpFL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_9gejTQ": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6pCpFL",
+        "button_9gejTQ"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 26,
+        "padding_bottom": 26,
+        "enable_preload_image": false
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/21bd75266f71c8c4d7708fd6ac189e7be514e541.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "collection_list_wpMmF6",
+    "video_B3YkgC",
+    "rich_text_KckTAy",
+    "image_with_text_LDCpPz",
+    "rich_text_BBr47R",
+    "rich_text_PnPP8T",
+    "apps_YY9cA8",
+    "image_with_text_overlay_8z7JB6",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

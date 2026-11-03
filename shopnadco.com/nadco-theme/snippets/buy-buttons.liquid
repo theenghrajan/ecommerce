@@ -58,6 +58,14 @@
         class="product-variant-id"
       >
       {%- liquid
+        capture variant_min_qty
+          render 'variant-min-qty', variant: product.selected_or_first_available_variant
+        endcapture
+        assign variant_min_qty = variant_min_qty | plus: 0
+        assign enforce_min_attr = ''
+        if variant_min_qty > 1
+          assign enforce_min_attr = 'data-enforce-min'
+        endif
         assign check_against_inventory = true
         if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
           assign check_against_inventory = false
@@ -107,10 +115,11 @@
                     id="Quantity-{{ section.id }}"
                     data-cart-quantity="{{ cart_qty }}"
                     step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                    value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    value="{{ variant_min_qty }}"
                     data-quantity-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                    data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                    min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    data-min="{{ variant_min_qty }}"
+                    {{ enforce_min_attr }}
+                    min="{{ variant_min_qty }}"
                     {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
                       data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                       max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
@@ -336,9 +345,10 @@
                 data-cart-quantity="{{ cart_qty }}"
                 step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
                 data-quantity-variant-id="{{ product.selected_or_first_available_variant.id }}"
-                value="{{  product.selected_or_first_available_variant.metafields.custom.min_qty | default: 1}}" 
-                min="{{ product.selected_or_first_available_variant.metafields.custom.min_qty | default: 1}}"
-                data-min="{{ product.selected_or_first_available_variant.metafields.custom.min_qty| default: 1 }}"
+                value="{{ variant_min_qty }}"
+                min="{{ variant_min_qty }}"
+                data-min="{{ variant_min_qty }}"
+                {{ enforce_min_attr }}
                 {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
                   data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
                   max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"

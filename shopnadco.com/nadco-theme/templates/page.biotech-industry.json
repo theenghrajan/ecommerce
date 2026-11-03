@@ -1,0 +1,423 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Biotech Adhesive Tape & Label Solutions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>From medical‑grade adhesives to secure tamper‑evident labeling, Nadco provides biotech companies with reliable, compliant tape and label solutions.<br/><br/></p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/biotech_main_hero_AI.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collection_list_EmN4nC": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_68tU6f": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "2-identification-compliance-warning-tapes",
+            "image": "shopify://shop_images/199-DDNE-3X1000_FT__DANGER_DO_NOT_ENTER_RED_WHITE_BARRICADE_TAPE_15c6c338-c2e1-44aa-b13b-0287bd3df98d.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_JGGYVV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "4-shipping-logistics-inventory-control-labels",
+            "image": "shopify://shop_images/DVB_BLUE_PARENT_1.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_6TAAqd": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "5-masking-paper-temporary-marking",
+            "image": "shopify://shop_images/UNPRINTED_PAPER_TAPE_CATEGORY_IMAGE.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_Y6KdLT": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "6-film-vinyl-specialty-surface-products-tapes",
+            "image": "shopify://shop_images/MEDICAL_GRADE_DOUBLE_COATED_FOAM_TAPE-7432M-3_9b569c8a-5384-4402-aa9d-4a4229603393.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_tBPnr6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "8-bonding-mounting-specialty-components-tapes",
+            "image": "shopify://shop_images/3_inch_x_36_yard_Vinyl_Coated_Cloth_tape-Yellow_Black-_MONITOR_HERE_BEFORE_PROCEEDING-GZ1267-MH.jpg",
+            "title": ""
+          }
+        },
+        "featured_collection_nKTNFf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "7-metal-foil-shielding-products-tapes",
+            "image": "shopify://shop_images/T188-KAPTON_GROUP.jpg",
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_68tU6f",
+        "featured_collection_JGGYVV",
+        "featured_collection_6TAAqd",
+        "featured_collection_Y6KdLT",
+        "featured_collection_tBPnr6",
+        "featured_collection_nKTNFf"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "section_header_alignment": "center",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "Related Products",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--underline",
+        "button_icon": "none",
+        "card_color_scheme": "",
+        "card_style": "standard",
+        "card_heading_size": "text-base",
+        "card_text_line_limit": "none",
+        "card_image_ratio": "1/1",
+        "card_image_width": "large",
+        "card_image_padding": "none",
+        "rounded_card_image": true,
+        "card_show_border": false,
+        "mobile_layout": "vertical",
+        "columns_desktop": 6,
+        "column_gap": "medium",
+        "row_gap": "inherit",
+        "grid_bordered": false,
+        "columns_mobile": "3",
+        "swipe_on_mobile": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "custom_content_RJxq6c": {
+      "type": "custom-content",
+      "blocks": {
+        "image_kcTLPq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/biotech-enhanced-1.png",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        },
+        "text_gjt66r": {
+          "type": "text",
+          "settings": {
+            "content_alignment": "left",
+            "subheading": "",
+            "heading": "What’s Happening in the Biotech Industry ",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "description": "<p>The biotech industry is constantly evolving. Here are some of the most notable recent trends:</p><ul><li><strong>Personalized medicine</strong>: This approach to healthcare focuses on tailoring treatments to the individual characteristics or DNA of each patient. As a result, personalized medicine has the potential to improve outcomes and reduce side effects.</li><li><strong>Big data & AI</strong>: By analyzing large data sets, researchers can identify patterns and correlations that could lead to new insights into disease and treatment. Artificial intelligence (AI) is also changing the landscape of the biotech industry by helping develop new drugs and diagnose diseases.</li><li><strong>Direct-to-consumer healthcare products</strong>: In the past, biotech products were mostly made for big pharmaceutical companies, hospitals, and other healthcare institutions. The industry is now shifting towards products targeting consumers and being available for them to purchase directly.</li><li><strong>Faster testing & approval of medicines</strong>: Another trend is the increasing speed with which new medicines are being approved for use. This is thanks to advances in technology that have made it possible to test medicines more quickly and efficiently. There is also a greater understanding now of the role genetics plays in disease. Thus, pharmaceutical companies can target their drugs more precisely, resulting in faster approvals from regulatory bodies.</li><li><strong>Environmental biotech</strong>: Environmental biotechnology is becoming increasingly important in finding ways to combat climate change. This area of biotech encompasses a wide range of activities, from developing new biofuels to cleaning up polluted areas to eliminating toxic waste.</li><li><strong>Agricultural biotech</strong>: Agricultural biotech is also becoming increasingly popular, as it can help improve crop yields and create new strains of plants resistant to pests and disease.</li></ul>",
+            "text_size": "text-base",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "width": "50%",
+            "alignment": "center",
+            "block_custom_class": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_kcTLPq",
+        "text_gjt66r"
+      ],
+      "name": "t:sections.custom-content.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "enable_sticky_column": false,
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "<p> </p>",
+        "text_size": "text-base",
+        "column_gap": "medium",
+        "row_gap": "large",
+        "swipe_on_mobile": false,
+        "columns_mobile": "1",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_NeQaKK": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/biotech-enhanced-2.png",
+        "desktop_height": "small",
+        "overlay_opacity": 0,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-left",
+        "content_alignment": "left",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_WkPfkr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Gwdkcq": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are the Various Types of Tapes and Labels Used in Biotech Applications?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_qAQbwt": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When manufacturing and distributing new drugs, biotech companies require reliable tapes and labels to protect the integrity of their products—and their brand reputation. Protective, tamper-evident labeling and packaging give consumers peace of mind that the products they receive are fresh and safe to consume. Pharmaceutical manufacturers also require variable data printing for barcode labels, dates and lot numbers, and other strict labeling regulations in this industry.</p><p>Biotechnology R&D in particular relies on tapes and labels for various laboratory applications, including: </p><ul><li><strong>Airtight seals</strong>: Tapes that provide airtight seals are important for sealing petri dishes, microplates, and other containers. They are waterproof and effective across a wide temperature range.</li><li><strong>Binding components</strong>: Binding tapes reliably hold components in place during experiments.</li><li><strong>Anti-microbial films</strong>: An antimicrobial film is a top-coat layer that can be applied to nearly any surface or material, including tapes and labels. Containing a powerful bacteria-blocking agent known as Agion, antimicrobial films prevent the growth of bacteria in biotech applications like clean rooms and shared equipment.</li><li><strong>Marking tapes for sample markings</strong>: These tapes are easy to tear and write on. They can be removed without leaving an adhesive residue, so they are ideal for temporary labeling.</li><li><strong>Biohazard warning labels</strong>: These labels keep employees safe by informing them of potential dangers and biohazards in the workplace.</li><li><strong>Medical-grade tapes</strong>: In clinical studies involving human subjects, researchers must use medical-grade tapes and foams that are safe for sustained skin contact. High-quality medical-grade tapes create a reliable bond for mounting grounding pads, electrodes, and other devices without causing adverse reactions or discomfort to the patient.</li></ul><p>NADCO’s own R&D capabilities allow us to meet the dynamic needs of the biotech industry. If a biotech company comes to us for help creating unique tape or label products for their application, our R&D team will develop and test different solutions. Our wide range of labeling solutions include converting, die-cutting, custom label manufacturing, and custom-printed tape manufacturing services.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Gwdkcq",
+        "text_qAQbwt"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_3fNXti": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_iF9DT3": {
+          "type": "heading",
+          "settings": {
+            "heading": "What Are the Various Types of Tapes and Labels Used in Biotech Applications?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_YHRPDR": {
+          "type": "text",
+          "settings": {
+            "text": "<p>When manufacturing and distributing new drugs, biotech companies require reliable tapes and labels to protect the integrity of their products—and their brand reputation. Protective, tamper-evident labeling and packaging give consumers peace of mind that the products they receive are fresh and safe to consume. Pharmaceutical manufacturers also require variable data printing for barcode labels, dates and lot numbers, and other strict labeling regulations in this industry.</p><p>Biotechnology R&D in particular relies on tapes and labels for various laboratory applications, including: </p><ul><li><strong>Airtight seals</strong>: Tapes that provide airtight seals are important for sealing petri dishes, microplates, and other containers. They are waterproof and effective across a wide temperature range.</li><li><strong>Binding components</strong>: Binding tapes reliably hold components in place during experiments.</li><li><strong>Anti-microbial films</strong>: An antimicrobial film is a top-coat layer that can be applied to nearly any surface or material, including tapes and labels. Containing a powerful bacteria-blocking agent known as Agion, antimicrobial films prevent the growth of bacteria in biotech applications like clean rooms and shared equipment.</li><li><strong>Marking tapes for sample markings</strong>: These tapes are easy to tear and write on. They can be removed without leaving an adhesive residue, so they are ideal for temporary labeling.</li><li><strong>Biohazard warning labels</strong>: These labels keep employees safe by informing them of potential dangers and biohazards in the workplace.</li><li><strong>Medical-grade tapes</strong>: In clinical studies involving human subjects, researchers must use medical-grade tapes and foams that are safe for sustained skin contact. High-quality medical-grade tapes create a reliable bond for mounting grounding pads, electrodes, and other devices without causing adverse reactions or discomfort to the patient.</li></ul><p>NADCO’s own R&D capabilities allow us to meet the dynamic needs of the biotech industry. If a biotech company comes to us for help creating unique tape or label products for their application, our R&D team will develop and test different solutions. Our wide range of labeling solutions include converting, die-cutting, custom label manufacturing, and custom-printed tape manufacturing services.</p>",
+            "subtext_color": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_iF9DT3",
+        "text_YHRPDR"
+      ],
+      "name": "t:sections.image-with-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "image": "shopify://shop_images/medical_grade_tape_in_use.png",
+        "image_position": "right",
+        "image_width": 50,
+        "desktop_content_position": "start",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "inherit",
+        "show_section_divider": false,
+        "divider_width": "fixed",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "apps_jkjAcp": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_ihUd8i": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI4MDEy\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_ihUd8i"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Qoute",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "collection_list_EmN4nC",
+    "custom_content_RJxq6c",
+    "image_with_text_overlay_NeQaKK",
+    "rich_text_WkPfkr",
+    "image_with_text_3fNXti",
+    "apps_jkjAcp",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

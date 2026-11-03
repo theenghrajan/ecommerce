@@ -1,0 +1,19 @@
+{% comment %}
+  Outputs the minimum purchase quantity for a variant: the larger of Shopify's own
+  quantity rule and the custom.min_qty variant metafield, never less than 1.
+  Accepts:
+  - variant: {Object} variant object.
+
+  Usage (capture the output to use it as a value):
+  {%- capture variant_min_qty -%}{%- render 'variant-min-qty', variant: variant -%}{%- endcapture -%}
+  {%- assign variant_min_qty = variant_min_qty | plus: 0 -%}
+{% endcomment %}
+{%- liquid
+  assign rule_min = variant.quantity_rule.min | default: 1
+  assign custom_min = variant.metafields.custom.min_qty.value | plus: 0
+  if custom_min > rule_min
+    echo custom_min
+  else
+    echo rule_min
+  endif
+-%}

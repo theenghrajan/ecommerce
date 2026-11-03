@@ -1,0 +1,297 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Ma9AKV": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_VKxnhT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Energy and Utilities",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_tNNyqd": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A leading manufacturer and distributor since 1988, NADCO, Inc. supplies industries with custom tape, film, and label products. Believing that our capabilities are limited only by our customer’s imaginations, we design, manufacture, and deliver fully-customized products per client specifications.</p><p>For energy storage and utility applications, including solar and wind, we provide adhesive solutions that can withstand environmental considerations including water, UV rays, high winds, extreme temperatures, vibrations, and chemicals.</p>",
+            "text_size": "text-base"
+          }
+        }
+      },
+      "block_order": [
+        "heading_VKxnhT",
+        "text_tNNyqd"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/osha_industry.png",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "collapsible_tabs_Ty3MbD": {
+      "type": "collapsible-tabs",
+      "blocks": {
+        "image_card_CdNKNC": {
+          "type": "image_card",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "desktop_image_position": "left",
+            "image_width": 50,
+            "alignment": "center",
+            "image": "shopify://shop_images/AdobeStock_72429972-768x512_jpeg.webp",
+            "image_ratio": "1/1",
+            "image_overlay_opacity": 0,
+            "content_position": "top-center",
+            "content_alignment": "center",
+            "content_spacing": "medium",
+            "content_gap": "fitted",
+            "card_link": "",
+            "subheading": "",
+            "subheading_style": "",
+            "heading": "",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h1",
+            "heading_size_mobile": "inherit",
+            "heading_size_custom": 18,
+            "description": "<p> </p>",
+            "button_label": "",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "order_first": false
+          }
+        },
+        "heading_LTgDyh": {
+          "type": "heading",
+          "settings": {
+            "sub_heading": "",
+            "heading": "What are the various kinds of tapes and films used in the Energy Industry?",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2",
+            "rich_text_cstm": "<p>Electrical tapes and films used in the energy industry must be able to hold up under extreme conditions. Products from NADCO are UL-certified for flame retardancy and safety. The following products are commonly used in the energy industry:</p><ul><li><strong>High-Temp Masking Tape/Dots: </strong>High-temp masking tape from NADCO is used for holding, bundling, and protecting sensitive instruments, and is suitable for other difficult jobs requiring pressure-sensitive tape. High temperature tape can withstand temperatures up to 250°F for up to 30 minutes. Constructed with a solvent-resistant saturant, it offers excellent resistance to sunlight and transfer resistance from surfaces like EDPM rubber moldings.</li><li><strong>Moisture Resistant Masking Tape: </strong>A lightweight black tape, our moisture resistant masking tape is coated with a pressure-sensitive natural rubber adhesive. The black color offers moderate resistance to UV light.</li><li><strong>High Performance Tapes: </strong>Our high performance tapes are coated with a variety of materials including polyester, polypropylene, and synthetic rubber. A pressure sensitive acrylic adhesive has a built-in ultraviolet stabilizer system and provides oxidation resistance as well as hot and cold temperature resistance.</li></ul><p>Pressure sensitive tapes from NADCO offer flexibility and instant bonding. Requiring no curing time or the use of additional solvents, they provide a quicker, safer, less obtrusive solution for a variety of applications in the energy industry.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_card_CdNKNC",
+        "heading_LTgDyh"
+      ],
+      "name": "t:sections.collapsible-tabs.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "header_layout": "vertical",
+        "section_header_alignment": "left",
+        "section_header_alignment_mobile": "inherit",
+        "subheading": "",
+        "heading": "",
+        "highlight_style": "none",
+        "highlight_font_style": "italic",
+        "highlight_style_color": "",
+        "highlight_text_color": "",
+        "heading_size": "h1",
+        "description": "",
+        "text_size": "text-base",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "btn--primary",
+        "button_icon": "none",
+        "column_gap": "large",
+        "row_gap": "inherit",
+        "item_style": "standard",
+        "item_color_scheme": "",
+        "item_heading_font": "heading",
+        "item_heading_size": "h4",
+        "item_icon_size": "extra-large",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_BBr47R": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_dpmmMR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Common applications for adhesive tapes and films in the Energy Industry",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_aHMH7i": {
+          "type": "text",
+          "settings": {
+            "text": "<p>In the energy industry, adhesive tapes and films are used to bond or join components without mechanical fasteners like screws or welds. Applying adhesive tapes enables use in lower temperature applications. It also protects surfaces by eliminating the damage caused by inserting metal or plastic fasteners. Tapes and films are also used for insulation.</p><p>Solar tapes are used as fasteners for photovoltaic cells, which can be extremely bulky and hard to install. Adhesive tapes help to eliminate stress points in the cell. The wind turbines used for wind energy are often placed in harsh environments like deserts or the middle of the ocean. Adhesive wind resistant tapes and films provide protection to the wind turbine blades.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_dpmmMR",
+        "text_aHMH7i"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_PnPP8T": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fXUjHz": {
+          "type": "heading",
+          "settings": {
+            "heading": "Working with an industry leader like NADCO, Inc.",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "text_e3BrBD": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Partnering with NADCO provides the proven experience and expertise of industry professionals who have the technology to handle both standard and complex operations. With superior custom capabilities, we complete our designs in-house. Working directly with our clients, we develop custom solutions that match their specifications.</p><p>We offer consistent quality and service on custom-designed products with the guarantee that nothing gets lost in translation. Our state-of-the-art technology accelerates your turnaround time. Our full-service manufacturing line creates efficient production processes and boosts our accountability by ensuring that we don’t lose time waiting on parts to be delivered from other facilities.</p><p><a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact us\">Contact us</a> today to speak with a member of our staff or <a href=\"/pages/request-a-quote\" title=\"Request a Quote\">request a quote</a>. When we understand the basics of what you require, it saves both time and money because you’re getting the services of a one-stop shop.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fXUjHz",
+        "text_e3BrBD"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_zjphJC": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_PpNNUr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_haF8B9": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PpNNUr",
+        "button_haF8B9"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website_55e91b08-23d1-444c-9ba9-f1a5055f7866.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Ma9AKV",
+    "collapsible_tabs_Ty3MbD",
+    "rich_text_BBr47R",
+    "rich_text_PnPP8T",
+    "image_with_text_overlay_zjphJC"
+  ]
+}

@@ -360,8 +360,7 @@
                                           autocomplete="off"
                                           data-quantity-variant-id="{{ item.variant.id }}"
                                           data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                          min="0"
-                                          data-min="{{ item.variant.quantity_rule.min }}"
+                                          {% render 'cart-line-min-attrs', variant: item.variant %}
                                           {% if item.variant.quantity_rule.max != null %}
                                             max="{{ item.variant.quantity_rule.max }}"
                                           {% endif %}
@@ -540,8 +539,7 @@
                                       autocomplete="off"
                                       data-quantity-variant-id="{{ item.variant.id }}"
                                       data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                      min="0"
-                                      data-min="{{ item.variant.quantity_rule.min }}"
+                                      {% render 'cart-line-min-attrs', variant: item.variant %}
                                       {% if item.variant.quantity_rule.max != null %}
                                         max="{{ item.variant.quantity_rule.max }}"
                                       {% endif %}
@@ -797,6 +795,7 @@
                   </div>
                 {%- when 'buttons' -%}
                   <div class="cart__footer--buttons grid gap-3" {{ block.shopify_attributes }}>
+                    {%- render 'cart-min-qty-gate', output: 'notice' -%}
                     {% comment %}
                       <noscript>
                         <button class="btn btn--primary w-full" type="submit" name="update" form="cart">
@@ -805,12 +804,12 @@
                       </noscript>
                     {% endcomment %}
 
-                    <button class="btn btn--primary w-full" type="submit" form="cart" name="checkout">
+                    <button class="btn btn--primary w-full" type="submit" form="cart" name="checkout" {% render 'cart-min-qty-gate', output: 'disabled' %}>
                       <span class="btn__text">{{ 'sections.cart.checkout' | t }}</span>
                     </button>
 
                     {% if additional_checkout_buttons %}
-                      <div class="additional-checkout-buttons no-js-hidden">
+                      <div class="additional-checkout-buttons no-js-hidden {% render 'cart-min-qty-gate', output: 'hidden' %}">
                         {{ content_for_additional_checkout_buttons }}
                       </div>
                     {% endif %}

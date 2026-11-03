@@ -1267,7 +1267,7 @@ class QuantityInput extends HTMLElement {
       if (!current || !updated) continue;
 
       if (selector === '.quantity__input') {
-        const attributes = ['data-cart-quantity', 'data-min', 'data-max', 'step'];
+        const attributes = ['data-cart-quantity', 'data-min', 'data-max', 'data-enforce-min', 'step'];
         for (let attribute of attributes) {
           const valueUpdated = updated.getAttribute(attribute);
           if (valueUpdated !== null) {
@@ -1296,7 +1296,8 @@ class QuantityInput extends HTMLElement {
     let min = data.min;
     const max = data.max === null ? data.max : data.max - data.cartQuantity;
     if (max !== null) min = Math.min(min, max);
-    if (data.cartQuantity >= data.min) min = Math.min(min, data.step);
+    // A custom minimum (data-enforce-min) applies to every add, not only to the first one.
+    if (data.cartQuantity >= data.min && !this.input.hasAttribute('data-enforce-min')) min = Math.min(min, data.step);
 
     this.input.min = min;
 

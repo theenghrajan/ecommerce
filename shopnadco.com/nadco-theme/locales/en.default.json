@@ -376,7 +376,8 @@
       },
       "update": "Update",
       "cart_error": "There was an error while updating your cart. Please try again.",
-      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart."
+      "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
+      "min_quantity_error": "Some items are below their minimum quantity. Please increase the quantity of those items to check out."
     },
     "collection_template": {
       "title": "Collection"

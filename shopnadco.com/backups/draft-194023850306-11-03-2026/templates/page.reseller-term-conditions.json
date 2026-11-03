@@ -1,0 +1,320 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "container": "fixed",
+        "text_alignment": "center",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_overlay_Rca4nN": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_nDUHDN": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms of service",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nDUHDN"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/NADCO-SIGN-SM_jpg.webp",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 70,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "enable_preload_image": false
+      }
+    },
+    "rich_text_bgfhDq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HzzwVk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Re-Seller/Dealer Terms and Conditions",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_HzzwVk"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "center",
+        "padding_top": 50,
+        "padding_bottom": 0,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_zXLnGb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fVpfFL": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms & Conditions of Sale",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4"
+          }
+        },
+        "text_VedktE": {
+          "type": "text",
+          "settings": {
+            "text": "<h2></h2><p><strong>Freight</strong><br/>Transportation charges are negotiable.</p><p><strong>Prices</strong><br/>Prices per roll (unless otherwise indicated), are subject to change without notice and will be billed at the prevailing price at the time of shipment. Price discrepancies will be confirmed prior to shipment.</p><p><strong>Payment Terms</strong><br/>Net 30 days subject to credit approval. Past due accounts subject to service charge of 1.5% per month on unpaid balance until paid. Our customers are valuable to us. To ensure the best quality and service, we in return would expect our customers to respect our payment term policy.</p><p><strong>Deliveries</strong><br/>Shipments will be made as close to promise date as indicated at the time of order. Unfortunately, we have no control of certain factors that may occur to change date of shipment.</p><p><strong>Returns & Claims</strong><br/>All merchandise (including tooling and plates) delivered is non-returnable, except as authorized in writing by <strong>NADCO</strong>®. Unauthorized returns will be refused. Authorized returns will be subject to a re-stocking fee.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fVpfFL",
+        "text_VedktE"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_VrRYPf": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_gMkhhF": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lost & Damaged Shipments",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4"
+          }
+        },
+        "text_JM7AGj": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Lost Goods</strong><br/>DO NOT SIGN DELIVERY RECEIPT until you count all pieces. Sign only for what you have received. If you signed short, contact <strong>NADCO</strong>® immediately, and <strong>NADCO</strong>® will proceed to file a loss claim. If replacement is needed, a new purchase order number will be required.</p><p><strong>Damaged Goods</strong><br/>UPON DELIVERY, inspect all goods CAREFULLY for damage. If goods are damaged, sign delivery receipt for damage and contact <strong>NADCO</strong>® immediately for further instructions. If replacement is needed, a new purchase order number will be required.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gMkhhF",
+        "text_JM7AGj"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_DAp3DF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RiPheF": {
+          "type": "heading",
+          "settings": {
+            "heading": "Warranty",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4"
+          }
+        },
+        "text_bkYtPa": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>NADCO®</strong> warrants it products to be free from defects in material and workmanship. Should any failure to conform to this warranty appear after the initial date of shipment, <strong>NADCO®</strong> shall, upon notification thereof and substantiation that the products have been stored and applied in accordance with <strong>NADCO</strong>® standards, correct such defects by suitable replacement without charge. If <strong>NADCO</strong>® determines that replacement is not commercially practical, <strong>NADCO</strong>® shall issue a credit in favor of purchaser in an amount not to exceed the purchase price of the product.</p><p>Products are sold with the understanding that the buyer has independently determined the suitability of the product of his/her purposes, and he/she is reminded that a few materials are sensitive to adhesive tapes and discretion should be used in their application. Bulletins, specifications, product and testing reports and other descriptive and advertising materials and information are based on research testing and are believed to be reliable, but constitute no part of this warranty, which is exclusive and strictly limited to the foregoing.</p><p>This warranty is exclusive and is in lieu of any implied warranty of merchantability, fitness for particular purpose, or other warrany of quality, whether express or implied, except the warrany of title and against patent infringement. No waiver, alteration, additions, or modification for the foregoing conditions shall be vaild unless made in writing and manually signed by an officer of <strong>NADCO</strong>®. No agent or representative is authorized to give any guarantee or make any statement contrary to or inconsistent with this warranty.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RiPheF",
+        "text_bkYtPa"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "rich_text_wjzg3F": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Ph37e6": {
+          "type": "heading",
+          "settings": {
+            "heading": "Limitation of Liability",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h4"
+          }
+        },
+        "text_gtachi": {
+          "type": "text",
+          "settings": {
+            "text": "<h2></h2><p>In no event shall <strong>NADCO</strong>® be liable for an incidental or consequential damage, including but not limited to loss of profit, loss of use or production or loss of capital. The remedies of purchaser set forth herein are exclusive and the total liability of <strong>NADCO</strong>® with respect to any contract or anything done in connection therewith, such as the performance or breach hereof, or from the manufacture, sale, delivery, resale, installation, or use of any products, whether arising out of contract, negligence, strict tort, or under any warranty, or otherwise, shall not exceed the purchase price of the products upon which liability is based.</p>",
+            "text_size": "text-base",
+            "text_line_limit": "none",
+            "button_style": "btn--underline",
+            "button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Ph37e6",
+        "text_gtachi"
+      ],
+      "name": "t:sections.rich-text.name",
+      "settings": {
+        "container": "fixed",
+        "color_scheme": "",
+        "use_color_scheme_in_container": false,
+        "content_spacing": "standard",
+        "content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "show_section_divider": false,
+        "divider_width": "fixed"
+      }
+    },
+    "image_with_text_overlay_Nym3wL": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_xzFC8T": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's Get Started!",
+            "highlight_style": "none",
+            "highlight_font_style": "italic",
+            "highlight_style_color": "",
+            "highlight_text_color": "",
+            "heading_size": "h2"
+          }
+        },
+        "button_Dei4e6": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request a Quote",
+            "button_link": "shopify://pages/request-a-quote",
+            "button_style": "btn--primary",
+            "button_icon": "none",
+            "sec_button_label": "Shop Online",
+            "sec_button_link": "shopify://collections",
+            "sec_button_style": "btn--secondary",
+            "sec_button_icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xzFC8T",
+        "button_Dei4e6"
+      ],
+      "name": "t:sections.image-with-text-overlay.name",
+      "settings": {
+        "container": "fixed",
+        "image": "shopify://shop_images/group_photo_for_website.jpg",
+        "desktop_height": "extra-small",
+        "overlay_opacity": 50,
+        "enable_parallax": false,
+        "parallax_direction": "vertical",
+        "color_scheme": "",
+        "content_position": "middle-center",
+        "content_alignment": "center",
+        "mobile_height": "auto",
+        "content_position_mobile": "middle-center-mobile",
+        "content_alignment_mobile": "center",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "enable_preload_image": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_Rca4nN",
+    "rich_text_bgfhDq",
+    "rich_text_zXLnGb",
+    "rich_text_VrRYPf",
+    "rich_text_DAp3DF",
+    "rich_text_wjzg3F",
+    "image_with_text_overlay_Nym3wL"
+  ]
+}
