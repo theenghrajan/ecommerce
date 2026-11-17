@@ -313,7 +313,9 @@
     "ss_related": {
       "type": "ss-anchor-related",
       "settings": {
-        "heading": "Related Content",
+        "sale_visibility": "sale",
+        "heading": "Gift Ideas for Everyone",
+        "fill_row": true,
         "text_case": "sentence",
         "card_border_color": "#e5e7eb",
         "card_radius": 8,
@@ -330,7 +332,8 @@
         "button_label": "Read all reviews",
         "button_link": "/pages/reviews",
         "review_ids": "",
-        "max_reviews": 8
+        "max_reviews": 8,
+        "contain_cards": true
       }
     }
   },

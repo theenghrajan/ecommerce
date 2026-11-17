@@ -1,0 +1,27 @@
+Charlie Myhran
+As per comment #6,
+
+Re: What do you need to push this daily unlimited CSV live?
+...
+We will follow the same process as the Prepaid CSV. We will turn the Daily Unlimited CSV into an import sheet with the new URLs, product titles, SEO titles, meta descriptions, prices and redirects from the old URLs. We will share it here for you and IBM to review before anything changes on the live site.
+
+Before we start, we need the following from you or the client:
+
+1. Is the CSV still current? The client sent it a few months ago. Please ask them to confirm the prices (2,360 changes) and the new variants (1,184) are still correct, because the new prices go live as soon as we import.
+
+2. Nov 12 update: IBM noticed that all unlimited products were updated in bulk on Nov 12, with no visible change. Please ask the client if they, or an app on their side, update products automatically. If so, it could overwrite our changes, so we need to know before we import.
+
+3. SKU changes (Malta, Latvia, Guadeloupe): Please ask the client to confirm these SKU changes are safe to make, since SKUs are often linked to how the eSIMs are delivered to customers.
+
+4. 15 new products: Please share a description and image for each, or confirm we can reuse them from a similar existing product. Also let us know which collection each one should go in.
+
+5. Removals: Please confirm we can remove the 16 variants, and whether Oceania Orange should be removed too. For any removed product, we will redirect its old URL to the closest matching product or collection, unless you would prefer specific pages.
+
+We will also finish the remaining Prepaid CSV items that IBM found in comment #5, in the same sheet:
+- Move China, Hong Kong, North Macedonia and Vietnam (cn_package, hk_package, mk_package, vn_package) to their new URLs, with redirects from the old ones.
+- Update the old prices still showing on North Macedonia and one Vietnam variant.
+- Create the 15 new prepaid products, including the yellow bundle pages. Same as point 4, please share a description, image and collection for each, or confirm we can reuse them from a similar existing product.
+
+Once we have these, we will prepare the sheet and share it for review.
+
+Thanks!

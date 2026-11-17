@@ -59,7 +59,28 @@
     display: none !important;
   }
   #shopify-section-{{ section.id }} .ss-sale-hero__img--mobile { display: none; }
+
+  /* #144 Gary (04-11) "line everything up more symmetrically": the breadcrumb
+     is absolutely positioned against the banner's text column, so its own 24px
+     inset put "Home / Sale" 24px to the right of the headline underneath it.
+     Zero here lines the two up on the same edge. */
+  @media only screen and (min-width: 769px) {
+    #shopify-section-{{ section.id }} .ss-anchor-hero__crumbs { left: 0; }
+  }
+
   @media only screen and (max-width: 768px) {
+    /* #144 Gary (04-11) "sections bleeding into one another" on the phone:
+       the breadcrumb is taken out of the flow and pinned 16px down the text
+       column, but that column's own top padding is only 15px on a phone, so
+       "Home / Sale" printed straight across the headline. In the flow it sits
+       above the headline and cannot collide, whatever the headline wraps to.
+       The column is a flex stack, so its 16px gap does the spacing. */
+    #shopify-section-{{ section.id }} .ss-anchor-hero__crumbs {
+      position: static;
+      top: auto;
+      left: auto;
+    }
+
     #shopify-section-{{ section.id }} .ss-anchor-hero {
       min-height: {{ section.settings.min_height_mobile }}px;
     }

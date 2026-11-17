@@ -38,21 +38,21 @@
         "side_image_2_height": 265
       }
     },
-    "custom_video_pGxp4z": {
+    "custom_video_8gQ3jX": {
       "type": "custom-video",
       "name": "Videos",
       "settings": {
         "videoex": "shopify://files/videos/NW_Header_Video.mp4",
-        "mobile_image_alt": "Couple lighting up their new kitchen",
-        "mobile_heading": "",
-        "mobile_button_text": "",
-        "mobile_button_link": "shopify://collections/commercial-lighting",
         "main_image_alt": "",
         "main_image_link": "",
         "main_header_title": "",
         "main_sub_header_text": "",
         "main_button_text": "",
         "main_image_height": 530,
+        "mobile_image_alt": "Couple lighting up their new kitchen",
+        "mobile_heading": "",
+        "mobile_button_text": "",
+        "mobile_button_link": "shopify://collections/commercial-lighting",
         "side_image_1_alt": "",
         "side_image_1_link": "",
         "side_header_title_1": "Side Header Title 1",
@@ -77,6 +77,10 @@
         "main_sub_header_text": "",
         "main_button_text": "",
         "main_image_height": 630,
+        "mobile_image_alt": "",
+        "mobile_heading": "",
+        "mobile_button_text": "",
+        "mobile_button_link": "",
         "side_image_1_alt": "",
         "side_image_1_link": "",
         "side_header_title_1": "Side Header Title 1",
@@ -114,27 +118,6 @@
         "side_header_title_2": "Fast & Free Shipping",
         "side_sub_header_text_2": "Same Day Order Processing. Expert Customer Service.",
         "side_button_text_2": "Learn More"
-      }
-    },
-    "two_image_row_test": {
-      "type": "two-image-row",
-      "settings": {
-        "image_1_src": "shopify://shop_images/Homepage-Project.jpg",
-        "image_1_alt": "NuWatt boxes and recessed lights on a project plan",
-        "image_1_link": "https://www.nuwattlighting.com/pages/help-center?page=%2Fpages%2Fvolume-quote-request#quote-form",
-        "eyebrow_1": "Save More",
-        "header_title_1": "BUYING FOR A PROJECT?",
-        "sub_header_text_1": "Pros and project buyers can qualify for volume discounts on bulk orders",
-        "button_text_1": "Get a Quote",
-        "image_1_height": 230,
-        "image_2_src": "shopify://shop_images/Homepage-Shipping.jpg",
-        "image_2_alt": "Delivery driver holding a NuWatt package",
-        "image_2_link": "https://www.nuwattlighting.com/pages/shipping-policy",
-        "eyebrow_2": "Shipping",
-        "header_title_2": "Fast & Free Shipping",
-        "sub_header_text_2": "Same Day Order Processing. Expert Customer Service.",
-        "button_text_2": "Learn More",
-        "image_2_height": 230
       }
     },
     "text_with_icons_AiAPFP": {
@@ -460,10 +443,20 @@
         "eyebrow": "Why NuWatt",
         "heading": "Better by Design",
         "show_reviews": true,
-        "review_ids": "166004438, 165941523, 165601032, 166360113, 166109718, 165577936, 165577988, 165577983",
         "reviews_heading": "Our Glowing Reviews",
+        "review_ids": "166004438, 165941523, 165601032, 166360113, 166109718, 165577936, 165577988, 165577983",
         "reviews_button_label": "Read All Reviews",
         "reviews_button_link": "/pages/reviews?page=reviews"
+      }
+    },
+    "stamped_glowing_reviews": {
+      "type": "stamped-glowing-reviews",
+      "disabled": true,
+      "settings": {
+        "heading": "Our Glowing Reviews",
+        "review_ids": "166004438, 165941523, 165601032, 166360113, 166109718, 165577936, 165577988, 165577983",
+        "button_label": "Read All Reviews",
+        "button_link": "/pages/reviews?page=reviews"
       }
     },
     "rich_text_7QBBKd": {
@@ -495,32 +488,32 @@
           "type": "text",
           "settings": {
             "enlarge_text": false,
-            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/residential-led-lighting\"><span style=\"text-decoration:underline\">Residential Lighting</span></a> – Where Design Meets Function</h2><p>While many fixtures prioritize either design or function, NuWatt delivers both through a broad selection of residential lights that complement modern spaces. Our most popular lines include: </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/high-end-recessed-lighting\"><span style=\"text-decoration:underline\"><strong>High End Recessed Lights</strong></span></a> -   Anti-glare and trimless recessed lights embed into the ceiling to give interiors a curated gallery look and feel.<br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/adjustable-recessed-lighting\"><span style=\"text-decoration:underline\"><strong>Vaulted Ceiling Lighting</strong></span></a> - Recessed lighting with an adjustable lens compensates for angled ceilings. The result is perfectly symmetrical illumination, every time. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/fire-rated-recessed-light\"><span style=\"text-decoration:underline\"><strong>Fire Rated Lights</strong></span></a> - UL/ETL tested to meet UL263 requirements for preventing the spread of fire for up to 2 hours, giving you and your loved ones peace of mind. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-undercabinet-lights\"><span style=\"text-decoration:underline\"><strong>Under Cabinet Lights</strong></span></a> – Extra illumination for countertops where ambient light doesn’t reach. Daisy chain together to cover longer cabinet runs without extra wiring clutter. </li></ul><p></p>",
-            "card_image": "shopify://shop_images/recessed-lighting-for-living-rooms-layout-spacing-and-ambiance-tips-img.jpg"
+            "card_image": "shopify://shop_images/recessed-lighting-for-living-rooms-layout-spacing-and-ambiance-tips-img.jpg",
+            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/residential-led-lighting\"><span style=\"text-decoration:underline\">Residential Lighting</span></a> – Where Design Meets Function</h2><p>While many fixtures prioritize either design or function, NuWatt delivers both through a broad selection of residential lights that complement modern spaces. Our most popular lines include: </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/high-end-recessed-lighting\"><span style=\"text-decoration:underline\"><strong>High End Recessed Lights</strong></span></a> -   Anti-glare and trimless recessed lights embed into the ceiling to give interiors a curated gallery look and feel.<br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/adjustable-recessed-lighting\"><span style=\"text-decoration:underline\"><strong>Vaulted Ceiling Lighting</strong></span></a> - Recessed lighting with an adjustable lens compensates for angled ceilings. The result is perfectly symmetrical illumination, every time. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/fire-rated-recessed-light\"><span style=\"text-decoration:underline\"><strong>Fire Rated Lights</strong></span></a> - UL/ETL tested to meet UL263 requirements for preventing the spread of fire for up to 2 hours, giving you and your loved ones peace of mind. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-undercabinet-lights\"><span style=\"text-decoration:underline\"><strong>Under Cabinet Lights</strong></span></a> – Extra illumination for countertops where ambient light doesn’t reach. Daisy chain together to cover longer cabinet runs without extra wiring clutter. </li></ul><p></p>"
           }
         },
         "text_7e9zaU": {
           "type": "text",
           "settings": {
             "enlarge_text": false,
-            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/outdoor-led-lighting\">Outdoor Lighting</a> – Precision Light for Open Spaces </h2><p>NuWatt outdoor lights are made to be fully experienced, not merely seen. Our low voltage pathway and stair lights add style and safety to front yards. Our high output flood lights provide ample security lighting for parking lots, driveways, and more<strong>.</strong> </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/landscape-lighting\"><span style=\"text-decoration:underline\"><strong>Landscape Lights</strong></span></a> – Low voltage outdoor lighting goes on trees, walkways, or stairs to create cozy evenings outdoors. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-flood-lights\"><span style=\"text-decoration:underline\"><strong>Flood Lights</strong></span></a> - High output LEDs light up parking lots and driveways, giving intruders no place to hide. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-wall-packs\"><span style=\"text-decoration:underline\"><strong>Wall Packs</strong></span></a> - All weather bright security lighting made to keep buildings safe at night. </li></ul>",
-            "card_image": "shopify://shop_images/Outdoor_Lighting_Ideas_for_Patios_Decks_and_Backyard_Entertaining_Areas_-_blog_cover_image.jpg"
+            "card_image": "shopify://shop_images/Outdoor_Lighting_Ideas_for_Patios_Decks_and_Backyard_Entertaining_Areas_-_blog_cover_image.jpg",
+            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/outdoor-led-lighting\">Outdoor Lighting</a> – Precision Light for Open Spaces </h2><p>NuWatt outdoor lights are made to be fully experienced, not merely seen. Our low voltage pathway and stair lights add style and safety to front yards. Our high output flood lights provide ample security lighting for parking lots, driveways, and more<strong>.</strong> </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/landscape-lighting\"><span style=\"text-decoration:underline\"><strong>Landscape Lights</strong></span></a> – Low voltage outdoor lighting goes on trees, walkways, or stairs to create cozy evenings outdoors. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-flood-lights\"><span style=\"text-decoration:underline\"><strong>Flood Lights</strong></span></a> - High output LEDs light up parking lots and driveways, giving intruders no place to hide. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-wall-packs\"><span style=\"text-decoration:underline\"><strong>Wall Packs</strong></span></a> - All weather bright security lighting made to keep buildings safe at night. </li></ul>"
           }
         },
         "text_9t7mnm": {
           "type": "text",
           "settings": {
             "enlarge_text": false,
-            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/commercial-lighting\">Commercial Lights</a> - Efficiency for Modern Offices </h2><p>NuWatt office lighting is designed for modern workspaces, where visual comfort and consistency matter as much as clear visibility that drives productivity.  </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/led-panel-light\"><span style=\"text-decoration:underline\"><strong>LED Panel Lights</strong></span></a> - Designed with a low-glare, diffused light that supports visual comfort in workspaces and high foot traffic areas like lobbies. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-tube-lights\"><span style=\"text-decoration:underline\"><strong>LED Tube Lights</strong></span></a> - An easy replacement for legacy fluorescent fixtures that works with existing ballast, or direct wire to bypass the ballast altogther. NuWatt LED tube lights cut energy usage by an average of 30% and are rated to last 45+ years. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-shop-lights\"><span style=\"text-decoration:underline\"><strong>Wrap Lights & Shop Lights</strong></span></a> - High lumen utility lighting brightens up dark garages and basements.</li></ul>",
-            "card_image": "shopify://shop_images/Office_Lighting_360_x_440px_2X_88ff8c9b-4fac-4059-9b1b-d3312b5f3176.png"
+            "card_image": "shopify://shop_images/Office_Lighting_360_x_440px_2X_88ff8c9b-4fac-4059-9b1b-d3312b5f3176.png",
+            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/commercial-lighting\">Commercial Lights</a> - Efficiency for Modern Offices </h2><p>NuWatt office lighting is designed for modern workspaces, where visual comfort and consistency matter as much as clear visibility that drives productivity.  </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/led-panel-light\"><span style=\"text-decoration:underline\"><strong>LED Panel Lights</strong></span></a> - Designed with a low-glare, diffused light that supports visual comfort in workspaces and high foot traffic areas like lobbies. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-tube-lights\"><span style=\"text-decoration:underline\"><strong>LED Tube Lights</strong></span></a> - An easy replacement for legacy fluorescent fixtures that works with existing ballast, or direct wire to bypass the ballast altogther. NuWatt LED tube lights cut energy usage by an average of 30% and are rated to last 45+ years. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/led-shop-lights\"><span style=\"text-decoration:underline\"><strong>Wrap Lights & Shop Lights</strong></span></a> - High lumen utility lighting brightens up dark garages and basements.</li></ul>"
           }
         },
         "text_btnkPm": {
           "type": "text",
           "settings": {
             "enlarge_text": false,
-            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/industrial-led-lighting\">Industrial Lighting</a> - Engineered for Harsh Conditions  </h2><p>NuWatt warehouse lighting is built for demanding large scale operations that require higher light output and IP65 dust are moisture resistance.  </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/high-bay-led-lights\"><span style=\"text-decoration:underline\"><strong>High Bay Lights</strong></span></a> - Powerful illumination keeps warehouse and factory operations safe and efficient. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/canopy-lights\"><span style=\"text-decoration:underline\"><strong>Canopy Lighting</strong></span></a> – Covered carports and fueling area LED lights stand up to harsh elements. </li></ul>",
-            "card_image": "shopify://shop_images/Warehouse_environment_with_NuWatt_UFO_Lights.png"
+            "card_image": "shopify://shop_images/Warehouse_environment_with_NuWatt_UFO_Lights.png",
+            "text": "<h2>NuWatt <a href=\"https://www.nuwattlighting.com/collections/industrial-led-lighting\">Industrial Lighting</a> - Engineered for Harsh Conditions  </h2><p>NuWatt warehouse lighting is built for demanding large scale operations that require higher light output and IP65 dust are moisture resistance.  </p><ul><li><a href=\"https://www.nuwattlighting.com/collections/high-bay-led-lights\"><span style=\"text-decoration:underline\"><strong>High Bay Lights</strong></span></a> - Powerful illumination keeps warehouse and factory operations safe and efficient. <br/><br/></li><li><a href=\"https://www.nuwattlighting.com/collections/canopy-lights\"><span style=\"text-decoration:underline\"><strong>Canopy Lighting</strong></span></a> – Covered carports and fueling area LED lights stand up to harsh elements. </li></ul>"
           }
         }
       },
@@ -596,24 +589,13 @@
         "background_color": "#fef9f0",
         "color_scheme": "none"
       }
-    },
-    "stamped_glowing_reviews": {
-      "type": "stamped-glowing-reviews",
-      "settings": {
-        "heading": "Our Glowing Reviews",
-        "review_ids": "166004438, 165941523, 165601032, 166360113, 166109718, 165577936, 165577988, 165577983",
-        "button_label": "Read All Reviews",
-        "button_link": "/pages/reviews?page=reviews"
-      },
-      "disabled": true
     }
   },
   "order": [
     "banr_grid_o1_RbB7CG",
-    "custom_video_pGxp4z",
+    "custom_video_8gQ3jX",
     "custom_video_tLtrm4",
     "banr_grid_o2_dCYNGN",
-    "two_image_row_test",
     "text_with_icons_AiAPFP",
     "ugc_slider_yUq4t6",
     "slideshow_R8pe4f",

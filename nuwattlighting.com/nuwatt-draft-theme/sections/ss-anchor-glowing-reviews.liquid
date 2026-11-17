@@ -1,7 +1,8 @@
 {% comment %}
   SS Anchor Glowing Reviews (task #136, Design comment #87 "Version 2, Anchor pages", approved with the pages in #94).
   Summary panel on the left (eyebrow, heading, stars, text, "Read all reviews", arrows + dots) and a carousel of
-  review cards on the right that alternate yellow / dark and run off the right edge of the page.
+  review cards on the right, all NW yellow (AC #492264, Gary: "Make all the review cards the same NW yellow"),
+  that run off the right edge of the page. They used to alternate yellow / dark.
   Which reviews show:
     - Review IDs (optional): only these hand-picked Stamped reviews, in this order.
     - Otherwise: the best 5-star reviews of the products shown on this page (read from the product cards of
@@ -14,6 +15,40 @@
 {{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
 
 {%- assign review_ids = section.settings.review_ids | remove: ' ' -%}
+
+{%- if section.settings.contain_cards -%}
+  {%- comment -%}
+    #144 Gary (04-11) "line everything up more symmetrically". The V2 design
+    deliberately runs the cards off the right edge, and the theme's .page-width
+    here is far wider than the page column, so the track started at 426px and
+    ran to the viewport edge while the heading sat on the column at 121px.
+    With this on, the block keeps the same column as every other section, so
+    the cards stop at the page's right edge. The cards still scroll.
+  {%- endcomment -%}
+  {%- style -%}
+    /* Above the phone breakpoint only. On phones ss-anchor.css gives the track
+       its own 82% card width and a 17px right inset so the next card peeks past
+       the screen edge; these selectors carry an id, so without the query they
+       would outrank that and quietly retune the phone carousel, which is not
+       what was asked for. */
+    @media screen and (min-width: 769px) {
+      #shopify-section-{{ section.id }} .ssgr__inner {
+        max-width: 1230px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--ss-gap, 16px);
+        padding-right: var(--ss-gap, 16px);
+      }
+      /* The track is a grid item whose eight 263px cards make its automatic size
+         wider than its column, so it spilled 121px past the page edge at 1440.
+         max-width pins it to the column; it still scrolls. */
+      #shopify-section-{{ section.id }} .ssgr__track {
+        max-width: 100%;
+        padding-right: 0;
+      }
+    }
+  {%- endstyle -%}
+{%- endif -%}
 
 <div class="ssgr" data-review-ids="{{ review_ids }}" data-max="{{ section.settings.max_reviews }}" hidden>
   <div class="page-width ssgr__inner">
@@ -85,7 +120,7 @@
       var chip = '<span class="ssgr__chip-img">' + (thumb ? '<img src="' + esc(thumb) + '" alt="" loading="lazy" width="40" height="40">' : '') + '</span>' +
         '<span class="ssgr__chip-text"><span class="ssgr__chip-label">Reviewed</span><span class="ssgr__chip-name">' + esc(r.productName) + '</span></span>' +
         '<span class="ssgr__chip-arrow">' + arrow + '</span>';
-      return '<figure class="ssgr__card ssgr__card--' + (i % 2 ? 'dark' : 'yellow') + '" role="listitem">' +
+      return '<figure class="ssgr__card ssgr__card--yellow" role="listitem">' +
         '<div class="ssgr__stars" role="img" aria-label="' + r.reviewRating + ' out of 5 stars">' + stars + '</div>' +
         '<p class="ssgr__title">' + esc(r.reviewTitle) + '</p>' +
         '<blockquote class="ssgr__body">' + esc(r.reviewMessage) + '</blockquote>' +
@@ -178,7 +213,14 @@
       "label": "Hand-picked review IDs",
       "info": "Optional. Comma-separated Stamped review IDs, in display order. Empty = the best 5-star reviews of the products shown on this page."
     },
-    { "type": "range", "id": "max_reviews", "label": "Maximum reviews", "min": 3, "max": 12, "step": 1, "default": 8 }
+    { "type": "range", "id": "max_reviews", "label": "Maximum reviews", "min": 3, "max": 12, "step": 1, "default": 8 },
+    {
+      "type": "checkbox",
+      "id": "contain_cards",
+      "label": "Keep the cards inside the page width",
+      "info": "Off, the cards run off the right edge of the screen (the anchor page design). On, they stop at the same right edge as the rest of the page.",
+      "default": false
+    }
   ],
   "presets": [{ "name": "Anchor glowing reviews" }]
 }

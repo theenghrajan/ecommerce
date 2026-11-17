@@ -1,0 +1,1474 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "brc-nav-product",
+      "disabled": true,
+      "settings": {
+        "breadcrumb_pr": true,
+        "back_next_pr": true,
+        "cl_bg": "#f6f6f6",
+        "cl_link": "#222222"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "txt_tr_pr": "none",
+            "fnt_df_pr": "1",
+            "size_pr": 16,
+            "fw_pr": 600,
+            "lh_pr": 20,
+            "ls_pr": 2,
+            "pr_title_color": "#4d5959"
+          }
+        },
+        "price_review": {
+          "type": "price_review",
+          "settings": {
+            "use_border": true,
+            "border_color": "#e5e5e5",
+            "price": "0",
+            "type_sale": "0",
+            "tax_ship": false,
+            "size_price_pr": 22,
+            "fw_price_pr": 400,
+            "primary_price_color": "#696969",
+            "secondary_price_color": "#696969",
+            "price_sale": "#ec0101",
+            "show_available": false,
+            "show_inline": true,
+            "primary_stock_color": "#4eb0be",
+            "secondary_stock_color": "#696969",
+            "rating": false,
+            "review_liquid": "<!-- Start of Judge.me code --> \n    <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge'  data-id='{{ product.id }}'>\n      {{ product.metafields.judgeme.badge }}\n    </div>  \n<!-- End of Judge.me code -->"
+          }
+        },
+        "judge_me_reviews_preview_badge_MdqNb8": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "rm_type": "1",
+            "des": "2",
+            "text": "<p>A pair of twill woven shorts featuring slanted front pockets, buttoned back pockets, a zip pocket, buttoned waist, and keychain loop.</p>",
+            "readm": false,
+            "length": 31,
+            "readm_txt": "Read more",
+            "readl_txt": "Read less"
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "selector_mode": "circle",
+            "color_mode": "color is-sw-cl__round",
+            "enable_fit_ratio_img": false,
+            "color_size": "medium",
+            "show_qty": true,
+            "enable_wishlist": true,
+            "enable_compare": true,
+            "btn_atc_full": false,
+            "pr_btn_round": 40,
+            "wishlist_color": "#222222",
+            "wishlist_color_hover": "#b59677",
+            "wishlist_color_active": "#e81e63",
+            "compare_color": "#222222",
+            "compare_color_hover": "#b59677",
+            "compare_color_active": "#000000",
+            "ani": "t4s-ani-shake",
+            "time": 6,
+            "btn_txt": "3",
+            "btn_icon": false,
+            "button_style": "default",
+            "button_color": "custom2",
+            "button_effect": "sweep-to-top",
+            "show_dynamic_checkout": true,
+            "btn_txt2": "3",
+            "button_color_payment": "dark",
+            "show_gift_card_recipient": true,
+            "product_list": [],
+            "show_product_current": true,
+            "qty_val": "0",
+            "advance_label": "Choose style",
+            "advance_pr_list": []
+          }
+        },
+        "countdown_sami_app_block_countdown_cYKM9w": {
+          "type": "shopify://apps/countdown-sami/blocks/app-block-countdown/4a43514a-3558-477f-914e-e834a137453e",
+          "settings": {
+            "shortcode": "<div class=\"samita-countdown\" data-id=\"false\" data-type=\"\"></div>"
+          }
+        },
+        "23551ebc-3be1-40d6-81b2-30f03478cccb": {
+          "type": "img",
+          "settings": {
+            "al": "start",
+            "mess": "",
+            "size": 16,
+            "source": "1",
+            "wimg": 60,
+            "svg": "amazon_payments,apple_pay,google_pay,master,paypal,shopify_pay,visa",
+            "height": 33
+          }
+        },
+        "daffa30d-b8c4-4638-b717-db06e6ff429b": {
+          "type": "size_delivery_ask",
+          "settings": {
+            "size_chart": "3",
+            "pos_sizeg": "1",
+            "sc_type": "1",
+            "page": "size-chart",
+            "size_ck": "",
+            "delivery": true,
+            "page_dr": "shipping-delivery",
+            "ask": true,
+            "phone": true
+          }
+        },
+        "meta": {
+          "type": "meta",
+          "settings": {
+            "show_options": false,
+            "show_vendor": false,
+            "show_type": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "show_available": false,
+            "show_category": true,
+            "show_tags": true
+          }
+        },
+        "f57c48c6-c9d0-4806-97a8-1e2b1cc7e313": {
+          "type": "social",
+          "settings": {
+            "socials_align": "center",
+            "social_mode": "2",
+            "social_style": "1",
+            "social_size": "small",
+            "bd_radius": 0,
+            "use_color_set": true,
+            "icon_cl": "#222222",
+            "bg_cl": "#b59677",
+            "space_h_item": "20",
+            "space_v_item": "5",
+            "space_h_item_mb": "10",
+            "space_v_item_mb": "4"
+          }
+        },
+        "95d4f334-8ea7-4cd2-b609-2373b1e848b8": {
+          "type": "tab_des",
+          "settings": {
+            "title": "Description"
+          }
+        },
+        "e36839f5-0847-44e2-97d3-2885597bd1ff": {
+          "type": "tab_add",
+          "disabled": true,
+          "settings": {
+            "title": "Additional Information"
+          }
+        },
+        "48fafca4-63b8-4588-abe0-c88c24a638ed": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Why Buy From Us",
+            "content": "",
+            "page": "why-buy-from-us"
+          }
+        },
+        "e9a44e2d-4d64-4c1e-8307-f1ecd73052e6": {
+          "type": "tab_html",
+          "settings": {
+            "title": "Custom tab",
+            "content": "",
+            "page": "custom-tab-shopify"
+          }
+        },
+        "56e67368-7424-4d73-8f14-dacdda4c59be": {
+          "type": "tab_rivui",
+          "settings": {
+            "title": "Reviews",
+            "review_liquid": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "price_review",
+        "judge_me_reviews_preview_badge_MdqNb8",
+        "description",
+        "form",
+        "countdown_sami_app_block_countdown_cYKM9w",
+        "23551ebc-3be1-40d6-81b2-30f03478cccb",
+        "daffa30d-b8c4-4638-b717-db06e6ff429b",
+        "meta",
+        "f57c48c6-c9d0-4806-97a8-1e2b1cc7e313",
+        "95d4f334-8ea7-4cd2-b609-2373b1e848b8",
+        "e36839f5-0847-44e2-97d3-2885597bd1ff",
+        "48fafca4-63b8-4588-abe0-c88c24a638ed",
+        "e9a44e2d-4d64-4c1e-8307-f1ecd73052e6",
+        "56e67368-7424-4d73-8f14-dacdda4c59be"
+      ],
+      "disabled": true,
+      "settings": {
+        "pr_layout": "default",
+        "enable_sticky_info": true,
+        "media_layout": "thumbnails_left",
+        "media_size": "medium",
+        "thumb_lr_size": "medium",
+        "image_ratio": "ratio16_9",
+        "image_size": "contain",
+        "image_position": "8",
+        "main_click": "none",
+        "zoom_tp": "external",
+        "enable_zoom_icon": false,
+        "enable_zoom_click_mb": false,
+        "enable_video_looping": false,
+        "enable_video_muting": true,
+        "enable_video_autoplaying": true,
+        "eff": "fade",
+        "nav_btn": true,
+        "btn_vi": "always",
+        "btn_owl": "outline",
+        "btn_shape": "round",
+        "btn_cl": "dark",
+        "btn_size": "small",
+        "btn_hidden_mobile": false,
+        "nav_dot": false,
+        "dot_owl": "default",
+        "dots_cl": "dark",
+        "dots_round": true,
+        "dots_space": 10,
+        "dots_hidden_mobile": false,
+        "tabs_design": "tab",
+        "tabs_accordion_mb": true,
+        "tabs_position": "external",
+        "enable_first_tab": true,
+        "tabs_layout": "full",
+        "bg": "#f6f6f8",
+        "bg_mb": "#ffffff",
+        "product_list": [],
+        "sticky_mode": "2",
+        "sticky_show": "2",
+        "sticky_layout_mb": "default",
+        "enable_select": true,
+        "ani": "t4s-ani-shake",
+        "time": 6
+      }
+    },
+    "sidebar": {
+      "type": "sidebar-product",
+      "blocks": {
+        "f01b181b-62ee-4735-8e25-32cb71ccfaba": {
+          "type": "category",
+          "settings": {
+            "heading": "Product categories",
+            "cat_source": "1",
+            "cat_link_list": "",
+            "count": true
+          }
+        },
+        "f65f464b-9487-43be-9c91-8688a098bb6f": {
+          "type": "collection",
+          "settings": {
+            "heading": "Sale products",
+            "collection": "frontpage",
+            "limit_pr": 5,
+            "image_ratio": "t4s_ratioadapt",
+            "image_size": "t4s_cover",
+            "image_position": "t4s_position_8"
+          }
+        },
+        "83340bb8-58d2-4148-89e2-a4c7a01cf792": {
+          "type": "instagram",
+          "settings": {
+            "heading": "Instagram",
+            "mode": "2",
+            "acc": "",
+            "limit": 12,
+            "open_link": "_blank",
+            "round": 0,
+            "col_dk": "3",
+            "space_item": "6"
+          }
+        },
+        "9ce9ded8-1cef-4e32-b98b-47364ffa328c": {
+          "type": "shipping",
+          "settings": {
+            "title": "Shipping & Delivery",
+            "shipping_1": "las la-truck,FREE SHIPPING,Free shipping for all US order",
+            "shipping_2": "las la-headset,SUPPORT 24/7,We support 24 hours a day",
+            "shipping_3": "las la-exchange-alt,30 DAYS RETURN,You have 30 days to return",
+            "shipping_4": "",
+            "shipping_5": "",
+            "shipping_6": ""
+          }
+        },
+        "4a9c6ae8-f3b4-4192-a6d1-82d01670bce6": {
+          "type": "image",
+          "settings": {
+            "heading": "",
+            "img_effect": "none",
+            "b_link": "",
+            "open_link": "_self",
+            "content_align": "center",
+            "date": "2023/12/26",
+            "cdt_des": "2",
+            "countdown_pos": "2",
+            "cdt_size": "medium",
+            "box_bdr": 0,
+            "bd_width": 0,
+            "space_item": 10,
+            "number_cl": "#ffffff",
+            "text_cl": "#ffffff",
+            "border_cl": "#000000",
+            "bg_cl": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "f01b181b-62ee-4735-8e25-32cb71ccfaba",
+        "f65f464b-9487-43be-9c91-8688a098bb6f",
+        "83340bb8-58d2-4148-89e2-a4c7a01cf792",
+        "9ce9ded8-1cef-4e32-b98b-47364ffa328c",
+        "4a9c6ae8-f3b4-4192-a6d1-82d01670bce6"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_drawer": true,
+        "space": 50,
+        "size": "medium",
+        "br_style": "none",
+        "brcolor": "#222222",
+        "sidebar_bdr": 5,
+        "sidebar_pd": 10
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "show": false,
+        "design_heading": "1",
+        "heading_center": true,
+        "top_heading": "YOU MAY ALSO LIKE",
+        "icon_heading": "las la-gem",
+        "top_subheading": "",
+        "tophead_mb": 30,
+        "tophead_mb_tb": 30,
+        "tophead_mb_mb": 25,
+        "product_des": "5",
+        "show_vendor": false,
+        "use_cdt": false,
+        "limit": 6,
+        "display_type": "4",
+        "image_ratio": "ratioadapt",
+        "image_size": "nt_cover",
+        "image_position": "8",
+        "content_align": "default",
+        "col_dk": "4",
+        "col_tb": "4",
+        "col_mb": "2",
+        "space_h_item": "30",
+        "space_v_item": "30",
+        "space_h_item_tb": "15",
+        "space_v_item_tb": "15",
+        "space_h_item_mb": "10",
+        "space_v_item_mb": "10",
+        "layout_des": "2",
+        "loop": true,
+        "au_time": 0,
+        "au_hover": true,
+        "nav_btn": true,
+        "btn_vi": "hover",
+        "btn_owl": "outline",
+        "btn_shape": "round",
+        "btn_cl": "dark",
+        "btn_size": "small",
+        "btn_hidden_mobile": false,
+        "nav_dot": false,
+        "dot_owl": "1",
+        "dots_cl": "dark",
+        "dots_round": true,
+        "dots_space": 10,
+        "dots_hidden_mobile": false,
+        "layout": "t4s-container-wrap",
+        "cl_bg": "",
+        "cl_bg_gradient": "",
+        "mg": "75px,,50px,",
+        "pd": "",
+        "mg_tb": ",,50px,",
+        "pd_tb": "",
+        "mg_mb": ",,30px,",
+        "pd_mb": ""
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently_viewed",
+      "disabled": true,
+      "settings": {
+        "show": false,
+        "design_heading": "1",
+        "heading_center": true,
+        "top_heading": "RECENTLY VIEWED PRODUCTS",
+        "icon_heading": "las la-gem",
+        "top_subheading": "",
+        "tophead_mb": 30,
+        "tophead_mb_tb": 30,
+        "tophead_mb_mb": 25,
+        "product_des": "5",
+        "show_vendor": false,
+        "use_cdt": false,
+        "limit": 14,
+        "sortby": "1",
+        "unavailable_prs": "show",
+        "image_ratio": "ratioadapt",
+        "image_size": "cover",
+        "image_position": "8",
+        "content_align": "default",
+        "col_dk": "4",
+        "col_tb": "4",
+        "col_mb": "2",
+        "space_h_item": "30",
+        "space_v_item": "30",
+        "space_h_item_tb": "15",
+        "space_v_item_tb": "15",
+        "space_h_item_mb": "10",
+        "space_v_item_mb": "10",
+        "layout_des": "2",
+        "loop": true,
+        "au_time": 0,
+        "au_hover": true,
+        "nav_btn": true,
+        "btn_vi": "hover",
+        "btn_owl": "outline",
+        "btn_shape": "round",
+        "btn_cl": "dark",
+        "btn_size": "small",
+        "btn_hidden_mobile": false,
+        "nav_dot": false,
+        "dot_owl": "default",
+        "dots_cl": "dark",
+        "dots_round": true,
+        "dots_space": 10,
+        "dots_hidden_mobile": false,
+        "layout": "t4s-container-wrap",
+        "cl_bg": "",
+        "cl_bg_gradient": "",
+        "mg": "75px,,50px,",
+        "pd": "",
+        "mg_tb": ",,50px,",
+        "pd_tb": "",
+        "mg_mb": ",,30px,",
+        "pd_mb": ""
+      }
+    },
+    "blocks_9g7hHH": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8a5b7c_rxbrg9": {
+          "type": "ai_gen_block_c8a5b7c",
+          "disabled": true,
+          "settings": {
+            "placeholder_text": "Where are you traveling?",
+            "enable_sticky_desktop": false,
+            "desktop_sticky_offset": 0,
+            "desktop_sticky_padding": 15,
+            "desktop_sticky_z_index": 500,
+            "enable_sticky_mobile": true,
+            "mobile_sticky_offset": 0,
+            "mobile_sticky_padding": 0,
+            "mobile_sticky_z_index": 100,
+            "enable_sticky_transparent_bg": true,
+            "sticky_bg_color": "#ffffff",
+            "desktop_width_percent": 100,
+            "desktop_search_height": 50,
+            "desktop_search_padding": 16,
+            "desktop_font_size": 16,
+            "desktop_border_thickness": 1,
+            "desktop_border_radius": 8,
+            "mobile_width_percent": 100,
+            "mobile_search_height": 45,
+            "mobile_search_padding": 12,
+            "mobile_font_size": 13,
+            "mobile_border_thickness": 1,
+            "mobile_border_radius": 8,
+            "enable_transparent_bg": false,
+            "search_bg_color": "#ffffff",
+            "text_color": "#222222",
+            "placeholder_color": "#999999",
+            "border_color": "#dddddd",
+            "desktop_icon_area_width": 60,
+            "desktop_icon_size": 20,
+            "desktop_icon_area_border_radius": 0,
+            "desktop_divider_thickness": 1,
+            "mobile_icon_area_width": 60,
+            "mobile_icon_size": 18,
+            "mobile_icon_area_border_radius": 0,
+            "mobile_divider_thickness": 1,
+            "icon_area_bg_color": "#ffffff",
+            "icon_area_hover_bg_color": "#e5c200",
+            "icon_color": "#6f6f6f",
+            "show_divider": false,
+            "divider_color": "#dddddd",
+            "desktop_dropdown_spacing": 8,
+            "desktop_dropdown_border_thickness": 1,
+            "desktop_dropdown_border_radius": 8,
+            "mobile_dropdown_spacing": 6,
+            "mobile_dropdown_border_thickness": 1,
+            "mobile_dropdown_border_radius": 8,
+            "max_suggestions": 5,
+            "max_dropdown_height": 400,
+            "dropdown_bg_color": "#ffffff",
+            "dropdown_border_color": "#dddddd",
+            "result_hover_bg_color": "#00000008",
+            "product_name_text_size": 13,
+            "product_name_font_weight": 500,
+            "product_title_color": "#222222",
+            "product_name_multiline": false,
+            "product_price_text_size": 14,
+            "product_price_font_weight": 400,
+            "product_price_color": "#878787",
+            "result_item_padding": 12,
+            "result_item_spacing": 16,
+            "title_price_spacing": 5,
+            "result_image_size": 60,
+            "result_image_border_radius": 4,
+            "no_results_message": "No products found"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8a5b7c_rxbrg9"
+      ],
+      "name": "Product search box",
+      "settings": {}
+    },
+    "ss_home_hero_J7aJYR": {
+      "type": "ss-home-hero",
+      "name": "SS Home Hero",
+      "settings": {
+        "badge_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"><path d=\"M2 20h.01M6 20v-4M10 20v-8M14 20v-12M18 20V4\"></path></svg>",
+        "badge_text": "Get covered on three major local networks",
+        "heading": "Netherlands eSIM:",
+        "heading_emphasis": "No App Needed. Just Scan and Go.",
+        "subheading": "<p>Netherlands <strong>1GB from $1.45.</strong> One quick scan and you are ready to go. No apps needed. No sign-up required. Full-speed 5G on Vodafone, KPN, and Odido networks.</p>",
+        "show_search": false,
+        "search_placeholder": "Where are you traveling?",
+        "button_text": "Find eSIM",
+        "hero_image": "shopify://shop_images/Netherlands.jpg",
+        "show_price_card": true,
+        "price_label": "Netherlands 50GB · 180 days",
+        "price": "$51.69",
+        "country_count": "Best value",
+        "review_text": "50 reviews",
+        "review_subtext": "Rated by travelers",
+        "instant_text": "Instant QR",
+        "instant_subtext": "Delivered by email",
+        "network_text": "3 Networks",
+        "network_subtext": "Tri-network coverage",
+        "show_product_button": true,
+        "btn_link": "#plans",
+        "btn_product_text": "Get Connected for $51.69 →",
+        "dynamic_cta": false,
+        "btn_text_before": "Choose Your Destination →"
+      }
+    },
+    "blocks_AQAVTb": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_9b5c9fe_rxbrg9": {
+          "type": "ai_gen_block_9b5c9fe",
+          "settings": {
+            "button_text": "Device Compatibility",
+            "button_link": "https://compatibility.esimnow.net",
+            "button_action": "popup",
+            "open_new_tab": false,
+            "container_height": 100,
+            "button_alignment": "center",
+            "desktop_width_percent": 50,
+            "mobile_width_percent": 50,
+            "button_font_size": 16,
+            "button_font_weight": 600,
+            "button_padding_vertical": 20,
+            "button_padding_horizontal": 24,
+            "button_border_radius": 12,
+            "button_border_width": 0,
+            "button_bg_color": "#fed700",
+            "button_text_color": "#000000",
+            "button_border_color": "#fed700",
+            "button_bg_hover_color": "#4d5959",
+            "button_text_hover_color": "#ffffff",
+            "button_border_hover_color": "#4d5959",
+            "modal_width": 90,
+            "modal_max_width": 530,
+            "modal_height": 80,
+            "modal_border_radius": 8,
+            "close_button_bg_color": "#ffffff",
+            "close_button_color": "#000000",
+            "close_button_hover_bg_color": "#fed700",
+            "close_button_hover_color": "#4d5959"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_9b5c9fe_rxbrg9"
+      ],
+      "name": "Popup button",
+      "settings": {}
+    },
+    "ss_plans_BxhRXw": {
+      "type": "ss-plans",
+      "name": "SS Plans pricing",
+      "settings": {
+        "eyebrow": "Choose your plan",
+        "heading": "Netherlands Prepaid Data Plans",
+        "subheading": "A single payment covers your whole trip. No recurring charges. No hidden surprises. Choose the data package and duration that fits your plans.",
+        "featured_count": 4,
+        "show_unit_price": true,
+        "collapsible_label": "Just need a little data? See smaller plans",
+        "mini-note": "<p>Smaller packages are good for maps, messages, and simple lookups. Larger packages let you stream, make video calls, check social feeds, and share your connection all day.</p>",
+        "button_label": "Add to Cart · Buy Now",
+        "promo_text": "10% off with code ESIMNOWGO",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ss_guarantee_band_eVAfKE": {
+      "type": "ss-guarantee-band",
+      "blocks": {
+        "point_gxwhGG": {
+          "type": "point",
+          "settings": {
+            "text": "Money back if it will not activate"
+          }
+        },
+        "point_QLatw7": {
+          "type": "point",
+          "settings": {
+            "text": "Full refund on incompatible devices"
+          }
+        },
+        "point_TnqYiD": {
+          "type": "point",
+          "settings": {
+            "text": "Real human help, 24/7"
+          }
+        }
+      },
+      "block_order": [
+        "point_gxwhGG",
+        "point_QLatw7",
+        "point_TnqYiD"
+      ],
+      "name": "SS Guarantee band",
+      "settings": {
+        "days_number": "30",
+        "days_label": "DayGuarantee",
+        "heading": "Try eSIMnow risk free",
+        "description": "If the eSIM will not activate or you are not satisfied, we will make it right or return your payment within 30 days. Buy without worry. Connect when you land. Travel with peace of mind."
+      }
+    },
+    "ss_product_why_pPrVfr": {
+      "type": "ss-product-why",
+      "blocks": {
+        "reason_YAadEx": {
+          "type": "reason",
+          "settings": {
+            "icon": "signal",
+            "title": "Three Major Local Networks",
+            "text": "<p>Your Netherlands eSIM runs on NL - Vodafone 5G, NL - KPN 5G, and NL - Odido 5G. Three strong networks across the country.<br/>Cycling along Amsterdam's canals, catching a train to Rotterdam, visiting the tulip fields, or taking a ferry to the Wadden Islands, your connection stays steady.</p>"
+          }
+        },
+        "reason_hhFNVe": {
+          "type": "reason",
+          "settings": {
+            "icon": "phone",
+            "title": "No App to Download",
+            "text": "<p>Your QR code arrives in your inbox as soon as you check out. There is nothing to install and no account to create.<br/>Head to your phone settings, scan the code, and follow the instructions. Your device is set before you fly.</p>"
+          }
+        },
+        "reason_qhiiJK": {
+          "type": "reason",
+          "settings": {
+            "icon": "speed",
+            "title": "Full-Speed Data, Never Throttled",
+            "text": "<p>No speed caps apply to this plan. Your data runs at the full speed the network provides from your first day to your last.</p>"
+          }
+        },
+        "reason_Hyxy39": {
+          "type": "reason",
+          "settings": {
+            "icon": "price",
+            "title": "Hotspot Included",
+            "text": "<p>You can share your data with other devices. Turn your phone into a hotspot and connect your laptop or tablet at no extra cost.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "reason_YAadEx",
+        "reason_hhFNVe",
+        "reason_qhiiJK",
+        "reason_Hyxy39"
+      ],
+      "name": "SS Product Why",
+      "settings": {
+        "eyebrow": "Why eSIMnow is the best value",
+        "heading": "Not the Cheapest. The One That Actually Works.",
+        "lead": "A cheap plan means little if your signal fails when you need it. eSIMnow delivers full-speed data, three major local networks, hotspot sharing, and simple pricing. That keeps you connected for your entire Netherlands trip.",
+        "image": "shopify://shop_images/worried-dark-haired-woman-gray-hat-using-gps-while-enjoying-attractions.jpg"
+      }
+    },
+    "ss_data_calculator_RqTCQD": {
+      "type": "ss-data-calculator",
+      "blocks": {
+        "plan_1gb_7d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 1,
+            "plan_label": "Netherlands 1GB",
+            "plan_price": "$1.45 · 7 days",
+            "why_text": "Enough for maps, messages, and quick check-ins on a short trip."
+          }
+        },
+        "plan_3gb_15d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 3,
+            "plan_label": "Netherlands 3GB",
+            "plan_price": "$3.20 · 15 days",
+            "why_text": "Covers the essentials when you step away from Wi-Fi."
+          }
+        },
+        "plan_3gb_30d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 3,
+            "plan_label": "Netherlands 3GB",
+            "plan_price": "$3.38 · 30 days",
+            "why_text": "Comfortable headroom for your trip with a little to spare."
+          }
+        },
+        "plan_5gb_30d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 5,
+            "plan_label": "Netherlands 5GB",
+            "plan_price": "$5.06 · 30 days",
+            "why_text": "Comfortable headroom for your trip with a little to spare."
+          }
+        },
+        "plan_10gb_30d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 10,
+            "plan_label": "Netherlands 10GB",
+            "plan_price": "$8.92 · 30 days",
+            "why_text": "Plenty of room for daily use plus video and the occasional hotspot."
+          }
+        },
+        "plan_20gb_30d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 20,
+            "plan_label": "Netherlands 20GB",
+            "plan_price": "$16.02 · 30 days",
+            "why_text": "Heavy use adds up fast. This plan keeps you online with zero rationing, and is the best value per GB."
+          }
+        },
+        "plan_50gb_30d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 50,
+            "plan_label": "Netherlands 50GB",
+            "plan_price": "$38.29 · 30 days",
+            "why_text": "Heavy use adds up fast. This plan keeps you online with zero rationing, and is the best value per GB."
+          }
+        },
+        "plan_50gb_180d": {
+          "type": "plan",
+          "settings": {
+            "gb_amount": 50,
+            "plan_label": "Netherlands 50GB",
+            "plan_price": "$51.69 · 180 days",
+            "why_text": "Heavy use adds up fast. This plan keeps you online with zero rationing, and is the best value per GB."
+          }
+        }
+      },
+      "block_order": [
+        "plan_1gb_7d",
+        "plan_3gb_15d",
+        "plan_3gb_30d",
+        "plan_5gb_30d",
+        "plan_10gb_30d",
+        "plan_20gb_30d",
+        "plan_50gb_30d",
+        "plan_50gb_180d"
+      ],
+      "name": "SS Data Calculator",
+      "settings": {
+        "eyebrow_text": "Plan finder",
+        "heading": "How Much Data Do You Actually Need?",
+        "lead_text": "Let us know your travel style. We will help you pick a data plan that matches your usage and your budget.",
+        "label_days": "How long is your trip?",
+        "label_usage": "How do you use your phone?",
+        "usage_light": "Light",
+        "usage_avg": "Average",
+        "usage_heavy": "Heavy",
+        "label_hotspot": "Hotspot a laptop or tablet?",
+        "hotspot_no": "No",
+        "hotspot_some": "Sometimes",
+        "hotspot_daily": "Daily",
+        "label_result": "Your estimated use",
+        "btn_text": "See this plan →",
+        "btn_link": "#plans"
+      }
+    },
+    "ss_network_coverage_yEz7p9": {
+      "type": "ss-network-coverage",
+      "blocks": {
+        "network_ThUEbN": {
+          "type": "network",
+          "settings": {
+            "network_name": "Vodafone",
+            "css_class": "nm-docomo",
+            "dot_color": "#cc0000",
+            "badge_text": "5G"
+          }
+        },
+        "network_LKVC7X": {
+          "type": "network",
+          "settings": {
+            "network_name": "KPN",
+            "css_class": "nm-softbank",
+            "dot_color": "#7d7d7d",
+            "badge_text": "5G"
+          }
+        },
+        "network_icjBJF": {
+          "type": "network",
+          "settings": {
+            "network_name": "Odido",
+            "css_class": "nm-au",
+            "dot_color": "#eb5505",
+            "badge_text": "5G"
+          }
+        },
+        "network_ermd86": {
+          "type": "network",
+          "disabled": true,
+          "settings": {
+            "network_name": "Flow",
+            "css_class": "nm-rakuten",
+            "dot_color": "#bf0000",
+            "badge_text": "4G"
+          }
+        }
+      },
+      "block_order": [
+        "network_ThUEbN",
+        "network_LKVC7X",
+        "network_icjBJF",
+        "network_ermd86"
+      ],
+      "name": "SS Network Coverage",
+      "settings": {
+        "eyebrow_text": "Network coverage",
+        "heading": "Connect to the Vodafone, KPN, and Odido 5G Networks",
+        "lead_text": "Your Netherlands eSIM connects to NL - Vodafone 5G, NL - KPN 5G, and NL - Odido 5G. Stay online as you move across the country.",
+        "disclaimer_text": "Network availability and speeds can vary depending on your device, location, network conditions, and local coverage."
+      }
+    },
+    "ss_local_ip_support_E4zcCJ": {
+      "type": "ss-local-ip-support",
+      "blocks": {
+        "feature_X9xENa": {
+          "type": "feature",
+          "settings": {
+            "list_text": "Reliable data as you move between cities, rural areas, and coastal regions."
+          }
+        },
+        "feature_g8FrTQ": {
+          "type": "feature",
+          "settings": {
+            "list_text": "Full-speed 5G data where any network and your device support it."
+          }
+        },
+        "feature_aCA3jE": {
+          "type": "feature",
+          "disabled": true,
+          "settings": {
+            "list_text": "<b>Faster, lower latency</b> connections because your data is not detouring overseas."
+          }
+        }
+      },
+      "block_order": [
+        "feature_X9xENa",
+        "feature_g8FrTQ",
+        "feature_aCA3jE"
+      ],
+      "name": "SS Local IP Feature",
+      "settings": {
+        "eyebrow_text": "THE THREE-NETWORK ADVANTAGE",
+        "heading": "Stay Connected Across the Netherlands",
+        "lead_text": "Coverage can shift as you travel through the country. Access to all three networks gives you a reliable link wherever your trip takes you.",
+        "dynamic_flag": false,
+        "good_card_flag": "🇳🇱",
+        "good_card_title": "eSIMnow · Single-Network eSIMs",
+        "good_card_sub": "",
+        "bad_card_title": "Vodafone + KPN + Odido · Limited to the same network",
+        "bad_card_sub": "",
+        "side_heading": "Why Three Networks Matter in the Netherlands",
+        "side_paragraph_1": "The Netherlands is a compact country with busy cities, quiet countryside, and a long coastline. Coverage can change depending on where you are. Having access to three strong local networks keeps you online.",
+        "side_paragraph_2": "Your eSIMnow plan connects to NL - Vodafone 5G, NL - KPN 5G, and NL - Odido 5G, three of the main providers in the Netherlands.",
+        "side_paragraph_3": "That gives you a steady link while you navigate, book trips, check travel details, message family, or relax by the canals.",
+        "note_text": ""
+      }
+    },
+    "ss_home_comparison_MJkzp4": {
+      "type": "ss-home-comparison",
+      "blocks": {
+        "row_TdJUUy": {
+          "type": "row",
+          "settings": {
+            "feature": "Setup",
+            "us_type": "text",
+            "us_text": "QR code via email",
+            "competitor1_type": "text",
+            "competitor1_text": "Varies",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        },
+        "row_XtcpXK": {
+          "type": "row",
+          "settings": {
+            "feature": "App required",
+            "us_type": "no",
+            "us_text": "No",
+            "competitor1_type": "text",
+            "competitor1_text": "Often",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        },
+        "row_tmkhAK": {
+          "type": "row",
+          "settings": {
+            "feature": "Local networks",
+            "us_type": "text",
+            "us_text": "Vodafone + KPN + Odido",
+            "competitor1_type": "text",
+            "competitor1_text": "Varies",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        },
+        "row_k3qhXV": {
+          "type": "row",
+          "settings": {
+            "feature": "Full speed with no eSIMnow speed reduction",
+            "us_type": "yes",
+            "us_text": "Yes",
+            "competitor1_type": "text",
+            "competitor1_text": "Plan dependent",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        },
+        "row_LgqEGh": {
+          "type": "row",
+          "settings": {
+            "feature": "Hotspot / tethering",
+            "us_type": "yes",
+            "us_text": "Yes",
+            "competitor1_type": "text",
+            "competitor1_text": "Plan dependent",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        },
+        "row_KDBK9G": {
+          "type": "row",
+          "settings": {
+            "feature": "Top-up available",
+            "us_type": "yes",
+            "us_text": "Yes",
+            "competitor1_type": "text",
+            "competitor1_text": "Varies",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        },
+        "row_HydCbW": {
+          "type": "row",
+          "settings": {
+            "feature": "24/7 help",
+            "us_type": "yes",
+            "us_text": "",
+            "competitor1_type": "text",
+            "competitor1_text": "Varies",
+            "competitor2_type": "text",
+            "competitor2_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_TdJUUy",
+        "row_XtcpXK",
+        "row_tmkhAK",
+        "row_k3qhXV",
+        "row_LgqEGh",
+        "row_KDBK9G",
+        "row_HydCbW"
+      ],
+      "name": "SS Comparison table",
+      "settings": {
+        "eyebrow": "How we compare",
+        "heading": "eSIMnow vs. the big names",
+        "subheading": "Get the travel connectivity you need without extra hassle.",
+        "us_label": "eSIMnow",
+        "competitor1_label": "Typical Alternatives",
+        "competitor2_label": "",
+        "footnote": "Competitor features and terms can change. Verify individual provider details before publishing direct comparisons."
+      }
+    },
+    "ss_home_how_it_works_KGppAz": {
+      "type": "ss-home-how-it-works",
+      "blocks": {
+        "step_YQhaJK": {
+          "type": "step",
+          "settings": {
+            "screen_style": "ps1",
+            "icon_svg": "<svg class=\"bigic\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#1788c4\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"21\" r=\"1.4\"></circle><circle cx=\"18\" cy=\"21\" r=\"1.4\"></circle><path d=\"M2 3h3l2.4 12.4a1.6 1.6 0 0 0 1.6 1.3h8.4a1.6 1.6 0 0 0 1.6-1.3L22 7H6\"></path></svg>",
+            "visual_type": "pill",
+            "visual_text": "Netherlands 50GB",
+            "sub_text": "Checkout in seconds",
+            "title": "Choose your plan and check out",
+            "text": "Find the Netherlands data plan that matches your trip length and usage. Complete your purchase online."
+          }
+        },
+        "step_TaEPxC": {
+          "type": "step",
+          "settings": {
+            "screen_style": "ps2",
+            "icon_svg": "<svg class=\"bigic\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#16202b\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.5\"></rect><path d=\"m3 7 9 6 9-6\"></path></svg>",
+            "visual_type": "qr",
+            "visual_text": "",
+            "sub_text": "QR arrives by email",
+            "title": "Receive your QR code by email",
+            "text": "Your eSIM details and QR code arrive in your inbox. Save the QR code so it is ready when you need it."
+          }
+        },
+        "step_kXhPjX": {
+          "type": "step",
+          "settings": {
+            "screen_style": "ps3",
+            "icon_svg": "<svg class=\"bigic\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"#178a5d\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M2 20h.01M6 20v-4M10 20v-8M14 20v-12M18 20V4\"></path></svg>",
+            "visual_type": "label",
+            "visual_text": "Connected",
+            "sub_text": "Online on arrival",
+            "title": "Scan and Connect in the Netherlands",
+            "text": "Follow the steps for your device and scan the QR code. Once your eSIM connects to a supported local network, you are online."
+          }
+        }
+      },
+      "block_order": [
+        "step_YQhaJK",
+        "step_TaEPxC",
+        "step_kXhPjX"
+      ],
+      "name": "SS How it works",
+      "settings": {
+        "eyebrow": "Setup in minutes",
+        "heading": "Get online in 3 simple steps",
+        "subheading": "Getting connected in the Netherlands takes only a few minutes."
+      }
+    },
+    "ss_product_instructions_BMmaAL": {
+      "type": "ss-product-instructions",
+      "blocks": {
+        "android_TnPkYi": {
+          "type": "android",
+          "settings": {
+            "step-image": "shopify://shop_images/image_73.png",
+            "steps-label": "01 · Open Settings"
+          }
+        },
+        "android_iEbQBz": {
+          "type": "android",
+          "settings": {
+            "step-image": "shopify://shop_images/image_74.png",
+            "steps-label": "02 · Connections"
+          }
+        },
+        "android_jXdzYY": {
+          "type": "android",
+          "settings": {
+            "step-image": "shopify://shop_images/image_75.png",
+            "steps-label": "03 · SIM Manager"
+          }
+        },
+        "android_RAYbVE": {
+          "type": "android",
+          "settings": {
+            "step-image": "shopify://shop_images/image_76.png",
+            "steps-label": "04 · Add Mobile Plan"
+          }
+        },
+        "android_RWHViy": {
+          "type": "android",
+          "settings": {
+            "step-image": "shopify://shop_images/image_77.png",
+            "steps-label": "05 · Scan QR code"
+          }
+        },
+        "ios_qeTG67": {
+          "type": "ios",
+          "settings": {
+            "step-image": "shopify://shop_images/image_78.png",
+            "steps-label": "01 · Open Settings"
+          }
+        },
+        "ios_HQ8G4d": {
+          "type": "ios",
+          "settings": {
+            "step-image": "shopify://shop_images/image_79.png",
+            "steps-label": "02 · Cellular"
+          }
+        },
+        "ios_m3nhqR": {
+          "type": "ios",
+          "settings": {
+            "step-image": "shopify://shop_images/image_80.png",
+            "steps-label": "03 · Add eSIM"
+          }
+        },
+        "ios_EbWTkR": {
+          "type": "ios",
+          "settings": {
+            "step-image": "shopify://shop_images/image_81.png",
+            "steps-label": "04 · Use QR Code"
+          }
+        },
+        "ios_NVjKPh": {
+          "type": "ios",
+          "settings": {
+            "step-image": "shopify://shop_images/image_82.png",
+            "steps-label": "05 · Scan QR code"
+          }
+        }
+      },
+      "block_order": [
+        "android_TnPkYi",
+        "android_iEbQBz",
+        "android_jXdzYY",
+        "android_RAYbVE",
+        "android_RWHViy",
+        "ios_qeTG67",
+        "ios_HQ8G4d",
+        "ios_m3nhqR",
+        "ios_EbWTkR",
+        "ios_NVjKPh"
+      ],
+      "name": "SS Product Instructions",
+      "settings": {
+        "eyebrow_text": "Setup made simple",
+        "heading": "So Easy, You Will Be Done Before Takeoff",
+        "lead_text": "No physical SIM swap is needed. Pick your device below and follow the steps.",
+        "note_text": "Placeholder screens shown. Final build uses eSIMnow's real device screenshots."
+      }
+    },
+    "ss_home_why_mXRwFz": {
+      "type": "ss-home-why",
+      "blocks": {
+        "feature_H9X9Rq": {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21s-7-5.4-7-11a7 7 0 0 1 14 0c0 5.6-7 11-7 11z\"></path><circle cx=\"12\" cy=\"10\" r=\"2.6\"></circle></svg>",
+            "title": "Coverage Across the Country",
+            "text": "Access to Vodafone, KPN, and Odido gives your eSIM broad availability across the Netherlands. Coverage depends on your location and the network in that area."
+          }
+        },
+        "feature_y7G4YC": {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M13 2 3 14h7l-1 8 10-12h-7z\"></path></svg>",
+            "title": "Speed That Keeps Up With Your Trip",
+            "text": "Navigation, ride-sharing, social media, video calls, and travel apps all need a steady connection. With no eSIMnow speed reduction, you can use your data at full network speed."
+          }
+        },
+        "feature_CE378t": {
+          "type": "feature",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"17\" rx=\"2.5\"></rect><path d=\"M3 9h18M8 2v4M16 2v4M9 14l2 2 4-4\"></path></svg>",
+            "title": "Plan Ahead, Connect When You Arrive",
+            "text": "Buy your eSIM before your trip. With a 180-day pre-activation window, you have plenty of time to get everything ready."
+          }
+        }
+      },
+      "block_order": [
+        "feature_H9X9Rq",
+        "feature_y7G4YC",
+        "feature_CE378t"
+      ],
+      "name": "SS WHY ESIMNOW",
+      "settings": {
+        "eyebrow": "Why travelers pick eSIMnow",
+        "heading": "Built for How You Actually Travel the Netherlands",
+        "subheading": "No physical SIM card. No surprise roaming charges. No hunting for a local SIM when you land. Set up your data before your trip and connect when you arrive."
+      }
+    },
+    "ss_home_reviews_CYzqTf": {
+      "type": "ss-home-reviews",
+      "blocks": {
+        "review_FhEyYD": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I recently downloaded the eSIMnow app, and I must say it has completely transformed my travel experience! Setting up an eSIM has never been easier or more convenient. The user interface is intuitive and straightforward, making it easy for anyone to navigate through the various options. Overall, eSIMnow is a must-have app for any frequent traveler. It saves time and allows for seamless connectivity wherever I go. I highly recommend it to anyone who is looking for eSIM.",
+            "avatar_initial": "A",
+            "avatar_color": "#1788c4",
+            "name": "Aida Yusuf",
+            "trip": "",
+            "verified": true
+          }
+        },
+        "review_fGWejU": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I've used eSIMnow app a few times and found it a very useful app for travelers. The app let you choose eSIM data plan from over 150+ countries and connect to the internet in a couple of minutes. Their price is unbeatable and I would highly recommend eSIMnow app to anyone who is looking for internet connection worldwide.",
+            "avatar_initial": "T",
+            "avatar_color": "#1fae74",
+            "name": "Tewfik",
+            "trip": "",
+            "verified": true
+          }
+        },
+        "review_X3Wbnh": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I recently used eSIMnow while traveling abroad, and it was a game changer! Activating the eSIM was super easy, and I was connected within minutes. The app has a user-friendly interface and offers a variety of affordable data plans to suit different destinations. I loved how I didn’t have to deal with physical SIM cards or hunt for local data options. The connection was fast and reliable, even in remote areas. This app is a must-have for any traveler looking to stay connected.",
+            "avatar_initial": "H",
+            "avatar_color": "#1788c4",
+            "name": "Hayat Mohammed",
+            "trip": "",
+            "verified": true
+          }
+        },
+        "review_ccnChN": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "The service eSIM Now provides is…\nThe service eSIM Now provides is flawless . I had troubles at the beginning, when I purchased my eSIM for Spain and they replied to my email with information in record time . I am now happy with the service they provide and I highly recommend their services .\nPerfect signal and very helpful customer service ! Exactly what any human being desires from the providers ! Some of them do have the customer needs as a priority and eSIM Now proved that to me !\nThank you so , so very much for your bussiness ! Well deserved 5 strars !",
+            "avatar_initial": "GB",
+            "avatar_color": "#f5b301",
+            "name": "crdavayahoo.co.uk",
+            "trip": "",
+            "verified": true
+          }
+        },
+        "review_KJk8Aw": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "The best service ever\nFirst of all, big thanks to assaf from the service\nThis was my first time to use an esim service and it was amazing\nThis is the best service i have ever had\nWith helpful solutions and fast response\nI'm travelling in Bulgaria with my family and the communication is great.\nDefinitely will choose them again next trip",
+            "avatar_initial": "BG",
+            "avatar_color": "#1788c4",
+            "name": "Eyal Avramov",
+            "trip": "",
+            "verified": true
+          }
+        },
+        "review_hapAXG": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "I used eSim Now already a few times\nI used eSim Now already a few times. Worked great every time. Even when I am travelling to Denmark, Mexico and Miami in the same trip. It is working amazing!",
+            "avatar_initial": "DK",
+            "avatar_color": "#1788c4",
+            "name": "Neta Kela",
+            "trip": "",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review_FhEyYD",
+        "review_fGWejU",
+        "review_X3Wbnh",
+        "review_ccnChN",
+        "review_KJk8Aw",
+        "review_hapAXG"
+      ],
+      "name": "SS Reviews",
+      "settings": {
+        "eyebrow": "What travelers say",
+        "heading": "Trusted by travelers worldwide",
+        "average_score": "4.8",
+        "header_stars": 5,
+        "meta_text": "Average rating based on verified traveler reviews.",
+        "disclaimer": ""
+      }
+    },
+    "ss_home_faq_giy86J": {
+      "type": "ss-home-faq",
+      "blocks": {
+        "question_j68aBc": {
+          "type": "question",
+          "settings": {
+            "question": "How much data do I get with the Netherlands eSIM from $1.45?",
+            "answer": "The eSIMnow Netherlands eSIM starts at $1.45 and offers several prepaid data allowances to accommodate different travel needs. Available options include 1GB valid for 7 days, 3GB valid for either 15 or 30 days, 5GB and 10GB valid for 30 days, and 20GB valid for 30 days. You can also choose a 50GB package with either 30 or 180 days of validity. Your ideal allowance depends on how often you use navigation, messaging, social media, email, and other online services while traveling. Compare the available packages before purchasing to find a suitable balance between data volume, validity, and cost."
+          }
+        },
+        "question_bQJB69": {
+          "type": "question",
+          "settings": {
+            "question": "How long is the Netherlands eSIM data plan valid for?",
+            "answer": "The validity of your eSIMnow Netherlands eSIM depends on the data package you select. The available options include a 1GB plan valid for 7 days, 3GB plans valid for 15 or 30 days, and 5GB, 10GB, and 20GB plans valid for 30 days. Travelers requiring connectivity over a longer period can also choose a 50GB package with 180 days of validity. Consider your arrival and departure dates when selecting a plan, especially if you are visiting for an extended holiday or business assignment. The validity period determines how long you can use the purchased allowance. Review the current package options on our Netherlands eSIM page before placing your order."
+          }
+        },
+        "question_BaANgt": {
+          "type": "question",
+          "settings": {
+            "question": "Can I top up my Netherlands eSIM if I run out of data?",
+            "answer": "Yes, eSIMnow lists top-ups as available for its standard Netherlands eSIM. If you use your allocated data before your trip ends, you can add more data rather than necessarily purchasing and installing an entirely new eSIM. This is useful when unexpected activities increase your internet consumption, such as using navigation more frequently, sharing photos, or handling additional work online. Your original package's validity and the applicable top-up conditions are important, so check your order details before adding data. It is also worth monitoring your consumption throughout your stay to avoid running out unexpectedly. Visit our Netherlands eSIM page to review the available package information and prepare for your trip."
+          }
+        },
+        "question_RVKMRA": {
+          "type": "question",
+          "settings": {
+            "question": "Does this eSIM work anywhere else in the EU, or only the Netherlands?",
+            "answer": "The eSIMnow Netherlands eSIM is designed specifically for use in the Netherlands, rather than providing coverage throughout the European Union. Although the Netherlands is part of the EU, purchasing this country-specific package does not automatically give you mobile data access in neighboring destinations such as Germany, Belgium, or France. If your itinerary includes several European countries, consider choosing a regional Europe eSIM that explicitly covers your destinations. This can be more convenient than purchasing separate country-specific plans for every stop. Before buying, check the coverage details of each option against your travel itinerary. Explore our available regional plans if you expect to cross borders during your European trip."
+          }
+        },
+        "question_he3y6z": {
+          "type": "question",
+          "settings": {
+            "question": "Does the Netherlands eSIM support calls and SMS?",
+            "answer": "The eSIMnow Netherlands eSIM is a data-only plan, so it does not include traditional cellular voice calls or SMS messages. You can, however, use its mobile data connection with compatible internet-based communication applications to exchange messages and make calls. Services such as WhatsApp may be useful for contacting family, friends, or colleagues, provided the application is accessible and the recipient can also communicate through it. If you need to receive conventional text messages or make calls through your current number, check whether your regular SIM can remain active alongside the eSIM. Remember that using your primary SIM for calls or data may involve charges from your home carrier."
+          }
+        },
+        "question_8xNmr6": {
+          "type": "question",
+          "settings": {
+            "question": "Which networks does this eSIM connect to in the Netherlands?",
+            "answer": "The eSIMnow Netherlands eSIM lists three supported local networks: Vodafone 5G, KPN 5G, and Odido 5G. These networks allow compatible devices to access mobile data in the Netherlands without requiring you to purchase a physical local SIM card. Your actual connection will depend on local coverage, your device, network congestion, and whether 5G service is available where you are. A 5G network listing does not guarantee that every location will have a 5G signal or that your phone will always connect at that speed. Before purchasing, confirm that your device supports eSIM technology and is carrier-unlocked. Check our Netherlands product page for the latest technical specifications."
+          }
+        },
+        "question_JmJyWQ": {
+          "type": "question",
+          "settings": {
+            "question": "Will I be charged roaming fees while using this eSIM?",
+            "answer": "The eSIMnow Netherlands eSIM is a prepaid travel data plan designed to help you avoid unexpected international data roaming charges from your regular mobile carrier. You purchase a defined data allowance upfront and use it within the plan's supported coverage area, giving you better visibility into your connectivity costs. The plan is advertised without hidden roaming fees. However, charges from your existing mobile provider may still apply if your primary SIM uses roaming services while you travel. To reduce this risk, select the Netherlands eSIM as your mobile data line and disable data roaming on your regular SIM. Check your phone's settings before departure to avoid accidental use of your home carrier's data allowance."
+          }
+        },
+        "question_TdxrxN": {
+          "type": "question",
+          "settings": {
+            "question": "Can I use this eSIM for mobile hotspot or tethering?",
+            "answer": "Yes, the eSIMnow Netherlands eSIM supports mobile tethering and hotspotting, enabling you to share your phone's internet connection with compatible devices. This can be convenient when you need to connect a laptop for work, access documents on a tablet, or get another device online while traveling. The data consumed by connected devices counts toward your purchased allowance, so activities such as video streaming, software updates, and large downloads can use data quickly. Your phone must support hotspot functionality, and the connected device needs to be within the required wireless range. Before traveling, check your expected usage and choose an appropriate data package. Review our Netherlands eSIM options to find an allowance suited to your devices and itinerary."
+          }
+        },
+        "question_wyDQNT": {
+          "type": "question",
+          "settings": {
+            "question": "How soon should I activate the eSIM before my trip?",
+            "answer": "You can purchase the eSIMnow Netherlands eSIM up to 180 days before activation, giving you flexibility to organize your travel connectivity well in advance. After you buy the e-SIM, you can follow the supplied instructions to install the eSIM on your compatible phone before departure. The plan is designed to activate when the eSIM links with a network that is supported upon arrival in the Netherlands, helping you prepare without necessarily starting your data validity period at home. Follow the activation instructions provided with your order, as installation and activation are separate steps. Check that your phone is compatible and carrier-unlocked before traveling. Preparing these details in advance makes it easier to get connected when you reach your destination."
+          }
+        },
+        "question_PyCNxn": {
+          "type": "question",
+          "settings": {
+            "question": "Is my phone compatible with the Netherlands eSIM?",
+            "answer": "To use the eSIMnow Netherlands eSIM, your device must be able to support e-SIM technology and generally be carrier-unlocked. Many newer iPhone and Android models offer eSIM functionality, but compatibility varies by device model, regional version, and manufacturer specifications. Do not assume that every phone from a particular brand supports eSIM simply because newer models do. Before purchasing, use the device compatibility checker linked on our Netherlands product page to verify your specific phone. It is also helpful to confirm that your device can access its SIM settings and install an eSIM using the supplied instructions. Checking compatibility before departure helps you avoid installation difficulties and prepares you to connect to mobile data during your Netherlands trip."
+          }
+        }
+      },
+      "block_order": [
+        "question_j68aBc",
+        "question_bQJB69",
+        "question_BaANgt",
+        "question_RVKMRA",
+        "question_he3y6z",
+        "question_8xNmr6",
+        "question_JmJyWQ",
+        "question_TdxrxN",
+        "question_wyDQNT",
+        "question_PyCNxn"
+      ],
+      "name": "SS FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "faq_schema": true
+      }
+    },
+    "ss_home_help_derQFM": {
+      "type": "ss-home-help",
+      "name": "SS Help band",
+      "settings": {
+        "heading": "Not Sure Which Plan Is Right? Speak With an Expert Now.",
+        "text": "Get help choosing the right data allowance, checking device compatibility, or setting up your eSIM. The eSIMnow help team is here 24/7 before or after your purchase.",
+        "whatsapp_number": "+16789419889",
+        "whatsapp_label": "Chat on WhatsApp",
+        "email": "support@esimnow.net",
+        "email_label": "Email us"
+      }
+    },
+    "ss_home_cta_iMWQ3k": {
+      "type": "ss-home-cta",
+      "name": "SS CTA band",
+      "settings": {
+        "heading": "Ready for the Netherlands? Get Connected in Minutes.",
+        "text": "Choose your prepaid Netherlands eSIM plan, receive your QR code by email, and enjoy full-speed data on supported local networks without hidden roaming charges.",
+        "button_url": "#hero-banner",
+        "button_label": "Get Your Netherlands eSIM for $51.69 →",
+        "dynamic_cta": false,
+        "button_label_before": "Choose Your Destination →"
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main",
+    "sidebar",
+    "product-recommendations",
+    "recently-viewed-products",
+    "blocks_9g7hHH",
+    "ss_home_hero_J7aJYR",
+    "blocks_AQAVTb",
+    "ss_plans_BxhRXw",
+    "ss_guarantee_band_eVAfKE",
+    "ss_product_why_pPrVfr",
+    "ss_data_calculator_RqTCQD",
+    "ss_network_coverage_yEz7p9",
+    "ss_local_ip_support_E4zcCJ",
+    "ss_home_comparison_MJkzp4",
+    "ss_home_how_it_works_KGppAz",
+    "ss_product_instructions_BMmaAL",
+    "ss_home_why_mXRwFz",
+    "ss_home_reviews_CYzqTf",
+    "ss_home_faq_giy86J",
+    "ss_home_help_derQFM",
+    "ss_home_cta_iMWQ3k"
+  ]
+}

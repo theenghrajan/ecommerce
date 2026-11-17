@@ -38,6 +38,42 @@
 {{ 'ss-anchor.css' | asset_url | stylesheet_tag }}
 {%- render 'ss-anchor-case', id: section.id, mode: section.settings.text_case -%}
 {%- render 'ss-anchor-space', id: section.id, top: section.settings.padding_top, bottom: section.settings.padding_bottom -%}
+{%- render 'ss-sale-visibility', id: section.id, show: section.settings.sale_visibility -%}
+
+{%- liquid
+  # Retrieve list of Metaobject entries from the Anchor Page's metafield
+  assign related_content_items = page.metafields.custom.anchor_page_related_content.value
+
+  # How many entries will actually render a card (see CONTENT TYPE DETERMINATION
+  # below): needed up front so the row can be sized to the cards it really has.
+  assign card_count = 0
+  for content in related_content_items
+    assign count_yt = content.youtube_video_url.value | default: content.youtube_video_url | strip
+    assign count_blog = content.blog_link.value | default: content.blog_link | strip
+    if count_yt != blank or count_blog != blank
+      assign card_count = card_count | plus: 1
+    endif
+  endfor
+
+  # #144 Gary (04-11) "line everything up more symmetrically": the carousel is a
+  # 3-up track, so two cards filled two thirds of the row and left the right
+  # third empty, i.e. the row stopped short of every other section's right edge.
+  # With fewer cards than the track holds, lay them out as an even row that
+  # spans the full page column instead.
+  assign fill_row = false
+  if section.settings.fill_row and card_count > 0 and card_count < 3
+    assign fill_row = true
+  endif
+
+  # Width one card occupies on desktop, for the image `sizes` hint below.
+  # Page column is 1198px; the 3-up track gaps are 24px.
+  assign card_px = 383
+  if fill_row
+    assign gaps = card_count | minus: 1 | times: 24
+    assign card_px = 1198 | minus: gaps | divided_by: card_count
+  endif
+  assign card_sizes = '(min-width: 1025px) ' | append: card_px | append: 'px, calc(100vw - 32px)'
+-%}
 
 {%- style -%}
   #shopify-section-{{ section.id }} {
@@ -61,12 +97,26 @@
     margin-top: auto;
     padding-top: 4px;
   }
-{%- endstyle -%}
 
-{%- liquid
-  # Retrieve list of Metaobject entries from the Anchor Page's metafield
-  assign related_content_items = page.metafields.custom.anchor_page_related_content.value
--%}
+  {%- if fill_row -%}
+    /* Desktop only. Below 1025px ss-anchor.css already stacks the grid to one
+       full-width column and hides the arrows; because these selectors carry an
+       id they would otherwise outrank that rule and sit the cards side by side
+       on a phone, which is the opposite of what is wanted there. */
+    @media screen and (min-width: 1025px) {
+      /* Even row across the whole page column instead of a part-filled 3-up track. */
+      #shopify-section-{{ section.id }} .ss-anchor-related__grid--fill {
+        grid-auto-flow: row;
+        grid-template-columns: repeat({{ card_count }}, minmax(0, 1fr));
+        overflow-x: visible;
+      }
+      /* Nothing left to scroll, so the carousel arrows go. */
+      #shopify-section-{{ section.id }} .ss-anchor-related__arrow {
+        display: none;
+      }
+    }
+  {%- endif -%}
+{%- endstyle -%}
 
 <div
   id="SsAnchorRelated-{{ section.id }}"
@@ -84,7 +134,7 @@
       <button type="button" class="ss-anchor-related__arrow ss-anchor-related__arrow--prev" data-ss-related-prev aria-label="Previous" hidden>
         {%- render 'ss-anchor-icon', icon: 'arrow' -%}
       </button>
-    <div class="ss-anchor-related__grid" data-ss-related-track>
+    <div class="ss-anchor-related__grid{% if fill_row %} ss-anchor-related__grid--fill{% endif %}" data-ss-related-track>
       {%- for content in related_content_items -%}
         {%- liquid
           # Extract field values from the Metaobject entry (.value used where needed)
@@ -145,8 +195,8 @@
                 {%- render 'image-element',
                   img: cover_img,
                   alt: '',
-                  widths: '300, 450, 600',
-                  sizes: '(min-width: 1025px) 262px, 50vw',
+                  widths: '300, 450, 600, 900, 1200',
+                  sizes: card_sizes,
                   ariaHidden: true
                 -%}
               {%- elsif yt_id != blank -%}
@@ -186,8 +236,8 @@
                 {%- render 'image-element',
                   img: cover_img,
                   alt: '',
-                  widths: '300, 450, 600',
-                  sizes: '(min-width: 1025px) 262px, 50vw',
+                  widths: '300, 450, 600, 900, 1200',
+                  sizes: card_sizes,
                   ariaHidden: true
                 -%}
               {%- else -%}
@@ -350,6 +400,18 @@
   "class": "ss-anchor-section-wrapper",
   "settings": [
     {
+      "type": "select",
+      "id": "sale_visibility",
+      "label": "Show in",
+      "info": "On /pages/sale only: follows the SS Sale Banner's schedule. Elsewhere this section always shows.",
+      "default": "always",
+      "options": [
+        { "value": "always", "label": "Both versions" },
+        { "value": "sale", "label": "Sale version only" },
+        { "value": "off", "label": "Off-season version only" }
+      ]
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Heading",
@@ -369,6 +431,13 @@
     {
       "type": "header",
       "content": "Cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "fill_row",
+      "label": "Fill the row when there are fewer than 3 cards",
+      "info": "Spreads one or two cards evenly across the page width instead of leaving the rest of the carousel row empty.",
+      "default": false
     },
     {
       "type": "color",

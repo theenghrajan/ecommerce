@@ -81,15 +81,15 @@
       instead. Re-adding that anchor would bring the banner-wide hover back.
     {%- endcomment -%}
 
+    {%- comment -%} #136 (Gary 10-28): "Home / Kitchen Lighting" in the top-left corner of the banner (example: Vakker Light) {%- endcomment -%}
+    {%- assign crumb_label = section.settings.breadcrumb_label | default: page.title -%}
+    {%- if section.settings.show_breadcrumb and crumb_label != blank -%}
+      <nav class="ss-anchor-hero__crumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ crumb_label | escape }}</span>
+      </nav>
+    {%- endif -%}
     <div class="ss-anchor-hero__inner hero__text-wrap">
       <div class="ss-anchor-hero__content hero__text-content">
-        {%- comment -%} #136 Figma: full-width hero with "Home / Kitchen Lighting" inside it, above the heading {%- endcomment -%}
-        {%- assign crumb_label = section.settings.breadcrumb_label | default: page.title -%}
-        {%- if section.settings.show_breadcrumb and crumb_label != blank -%}
-          <nav class="ss-anchor-hero__crumbs" aria-label="Breadcrumb">
-            <a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">{{ crumb_label | escape }}</span>
-          </nav>
-        {%- endif -%}
         {%- if section.settings.heading != blank -%}
           {%- case section.settings.heading_tag -%}
             {%- when 'h1' -%}

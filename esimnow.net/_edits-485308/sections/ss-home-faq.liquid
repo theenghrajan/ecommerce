@@ -1,0 +1,138 @@
+{{ 'ss-custom.css' | asset_url | stylesheet_tag }}
+{% style %}
+{% comment %} FAQ */ {% endcomment %}
+  .faq{background:var(--mist);}
+  .faq-list{max-width:800px;margin:40px auto 0;text-align:left;}
+  details.q{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;}
+  details.q[open]{border-color:var(--blue);}
+  details.q summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:700;font-size:16px;color:var(--ink);display:flex;justify-content:space-between;gap:16px;align-items:center;}
+  details.q summary::-webkit-details-marker{display:none;}
+  details.q summary .chev{color:var(--blue-deep);font-size:20px;transition:transform .2s;flex:0 0 auto;}
+  details.q[open] summary .chev{transform:rotate(45deg);}
+  details.q p{padding:0 24px 22px;color:var(--slate);font-size:14.5px;}
+{% endstyle %}
+
+<!-- FAQ -->
+<section class="block faq" id="faq">
+  <div class="wrap center">
+    <h2 class="h2" style="color:#16202b; font-weight:800;">{{ section.settings.heading | default: 'Frequently Asked Questions' }}</h2>
+    <div class="faq-list">
+      {% for block in section.blocks %}
+        <details class="q" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }} <span class="chev">+</span></summary>
+          <p>{{ block.settings.answer }}</p>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.faq_schema and section.blocks.size > 0 -%}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{%- for block in section.blocks -%}
+{"@type":"Question","name":{{ block.settings.question | strip_html | strip | json }},"acceptedAnswer":{"@type":"Answer","text":{{ block.settings.answer | strip_html | strip | json }}}}{% unless forloop.last %},{% endunless %}
+{%- endfor -%}
+]}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SS FAQ",
+  "tag": "section",
+  "class": "section-faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "checkbox",
+      "id": "faq_schema",
+      "label": "Output FAQ schema (FAQPage)",
+      "info": "Enable only where the questions are unique to this page.",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is an eSIM?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "An eSIM is a digital SIM built into your phone. Instead of a physical card, you install a data plan by scanning a QR code, so you can switch to a local network the moment you arrive without swapping anything."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SS FAQ",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "What is an eSIM?",
+            "answer": "An eSIM is a digital SIM built into your phone. Instead of a physical card, you install a data plan by scanning a QR code, so you can switch to a local network the moment you arrive without swapping anything."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Will an eSIM work on my phone?",
+            "answer": "Most unlocked iPhones (XS and later) and Android devices (2019 and later) support eSIM. Carrier locked phones may not be compatible. Use the compatibility checker on the site to confirm before you buy."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How fast does my QR code arrive?",
+            "answer": "Your confirmation email with the QR code arrives within minutes of purchase, usually no more than two. Save it to your phone or print a copy before you travel."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "When does my plan activate?",
+            "answer": "Your plan activates the first time it connects to a supported network at your destination. The data period starts at that point, not at the time of purchase."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "How long do I have to install after buying?",
+            "answer": "You have a 180 day pre-activation window. Buy months ahead if you like, and activate only when your device connects on arrival."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Can I make calls with my eSIM?",
+            "answer": "Plans are data only, but VoIP apps like WhatsApp, FaceTime and Skype work smoothly over your data connection for calls and messages."
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Can I use my eSIM as a hotspot?",
+            "answer": "Yes. You can share your eSIMnow data connection as a hotspot on most supported devices."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

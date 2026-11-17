@@ -21,7 +21,7 @@
         "padding_bottom": 0,
         "image": "shopify://shop_images/Anchor-Bedroom-Header.jpg",
         "min_height": 440,
-        "overlay_opacity": 80,
+        "overlay_opacity": 60,
         "gradient_direction": "right",
         "heading": "Bedroom Lights",
         "heading_tag": "h1",
@@ -40,8 +40,8 @@
         "warranty": {
           "type": "text_block",
           "settings": {
-            "icon": "shield",
-            "icon_image": "shopify://shop_images/image_5.png",
+            "icon": "ss-warranty",
+            "icon_image": "",
             "title": "Best Warranty",
             "btnlink": "",
             "text": "5 Year Warranty"
@@ -50,8 +50,8 @@
         "returns": {
           "type": "text_block",
           "settings": {
-            "icon": "recycle",
-            "icon_image": "shopify://shop_images/image_4.png",
+            "icon": "ss-returns",
+            "icon_image": "",
             "title": "Easy Returns",
             "btnlink": "",
             "text": "30-Day Hassle Free"
@@ -60,8 +60,8 @@
         "discount": {
           "type": "text_block",
           "settings": {
-            "icon": "sales-tag",
-            "icon_image": "shopify://shop_images/image_3.png",
+            "icon": "ss-discount",
+            "icon_image": "",
             "title": "Volume Discount",
             "btnlink": "",
             "text": "Save More on Bulk"
@@ -70,8 +70,8 @@
         "secure": {
           "type": "text_block",
           "settings": {
-            "icon": "wallet",
-            "icon_image": "shopify://shop_images/image_2.png",
+            "icon": "ss-secure",
+            "icon_image": "",
             "title": "Secure Shopping",
             "btnlink": "",
             "text": "Safe & Protected"

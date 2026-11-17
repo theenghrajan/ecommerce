@@ -73,10 +73,11 @@
    resolves to x=80 / w=1120 and therefore still matches Figma exactly; below
    and above 1280 everything now stays aligned, which the fixed 80px hero
    inset did not (at 1400 it left the hero 60px out of step with the grid). */
+/* #136 10-29: content width 1198px (1230 incl. 16px padding each side) to match the collection pages; was 1120 (1152). */
 .ss-anchor-inner,
 .ss-anchor-hero__inner,
 .ss-anchor-trust .page-width {
-  max-width: 1152px;
+  max-width: 1230px;
   margin: 0 auto;
   padding-left: var(--ss-gap);
   padding-right: var(--ss-gap);
@@ -362,7 +363,7 @@
    x=80 w=882) -- and keeps it there at any width. */
 .ss-anchor-intro .page-width,
 .ss-anchor-intro .page-width--narrow {
-  max-width: 1152px;
+  max-width: 1230px;
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--ss-gap);
@@ -862,7 +863,7 @@ html.ss-anchor-modal-open { overflow: hidden; }
    ============================================================ */
 @media screen and (min-width: 1024px) {
   [id$="__ss_browse"].text-with-iconsmd .page-width {
-    max-width: 1152px;
+    max-width: 1230px;
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -1087,18 +1088,34 @@ html.ss-anchor-modal-open { overflow: hidden; }
   .ssgr__dots span { transition: none; }
 }
 
-/* ---------- #136 approved Figma (Design #93, Gary #94), 2026-10-27 ----------
-   Hero full width, trust bar as a full-width grey band, Browse by Category plain on white with a left title. */
+/* ---------- #136 Gary "Anchor Page Design Changes" (10-28), on top of the approved Figma (#93/#94) ----------
+   Hero and reviews inside the page width, Browse by Category in the home page style (inside the page width),
+   breadcrumb in the hero's top-left corner, product card price + Add to Cart aligned and centred, intro full width.
+   The trust bar stays a full-width grey band (now with SVG icons, set in the templates). */
 
-/* Hero: edge to edge, no rounded corners; text stays in the page column */
-.ss-anchor-hero-wrap { max-width: none; margin: 0; padding: 0; }
-.ss-anchor-hero-wrap .ss-anchor-hero { border-radius: 0; }
+/* Hero: inside the page column (same edges as the rows), rounded like the category tiles; lighter gradient = template setting */
+.ss-anchor-hero-wrap {
+  max-width: 1230px;
+  margin: 0 auto;
+  padding: 0 var(--ss-gap);
+}
+.ss-anchor-hero-wrap .ss-anchor-hero { border-radius: var(--ss-card-radius, 8px); }
+.ss-anchor-hero-wrap .ss-anchor-hero__inner {
+  max-width: none;
+  padding-left: 56px;
+  padding-right: 56px;
+}
+/* Breadcrumb in the top-left corner of the banner */
 .ss-anchor-hero__crumbs {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  margin: 0 0 -4px;
+  margin: 0;
   font-size: 13px;
   line-height: 18px;
   color: rgba(255, 255, 255, 0.85);
@@ -1118,40 +1135,84 @@ html.ss-anchor-modal-open { overflow: hidden; }
   border-radius: 0;
   background: transparent;
 }
+.ss-anchor-trust .text-with-icons__block-icon svg { color: var(--ss-ink, #111); }
+/* the theme fills every .icon; the trust icons are outline drawings */
+.ss-anchor-trust .icon-ss-trust,
+.ss-anchor-trust .icon-ss-trust * {
+  fill: none !important;
+  stroke: currentColor;
+}
 .ss-anchor-trust .text-with-icons__block-title h3 { font-size: 13px; line-height: 18px; }
 .ss-anchor-trust .text-with-icons__block-text { font-size: 12px; line-height: 16px; }
 
-/* Browse by Category: white background, title left like the other section titles, icons without boxes.
-   #MainContent: text-with-icons.liquid styles itself with #shopify-section-<id> rules (home "Top Categories"), which outrank a bare attribute selector. */
-#MainContent [id$="__ss_browse"] .text-with-icons { background: transparent; padding: 48px 0 32px; }
-#MainContent [id$="__ss_browse"] .text-with-icons h2 {
-  text-align: left !important; /* the h2 carries the theme's .text-center (text-align: center !important) */
-  margin: 0 0 24px;
-  font-size: 24px;
-  line-height: 32px;
-  text-transform: none;
-  letter-spacing: 0;
-}
-#MainContent [id$="__ss_browse"] .text-with-icons__block {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
-}
-#MainContent [id$="__ss_browse"] .text-with-icons__block-title h3 { font-size: 13px; }
-@media (hover: hover) {
-  #MainContent [id$="__ss_browse"] .text-with-icons__block:hover {
-    background: transparent;
-    box-shadow: none;
-  }
-  #MainContent [id$="__ss_browse"] .text-with-icons__block:hover .text-with-icons__block-title h3 { text-decoration: underline; }
+/* Intro paragraph uses the full page width (was capped at 882px) */
+.ss-anchor-intro .rte,
+.ss-anchor-intro .rte-setting,
+.ss-anchor-intro .theme-block { max-width: none; }
+
+/* Browse by Category: home page "Top Categories" style (grey box, white tiles, yellow hover - from
+   text-with-icons.liquid), with the grey box inside the page width instead of edge to edge.
+   #MainContent: text-with-icons.liquid styles itself with #shopify-section-<id> rules, which outrank a bare attribute selector. */
+#MainContent [id$="__ss_browse"] .text-with-icons {
+  width: calc(100% - 2 * var(--ss-gap));
+  max-width: 1198px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: var(--ss-card-radius, 8px);
 }
 
+/* Reviews: inside the page width (the shared component is up to 1900px wide on the home page); 3 cards per view on desktop */
+#MainContent [id$="__ss_glowing_reviews"] .glowing-reviews .page-width {
+  max-width: 1230px;
+  padding-left: var(--ss-gap);
+  padding-right: var(--ss-gap);
+}
+@media screen and (min-width: 990px) {
+  #MainContent [id$="__ss_glowing_reviews"] .glowing-reviews__track {
+    grid-auto-columns: calc((100% - 48px) / 3);
+  }
+}
+
+/* Product cards: price + Add to Cart sit at the bottom of every card, so they line up across a row even when the
+   number of spec lines differs, and the price is centred above the button */
+/* Flex growing, not height:100% - percentage heights capped the row at the tile height and squeezed cards with more
+   spec lines (their price slid out of line). Each level grows to the row height and never shrinks below its content. */
+.ss-anchor-product {
+  display: flex;
+  flex-direction: column;
+}
+.ss-anchor-product .ss-anchor-product__card {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.ss-anchor-product .grid-item__content,
+.ss-anchor-product .grid-item__link {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+/* custom.css fixes .grid-item__content .grid-item__meta at height: 310px (site-wide card rule); on the anchor rows the
+   card text area grows instead, so cards with more spec lines do not overflow and push their price out of line */
+.ss-anchor-product .grid-item__content .grid-item__meta {
+  height: auto;
+  flex: 1 0 auto;
+}
+.ss-anchor-product .grid-item__meta-secondary {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+.ss-anchor-product .grid-item__meta-secondary .grid-product__price {
+  margin-top: auto;
+  justify-content: center;
+  text-align: center;
+}
+.ss-anchor-product .grid-item__meta-secondary .grid-product__price--current { justify-content: center; }
+
 @media screen and (max-width: 768px) {
+  .ss-anchor-hero-wrap .ss-anchor-hero__inner { padding-left: 20px; padding-right: 20px; padding-top: 56px; }
+  .ss-anchor-hero__crumbs { top: 16px; left: 20px; }
   .ss-anchor-trust .text-with-icons__blocks { padding: 20px 0; row-gap: 16px; }
   .ss-anchor-trust .text-with-icons__block { padding: 0; }
-  #MainContent [id$="__ss_browse"] .text-with-icons { padding: 36px 0 20px; }
-  #MainContent [id$="__ss_browse"] .text-with-icons h2 { font-size: 22px; line-height: 28px; margin-bottom: 16px; }
-  #MainContent [id$="__ss_browse"] .text-with-icons__blocks { row-gap: 20px; }
 }

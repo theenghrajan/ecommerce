@@ -16,8 +16,12 @@
 {%- render 'ss-sale-visibility', id: section.id, show: section.settings.sale_visibility -%}
 
 {%- style -%}
+  /* #144 Gary (04-11) "line everything up more symmetrically": the card was
+     880px centred, so its edges sat ~159px inside every other section on a
+     1440 screen. It now spans the same page column as the rest of the page;
+     the heading, copy and form keep their own measures inside it. */
   #shopify-section-{{ section.id }} .ss-sale-signup__card {
-    max-width: 880px;
+    max-width: none;
     margin: 0 auto;
     padding: 48px 32px;
     border-radius: 8px;
