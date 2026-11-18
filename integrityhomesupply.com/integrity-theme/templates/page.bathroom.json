@@ -1,0 +1,126 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "blocks_NLdDTm": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_746fd33_LrpCEn": {
+          "type": "ai_gen_block_746fd33",
+          "settings": {
+            "image_1": "shopify://shop_images/bathroom-display_f68b10e5-187a-4747-bdc4-fd689fcfd3a5.jpg",
+            "heading_1": "Bathroom",
+            "subheading_1": "Elevate Your Everyday Routine.",
+            "image_2": "shopify://shop_images/bianco-dolomite-alana-polished-mosaic-tile-bathroom-0972.jpg",
+            "heading_2": "",
+            "subheading_2": "",
+            "heading_3": "",
+            "subheading_3": "",
+            "heading_4": "",
+            "subheading_4": "",
+            "heading_5": "",
+            "subheading_5": "",
+            "aspect_ratio": "16/9",
+            "carousel_width": 1200,
+            "carousel_height": 600,
+            "text_color": "#ffffff",
+            "heading_size": 48,
+            "subheading_size": 20,
+            "text_spacing": 16,
+            "heading_weight": "700",
+            "subheading_weight": "400",
+            "text_shadow_x": 0,
+            "text_shadow_y": 2,
+            "text_shadow_blur": 4,
+            "text_shadow_color": "#00000080",
+            "show_navigation": true,
+            "nav_size": 70,
+            "nav_offset": 20,
+            "nav_bg_color": "rgba(0,0,0,0)",
+            "nav_hover_bg_color": "#ffffff",
+            "nav_icon_color": "#000000",
+            "show_dots": false,
+            "dots_size": 6,
+            "dots_spacing": 6,
+            "dots_offset": 15,
+            "dots_color": "#ffffff80",
+            "dots_active_color": "#ffffff",
+            "autoplay": true,
+            "autoplay_speed": 3
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_746fd33_LrpCEn"
+      ],
+      "name": "Image carousel",
+      "settings": {}
+    },
+    "md_product_section_show_banner_2_jqqmRe": {
+      "type": "md_product_section_show_banner_2",
+      "blocks": {
+        "item_jEYXVB": {
+          "type": "item",
+          "settings": {
+            "right_align": false,
+            "image": "shopify://shop_images/image.webp",
+            "image_link": "shopify://collections/craft-vanity",
+            "desc": "",
+            "titlex": "Stylish and Durable Bathroom Vanity",
+            "name_btn": "SEE ALL",
+            "style_btn": "btn-primary",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false,
+            "product_1": "craft-vanity-v10330pw",
+            "product_2": "craft-vanity-v10336nt",
+            "product_3": "craft-vanity-v10830gr",
+            "product_4": "craft-vanity-v101030mt",
+            "range_row": 5
+          }
+        }
+      },
+      "block_order": [
+        "item_jEYXVB"
+      ],
+      "name": "Show(grid) + Banner 2",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid) + Banner 2",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "6rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": false,
+        "product_grid_layout": ""
+      }
+    }
+  },
+  "order": [
+    "content",
+    "blocks_NLdDTm",
+    "md_product_section_show_banner_2_jqqmRe"
+  ]
+}

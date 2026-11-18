@@ -1,0 +1,71 @@
+{%-render 'sc_css'-%}
+<div class="{{section.settings.width_section}}">
+  <div class="content_{{section.id}} page-content{%if section.settings.image%} bg-image lazyload{%endif%}"{%if section.settings.image%} data-bgset="{{section.settings.image | img_url: 'master'}}" data-sizes="auto" data-parent-fit="contain"{%endif%} data-respon="{'el':'.content_{{section.id}}','mt':'{{section.settings.section_margin_top}}','mb':'{{section.settings.section_margin_bottom}}','p':'{{section.settings.section_padding}}'}">      
+    <div class="section-width{%if section.settings.width_content and section.settings.width_section == 'w-100'%} container{%else%} w-100{%endif%}">
+      <div class="border-bottom mb-4">
+        {%-render 'kt_breadcrumb'-%}
+      </div>
+      {{ page.content | replace: 'https:////', 'https://' }}
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Content page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Space settings"
+      },
+      {
+        "type": "select",
+        "id": "width_section",
+        "label": "Max width section",
+        "options": [
+          { "value": "container", "label": "1200px" },
+          { "value": "container-fluid wide", "label": "Wide" },
+          { "value": "w-100", "label": "Full width" }
+        ],
+        "default": "container"
+      },
+      {
+        "type":"checkbox",
+        "id": "width_content",
+        "label": "Max width content?"
+      },
+      {
+        "type": "text",
+        "id": "section_margin_top",
+        "label": "Margin top",
+        "info": "25px|30px|35px|40px|45px|50px"
+      },
+      {
+        "type": "text",
+        "id": "section_margin_bottom",
+        "label": "Margin bottom",
+        "info": "25px|30px|35px|40px|45px|50px"
+      },
+      {
+        "type": "text",
+        "id": "section_padding",
+        "label": "Paddings (top right bottom left)",
+        "info": "60px 60px 0 60px"
+      },
+      {
+        "type": "header",
+        "content": "Background settings"
+      },
+      {
+        "type": "color_background",
+        "id": "section_bg",
+        "label": "Background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background image",
+        "info": "Size suggestion: 1920 x 497 pixels"
+      }
+    ]
+  }
+{% endschema %}

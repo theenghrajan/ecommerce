@@ -1,0 +1,372 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "blocks_jBcRCG": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_746fd33_Ytng4y": {
+          "type": "ai_gen_block_746fd33",
+          "settings": {
+            "image_1": "shopify://shop_images/everlife-new-colors_9a4504b7-dd6c-4fb4-92da-370cf8798583.jpg",
+            "heading_1": "Everlife® LUXURY VINYL FLOORING",
+            "subheading_1": "MSI’s Everlife® Luxury Vinyl Flooring Collection stands up to the busiest of homes and light commercial spaces, without sacrificing comfort or style.",
+            "image_2": "shopify://shop_images/everlife-lvt-crystalux-hero.jpg",
+            "heading_2": "CRYSTALUX™ WEAR LAYER",
+            "subheading_2": "Four-legged friends? We’ve got you covered with CrystaLux Wearlayer. It’s a protective topcoat—featured on all Everlife® Luxury Vinyl Tile and Luxury Vinyl Planks—that prevents damage like scratches, spills, and indentations.",
+            "image_3": "shopify://shop_images/luxury-vinyl-flooring-hero-xl-planks-slide-0155.jpg",
+            "heading_3": "LARGE FORMAT LUXURY VINYL PLANKS",
+            "subheading_3": "Wider and longer, Everlife® XL large format luxury vinyl planks are naturals for classic, farmhouse, and bungalow dream spaces. At the same time, each plank takes up more area. So, the result is a clean, streamlined look with LVP flooring often associated with modern and industrial interiors.",
+            "heading_4": "",
+            "subheading_4": "",
+            "heading_5": "",
+            "subheading_5": "",
+            "aspect_ratio": "16/9",
+            "carousel_width": 1200,
+            "carousel_height": 500,
+            "text_color": "#ffffff",
+            "heading_size": 48,
+            "subheading_size": 20,
+            "text_spacing": 16,
+            "heading_weight": "700",
+            "subheading_weight": "400",
+            "text_shadow_x": 0,
+            "text_shadow_y": 2,
+            "text_shadow_blur": 4,
+            "text_shadow_color": "#00000080",
+            "show_navigation": true,
+            "nav_size": 50,
+            "nav_offset": 20,
+            "nav_bg_color": "#ffffffcc",
+            "nav_hover_bg_color": "#ffffff",
+            "nav_icon_color": "#000000",
+            "show_dots": false,
+            "dots_size": 6,
+            "dots_spacing": 6,
+            "dots_offset": 15,
+            "dots_color": "#ffffff80",
+            "dots_active_color": "#ffffff",
+            "autoplay": true,
+            "autoplay_speed": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_746fd33_Ytng4y"
+      ],
+      "name": "Image carousel",
+      "settings": {}
+    },
+    "md_product_section_show_pCFwhL": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_jgNUbH": {
+          "type": "item",
+          "settings": {
+            "title_section": "Cyrus",
+            "stitle_section": "Prices may differ in-store<br>5mm Thickness | 12mil Wear Layer | 7\" x 48\" Planks",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/cyrus",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-cyrus",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "SEE ALL COLORS",
+            "load_btn": true,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_jgNUbH"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    },
+    "md_product_section_show_gLCXwa": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_kGU6EY": {
+          "type": "item",
+          "settings": {
+            "title_section": "XL Cyrus",
+            "stitle_section": "Prices may differ in-store<br>5mm Thickness | 12mil Wear Layer | 9\" x 60\" Planks",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/xl-cyrus",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-xl-cyrus",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "SEE ALL COLORS",
+            "load_btn": true,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_kGU6EY"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    },
+    "md_product_section_show_F6p8xm": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_Hx3EjM": {
+          "type": "item",
+          "settings": {
+            "title_section": "Prescott",
+            "stitle_section": "Prices may differ in-store<br>6.5mm Thickness | 20mil Wear Layer | 7\" x 48\" Planks",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/prescott",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-prescott",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "SEE ALL COLORS",
+            "load_btn": true,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_Hx3EjM"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    },
+    "md_product_section_show_Qp74px": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_9Qwqb7": {
+          "type": "item",
+          "settings": {
+            "title_section": "XL Prescott",
+            "stitle_section": "Prices may differ in-store<br>6.5mm Thickness | 20mil Wear Layer | 9\" x 60\" Planks",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/xl-prescott",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-xl-prescott",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "SEE ALL COLORS",
+            "load_btn": true,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_9Qwqb7"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    },
+    "md_product_section_show_hYGqcr": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_A4gbyd": {
+          "type": "item",
+          "settings": {
+            "title_section": "Laurel",
+            "stitle_section": "Prices may differ in-store<br>5mm Thickness | 20mil Wear Layer | 9\" x 48\" Planks",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/laurel",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-laurel",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "SEE ALL COLORS",
+            "load_btn": true,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_A4gbyd"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    },
+    "md_product_section_show_kgwdbc": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_aPwBXg": {
+          "type": "item",
+          "settings": {
+            "title_section": "Laurel Reserve",
+            "stitle_section": "Prices may differ in-store<br>8mm Thickness | 22mil Wear Layer | 9\" x 48\" Planks",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/laurel-reserve",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-laurel-reserve",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "SEE ALL COLORS",
+            "load_btn": true,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_aPwBXg"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "blocks_jBcRCG",
+    "md_product_section_show_pCFwhL",
+    "md_product_section_show_gLCXwa",
+    "md_product_section_show_F6p8xm",
+    "md_product_section_show_Qp74px",
+    "md_product_section_show_hYGqcr",
+    "md_product_section_show_kgwdbc"
+  ]
+}

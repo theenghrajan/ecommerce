@@ -1,0 +1,62 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_banner_with_text_2_38RkA9": {
+      "type": "md_banner_with_text_2",
+      "blocks": {
+        "1_Xztffy": {
+          "type": "1",
+          "settings": {
+            "banner_align": "above",
+            "image_banner": "shopify://shop_images/fotile-photo.webp",
+            "banner_content": "Working In Progress",
+            "title_1": "",
+            "html_content_1": "",
+            "title_2": "",
+            "html_content_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "1_Xztffy"
+      ],
+      "name": "Banner with text 2 (text bottom)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Banner with text 2",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "css": ""
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_banner_with_text_2_38RkA9"
+  ]
+}

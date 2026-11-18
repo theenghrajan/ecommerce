@@ -1,0 +1,232 @@
+<!-- main-blog.liquid -->
+{%- liquid
+  assign dir_body = settings.dir_body
+  assign cssAlign = 'left'
+  assign cssAlign_rev = 'right'
+  if dir_body == 'rtl'
+    assign cssAlign = 'right'
+    assign cssAlign_rev = 'left'
+  endif
+-%}
+
+<div class="{{section.settings.width_section}}">
+  <div class="content_{{section.id}}">   
+    <div class="section-width{%if section.settings.width_content and section.settings.width_section == 'w-100'%} container{%else%} w-100{%endif%} blog-post" data-template="blog-template">
+      {%-render 'kt_breadcrumb'-%}
+      <div class="border-top mb-2" style="opacity: .3;"></div>
+      <div class="row">
+        <div class="blog-content col-12 col-lg-9">
+          <h2 class="page-title d-none">{{ blog.title }}</h2>
+          {%- if blog.articles_count > 0 -%}
+            {% paginate blog.articles by settings.blog_pagination %}
+            <div class="blog-grid-list style01 row">
+              {%- for article in blog.articles -%}
+              <div class="col-12{%if section.settings.items_per_row == '2'%} col-sm-6{%endif%}">
+                <article class="entry entry-grid">
+                  {%- assign video = false-%}
+                  {%- if article.content contains '//www.youtube.com/embed/' -%}
+                    {%- assign video = true -%}
+                  {%- elsif article.content contains '//player.vimeo.com/video/' -%}
+                    {%- assign video = true -%}
+                  {%- endif -%}
+                  {%- assign audio = false-%}
+                  {%- if article.content contains '//w.soundcloud.com/player/' -%}
+                    {% assign audio = true %}
+                  {%- endif -%}
+                  {%- if article.image -%}
+                  <a href="{{ article.url }}" class="lazyload_blur banner-opacity">
+                    <figure class="entry-media{%if video%} entry-video{%endif%}{%if audio%} entry-audio{%endif%}">
+                      {{article.image | img_url: 'master' | img_tag}}
+                    </figure>
+                  </a>
+                  {%- endif -%}
+                  <div class="entry-body">
+                    <div class="entry-meta">
+                      {%- if section.settings.blog_show_author -%}
+                      <span class="entry-author">{{ 'blogs.general.by_author' | t }} <a href="#">{{ article.author }}</a></span>
+                      {%- endif -%}
+                      {%- if section.settings.blog_show_date -%}
+                      <span class="meta-separator">|</span>
+                      <a href="javascript:void(0)">{{ article.published_at | date: format: "article_published_at" }}</a>
+                      {%- endif -%}
+                      {%- if blog.comments_enabled? -%}
+                      <span class="meta-separator">|</span>
+                      <a href="javascript:void(0)">{{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}</a>
+                      {%- endif -%}
+                    </div>
+                    <h2 class="entry-title">
+                      <a href="{{ article.url }}">{{ article.title }}</a>
+                    </h2>
+                    <div class="entry-cats">{{ 'blogs.general.in_categories' | t }} <a href="javascript:void(0)">{{blog.title}}</a></div>
+                    <div class="entry-content">
+                      <p>
+                        {%- if article.excerpt.size > 0 -%}
+                        {{ article.excerpt }}
+                        {%- else -%}
+                        {{ article.content | strip_html | truncate: 200 }}
+                        {%- endif -%}
+                      </p>
+                      <a href="{{ article.url }}" class="read-more">{{ 'blogs.article.read_more_button' | t }}</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              {%- endfor -%}
+            </div>
+            {%-if paginate.pages > 1-%}  
+            <div class="pagination_ container text-center clearfix mt-4">
+              {%- render 'pagination', paginate: paginate, cssAlign: cssAlign, cssAlign_rev: cssAlign_rev -%}
+            </div>
+            {%-endif-%}
+            {% endpaginate %}
+            <div class="clearfix mb-5"></div>
+          {% else %}
+          <p class="text-left">{{'blogs.general.no_article' | t}}</p>
+          {%- endif -%}
+        </div>
+        <div class="sidebar col-12 col-lg-3">
+          {%- render 'kt_blog_sidebar', section: section -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mb-3"></div>
+{% schema %}
+  {
+    "name": "Blogs",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Space settings"
+      },
+      {
+        "type": "select",
+        "id": "width_section",
+        "label": "Max width section",
+        "options": [
+          { "value": "container", "label": "1200px" },
+          { "value": "container-fluid wide", "label": "Wide" },
+          { "value": "w-100", "label": "Full width" }
+        ],
+        "default": "container"
+      },
+      {
+        "type":"checkbox",
+        "id": "width_content",
+        "label": "Max width content?"
+      },
+      {
+        "type": "header",
+        "content": "Content settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      },
+      {
+        "type": "radio",
+        "id": "items_per_row",
+        "label": "Items per row",
+        "options": [
+          { "value": "1", "label": "1 item" },
+          { "value": "2", "label": "2 items" }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "header",
+        "content": "Sidebar"
+      },
+      {
+        "type": "checkbox",
+        "id": "search",
+        "label": "Show search input",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "catt",
+        "label": "Show blogs categories",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "recent_posts",
+        "label": "Show recent posts",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "tags",
+        "label": "Show blog tags",
+        "default": true
+      },
+      {
+        "type": "textarea",
+        "id": "blog_tags_",
+        "label": "Tags",
+        "default": "Beauty,\n Cotton,\n Fashion,\n Style, \nWomen",
+        "placeholder": "tag1, tag2, ..."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_share_buttons",
+        "label": "Show social sharing buttons",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Items"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "blog",
+        "name": "Blog item",
+        "settings": [
+          {
+            "label": "Blog",
+            "id": "blog",
+            "type": "blog"
+          }
+        ]
+      },
+      {
+        "type": "sb_banner",
+        "name": "Sidebar Banner",
+        "settings": [
+          { 
+            "type":"image_picker",
+            "id":"img",
+            "label":"Banner image"
+          },
+          { 
+            "type":"url",
+            "id":"url",
+            "label":"Link to"
+          }
+        ]
+      },
+      {
+        "type": "sb_about",
+        "name": "Sidebar About",
+        "settings": [
+          { 
+            "type":"html",
+            "id":"html",
+            "label":"Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

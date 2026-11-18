@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_product_section_show_RXNmJw": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_yLy3rC": {
+          "type": "item",
+          "settings": {
+            "title_section": "Azul Tortuga",
+            "stitle_section": "5.0mm Thickness | 20mil with QXT Wear Layer | 7\" x 48\" Planks <br><br> Compromising between beauty and durability isn’t a choice anyone should have to make. It’s why Azul Tortuga flooring was intensively designed for maximum resilience without cutting corners in terms of style.The strength of the revolutionary Quantum X™ Wear Layerwill protect your floor like a shell, fending off whatever life throws at it.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "azul-tortuga",
+            "limit_per_row": 4,
+            "limit": 50,
+            "range_row": 1,
+            "name_btn": "See Panzu Colors",
+            "load_btn": false,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-round",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_yLy3rC"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_product_section_show_RXNmJw"
+  ]
+}

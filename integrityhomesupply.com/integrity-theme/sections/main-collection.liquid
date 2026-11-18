@@ -1,0 +1,465 @@
+<!-- main-collection.liquid -->
+{%- liquid
+  capture st_card
+    echo settings.use_new_label
+    echo '|'
+    echo settings.new_day
+    echo '|'
+    echo settings.use_sale_label
+    echo '|'
+    echo settings.product_grid_layout
+    echo '|'
+    echo settings.qs_show_vars_list
+    echo '|'
+    echo settings.use_quickview
+    echo '|'
+    echo settings.use_wishlist
+    echo '|'
+    echo settings.use_compare
+    echo '|'
+    echo settings.use_countdown_grid
+    echo '|'
+    echo settings.countdown_grid_style
+    echo '|'
+    echo settings.use_vendor_grid
+    echo '|'
+    echo settings.use_review_grid
+    echo '|'
+    echo settings.use_add_to_cart_btn
+    echo '|'
+    echo settings.qs_hide_only_1_opt
+  endcapture
+  assign st_card = st_card | split: '|'  
+  
+  assign grid_ly = settings.grid_layout | default: st_card[3]
+
+  assign width_section = section.settings.width_section
+  assign width_content = section.settings.width_content
+  capture width_section_
+    if width_section == 'container-fluid wide' and width_content == false
+      echo 'w-100'
+    else
+      echo width_section
+    endif
+  endcapture
+  capture width_content_
+    if width_content and width_section == 'w-100'
+      echo 'container'
+    elsif width_section == 'container-fluid wide' and width_content == false
+      echo 'container-fluid wide'
+    else
+      echo 'w-100'
+    endif
+  endcapture
+  assign dir_body = settings.dir_body
+  assign cssAlign = 'left'
+  assign cssAlign_rev = 'right'
+  if dir_body == 'rtl'
+    assign cssAlign = 'right'
+    assign cssAlign_rev = 'left'
+  endif
+-%}
+
+<a data-pjax-filter class="ktjax d-none" href="javascript:void(0)"></a>
+<div class="{{width_section_}}">
+	<div class="section-width {{width_content_}}">
+	  {%-render 'kt_breadcrumb' -%}
+	</div>
+</div>
+<div class="w-100 border-top mb-3" style="border-color: rgba(235, 235, 235, 0.55) !important"></div>
+<div class="{{width_section_}} main-container pb-4">
+<div class="section-width {{width_content_}} main-content {{settings.coll_sidebar_layout | default: 'no'}}-sidebar filters-{{settings.filter_type | default:'default'}}">
+  <div class="row">
+    {%- liquid
+      assign mainColl = ''
+      if section.settings.sidebar != '' and section.settings.use_flts
+        if section.settings.filters_type == 'sidebar'
+          if section.settings.width_content
+            assign mainColl = 'col-lg-9'
+          else
+            assign mainColl = 'col-lg-10'
+          endif
+          assign sidebarColl = 'col-lg-2'
+          if section.settings.width_content
+            assign sidebarColl = 'col-lg-3'
+          else
+            assign sidebarColl = 'col-lg-2'
+          endif
+        endif
+      endif
+    -%}
+    <div class="col-12 {{mainColl}}">
+      {%- if settings.coll_sidebar_layout != '' -%}
+	    {%- if collection.description != blank and section.settings.show_desc -%}
+	    <div class="collection-description _mb-3">
+	      {{collection.description | html }}
+	    </div>
+	    {%- endif -%}
+      {%- endif -%}
+      {%- render 'collection-template' -%}
+    </div>
+    {%- if section.settings.sidebar != '' -%}
+    {%- if section.settings.filters_type == 'sidebar' -%}
+    <div class="sidebar col-12 {{sidebarColl}} d-none d-lg-block">
+      <div class="kt--filter kt_sidebar">
+        <div class="filter-clean">
+          <div class="head d-flex justify-content-between align-items-center">
+            <label>{{'collections.filters.title'|t}}:</label>
+            <a data-pjax-filter="" href="{{collections[collection.handle].url}}" class="sidebar-filter-clear">{{'collections.filters.clean'|t}}</a>
+          </div>
+          <div class="kt--filter-wrap-sl">
+			      <ul class="kt--fl-sl list-unstyled">
+						  {%- for filter in collection.filters -%}
+						  {%- for item in filter.active_values -%}
+						  <li class="kt--fl-sl-i" style="margin-right: 0 !important;">
+						    <a data-pjax-filter href="{{item.url_to_remove}}"><span class="remove_kt--filter-sl" data-action="remove">{{item.label}}<i class="fkt-close" aria-hidden="true"></i></span></a>
+						  </li>
+						  {%- endfor -%}
+						  {%- endfor -%}
+						</ul>
+          </div>
+        </div>
+        <div class="kt--filter-grs kt--filter-grs-d" data-toggle="show">              
+          {%- render 'kt_filters_form', obj: collection, toggle: "show", sc: 'dk' -%}
+        </div>
+      </div>
+    </div>
+    {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+</div>
+{%- if section.settings.filters_type == 'off-canvas' -%}
+<div class="kt--filter kt_canvas">
+<div class="filter_cavas_wrapper kt_scroll">
+  <div class="filter-clean">
+    <div class="head d-flex justify-content-between align-items-center">
+      <label class="filter-close cls-overlay" data-box="filter-canvas"><i class="fkt-close" aria-hidden="true"></i><span> {{'collections.filters.title'|t}}</span></label>
+      <a data-pjax-filter="" href="{{collections[collection.handle].url}}" class="sidebar-filter-clear">{{'collections.filters.clean'|t}}</a>
+    </div>
+    <div class="kt--filter-wrap-sl">
+      <ul class="kt--fl-sl list-unstyled">
+			  {%- for filter in collection.filters -%}
+			  {%- for item in filter.active_values -%}
+			  <li class="kt--fl-sl-i" style="margin-right: 0 !important;">
+			    <a data-pjax-filter href="{{item.url_to_remove}}"><span class="remove_kt--filter-sl" data-action="remove">{{item.label}}<i class="fkt-close" aria-hidden="true"></i></span></a>
+			  </li>
+			  {%- endfor -%}
+			  {%- endfor -%}
+			</ul>
+    </div>
+  </div>
+  <div class="kt--filter-grs kt--filter-grs-d" data-toggle="show">        
+    {%- render 'kt_filters_form', obj: collection, toggle: "show", sc: 'dk' -%}
+  </div>
+</div>
+</div>
+{%- endif -%}
+<div class="kt--filter kt--filter-m">
+<div class="headFilter">
+  <span class="title">{{'collections.filters_mobile.title'|t}}</span><button class="close"><span aria-hidden="true">×</span></button>
+  <div class="kt--filter-sl-gr"><div id="kt--filter-sl"></div></div>
+</div>
+<div class="kt--filter-grs kt--filter-grs-m" data-toggle="show">      
+  {%- render 'kt_filters_form', obj: collection, toggle: "show", sc: 'mb' -%}
+</div>
+</div>
+{% schema %}
+  {
+    "name": "Collection Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Space settings"
+      },
+      {
+        "type": "radio",
+        "id": "width_section",
+        "label": "Max width section?",
+        "options": [
+          {
+            "value": "container",
+            "label": "1200px"
+          },
+          {
+            "value": "container-fluid wide",
+            "label": "Wide"
+          },
+          {
+            "value": "w-100",
+            "label": "Full width"
+          }
+        ],
+        "default": "w-100"
+      },
+      {
+        "type": "checkbox",
+        "id": "width_content",
+        "label": "Max width content?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Description settings"        
+      },
+      {
+        "type": "checkbox",
+        "id" :"show_desc",
+        "label": "Show?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Function settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "sort_enable",
+        "label": "Enable sorting",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "masonry",
+        "label": "Using masonry layout?"
+      },
+      {
+        "type": "checkbox",
+        "id": "numbershow_enable",
+        "label": "Show selector number show?",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "gridlist_enable",
+        "label": "Show button switch layout?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Layout settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "list_enable",
+        "label": "*Enable collection list items"
+      },
+      {
+        "type": "select",
+        "id": "sidebar",
+        "label": "Sidebar",
+        "options": [
+          {
+            "value": "",
+            "label": "None"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "grid",
+        "label": "Products per row (grid only)",
+        "default": "4",
+        "options": [
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "5",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "7",
+            "label": "7"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Paging layout",
+        "options": [
+          {
+            "label": "Paging",
+            "value": "default"
+          },
+          {
+            "label": "Button loadmore",
+            "value": "loadmore"
+          },
+          {
+            "label": "Infinity load",
+            "value": "infinity"
+          }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "range",
+        "id": "limit",
+        "min": 5,
+        "max": 50,
+        "step": 1,
+        "label": "Limit display product",
+        "default": 16
+      },
+      {
+        "type": "header",
+        "content": "Filters settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_flts",
+        "label": "Use Filters?",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Type"
+      },
+      {
+        "type": "select",
+        "id": "filters_type",
+        "label": "Filters type",
+        "options": [
+          {
+            "value": "sidebar",
+            "label": "Sidebar"
+          },
+          {
+            "value": "off-canvas",
+            "label": "Off-Canvas"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "type": "filter_item",
+        "name": "Filter By...",
+        "settings": [
+          { 
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Filter By"
+          },
+          {
+            "type": "header",
+            "content": "Custom style"
+           },
+          { 
+            "type": "text",
+            "id": "key",
+            "label": "Filter keyword",
+            "default": "Color",
+            "info": "Filter keyword containing will apply this style"
+          },
+          {
+            "type": "header",
+            "content": "Select block style"
+          },
+          {
+            "type": "select",
+            "id": "block_style",
+            "options": [
+              {
+                "value": "1",
+                "label": "Detail"
+              },
+              {
+                "value": "2",
+                "label": "Color list"
+              },
+              {
+                "value": "3",
+                "label": "Tag"
+              },
+              {
+                "value": "4",
+                "label": "Color tag"
+              },
+              {
+                "value": "5",
+                "label": "Color icon"
+              },
+              {
+                "value": "6",
+                "label": "Brand icon"
+              },
+              {
+                "value": "7",
+                "label": "Brand with icon"
+              }
+            ],
+            "label": "Style",
+            "default": "1"
+          },
+          {
+            "type": "checkbox",
+            "id": "use_split",
+            "label": "Split the column into 2"
+          },
+          {
+            "type": "checkbox",
+            "id": "always_show",
+            "label": "Always show."
+          }          
+        ]
+      },
+      {
+        "type": "filter_categories",
+        "name": "Filter Categories",
+        "limit": 1,
+        "settings": [ 
+          {
+            "type": "link_list",
+            "id": "list_categories_linklist",
+            "label": "Linklist categories"
+          },
+          { 
+            "type":"text",
+            "id":"key",
+            "label":"Filter keyword",
+            "default":"kt_categories",
+            "info": "Wrong: Don't change"
+          },
+          {
+            "type": "header",
+            "content": "Select block style"
+          },          
+          {
+            "type": "checkbox",
+            "id": "always_show",
+            "label": "Always show."
+          } 
+        ]
+      }
+    ]
+  }
+{% endschema %}

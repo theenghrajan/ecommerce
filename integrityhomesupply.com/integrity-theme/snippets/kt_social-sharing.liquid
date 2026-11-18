@@ -1,0 +1,22 @@
+<ul class="socials list-inline">
+{%- if settings.share_facebook -%}
+  <li class="list-inline-item">{{--}}
+    <a data-tippy="Share this post on Facebook" class="social-icon social-facebook fkt-facebook-f" href="http://www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=380,width=660');return false;"></a>{{--}}
+  </li>
+  {%- endif -%}
+  {%- if settings.share_twitter -%}
+  <li class="list-inline-item">{{--}}
+    <a data-tippy="Share this post on Twitter" class="social-icon social-twitter fkt-twitter" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=380,width=660');return false;"></a>{{--}}
+  </li>
+  {%- endif -%}
+  {%- if settings.share_pinterest -%}
+  <li class="list-inline-item">{{--}}
+    <a data-tippy="Share this post on Pinterest" class="social-icon social-pinterest fkt-pinterest-p" href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"></a>{{--}}
+  </li>
+  {%- endif -%}
+  {%- if settings.share_tumblr -%}
+  <li class="list-inline-item">{{--}}
+    <a data-tippy="Share this post on Tumbr" class="social-icon social-tumbl fkt-tumblr" data-content="{{ share_image | img_url: '1024x1024' }}" href="//tumblr.com/widgets/share/tool?canonicalUrl={{ shop.url | append: share_permalink }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=540');return false;"></a>{{--}}
+  </li>
+  {%- endif -%}
+</ul>

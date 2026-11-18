@@ -1,0 +1,166 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_banner_with_text_1_xmWAqf": {
+      "type": "md_banner_with_text_1",
+      "blocks": {
+        "1_pntETd": {
+          "type": "1",
+          "settings": {
+            "banner_align": "6 col-xl-5 offset-xl-1 order-lg-last",
+            "image_banner": "shopify://shop_images/craft-cabinetry-construction-white.webp",
+            "image_link": "",
+            "text_align": "text-center",
+            "title_section": "Craft Cabinetry",
+            "stitle_section": "Solid Wood • 5-Piece • Dovetail • Soft Close",
+            "reverse": false,
+            "content_text": "<span>Full overlay doors with mortise and tenon construction, soft close hinges, and Birch wood craftsmanship.\n</span>\n<br><br>\n<img src=\"https://cdn.shopify.com/s/files/1/0633/5378/2410/files/small-crat-doors-all.webp?v=1715921695\">\n<br><br>\n<img src=\"https://cdn.shopify.com/s/files/1/0633/5378/2410/files/4.webp?v=1777320951\"><br><br>",
+            "color_title": "#ffffff",
+            "color_sub_title": "#a67b2c",
+            "color_desc": "#ffffff",
+            "name_btn": "NEED A DESIGN?",
+            "style_btn": "btn-white",
+            "style_btn_rounded": "btn-round",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "1_pntETd"
+      ],
+      "name": "Banner with text 1",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Banner with text 1",
+        "width_section": "w-100",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "#222222",
+        "section_bg_op": 1,
+        "css": "@media (max-width:768px){\n.section_id.bg-image {\n  background-image: none !important;\n}\n}\n.section_id h3.title{font-size:6rem;font-weight:700}\n.section_id .sub-title{line-height:2;font-size:4.5rem;font-weight:700}\n.section_id .box-dashed{border:1px dashed #222;border-radius:.5rem;padding:.7rem 1.2rem;text-transform:uppercase;font-size:1.4rem;color:#222;text-align:center;min-width:10rem}\n.section_id .molla-svg-icon{width:2.8rem!important}\n.section_id .molla-svg-icon+span{padding:0 .5rem!important}\n.section_id .box-dashed span{display:block;line-height:1.2}\n.section_id .box-dashed span:nth-child(2){font-weight:700;font-size:4.2rem}\n\n@media (min-width:576px){\n.section_id .sub-title{font-size:2.5rem}\n.section_id .content-text{font-size:1.5rem}\n.section_id .molla-svg-icon{width:3.6rem!important}\n.section_id .molla-svg-icon+span{padding:0 1rem!important}\n}"
+      }
+    },
+    "md_list_item_cattegories_4_FiY9CG": {
+      "type": "md_list_item_cattegories_4",
+      "blocks": {
+        "title_FmgBaA": {
+          "type": "title",
+          "settings": {
+            "title_section": "Craft Cabinetry Solid Woods Cabinets",
+            "stitle_section": "Our Entire Product Range",
+            "reverse": false,
+            "title_align": "text-center",
+            "margin_btitle": 3
+          }
+        },
+        "item_BQCxta": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-cabinetry-white-door-sample-full-1_e3150603-b0a5-42ec-8ce4-b1a2dd45d01e.webp",
+            "linklist": "",
+            "link": "",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_VmR697": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-cabinetry-gray-door-sample-full-1_411e73c5-1296-4b14-9251-1e03a7ca15fe.webp",
+            "linklist": "",
+            "link": "",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_DdDryw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-cabinetry-midnight-door-sample-full-1_82afcb69-b9fb-4d4f-8dfb-805285fe7fac.webp",
+            "linklist": "",
+            "link": "",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_Y3XQYG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-cabinetry-navy-door-sample-full-1_e340045c-6617-49c7-966d-4bc1da460cf3.webp",
+            "linklist": "",
+            "link": "",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_Dje73V": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-cabinetry-aqua-door-sample-full-1_96c4778a-1b2b-4541-bdda-c7b200c000fd.webp",
+            "linklist": "",
+            "link": "",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_cdfnUm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-cabinetry-stain-grey-door-sample-full-1_000b9add-d35e-49df-95a8-4dc4ae8e9a5c.webp",
+            "linklist": "",
+            "link": "",
+            "name_btn": "More Parts"
+          }
+        }
+      },
+      "block_order": [
+        "title_FmgBaA",
+        "item_BQCxta",
+        "item_VmR697",
+        "item_DdDryw",
+        "item_Y3XQYG",
+        "item_Dje73V",
+        "item_cdfnUm"
+      ],
+      "name": "List categories 4",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "List categories",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_dots": false,
+        "dots_mode": "default",
+        "dots_position": "outside",
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 0\n  },\n  \"375\": {\n    \"slidesPerView\": 2,\n    \"spaceBetween\": 10\n  },\n  \"768\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  },\n  \"992\": {\n    \"slidesPerView\": 4,\n    \"spaceBetween\": 20\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  },\n  \"1500\": {\n    \"slidesPerView\": 6,\n    \"spaceBetween\": 20\n  }\n}"
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_banner_with_text_1_xmWAqf",
+    "md_list_item_cattegories_4_FiY9CG"
+  ]
+}

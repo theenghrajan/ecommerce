@@ -1,0 +1,383 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "blocks_M3crgG": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_746fd33_Kqx9Qw": {
+          "type": "ai_gen_block_746fd33",
+          "settings": {
+            "image_1": "shopify://shop_images/CPL6698.jpg",
+            "heading_1": "Craft Cabinetry",
+            "subheading_1": "",
+            "image_2": "shopify://shop_images/CPL6641.jpg",
+            "heading_2": "",
+            "subheading_2": "",
+            "image_3": "shopify://shop_images/CPL6356.jpg",
+            "heading_3": "",
+            "subheading_3": "",
+            "image_4": "shopify://shop_images/craft-cabinetry-white-full-kitchen.webp",
+            "heading_4": "",
+            "subheading_4": "",
+            "heading_5": "",
+            "subheading_5": "",
+            "aspect_ratio": "16/9",
+            "carousel_width": 1200,
+            "carousel_height": 500,
+            "text_color": "#ffffff",
+            "heading_size": 48,
+            "subheading_size": 20,
+            "text_spacing": 16,
+            "heading_weight": "700",
+            "subheading_weight": "400",
+            "text_shadow_x": 0,
+            "text_shadow_y": 2,
+            "text_shadow_blur": 4,
+            "text_shadow_color": "#00000080",
+            "show_navigation": true,
+            "nav_size": 70,
+            "nav_offset": 10,
+            "nav_bg_color": "rgba(0,0,0,0)",
+            "nav_hover_bg_color": "#ffffff",
+            "nav_icon_color": "#000000",
+            "show_dots": false,
+            "dots_size": 6,
+            "dots_spacing": 6,
+            "dots_offset": 15,
+            "dots_color": "#ffffff80",
+            "dots_active_color": "#ffffff",
+            "autoplay": true,
+            "autoplay_speed": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_746fd33_Kqx9Qw"
+      ],
+      "name": "Main banner",
+      "settings": {}
+    },
+    "md_banner_with_text_1_4fRrV6": {
+      "type": "md_banner_with_text_1",
+      "blocks": {
+        "1_3Wxb8C": {
+          "type": "1",
+          "settings": {
+            "banner_align": "",
+            "image_banner": "shopify://shop_images/door-sample-set-7-craft-cabinetry.webp",
+            "image_link": "shopify://collections/sample-door",
+            "text_align": "text-center",
+            "title_section": "GET FREE SHIPPING ON SAMPLE DOORS",
+            "stitle_section": "",
+            "reverse": false,
+            "content_text": "GET THE SAMPLE DOOR REFUNDED WITH YOUR KITCHEN CABINET ORDERS OVER $1499<br><span style=\"font-size:20px;\">Along with <strong style=\"font-size:28px;\">5% OFF</strong> your first kitchen cabinet order with discount code <strong>NEW*</strong></span>",
+            "color_title": "#222222",
+            "color_sub_title": "#222222",
+            "color_desc": "#666666",
+            "name_btn": "SEE DOORS SAMPLES",
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-round",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "1_3Wxb8C"
+      ],
+      "name": "Sample Door",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Banner with text 1",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "css": ""
+      }
+    },
+    "md_call_to_action_icme3j": {
+      "type": "md_call_to_action",
+      "blocks": {
+        "design_6_ziDhxL": {
+          "type": "design_6",
+          "settings": {
+            "title_cta": "<span style=\"\nfont-size: 5rem;\">Free Kitchen Design</span>",
+            "description_cta": "Request your design, it is absolutely free.",
+            "link_cta": "shopify://pages/kitchen-design",
+            "btn_name_cta": "Request Now"
+          }
+        }
+      },
+      "block_order": [
+        "design_6_ziDhxL"
+      ],
+      "settings": {
+        "title": "Call to Action",
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "container",
+        "width_content": true,
+        "section_margin_top": "4rem",
+        "section_margin_bottom": "",
+        "section_padding": "6rem",
+        "section_bg": "",
+        "section_bg_op": 0.5,
+        "image": "shopify://shop_images/design-banner-2.webp",
+        "use_round": false,
+        "color_title": "#ffffff",
+        "color_desc": "#ffffff",
+        "color_text_input": "#005674",
+        "color_border_input": "#ffffff",
+        "color_placeholder": "#999999",
+        "color_bg_input": "#ffffff",
+        "preview": false
+      }
+    },
+    "md_accordions_FNWgQe": {
+      "type": "md_accordions",
+      "blocks": {
+        "item_title_qV7RjL": {
+          "type": "item_title",
+          "settings": {
+            "title_section": "RTA OR ASSEMBLED?",
+            "stitle_section": "",
+            "reverse": false,
+            "title_align": "",
+            "link_to": "",
+            "name_link": "",
+            "style_link": ""
+          }
+        },
+        "item_1_FLzgax": {
+          "type": "item_1",
+          "settings": {
+            "title": "RTA CABINETS - The Budget-Friendly Choice for DIY Projects",
+            "content": "<li>Lower cost than assembled cabinets\n</li><li>Ships flat-packed, reducing the shipping time\n</li><li>Easy-to-follow assembly instructions</li>",
+            "size_small": false,
+            "item_style": ""
+          }
+        },
+        "item_2_b3mFdi": {
+          "type": "item_2",
+          "settings": {
+            "title": "Assembled Cabinets - Best for Contractors and First-Time DIYers",
+            "content": "<li>Delivered fully assembled\n</li><li>Simply secure the cabinets to the wall\n</li><li>Perfect for contractors or homeowners who prefer a hassle-free option</li>",
+            "size_small": false,
+            "item_style": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_title_qV7RjL",
+        "item_1_FLzgax",
+        "item_2_b3mFdi"
+      ],
+      "name": "RTA/ASSEMBLE",
+      "settings": {
+        "title": "Accordions",
+        "off_section": false,
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "container",
+        "width_content": true,
+        "section_margin_top": "2rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "accordions_style": "",
+        "button_plus": false
+      }
+    },
+    "md_banner_with_text_1_xmWAqf": {
+      "type": "md_banner_with_text_1",
+      "blocks": {
+        "1_pntETd": {
+          "type": "1",
+          "settings": {
+            "banner_align": "6 col-xl-5 offset-xl-1 order-lg-last",
+            "image_banner": "shopify://shop_images/craft-cabinetry-construction-white.webp",
+            "image_link": "https://cdn.shopify.com/s/files/1/0633/5378/2410/files/Craft-Product-Catalog.pdf?v=1785766970",
+            "text_align": "text-center",
+            "title_section": "Craft Cabinetry",
+            "stitle_section": "Solid Wood • 5-Piece • Dovetail <br>• Soft Close",
+            "reverse": false,
+            "content_text": "<span>Full overlay doors with mortise and tenon construction, soft close hinges, and Birch wood craftsmanship.\n</span>",
+            "color_title": "#ffffff",
+            "color_sub_title": "#a67b2c",
+            "color_desc": "#ffffff",
+            "name_btn": "See Catalog",
+            "style_btn": "btn-outline-white",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "1_pntETd"
+      ],
+      "name": "SPECS/CATALOG",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Banner with text 1",
+        "width_section": "container",
+        "width_content": true,
+        "section_margin_top": "2.5rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "#222222",
+        "section_bg_op": 1,
+        "css": "@media (max-width:768px){\n.section_id.bg-image {\n  background-image: none !important;\n}\n}\n.section_id h3.title{font-size:4rem;font-weight:700}\n.section_id .sub-title{line-height:2;font-size:1.5rem;font-weight:700}\n.section_id .box-dashed{border:1px dashed #222;border-radius:.5rem;padding:.7rem 1.2rem;text-transform:uppercase;font-size:1.4rem;color:#222;text-align:center;min-width:10rem}\n.section_id .molla-svg-icon{width:2.8rem!important}\n.section_id .molla-svg-icon+span{padding:0 .5rem!important}\n.section_id .box-dashed span{display:block;line-height:1.2}\n.section_id .box-dashed span:nth-child(2){font-weight:700;font-size:4.2rem}\n\n@media (min-width:576px){\n.section_id .sub-title{font-size:2.5rem}\n.section_id .content-text{font-size:1.5rem}\n.section_id .molla-svg-icon{width:3.6rem!important}\n.section_id .molla-svg-icon+span{padding:0 1rem!important}\n}"
+      }
+    },
+    "md_list_item_cattegories_4_FiY9CG": {
+      "type": "md_list_item_cattegories_4",
+      "blocks": {
+        "title_FmgBaA": {
+          "type": "title",
+          "settings": {
+            "title_section": "Craft Cabinetry Solid Woods Cabinets",
+            "stitle_section": "Our Entire Product Range",
+            "reverse": false,
+            "title_align": "text-center",
+            "margin_btitle": 3
+          }
+        },
+        "item_BQCxta": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/pw-img-craft-cabinetry_360x_90c545e1-4132-48df-9efb-f6c633e606c2.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-shaker-pure-white",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_VmR697": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-gray-b15_360x_8caedff9-1535-419b-8de9-343b7da660b4.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-shaker-modern-gray",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_DdDryw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-midnight-b15_360x_6d24067f-641b-4e1d-aa6a-a02cdd941333.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-shaker-midnight",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_Y3XQYG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-navy-b15_360x_e5cc6eeb-f3d0-4d6e-bdc2-f19029ebaf16.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-navy-shaker",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_Xy3e6R": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Rift_Oak.jpg",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-shaker-rift-oak",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_twVJGc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/b15-recessed-white_360x_e8e3aa00-0341-4c57-a32b-c97583478b11.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-berkley-pure-white",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_cdfnUm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-stain-gray-b15_360x_0ee33679-7880-490a-a17b-160bb78dc832.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-berkley-stain-gray",
+            "name_btn": "More Parts"
+          }
+        },
+        "item_Dje73V": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/craft-aqua-b15.webp",
+            "linklist": "",
+            "link": "shopify://collections/craft-cabinetry-shaker-aqua",
+            "name_btn": "More Parts"
+          }
+        }
+      },
+      "block_order": [
+        "title_FmgBaA",
+        "item_BQCxta",
+        "item_VmR697",
+        "item_DdDryw",
+        "item_Y3XQYG",
+        "item_Xy3e6R",
+        "item_twVJGc",
+        "item_cdfnUm",
+        "item_Dje73V"
+      ],
+      "name": "List categories 4",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "List categories",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "2rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_dots": false,
+        "dots_mode": "default",
+        "dots_position": "outside",
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 0\n  },\n  \"375\": {\n    \"slidesPerView\": 2,\n    \"spaceBetween\": 10\n  },\n  \"768\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  },\n  \"992\": {\n    \"slidesPerView\": 4,\n    \"spaceBetween\": 20\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  },\n  \"1500\": {\n    \"slidesPerView\": 6,\n    \"spaceBetween\": 20\n  }\n}"
+      }
+    }
+  },
+  "order": [
+    "content",
+    "blocks_M3crgG",
+    "md_banner_with_text_1_4fRrV6",
+    "md_call_to_action_icme3j",
+    "md_accordions_FNWgQe",
+    "md_banner_with_text_1_xmWAqf",
+    "md_list_item_cattegories_4_FiY9CG"
+  ]
+}

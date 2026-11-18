@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_product_section_show_x6Ky9R": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_YkEyQz": {
+          "type": "item",
+          "settings": {
+            "title_section": "XL Prescott",
+            "stitle_section": "Prices may differ in-store<br>The XL Prescott® Luxury Vinyl Plank Collection is where allure, durability and performance meet. With multiple colors in high variations for added design freedom, these LVPs range from ashy blondes and grays to deep, rich browns. These 9x60 planks are 100% waterproof and feature a commercial-grade CrystaLux Ultra finish with a protective layer that provides durability and longevity to protect against everyday wear. This vinyl flooring includes an attached premium backing for quiet and comfort underfoot. With a patented locking system “no acclimation” technology, this rigid core flooring allows for buy today, install today convenience. There’s no easier way to create an attractive, easy-to-maintain and on-trend space than with XL Prescott®.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-xl-prescott",
+            "limit_per_row": 4,
+            "limit": 50,
+            "range_row": 1,
+            "name_btn": "VIEW MORE",
+            "load_btn": false,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_YkEyQz"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": false,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_product_section_show_x6Ky9R"
+  ]
+}

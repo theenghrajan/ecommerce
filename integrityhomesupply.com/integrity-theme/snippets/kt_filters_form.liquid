@@ -1,0 +1,137 @@
+<form id="filters-{{sc | default: 'ms'}}" class="filters-form">
+	{%- for block in section.blocks -%}
+		{%- if block.type == 'filter_categories' -%}
+		<div class="kt--filter-gr-i col kt--filter-gr-i0 widget widget_product_categories unshowAny {{toggle}}">
+			<div class="layered_subtitle_heading">
+		    <span class="layered_subtitle">{{ 'collections.sidebar.categories' | t }}<span></span></span>
+		    <span class="ico"></span>
+		  </div>
+		  <ul class="product-categories kt--filter-gr-i_ul list-unstyled">
+		    {%- if block.settings.list_categories_linklist == blank -%}
+		      {%- for lin_1 in collections -%}
+		        <li class="{% if lin_1.handle == collection.handle %} current-cat{% endif %}">
+		          <a class="custom-control custom-checkbox"{% if lin_1.handle == collection.handle %} href="javascript:void(0)"{%else%} href="{{lin_1.url | default: 'javascript:void(0)'}}"{% endif %}>
+		            <span class="custom-control-label">{{lin_1.title}}</span>
+		            <span class="count">{{lin_1.all_products_count}}</span>
+		          </a>
+		        </li>
+		      {%- endfor -%}
+		    {%- else -%}
+		      {%- assign list_categories_linklist = linklists[block.settings.list_categories_linklist].links -%}
+		      {%- for lin_1 in list_categories_linklist -%}
+		      <li class="level-1{%if lin_1.links.size > 0%} level-has-child{%endif%}{% if lin_1.active %} current-cat showAny{% endif %}{%if forloop.first%} opened{%endif%}">
+		        <a class="custom-control custom-checkbox"{% if lin_1.active %} href="javascript:void(0)"{%else%} href="{{lin_1.url | default: 'javascript:void(0)'}}"{% endif %}>
+		          <span class="custom-control-label">{{lin_1.title}}</span>
+		          {%- if lin_1.type == 'collection_link' -%}
+		          <span class="count{%if lin_1.url != lin_1.object.url%} lazyload{%endif%}" data-include="{{lin_1.url}}?view=count_with_tag">({{lin_1.object.all_products_count}})</span>
+		          {%- endif -%}
+		          {%if lin_1.links.size > 0%}<i class="fas fa-chevron-down"></i>{%endif%}
+		        </a>
+		        {% if lin_1.links.size == 0-%}{%-continue-%}{%- endif -%}
+		        <ul class="child_collection list-unstyled">
+		          {% for lin_2 in lin_1.links-%}
+		            <li class="level-2{%if lin_2.links.size > 0%} level-has-child{%endif%}{% if lin_2.active %} current-cat{% endif %}">
+		              <a class="custom-control custom-checkbox"{% if lin_2.active %} href="javascript:void(0)"{%else%} href="{{lin_2.url | default: 'javascript:void(0)'}}"{% endif %}>
+		                <span class="custom-control-label">{{lin_2.title}}</span>
+		                {%- if lin_2.type == 'collection_link' -%}
+		                <span class="count{%if lin_2.url != lin_2.object.url%} lazyload{%endif%}" data-include="{{lin_2.url}}?view=count_with_tag">({{lin_2.object.all_products_count}})</span>
+		                {%- endif -%}
+		                {%if lin_2.links.size > 0%}<i class="fas fa-chevron-down"></i>{%endif%}
+		              </a>
+					        {% if lin_2.links.size == 0-%}{%-continue-%}{%- endif -%}
+		              <ul class="child_collection list-unstyled">
+		                {% for lin_3 in lin_2.links-%}
+		                  <li class="level-3{% if lin_3.active %} current-cat{% endif %}">
+		                    <a class="custom-control custom-checkbox"{% if lin_3.active %} href="javascript:void(0)"{%else%} href="{{lin_3.url | default: 'javascript:void(0)'}}"{% endif %}>
+		                      <span class="custom-control-label">{{lin_3.title}}</span>
+		                      {%- if lin_3.type == 'collection_link' -%}
+		                      <span class="count{%if lin_3.url != lin_3.object.url%} lazyload{%endif%}" data-include="{{lin_3.url}}?view=count_with_tag">({{lin_3.object.all_products_count}})</span>
+		                      {%- endif -%}
+		                    </a>
+		                  </li>
+		                {%- endfor -%}
+		              </ul>
+		            </li>
+		          {%- endfor -%}
+		        </ul>
+		      </li>
+		      {%- endfor -%}
+		    {%- endif -%}
+		  </ul>
+		</div>
+		{%- endif -%}
+	{%- endfor -%}	
+  {%- assign blocks = section.blocks | where: "type", "filter_item" -%}
+  {%- for filter in collection.filters -%}
+  {%- if filter.type == 'list' -%}
+		{%- assign block = empty -%}
+	  {%- for block in blocks -%}{%- if block.settings.key == filter.label -%}{%- assign block = block -%}{%- break -%}{%- else -%}{%- continue -%}{%- endif -%}{%- endfor -%}
+		<div class="kt--filter-gr-i col kt--filter-gr-i{{forloop.index}} blockStyle_{{block.settings.block_style | default: '1'}} split_{{block.settings.use_split | default: 'false'}} {% if block.settings.always_show %} unshowAny{%- endif -%} {{toggle}}">
+			<div class="layered_subtitle_heading">
+				<span class="layered_subtitle">{{block.settings.title | default: filter.label}}</span>
+				<span class="ico"></span>
+			</div>
+			<ul class="kt--filter-gr-i_ul kt_scroll list-unstyled">
+				{%- for item in filter.values -%}
+				<li class="_{{item.value | handleize}}">
+					<div class="custom-control custom-checkbox">
+						<input class="custom-control-input" id="{{ filter.label | escape }}-{{ forloop.index }}-{{sc}}" type="checkbox" name="{{ item.param_name }}" value="{{ item.value | escape }}"{%if item.active%} checked{%endif%}>
+						<label class="custom-control-label" for="{{ filter.label | escape }}-{{ forloop.index }}-{{sc}}">
+							<span class="color_pick swatch"></span>
+							<span class="custom-check-title">{{item.label}} <span class="count">({{ item.count }})</span></span>
+					  </label>
+				  </div>
+				</li>
+				{%- endfor -%}
+			</ul>
+		</div>
+	{%- elsif filter.type == 'price_range' -%}
+    {%- liquid
+      assign point_or_comma = 0 | money_without_currency | remove: "0"
+      assign point_or_comma = 100000 | money_without_currency | remove: "0" | remove: "1" | remove: point_or_comma
+    -%}
+		<div class="kt--filter-gr-i col kt--filter-gr-i{{forloop.index}} widget widget_flt_slider {% if block.settings.always_show %} unshowAny{%- endif -%} {{toggle}}">
+      <div class="layered_subtitle_heading">
+        <span class="layered_subtitle">{{filter.label}}</span><span class="ico"></span>
+      </div>
+      <ul class="kt--filter-gr-i_ul list-unstyled">
+        <li class="_flt_ui ui-slider" data-step="1">
+          <div class="slider-range" data-min="0" data-max="{{ filter.range_max | money_without_currency | remove: point_or_comma | replace: ',', '.' }}" data-symbol="{{ cart.currency.symbol }}"></div>
+          <div class="input-group no-js">
+	          <input type="hidden" class="form-control _flt_min"
+		          name="{{ filter.min_value.param_name }}"
+		          {%- if filter.min_value.value -%}
+	              {{- -}}value="{{ filter.min_value.value | money_without_currency | remove: point_or_comma | replace: ',', '.' }}"
+		          {%- endif -%}
+	            type="number"
+	            placeholder="0"
+	            min="0"
+	            max="{{ filter.range_max | money_without_currency | remove: point_or_comma | replace: ',', '.' }}"
+	            aria-label="flt_min">
+					  <!-- <span class="input-group-text"> - </span> -->
+	          <input type="hidden" class="form-control _flt_max"
+	            name="{{ filter.max_value.param_name }}"
+			        {%- if filter.max_value.value -%}
+                {{- -}}value="{{ filter.max_value.value | money_without_currency | remove: point_or_comma | replace: ',', '.' }}"
+	            {%- endif -%}
+	            type="number"
+	            min="0"
+	            placeholder="{{ filter.range_max | money_without_currency | remove: point_or_comma | replace: ',', '.' }}"
+	            max="{{ filter.range_max | money_without_currency | remove: point_or_comma | replace: ',', '.' }}"
+	            aria-label="flt_max" range-max="{{ filter.range_max | money_without_currency | remove: point_or_comma | replace: ',', '.' }}">
+					</div>
+          <div class="d-flex align-items-center justify-content-between mt-2">
+            <div class="d-flex" style="display: flex;flex-direction: column;align-content: flex-start;">
+              <label for="amount" class="me-1">{{'collections.filters.slider_range' | t }}:</label>
+              <div class="amount"></div>
+            </div>
+            <div><button type="submit" class="btn-flt btn btn-minwidth-sm btn-outline-darker mb-0i">{{'collections.filters.title' | t }}</button></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  {%- endif -%}
+	{%- endfor -%}
+	<input type="hidden" name="sort_by" value="{{obj.sort_by | default: obj.default_sort_by}}">
+	<button type="submit" class="_flt_submit d-none"></button>
+</form>

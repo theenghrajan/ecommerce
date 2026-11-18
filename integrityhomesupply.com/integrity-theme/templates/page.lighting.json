@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_banner_template_3_VTwF3N": {
+      "type": "md_banner_template_3",
+      "blocks": {
+        "3_PcFtEi": {
+          "type": "3",
+          "settings": {
+            "turnoff": false,
+            "title": "Banner type 13",
+            "grid_gutter": 0,
+            "titlex": "COMING SOON...",
+            "stitle": "<a href=\"https://integrityhomesupply.com/\">Back to Home Page</a>",
+            "margin_btitle": 1,
+            "title_align": "text-center",
+            "banner-effect": "banner-effect5",
+            "image_1": "shopify://shop_images/floors-wall-left.webp",
+            "image_link_1": "",
+            "titlex_1": "",
+            "color_titlex_1": "#ffffff",
+            "name_btn_1": "",
+            "style_btn_1": "btn-link",
+            "style_btn_rounded_1": "",
+            "btn_shadow_1": false,
+            "image_2": "shopify://shop_images/coming-soon-1.webp",
+            "image_link_2": "",
+            "titlex_2": "",
+            "color_titlex_2": "#ffffff",
+            "name_btn_2": "",
+            "style_btn_2": "btn-link",
+            "style_btn_rounded_2": "",
+            "btn_shadow_2": false,
+            "image_3": "shopify://shop_images/white-promo.webp",
+            "image_link_3": "shopify://pages/flooring",
+            "titlex_3": "",
+            "color_titlex_3": "#005674",
+            "name_btn_3": "",
+            "style_btn_3": "btn-link",
+            "style_btn_rounded_3": "",
+            "btn_shadow_3": false,
+            "image_4": "shopify://shop_images/floors-wall-right.webp",
+            "image_link_4": "shopify://collections/bathroom-vanities",
+            "titlex_4": "",
+            "color_titlex_4": "#ffffff",
+            "name_btn_4": "",
+            "style_btn_4": "btn-link",
+            "style_btn_rounded_4": "",
+            "btn_shadow_4": false
+          }
+        }
+      },
+      "block_order": [
+        "3_PcFtEi"
+      ],
+      "settings": {
+        "title": "Banner template 3",
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "w-100",
+        "width_content": false,
+        "section_margin_top": "4rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "preview": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_banner_template_3_VTwF3N"
+  ]
+}

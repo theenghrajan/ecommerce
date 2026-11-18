@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div#kt--filter-js.kt--filter-js",
+  "sections": {
+    "main": {
+      "type": "list-collections-template",
+      "blocks": {
+        "1571024581330": {
+          "type": "collection",
+          "settings": {
+            "collection": "jackets",
+            "img": "shopify://shop_images/banner-1_027cae20-07cd-4eb4-8107-0e1cb6d6f9e8.jpg",
+            "block_width": "4"
+          }
+        },
+        "1571024937003": {
+          "type": "collection",
+          "settings": {
+            "collection": "jeans",
+            "img": "shopify://shop_images/banner-2_b5709c46-1acc-434c-b78e-21d03d662868.jpg",
+            "block_width": "2"
+          }
+        },
+        "1571025197405": {
+          "type": "collection",
+          "settings": {
+            "collection": "dresses",
+            "img": "shopify://shop_images/banner-5_cf01854c-f660-4f12-b9db-b617c72ff540.jpg",
+            "block_width": "4"
+          }
+        },
+        "1571025369408": {
+          "type": "collection",
+          "settings": {
+            "collection": "t-shirts",
+            "img": "shopify://shop_images/banner-7_dc8dae27-4e8c-463b-8b5b-83630ae44225.jpg",
+            "block_width": "2"
+          }
+        },
+        "1571025600217": {
+          "type": "collection",
+          "settings": {
+            "collection": "sportwear",
+            "img": "shopify://shop_images/banner-3_c8a47a82-7f3f-4c70-8354-95701b2d54a1.jpg",
+            "block_width": "2"
+          }
+        },
+        "1571025638085": {
+          "type": "collection",
+          "settings": {
+            "collection": "bags",
+            "img": "shopify://shop_images/banner-4_de5ee94e-3abb-483b-a573-d2cd03dfbeb4.jpg",
+            "block_width": "4"
+          }
+        },
+        "1571026101783": {
+          "type": "collection",
+          "settings": {
+            "collection": "shoes",
+            "img": "shopify://shop_images/banner-6_21d7cef3-73c5-4d2f-ba0d-a7c3d2f72fe0.jpg",
+            "block_width": "4"
+          }
+        },
+        "1571026123226": {
+          "type": "collection",
+          "settings": {
+            "collection": "jumpers",
+            "img": "shopify://shop_images/banner-8_8c98e84c-c883-4497-b308-7b7e677470b3.jpg",
+            "block_width": "2"
+          }
+        }
+      },
+      "block_order": [
+        "1571024581330",
+        "1571024937003",
+        "1571025197405",
+        "1571025369408",
+        "1571025600217",
+        "1571025638085",
+        "1571026101783",
+        "1571026123226"
+      ],
+      "settings": {
+        "list_coll_width_section": "container-fluid wide",
+        "list_coll_width_content": true,
+        "display_type": "selected",
+        "sort": "alphabetical",
+        "grid": "3"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

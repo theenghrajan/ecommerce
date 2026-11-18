@@ -1,0 +1,270 @@
+<style>
+  #kt-toolkit {
+    top: 50%;
+    right: 10px;
+    z-index: 13;
+  }
+  #kt-toolkit strong {
+    color: #212529;
+  }
+  #kt-toolkit .dropdown-toggle {
+    border-radius: 3px;
+    min-width: auto;
+    background: #33363b;
+    position: relative;
+    box-shadow: none;
+    padding: 7px 10px;
+    border: none;
+  }
+  #kt-toolkit .dropdown:not(.show) .dropdown-toggle::before {
+    display: none;
+  }
+  #kt-toolkit .dropdown-item.active,
+  #kt-toolkit .dropdown-item:active {
+    color: #fff;
+    background-color: var(--bs-primary);
+  }
+  #kt-toolkit .dropdown-toggle.loading::after {
+    border-color: #1ebec8 #fff #fff #fff;
+  }
+  #kt-toolkit .dropdown-toggle.loading svg {
+    opacity: 0;
+  }
+  #kt-toolkit .dropdown-menu button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    text-align: initial;
+    padding: 0.25rem 1rem;
+  }
+  #kt-toolkit .dropdown-menu button:focus,
+  #kt-toolkit .dropdown-menu button:hover {
+    color: #1e2125;
+    background-color: #e9ecef;
+  }
+  #kt-toolkit .dropdown-menu button:active,
+  #kt-toolkit .dropdown-menu button.active {
+    color: #fff;
+    background-color: var(--bs-primary);
+  }
+  #importSectionModal .header-cp p {
+    font-size: 12px;
+    color: #dee2e6;
+  }
+  #importSectionModal .modal-fullscreen {
+    width: 100vw;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+  }
+  #importSectionModal .modal-fullscreen .modal-content {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+  }
+  #importSectionModal .modal-dialog-scrollable .modal-content {
+      max-height: 100%;
+      overflow: hidden;
+  }
+  #importSectionModal .sb-filters li {
+    padding: 5px 7px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    list-style: none;
+    cursor: pointer;
+  }
+  #importSectionModal .sb-filters li:hover > span {
+    color: var(--bs-primary);
+  }
+  #importSectionModal .body-cp .btns-atc {
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s ease;
+  }
+  #importSectionModal .body-cp .btns-atc .btn {
+    font-weight: 600;
+    min-width: 120px;
+  }
+  #importSectionModal .body-cp .item-st:hover .btns-atc {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  #importSectionModal .col {
+    flex: 1 0 0%;
+  }
+  #importSectionModal .row-cols-2>* {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  @media (min-width: 1200px){
+    #importSectionModal .row-cols-xl-3>* {
+      flex: 0 0 auto;
+      width: 33.3333333333%;
+    }
+  }
+  @media (min-width: 1400px){
+    #importSectionModal .row-cols-xxl-4>* {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+  }
+  .selector-it {
+    height: auto !important;
+  }
+  .item-st {
+    background-color: #33363b;
+  }
+  .item-st > div {
+    --bg-size: calc(calc(calc(calc(100vw / 1.3333) - 26px) / 2) - var(--size, 36px));
+    background-size: var(--bg-size) auto;
+    background-position-y: var(--py);
+    background-position-x: var(--px, center);
+    background-image: var(--bg);
+    padding-bottom: var(--pb);
+    background-repeat: no-repeat;
+    background-color: var(--bgcl, #fff);
+    margin-bottom: 54px;
+    transition: transform 0.3s, background-position 0.6s linear, box-shadow 0.3s;
+  }
+  @media (min-width: 1200px) {
+    .item-st > div {
+      --bg-size: calc(calc(calc(calc(100vw / 1.2) - 26px) / 3) - var(--size, 36px));
+    }
+  }
+  @media (min-width: 1400px) {
+    .item-st > div {
+      --bg-size: calc(calc(calc(calc(100vw / 1.2) - 26px) / 4) - var(--size, 36px));
+    }
+  }
+  .demo-homep .item-st:hover > div {
+    background-position: center bottom;
+    transition: transform 0.3s, background-position 2s linear, box-shadow 0.3s;
+  }
+
+  {%-for i in (1..34)-%}
+    {%- capture ii -%}{%- if forloop.index < 10 -%}0{%- endif -%}{{i}}{%- endcapture -%}
+    {%- capture ip -%}{%- if forloop.index < 9 -%}0{%- endif -%}{{i | plus: 1}}{%- endcapture -%}
+    {%- assign unlessmap = '14,16,18' | split: ',' -%}
+    {%- if unlessmap contains ii -%}{%-continue-%}{%- endif -%}
+  .demo_{{ii}} {     
+    --bg: url('https://cdn.shopify.com/s/files/1/0279/6568/5813/files/Molla-{{ii}}_500x.jpg?v=1666062019');
+  }
+  {%-endfor-%}
+</style>
+<div id="kt-toolkit" class="position-fixed">
+  <div class="dropdown dropleft">
+    <a class="btn btn-secondary dropdown-toggle" href="#" id="toolkitDrop" role="button" data-toggle="dropdown" aria-expanded="false" title="Toolkit">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;width: 24px;height: 24px;fill: #fff;" xml:space="preserve">
+      <path d="M22.078,18.027l-8.41-7.798c0.002-0.001,0.004-0.003,0.006-0.004l0.346-0.16c0.296,0.217,0.645,0.332,0.997,0.332
+        c0.433,0,0.866-0.165,1.196-0.495l1.909-1.908c0.319-0.319,0.496-0.744,0.496-1.196s-0.176-0.877-0.496-1.196l-3.708-3.708
+        c-0.639-0.639-1.754-0.639-2.393,0l-1.908,1.909C9.793,4.123,9.617,4.548,9.617,5c0,0.365,0.12,0.709,0.332,0.998L9.79,6.342
+        C9.076,7.884,7.884,9.076,6.342,9.79L5.997,9.95c-0.662-0.485-1.596-0.434-2.193,0.163l-1.908,1.909
+        c-0.659,0.66-0.659,1.732,0,2.392l3.708,3.708c0.319,0.319,0.744,0.496,1.196,0.496c0.452,0,0.876-0.176,1.196-0.496l1.909-1.909
+        c0.319-0.319,0.496-0.744,0.496-1.196c0-0.365-0.12-0.709-0.332-0.998l0.159-0.345c0.001-0.002,0.002-0.004,0.003-0.006l7.797,8.41
+        c0.304,0.329,0.718,0.514,1.166,0.522c0.01,0,0.021,0,0.032,0c0.435,0,0.843-0.169,1.152-0.478l1.745-1.746
+        c0.316-0.316,0.486-0.737,0.478-1.185C22.591,18.745,22.406,18.331,22.078,18.027z M10.961,4.652l1.908-1.909
+        C12.965,2.648,13.091,2.6,13.217,2.6s0.252,0.048,0.348,0.144l3.708,3.708c0.192,0.192,0.192,0.503,0,0.695l-1.909,1.908
+        c-0.186,0.186-0.51,0.186-0.695,0l-3.708-3.708C10.868,5.254,10.817,5.131,10.817,5C10.817,4.869,10.868,4.745,10.961,4.652z
+         M9.055,15.363l-1.909,1.909c-0.192,0.191-0.504,0.19-0.695,0l-3.708-3.708c-0.191-0.191-0.191-0.503,0-0.695l1.908-1.909
+        C4.745,10.868,4.869,10.817,5,10.817s0.255,0.051,0.348,0.144l3.708,3.708C9.247,14.86,9.247,15.172,9.055,15.363z M9.673,12.233
+        c-0.068,0.07-0.11,0.152-0.137,0.24c-0.12,0.207-0.252,0.404-0.356,0.623l-2.26-2.26c1.74-0.826,3.09-2.177,3.917-3.916l2.259,2.26
+        c-0.22,0.104-0.418,0.237-0.625,0.357c-0.087,0.027-0.167,0.069-0.237,0.135C11.192,10.327,10.328,11.191,9.673,12.233z
+         M21.273,19.529l-1.745,1.745c-0.083,0.084-0.2,0.129-0.313,0.126c-0.118-0.002-0.228-0.051-0.309-0.138l-8.051-8.684
+        c0.469-0.673,1.049-1.253,1.722-1.723l8.685,8.052c0.086,0.081,0.135,0.189,0.138,0.308C21.402,19.333,21.357,19.445,21.273,19.529z
+         M12.309,22c0,0.332-0.269,0.6-0.6,0.6H2.076c-0.332,0-0.6-0.269-0.6-0.6s0.269-0.6,0.6-0.6h9.633
+        C12.041,21.4,12.309,21.668,12.309,22z"/>
+      </svg>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="toolkitDrop">
+      <a class="dropdown-item" href="/" style="background-color: transparent"><strong>KiTi Toolkit</strong></a>
+      <div class="dropdown-divider"></div>
+      <button type="button" data-toggle="modal" data-target="#importSectionModal">KT Elements</button>
+      <!-- <button type="button" data-toggle="offcanvas" data-target="#importDemoOffcanvas" role="button" aria-controls="importDemoOffcanvas">Import demo</button> -->
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="https://docs.the4.co/molla/" target="_blank">Document</a>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="importSectionModal" tabindex="-1" aria-labelledby="importSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+    <div class="modal-content" style="background-color: #282B30;">
+      <div class="container-fluid h-100">
+        <div class="row h-100">
+          <div class="col-12 col-lg-3 col-xl-2 bg-white h-100">
+            <h4 class="h2 text-center py-4 mb-0">
+              <img src="https://cdn.shopify.com/s/files/1/0279/6568/5813/files/M-logo.png?v=1665741486" alt="Molla" width="50">
+              <span class="d-block fw-bold"><span class="text-primary">Molla</span> Studio</span>
+            </h4>
+            <div class="sb-filters" style="overflow-y: auto;max-height: calc(100vh - 130px);">
+              <ul class="ps-1">
+                <li class="" data-filter="*"><i></i><span>All</span></li>
+                <li class="">
+                  <i></i><span>Sections</span>
+                  <ul class="pl-1">
+                    <li class="" data-filter=".slide"><span>Slide</span></li>
+                    <li class="" data-filter=".iconbox"><span>Icon Box</span></li>
+                    <li class="" data-filter=".banner"><span>Banner</span></li>
+                    <li class="" data-filter=".video"><span>Video</span></li>
+                    <li class="" data-filter=".categories"><span>Categories Box</span></li>
+                    <li class="" data-filter=".prd"><span>Product</span></li>
+                    <li class="" data-filter=".prds"><span>Products</span></li>
+                    <li class="" data-filter=".cta"><span>Call to action</span></li>
+                    <li class="" data-filter=".post"><span>Post</span></li>
+                    <li class="" data-filter=".brand"><span>Brand</span></li>
+                    <li class="" data-filter=".instagram"><span>Instagram</span></li>
+                    <li class="" data-filter=".testimonials"><span>Testimonials</span></li>
+                  </ul>
+                </li>
+                <!-- <li class="" data-filter=".header"><i></i><span>Header</span></li>
+                <li class="" data-filter=".footer"><i></i><span>Footer</span></li>
+                <li class="" data-filter=".single-prd"><i></i><span>Single product</span></li>
+                <li class="" data-filter=".popup"><i></i><span>Popup</span></li>
+                <li class="" data-filter=".-404"><i></i><span>Error 404</span></li> -->
+                <li class="" data-filter=".favo"><i></i><span>Favourites</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-lg-9 col-xl-10">
+            <div class="px-3 py-4 h-100 d-flex flex-wrap flex-column">
+              <div class="header-cp">
+                <div class="row">
+                  <div class="col">
+                    <h4 class="h5 text-white mb-1">All in One Library</h4>
+                    <p class="mb-0">Choose any type of template from ourr librarry</p>
+                  </div>
+                  <div class="col-auto">
+                    <div class="d-flex form-group">
+                      <select id="demo-selector" class="form-control mb-0 mr-1" aria-label="Select Demo" style="border-radius: 3px;color: #333;font-weight: 400;">
+                        <option value=".demo-homep" selected>Select Demo</option>
+                        <option value=".demo-homep">Demo Homepage</option>
+                        {%- assign unlessmap = '14,16,18' | split: ',' -%}
+                        {%-for i in (1..34)-%}{%- capture ii -%}{%- if forloop.index < 10 -%}0{%- endif -%}{{i}}{%- endcapture -%}
+                        {%- if unlessmap contains ii -%}{%-continue-%}{%- endif -%}
+                        <option value=".demo_{{ii}}">Demo {{ii}}</option>
+                        {%-endfor-%}
+                      </select>
+                      <button class="btn btn-white btn-sm btn-rounded fw-normal btn-minwidth-auto" aria-label="Close" data-dismiss="modal" type="button">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="body-cp" style="flex: 1 1 auto;overflow-y: auto;overflow-x: hidden;">
+                <div>
+                  <div class="selector-it row row-cols-2 row-cols-xl-3 row-cols-xxl-4" data-include="https://cdn.shopify.com/s/files/1/0279/6568/5813/t/33/assets/ktStudio.html?v={{"now" | date: "%9N"}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="kt_toolkit" src="{{ 'kt_toolkit.js' | asset_url }}" defer="defer" data-index="templates/{{ template }}.json" data-id="{{"now" | date: "%18N"}}"></script>

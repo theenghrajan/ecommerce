@@ -1,0 +1,26 @@
+Charlie Myhran
+As per comment #9,
+
+Re: CSV is current. The prices (2,360 changes) and new variants (1,184) are accurate. Please proceed.
+...
+While preparing the import sheet, we found that the client has shared two different price lists, both in the project files:
+- Aug 19: shopifyCSV_Daily_unlimited.csv and shopifyCSV_prepaid.csv
+- Sep 4: esimnow Daily Plan 1.csv and esimnow Prepaid Plan 1.csv
+
+The two lists don't match, so we need to know which one is final before we import.
+
+1. Daily Unlimited: 552 prices are different between the two lists. For 504 of them, the live site already shows the Sep 4 price. If we import the Aug 19 CSV, these prices will change back to the Aug 19 amount (in most cases a lower price).
+Example: Antigua and Barbuda 1GB/Day, 1 day is $9.92 on the live site and in the Sep 4 list, but $9.56 in the Aug 19 CSV.
+Reference screenshot: https://drive.google.com/file/d/1CWPDtKbjbPrlHA5N0OkaqszVEKe1khuv/view?usp=sharing
+
+2. Prepaid: 176 prices are different between the two lists. Before our Prepaid update on Oct 6, 168 of these matched the Sep 4 list. The Oct 6 update used the Aug 19 CSV, so these prices changed at that time (in most cases they went down).
+Example: Antigua and Barbuda 3GB 30Days was $29.98 before Oct 6 (same as the Sep 4 list) and is $27.53 now (Aug 19 CSV).
+Reference screenshot: https://drive.google.com/file/d/1Pjh84e0bi6JDH_wfblvPPJFV7xOfOCqU/view?usp=sharing
+
+Could you please ask the client which price list is final?
+- If the Sep 4 list is final, we will use it for the Daily Unlimited import and also change the 168 Prepaid prices back to the Sep 4 prices.
+- If the Aug 19 CSV is final, we will go ahead as planned and nothing changes on the Prepaid side.
+
+We will hold the import until we hear back. The rest of the sheet (new URLs, titles, new products and removals) is in progress and doesn't depend on this.
+
+Thanks!

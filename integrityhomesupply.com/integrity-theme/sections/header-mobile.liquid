@@ -1,0 +1,314 @@
+<!-- header-mobile.liquid -->
+{%- assign index_active = 1 -%}
+{%- if canonical_url contains 'category' -%}
+  {%- assign index_active = 2 -%}
+{%- endif -%}
+{%- capture content_header_mb -%}
+<div class="headermb-header">
+  <span class="mobile-menu-close close-menu float-right"><i class="fkt-close"></i></span>
+  <div class="w-100 float-left">
+  {%- if section.settings.use_search -%}
+    <div class="block-search">
+      {% render 'search-bar', search_style: "mobile" %}
+    </div>
+  {%- endif -%}
+  </div>
+  {%- if section.blocks.size > 0 -%}
+  <div class="w-100 float-left">
+    <div class="d-flex justify-content-start">
+      <div class="overflow-scroll-wrapper">                  
+        <ul class="nav nav-pills-mobile nav-border-anim flex-nowrap" role="tablist">
+          {%- for block in section.blocks -%}
+          <li class="nav-item">
+            <a class="nav-link{%if forloop.index == index_active%} active{%endif%}" data-toggle="tab" href="#tab-{{block.id}}" role="tab" aria-controls="tab-{{block.id}}" aria-selected="{%if forloop.first%}false{%else%}true{%endif%}" data-type="{{block.type}}">{{block.settings.title}}</a>
+          </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </div>
+    <div class="border-top" style="opacity: 0.5; margin-top: -5px"></div>
+  </div>
+  {%- endif -%}
+</div>
+<div class="headermb-content-wrapper{% if section.settings.use_search %} has_search-box{% endif %}">
+  <div class="" style="min-height: 100vh">
+  {%- if section.blocks.size > 0 -%}
+    <div class="tab-content tab-container">
+      {%- for block in section.blocks -%}
+      <div id="tab-{{block.id}}" class="tab-pane fade{%if forloop.index == index_active%} show active{%endif%}" role="tabpanel">
+      {%- case block.type -%}
+        {%- when 'item_menu' -%}
+          <nav class="mobile-nav">
+            <ul class="mobile-menu">
+            {%- for link in linklists[block.settings.menu_links].links -%}
+              {%-assign menu_handle = link.handle-%}
+              {%- if menu_handle == 'breakcol' -%}{%- continue -%}{%- endif -%}
+              <li class="{%if link.active%}active{%endif%}">
+                <a href="{{link.url}}" title="{{link.title}}">
+                  <span>
+                    {{link.title | split: '{' | first | split: '[' | first }}
+                    {%-if link.title contains '{'-%}
+                    {%-assign label = link.title |  split: '{' | last  | split: '}' | first-%}
+                    <span class="label-menu {{label | handleize }}">{{label|escape }}<span></span></span> 
+                    {%-endif-%}
+                  </span>
+                  {%- if link.links.size > 0 -%}<span class="mmenu-btn"></span>{%- endif -%}
+                </a>
+                {%- if link.links.size > 0 -%}
+                <ul style="display: none;">
+                  {%- for sub_link in link.links -%}
+                  {%- if sub_link.handle == 'breakcol' -%}{%- continue -%}{%- endif -%}
+                  <li class="{%if link.active%}active{%endif%}">
+                    <a href="{{ sub_link.url }}">
+                      <span>
+                        {{sub_link.title | split: '{' | first | split: '[' | first }}
+                        {%-if sub_link.title contains '{'-%}
+                        {%-assign label = sub_link.title |  split: '{' | last  | split: '}' | first-%}
+                        <span class="label-menu {{label | handleize }}">{{label|escape }}<span></span></span> 
+                        {%-endif-%}
+                      </span>
+                      {%- if sub_link.links.size > 0 -%}<span class="mmenu-btn"></span>{%- endif -%}
+                    </a>
+                    {%- if sub_link.links.size > 0 -%}
+                    <ul>
+                      {%- for sub_sub_link in sub_link.links -%}
+                      {%- if sub_sub_link.handle == 'breakcol' -%}{%- continue -%}{%- endif -%}
+                      <li>
+                        <a href="{{ sub_sub_link.url }}">
+                          {{sub_sub_link.title | split: '{' | first | split: '[' | first }}
+                          {%-if sub_sub_link.title contains '{'-%}
+                          {%-assign label = sub_sub_link.title |  split: '{' | last  | split: '}' | first-%}
+                          <span class="label-menu {{label | handleize }}">{{label|escape }}<span></span></span> 
+                          {%-endif-%}
+                        </a>
+                      </li>                    
+                      {%- endfor -%}
+                    </ul>
+                    {%- endif -%}
+                  </li>
+                  {%- endfor -%}
+                </ul>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+            {%- if block.settings.call_us_show -%}
+              <li class="mn-mobile-infor list-phone">
+                <a class="fkt-phone-square" href="tel:{{settings.phone_contact|default: shop.address.phone| remove: ' '}}">
+                  <span class="label">{{'contact.orther.call_us'|t}}{{settings.phone_contact|default: shop.phone}}</span>
+                </a>
+              </li>
+              {%- endif -%}
+              {%- if block.settings.email_show -%}
+              <li class="mn-mobile-infor list-email">
+                <a class="fkt-envelope" href="mailto:{{settings.email_contact|default: shop.address.email}}">
+                  <span class="label">{{'contact.orther.email'|t}}{{settings.email_contact|default: shop.email}}</span>
+                </a>
+              </li>
+              {%- endif -%}
+              {%- if block.settings.social_contact_show -%}
+              <li class="mn-mobile-infor list-socails">                
+                <span class="label d-none">{{'contact.orther.contacts_us'|t}}</span>
+                <div class="socials_ infor d-inline-block">
+                  {%-render "kt_socials"-%}
+                </div>
+              </li>
+              {%- endif -%}
+              {%- if block.settings.wishlist_show and settings.use_wishlist != '' -%}
+                {%- assign wishlist_page = pages['wishlist-local'] -%}
+                {%- if settings.use_wishlist == 'nitro' -%}
+                  {%- assign wishlist_page = pages['wishlist'] -%}
+                {%- endif -%}
+                {%- if wishlist_page.title != empty -%}
+                <li class="mn-mobile-infor list-wishlist">
+                  <a class="fkt-heart-o" href="{{wishlist_page.url}}"><span class="label">{{'products.wishlist.title'|t}}</span> (<span class="wishlistCount wishlist-count" style="background-color: transparent;">0</span>)</a>
+                </li>
+                {%- endif -%}
+              {%- endif -%}
+              {%- if block.settings.compare_show and settings.use_compare -%}
+              <li class="mn-mobile-infor list-compare">
+                <a class="fkt-random" href="javascript:void(0)" onclick="KT.showModalCompare()"><span class="label">{{'products.compare.title'|t}}</span> (<span class="compareCount">0</span>)</a>
+              </li>
+              {%- endif -%}
+              {%- if block.settings.account_show and shop.customer_accounts_enabled -%}
+              <li class="mn-mobile-infor list-link-account">
+                {%- if customer -%}
+                <a class="fkt-user" href="{{routes.account_url}}"><span>{{"layout.customer.account"|t}}</span></a>
+                {%- else -%}
+                <a class="fkt-user" href="{{routes.account_login_url}}{%unless template.directory == 'customers'%}?checkout_url=/{{canonical_url | remove: shop.url | url_encode }}{%endunless%}"><span>{{"layout.customer.log_in"|t}}</span></a>
+                {%- endif -%}
+              </li>
+              {%- endif -%}
+              {%- if block.settings.currency_dropdown_show and shop.enabled_currencies -%}
+              <li class="list-currency">
+                <a href="#" title="{{"layout.settings_dropdown.currency_title"|t}}" style="border: none;padding-bottom: 0;"><span class="d-block">{{"layout.settings_dropdown.currency_title"|t}}</span></a>
+                <div class="block-currency currency-list col-12">
+                  {%- render 'kt_currency_widget', layout: 1 -%}
+                </div>
+              </li>
+              {%- endif -%}
+            </ul>
+          </nav>
+        {%- when 'item_categories_1' -%}
+          <nav class="mobile-cats-nav">
+            <ul class="mobile-cats-menu list-unstyled">
+              {%- for link in linklists[block.settings.menu_links].links -%}
+              <li><a class="{%if link.title contains '[special]' %}mobile-cats-lead{%endif%}" href="{{link.url}}" aria-label="{{link.title | remove: '[special]'}}">{{link.title | remove: '[special]'}}</a></li>
+              {%- endfor -%}
+            </ul>
+          </nav>
+      {%- endcase -%}
+      </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+    <div class="socials_ style-02 style-02-small text-center">
+      {%-render "kt_socials"-%}
+    </div>
+  </div>
+</div>
+<div class="headermb-footer" style="height: 50px;"></div>
+{%- endcapture -%}
+{%- if section.settings.use_lazy -%}
+  {%- if template != 'cart.mobile-menu' -%}
+  <aside data-section-id="{{ section.id }}" data-section-type="header-mobile-section">
+    <div class="mobile-menu-container mobile-menu-light">
+      <div class="mobile-menu-wrapper lazyload" data-include="{{routes.cart_url}}?view=mobile-menu"></div>
+    </div>
+  </aside>
+  {%- endif -%}
+  {%- if template == 'cart.mobile-menu' -%}<!--lz_sc-->
+    {{- content_header_mb | strip_newlines | remove: '  ' | remove: '  ' -}}<!--lz_sc-->
+  {%- endif -%}
+{%- else -%}
+  <aside data-section-id="{{ section.id }}" data-section-type="header-mobile-section">
+    <div class="mobile-menu-container mobile-menu-light">
+      <div class="mobile-menu-wrapper">      
+        {{- content_header_mb | strip_newlines | remove: '  ' | remove: '  ' -}}
+      </div>
+    </div>
+  </aside>
+{%- endif -%}
+{% schema %}
+  {
+  "name": "Header mobile",
+  "settings": [
+    {
+      "type": "header",
+      "content": "== Header mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_lazy",
+      "label": "Use Lazyload?"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_search",
+      "label": "Use Search box?",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item_menu",
+      "name": "Item menu",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Select menu"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_links",
+          "label": "Choose the parent item menu"
+        },
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Tab title",
+          "default":"Item tab"
+        },
+        {
+          "type": "checkbox",
+          "id": "call_us_show",
+          "label": "Use Call us?"
+        },
+        {
+          "type": "checkbox",
+          "id": "email_show",
+          "label": "Use Email?"
+        },
+        {
+          "type": "checkbox",
+          "id": "wishlist_show",
+          "label": "Use Wishlist?"
+        },
+        {
+          "type": "checkbox",
+          "id": "compare_show",
+          "label": "Use Compare?"
+        },
+        {
+          "type": "checkbox",
+          "id": "account_show",
+          "label": "Use link Account?"
+        },
+        {
+          "type": "paragraph",
+          "content": "-------------------"
+        },
+        {
+          "type": "checkbox",
+          "id": "currency_dropdown_show",
+          "label": "Use Currency dropdown?"
+        },
+        {
+          "type": "paragraph",
+          "content": "-------------------"
+        },
+        {
+          "type": "checkbox",
+          "id": "language_app_show",
+          "label": "Use Language app?"
+        },
+        {
+          "type": "html",
+          "id": "language_app_html",
+          "label": "HTML of Language app?"
+        },
+        {
+          "type": "checkbox",
+          "id": "custom_show",
+          "label": "Use Custom?"
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "HTML of custom?"
+        }
+      ]
+    },
+    {
+      "type": "item_categories_1",
+      "name": "Item categories_1",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Select menu"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_links",
+          "label": "Choose the parent item menu"
+        },
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Tab title",
+          "default":"Item tab"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

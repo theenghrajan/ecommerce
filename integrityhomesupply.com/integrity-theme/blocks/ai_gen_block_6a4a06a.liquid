@@ -1,0 +1,630 @@
+{% doc %}
+  @prompt
+    make a qty calculator using metafield sqft per box, if there is no metafield the section do not appear, change the width option to pxs. Add margin options, add divider at the bottom, increase the maximum width to 1200
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign sqft_per_box = product.metafields.custom.sqft_per_box %}
+
+{% if sqft_per_box != blank %}
+  {% style %}
+    .ai-qty-calculator-wrapper-{{ ai_gen_id }} {
+      display: block;
+      width: 100%;
+      max-width: {{ block.settings.max_width }}px;
+      margin-top: {{ block.settings.margin_top }}px;
+      margin-bottom: {{ block.settings.margin_bottom }}px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ai-qty-calculator-{{ ai_gen_id }} {
+      display: block;
+      width: 100%;
+      padding: {{ block.settings.padding }}px;
+      background-color: {{ block.settings.background_color }};
+      border-radius: {{ block.settings.border_radius }}px;
+      border: 1px solid {{ block.settings.border_color }};
+    }
+
+    .ai-qty-calculator-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.title_size }}px;
+      font-weight: 600;
+      color: {{ block.settings.text_color }};
+      margin: 0 0 {{ block.settings.spacing }}px;
+    }
+
+    .ai-qty-calculator-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.description_size }}px;
+      color: {{ block.settings.text_color }};
+      margin: 0 0 {{ block.settings.spacing }}px;
+      opacity: 0.8;
+    }
+
+    .ai-qty-calculator-input-group-{{ ai_gen_id }} {
+      margin-bottom: {{ block.settings.spacing }}px;
+    }
+
+    .ai-qty-calculator-label-{{ ai_gen_id }} {
+      display: block;
+      font-size: {{ block.settings.label_size }}px;
+      color: {{ block.settings.text_color }};
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .ai-qty-calculator-input-{{ ai_gen_id }} {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: {{ block.settings.input_size }}px;
+      border: 1px solid {{ block.settings.input_border_color }};
+      border-radius: {{ block.settings.input_border_radius }}px;
+      background-color: {{ block.settings.input_background }};
+      color: {{ block.settings.text_color }};
+    }
+
+    .ai-qty-calculator-input-{{ ai_gen_id }}:focus {
+      outline: none;
+      border-color: {{ block.settings.accent_color }};
+    }
+
+    .ai-qty-calculator-button-{{ ai_gen_id }} {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: {{ block.settings.button_size }}px;
+      font-weight: 600;
+      background-color: {{ block.settings.button_color }};
+      color: {{ block.settings.button_text_color }};
+      border: none;
+      border-radius: {{ block.settings.button_border_radius }}px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .ai-qty-calculator-button-{{ ai_gen_id }}:hover {
+      background-color: {{ block.settings.button_hover_color }};
+    }
+
+    .ai-qty-calculator-result-{{ ai_gen_id }} {
+      margin-top: {{ block.settings.spacing }}px;
+      padding: {{ block.settings.spacing }}px;
+      background-color: {{ block.settings.result_background }};
+      border-radius: {{ block.settings.border_radius }}px;
+      border: 1px solid {{ block.settings.accent_color }};
+      display: none;
+    }
+
+    .ai-qty-calculator-result-{{ ai_gen_id }}.active {
+      display: block;
+    }
+
+    .ai-qty-calculator-result-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.result_size }}px;
+      color: {{ block.settings.text_color }};
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .ai-qty-calculator-result-highlight-{{ ai_gen_id }} {
+      font-weight: 700;
+      color: {{ block.settings.accent_color }};
+      font-size: {{ block.settings.result_size | plus: 2 }}px;
+    }
+
+    .ai-qty-calculator-error-{{ ai_gen_id }} {
+      color: {{ block.settings.error_color }};
+      font-size: {{ block.settings.label_size }}px;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .ai-qty-calculator-error-{{ ai_gen_id }}.active {
+      display: block;
+    }
+
+    .ai-qty-calculator-metafield-info-{{ ai_gen_id }} {
+      font-size: 12px;
+      color: {{ block.settings.text_color }};
+      opacity: 0.6;
+      margin-top: 8px;
+    }
+
+    .ai-qty-calculator-divider-{{ ai_gen_id }} {
+      height: {{ block.settings.divider_height }}px;
+      background-color: {{ block.settings.divider_color }};
+      margin-top: {{ block.settings.divider_spacing }}px;
+      border: none;
+    }
+  {% endstyle %}
+
+  <div class="ai-qty-calculator-wrapper-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+    <qty-calculator-{{ ai_gen_id }}
+      class="ai-qty-calculator-{{ ai_gen_id }}"
+      data-sqft-per-box="{{ sqft_per_box }}"
+    >
+      {% if block.settings.title != blank %}
+        <h3 class="ai-qty-calculator-title-{{ ai_gen_id }}">{{ block.settings.title }}</h3>
+      {% endif %}
+
+      {% if block.settings.description != blank %}
+        <div class="ai-qty-calculator-description-{{ ai_gen_id }}">
+          {{ block.settings.description }}
+        </div>
+      {% endif %}
+
+      <div class="ai-qty-calculator-input-group-{{ ai_gen_id }}">
+        <label class="ai-qty-calculator-label-{{ ai_gen_id }}" for="ai-qty-calc-area-{{ ai_gen_id }}">
+          {{ block.settings.area_label }}
+        </label>
+        <input
+          type="number"
+          id="ai-qty-calc-area-{{ ai_gen_id }}"
+          class="ai-qty-calculator-input-{{ ai_gen_id }}"
+          placeholder="{{ block.settings.area_placeholder }}"
+          min="0"
+          step="0.01"
+        >
+        <div class="ai-qty-calculator-error-{{ ai_gen_id }}" id="ai-qty-calc-error-{{ ai_gen_id }}">
+          {{ block.settings.error_message }}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="ai-qty-calculator-button-{{ ai_gen_id }}"
+        id="ai-qty-calc-btn-{{ ai_gen_id }}"
+      >
+        {{ block.settings.button_text }}
+      </button>
+
+      <div class="ai-qty-calculator-result-{{ ai_gen_id }}" id="ai-qty-calc-result-{{ ai_gen_id }}">
+        <p class="ai-qty-calculator-result-text-{{ ai_gen_id }}">
+          {{ block.settings.result_prefix }}
+          <span class="ai-qty-calculator-result-highlight-{{ ai_gen_id }}" id="ai-qty-calc-boxes-{{ ai_gen_id }}">0</span>
+          {{ block.settings.result_suffix }}
+        </p>
+        {% if block.settings.show_coverage_info %}
+          <p class="ai-qty-calculator-result-text-{{ ai_gen_id }}" style="margin-top: 8px;">
+            {{ block.settings.coverage_prefix }}
+            <span class="ai-qty-calculator-result-highlight-{{ ai_gen_id }}" id="ai-qty-calc-coverage-{{ ai_gen_id }}">0</span>
+            {{ block.settings.coverage_suffix }}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if block.settings.show_metafield_info %}
+        <div class="ai-qty-calculator-metafield-info-{{ ai_gen_id }}">
+          Coverage: {{ sqft_per_box }} sq ft per box
+        </div>
+      {% endif %}
+    </qty-calculator-{{ ai_gen_id }}>
+
+    {% if block.settings.show_divider %}
+      <hr class="ai-qty-calculator-divider-{{ ai_gen_id }}">
+    {% endif %}
+  </div>
+
+  <script>
+    (function() {
+      class QtyCalculator{{ ai_gen_id }} extends HTMLElement {
+        constructor() {
+          super();
+          this.sqftPerBox = parseFloat(this.dataset.sqftPerBox) || 0;
+        }
+
+        connectedCallback() {
+          this.input = this.querySelector('#ai-qty-calc-area-{{ ai_gen_id }}');
+  this.button = this.querySelector('#ai-qty-calc-btn-{{ ai_gen_id }}');
+  this.result = this.querySelector('#ai-qty-calc-result-{{ ai_gen_id }}');
+  this.boxesDisplay = this.querySelector('#ai-qty-calc-boxes-{{ ai_gen_id }}');
+  this.coverageDisplay = this.querySelector('#ai-qty-calc-coverage-{{ ai_gen_id }}');
+  this.error = this.querySelector('#ai-qty-calc-error-{{ ai_gen_id }}');
+
+  this.input.addEventListener('input', () => {
+    this.error.classList.remove('active');
+
+    if (this.input.value && parseFloat(this.input.value) > 0) {
+      this.calculate();
+    } else {
+      this.result.classList.remove('active');
+    }
+  });
+
+  if (this.button) {
+    this.button.style.display = 'none';
+  }
+}
+
+        calculate() {
+          const area = parseFloat(this.input.value);
+
+          if (!area || area <= 0) {
+            this.error.classList.add('active');
+            this.result.classList.remove('active');
+            return;
+          }
+
+          if (this.sqftPerBox <= 0) {
+            this.error.textContent = 'Coverage per box not configured';
+            this.error.classList.add('active');
+            this.result.classList.remove('active');
+            return;
+          }
+
+          this.error.classList.remove('active');
+
+          const boxesNeeded = Math.ceil(area / this.sqftPerBox);
+          const totalCoverage = (boxesNeeded * this.sqftPerBox).toFixed(2);
+
+          this.boxesDisplay.textContent = boxesNeeded;
+          
+          if (this.coverageDisplay) {
+            this.coverageDisplay.textContent = totalCoverage;
+          }
+
+          this.result.classList.add('active');
+        }
+      }
+
+      customElements.define('qty-calculator-{{ ai_gen_id }}', QtyCalculator{{ ai_gen_id }});
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Quantity calculator",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "Calculate boxes needed"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "Enter your area to calculate how many boxes you need"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "area_label",
+      "label": "Area input label",
+      "default": "Total area (sq ft)"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "area_placeholder",
+      "label": "Area input placeholder",
+      "default": "Enter square footage"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Calculate"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "error_message",
+      "label": "Error message",
+      "default": "Please enter a valid area"
+    },
+    {
+      "type": "header",
+      "content": "Result display"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "result_prefix",
+      "label": "Result prefix",
+      "default": "You need"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "result_suffix",
+      "label": "Result suffix",
+      "default": "boxes"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_coverage_info",
+      "label": "Show total coverage",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "coverage_prefix",
+      "label": "Coverage prefix",
+      "default": "Total coverage:"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "coverage_suffix",
+      "label": "Coverage suffix",
+      "default": "sq ft"
+    },
+    {
+      "type": "header",
+      "content": "Metafield settings"
+    },
+    {
+      "type": "paragraph",
+      "content": "This block only appears when product.metafields.custom.sqft_per_box is set."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_metafield_info",
+      "label": "Show coverage info",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 200,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "spacing",
+      "label": "Spacing",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Divider"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show divider",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_height",
+      "label": "Height",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "divider_spacing",
+      "label": "Top spacing",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#222222"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#c96"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error",
+      "default": "#d82c0d"
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "result_background",
+      "label": "Result background",
+      "default": "#f0f8f0"
+    },
+    {
+      "type": "header",
+      "content": "Button style"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Background",
+      "default": "#c96"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Hover background",
+      "default": "#b85"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "label": "Description size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Label size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "input_size",
+      "label": "Input size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Button size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "result_size",
+      "label": "Result size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "label": "Input border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quantity calculator"
+    }
+  ]
+}
+{% endschema %}

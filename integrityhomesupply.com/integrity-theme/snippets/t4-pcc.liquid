@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div class="modal fade" id="staticPurchase" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticPurchaseLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticPurchaseLabel">Welcome to Molla</h1>
+      </div>
+      <div class="modal-body">
+      	{%-if settings.purchase_code == blank-%}
+      	<div class="alert alert-message alert-warning alert-btn pcc-alert-no-code" role="alert">
+          <h4 class="alert-title">Purchase Code</h4>
+          <p class="mb-0">Please enter your purchase code to activate the theme.</p>
+        </div>
+        {%-endif-%}
+      	<div class="alert alert-message alert-warning alert-btn pcc-alert-success-error" role="alert" style="display: none;">
+          <h4 class="alert-title">Activation not successful!</h4>
+          <p class="mb-0 alert-success-error-info">That license key has been used for the active domain name riode-theme.myshopify.com</p>
+        </div>
+      	<div class="alert alert-message alert-warning alert-btn pcc-alert-error" role="alert" style="display: none;">
+          <h4 class="alert-title">Activation not successful!</h4>
+          <p class="mb-0">Due to an unexpected technical problem.<br>Please check back in a few minutes!</p>
+        </div>
+        <p>Follow these simple steps to activate your theme:</p>
+        <strong>Step 1: Activate with Purchase Code</strong>
+        <p>Go to "Theme Settings" > "Theme Activate" to activate theme.</p>
+        <strong>Step 3: Press Save from Theme Customize.</strong>
+        <p>From top right corner, click to Save button.</p>
+      </div>
+    </div>
+  </div>
+  <style>
+    .modal-backdrop.show {
+      --bs-backdrop-opacity: 1;
+      --bs-backdrop-bg: rgb(34 102 204 / 40%);
+      backdrop-filter: blur(20px);
+    }
+  </style>
+  <script>
+    let purchaseCode = {{settings.purchase_code | json}};
+    var checkCode = function(code){
+      if (code == null){
+          return false;
+      }		
+      let domain = '{{shop.permanent_domain}}';
+      let mix = ['4','t','h','e','p','l','i','c','o','/','.',':','n','s'];
+      let mix_domain = mix[2]+mix[1]+mix[1]+mix[4]+mix[13]+mix[11]+mix[9]+mix[9]+mix[5]+mix[6]+mix[7]+mix[10]+mix[1]+mix[2]+mix[3]+mix[0]+mix[10]+mix[7]+mix[8]+mix[9]+mix[5]+mix[6]+mix[7]+mix[3]+mix[12]+mix[13]+mix[3]+mix[9]+mix[7]+mix[2]+mix[3]+mix[7]+'k';
+      var data = {
+          "shopify_domain": domain,
+          "theme": "{{theme}}",
+          "email": "{{shop.email}}",
+          "purchase_code": code
+      };
+      var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": mix_domain,
+          "method": "POST",
+          "processData":false,
+          "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+          },
+          "processData": false,
+          "data": btoa (encodeURIComponent(JSON.stringify(data)))
+      }
+      $.ajax(settings).done(function (response) {
+        if (response.status == 1) {
+          localStorage.setItem("theme_active", "{{theme}}");
+        }
+        if (response.status == 2 || response.status == 3) {
+          $('#staticPurchase').modal('show');
+          $('.pcc-alert-success-error').show();
+          $('.alert-success-error-info').html(response.message.replace('the4studio.net', 'kitisummus'))
+        }
+      });
+    }
+    if(localStorage.getItem("theme_active") == '{{theme}}' && purchaseCode !== "") {
+      $('#staticPurchase').remove();
+    }
+    else if (purchaseCode !== ""){
+      checkCode(purchaseCode);
+    }
+    else {
+      setTimeout(function(){
+        $('#staticPurchase').modal('show');
+      }, 1000)
+    }
+  </script>
+</div>

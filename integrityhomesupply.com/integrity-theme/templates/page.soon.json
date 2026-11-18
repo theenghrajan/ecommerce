@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "kt_html_T9Wzcn": {
+      "type": "kt_HTML",
+      "settings": {
+        "title": "Section Customize",
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "3rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "title_section": "Virtual Showroom",
+        "stitle_section": "Walk around our store right from your home. Click on the circles to move around.",
+        "reverse": false,
+        "title_align": "text-center",
+        "link_to": "",
+        "name_link": "",
+        "style_link": "",
+        "margin_btitle": 3,
+        "border_top": false,
+        "border_bottom": false,
+        "border_color": "#ebebeb",
+        "text": "<iframe src=\"https://my.matterport.com/show/?m=5KEVBZgAKFp&amp;play=1&amp;hl=1&amp;lp=1\" width=\"100%\" height=\"600\" frameborder=\"0\" allow=\"fullscreen; vr; autoplay;\" id=\"showcase-iframe\" style=\"background-color: white;\"></iframe>",
+        "link": "",
+        "page": ""
+      }
+    }
+  },
+  "order": [
+    "content",
+    "kt_html_T9Wzcn"
+  ]
+}

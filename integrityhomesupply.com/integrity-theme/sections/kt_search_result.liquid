@@ -1,0 +1,78 @@
+<!--lz_sc-->
+{%- assign count = 0 -%}
+{%- for product in predictive_search.resources.products -%}
+  <li class="item-search it-prd">
+    <a href="{{ product.url }}">
+      <div class="thumb is-contain">
+        {%- capture ar_i-%}--ar_i:{{product.featured_image.height | times: 1.00 | divided_by: product.featured_image.width | times: 100.00000000}}%{%-endcapture-%}
+        <div class="aspectRatio" style="{{ar_i | replace:'--ar_i:NaN%',''}}">
+          {%- if product.featured_image -%}
+            {{ product.featured_image | image_url: width: product.featured_image.width | image_tag: class: 'img-fit-cover', alt: product.featured_image.alt, size: '100vw', widths: '240', loading: 'lazy' }}
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="product-info">
+        <h4 class="product-name">{{product.title}}</h4>
+        {%-if settings.use_review_grid-%}{%-render 'rating_star', product: product, type: 'collection'-%}{%-endif-%}
+        {%render 'product-item-prices', product: product, on_sale: on_sale, price_varies: price_varies-%}
+      </div>
+    </a>
+  </li>
+  {%- assign count = 1 -%}
+{%- endfor -%}
+{%- for collection in predictive_search.resources.collections -%}
+  {%- if forloop.first -%}
+  <li class="item-search" style="max-width: none;"><div class="border-top"></div></li>
+  <li class="item-search" style="max-width: none;">
+    <h4 class="mb-1">{{'general.search_dropdown.collections_group' | t }}</h4>
+  </li>
+  {%- endif -%}
+  <li class="item-search it-coll">
+    <a href="{{ collection.url }}">
+      <div class="thumb-collection is-contain">
+        {%- if collection.image -%}
+          {%- assign ft_img = collection.image -%}
+        {%- elsif collection.products.first and collection.products.first.images != empty -%}
+          {%- assign ft_img = collection.products.first.featured_image -%}
+        {% endif %}
+        <div class="aspectRatio">
+          {%- if ft_img -%}
+            {{ ft_img | image_url: width: ft_img.width | image_tag: class: 'img-fit-cover', alt: collection.title, size: '100vw', widths: '240', loading: 'lazy' }}
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="collection-info">
+        <h4 class="collection-name mb-0">{{collection.title}}</h4>
+      </div>
+    </a>
+  </li>
+  {%- assign count = 1 -%}
+{%- endfor -%}
+{%- for article in predictive_search.resources.articles -%}
+  {%- if forloop.first -%}
+  <li class="item-search" style="max-width: none;"><div class="border-top"></div></li>
+  <li class="item-search" style="max-width: none;">
+    <h4 class="mb-1">{{'general.search_dropdown.articles_group' | t }}</h4>
+  </li>
+  {%- endif -%}
+  <li class="item-search it-article">
+    <a href="{{ article.url }}">{{article.title}}</a>
+  </li>
+  {%- assign count = 1 -%}
+{%- endfor -%}
+{%- for page in predictive_search.resources.pages -%}
+  {%- if forloop.first -%}
+  <li class="item-search" style="max-width: none;"><div class="border-top"></div></li>
+  <li class="item-search" style="max-width: none;">
+    <h4 class="mb-1">{{'general.search_dropdown.pages_group' | t }}</h4>
+  </li>
+  {%- endif -%}
+  <li class="item-search it-page">
+    <a href="{{ page.url }}">{{page.title}}</a>
+  </li>
+  {%- assign count = 1 -%}
+{%- endfor -%}
+{%- if count == 0 -%}
+  <li class="col-12"><h4 class="mb-0 py-1">{{'general.search_dropdown.no_results' | t | json }}</h4></li>
+{%- endif -%}
+<!--lz_sc-->

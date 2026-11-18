@@ -1,0 +1,674 @@
+{% doc %}
+  @prompt
+    Create a new Shopify theme section for a Kitchens page that includes: a contact form (with fields for name, email, phone, and message, plus a submit button) and a Q&A / FAQ accordion below it where questions expand to reveal answers. The section should have customizable heading text, and each FAQ item (question + answer) should be configurable as blocks in the theme editor. Style should be clean and premium to match a home improvement / cabinetry brand., center the button
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-kitchens-contact-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.section_bg_color }};
+    padding: {{ block.settings.section_padding_top }}px 0 {{ block.settings.section_padding_bottom }}px;
+  }
+
+  .ai-kitchens-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.container_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-kitchens-heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .ai-kitchens-heading-{{ ai_gen_id }} h2 {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 15px;
+    font-weight: 600;
+  }
+
+  .ai-kitchens-heading-{{ ai_gen_id }} p {
+    font-size: {{ block.settings.subheading_size }}px;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+  }
+
+  .ai-kitchens-form-wrapper-{{ ai_gen_id }} {
+    background-color: {{ block.settings.form_bg_color }};
+    padding: 40px;
+    border-radius: {{ block.settings.border_radius }}px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 60px;
+  }
+
+  .ai-kitchens-form-{{ ai_gen_id }} {
+    display: grid;
+    gap: 20px;
+  }
+
+  .ai-kitchens-form-row-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .ai-kitchens-form-group-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-kitchens-form-group-{{ ai_gen_id }} label {
+    font-size: 14px;
+    font-weight: 500;
+    color: {{ block.settings.label_color }};
+    margin-bottom: 8px;
+  }
+
+  .ai-kitchens-form-group-{{ ai_gen_id }} input,
+  .ai-kitchens-form-group-{{ ai_gen_id }} textarea {
+    padding: 12px 16px;
+    border: 1px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    font-size: 15px;
+    color: {{ block.settings.text_color }};
+    background-color: #ffffff;
+    transition: border-color 0.3s ease;
+  }
+
+  .ai-kitchens-form-group-{{ ai_gen_id }} input:focus,
+  .ai-kitchens-form-group-{{ ai_gen_id }} textarea:focus {
+    outline: none;
+    border-color: {{ block.settings.input_focus_color }};
+  }
+
+  .ai-kitchens-form-group-{{ ai_gen_id }} textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .ai-kitchens-submit-btn-{{ ai_gen_id }} {
+    padding: 14px 40px;
+    background-color: {{ block.settings.button_bg_color }};
+    color: {{ block.settings.button_text_color }};
+    border: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-self: center;
+  }
+
+  .ai-kitchens-submit-btn-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_bg_color }};
+  }
+
+  .ai-kitchens-form-success-{{ ai_gen_id }} {
+    padding: 15px 20px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: {{ block.settings.input_border_radius }}px;
+    margin-bottom: 20px;
+  }
+
+  .ai-kitchens-form-error-{{ ai_gen_id }} {
+    padding: 15px 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: {{ block.settings.input_border_radius }}px;
+    margin-bottom: 20px;
+  }
+
+  .ai-kitchens-faq-wrapper-{{ ai_gen_id }} {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ai-kitchens-faq-heading-{{ ai_gen_id }} {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .ai-kitchens-faq-heading-{{ ai_gen_id }} h3 {
+    font-size: {{ block.settings.faq_heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0;
+    font-weight: 600;
+  }
+
+  .ai-kitchens-faq-item-{{ ai_gen_id }} {
+    background-color: {{ block.settings.faq_bg_color }};
+    border: 1px solid {{ block.settings.faq_border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+
+  .ai-kitchens-faq-question-{{ ai_gen_id }} {
+    width: 100%;
+    padding: 20px 50px 20px 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: {{ block.settings.heading_color }};
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+
+  .ai-kitchens-faq-question-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.faq_hover_bg_color }};
+  }
+
+  .ai-kitchens-faq-icon-{{ ai_gen_id }} {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-kitchens-faq-icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    stroke: {{ block.settings.heading_color }};
+  }
+
+  .ai-kitchens-faq-question-{{ ai_gen_id }}[aria-expanded="true"] .ai-kitchens-faq-icon-{{ ai_gen_id }} {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .ai-kitchens-faq-answer-{{ ai_gen_id }} {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .ai-kitchens-faq-answer-content-{{ ai_gen_id }} {
+    padding: 0 20px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: {{ block.settings.text_color }};
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-kitchens-form-row-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+
+    .ai-kitchens-form-wrapper-{{ ai_gen_id }} {
+      padding: 30px 20px;
+    }
+
+    .ai-kitchens-heading-{{ ai_gen_id }} h2 {
+      font-size: {{ block.settings.heading_size | times: 0.75 }}px;
+    }
+
+    .ai-kitchens-faq-heading-{{ ai_gen_id }} h3 {
+      font-size: {{ block.settings.faq_heading_size | times: 0.8 }}px;
+    }
+
+    .ai-kitchens-submit-btn-{{ ai_gen_id }} {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+<kitchens-contact-{{ ai_gen_id }}
+  class="ai-kitchens-contact-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-kitchens-container-{{ ai_gen_id }}">
+    {% if block.settings.heading != blank or block.settings.subheading != blank %}
+      <div class="ai-kitchens-heading-{{ ai_gen_id }}">
+        {% if block.settings.heading != blank %}
+          <h2>{{ block.settings.heading }}</h2>
+        {% endif %}
+        {% if block.settings.subheading != blank %}
+          <p>{{ block.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="ai-kitchens-form-wrapper-{{ ai_gen_id }}">
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="ai-kitchens-form-success-{{ ai_gen_id }}">
+            {{ block.settings.success_message }}
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="ai-kitchens-form-error-{{ ai_gen_id }}">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <div class="ai-kitchens-form-{{ ai_gen_id }}">
+          <div class="ai-kitchens-form-row-{{ ai_gen_id }}">
+            <div class="ai-kitchens-form-group-{{ ai_gen_id }}">
+              <label for="contact-name-{{ ai_gen_id }}">
+                {{ block.settings.name_label }}
+                <span style="color: #d82c0d;">*</span>
+              </label>
+              <input
+                type="text"
+                id="contact-name-{{ ai_gen_id }}"
+                name="contact[name]"
+                value="{% if form.name %}{{ form.name }}{% endif %}"
+                required
+              >
+            </div>
+
+            <div class="ai-kitchens-form-group-{{ ai_gen_id }}">
+              <label for="contact-email-{{ ai_gen_id }}">
+                {{ block.settings.email_label }}
+                <span style="color: #d82c0d;">*</span>
+              </label>
+              <input
+                type="email"
+                id="contact-email-{{ ai_gen_id }}"
+                name="contact[email]"
+                value="{% if form.email %}{{ form.email }}{% endif %}"
+                autocomplete="email"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="ai-kitchens-form-group-{{ ai_gen_id }}">
+            <label for="contact-phone-{{ ai_gen_id }}">
+              {{ block.settings.phone_label }}
+            </label>
+            <input
+              type="tel"
+              id="contact-phone-{{ ai_gen_id }}"
+              name="contact[phone]"
+              value="{% if form.phone %}{{ form.phone }}{% endif %}"
+              autocomplete="tel"
+            >
+          </div>
+
+          <div class="ai-kitchens-form-group-{{ ai_gen_id }}">
+            <label for="contact-message-{{ ai_gen_id }}">
+              {{ block.settings.message_label }}
+              <span style="color: #d82c0d;">*</span>
+            </label>
+            <textarea
+              id="contact-message-{{ ai_gen_id }}"
+              name="contact[body]"
+              required
+            >{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="ai-kitchens-submit-btn-{{ ai_gen_id }}"
+          >
+            {{ block.settings.submit_button_text }}
+          </button>
+        </div>
+      {% endform %}
+    </div>
+
+    {% if block.settings.show_faq %}
+      <div class="ai-kitchens-faq-wrapper-{{ ai_gen_id }}">
+        {% if block.settings.faq_heading != blank %}
+          <div class="ai-kitchens-faq-heading-{{ ai_gen_id }}">
+            <h3>{{ block.settings.faq_heading }}</h3>
+          </div>
+        {% endif %}
+
+        <div class="ai-kitchens-faq-list-{{ ai_gen_id }}">
+          {% assign faq_items = block.settings.faq_items | split: '||' %}
+          {% for item in faq_items %}
+            {% assign parts = item | split: '|' %}
+            {% if parts.size == 2 %}
+              <div class="ai-kitchens-faq-item-{{ ai_gen_id }}">
+                <button
+                  class="ai-kitchens-faq-question-{{ ai_gen_id }}"
+                  aria-expanded="false"
+                  data-faq-toggle="{{ forloop.index }}"
+                >
+                  {{ parts[0] }}
+                  <span class="ai-kitchens-faq-icon-{{ ai_gen_id }}">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </span>
+                </button>
+                <div
+                  class="ai-kitchens-faq-answer-{{ ai_gen_id }}"
+                  data-faq-answer="{{ forloop.index }}"
+                >
+                  <div class="ai-kitchens-faq-answer-content-{{ ai_gen_id }}">
+                    {{ parts[1] }}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</kitchens-contact-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class KitchensContact{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.faqToggles = this.querySelectorAll('[data-faq-toggle]');
+        this.setupFAQ();
+      }
+
+      setupFAQ() {
+        this.faqToggles.forEach((toggle) => {
+          toggle.addEventListener('click', () => {
+            const index = toggle.getAttribute('data-faq-toggle');
+            const answer = this.querySelector(`[data-faq-answer="${index}"]`);
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+              toggle.setAttribute('aria-expanded', 'false');
+              answer.style.maxHeight = '0';
+            } else {
+              toggle.setAttribute('aria-expanded', 'true');
+              answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+          });
+        });
+      }
+    }
+
+    customElements.define('kitchens-contact-{{ ai_gen_id }}', KitchensContact{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Kitchens contact and FAQ",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "label": "Container width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get in Touch About Your Kitchen Project"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our team is ready to help you design the kitchen of your dreams"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "subheading_size",
+      "label": "Subheading size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#222222"
+    },
+    {
+      "type": "header",
+      "content": "Contact form"
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Name field label",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email field label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Phone field label",
+      "default": "Phone"
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Message field label",
+      "default": "Message"
+    },
+    {
+      "type": "text",
+      "id": "submit_button_text",
+      "label": "Submit button text",
+      "default": "Send Message"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you for contacting us. We'll get back to you as soon as possible."
+    },
+    {
+      "type": "color",
+      "id": "form_bg_color",
+      "label": "Form background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border color",
+      "default": "#dddddd"
+    },
+    {
+      "type": "color",
+      "id": "input_focus_color",
+      "label": "Input focus color",
+      "default": "#c96"
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "label": "Input border radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Submit button"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Background color",
+      "default": "#c96"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_bg_color",
+      "label": "Hover background color",
+      "default": "#b85"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "FAQ section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_faq",
+      "label": "Show FAQ section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "faq_heading",
+      "label": "FAQ heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "range",
+      "id": "faq_heading_size",
+      "label": "FAQ heading size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "textarea",
+      "id": "faq_items",
+      "label": "FAQ items",
+      "default": "What types of kitchen cabinets do you offer?|We offer a wide range of kitchen cabinets including shaker style, modern flat-panel, traditional raised-panel, and custom designs. All cabinets are available in various finishes and materials to match your style and budget.||How long does a kitchen cabinet installation take?|Installation time varies depending on the size and complexity of your kitchen. Typically, a standard kitchen takes 3-5 days to complete. We'll provide a detailed timeline during your consultation.||Do you offer free design consultations?|Yes! We offer complimentary design consultations where our experts will help you plan your dream kitchen, discuss material options, and provide accurate measurements and quotes.||What is your warranty policy?|All our cabinets come with a comprehensive warranty covering manufacturing defects and hardware. The specific warranty period varies by product line, ranging from 5 to 25 years."
+    },
+    {
+      "type": "color",
+      "id": "faq_bg_color",
+      "label": "FAQ background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "faq_hover_bg_color",
+      "label": "FAQ hover background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "faq_border_color",
+      "label": "FAQ border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kitchens contact and FAQ"
+    }
+  ]
+}
+{% endschema %}

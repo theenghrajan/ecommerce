@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div#kt--filter-js.kt--filter-js",
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "92ca61f1-fdfb-4bad-a6ad-17468f154ca6": {
+          "type": "filter_item",
+      "settings": {
+            "title": "Color",
+            "key": "Color",
+            "block_style": "5",
+            "use_split": false,
+            "always_show": false
+      }
+    },
+        "fc496820-ab6c-4f2f-b1cb-77856453150a": {
+          "type": "filter_item",
+          "settings": {
+            "title": "Size",
+            "key": "Size",
+            "block_style": "1",
+            "use_split": false,
+            "always_show": false
+          }
+        },
+        "c7cb9d40-e46e-410f-b9b0-cd69d76956d2": {
+          "type": "filter_item",
+          "settings": {
+            "title": "Availability",
+            "key": "Availability",
+            "block_style": "1",
+            "use_split": false,
+            "always_show": false
+          }
+        }
+      },
+      "block_order": [
+        "92ca61f1-fdfb-4bad-a6ad-17468f154ca6",
+        "fc496820-ab6c-4f2f-b1cb-77856453150a",
+        "c7cb9d40-e46e-410f-b9b0-cd69d76956d2"
+      ],
+      "disabled": true,
+      "settings": {
+        "width_section": "w-100",
+        "width_content": true,
+        "show_desc": true,
+        "sort_enable": true,
+        "masonry": false,
+        "numbershow_enable": true,
+        "gridlist_enable": true,
+        "list_enable": false,
+        "sidebar": "left",
+        "grid": "3",
+        "layout": "default",
+        "limit": 16,
+        "use_flts": true,
+        "filters_type": "sidebar"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_product_section_show_RXNmJw": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_yLy3rC": {
+          "type": "item",
+          "settings": {
+            "title_section": "Laurel",
+            "stitle_section": "Prices may differ in-store<br>Experience the epitome of elegance and durability with the Laurel™ Luxury Vinyl Plank Collection by Everlife . These extra wide 9” x 48” planks showcase a range of blonde and light brown wood aesthetics, creating a timeless charm in any space. Boasting a 5MM thickness comprising a 4MM core and 1MM attached pad for comfort underfoot, it establishes a robust foundation. The proprietary 20MIL CrystaLux Ultra protection layer provides an added shield, ensuring ultimate resistance against daily wear and tear for long-lasting performance.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-laurel",
+            "limit_per_row": 4,
+            "limit": 50,
+            "range_row": 1,
+            "name_btn": "See Panzu Colors",
+            "load_btn": false,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-round",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_yLy3rC"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_product_section_show_RXNmJw"
+  ]
+}

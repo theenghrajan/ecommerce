@@ -1,0 +1,143 @@
+{%- if settings.use_search -%}
+{%- if settings.use_search_by_collection -%}
+{%- liquid
+  if search.terms != blank
+    assign searchTerms = search.terms
+    for coll_search in collections
+      if search.terms contains coll_search.id
+        assign isCollection = coll_search.id | append: ' '
+        assign searchTerms = search.terms | remove: isCollection
+        break
+      endif
+    endfor    
+  endif
+-%}
+{%-capture searchDrop-%}
+<div class="searchDrop select-custom" data-use="{{settings.use_search_by_collection}}">  
+  {%- if settings.use_types_dropdown -%}
+    <select class="searchTypes form-select mb-0 searchCat" aria-label="{{'general.search_dropdown.all' | t}}">
+      <option value=""{%if search.terms == "" %} selected="selected"{% endif %}>{{'general.search_dropdown.all' | t}}</option>
+      {%- for link in linklists['list-types-search'].links -%}
+        <option value="{{link.title | escape}}"{%if search.terms == link.title %} selected="selected"{% endif %}>{{link.title}}</option>
+        {%- for sub_link in link.links -%}
+          <option value="{{sub_link.title | escape}}"{%if search.terms == sub_link.title %} selected="selected"{% endif %}>- {{sub_link.title}}</option>
+          {%- for sub_sub_link in sub_link.links -%}
+            <option value="{{sub_sub_link.title | escape}}"{%if search.terms == sub_sub_link.title %} selected="selected"{% endif %}>-- {{sub_sub_link.title}}</option>
+          {%- endfor -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for product_type in shop.types -%}
+        {%-if product_type == '' -%}{%continue%}{%-endif-%}
+        <option {%if search.terms == product_type %} selected="selected"{% endif %} value="{{product_type | escape}}">{{product_type}}</option>
+        {%- endfor -%}
+      {%- endfor -%}
+    </select>
+  {%- endif -%}
+</div>
+{%-endcapture-%}
+{%- endif -%}
+
+{%-case search_style-%}
+  {%-when "input-cat-right"-%}
+  <form class="box-search input-cat-right d-flex{% if settings.use_search_by_collection %} has_cat_drop{%endif%}" action="{{routes.search_url}}" method="get" autocomplete="off">
+    <input type="hidden" name="options[unavailable_products]" value="show">
+    <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+    <input type="hidden" name="options[prefix]" value="last">
+    <input type="text" name="q" value="{{ searchTerms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
+    {%- if settings.use_search_by_collection -%}
+      {{searchDrop}}
+    {%- elsif settings.use_search_ajax == false -%}
+      <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+    {%- endif -%}
+    <button type="submit" class="button-search btn btn-primary" aria-label="{{ 'general.search.placeholder' | t }}">
+      <svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-search"></use></svg>
+    </button>
+    <div class="li--s-drop kt--drop-in"><ul class="li--s list-unstyled kt_scroll row mb-0"></ul></div>
+  </form>
+  {%-when "input-cat-left"-%}
+  <form class="box-search input-cat-left d-flex{% if settings.use_search_by_collection %} has_cat_drop{%endif%}" action="{{routes.search_url}}" method="get" autocomplete="off">
+    <input type="hidden" name="options[unavailable_products]" value="show">  
+    <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+    <input type="hidden" name="options[prefix]" value="last">
+    {%- if settings.use_search_by_collection -%}
+      {{searchDrop}}
+    {%- endif -%}
+    <input type="text" name="q" value="{{ searchTerms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
+    <button type="submit" class="button-search btn btn-primary" aria-label="{{ 'general.search.placeholder' | t }}">
+      <svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-search"></use></svg>
+    </button>
+    <div class="li--s-drop kt--drop-in"><ul class="li--s list-unstyled kt_scroll row mb-0"></ul></div>
+  </form>
+  {%-when "icon"-%}
+  <form class="box-search show-icon kt--drop-i" action="{{routes.search_url}}" method="get" autocomplete="off">  
+    <div class="kt--drop-title icon-link li--s_mb" aria-label="Search">    
+      <svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-search"></use></svg>
+    </div>
+    <div class="inner kt--drop-in not_onhover inline">
+      <div style="position: relative;">
+        <div class="control d-flex flex-nowrap align-items-center">
+          <input type="hidden" name="options[unavailable_products]" value="show">        
+          <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="text" name="q" value="{{ searchTerms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
+          <button type="submit" class="button-search btn" aria-label="{{ 'general.search.placeholder' | t }}">
+            <svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-search"></use></svg>
+          </button>
+        </div>
+        <div class="li--s-drop"><ul class="li--s list-unstyled kt_scroll row mb-0"></ul></div>
+      </div>
+    </div>
+  </form>
+  {%-when "show-input"-%}
+  <form class="box-search show-input" action="{{routes.search_url}}" method="get" autocomplete="off">
+    <div class="inner">
+      <div style="position: relative;">
+        <div class="control d-flex flex-nowrap align-items-center">
+          <input type="hidden" name="options[unavailable_products]" value="show">        
+          <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+          <input type="hidden" name="options[prefix]" value="last">
+          <input type="text" name="q" value="{{ searchTerms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
+          <button type="submit" class="button-search btn" aria-label="{{ 'general.search.placeholder' | t }}">
+            <svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-search"></use></svg>
+          </button>
+        </div>
+        <div class="li--s-drop"><ul class="li--s list-unstyled kt_scroll row mb-0"></ul></div>
+      </div>
+    </div>
+  </form>
+  {%-when "show-input-line"-%}
+  <form class="box-search show-input-line" action="{{routes.search_url}}" method="get" autocomplete="off">
+    <div class="inner">
+      <div style="position: relative;">
+        <div class="control d-flex flex-nowrap align-items-center">
+          <input type="hidden" name="options[unavailable_products]" value="show">        
+          <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+          <input type="text" name="q" value="{{ searchTerms | escape }}" class="search" placeholder="{{ 'general.search.placeholder' | t }}" required>
+          <input type="hidden" name="options[prefix]" value="last">
+          <button type="submit" class="button-search btn" aria-label="{{ 'general.search.placeholder' | t }}">
+            <svg class="molla-svg-icon" viewBox="0 0 32 32"><use xlink:href="#icon-search"></use></svg>
+          </button>
+        </div>
+        <div class="li--s-drop"><ul class="li--s list-unstyled kt_scroll row mb-0"></ul></div>
+      </div>
+    </div>
+  </form>
+  {%-when "mobile"-%}
+  <form class="box-search mobile-search" action="{{routes.search_url}}" method="get" autocomplete="off">
+    <div class="inner w-100">
+      <div style="position: relative;">
+        <div class="control d-flex flex-nowrap align-items-center">
+          <input type="hidden" name="options[unavailable_products]" value="show">        
+          <input type="hidden" name="type" value="product{%-if settings.search_type_page-%},page{%-endif-%}{%-if settings.search_type_article-%},article{%-endif-%}{%-if settings.search_type_collection-%},collection{%-endif-%}">
+          <input type="search" class="form-control search" name="q" value="{{ searchTerms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" required>
+          <input type="hidden" name="options[prefix]" value="last">
+          <button type="submit" class="btn btn-primary button-search" aria-label="{{ 'general.search.placeholder' | t }}">
+            <svg class="molla-svg-icon" viewBox="0 0 32 32" style="width: 2.4rem;"><use xlink:href="#icon-search"></use></svg>
+          </button>
+        </div>
+        <div class="li--s-drop"><ul class="li--s list-unstyled kt_scroll row mb-0"></ul></div>
+      </div>
+    </div>
+  </form>
+{%-endcase-%}
+{%- endif -%}

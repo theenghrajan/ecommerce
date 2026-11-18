@@ -1,0 +1,75 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_product_section_show_RXNmJw": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_yLy3rC": {
+          "type": "item",
+          "settings": {
+            "title_section": "XL Cyrus",
+            "stitle_section": "Prices may differ in-store<br>Worry-free flooring never looked so good! XL Cyrus® Luxury Vinyl Planks bring an authentic wood look to your space in a gorgeous large format 9x60 plank. Suitable for all grade levels, XL Cyrus® is 100% waterproof LVP that’s protected with CrystaLux —a protection layer that provides durability and longevity to protect against everyday wear. This vinyl flooring is backed by a lifetime residential and 10-year light commercial warranty. As part of the Everlife Luxury Vinyl Flooring Series, it offers an easy-install locking system with a pre-attached backing for quiet comfort underfoot. With “no acclimation” technology, this rigid core flooring allows for buy today, install today convenience. Plus, its custom-designed beveled edge enhances the beauty of XL Cyrus® for enduring elegance.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "msi-xl-cyrus",
+            "limit_per_row": 4,
+            "limit": 50,
+            "range_row": 1,
+            "name_btn": "See Panzu Colors",
+            "load_btn": false,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-round",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_yLy3rC"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_product_section_show_RXNmJw"
+  ]
+}

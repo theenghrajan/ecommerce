@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "blocks_NAB6iR": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_746fd33_xwP8QT": {
+          "type": "ai_gen_block_746fd33",
+          "settings": {
+            "image_1": "shopify://shop_images/White.webp",
+            "heading_1": "European Frameless Cabinetry",
+            "subheading_1": "Seamless design, precision craftsmanship, and timeless European styling",
+            "image_2": "shopify://shop_images/CPL6434.jpg",
+            "heading_2": "",
+            "subheading_2": "",
+            "image_3": "shopify://shop_images/Harvest_Beige.webp",
+            "heading_3": "",
+            "subheading_3": "",
+            "heading_4": "",
+            "subheading_4": "",
+            "heading_5": "",
+            "subheading_5": "",
+            "aspect_ratio": "16/9",
+            "carousel_width": 1200,
+            "carousel_height": 500,
+            "text_color": "#000000",
+            "heading_size": 44,
+            "subheading_size": 18,
+            "text_spacing": 18,
+            "heading_weight": "700",
+            "subheading_weight": "400",
+            "text_shadow_x": 0,
+            "text_shadow_y": 2,
+            "text_shadow_blur": 20,
+            "text_shadow_color": "rgba(0,0,0,0)",
+            "show_navigation": true,
+            "nav_size": 70,
+            "nav_offset": 25,
+            "nav_bg_color": "rgba(0,0,0,0)",
+            "nav_hover_bg_color": "#ffffff",
+            "nav_icon_color": "#000000",
+            "show_dots": false,
+            "dots_size": 6,
+            "dots_spacing": 6,
+            "dots_offset": 15,
+            "dots_color": "#ffffff80",
+            "dots_active_color": "#ffffff",
+            "autoplay": true,
+            "autoplay_speed": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_746fd33_xwP8QT"
+      ],
+      "name": "Image carousel",
+      "settings": {}
+    },
+    "md_banner_with_text_3_FBXtaa": {
+      "type": "md_banner_with_text_3",
+      "blocks": {
+        "1_QPzQc3": {
+          "type": "1",
+          "settings": {
+            "banner_align": "below",
+            "image_banner": "shopify://shop_images/k2_-_spec.png",
+            "title": "Frameless Cabinet Specs",
+            "html_content": "High-quality plywood construction paired with soft-close hardware and adjustable components ensures durability, smooth operation, and a refined finish built to last."
+          }
+        }
+      },
+      "block_order": [
+        "1_QPzQc3"
+      ],
+      "name": "Banner with text 3 (text bottom)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Banner with text 3",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "6rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "css": ""
+      }
+    },
+    "md_product_section_show_RXNmJw": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_yLy3rC": {
+          "type": "item",
+          "settings": {
+            "title_section": "Flat Panel Colors",
+            "stitle_section": "Precision-built cabinetry with a refined, seamless luxury finish",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "frameless-euro-style-cabinets",
+            "limit_per_row": 4,
+            "limit": 50,
+            "range_row": 1,
+            "name_btn": "See Panzu Colors",
+            "load_btn": false,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-round",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_yLy3rC"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "6rem",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": false,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "blocks_NAB6iR",
+    "md_banner_with_text_3_FBXtaa",
+    "md_product_section_show_RXNmJw"
+  ]
+}

@@ -1,0 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "md_product_section_show_cfhnrx": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_zrhzr9": {
+          "type": "item",
+          "settings": {
+            "title_section": "Bathroom Faucets",
+            "stitle_section": "",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "pasgo-bathroom-faucet",
+            "limit_per_row": 4,
+            "limit": 8,
+            "range_row": 1,
+            "name_btn": "VIEW MORE",
+            "load_btn": false,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        },
+        "item_iX7ePp": {
+          "type": "item",
+          "settings": {
+            "title_section": "Kitchen Faucets",
+            "stitle_section": "",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "pasgo-kitchen-faucet",
+            "limit_per_row": 4,
+            "limit": 8,
+            "range_row": 1,
+            "name_btn": "VIEW MORE",
+            "load_btn": false,
+            "margin_tbutton": 3,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_zrhzr9",
+        "item_iX7ePp"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": false,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "md_product_section_show_cfhnrx"
+  ]
+}

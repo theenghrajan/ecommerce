@@ -1,0 +1,30 @@
+{%- if layout == 1 -%}
+  {%- if shop.enabled_currencies -%}
+  <ul class="curcy_list row d-flex list-unstyled">
+    {%- for currency in shop.enabled_currencies -%}
+      {%- if currency == cart.currency -%}
+        <li class="curcy_item col active" data-currency="{{currency.iso_code}}"><span class="curc_label">{%- comment -%}<span class="flags {{currency.iso_code}}"></span>{%- endcomment -%}{%-render 'kt-currency-name', cur: currency.iso_code-%}</span></li>
+      {%- else -%}
+        <li class="curcy_item col" data-currency="{{currency.iso_code}}"><span class="curc_label">{%- comment -%}<span class="flags {{currency.iso_code}}"></span>{%- endcomment -%}{%-render 'kt-currency-name', cur: currency.iso_code-%}</span></li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+{%- elsif layout == 2 -%}  
+<div class="kt--drop-title text-link fkt-angle-down_ currency_display">
+  <span class="currency__name">{{ cart.currency.iso_code | default: shop.currency }}</span>
+</div>
+<div class="kt--drop-in w-auto py-1i currency-list">
+  <ul class="currency curcy_list list-unstyled mb-0 kt_scroll">
+    {%- if shop.enabled_currencies -%}
+      {%- for currency in shop.enabled_currencies -%}
+        {%- if currency == cart.currency -%}
+          <li class="curcy_item active" data-currency="{{currency.iso_code}}"><span class="curc_label">{%- comment -%}<span class="flags {{currency.iso_code}}"></span>{%- endcomment -%}{%-render 'kt-currency-name', cur: currency.iso_code-%}</span></li>
+        {%- else -%}
+          <li class="curcy_item" data-currency="{{currency.iso_code}}"><span class="curc_label">{%- comment -%}<span class="flags {{currency.iso_code}}"></span>{%- endcomment -%}{%-render 'kt-currency-name', cur: currency.iso_code-%}</span></li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+</div>
+{%- endif -%}

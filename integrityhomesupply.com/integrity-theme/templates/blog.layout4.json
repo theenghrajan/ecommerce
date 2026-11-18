@@ -1,0 +1,46 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog-4",
+      "blocks": {
+        "1566524730954": {
+          "type": "blog",
+          "settings": {
+            "blog": "classic"
+          }
+        },
+        "1566524742486": {
+          "type": "blog",
+          "settings": {
+            "blog": "news"
+          }
+        }
+      },
+      "block_order": [
+        "1566524730954",
+        "1566524742486"
+      ],
+      "settings": {
+        "width_section": "w-100",
+        "width_content": true,
+        "blog_show_author": true,
+        "blog_show_date": true,
+        "items_per_row": "1",
+        "catt": true,
+        "show_share_buttons": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

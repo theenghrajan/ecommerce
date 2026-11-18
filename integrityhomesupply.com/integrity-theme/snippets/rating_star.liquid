@@ -1,0 +1,22 @@
+{%- if settings.use_prd_reviews -%}
+{%- if settings.rating_star == blank -%}
+{%- liquid
+  assign rating_decimal = 0 
+  assign decimal = product.metafields.reviews.rating.value.rating | modulo: 1 
+  if decimal >= 0.3 and decimal <= 0.7
+    assign rating_decimal = 5
+  endif 
+  assign rating_count = product.metafields.reviews.rating_count | default: 0
+-%}
+<div class="ratings-container{% if rating_count == 0 %}{% unless settings.zero_review %} d-none{% endunless %}{% endif %}">
+  <div class="ratings-full">
+    <span class="ratings" data-bs-toggle="tooltip" title="{{product.metafields.reviews.rating.value.rating | times:  1.00}}" style="width:{{product.metafields.reviews.rating.value.rating | divided_by : 5.0 | times: 100}}%"></span>
+  </div>
+  <a href="{{product.url}}" class="rating-reviews{%if sg%} sg{%endif%}">( {{'products.review.items_with_count' | t: count: rating_count}} )</a>
+</div>
+{%- else -%}
+<div class="ratings-container">
+  {{-settings.rating_star-}}
+</div>
+{%- endif -%}
+{%- endif -%}

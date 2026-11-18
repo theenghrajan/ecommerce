@@ -1,0 +1,30 @@
+{%- capture flashs -%}
+{%-if preOrder-%}
+  <span class="onexclusive pre-order">
+    <span class="text">{{'products.product.pre_order'|t}}</span>
+  </span>
+{%-elsif sold_out -%}
+  <span class="onexclusive sold-out">
+    <span class="text">{{'products.product.out_of_stock'|t}}</span>
+  </span>
+{%-endif-%}
+{%-if st_card[2] == 'true' and on_sale and sold_out == false-%}  
+  {%-unless product.tags contains 'notsale'-%}
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+    {%- assign money_save = current_variant.compare_at_price | minus: current_variant.price | times: 100.0 | divided_by: current_variant.compare_at_price| round -%}
+    <span class="onsale">
+      {%- if money_save >= 10 -%}
+        <span class="text">{{'products.product.on_sale_percent'| t: money_save: money_save}}</span>
+      {%- else -%}
+        <span class="text">{{'products.product.on_sale'|t}}</span>
+      {%- endif -%}
+    </span>
+  {%-endunless-%}
+{%-endif-%}
+{%-if st_card[0] == 'true' and on_new and sold_out == false-%}
+  <span class="onnew"><span class="text">{{'products.product.new' | t}}</span></span>
+{%-endif-%}
+{%- endcapture -%}
+{%- if flashs != '' -%}
+<div class="flashs">{{flashs | strip_newlines}}</div>
+{%- endif -%}

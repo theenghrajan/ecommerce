@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "cart-template",
+      "settings": {
+        "width_section": "container",
+        "width_content": false
+      }
+    },
+    "kt_related-products": {
+      "type": "kt_related-products",
+      "disabled": true,
+      "settings": {
+        "title": "Related Products",
+        "off_section": false,
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "w-100",
+        "width_content": true,
+        "section_margin_top": "",
+        "section_margin_bottom": "60px",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "title_section": "You May Also Like",
+        "stitle_section": "",
+        "reverse": false,
+        "title_align": "text-center",
+        "margin_btitle": 3,
+        "recommendations_enable": false,
+        "product_related_collection": "",
+        "product_items": 8,
+        "autoplay": false,
+        "use_navigation": false,
+        "nav_style": "-default",
+        "nav_mode": "default",
+        "nav_position": "nav-default",
+        "use_dots": false,
+        "dots_mode": "default",
+        "dots_position": "inside",
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 0\n  },\n  \"375\": {\n    \"slidesPerView\": 2,\n    \"spaceBetween\": 10\n  },\n  \"768\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  },\n  \"992\": {\n    \"slidesPerView\": 4,\n    \"spaceBetween\": 20\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  },\n  \"1500\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  }\n}"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "kt_related-products"
+  ]
+}

@@ -1,0 +1,3535 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#000000",
+    "color_button": "#111111",
+    "color_button_text": "#ffffff",
+    "color_sale_price": "#000000",
+    "color_sale_tag": "#990000",
+    "color_cart_dot": "#f75d44",
+    "color_cart_dot_text": "#ffffff",
+    "color_alt_bg": "#f9f9f9",
+    "color_alt_text": "#000000",
+    "color_announcement": "#000000",
+    "color_announcement_text": "#ffffff",
+    "color_newsletter": "#000000",
+    "color_newsletter_text": "#ffffff",
+    "color_drawer_background": "#ffffff",
+    "color_drawer_text": "#000000",
+    "color_image_text": "#ffffff",
+    "color_image_overlay": "#000000",
+    "color_image_overlay_opacity": 10,
+    "color_image_overlay_text_shadow": 20,
+    "color_small_image_bg": "#ffffff",
+    "color_large_image_bg": "#000000",
+    "type_header_font_family": "sans_serif_n4",
+    "type_header_capitalize": true,
+    "type_header_spacing": -25,
+    "type_header_base_size": 35,
+    "type_header_line_height": 1,
+    "type_base_font_family": "sans_serif_n4",
+    "type_product_capitalize": true,
+    "type_base_spacing": 25,
+    "type_base_size": 17,
+    "type_base_line_height": 1.2,
+    "button_type_style": "normal",
+    "button_style": "round",
+    "type_navigation_size": 25,
+    "animate_images": true,
+    "desktop_loader_width": 100,
+    "mobile_loader_width": 100,
+    "product_hover_details": false,
+    "product_hover_image": true,
+    "product_image_scatter": false,
+    "product_grid_image_size": "natural",
+    "product_color_swatches": false,
+    "additional_content_style": "expandable",
+    "product_content_1": "sizing-chart",
+    "product_content_2": "return-policy",
+    "product_contact": true,
+    "product_contact_show_phone": false,
+    "enable_product_reviews": false,
+    "quick_shop_enable": true,
+    "cart_type": "sticky",
+    "cart_additional_buttons": false,
+    "cart_notes_enable": true,
+    "cart_terms_conditions_enable": true,
+    "cart_terms_conditions_link": "shopify://pages/terms-and-conditions-of-use",
+    "social_instagram_link": "https://www.instagram.com/evavarro/",
+    "social_facebook_link": "https://www.facebook.com/EvaVarro.USA",
+    "social_pinterest_link": "",
+    "social_tiktok_link": "https://www.tiktok.com/@eva_varro",
+    "favicon": "shopify://shop_images/EV_Favicon_1.png",
+    "checkout_header_image": "shopify://shop_images/EVA7342_cropped_Narrow.jpg",
+    "checkout_logo_image": "shopify://shop_images/Eva_Varro_MWLA_Logo.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#111111",
+    "checkout_button_color": "#111111",
+    "checkout_error_color": "#ff6d6d",
+    "animate_page_transition_style": "page-logo",
+    "checkout_banner_background_color": "#ffffff",
+    "checkout_call_to_action_color": "#a26b25",
+    "checkout_use_header_image": false,
+    "product_video_style": "muted",
+    "reviews_layout": "full",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "header_style": "button",
+          "main_menu_alignment": "right",
+          "sticky_index": true,
+          "sticky_collection": false,
+          "header_search_enable": true,
+          "logo": "shopify://shop_images/Eva_Varro_Logo_with_CLEAR_background.png",
+          "desktop_logo_width": 220,
+          "mobile_logo_width": 180,
+          "logo_hide_mobile": true,
+          "main_menu_link_list": "main-menu",
+          "show_announcement": true,
+          "show_announcement_home_only": false,
+          "announcement_text": "10% Off FALL FASHION SALE USE CODE: FALL10",
+          "announcement_link": "shopify://collections/new-arrivals"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "show_newsletter": true,
+          "newsletter_title": "Join the club",
+          "newsletter_richtext": "",
+          "show_locale_selector": false,
+          "show_currency_selector": false,
+          "show_currency_flags": false,
+          "show_social_icons": true,
+          "menu": "footer",
+          "show_payment_icons": false,
+          "show_copyright": false,
+          "copyright_text": ""
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "custom_css": [
+          ".page-width {max-width: 100%; padding-left: 20px; padding-right: 20px;}"
+        ],
+        "settings": {
+          "per_row_desktop": 3,
+          "per_row_mobile": "2-flush",
+          "description_bottom": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "product_image_size": "large",
+          "product_image_type": "stacked",
+          "product_zoom_enable": true,
+          "enable_video_looping": true,
+          "product_video_style": "muted",
+          "enable_payment_button": true,
+          "product_shipping_callout": "",
+          "variant_type": "button",
+          "variant_labels_enable": true,
+          "sku_enable": false,
+          "inventory_enable": false,
+          "inventory_threshold": 10,
+          "inventory_transfers_enable": false,
+          "quantity_enable": false,
+          "social_enable": true
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_image": true,
+          "blog_show_tags": true,
+          "blog_show_date": true,
+          "blog_show_comments": true,
+          "blog_show_author": false,
+          "social_sharing_blog": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "post_limit": 9,
+          "blog_show_tag_filter": true,
+          "blog_show_rss": false,
+          "blog_show_tags": true,
+          "blog_show_date": true,
+          "blog_show_comments": true,
+          "blog_show_author": false,
+          "blog_show_excerpt": true,
+          "blog_show_read_more": true,
+          "blog_image_size": "landscape"
+        }
+      },
+      "product-sections": {
+        "type": "product-sections",
+        "blocks": {
+          "image_hero_MdFkfM": {
+            "type": "image-hero",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "",
+              "link": "shopify://pages/about-us",
+              "link_text": "Learn more",
+              "text_align": "vertical-top horizontal-center",
+              "image": "shopify://shop_images/Untitled_13.png",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "f2254228-f783-41dc-bae3-e648ce0a08f2": {
+            "type": "hero-video",
+            "disabled": true,
+            "settings": {
+              "title": "BE READY TO BE WOWED",
+              "title_size": 80,
+              "subheading": "",
+              "link_text": "Shop the Look",
+              "link": "shopify://collections/new-arrivals",
+              "text_align": "vertical-center horizontal-center",
+              "video_url": "https://youtu.be/mT6BkqLWizg",
+              "section_height": "750px",
+              "mobile_height": "auto"
+            }
+          },
+          "8d071448-385b-4320-bf1e-82faa3a078da": {
+            "type": "collection-slider",
+            "settings": {
+              "title": "New Arrivals",
+              "description": "",
+              "collection": "new-arrivals",
+              "per_row": "small",
+              "alt": false
+            }
+          }
+        },
+        "block_order": [
+          "image_hero_MdFkfM",
+          "f2254228-f783-41dc-bae3-e648ce0a08f2",
+          "8d071448-385b-4320-bf1e-82faa3a078da"
+        ],
+        "settings": {}
+      },
+      "page-sections-template": {
+        "type": "page-sections-template",
+        "blocks": {
+          "1559681273277": {
+            "type": "image-hero",
+            "settings": {
+              "title": "FOUNDED WITH \nA MISSION",
+              "title_size": 80,
+              "subheading": "To dress WOMEN OF ALL AGES",
+              "link": "",
+              "link_text": "",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/BLG4206_Small_Cropped_2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "1558643031646": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/eva_1.jpg",
+              "image_width": 570,
+              "subtitle": "",
+              "title": "Co-Founder & creative director",
+              "text": "<p>Eva Varro graduated from the Fashion Institute of Budapest, Hungary and honed her talent working for several leading fashion design companies in Hungary and Italy. &nbsp;She relocated to the United States and settled in Los Angeles, California in 2002; after a very successful relationship with a Los Angeles based company, she launched her own line that became an instant success.</p><p>Currently Eva’s line is sold all across the United States, Canada, Europe and Central America. &nbsp;Many celebrities wear Eva’s designs, as seen in print and television.</p><p>Eva has developed a unique construction technique that sets her product apart from others. &nbsp;The construction and components make the garments fit perfectly. The garments are <a href=\"https://evavarro.com/collections/dresses\" title=\"https://evavarro.com/collections/dresses\">washable and wrinkle free</a> because they are made of high quality fabrics superceding other less expensive lines.</p><p>Eva’s exclusive signature placement prints and designs are another characteristic that sets the collection apart from others. She is known for her artfully handcrafted garments that enhance a woman’s figure and are designed to fit <a href=\"https://evavarro.com/collections/plus-size-collection\" title=\"https://evavarro.com/collections/plus-size-collection\">every woman’s shape</a>, from the perfect to the not so perfect body types.</p><p>Eva Varro International is a designer look at non-designer price and above all it is Made with Love and Passion in the USA.&nbsp;</p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "right",
+              "alt": false
+            }
+          },
+          "a4ca6a33-367e-47d2-b5a3-43d5fb2cd9d6": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/IMG_3899_two.jpg",
+              "image_width": 550,
+              "subtitle": "",
+              "title": "The Magic of Color ",
+              "text": "<p></p><p></p><p>A spark of vibrancy goes a long way. As our eyes gravitate towards color with a lively sense of optimism, it generates blissful escape from reality. </p><p></p><p>This is what Eva Varro is all about - A fashion designer with a bold and prolific eye for color that resonates artistry and versatility for everyday wear. </p><p><br/></p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "left",
+              "alt": false
+            }
+          },
+          "0cc1a030-65b4-49d2-b364-67f6423c47c4": {
+            "type": "background-image-text",
+            "settings": {
+              "subtitle": "",
+              "title": "vibrant prints",
+              "text": "",
+              "button_label": "",
+              "button_link": "",
+              "image": "shopify://shop_images/BAT7396-2_CROPPPED.jpg",
+              "desktop_size": 0,
+              "image_alignment": "50% 10%",
+              "color_border": "#f4f4f4",
+              "layout": "left"
+            }
+          },
+          "f3e87093-5819-4811-96ec-06ef4180d8f1": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/IMG_3892.jpg",
+              "image_width": 700,
+              "subtitle": "",
+              "title": "Can’t Ruffle Your Feathers?",
+              "text": "<p>Your life is full of activities, things to do, deadlines to fulfill. Having an on-the-go, “ready to rock the day” kind of outfit is something that a modern day lifestyle is all about. Our handcrafted garments are not only stylish but also wrinkle-free using a durable fusion of polyester and spandex. The construction and components make the garments fit perfectly along with a smooth and comfortable feel - you might not want to take it off!&nbsp;</p><p></p><p>So whether you’re all about that <a href=\"https://evavarro.com/collections/yoga-pants\" title=\"https://evavarro.com/collections/yoga-pants\">active lifestyle</a> or attending sophisticated events, you’re ready to take on the day, looking radiant with a dashing level of style everywhere you go.&nbsp;</p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "right",
+              "alt": false
+            }
+          }
+        },
+        "block_order": [
+          "1559681273277",
+          "1558643031646",
+          "a4ca6a33-367e-47d2-b5a3-43d5fb2cd9d6",
+          "0cc1a030-65b4-49d2-b364-67f6423c47c4",
+          "f3e87093-5819-4811-96ec-06ef4180d8f1"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": true
+        }
+      },
+      "newsletter-popup": {
+        "type": "newsletter-popup",
+        "settings": {
+          "mode": "disabled",
+          "popup_seconds": 5,
+          "popup_days": 30,
+          "popup_title": "Sign up and save",
+          "popup_text": "<p>Entice customers to sign up for your mailing list with discounts or exclusive offers.</p>",
+          "enable_newsletter": true,
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "1543003878234": {
+        "type": "featured-collections",
+        "blocks": {
+          "1543003878234-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "dresses",
+              "focal_point": "center center"
+            }
+          },
+          "1543003878234-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "tops-tunics",
+              "focal_point": "center center"
+            }
+          },
+          "1543003878234-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "jackets-cardigans",
+              "focal_point": "center center"
+            }
+          },
+          "1543003878234-3": {
+            "type": "collection",
+            "settings": {
+              "collection": "pants-leggings",
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "1543003878234-0",
+          "1543003878234-1",
+          "1543003878234-2",
+          "1543003878234-3"
+        ],
+        "settings": {
+          "title": "Shop all",
+          "alt": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "title_enable": true,
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
+      },
+      "1556162802939": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Trending print: alicia",
+          "description": "",
+          "home_featured_products": "alicia-collection",
+          "rows": 2,
+          "per_row_desktop": 4,
+          "per_row_mobile": "2",
+          "view_all": true,
+          "alt": false
+        }
+      },
+      "1556162914490": {
+        "type": "featured-collection-slider",
+        "settings": {
+          "title": "new releases",
+          "description": "TimE to upgrade your wardrObe?",
+          "home_featured_products": "new-arrivals",
+          "per_row": "small",
+          "alt": false
+        }
+      },
+      "1558626745581": {
+        "type": "featured-content",
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "text": "<p><strong>CYBER WEEK SALE! 40% OFF. USE CODE: CYBER40</strong></p>",
+          "align_text": "center",
+          "narrow_column": true,
+          "enlarge_text": true,
+          "alt": false
+        }
+      },
+      "1559098181700": {
+        "type": "slideshow",
+        "blocks": {
+          "28d44f83-17b2-4164-9699-0059f43037db": {
+            "type": "image",
+            "settings": {
+              "title": "25% OFF MARCH MADNESS SALE! USE CODE: 25MARCHMADNESS AT CHECKOUT",
+              "title_size": 40,
+              "subheading": "MARCH MADNESS SALE IS ON!",
+              "link": "shopify://collections/new-arrivals",
+              "link_text": "SHOP NOW",
+              "color_accent": "#935b29",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/Banners-3.png",
+              "image_mobile": "shopify://shop_images/EVA5869_copy-Sienna-Studio_Caramel.png",
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "28d44f83-17b2-4164-9699-0059f43037db"
+        ],
+        "disabled": true,
+        "settings": {
+          "style": "minimal",
+          "desktop_size": 0,
+          "mobile_size": 0,
+          "autoplay": true,
+          "autoplay_speed": 5
+        }
+      },
+      "1559321610782": {
+        "type": "hero-video",
+        "disabled": true,
+        "settings": {
+          "title": "",
+          "title_size": 85,
+          "subheading": "",
+          "link_text": "SHOP NOW",
+          "link": "shopify://collections/new-arrivals",
+          "color_accent": "#000000",
+          "text_align": "vertical-bottom horizontal-center",
+          "video_url": "https://cdn.shopify.com/videos/c/o/v/a9708d2eaec443439b1abb7598342f85.mp4",
+          "section_height": "850px",
+          "mobile_height": "100vh"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "product_recommendations_heading": "You may also like",
+          "per_row": "small"
+        }
+      },
+      "1559585995085": {
+        "type": "featured-collection-slider",
+        "settings": {
+          "title": "BLACK PIECES",
+          "description": "Mix and Match with Print Pieces of your Choice",
+          "home_featured_products": "lexus",
+          "per_row": "small",
+          "alt": false
+        }
+      },
+      "1559586187853": {
+        "type": "marquee",
+        "disabled": true,
+        "settings": {
+          "text": "MOTHER'S DAY SALE! 25% OFF ORDERS UNDER $250 / CODE: MOMLOVE25... OR 30% OFF ORDERS $250+ / CODE: MOMLOVE30",
+          "link": "",
+          "text_size": 76,
+          "text_spacing": true,
+          "color_scheme": "button",
+          "direction": "left",
+          "speed": "slow"
+        }
+      },
+      "1559687247066": {
+        "type": "text-and-image",
+        "disabled": true,
+        "settings": {
+          "image_width": 700,
+          "subtitle": "",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to tell a story, explain a detail about your product, or describe a new promotion.</p>",
+          "button_label": "Our story",
+          "button_link": "",
+          "button_style": "secondary",
+          "layout": "right",
+          "alt": false
+        }
+      },
+      "1559687710135": {
+        "type": "map",
+        "settings": {
+          "map_title": "Our Headquarter",
+          "address": "<p><br/>Los Angeles, CA&nbsp;</p><p>T: 323-312-3390</p><p>Mon - Fri, 8:00am - 3:00pm PST<br/>Saturday, Closed<br/>Sunday, Closed</p>",
+          "map_address": "Downtown Los Angeles",
+          "api_key": "",
+          "background_image": "shopify://shop_images/EVA8620_cropped_sized_down.jpg",
+          "background_image_position": "center left"
+        }
+      },
+      "social": {
+        "type": "social",
+        "blocks": {
+          "3c6bf099-8d75-4456-b257-b959e3fab676": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/Matt_Damon_Eva_Varro.png",
+              "link": "",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "ff02110d-3d5e-4abd-a843-f7ff821954d2": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/629C912F-AFF1-4E13-8154-02EB7E6B22D7.jpg",
+              "link": "",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "878cb7c5-b764-4be0-9649-26186db250f4": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/image_123650291.jpg",
+              "link": "",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "7fa9c4e6-e3b3-4d3f-a65a-d66511a7a6e8": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/IMG_0301.jpg",
+              "link": "",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "0d437b4e-4328-4e00-87a0-3e0e7deb8918": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/Teresa_Image.jpg",
+              "link": "https://evavarro.com/products/3-4-sleeve-cut-in-a-line-reversible-dress-katana-black",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "4bea5cbb-9616-4bbf-acaf-ac83c0a7cad0": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/SM_4.png",
+              "link": "https://evavarro.com/products/raw-hemline-side-slit-tank-midi-dress",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "901e0b59-479a-4106-8334-c6fef9678e46": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/SM_2.png",
+              "link": "https://evavarro.com/products/neck-tie-jumpsuit-ital",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "26ddff47-dee9-4e03-b670-6dcc32d6f3fc": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/SM_3.png",
+              "link": "",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          },
+          "980129f0-da2f-45e1-bf8f-4528ce90f68e": {
+            "type": "post",
+            "settings": {
+              "image": "shopify://shop_images/SM_1.png",
+              "link": "https://evavarro.com/products/double-waist-tight-calf-lined-skirt-33",
+              "product": "",
+              "account": "",
+              "caption": "",
+              "likes": ""
+            }
+          }
+        },
+        "block_order": [
+          "3c6bf099-8d75-4456-b257-b959e3fab676",
+          "ff02110d-3d5e-4abd-a843-f7ff821954d2",
+          "878cb7c5-b764-4be0-9649-26186db250f4",
+          "7fa9c4e6-e3b3-4d3f-a65a-d66511a7a6e8",
+          "0d437b4e-4328-4e00-87a0-3e0e7deb8918",
+          "4bea5cbb-9616-4bbf-acaf-ac83c0a7cad0",
+          "901e0b59-479a-4106-8334-c6fef9678e46",
+          "26ddff47-dee9-4e03-b670-6dcc32d6f3fc",
+          "980129f0-da2f-45e1-bf8f-4528ce90f68e"
+        ],
+        "settings": {
+          "enable_home": true,
+          "enable_product": false,
+          "enable_collection": false,
+          "title": "On social",
+          "description": "<p>Send us yours <a href=\"https://instagram.com/youraccount/\">@evavarro</a></p>"
+        }
+      },
+      "collection-header": {
+        "type": "collection-header",
+        "settings": {
+          "collection_image_enable": true,
+          "description_enable": true
+        }
+      },
+      "collection-filters": {
+        "type": "collection-filters",
+        "settings": {
+          "filter_type": "groups",
+          "tags_combine": false,
+          "collection_sort_enable": true
+        }
+      },
+      "page-contact-template": {
+        "type": "page-contact-template",
+        "blocks": {
+          "page-contact-template-0": {
+            "type": "contact-form",
+            "settings": {
+              "title": "Contact us",
+              "show_phone": false,
+              "narrow_column": true
+            }
+          },
+          "d9315035-51a4-4342-97e7-08296c647a7c": {
+            "type": "custom-html",
+            "settings": {
+              "full_width": false,
+              "space_around": true,
+              "alt": true,
+              "code": "<h2>Head Office-Los Angeles</h2><p>Phone #: 323-312-3390</p><p>Office Hours: Mon - Fri, 8am - 3pm PST</p>For Customer Service & General Inquiries: contact@evavarro.com<p><br></p>\n<hr>"
+            }
+          },
+          "map_fxGrXz": {
+            "type": "map",
+            "settings": {
+              "map_title": "WHOLESALE - MAIN OFFICE",
+              "address": "<p>t: 323-312-3390 ext 102<br/>f: 323-312-3395</p><p>email: contact@evavarro.com</p><p>Mon - Fri, 8:00am - 3:00pm PST</p><p>Click <a href=\"https://calendly.com/contact-evavarro/30min\" target=\"_blank\" title=\"https://calendly.com/contact-evavarro/30min\">HERE</a> to schedule a Virtual Meeting!&nbsp;<br/></p>",
+              "map_address": "",
+              "api_key": "",
+              "background_image": "shopify://shop_images/EVA7547_2f9fc898-976f-456c-b84a-4c82d755a0d6.jpg",
+              "background_image_position": "top center"
+            }
+          },
+          "map_6wFfRL": {
+            "type": "map",
+            "settings": {
+              "map_title": "LYNN GIRARD SHOWROOM - WEST COAST",
+              "address": "<p>127 E. 9th St, Suite # 1203<br/>Los Angeles, CA 90015</p><p>t: 213-625-3341</p><p>email: lynngirardshowroom@gmail.com</p>",
+              "map_address": "127 E. 9th St, Suite 1203 Los Angeles, CA 90015",
+              "api_key": "",
+              "background_image": "shopify://shop_images/image_123650291_2.jpg",
+              "background_image_position": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "page-contact-template-0",
+          "d9315035-51a4-4342-97e7-08296c647a7c",
+          "map_fxGrXz",
+          "map_6wFfRL"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": false
+        }
+      },
+      "page-section-product-template": {
+        "type": "page-section-product-template",
+        "blocks": {
+          "e04d942e-ffe0-4c6c-859c-3ba5d8da3a51": {
+            "type": "image-hero",
+            "settings": {
+              "title": "At or Under MSRP $100",
+              "title_size": 40,
+              "subheading": "8 piece minimum per style/ per color",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Screen_Shot_2025-05-19_at_2.22.03_PM.png",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_R6e7dH": {
+            "type": "image-hero",
+            "settings": {
+              "title": "At or Under MSRP $100",
+              "title_size": 40,
+              "subheading": "8 piece minimum per style/ per print",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Screen_Shot_2025-05-19_at_2.31.07_PM.png",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_CJykUb": {
+            "type": "image-hero",
+            "settings": {
+              "title": "At or Under MSRP $100",
+              "title_size": 40,
+              "subheading": "8 piece minimum per style/ per print",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Screen_Shot_2025-05-19_at_2.31.16_PM.png",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_GkPeVC": {
+            "type": "image-hero",
+            "settings": {
+              "title": "At or Under MSRP $100",
+              "title_size": 40,
+              "subheading": "8 piece minimum per style/ per print",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Screen_Shot_2025-05-19_at_2.31.24_PM.png",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "43175199-8434-4335-b39c-2d9fbb2e3604": {
+            "type": "text-columns",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "align_text": "center",
+              "alt": false,
+              "enable_image_1": true,
+              "image_1": "shopify://shop_images/Jogger_Pants_Cropped_OLIVE.jpg",
+              "image_width_1": 650,
+              "title_1": "Quadruple Pockets",
+              "text_1": "<p>Featuring 2 lockable pockets on each side, great for keeping a phone, masks, keys etc without having to carry a purse.  Made of Eva's new scuba fabric; Color Olive Scuba. </p>",
+              "button_label_1": "",
+              "button_link_1": "https://evavarro.myshopify.com/products/cargo-jogger-olive-scuba",
+              "enable_image_2": true,
+              "image_2": "shopify://shop_images/EVA3365_cropped.jpg",
+              "image_width_2": 650,
+              "title_2": "Trendy Cargo Vest",
+              "text_2": "<p>With deep Cargo pockets, made of durable and light scuba fabric in olive color, a great match with jogger pants to complete the look.</p>",
+              "button_label_2": "",
+              "button_link_2": "https://evavarro.myshopify.com/products/knee-length-vest",
+              "enable_image_3": false,
+              "image_width_3": 650,
+              "title_3": "",
+              "text_3": "",
+              "button_label_3": "",
+              "button_link_3": ""
+            }
+          },
+          "78e1eb61-144b-43da-b03c-78b5abf74022": {
+            "type": "text-columns",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "align_text": "center",
+              "alt": false,
+              "enable_image_1": true,
+              "image_1": "shopify://shop_images/EVA3389_cropped.jpg",
+              "image_width_1": 650,
+              "title_1": "Zipper Jacket",
+              "text_1": "<p>One of our Best Sellers, a zipper jacket features convenient side pockets and two way zipper and made of Eva&#x27;s new scuba fabric in black. Match it with jogger pants. </p>",
+              "button_label_1": "",
+              "button_link_1": "https://evavarro.myshopify.com/products/mock-neck-zip-jacket-black-scuba",
+              "enable_image_2": true,
+              "image_2": "shopify://shop_images/Jogger_Pants_Cropped_SMALL_99519629-a617-4c08-a3f5-7303a39b042b.jpg",
+              "image_width_2": 650,
+              "title_2": "Jogger Pants in Black Scuba",
+              "text_2": "<p>Quadruple Pockets and comfortable fit, great for your daily active lifestyles: travel, fitness, hiking, and everyday wear.  </p>",
+              "button_label_2": "",
+              "button_link_2": "https://evavarro.myshopify.com/products/jogger-pants",
+              "enable_image_3": false,
+              "image_width_3": 650,
+              "title_3": "",
+              "text_3": "",
+              "button_label_3": "",
+              "button_link_3": ""
+            }
+          },
+          "9162e6b1-cf91-471f-bcc4-1e5a9bedc4bf": {
+            "type": "testimonials",
+            "disabled": true,
+            "settings": {
+              "title": "Testimonials",
+              "align_text": "center",
+              "round_images": false,
+              "alt": false,
+              "testimonial_1": "<p>New Scuba fabric is truly amazing, the quality is beyond what I expected and of course, Eva&#x27;s signature stitching is phenomenal.</p>",
+              "author_1": "Anna T.",
+              "testimonial_2": "<p>These pair of pants are life safer. I can wear it with sneakers for jogging or high heels for nice casual outing. </p>",
+              "author_2": "Jessica B."
+            }
+          },
+          "1dc793d9-e97c-4474-bcd0-abab3a3011ae": {
+            "type": "featured-collection",
+            "disabled": true,
+            "settings": {
+              "title": "Shop Jogger Pants",
+              "collection": "jogger-pants",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "2",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "67815748-7684-4cd3-8dae-242b1ee654d1": {
+            "type": "hero-video",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "",
+              "link_text": "",
+              "link": "",
+              "text_align": "vertical-center horizontal-center",
+              "video_url": "https://www.youtube.com/watch?v=fKZUPaHiAUs&feature=youtu.be",
+              "section_height": "750px",
+              "mobile_height": "auto"
+            }
+          }
+        },
+        "block_order": [
+          "e04d942e-ffe0-4c6c-859c-3ba5d8da3a51",
+          "image_hero_R6e7dH",
+          "image_hero_CJykUb",
+          "image_hero_GkPeVC",
+          "43175199-8434-4335-b39c-2d9fbb2e3604",
+          "78e1eb61-144b-43da-b03c-78b5abf74022",
+          "9162e6b1-cf91-471f-bcc4-1e5a9bedc4bf",
+          "1dc793d9-e97c-4474-bcd0-abab3a3011ae",
+          "67815748-7684-4cd3-8dae-242b1ee654d1"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": false
+        }
+      },
+      "page-sections-wholesale-homepage-template": {
+        "type": "page-sections-wholesale-homepage-template",
+        "blocks": {
+          "07b8f4de-9f94-41e2-9826-e635e0e4b334": {
+            "type": "hero-video",
+            "settings": {
+              "title": "Bring your\nIdea to life.",
+              "title_size": 80,
+              "subheading": "Custom Pieces just for YOUR STORE",
+              "link_text": "",
+              "link": "shopify://collections/wholesale-top",
+              "text_align": "vertical-center horizontal-center",
+              "video_url": "https://www.youtube.com/watch?v=rNxUaO3cYLs",
+              "section_height": "750px",
+              "mobile_height": "auto"
+            }
+          },
+          "1fbb29b3-929e-46c2-895f-a795ad541492": {
+            "type": "image-hero",
+            "settings": {
+              "title": "Sophisticated & Polished to Avant-garde Prints",
+              "title_size": 80,
+              "subheading": "Shop by Prints",
+              "link_text": "Click here",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/EVA7342_cropped.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "b25223d1-4fed-4374-a507-f6151fcf1ca3": {
+            "type": "marquee",
+            "settings": {
+              "text": "Free Shipping for Online orders",
+              "text_size": 70,
+              "text_spacing": true,
+              "color_scheme": "button",
+              "direction": "left",
+              "speed": "normal"
+            }
+          },
+          "f813afd2-f2a4-46b2-ab0a-ac5fd277e55c": {
+            "type": "collection-slider",
+            "settings": {
+              "title": "Featured collection",
+              "description": "",
+              "collection": "wholesale-top",
+              "per_row": "small",
+              "alt": false
+            }
+          }
+        },
+        "block_order": [
+          "07b8f4de-9f94-41e2-9826-e635e0e4b334",
+          "1fbb29b3-929e-46c2-895f-a795ad541492",
+          "b25223d1-4fed-4374-a507-f6151fcf1ca3",
+          "f813afd2-f2a4-46b2-ab0a-ac5fd277e55c"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": false
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "image_XLBCKG": {
+            "type": "image",
+            "settings": {
+              "title": "Two line\nslide title.",
+              "title_size": 80,
+              "subheading": "And an optional subheading",
+              "link": "",
+              "link_text": "Optional button",
+              "color_accent": "rgba(0,0,0,0)",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Front_Page_LOOKBOOK.jpg",
+              "focal_point": "center center"
+            }
+          },
+          "image_zQFyDp": {
+            "type": "image",
+            "settings": {
+              "title": "Two line\nslide title.",
+              "title_size": 80,
+              "subheading": "And an optional subheading",
+              "link": "",
+              "link_text": "Optional button",
+              "color_accent": "rgba(0,0,0,0)",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/ALICIA.jpg",
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "image_XLBCKG",
+          "image_zQFyDp"
+        ],
+        "settings": {
+          "style": "minimal",
+          "desktop_size": 0,
+          "mobile_size": 0,
+          "autoplay": false,
+          "autoplay_speed": 7
+        }
+      },
+      "lookbook": {
+        "type": "lookbook",
+        "blocks": {
+          "image_hero_AV8NPY": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Pieces",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/FEONA_GROUP_92b42d3f-c06c-4258-8b78-c5a573874092.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_wRbWKB": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Order Retail or Wholesale Now",
+              "link": "shopify://collections/hannah-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/BLACK-HENNA-PG-_17.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_xgWP46": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Collection",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/BRIONI_PART_1.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_6qRYGH": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Collection",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/DENIM_JERSEY.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_Qa3PAp": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/BROOKE_2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_CfrUnH": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Pieces",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/PROFILES_2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_FKmqAA": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Buy Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/CASHMERE-PG-_14.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_UqFDjt": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/PHOEBE-PG-_12.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_EqizdJ": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/PHOEBE-PG-_13.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_jFzfQG": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Buy Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/COFFEE-PG-_23.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_qMVWCg": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Buy Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/LINDA-PG-_4.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_zLibBX": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Buy Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/MEDITA-PG-_11.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_zxEzB4": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Buy Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/MEGAN-PG-_19.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_DrPCec": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Buy Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/MIX-COMBO-PG-_18.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "text_and_image_a6RcDc": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/ALICIA_concept.jpg",
+              "image_width": 700,
+              "subtitle": "",
+              "title": "Alicia scarf print",
+              "text": "<p>Eva is showcasing a new scarf print that is timeless and elegant which will be a talk of the day whenever you enter in the room wearing a Alicia piece. </p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "right",
+              "alt": false
+            }
+          },
+          "image_hero_dbanXC": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Available for Immediate or Fall / Winter",
+              "link": "shopify://collections/alicia-collection",
+              "link_text": "Order",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/ALICIA.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_BehzAL": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Available for Immediate or Fall /Winter",
+              "link": "shopify://collections/feona-collection",
+              "link_text": "Order now",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/FEONA_00efc0c6-cf22-4ea7-9dda-710c8be0e197.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_qCWpCP": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale NOW",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/DITA_MEDITA_a837dd6b-5ff0-4d3b-a2b4-58b1ebc77d80.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_rVjqTV": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/JENNA_CROCK.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_xEtLCY": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/CASHMERE.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_qhzpza": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/HANNAH_451c0391-5ac2-4bb7-a805-8edab17bb978.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_rnBT6p": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/TESSA_HAZEL.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_qAzmFM": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/ESTER.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_Gy9V8z": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/BARBARA_KENDRA.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "text_and_image_JQEtQf": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/EVA1659_reduced_Banner.jpg",
+              "image_width": 700,
+              "subtitle": "",
+              "title": "loving monarch solid",
+              "text": "<p>Mix and Match with beautiful MONARCH pieces with your print pieces.</p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "right",
+              "alt": false
+            }
+          },
+          "image_hero_V87cTL": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale NOW",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/MAXINE_b42a6961-5405-48c5-acfe-aefbe89280cb.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_JDaCk6": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/TRAVIS.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_gbFkrQ": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/ARIEL_21d16f2e-65d5-40d8-9939-21eedfc6dc51.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_cmJQmq": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/ATLANTIS_85a934c6-9231-475e-aef2-fa1f90888747.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_PmhQzL": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "BEST SELLER: Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/CAROL.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_YKUzjA": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/MEREDITH_BROOKE_PEBBLES_ea76ea7a-2ca6-4923-a181-4c8eec1a9419.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_XHVJ7g": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/RENE_99b5ba6d-ff70-4423-9ab5-1901cbbe157c.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_cHWdDP": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "ESME SOLD OUT: Order Styles Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us for Styles",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/LOGO_PEBBLES_ESME_a6eb6ef7-af61-41f2-9b25-30ca30530779.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_fdniwH": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "RUNNING LOW: Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/ANITA_VANDA_d92d39d4-f056-4d13-8b2b-966126b8c227.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_ghzxra": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/MEGHAN_6a72805d-8e19-45c0-8340-19b5468cca68.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_GprAzU": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale Now",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/SAVANNA_dbb83670-b991-4e49-96ec-298cc47bb13a.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "image_hero_AV8NPY",
+          "image_hero_wRbWKB",
+          "image_hero_xgWP46",
+          "image_hero_6qRYGH",
+          "image_hero_Qa3PAp",
+          "image_hero_CfrUnH",
+          "image_hero_FKmqAA",
+          "image_hero_UqFDjt",
+          "image_hero_EqizdJ",
+          "image_hero_jFzfQG",
+          "image_hero_qMVWCg",
+          "image_hero_zLibBX",
+          "image_hero_zxEzB4",
+          "image_hero_DrPCec",
+          "text_and_image_a6RcDc",
+          "image_hero_dbanXC",
+          "image_hero_BehzAL",
+          "image_hero_qCWpCP",
+          "image_hero_rVjqTV",
+          "image_hero_xEtLCY",
+          "image_hero_qhzpza",
+          "image_hero_rnBT6p",
+          "image_hero_qAzmFM",
+          "image_hero_Gy9V8z",
+          "text_and_image_JQEtQf",
+          "image_hero_V87cTL",
+          "image_hero_JDaCk6",
+          "image_hero_gbFkrQ",
+          "image_hero_cmJQmq",
+          "image_hero_PmhQzL",
+          "image_hero_YKUzjA",
+          "image_hero_XHVJ7g",
+          "image_hero_cHWdDP",
+          "image_hero_fdniwH",
+          "image_hero_ghzxra",
+          "image_hero_GprAzU"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": false
+        }
+      },
+      "hero_animated_AE8MKQ": {
+        "type": "hero-animated",
+        "blocks": {
+          "image_UMPDAY": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/T12795EClaretteMultiStripeslifestyle.jpg",
+              "image_mobile": "shopify://shop_images/T12795EClaretteMultiStripeslifestyle.jpg",
+              "focal_point": "center center"
+            }
+          },
+          "image_3AzTz7": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/D12917_BLACK_GOLD_BRUSH_lifestyle.jpg",
+              "image_mobile": "shopify://shop_images/D12917_BLACK_GOLD_BRUSH_lifestyle.jpg",
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "image_UMPDAY",
+          "image_3AzTz7"
+        ],
+        "settings": {
+          "style": "fading",
+          "title": "",
+          "title_size": 80,
+          "subheading": "New Arrivals",
+          "link": "shopify://collections/new-arrivals",
+          "link_text": "Shop Now",
+          "color_accent": "#000000",
+          "text_align": "vertical-bottom horizontal-center",
+          "desktop_size": -30,
+          "mobile_size": 40
+        }
+      },
+      "summerlookbook": {
+        "type": "summerlookbook",
+        "blocks": {
+          "image_hero_FneDK8": {
+            "type": "image-hero",
+            "settings": {
+              "title": "DEIRDRE",
+              "title_size": 80,
+              "subheading": "For Wholesale",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/LOOKBOOK_TEASER_2-2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_TbNijn": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "",
+              "link": "",
+              "link_text": "",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/LOOKBOOK_TEASER_2-5.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_4Yf7aV": {
+            "type": "image-hero",
+            "settings": {
+              "title": "arlette",
+              "title_size": 80,
+              "subheading": "For wholesale",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/Limited_Release-1.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_NeqmV7": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "",
+              "link": "",
+              "link_text": "",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Limited_Release-5.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_jkzigf": {
+            "type": "image-hero",
+            "settings": {
+              "title": "poppy",
+              "title_size": 80,
+              "subheading": "For wholesale",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/Limited_Release-2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_pLY7kb": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "",
+              "link": "",
+              "link_text": "",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/Limited_Release-4.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_itahtJ": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New collection",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/BRIONI_PART_1.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_ajVQhH": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Collection",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/NEXO_GROUP.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_YTBDfG": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Collection",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/MICA_PART_2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_rQmLTa": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "New Collection",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact us",
+              "text_align": "vertical-center horizontal-center",
+              "image": "shopify://shop_images/MICA_Factory_Folder_s_conflicted_copy_2026-03-23.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_9EzM4J": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/barbara-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/MIX-COMBO-PG-_20.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_CAKQWH": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/serena-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/SERENA-PG-_10.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_wNep4C": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/adelaida-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/ADELAIDA-PG-_1_d9a8790b-2e4d-4630-aebc-a4afbe8c53a2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_7F88Ky": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/adelaida-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/ADELAIDA-PG-_2_c7f7e58d-f464-4570-9e96-079c3c283009.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_Vj3Xfm": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/brie-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/BRIE-PG-_15.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_8ECE4m": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/brie-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/BRIE-PG-_16.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_dj98yx": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/SURI-PG-_5.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_xVUhfw": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/SURI-PG-_6.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_eThcy3": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/kendra-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/KENDRA-PG-_21.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_pfqqpk": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/kendra-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/KENDRA-PG-_22.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_K84k3a": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/lotta-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/LOTTA-PG-_7.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_tMJbDz": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/lotta-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/LOTTA-PG-_9.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_gtFmUd": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Order Retail & Wholesale",
+              "link": "shopify://collections/lotta-print-collection",
+              "link_text": "Order",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/LOTTA-PG-_8.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_9B876X": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-6.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_KPYxNJ": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-8.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "text_and_image_zDyMn3": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/Tulip_print_AI_model.png",
+              "image2": "shopify://shop_images/EVA7413_1.png",
+              "image_width": 700,
+              "subtitle": "",
+              "title": "TULIP Print",
+              "text": "<p>The pattern is a large, floral print featuring tulips. The tulips are stylized with broad, sweeping brushstrokes, giving them an artistic and modern look.</p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "left",
+              "alt": false
+            }
+          },
+          "image_hero_yMKEXU": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-9.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_3yqVg7": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "PRINT SOLD OUT - Order these Styles in  Print of your Choice",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-2.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_JxGXr8": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-3.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "text_and_image_iJM3wW": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/Rita_AI_print.png",
+              "image_width": 700,
+              "subtitle": "",
+              "title": "rita print",
+              "text": "<p>Best Summer Seller - This exotic, large floral print is a real eye- catcher.</p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "right",
+              "alt": false
+            }
+          },
+          "image_hero_TBXK4P": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-4.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "collection_slider_qtwXVU": {
+            "type": "collection-slider",
+            "settings": {
+              "title": "Rita Collection",
+              "description": "",
+              "collection": "plum-collection",
+              "per_row": "medium",
+              "alt": false
+            }
+          },
+          "image_hero_hhfm6P": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-5_af24b358-8bc6-489a-b01b-18ba92b38838.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "text_and_image_TVhRyV": {
+            "type": "text-and-image",
+            "settings": {
+              "image": "shopify://shop_images/EVA0046_2_1d265a38-b050-476d-9da8-e0103447cc23.png",
+              "image_width": 700,
+              "subtitle": "",
+              "title": "Carissa print",
+              "text": "<p>The print is a tropical, botanical pattern featuring large leaves and palm fronds.</p><p>The dress is a sleeveless, V-neck wrap dress with an asymmetrical hemline that creates a flowy and elegant silhouette. The wrap design is accentuated by a tie at the waist, enhancing the dress's fit and shape.</p>",
+              "button_label": "",
+              "button_link": "",
+              "button_style": "primary",
+              "layout": "right",
+              "alt": false
+            }
+          },
+          "image_hero_NEATdy": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-center",
+              "image": "shopify://shop_images/EvaVarro_Spring_Collections_no_price-10.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          },
+          "image_hero_dTTjjm": {
+            "type": "image-hero",
+            "settings": {
+              "title": "",
+              "title_size": 80,
+              "subheading": "Contact Us for Wholesale Orders",
+              "link": "shopify://pages/contact-us",
+              "link_text": "Contact Us",
+              "text_align": "vertical-bottom horizontal-left",
+              "image": "shopify://shop_images/ANDY_32515a0c-c4e5-4553-8de1-c30b3ba7652f.jpg",
+              "desktop_size": 0,
+              "mobile_size": 0,
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "image_hero_FneDK8",
+          "image_hero_TbNijn",
+          "image_hero_4Yf7aV",
+          "image_hero_NeqmV7",
+          "image_hero_jkzigf",
+          "image_hero_pLY7kb",
+          "image_hero_itahtJ",
+          "image_hero_ajVQhH",
+          "image_hero_YTBDfG",
+          "image_hero_rQmLTa",
+          "image_hero_9EzM4J",
+          "image_hero_CAKQWH",
+          "image_hero_wNep4C",
+          "image_hero_7F88Ky",
+          "image_hero_Vj3Xfm",
+          "image_hero_8ECE4m",
+          "image_hero_dj98yx",
+          "image_hero_xVUhfw",
+          "image_hero_eThcy3",
+          "image_hero_pfqqpk",
+          "image_hero_K84k3a",
+          "image_hero_tMJbDz",
+          "image_hero_gtFmUd",
+          "image_hero_9B876X",
+          "image_hero_KPYxNJ",
+          "text_and_image_zDyMn3",
+          "image_hero_yMKEXU",
+          "image_hero_3yqVg7",
+          "image_hero_JxGXr8",
+          "text_and_image_iJM3wW",
+          "image_hero_TBXK4P",
+          "collection_slider_qtwXVU",
+          "image_hero_hhfm6P",
+          "text_and_image_TVhRyV",
+          "image_hero_NEATdy",
+          "image_hero_dTTjjm"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": false
+        }
+      },
+      "lighterprintlookbook": {
+        "type": "lighterprintlookbook",
+        "blocks": {
+          "rich_text_Qe8RBt": {
+            "type": "rich-text",
+            "settings": {
+              "title": "Dear Wholesale Buyers:",
+              "text": "<p>Please <a href=\"https://evavarro.com/account/login?return_url=%2Faccount\"><strong>log in</strong></a> with your store credentials to access wholesale prices. <br/><br/><br/><br/></p>",
+              "align_text": "center",
+              "narrow_column": true,
+              "enlarge_text": false,
+              "alt": false
+            }
+          },
+          "featured_collection_bccDmw": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Brooke Pebbles",
+              "collection": "brooke-pebbles",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_6GgTUV": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Gold Brush",
+              "collection": "gold-brush-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_PtkkaN": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Silver Jacquard",
+              "collection": "silver-jacquard-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_wXQYdb": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Barbara Print",
+              "collection": "barbara-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_pXDzXt": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Jenna print",
+              "collection": "marley-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_nDcb7Q": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Maxine print",
+              "collection": "maxine",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_EyGXx4": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Adelaida print",
+              "collection": "adelaida-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_zx9R3U": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Brie print",
+              "collection": "brie-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_iBCk9k": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Lotta print",
+              "collection": "lotta-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_bniBY8": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Kendra print",
+              "collection": "kendra-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_YH7tj4": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "serena print",
+              "collection": "serena-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_aKTwLk": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Black Henna print",
+              "collection": "hannah-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_mW3Mgn": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Gold snake",
+              "collection": "gold-snake-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_dAejQH": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Feona",
+              "collection": "meda-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_8CX3Gq": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Hazel print",
+              "collection": "brightlight-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_LgiGVx": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Alicia print",
+              "collection": "alicia-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          },
+          "featured_collection_XNEtaK": {
+            "type": "featured-collection",
+            "settings": {
+              "title": "Tessa print",
+              "collection": "tessa-print-collection",
+              "rows": 2,
+              "per_row_desktop": 3,
+              "per_row_mobile": "1",
+              "view_all": true,
+              "alt": false
+            }
+          }
+        },
+        "block_order": [
+          "rich_text_Qe8RBt",
+          "featured_collection_bccDmw",
+          "featured_collection_6GgTUV",
+          "featured_collection_PtkkaN",
+          "featured_collection_wXQYdb",
+          "featured_collection_pXDzXt",
+          "featured_collection_nDcb7Q",
+          "featured_collection_EyGXx4",
+          "featured_collection_zx9R3U",
+          "featured_collection_iBCk9k",
+          "featured_collection_bniBY8",
+          "featured_collection_YH7tj4",
+          "featured_collection_aKTwLk",
+          "featured_collection_mW3Mgn",
+          "featured_collection_dAejQH",
+          "featured_collection_8CX3Gq",
+          "featured_collection_LgiGVx",
+          "featured_collection_XNEtaK"
+        ],
+        "settings": {
+          "page_title_enable": false,
+          "page_content_enable": false
+        }
+      },
+      "text_and_image_cBrKFr": {
+        "type": "text-and-image",
+        "name": "Image with text",
+        "settings": {
+          "image": "shopify://shop_images/P3-P24-women_footwear_2_front-Melody-Studio.png",
+          "image2": "shopify://shop_images/women_footwear_2_front-P1-Marina-Studio.png",
+          "image_width": 700,
+          "subtitle": "",
+          "title": "Ev active",
+          "text": "<p><strong>Thank you for being such a wonderful supporter of Eva Varro!</strong> As one of our biggest fans, we’re excited to share some special news with you—our <strong>Eva Varro Active</strong> collection is now launched.</p><p>From golf and pickleball to tennis, yoga, or simply staying fit, these new pieces are designed to help you stand out in style while you move.</p>",
+          "button_label": "Buy Now",
+          "button_link": "shopify://collections/yoga-pants",
+          "button_style": "primary",
+          "layout": "right",
+          "alt": false
+        }
+      },
+      "hero_animated_f6UDfA": {
+        "type": "hero-animated",
+        "blocks": {
+          "image_CqJb8h": {
+            "type": "image",
+            "settings": {
+              "image": "shopify://shop_images/Eva-Varro-Fall-Top-Fashoin-Sale_V3.jpg",
+              "image_mobile": "shopify://shop_images/Eva-Varro-Fall-Top-Fashoin-Sale_V3.jpg",
+              "focal_point": "center center"
+            }
+          }
+        },
+        "block_order": [
+          "image_CqJb8h"
+        ],
+        "name": "Animated image hero",
+        "settings": {
+          "style": "gif",
+          "title": "10% Off FALL FASHION SALE USE CODE: FALL10",
+          "title_size": 54,
+          "subheading": "",
+          "link": "shopify://collections/new-arrivals",
+          "link_text": "Shop Now",
+          "color_accent": "#171919",
+          "text_align": "vertical-bottom horizontal-center",
+          "desktop_size": -40,
+          "mobile_size": 0
+        }
+      }
+    },
+    "content_for_index": [
+      "1559321610782",
+      "hero_animated_AE8MKQ",
+      "hero_animated_f6UDfA",
+      "text_and_image_cBrKFr",
+      "1556162914490",
+      "1558626745581",
+      "1559585995085",
+      "1559098181700",
+      "1556162802939",
+      "1543003878234",
+      "1559586187853",
+      "1559687247066",
+      "1559687710135"
+    ],
+    "blocks": {
+      "15885745614559378752": {
+        "type": "shopify://apps/accessibly/blocks/app-embed/4b59303e-1141-4c8a-945f-bf4adb516864",
+        "disabled": false,
+        "settings": {
+          "themeColor": "#000000",
+          "iconColor": "#000000",
+          "showLogo": false,
+          "topBottomPosition": 10,
+          "rightLeftPosition": 10,
+          "iconSize": "small",
+          "iconCustomSize": 64,
+          "position": "middle-right"
+        }
+      },
+      "6174324309569838175": {
+        "type": "shopify://apps/smile-io/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+        "disabled": false,
+        "settings": {}
+      },
+      "7520711097648287086": {
+        "type": "shopify://apps/lookfy-gallery/blocks/app-embed/596af5f6-9933-4730-95c2-f7d8d52a0c3e",
+        "disabled": false,
+        "settings": {}
+      },
+      "3720565183479497137": {
+        "type": "shopify://apps/globo-product-options/blocks/app-embed-block/fdc9fad5-1a0f-4bd4-9c8a-1af6a6eef6b8",
+        "disabled": false,
+        "settings": {
+          "themeInfo": "{{ theme.id }}"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Core": {
+      "animate_images": true,
+      "animate_page_transition_style": "page-logo",
+      "button_style": "round",
+      "button_type_style": "normal",
+      "cart_type": "sticky",
+      "checkout_accent_color": "#111111",
+      "checkout_banner_background_color": "#ffffff",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_button_color": "#111111",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_error_color": "#ff6d6d",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_input_background_color_mode": "white",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_use_header_image": false,
+      "color_alt_bg": "#f9f9f9",
+      "color_alt_text": "#000000",
+      "color_announcement": "#000000",
+      "color_announcement_text": "#ffffff",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#000000",
+      "color_button": "#000000",
+      "color_button_text": "#ffffff",
+      "color_cart_dot": "#f75d44",
+      "color_cart_dot_text": "#ffffff",
+      "color_drawer_background": "#ffffff",
+      "color_drawer_text": "#000000",
+      "color_image_overlay": "#000000",
+      "color_image_overlay_opacity": 10,
+      "color_image_overlay_text_shadow": 20,
+      "color_image_text": "#ffffff",
+      "color_large_image_bg": "#000000",
+      "color_newsletter": "#000000",
+      "color_newsletter_text": "#fff",
+      "color_sale_price": "#000000",
+      "color_sale_tag": "#990000",
+      "color_small_image_bg": "#ffffff",
+      "desktop_loader_width": 100,
+      "mobile_loader_width": 100,
+      "product_grid_image_size": "natural",
+      "product_hover_details": false,
+      "product_hover_image": true,
+      "product_image_scatter": false,
+      "product_video_style": "muted",
+      "reviews_layout": "full",
+      "social_facebook_link": "https://www.facebook.com/shopify",
+      "social_instagram_link": "https://instagram.com/shopify",
+      "social_pinterest_link": "https://www.pinterest.com/shopify",
+      "type_base_font_family": "roboto_condensed_n4",
+      "type_base_line_height": 1.6,
+      "type_base_size": 18,
+      "type_base_spacing": "25",
+      "type_header_base_size": 46,
+      "type_header_capitalize": true,
+      "type_header_font_family": "roboto_condensed_i7",
+      "type_header_line_height": 1,
+      "type_header_spacing": "-25",
+      "type_product_capitalize": false,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_index": true,
+            "sticky_collection": false,
+            "header_search_enable": true,
+            "show_announcement": false,
+            "show_announcement_home_only": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_newsletter": true,
+            "show_social_icons": true,
+            "menu": "footer",
+            "newsletter_title": "Join the club",
+            "newsletter_richtext": "",
+            "show_payment_icons": false,
+            "show_copyright": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "per_row_desktop": 3
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {}
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_image": true,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "social_sharing_blog": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_tag_filter": true,
+            "blog_show_rss": false,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false
+          }
+        },
+        "product-sections": {
+          "type": "product-sections",
+          "blocks": {
+            "product-text-columns": {
+              "type": "text-columns",
+              "settings": {
+                "title": "Why choose us?",
+                "align_text": "center",
+                "alt": true,
+                "enable_image_1": false,
+                "image_width_1": 650,
+                "title_1": "Reason one",
+                "text_1": "<p>Use this section to explain your company philosophy or standards. Add images for emphasis. This content will appear on all products.</p>",
+                "enable_image_2": false,
+                "image_width_2": 650,
+                "title_2": "Reason two",
+                "text_2": "<p>Use this section to explain your company philosophy or standards. Add images for emphasis. This content will appear on all products.</p>",
+                "enable_image_3": false,
+                "image_width_3": 650,
+                "title_3": "",
+                "text_3": ""
+              }
+            },
+            "product-text-and-image": {
+              "type": "text-and-image",
+              "settings": {
+                "image_width": 700,
+                "text": "<p>Pair large text with an image to tell a story, explain a detail about your products, or describe a new promotion.</p>",
+                "button_style": "primary",
+                "layout": "right"
+              }
+            },
+            "product-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "layout": "right"
+              }
+            }
+          },
+          "block_order": [
+            "product-text-columns",
+            "product-text-and-image",
+            "product-background-image-text"
+          ],
+          "settings": {}
+        },
+        "page-sections-template": {
+          "type": "page-sections-template",
+          "blocks": {
+            "1559681273277": {
+              "type": "image-hero",
+              "settings": {
+                "title_size": 80,
+                "text_align": "vertical-center horizontal-center"
+              }
+            },
+            "1558643031646": {
+              "type": "text-and-image",
+              "settings": {
+                "image_width": 450,
+                "button_style": "primary",
+                "layout": "right"
+              }
+            },
+            "1558643392013": {
+              "type": "map",
+              "settings": {}
+            },
+            "1558643431127": {
+              "type": "collection-slider",
+              "settings": {
+                "per_row": "large"
+              }
+            },
+            "1558643225272": {
+              "type": "hero-video",
+              "settings": {
+                "title": "Keep it short\nand sweet.",
+                "title_size": 60,
+                "subheading": "Explain your brand in more depth on your product pages",
+                "text_align": "vertical-center horizontal-center",
+                "section_height": "750px",
+                "mobile_height": "100vh"
+              }
+            }
+          },
+          "block_order": [
+            "1559681273277",
+            "1558643031646",
+            "1558643392013",
+            "1558643431127",
+            "1558643225272"
+          ],
+          "settings": {
+            "page_title_enable": false,
+            "page_content_enable": true
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+            "mode": "disabled",
+            "popup_seconds": 5,
+            "popup_days": 30,
+            "enable_newsletter": true
+          }
+        },
+        "1543003878234": {
+          "type": "featured-collections",
+          "blocks": {
+            "1543003878234-0": {
+              "type": "collection",
+              "settings": {}
+            },
+            "1543003878234-1": {
+              "type": "collection",
+              "settings": {}
+            },
+            "1543003878234-2": {
+              "type": "collection",
+              "settings": {}
+            },
+            "1543003878234-3": {
+              "type": "collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1543003878234-0",
+            "1543003878234-1",
+            "1543003878234-2",
+            "1543003878234-3"
+          ],
+          "settings": {
+            "alt": true,
+            "title": "Shop all"
+          }
+        },
+        "list-collections-template": {
+          "type": "list-collections-template",
+          "settings": {}
+        },
+        "1556162802939": {
+          "type": "featured-collection",
+          "settings": {
+            "per_row_desktop": 4,
+            "per_row_mobile": "2",
+            "description": "For more traditional layouts"
+          }
+        },
+        "1556162914490": {
+          "type": "featured-collection-slider",
+          "settings": {
+            "description": "With infinite scrolling"
+          }
+        },
+        "1558626745581": {
+          "type": "featured-content",
+          "settings": {
+            "align_text": "center",
+            "narrow_column": true,
+            "enlarge_text": true
+          }
+        },
+        "1559096311192": {
+          "type": "hero-animated",
+          "blocks": {
+            "1559096311192-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "1559097202495": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1559096311192-0",
+            "1559097202495"
+          ],
+          "settings": {
+            "style": "gif",
+            "title": "Make an impression",
+            "title_size": 80,
+            "text_align": "vertical-center horizontal-center"
+          }
+        },
+        "1559098181700": {
+          "type": "slideshow",
+          "blocks": {
+            "1559098181700-0": {
+              "type": "image",
+              "settings": {
+                "title_size": 80,
+                "text_align": "vertical-bottom horizontal-left"
+              }
+            }
+          },
+          "block_order": [
+            "1559098181700-0"
+          ],
+          "settings": {}
+        },
+        "1559321610782": {
+          "type": "hero-video",
+          "settings": {
+            "title": "Keep it short\nand sweet.",
+            "title_size": 80,
+            "subheading": "Explain your brand in more depth on your product pages",
+            "text_align": "vertical-bottom horizontal-center",
+            "section_height": "750px",
+            "mobile_height": "100vh"
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true
+          }
+        },
+        "1559585995085": {
+          "type": "featured-collection-slider",
+          "settings": {
+            "description": "With infinite scrolling"
+          }
+        },
+        "1559586187853": {
+          "type": "marquee",
+          "settings": {
+            "text": "Follow us for monthly apparel giveaways",
+            "text_size": 36
+          }
+        },
+        "1559687247066": {
+          "type": "text-and-image",
+          "settings": {
+            "image_width": 700,
+            "button_label": "Our story",
+            "button_style": "secondary",
+            "layout": "right"
+          }
+        },
+        "1559687361077": {
+          "type": "text-and-image",
+          "settings": {
+            "image_width": 700,
+            "button_label": "Contact us",
+            "button_style": "secondary",
+            "layout": "left"
+          }
+        },
+        "1559687710135": {
+          "type": "map",
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "1559321610782",
+        "1559585995085",
+        "1558626745581",
+        "1559096311192",
+        "1556162914490",
+        "1559098181700",
+        "1556162802939",
+        "1543003878234",
+        "1559687247066",
+        "1559687361077",
+        "1559687710135",
+        "1559586187853"
+      ]
+    },
+    "Luxe": {
+      "animate_images": true,
+      "animate_page_transition_style": "page-logo",
+      "button_style": "shadow",
+      "cart_type": "sticky",
+      "checkout_accent_color": "#111111",
+      "checkout_banner_background_color": "#ffffff",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_button_color": "#111111",
+      "checkout_call_to_action_color": "#a26b25",
+      "checkout_error_color": "#ff6d6d",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_input_background_color_mode": "white",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_use_header_image": false,
+      "color_alt_bg": "#ffffff",
+      "color_alt_text": "#333029",
+      "color_announcement": "#c67066",
+      "color_announcement_text": "#ffffff",
+      "color_body_bg": "#fdfbfa",
+      "color_body_text": "#333029",
+      "color_button": "#c67066",
+      "color_button_text": "#ffffff",
+      "color_cart_dot": "#c67066",
+      "color_drawer_background": "#fdf9f5",
+      "color_drawer_text": "#333029",
+      "color_image_bg": "#000000",
+      "color_image_overlay": "#000000",
+      "color_image_overlay_opacity": 10,
+      "color_image_text": "#ffffff",
+      "color_large_image_bg": "#eee5e0",
+      "color_newsletter": "#c67066",
+      "color_newsletter_text": "#ffffff",
+      "color_sale_price": "#333029",
+      "color_sale_tag": "#c67066",
+      "color_small_image_bg": "#fdfbfa",
+      "desktop_loader_width": 140,
+      "mobile_loader_width": 130,
+      "product_grid_image_size": "natural",
+      "product_hover_details": true,
+      "product_hover_image": true,
+      "product_image_scatter": false,
+      "product_video_style": "muted",
+      "reviews_layout": "full",
+      "social_facebook_link": "https://www.facebook.com/shopify",
+      "social_instagram_link": "https://instagram.com/shopify",
+      "social_pinterest_link": "https://www.pinterest.com/shopify",
+      "type_base_font_family": "futura_n4",
+      "type_base_line_height": 1.7,
+      "type_base_size": 18,
+      "type_base_spacing": "25",
+      "type_header_base_size": 50,
+      "type_header_capitalize": false,
+      "type_header_font_family": "itc_novarese_n5",
+      "type_header_line_height": 1.1,
+      "type_header_spacing": "0",
+      "type_product_capitalize": false,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_index": true,
+            "sticky_collection": true,
+            "header_search_enable": true,
+            "show_announcement": true,
+            "show_announcement_home_only": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_newsletter": true,
+            "show_social_icons": true,
+            "show_payment_icons": false,
+            "show_copyright": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "per_row_desktop": 3
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {}
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_image": false,
+            "blog_show_tags": true,
+            "blog_show_date": false,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "social_sharing_blog": false
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_tag_filter": true,
+            "blog_show_rss": false,
+            "blog_show_tags": true,
+            "blog_show_date": false,
+            "blog_show_comments": true,
+            "blog_show_author": false
+          }
+        },
+        "product-sections": {
+          "type": "product-sections",
+          "blocks": {
+            "product-text-columns": {
+              "type": "text-columns",
+              "settings": {
+                "title": "Why choose us?",
+                "align_text": "center",
+                "alt": true,
+                "enable_image_1": false,
+                "image_width_1": 650,
+                "title_1": "Reason one",
+                "text_1": "<p>Use this section to explain your company philosophy or standards. Add images for emphasis. This content will appear on all products.</p>",
+                "enable_image_2": false,
+                "image_width_2": 650,
+                "title_2": "Reason two",
+                "text_2": "<p>Use this section to explain your company philosophy or standards. Add images for emphasis. This content will appear on all products.</p>",
+                "enable_image_3": false,
+                "image_width_3": 650,
+                "title_3": "",
+                "text_3": ""
+              }
+            },
+            "product-text-and-image": {
+              "type": "text-and-image",
+              "settings": {
+                "image_width": 700,
+                "text": "<p>Pair large text with an image to tell a story, explain a detail about your products, or describe a new promotion.</p>",
+                "button_style": "primary",
+                "layout": "right"
+              }
+            },
+            "product-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "layout": "right"
+              }
+            }
+          },
+          "block_order": [
+            "product-text-columns",
+            "product-text-and-image",
+            "product-background-image-text"
+          ],
+          "settings": {}
+        },
+        "page-sections-template": {
+          "type": "page-sections-template",
+          "blocks": {
+            "1558643031646": {
+              "type": "text-and-image",
+              "settings": {
+                "image_width": 400,
+                "button_style": "primary",
+                "layout": "right"
+              }
+            },
+            "1558643225272": {
+              "type": "hero-video",
+              "settings": {
+                "title": "Keep it short\nand sweet.",
+                "title_size": 47,
+                "subheading": "Explain your brand in more depth on your product pages",
+                "text_align": "vertical-center horizontal-center",
+                "section_height": "750px",
+                "mobile_height": "100vh"
+              }
+            },
+            "1558643431127": {
+              "type": "collection-slider",
+              "settings": {
+                "per_row": "small"
+              }
+            },
+            "1558643392013": {
+              "type": "map",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1558643031646",
+            "1558643225272",
+            "1558643431127",
+            "1558643392013"
+          ],
+          "settings": {
+            "page_title_enable": true,
+            "page_content_enable": true
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+            "mode": "disabled",
+            "popup_seconds": 5,
+            "popup_days": 30,
+            "enable_newsletter": true
+          }
+        },
+        "list-collections-template": {
+          "type": "list-collections-template",
+          "settings": {
+            "title_enable": true,
+            "display_type": "all"
+          }
+        },
+        "1555097143929": {
+          "type": "text-and-image",
+          "settings": {
+            "image_width": 700,
+            "button_style": "btn",
+            "layout": "right"
+          }
+        },
+        "1555439851826": {
+          "type": "background-image-text",
+          "settings": {
+            "color_border": "#4f1c3a",
+            "layout": "right"
+          }
+        },
+        "1556162802939": {
+          "type": "featured-collection-slider",
+          "settings": {}
+        },
+        "1556162914490": {
+          "type": "featured-collection-slider",
+          "settings": {}
+        },
+        "1558625522348": {
+          "type": "background-image-text",
+          "settings": {
+            "color_border": "#4f1c3a",
+            "layout": "left"
+          }
+        },
+        "1558626497917": {
+          "type": "hero-video",
+          "settings": {
+            "title": "Keep it short\nand sweet.",
+            "title_size": 80,
+            "subheading": "Explain your brand in more depth on your product pages",
+            "text_align": "vertical-center horizontal-center",
+            "section_height": "750px",
+            "mobile_height": "100vh"
+          }
+        },
+        "1558626745581": {
+          "type": "featured-content",
+          "settings": {
+            "align_text": "center",
+            "narrow_column": true,
+            "enlarge_text": true
+          }
+        },
+        "1559155590855": {
+          "type": "text-columns",
+          "blocks": {
+            "1559155590855-0": {
+              "type": "text_block",
+              "settings": {
+                "enable_image": false,
+                "title": "Reason one"
+              }
+            },
+            "1559155590855-1": {
+              "type": "text_block",
+              "settings": {
+                "enable_image": false,
+                "title": "Reason two"
+              }
+            }
+          },
+          "block_order": [
+            "1559155590855-0",
+            "1559155590855-1"
+          ],
+          "settings": {
+            "title": "Why choose us?",
+            "align_text": "center",
+            "alt": true
+          }
+        },
+        "password-header": {
+          "type": "password-header",
+          "settings": {}
+        },
+        "password-content": {
+          "type": "password-content",
+          "settings": {
+            "newsletter_enable": true,
+            "show_share_buttons": false,
+            "show_image": true
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true,
+            "per_row": "small"
+          }
+        }
+      },
+      "content_for_index": [
+        "1558626497917",
+        "1556162914490",
+        "1558626745581",
+        "1555097143929",
+        "1555439851826",
+        "1559155590855",
+        "1556162802939",
+        "1558625522348"
+      ]
+    },
+    "Hype": {
+      "animate_images": false,
+      "animate_page_transition_style": "page-logo",
+      "button_style": "shadow",
+      "cart_type": "sticky",
+      "checkout_accent_color": "#111111",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_button_color": "#111111",
+      "checkout_error_color": "#ff6d6d",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_input_background_color_mode": "white",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_sidebar_background_color": "#fafafa",
+      "color_alt_bg": "#000000",
+      "color_alt_text": "#ffffff",
+      "color_announcement": "#000000",
+      "color_announcement_text": "#ffffff",
+      "color_body_bg": "#ffffff",
+      "color_cart_dot": "#FF2300",
+      "color_drawer_background": "#ffffff",
+      "color_drawer_text": "#000000",
+      "color_image_bg": "#000000",
+      "color_image_overlay": "#000000",
+      "color_image_overlay_opacity": 10,
+      "color_image_text": "#ffffff",
+      "color_large_image_bg": "#000000",
+      "color_newsletter": "#000000",
+      "color_newsletter_text": "#ffffff",
+      "color_small_image_bg": "#f2f2f2",
+      "desktop_loader_width": 190,
+      "mobile_loader_width": 180,
+      "product_grid_image_size": "natural",
+      "product_hover_details": false,
+      "product_hover_image": true,
+      "product_image_scatter": true,
+      "product_video_style": "muted",
+      "reviews_layout": "full",
+      "social_facebook_link": "https://www.facebook.com/shopify",
+      "social_instagram_link": "https://instagram.com/shopify",
+      "social_pinterest_link": "https://www.pinterest.com/shopify",
+      "type_base_font_family": "basic_commercial_n7",
+      "type_base_line_height": 1.3,
+      "type_base_size": 20,
+      "type_base_spacing": "25",
+      "type_header_base_size": 48,
+      "type_header_capitalize": true,
+      "type_header_font_family": "basic_commercial_n7",
+      "type_header_line_height": 0.9,
+      "type_header_spacing": "25",
+      "type_product_capitalize": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "sticky_index": true,
+            "sticky_collection": true,
+            "header_search_enable": true,
+            "show_announcement": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "show_newsletter": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "per_row_desktop": 3
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {}
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_image": true,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false,
+            "social_sharing_blog": true
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "blog_show_tag_filter": true,
+            "blog_show_rss": false,
+            "blog_show_tags": true,
+            "blog_show_date": true,
+            "blog_show_comments": true,
+            "blog_show_author": false
+          }
+        },
+        "product-sections": {
+          "type": "product-sections",
+          "blocks": {
+            "product-text-columns": {
+              "type": "text-columns",
+              "settings": {
+                "title": "Why choose us?",
+                "align_text": "center",
+                "alt": true,
+                "enable_image_1": false,
+                "image_width_1": 650,
+                "title_1": "Reason one",
+                "text_1": "<p>Use this section to explain your company philosophy or standards. Add images for emphasis. This content will appear on all products.</p>",
+                "enable_image_2": false,
+                "image_width_2": 650,
+                "title_2": "Reason two",
+                "text_2": "<p>Use this section to explain your company philosophy or standards. Add images for emphasis. This content will appear on all products.</p>",
+                "enable_image_3": false,
+                "image_width_3": 650,
+                "title_3": "",
+                "text_3": ""
+              }
+            },
+            "product-text-and-image": {
+              "type": "text-and-image",
+              "settings": {
+                "image_width": 700,
+                "text": "<p>Pair large text with an image to tell a story, explain a detail about your products, or describe a new promotion.</p>",
+                "button_style": "primary",
+                "layout": "right"
+              }
+            },
+            "product-background-image-text": {
+              "type": "background-image-text",
+              "settings": {
+                "layout": "right"
+              }
+            }
+          },
+          "block_order": [
+            "product-text-columns",
+            "product-text-and-image",
+            "product-background-image-text"
+          ],
+          "settings": {}
+        },
+        "page-sections-template": {
+          "type": "page-sections-template",
+          "blocks": {
+            "1558643031646": {
+              "type": "text-and-image",
+              "settings": {
+                "image_width": 400,
+                "button_style": "primary",
+                "layout": "right"
+              }
+            },
+            "1558643431127": {
+              "type": "collection-slider",
+              "settings": {
+                "per_row": "small"
+              }
+            }
+          },
+          "block_order": [
+            "1558643031646",
+            "1558643431127"
+          ],
+          "settings": {
+            "page_title_enable": true,
+            "page_content_enable": true
+          }
+        },
+        "newsletter-popup": {
+          "type": "newsletter-popup",
+          "settings": {
+            "mode": "disabled",
+            "popup_seconds": 5,
+            "popup_days": 30,
+            "enable_newsletter": true
+          }
+        },
+        "list-collections-template": {
+          "type": "list-collections-template",
+          "settings": {}
+        },
+        "1555097143929": {
+          "type": "text-and-image",
+          "settings": {}
+        },
+        "1556162802939": {
+          "type": "featured-collection-slider",
+          "settings": {}
+        },
+        "1556162914490": {
+          "type": "featured-collection-slider",
+          "settings": {}
+        },
+        "1559240039950": {
+          "type": "hero-animated",
+          "blocks": {
+            "1559240039950-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "1559240039950-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "1559309176406": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1559240039950-0",
+            "1559240039950-1",
+            "1559309176406"
+          ],
+          "settings": {
+            "style": "gif",
+            "title_size": 72,
+            "text_align": "vertical-bottom horizontal-right"
+          }
+        },
+        "1559241610369": {
+          "type": "marquee",
+          "settings": {
+            "text": "☞ FREE SHIPPING AND RETURNS",
+            "text_size": 70,
+            "text_spacing": true,
+            "color_scheme": "text",
+            "direction": "left"
+          }
+        },
+        "product-recommendations": {
+          "type": "product-recommendations",
+          "settings": {
+            "show_product_recommendations": true,
+            "per_row": "large"
+          }
+        },
+        "1559249041610": {
+          "type": "hero-video",
+          "settings": {
+            "title": "Keep it short\nand sweet.",
+            "title_size": 80,
+            "subheading": "Explain your brand in more depth on your product pages",
+            "text_align": "vertical-bottom horizontal-left",
+            "section_height": "750px",
+            "mobile_height": "100vh"
+          }
+        }
+      },
+      "content_for_index": [
+        "1559240039950",
+        "1555097143929",
+        "1559241610369",
+        "1556162914490",
+        "1559249041610",
+        "1556162802939"
+      ]
+    }
+  }
+}

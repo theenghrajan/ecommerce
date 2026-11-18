@@ -1,0 +1,74 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article-fw-sidebar",
+      "blocks": {
+        "1566524730954": {
+          "type": "blog",
+          "settings": {
+            "blog": "classic"
+          }
+        },
+        "1566524742486": {
+          "type": "blog",
+          "settings": {
+            "blog": "news"
+          }
+        },
+        "1566524752267": {
+          "type": "sb_banner",
+          "settings": {
+            "img": "shopify://shop_images/banner.jpg",
+            "url": ""
+          }
+        },
+        "1566524777899": {
+          "type": "sb_about",
+          "settings": {
+            "html": "Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, pulvinar nunc sapien ornare nisl."
+          }
+        }
+      },
+      "block_order": [
+        "1566524730954",
+        "1566524742486",
+        "1566524752267",
+        "1566524777899"
+      ],
+      "settings": {
+        "width_section": "w-100",
+        "width_content": true,
+        "blog_show_author": true,
+        "blog_show_date": true,
+        "items_per_row": "1",
+        "autoplay": false,
+        "use_navigation": false,
+        "nav_style": "-default",
+        "nav_mode": "default",
+        "nav_position": "nav-default",
+        "use_dots": false,
+        "dots_mode": "default",
+        "dots_position": "inside",
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 20\n  },\n  \"320\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 20\n  },\n  \"768\": {\n    \"slidesPerView\": 2,\n    \"spaceBetween\": 20\n  },\n  \"992\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  },\n  \"1200\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  }\n}",
+        "search": true,
+        "catt": true,
+        "recent_posts": true,
+        "tags": true,
+        "blog_tags_": "Beauty,\n Cotton,\n Fashion,\n Style, \nWomen",
+        "show_share_buttons": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
