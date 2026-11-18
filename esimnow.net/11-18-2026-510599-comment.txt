@@ -1,19 +1,23 @@
 Charlie Myhran
 As per comment #9,
 
+The import sheet is ready for review, except for the prices (see point 1 below):
+https://docs.google.com/spreadsheets/d/13buiMEw9QdFuDjiIyaXpK0S_PBCma2kl3fHr4QuDbi0/edit
+The README tab explains each tab. Anyone at SmartSites can view it. It isn't public because it has the client's prices.
+
 Re: CSV is current. The prices (2,360 changes) and new variants (1,184) are accurate. Please proceed.
 ...
-While preparing the import sheet, we found that the client has shared two different price lists, both in the project files:
+1. While preparing the import sheet, we found that the client has shared two different price lists, both in the project files:
 - Aug 19: shopifyCSV_Daily_unlimited.csv and shopifyCSV_prepaid.csv
 - Sep 4: esimnow Daily Plan 1.csv and esimnow Prepaid Plan 1.csv
 
 The two lists don't match, so we need to know which one is final before we import.
 
-1. Daily Unlimited: 552 prices are different between the two lists. For 504 of them, the live site already shows the Sep 4 price. If we import the Aug 19 CSV, these prices will change back to the Aug 19 amount (in most cases a lower price).
+Daily Unlimited: 552 prices are different between the two lists. For 504 of them, the live site already shows the Sep 4 price. If we import the Aug 19 CSV, these prices will change back to the Aug 19 amount (in most cases a lower price).
 Example: Antigua and Barbuda 1GB/Day, 1 day is $9.92 on the live site and in the Sep 4 list, but $9.56 in the Aug 19 CSV.
 Reference screenshot: https://drive.google.com/file/d/1CWPDtKbjbPrlHA5N0OkaqszVEKe1khuv/view?usp=sharing
 
-2. Prepaid: 176 prices are different between the two lists. Before our Prepaid update on Oct 6, 168 of these matched the Sep 4 list. The Oct 6 update used the Aug 19 CSV, so these prices changed at that time (in most cases they went down).
+Prepaid: 176 prices are different between the two lists. Before our Prepaid update on Oct 6, 168 of these matched the Sep 4 list. The Oct 6 update used the Aug 19 CSV, so these prices changed at that time (in most cases they went down).
 Example: Antigua and Barbuda 3GB 30Days was $29.98 before Oct 6 (same as the Sep 4 list) and is $27.53 now (Aug 19 CSV).
 Reference screenshot: https://drive.google.com/file/d/1Pjh84e0bi6JDH_wfblvPPJFV7xOfOCqU/view?usp=sharing
 
@@ -21,6 +25,25 @@ Could you please ask the client which price list is final?
 - If the Sep 4 list is final, we will use it for the Daily Unlimited import and also change the 168 Prepaid prices back to the Sep 4 prices.
 - If the Aug 19 CSV is final, we will go ahead as planned and nothing changes on the Prepaid side.
 
-We will hold the import until we hear back. The rest of the sheet (new URLs, titles, new products and removals) is in progress and doesn't depend on this.
+The sheet uses the Aug 19 prices for now, with the Sep 4 price shown next to each one that is different (all differences are listed in the "8 Price Check Sep 4" tab). We will hold the import until we hear back.
+
+Re: Nov 12 bulk update: Please check the Shopify admin (installed apps, bulk edit or import history) to see what ran on Nov 12, and let us know if anything could overwrite our changes.
+...
+2. We checked the installed apps, the import history and the store activity. Nothing in the admin shows what ran on Nov 12. The same update ran again today (Nov 18), and it touched every product in the store, not only the Daily Unlimited ones. It didn't change any titles, URLs or prices, and our earlier Prepaid changes are still in place. The only outside connection we could find is the client's order system, which adds notes to orders. Could you please ask the client if their system also updates products on a schedule? We have taken a full product export as a backup and will spot-check the products the day after the import.
+
+3. In the CSV, 5 Daily Unlimited products are split into two products each. The second product has only one plan size, and two of them have typos in the name:
+- China → China + China (nonhkip) (3GB/Day plans)
+- Macao → Macao + Macao (nonhkip) (5GB/Day plans)
+- Thailand → Thailand + Thailand (nonhkip) (5GB/Day plans)
+- Cayman Islands → Cayman Islands + "Cayman lslands" (10GB/Day plans)
+- Philippines → Philippines + "Philippine" (3GB/Day plans)
+On the live site, each of these is one product with all plan sizes. We suggest keeping them as one product. Could you please confirm with the client? These are in the "7 HOLD - Split Products" tab and are not in the import yet.
+
+4. A few other things to review in the sheet:
+- New products: 30 in total (15 Daily Unlimited + 15 Prepaid). The CSV already has a description, image and tags for each, so we used those. The collection is copied from the closest product, and the "Copied From" column shows which one.
+- Prepaid: 17 new plans on 13 existing Prepaid products are in the CSV but weren't in IBM's list. We have added them.
+- Prepaid Philippines 3GB 30Days isn't in the client's CSV. Should we remove it? It is marked in the "5 Removals" tab.
+- Removals: the 16 variants include the 8 plans on Oceania Orange, so it is 8 Vietnam plans plus Oceania Orange. Oceania Orange will redirect to the Oceania collection.
+- Redirects: some old redirects point to URLs we are changing. We will point them straight to the new URLs, so no visitor goes through two redirects.
 
 Thanks!
