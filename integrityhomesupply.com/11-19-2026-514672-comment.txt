@@ -1,0 +1,35 @@
+Blair Henderson
+
+As per the task description,
+
+We have updated the structured data on the live site. The theme already had Product and Local Business markup, so we corrected the existing markup instead of adding a second copy (no duplicates from the theme or apps).
+
+1. Product schema is on all product pages with name, SKU, brand, image, description, price and availability. Showroom-only items (no online price) do not show an online offer.
+
+2. Local Business schema is set as a Home Goods Store for the Philadelphia showroom: name, 2590 Grant Avenue address, phone, hours (Monday to Saturday, 8 AM to 6 PM), website, logo, map location and social profiles (Facebook, Instagram, LinkedIn, X, Pinterest).
+
+3. Name, address, phone, hours and map location match the Google Business Profile listing. Google's category "Home improvement store" has no exact match in schema, so Home Goods Store is used as the closest equivalent.
+
+4. Validation results:
+
+Homepage (Local Business):
+Rich Results Test - all valid: https://search.google.com/test/rich-results/result?id=izig5ARq-TRexLIPeXul7w
+Reference screenshot: https://drive.google.com/file/d/1pbd8IMMilJvO7gT7DYuJBy2miJN-7fvc/view?usp=sharing
+Schema Markup Validator - 0 errors, 0 warnings: https://validator.schema.org/#url=https%3A%2F%2Fintegrityhomesupply.com%2F
+Reference screenshot: https://drive.google.com/file/d/1-c95ONeXenFsMH0pRO4fYZZisIqgzi32/view?usp=sharing
+
+Product sold online (T2028A Pot Filler Kitchen Faucet):
+Rich Results Test - all valid (Product snippets and Merchant listings): https://search.google.com/test/rich-results/result?id=D5HpmCz7v_f41Jyba36xEw
+Reference screenshot: https://drive.google.com/file/d/1sJQTMkPIwK_fH-9rGTSE3f-su2OWo98n/view?usp=sharing
+Schema Markup Validator - 0 errors, 0 warnings: https://validator.schema.org/#url=https%3A%2F%2Fintegrityhomesupply.com%2Fproducts%2Ft2028a
+Reference screenshot: https://drive.google.com/file/d/1OmAZ4R94Npp4uxRh8obg5AD3nGX7n14v/view?usp=sharing
+
+Showroom-only product (Smoke Walnut):
+Rich Results Test: https://search.google.com/test/rich-results/result?id=_0FZ7UkB816vCj7o-5s4JA
+Reference screenshot: https://drive.google.com/file/d/1m3LyfIsSxjMTR83m7lczpXdm3ZO7XCGr/view?usp=sharing
+Schema Markup Validator - 0 errors, 0 warnings: https://validator.schema.org/#url=https%3A%2F%2Fintegrityhomesupply.com%2Fproducts%2Fsmoke-walnut
+Reference screenshot: https://drive.google.com/file/d/1N-N74xafgpuhEcQ5sTLMMONooDjLENCq/view?usp=sharing
+Since showroom-only items have no online offer, Google lists their product snippet as not eligible for price rich results. Business and breadcrumb results on these pages are valid.
+Reference screenshot: https://drive.google.com/file/d/1iYROfzGfSDl1NFbduJgHe09JnjVtyAmk/view?usp=sharing
+
+Thanks!

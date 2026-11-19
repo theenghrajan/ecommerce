@@ -1,0 +1,1102 @@
+- generic [ref=f20e4]:
+  - generic [ref=f20e5]:
+    - generic:
+      - status
+  - generic [ref=f20e7]:
+    - generic [ref=f20e8]:
+      - generic:
+        - status
+    - generic [ref=f20e10]:
+      - link "Skip to content":
+        - /url: "#AppFrameMain"
+        - strong:
+          - generic: Skip to content
+      - main [ref=f20e12]:
+        - iframe [active] [ref=f20e20]:
+          - generic [ref=f21e6]:
+            - generic:
+              - link "Skip to editing sidebar":
+                - /url: "#OSUI-SkipTarget"
+            - banner [ref=f21e7]:
+              - generic [ref=f21e9]:
+                - generic [ref=f21e10]:
+                  - link "Exit" [ref=f21e11] [cursor=pointer]:
+                    - /url: https://admin.shopify.com/store/integrityhomesupply/themes
+                  - navigation [ref=f21e18]:
+                    - list [ref=f21e19]:
+                      - listitem [ref=f21e20]:
+                        - button "Open sections panel" [ref=f21e22] [cursor=pointer]
+                      - listitem [ref=f21e33]:
+                        - button "Open theme settings panel" [pressed] [ref=f21e35] [cursor=pointer]
+                      - listitem [ref=f21e43]:
+                        - button "Open app embeds panel" [ref=f21e45] [cursor=pointer]
+                - generic [ref=f21e54]:
+                  - generic [ref=f21e56]:
+                    - generic [ref=f21e62]: Integrity 2026
+                    - generic [ref=f21e66]:
+                      - generic [ref=f21e67]: Success
+                      - generic [ref=f21e68]: Active
+                  - button "Store default" [ref=f21e71] [cursor=pointer]
+                  - button "Home page" [ref=f21e86] [cursor=pointer]
+                - generic [ref=f21e98]:
+                  - button "Open Sidekick" [ref=f21e100] [cursor=pointer]
+                  - button "Deactivate inspector" [pressed] [ref=f21e109] [cursor=pointer]
+                  - button "Enable mobile preview" [ref=f21e117] [cursor=pointer]
+                  - generic [ref=f21e124]:
+                    - generic [ref=f21e126]:
+                      - button "Revert the most recent action" [disabled]
+                    - generic [ref=f21e128]:
+                      - button "Re-apply the most recent reverted action" [disabled]
+                  - button "View actions" [ref=f21e130] [cursor=pointer]
+                  - generic [ref=f21e141]:
+                    - button "Save" [disabled] [ref=f21e145]
+                    - button "Save as" [disabled] [ref=f21e151]
+            - generic [ref=f21e159]:
+              - generic [ref=f21e165]:
+                - heading "Theme settings" [level=1] [ref=f21e170]
+                - generic [ref=f21e179]:
+                  - button "Theme Active" [ref=f21e181] [cursor=pointer]:
+                    - heading "Theme Active" [level=3] [ref=f21e182]
+                  - button "Favicon" [ref=f21e188] [cursor=pointer]:
+                    - heading "Favicon" [level=3] [ref=f21e189]
+                  - button "Logo" [ref=f21e195] [cursor=pointer]:
+                    - heading "Logo" [level=3] [ref=f21e196]
+                  - button "Header" [ref=f21e202] [cursor=pointer]:
+                    - heading "Header" [level=3] [ref=f21e203]
+                  - button "Footer" [ref=f21e209] [cursor=pointer]:
+                    - heading "Footer" [level=3] [ref=f21e210]
+                  - button "General" [ref=f21e216] [cursor=pointer]:
+                    - heading "General" [level=3] [ref=f21e217]
+                  - button "Gadget" [ref=f21e223] [cursor=pointer]:
+                    - heading "Gadget" [level=3] [ref=f21e224]
+                  - button "Cart" [ref=f21e230] [cursor=pointer]:
+                    - heading "Cart" [level=3] [ref=f21e231]
+                  - button "Colors" [ref=f21e237] [cursor=pointer]:
+                    - heading "Colors" [level=3] [ref=f21e238]
+                  - button "Social media" [ref=f21e244] [cursor=pointer]:
+                    - heading "Social media" [level=3] [ref=f21e245]
+                  - button "Collection page" [ref=f21e251] [cursor=pointer]:
+                    - heading "Collection page" [level=3] [ref=f21e252]
+                  - button "Collection Filters" [ref=f21e258] [cursor=pointer]:
+                    - heading "Collection Filters" [level=3] [ref=f21e259]
+                  - button "Product card item" [ref=f21e265] [cursor=pointer]:
+                    - heading "Product card item" [level=3] [ref=f21e266]
+                  - button "Product page" [ref=f21e272] [cursor=pointer]:
+                    - heading "Product page" [level=3] [ref=f21e273]
+                  - button "Product Option style" [ref=f21e279] [cursor=pointer]:
+                    - heading "Product Option style" [level=3] [ref=f21e280]
+                  - button "Sticky Add to Cart Button" [ref=f21e286] [cursor=pointer]:
+                    - heading "Sticky Add to Cart Button" [level=3] [ref=f21e287]
+                  - button "Product Quickview" [ref=f21e293] [cursor=pointer]:
+                    - heading "Product Quickview" [level=3] [ref=f21e294]
+                  - button "Search" [ref=f21e300] [cursor=pointer]:
+                    - heading "Search" [level=3] [ref=f21e301]
+                  - button "Blog page" [ref=f21e307] [cursor=pointer]:
+                    - heading "Blog page" [level=3] [ref=f21e308]
+                  - button "Account page" [ref=f21e314] [cursor=pointer]:
+                    - heading "Account page" [level=3] [ref=f21e315]
+                  - button "Typography" [ref=f21e321] [cursor=pointer]:
+                    - heading "Typography" [level=3] [ref=f21e322]
+                  - button "(Upsell) Real time Visitor" [ref=f21e328] [cursor=pointer]:
+                    - heading "(Upsell) Real time Visitor" [level=3] [ref=f21e329]
+                  - button "(Upsell) Shipping rates" [ref=f21e335] [cursor=pointer]:
+                    - heading "(Upsell) Shipping rates" [level=3] [ref=f21e336]
+                  - button "(Upsell) Delivery time" [ref=f21e342] [cursor=pointer]:
+                    - heading "(Upsell) Delivery time" [level=3] [ref=f21e343]
+                  - button "(Upsell) Suggest Products" [ref=f21e349] [cursor=pointer]:
+                    - heading "(Upsell) Suggest Products" [level=3] [ref=f21e350]
+                  - button "(Upsell) Stock countdown" [ref=f21e356] [cursor=pointer]:
+                    - heading "(Upsell) Stock countdown" [level=3] [ref=f21e357]
+                  - button "(Upsell) Cart Shipping Threshold" [ref=f21e363] [cursor=pointer]:
+                    - heading "(Upsell) Cart Shipping Threshold" [level=3] [ref=f21e364]
+                  - button "(Upsell) Countdown cart" [ref=f21e370] [cursor=pointer]:
+                    - heading "(Upsell) Countdown cart" [level=3] [ref=f21e371]
+                  - button "(Upsell) Frequently Bought Together" [ref=f21e377] [cursor=pointer]:
+                    - heading "(Upsell) Frequently Bought Together" [level=3] [ref=f21e378]
+                  - button "Custom" [ref=f21e384] [cursor=pointer]:
+                    - heading "Custom" [level=3] [ref=f21e385]
+                  - button "Google SEO JSON-LD" [ref=f21e391] [cursor=pointer]:
+                    - heading "Google SEO JSON-LD" [level=3] [ref=f21e392]
+                  - button "Progressive Web Apps(Beta)" [ref=f21e398] [cursor=pointer]:
+                    - heading "Progressive Web Apps(Beta)" [level=3] [ref=f21e399]
+                  - generic [ref=f21e404]:
+                    - button "Custom CSS" [expanded] [ref=f21e405] [cursor=pointer]:
+                      - heading "Custom CSS" [active] [level=3] [ref=f21e406]
+                    - generic [ref=f21e426]:
+                      - generic [ref=f21e427]: Adds custom styles to your entire online store.
+                      - generic [ref=f21e428]:
+                        - generic [ref=f21e429]: CSS
+                        - generic [ref=f21e430]:
+                          - generic [ref=f21e434]:
+                            - generic [aria-hidden] [ref=f21e435]:
+                              - generic [ref=f21e436]:
+                                - generic [ref=f21e437]: "1"
+                                - generic [ref=f21e438]: "2"
+                                - generic [ref=f21e439]: "3"
+                                - generic [ref=f21e440]: "4"
+                                - generic [ref=f21e441]: "5"
+                                - generic [ref=f21e442]: "6"
+                                - generic [ref=f21e443]: "7"
+                                - generic [ref=f21e444]: "8"
+                                - generic [ref=f21e445]: "9"
+                                - generic [ref=f21e446]: "10"
+                                - generic [ref=f21e447]: "11"
+                                - generic [ref=f21e448]: "12"
+                                - generic [ref=f21e449]: "13"
+                                - generic [ref=f21e450]: "14"
+                                - generic [ref=f21e451]: "15"
+                                - generic [ref=f21e452]: "16"
+                                - generic [ref=f21e453]: "17"
+                                - generic [ref=f21e454]: "18"
+                                - generic [ref=f21e455]: "19"
+                                - generic [ref=f21e456]: "20"
+                                - generic [ref=f21e457]: "21"
+                                - generic [ref=f21e458]: "22"
+                                - generic [ref=f21e459]: "23"
+                                - generic [ref=f21e460]: "24"
+                              - generic [ref=f21e461]:
+                                - generic [ref=f21e462]: ⌄
+                                - generic [ref=f21e463]: ⌄
+                                - generic [ref=f21e464]: ⌄
+                                - generic [ref=f21e465]: ⌄
+                                - generic [ref=f21e466]: ⌄
+                            - textbox [ref=f21e467]:
+                              - generic [ref=f21e468]: ".txtgbcolo {"
+                              - generic [ref=f21e469]: "background-color: #ed6428;"
+                              - generic [ref=f21e470]: "padding: 2px 10px 2px 10px;"
+                              - generic [ref=f21e471]: "}"
+                              - generic [ref=f21e472]: ".txtgbcolb {"
+                              - generic [ref=f21e473]: "background-color: #007299;"
+                              - generic [ref=f21e474]: "padding: 2px 10px 2px 10px;"
+                              - generic [ref=f21e475]: "}"
+                              - generic [ref=f21e476]: ".txtgbcollb {"
+                              - generic [ref=f21e477]: "background-color: #89bedb;"
+                              - generic [ref=f21e478]: "padding: 2px 10px 2px 10px;"
+                              - generic [ref=f21e479]: "}"
+                              - generic [ref=f21e480]: ".txtgbcolvlb {"
+                              - generic [ref=f21e481]: "background-color: #cee9f7;"
+                              - generic [ref=f21e482]: "padding-left: 5px;"
+                              - generic [ref=f21e483]: "padding-right: 5px;"
+                              - generic [ref=f21e484]: "display: inline-block;"
+                              - generic [ref=f21e485]: "}"
+                              - generic [ref=f21e486]: ".txtgbcolvlo {"
+                              - generic [ref=f21e487]: "background-color: #fac5ae;"
+                              - generic [ref=f21e488]: "padding-left: 5px;"
+                              - generic [ref=f21e489]: "padding-right: 5px;"
+                              - generic [ref=f21e490]: "display: inline-block;"
+                              - generic [ref=f21e491]: "}"
+                          - generic [ref=f21e492]:
+                            - link "Learn more" [ref=f21e493] [cursor=pointer]:
+                              - /url: https://help.shopify.com/en/manual/online-store/themes/theme-structure/extend/add-css
+                            - text: about custom CSS
+              - iframe [ref=f21e418]:
+                - generic [ref=f23e1]:
+                  - generic [ref=f23e2]:
+                    - generic:
+                      - banner:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - generic:
+                                                  - textbox "Search in..."
+                                                  - button "Search in..."
+                                    - generic:
+                                      - link "Integrity Home Supply":
+                                        - /url: /
+                                        - img "Integrity Home Supply"
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - link "Account":
+                                            - /url: https://integrityhomesupply.com/customer_authentication/redirect?locale=en
+                                        - generic:
+                                          - link "0 $0.00":
+                                            - /url: /cart
+                                            - generic: "0"
+                                            - generic: $0.00
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - navigation:
+                                      - generic:
+                                        - list:
+                                          - listitem:
+                                            - link "Kitchen Cabinet ":
+                                              - /url: /pages/kitchens
+                                              - generic: Kitchen Cabinet
+                                              - text: 
+                                          - listitem:
+                                            - link "Countertops":
+                                              - /url: /pages/countertops
+                                          - listitem:
+                                            - link "Flooring ":
+                                              - /url: /pages/flooring
+                                              - generic: Flooring
+                                              - text: 
+                                          - listitem:
+                                            - link "Bathroom":
+                                              - /url: /pages/bathrooms
+                                          - listitem:
+                                            - link "Faucets":
+                                              - /url: /pages/faucets
+                                          - listitem:
+                                            - link "Kitchen Design":
+                                              - /url: /pages/kitchen-design
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - 'link " Call: (215) 821-2577"':
+                                            - /url: tel:(215)821-2577
+                                            - text: 
+                                            - generic: "Call: (215) 821-2577"
+                                    - generic:
+                                      - generic:
+                                        - link "Visit Our Flagship Location in Northeast Philadelphia":
+                                          - /url: /pages/contact
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - 'link " Email: sales@integrityhomesupply.com"':
+                                            - /url: mailto:sales@integrityhomesupply.com
+                                            - text: 
+                                            - generic: "Email: sales@integrityhomesupply.com"
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - generic:
+                                              - generic:
+                                                - textbox "Search in..."
+                                                - button "Search in..."
+                                  - generic:
+                                    - link "Integrity Home Supply":
+                                      - /url: /
+                                      - img "Integrity Home Supply"
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - link "Account":
+                                          - /url: https://integrityhomesupply.com/customer_authentication/redirect?locale=en
+                                      - generic:
+                                        - link "0 $0.00":
+                                          - /url: /cart
+                                          - generic: "0"
+                                          - generic: $0.00
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - navigation:
+                                    - generic:
+                                      - list:
+                                        - listitem:
+                                          - link "Kitchen Cabinet ":
+                                            - /url: /pages/kitchens
+                                            - generic: Kitchen Cabinet
+                                            - text: 
+                                        - listitem:
+                                          - link "Countertops":
+                                            - /url: /pages/countertops
+                                        - listitem:
+                                          - link "Flooring ":
+                                            - /url: /pages/flooring
+                                            - generic: Flooring
+                                            - text: 
+                                        - listitem:
+                                          - link "Bathroom":
+                                            - /url: /pages/bathrooms
+                                        - listitem:
+                                          - link "Faucets":
+                                            - /url: /pages/faucets
+                                        - listitem:
+                                          - link "Kitchen Design":
+                                            - /url: /pages/kitchen-design
+                    - generic:
+                      - complementary
+                    - generic [ref=f23e381]:
+                      - generic [ref=f23e382]:
+                        - generic [ref=f23e383]:
+                          - generic [ref=f23e384]:
+                            - button "Close" [ref=f23e385] [cursor=pointer]: 
+                            - heading "You have (0 items) in your bag" [level=3] [ref=f23e386]
+                          - generic [ref=f23e387]:
+                            - paragraph [ref=f23e393]: Your bag is currently empty.
+                            - list [ref=f23e395]
+                        - text:   
+                      - generic:
+                        - generic [ref=f23e397]:
+                          - generic [ref=f23e398]:
+                            - generic [ref=f23e399]: Special instructions for seller
+                            - textbox "Special instructions for seller" [ref=f23e400]
+                          - button "Update" [ref=f23e401] [cursor=pointer]
+                          - link "Close" [ref=f23e403] [cursor=pointer]:
+                            - /url: "#"
+                        - generic [ref=f23e404]:
+                          - generic [ref=f23e407]:
+                            - generic [ref=f23e408]:
+                              - generic [ref=f23e409]: Country name
+                              - combobox "Country name" [ref=f23e410]
+                            - generic [ref=f23e411]:
+                              - generic [ref=f23e412]: Zip code
+                              - textbox "Zip code" [ref=f23e413]:
+                                - /placeholder: Zip/Postal Code
+                            - generic "Click on Calculate shipping" [ref=f23e415] [cursor=pointer]: Calculate
+                          - table:
+                            - rowgroup
+                          - link "Close" [ref=f23e417] [cursor=pointer]:
+                            - /url: "#"
+                        - generic [ref=f23e419]:
+                          - generic [ref=f23e420]:
+                            - generic [ref=f23e421]: Coupon discount
+                            - textbox "Coupon discount" [ref=f23e422]:
+                              - /placeholder: Your code here
+                          - paragraph [ref=f23e423]: Coupon code calculated at checkout
+                          - button "Save Code" [ref=f23e424] [cursor=pointer]
+                          - link "Close" [ref=f23e426] [cursor=pointer]:
+                            - /url: "#"
+                    - main [ref=f23e81]:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - img "fotile-display-1_e8397fa7-5949-4363-8726-40be0e2a4e6e-ezgif.com-resize"
+                                - generic:
+                                  - img "Integrity Home Supply showroom entrance with illuminated logo sign above a modern kitchen cabinetry display"
+                                - generic:
+                                  - img "Showroom kitchen with gray and wood-grain cabinetry, gold hardware, and geometric tile backsplash"
+                                - generic:
+                                  - img "shower-doors-display"
+                                - generic:
+                                  - img "fotile-display-1_e8397fa7-5949-4363-8726-40be0e2a4e6e-ezgif.com-resize"
+                                - generic:
+                                  - img "Integrity Home Supply showroom entrance with illuminated logo sign above a modern kitchen cabinetry display"
+                              - generic:
+                                - heading "Integrity Home Supply" [level=2]
+                                - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                              - generic:
+                                - heading "Integrity Home Supply" [level=2]
+                                - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                              - generic:
+                                - heading "Integrity Home Supply" [level=2]
+                                - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                              - generic:
+                                - heading "Integrity Home Supply" [level=2]
+                                - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                              - generic:
+                                - heading "Integrity Home Supply" [level=2]
+                                - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                              - button "Previous slide"
+                              - button "Next slide"
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - link "Integrity Home Supply":
+                                        - /url: /pages/msi
+                                    - generic:
+                                      - link "Integrity Home Supply":
+                                        - /url: /pages/kitchens-craft-cabinetrys
+                                    - generic:
+                                      - link "Integrity Home Supply":
+                                        - /url: /pages/durato
+                                    - generic:
+                                      - link "Integrity Home Supply":
+                                        - /url: /pages/appliances
+                                    - generic:
+                                      - link "Integrity Home Supply":
+                                        - /url: /
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - heading "See Our Showroom" [level=3]
+                                    - paragraph: Walk around our store right from your home. Click on the circles to move around.
+                              - generic: Click to Launch 3D Showroom Tour
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - heading "Checkout Our Categories" [level=3]
+                                    - paragraph: As an authorized dealer for every brand we carry, we proudly serve homeowners, contractors, designers, and builders with genuine products backed by manufacturer warranties.
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - heading "Kitchen Cabinetry" [level=3]
+                                    - generic: Designed for the Heart of Your Home.
+                                  - generic: Discover beautifully crafted kitchen cabinetry tailored to every style and space. From traditional framed cabinets to sleek frameless designs, our collection ranges from timeless classic looks to clean modern aesthetics. Built with quality craftsmanship and functional storage in mind, our kitchens are designed to bring style, organization, and lasting value to your home. Visit our showroom to explore finishes, layouts, and design options in person.
+                                  - generic:
+                                    - link "SEE ALL COLLECTIONS":
+                                      - /url: /pages/kitchens
+                                - generic:
+                                  - link "Integrity Home Supply":
+                                    - /url: /pages/kitchens
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - heading "Flooring" [level=3]
+                                    - generic: Style That Starts from the Ground Up.
+                                  - generic: Explore a wide selection of premium flooring options designed to bring comfort, durability, and character to every space. From luxury vinyl plank (LVP) available for convenient online purchase to timeless hardwood, elegant tile, and other high-quality flooring materials available exclusively in store, we offer styles for every design vision and lifestyle. Visit our showroom to experience textures, colors, and finishes in person
+                                  - generic:
+                                    - link "SEE ALL COLLECTIONS":
+                                      - /url: /pages/flooring
+                                - generic:
+                                  - link "Integrity Home Supply":
+                                    - /url: /pages/flooring
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - heading "Countertop" [level=3]
+                                    - generic: Crafted for Beauty. Engineered to Last.
+                                  - generic: Discover premium countertops designed to elevate every kitchen and bathroom space with timeless style, durability, and exceptional craftsmanship. From elegant quartz and natural granite to modern marble-inspired finishes, our selection combines beauty with everyday performance. Available exclusively for in-store purchase, allowing you to explore materials, colors, and finishes in person with expert guidance from our team.
+                                  - generic:
+                                    - link "SEE ALL COLLECTIONS":
+                                      - /url: /pages/countertops
+                                - generic:
+                                  - link "Integrity Home Supply":
+                                    - /url: /pages/countertops
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - heading "Bathroom" [level=3]
+                                    - generic: Elevate Your Everyday Routine.
+                                  - generic: Create a bathroom that blends comfort, functionality, and modern style with our carefully selected collections. Shop bathroom vanities online with a variety of sizes, finishes, and designs to fit any space, while exploring mirrors, faucets, and additional bathroom fixtures exclusively in store. From sleek contemporary looks to timeless classics, we offer quality pieces designed to complete your perfect bathroom.
+                                  - generic:
+                                    - link "SEE ALL COLLECTIONS":
+                                      - /url: /pages/bathrooms
+                                - generic:
+                                  - link "Integrity Home Supply":
+                                    - /url: /pages/bathrooms
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - heading "See what our customers say" [level=2]
+                              - generic:
+                                - generic:
+                                  - generic: EXCELLENT
+                                  - generic "4.5 / 5":
+                                    - text: ★★★★
+                                    - generic:
+                                      - text: ★
+                                      - generic: ★
+                                  - generic: 61 reviews
+                                  - img "Google"
+                              - generic:
+                                - generic:
+                                  - list:
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "hala jay"
+                                          - generic:
+                                            - generic: hala jay
+                                            - generic: 4 days ago
+                                      - generic: ★★★★★
+                                      - generic: Best in business. I renovated my whole house from here they helped me from A-Z. House came back beautiful. Recommend 100%. I would do it all over again.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Luis Boero"
+                                          - generic:
+                                            - generic: Luis Boero
+                                            - generic: last week
+                                      - generic: ★★★★★
+                                      - generic: Good
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Khaleel McFadden (Be…"
+                                          - generic:
+                                            - generic: Khaleel McFadden (Be…
+                                            - generic: last month
+                                      - generic: ★★★★★
+                                      - generic: Good quality cabinets at good price
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Nimisha Patel"
+                                          - generic:
+                                            - generic: Nimisha Patel
+                                            - generic: last month
+                                      - generic: ★★★★★
+                                      - generic: Amazing, very friendly staff. Prices are very reasonable.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Stefani Fernández"
+                                          - generic:
+                                            - generic: Stefani Fernández
+                                            - generic: 3 months ago
+                                      - generic: ★★★★★
+                                      - generic: I had a really great experience with integrity home supply cabinets. My kitchen looks awesome, I would highly recommend!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Shan Zhang"
+                                          - generic:
+                                            - generic: Shan Zhang
+                                            - generic: 3 months ago
+                                      - generic: ★★★★★
+                                      - generic: Love their cabinets, bought 2 sets. Top quality cabinetry with exceptional design team to help you every step of the way.
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Teresa Woodland"
+                                          - generic:
+                                            - generic: Teresa Woodland
+                                            - generic: 6 months ago
+                                      - generic: ★★★★★
+                                      - generic: I had a very positive experience with Integrity Home Supply. I purchased some Craft cabinetry cabinets from them. If you are looking for something off the shelf, these cabinets are a great value. They are well constructed and you are given the option of buying them assembled or assembling them yourself.
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Guzmán Roofing inc"
+                                          - generic:
+                                            - generic: Guzmán Roofing inc
+                                            - generic: 6 months ago
+                                      - generic: ★★★★★
+                                      - generic: Great service
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Olvin Garcia"
+                                          - generic:
+                                            - generic: Olvin Garcia
+                                            - generic: 6 months ago
+                                      - generic: ★★★★★
+                                      - generic: Good service and great price I will recommend it to everyone who are interested in kitchens
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Ting Zheng"
+                                          - generic:
+                                            - generic: Ting Zheng
+                                            - generic: 6 months ago
+                                      - generic: ★★★★★
+                                      - generic: Good selection, great prices, friendly and professional staff.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Beth Meder"
+                                          - generic:
+                                            - generic: Beth Meder
+                                            - generic: 7 months ago
+                                      - generic: ★★★★★
+                                      - generic: I had such a great experience dealing with integrity cabinets. Amy work so hard to help maximize every inch of my kitchen. I took multiple tries in different scenarios, but she never gave up. I would highly recommend!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Lisa Fornwalt"
+                                          - generic:
+                                            - generic: Lisa Fornwalt
+                                            - generic: 7 months ago
+                                      - generic: ★★★★★
+                                      - generic: We bought two sets of kitchen cabinets here their customer service and knowledge is excellent!!! Their cabinets are beautiful! This place is the best!!!
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Edwin Morales"
+                                          - generic:
+                                            - generic: Edwin Morales
+                                            - generic: 7 months ago
+                                      - generic: ★★★★★
+                                      - generic: I was looking to remodel my wifes kitchen and found the perfect place,great quality cabinets and wonderful costumer service,they helped me pick out every single detail and Jason was very patient & friendly,will recommend to friends & family,happy wife,happy life lol!😀
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Yahaira Morales"
+                                          - generic:
+                                            - generic: Yahaira Morales
+                                            - generic: 7 months ago
+                                      - generic: ★★★★★
+                                      - generic: My daughter bought her new home and needed new kitchen cabinets updated,we bought this cabinet set and it came so beautiful,the company did an amazing job with costumer service and the guy who set up our granite top was amazing!! Great cabinets,service and job,i recommend them to anyone wanting to upgrade their kitchen,Jason was great help in helping us pick what we wanted,we are happy customers.❤️
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Jason"
+                                          - generic:
+                                            - generic: Jason
+                                            - generic: 8 months ago
+                                      - generic: ★★★★★
+                                      - generic: great customer service. Cabinets were built very quick. 10/10
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Allen Tsui"
+                                          - generic:
+                                            - generic: Allen Tsui
+                                            - generic: 9 months ago
+                                      - generic: ★★★★★
+                                      - generic: I had an excellent experience with Integrity Home Supply during my recent home renovation. From start to finish, their customer service was outstanding. The team was knowledgeable, patient, and genuinely helpful in guiding me toward the right products for my project. They took the time to understand what I needed and made sure I got high-quality materials that fit both my style and budget. Everything arrived on time, and the products exceeded my expectations. If you’re planning a home renovation and want reliable service along with great products, I highly recommend Integrity Home Supply. I’ll definitely be coming back for future projects!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Mohamed El Laisy"
+                                          - generic:
+                                            - generic: Mohamed El Laisy
+                                            - generic: 9 months ago
+                                      - generic: ★★★★★
+                                      - generic: Wendy & her team are the best, I always buy my kitchens & countertops for all my projects from Integrity Home Supply!!! Very good prices & on point delivery.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Jay Rusk"
+                                          - generic:
+                                            - generic: Jay Rusk
+                                            - generic: 9 months ago
+                                      - generic: ★★★★★
+                                      - generic: Integrity home supply is fantastic! The grant Ave showroom is very nice. The cabinets are built into many different displays as well as some of the stone options. Seeing the product in a real full size application is great. I have done about 4 kitchens with them and always had great results. The pricing is great, the design team and customer service is incredibly fast. Very knowledgeable and helpful. Wendy is so nice I really enjoy working with her. I will not shop anywhere else because of how great my experience has been here! I encourage anyone to check it out for any of your home renovations needs.
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "jani"
+                                          - generic:
+                                            - generic: jani
+                                            - generic: 9 months ago
+                                      - generic: ★★★★★
+                                      - generic: Beautiful after results, the kitchen was designed beautifully by the staff. The kitchen is flawless, my dream kitchen. I am satisfied with their customer server and their quick lead times. My favorite part of the kitchen has the quartz counter top. 😊😊😘😍
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Jiali He"
+                                          - generic:
+                                            - generic: Jiali He
+                                            - generic: 10 months ago
+                                      - generic: ★★★★★
+                                      - generic: I’m extremely happy with integrity home supply and their service. They are very professional, patient, and always respond quickly whenever I have questions. The staff took their time showing me different styles and finishes, and they were incredibly patient helping me redesign and adjust the measurements multiple times. The pricing is very reasonable, and the quality is excellent. This is the second home where I’ve purchased kitchen cabinets from them, and I’ve also recommended them to friends—everyone has been very satisfied. Highly recommended!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Mary"
+                                          - generic:
+                                            - generic: Mary
+                                            - generic: 10 months ago
+                                      - generic: ★★★★★
+                                      - generic: I’m so happy I found Integrity Home Supply for my kitchen remodel. They were very efficient, the pricing was reasonable, and the quality of work exceeded my expectations. I highly recommend them!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Joe Sansalone"
+                                          - generic:
+                                            - generic: Joe Sansalone
+                                            - generic: 10 months ago
+                                      - generic: ★★★★★
+                                      - generic: Integrity home supply is awesome. Great customer service and great people. They were very helpful with picking out type and style of cabinets and counter top. Everything came in very fast with no issues and the prices are unmatched. 10 out of 10 would recommend anyone doing a kitchen to visit them!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "A Tran"
+                                          - generic:
+                                            - generic: A Tran
+                                            - generic: 11 months ago
+                                      - generic: ★★★★★
+                                      - generic: I purchased a quartz counter top and got install last than 10 days. Vincent really helpful walk through the process and answer all the questions that i have. I am happy with my counter top.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Mika s"
+                                          - generic:
+                                            - generic: Mika s
+                                            - generic: 11 months ago
+                                      - generic: ★★★★★
+                                      - generic: I recently visited Integrity Home Supply, and the experience exceeded my expectations. The layout was spacious, and the kitchens on display were beautifully designed and well-organized. The staff were knowledgeable without being pushy—they took the time to understand my needs and offered thoughtful suggestions. I especially appreciated how they demonstrated different storage solutions and appliances in action. The quality of the cabinetry and finishes was impressive, and pricing was explained clearly. Overall, a fantastic showroom for anyone planning a kitchen renovation
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "HengWei Chen"
+                                          - generic:
+                                            - generic: HengWei Chen
+                                            - generic: 11 months ago
+                                      - generic: ★★★★★
+                                      - generic: I recently purchased my kitchen cabinets from Integrity and chose the stained gray style from Craft Cabinetry. I'm genuinely very happy with how everything turned out. The cabinets are sturdy, well-built, and all soft-close. I also added two valances for a more finished look, and they fit the kitchen perfectly. Overall, I'm really pleased with the final result.
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Beverly Fredericks"
+                                          - generic:
+                                            - generic: Beverly Fredericks
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: The people at integrity home supply were so helpful and nice. Loved that I was able to text them questions and they answered quickly. I ordered century 21 cabinets and they came in before the date promised. Great quality at a great price. This place is awesome! I definitely recommend checking them out.
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Deborah Dunn"
+                                          - generic:
+                                            - generic: Deborah Dunn
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Upon entering the store I was greeted immediately. The staff was knowledgeable , pleasant and very patient. I worked closely one on one which allowed me the opportunity to take my time to choose cabinet colors,countertops and backsplash . My kitchen is now beautiful and Iam pleased with the outcome. The pricing of all products was very reasonable as well. Their name says it ALL !!!!!!! INTEGRITY
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Roshni Patel"
+                                          - generic:
+                                            - generic: Roshni Patel
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Best place for home renovation. We tried other places before we came to Integrity and we fell in love with multiple options, latest designs and most importantly the staff. Jason, Amy, Lisa are awesome. They took all our suggestions and requirements and created great design for our kitchen. They responded to all our questions and helped to get the best deal for the best design. Lisa helped us to picked the best hardwood floor. The final look came out amazing! The delivery was on time and handled with care. We will be sure coming back for future renovations and improvement projects. We suggest the same for everyone!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Robert Rachwal"
+                                          - generic:
+                                            - generic: Robert Rachwal
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Great selection, crew worked to fulfill all of our needs. Very pleased with the results.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Jing Peng"
+                                          - generic:
+                                            - generic: Jing Peng
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: They have quality supplies, competitive prices and good serives. It's hard to beat!
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Anna Sherman"
+                                          - generic:
+                                            - generic: Anna Sherman
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: I was very impressed with the service here. Everyone was so helpful and very nice. I would highly recommend if you are looking for cabinets.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "LH"
+                                          - generic:
+                                            - generic: LH
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Beautiful showroom! My personal favorite were the gray shaker cabinets they had. The staff were very helpful with giving me a quote on kitchen cabinets. Definitely worth checking out if you need ideas for kitchen or bathroom renovation. There was a lot of vanities and shower doors on display.
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Apple Liu"
+                                          - generic:
+                                            - generic: Apple Liu
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: I had an amazing experience with Integrity Home Supply! Their service was incredibly fast, and their communication was absolutely perfect from start to finish. The staff was extremely knowledgeable, helpful, and patient, answering all my questions with great detail. The quality of their products is excellent—everything exceeded my expectations. I will definitely be returning to order everything else I need. Highly recommend!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Tina Koo"
+                                          - generic:
+                                            - generic: Tina Koo
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Amazing service! I purchased my cabinets from here and they were great! The kitchen came out perfect.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Brian Terry"
+                                          - generic:
+                                            - generic: Brian Terry
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: This place is excellent. I would recommend to anyone!
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Dane Davis"
+                                          - generic:
+                                            - generic: Dane Davis
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: I have used this company for years! I am a real estate investor and only go to them for my cabinets. Great customer service! And great quality!
+                                      - button "Read more"
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Jonathan"
+                                          - generic:
+                                            - generic: Jonathan
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Quality cabinets ,fair pricing and smart design people who can make a homeowner's dream a reality.Friendly design staff.I recommend this business to my own clients.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Deisy Torres"
+                                          - generic:
+                                            - generic: Deisy Torres
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: Amazing price.. good customer service.. good quality.. love it..
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Cahit Durgun"
+                                          - generic:
+                                            - generic: Cahit Durgun
+                                            - generic: last year
+                                      - generic: ★★★★★
+                                      - generic: If you need new kitchen cabinets, do not look any where else, very reasonable price for high quality products, they also have great service.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Klajdi Polovina"
+                                          - generic:
+                                            - generic: Klajdi Polovina
+                                            - generic: 2 years ago
+                                      - generic: ★★★★★
+                                      - generic: Great selection for flooring, tiles and cabinets. Super competitive and fast supplier. My new favorite spot.
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "Brandy Perkins"
+                                          - generic:
+                                            - generic: Brandy Perkins
+                                            - generic: 2 years ago
+                                      - generic: ★★★★★
+                                      - generic: This is such a great store with helpful employees and gorgeous items. We keep coming back because they have amazing options for all your kitchen, bath, and lighting needs at good prices!
+                                    - listitem:
+                                      - generic:
+                                        - generic:
+                                          - generic:
+                                            - img "sabrina akbar"
+                                          - generic:
+                                            - generic: sabrina akbar
+                                            - generic: 2 years ago
+                                      - generic: ★★★★★
+                                      - generic: Absolutely love this place. We went to several locations looking for cabinets. From the moment we walked in Wendy and the staff made us feel right at home! They helped bring my vision of the perfect kitchen to life. Saved us wherever they could and had no problems with last minute changes I made. Extremely accommodating and that why we not only bought all cabinets and trim from them but also purchase floors for the whole first floor!! Thank you again Wendy and tell lucky (their Dog ) we said hello!
+                                      - button "Read more"
+                                - generic:
+                                  - button "Previous"
+                                  - button "Next"
+                              - generic:
+                                - link "Leave a review on Google":
+                                  - /url: https://search.google.com/local/writereview?placeid=ChIJ0W-uXHGzxokRmGXkTlUl5Bs
+                    - contentinfo [ref=f23e230]:
+                      - generic [ref=f23e231]:
+                        - generic [ref=f23e233]:
+                          - link [ref=f23e237] [cursor=pointer]:
+                            - /url: https://integrityhomesupply.com
+                            - img "Integrity Home Supply" [ref=f23e238]
+                          - generic [ref=f23e240]:
+                            - heading "Company" [level=4] [ref=f23e241]
+                            - list [ref=f23e242]:
+                              - listitem [ref=f23e243]:
+                                - link "About Us" [ref=f23e244] [cursor=pointer]:
+                                  - /url: /pages/about-us
+                              - listitem [ref=f23e245]:
+                                - link "Showrooms" [ref=f23e246] [cursor=pointer]:
+                                  - /url: /pages/showroom
+                              - listitem [ref=f23e247]:
+                                - link "Craft Cabinetry" [ref=f23e248] [cursor=pointer]:
+                                  - /url: /pages/kitchens-craft-cabinetrys
+                              - listitem [ref=f23e249]:
+                                - link "21st Century Cabinetry" [ref=f23e250] [cursor=pointer]:
+                                  - /url: /pages/21st-century-cabinets
+                              - listitem [ref=f23e251]:
+                                - link "MSI" [ref=f23e252] [cursor=pointer]:
+                                  - /url: /pages/msi
+                              - listitem [ref=f23e253]:
+                                - link "Durato" [ref=f23e254] [cursor=pointer]:
+                                  - /url: /pages/durato
+                          - generic [ref=f23e256]:
+                            - heading "Support" [level=4] [ref=f23e257]
+                            - list [ref=f23e258]:
+                              - listitem [ref=f23e259]:
+                                - link "Check Order Status" [ref=f23e260] [cursor=pointer]:
+                                  - /url: /pages/contact
+                              - listitem [ref=f23e261]:
+                                - link "Contact Us" [ref=f23e262] [cursor=pointer]:
+                                  - /url: /pages/contact
+                              - listitem [ref=f23e263]:
+                                - link "Help Center" [ref=f23e264] [cursor=pointer]:
+                                  - /url: /pages/contact
+                              - listitem [ref=f23e265]:
+                                - link "Design Services" [ref=f23e266] [cursor=pointer]:
+                                  - /url: /pages/kitchen-design
+                          - generic [ref=f23e268]:
+                            - heading "Policies" [level=4] [ref=f23e269]
+                            - list [ref=f23e270]:
+                              - listitem [ref=f23e271]:
+                                - link "Return & Damages Policy" [ref=f23e272] [cursor=pointer]:
+                                  - /url: /policies/refund-policy
+                              - listitem [ref=f23e273]:
+                                - link "Shipping, Storage & Pick Up" [ref=f23e274] [cursor=pointer]:
+                                  - /url: /policies/shipping-policy
+                              - listitem [ref=f23e275]:
+                                - link "Terms & Conditions" [ref=f23e276] [cursor=pointer]:
+                                  - /url: /policies/terms-of-service
+                              - listitem [ref=f23e277]:
+                                - link "Privacy Policy" [ref=f23e278] [cursor=pointer]:
+                                  - /url: /policies/privacy-policy
+                        - generic [ref=f23e281]:
+                          - generic [ref=f23e282]:
+                            - generic [ref=f23e283]: 
+                            - link "(215) 821-2577" [ref=f23e284] [cursor=pointer]:
+                              - /url: tel:(215)821-2577
+                          - generic [ref=f23e285]:
+                            - generic [ref=f23e286]: 
+                            - link "Sales@Integrityhomesupply.com" [ref=f23e287] [cursor=pointer]:
+                              - /url: mailto:Sales@Integrityhomesupply.com
+                          - generic [ref=f23e288]:
+                            - generic [ref=f23e289]: 
+                            - generic [ref=f23e290]: 2590 Grant Ave, Philadelphia PA 19114
+                          - list [ref=f23e292]:
+                            - listitem [ref=f23e293]:
+                              - link "" [ref=f23e294] [cursor=pointer]:
+                                - /url: https://www.facebook.com/integrityhomesupply
+                            - listitem [ref=f23e295]:
+                              - link "" [ref=f23e296] [cursor=pointer]:
+                                - /url: https://x.com/integrityonx
+                            - listitem [ref=f23e297]:
+                              - link "" [ref=f23e298] [cursor=pointer]:
+                                - /url: https://www.instagram.com/Integrityonsocial
+                            - listitem [ref=f23e299]:
+                              - link "" [ref=f23e300] [cursor=pointer]:
+                                - /url: https://www.pinterest.com/integrityhomesupply
+                            - listitem [ref=f23e301]:
+                              - link "" [ref=f23e302] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/company/integrityhomesupply
+                        - generic [ref=f23e303]: "Hours: Mon–Sat 8 AM – 6 PM · Sun Closed"
+                        - generic [ref=f23e307]:
+                          - paragraph [ref=f23e309]: © 2026 Integrity Home Supply. All Rights Reserved.
+                          - generic [ref=f23e310]:
+                            - img "Amazon" [ref=f23e311]
+                            - img "American Express" [ref=f23e316]
+                            - img "Apple Pay" [ref=f23e321]
+                            - img "Diners Club" [ref=f23e332]
+                            - img "Discover" [ref=f23e336]
+                            - img "Google Pay" [ref=f23e345]
+                            - img "Mastercard" [ref=f23e353]
+                            - img "Shop Pay" [ref=f23e360]
+                            - img "Visa" [ref=f23e364]
+                  - link "Scroll to Top" [ref=f23e427] [cursor=pointer]:
+                    - /url: "#"
+                    - generic [aria-hidden] [ref=f23e428]: 
+                  - button "Toolkit" [ref=f23e371] [cursor=pointer]
+                  - button "Chat. Open chat" [ref=f23e376] [cursor=pointer]:
+                    - generic [ref=f23e380]: Chat
+                  - button "Footer" [ref=f23e429] [cursor=pointer]
+  - generic:
+    - complementary "Sidekick" [ref=f20e22]
+    - generic [ref=f20e25]:
+      - generic:
+        - status
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic: General shortcuts
+            - generic: Adding items to your store
+            - generic: Navigating your admin panel
+            - generic: Navigating settings
+    - generic:
+      - generic:
+        - generic:
+          - status
+          - alert

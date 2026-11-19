@@ -1,0 +1,591 @@
+- iframe [active] [ref=e34]:
+  - generic [ref=f1e6]:
+    - generic:
+      - link "Skip to editing sidebar":
+        - /url: "#OSUI-SkipTarget"
+    - banner [ref=f1e7]:
+      - generic [ref=f1e9]:
+        - generic [ref=f1e10]:
+          - link "Exit" [ref=f1e11] [cursor=pointer]:
+            - /url: https://admin.shopify.com/store/integrityhomesupply/themes
+          - navigation [ref=f1e18]:
+            - list [ref=f1e19]:
+              - listitem [ref=f1e20]:
+                - button "Open sections panel" [ref=f1e22] [cursor=pointer]
+              - listitem [ref=f1e33]:
+                - button "Open theme settings panel" [pressed] [ref=f1e35] [cursor=pointer]
+              - listitem [ref=f1e43]:
+                - button "Open app embeds panel" [ref=f1e45] [cursor=pointer]
+        - generic [ref=f1e54]:
+          - generic [ref=f1e56]:
+            - generic [ref=f1e62]: Integrity 2026
+            - generic [ref=f1e66]:
+              - generic [ref=f1e67]: Success
+              - generic [ref=f1e68]: Active
+          - button "Store default" [ref=f1e71] [cursor=pointer]
+          - button "Home page" [ref=f1e86] [cursor=pointer]
+        - generic [ref=f1e98]:
+          - button "Open Sidekick" [ref=f1e100] [cursor=pointer]
+          - button "Deactivate inspector" [pressed] [ref=f1e109] [cursor=pointer]
+          - button "Enable mobile preview" [ref=f1e117] [cursor=pointer]
+          - generic [ref=f1e124]:
+            - generic [ref=f1e126]:
+              - button "Revert the most recent action" [disabled]
+            - generic [ref=f1e128]:
+              - button "Re-apply the most recent reverted action" [disabled]
+          - button "View actions" [ref=f1e130] [cursor=pointer]
+          - generic [ref=f1e141]:
+            - button "Save" [disabled] [ref=f1e145]
+            - button "Save as" [disabled] [ref=f1e151]
+    - generic [ref=f1e158]:
+      - generic [ref=f1e164]:
+        - heading "Theme settings" [level=1] [ref=f1e169]
+        - generic [ref=f1e178]:
+          - button "Theme Active" [ref=f1e180] [cursor=pointer]:
+            - heading "Theme Active" [level=3] [ref=f1e181]
+          - button "Favicon" [ref=f1e187] [cursor=pointer]:
+            - heading "Favicon" [level=3] [ref=f1e188]
+          - button "Logo" [ref=f1e194] [cursor=pointer]:
+            - heading "Logo" [level=3] [ref=f1e195]
+          - button "Header" [ref=f1e201] [cursor=pointer]:
+            - heading "Header" [level=3] [ref=f1e202]
+          - button "Footer" [ref=f1e208] [cursor=pointer]:
+            - heading "Footer" [level=3] [ref=f1e209]
+          - button "General" [ref=f1e215] [cursor=pointer]:
+            - heading "General" [level=3] [ref=f1e216]
+          - button "Gadget" [ref=f1e222] [cursor=pointer]:
+            - heading "Gadget" [level=3] [ref=f1e223]
+          - button "Cart" [ref=f1e229] [cursor=pointer]:
+            - heading "Cart" [level=3] [ref=f1e230]
+          - button "Colors" [ref=f1e236] [cursor=pointer]:
+            - heading "Colors" [level=3] [ref=f1e237]
+          - generic [ref=f1e242]:
+            - button "Social media" [expanded] [ref=f1e243] [cursor=pointer]:
+              - heading "Social media" [level=3] [ref=f1e244]
+            - generic [ref=f1e422]:
+              - generic [ref=f1e426]:
+                - paragraph [ref=f1e429]: Social sharing options
+                - generic [ref=f1e430]:
+                  - generic [ref=f1e433]:
+                    - generic [ref=f1e434]: Share on Facebook
+                    - button "Share on Facebook" [pressed] [ref=f1e443] [cursor=pointer]
+                  - generic [ref=f1e448]:
+                    - generic [ref=f1e449]: Tweet on Twitter
+                    - button "Tweet on Twitter" [pressed] [ref=f1e458] [cursor=pointer]
+                  - generic [ref=f1e463]:
+                    - generic [ref=f1e464]: Pin on Pinterest
+                    - button "Pin on Pinterest" [pressed] [ref=f1e473] [cursor=pointer]
+                  - generic [ref=f1e478]:
+                    - generic [ref=f1e479]: Share on Tumblr
+                    - button "Share on Tumblr" [pressed] [ref=f1e488] [cursor=pointer]
+              - generic [ref=f1e495]:
+                - paragraph [ref=f1e498]: Social accounts
+                - generic [ref=f1e499]:
+                  - generic [ref=f1e502]:
+                    - generic [ref=f1e503]: Social accounts title
+                    - textbox "Social accounts title" [ref=f1e512]:
+                      - /placeholder: ""
+                      - text: Social Media
+                  - generic [ref=f1e515]:
+                    - generic [ref=f1e516]: Twitter
+                    - textbox "Twitter" [ref=f1e525]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e528]:
+                      - generic [ref=f1e529]: https://twitter.com/shopify
+                  - generic [ref=f1e532]:
+                    - generic [ref=f1e533]: Facebook
+                    - textbox "Facebook" [ref=f1e542]:
+                      - /placeholder: ""
+                      - text: https://www.facebook.com/people/Integrity-Home-Supply/61587777576058/
+                    - paragraph [ref=f1e545]:
+                      - generic [ref=f1e546]: https://facebook.com/shopify
+                  - generic [ref=f1e549]:
+                    - generic [ref=f1e550]: Google plus
+                    - textbox "Google plus" [ref=f1e559]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e562]:
+                      - generic [ref=f1e563]: https://plus.google.com/?hl=vi
+                  - generic [ref=f1e566]:
+                    - generic [ref=f1e567]: Pinterest
+                    - textbox "Pinterest" [ref=f1e576]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e579]:
+                      - generic [ref=f1e580]: https://pinterest.com/shopify
+                  - generic [ref=f1e583]:
+                    - generic [ref=f1e584]: Instagram
+                    - textbox "Instagram" [ref=f1e593]:
+                      - /placeholder: ""
+                      - text: https://www.instagram.com/integrityhomesupplyphilly/
+                    - paragraph [ref=f1e596]:
+                      - generic [ref=f1e597]: http://instagram.com/shopify
+                  - generic [ref=f1e600]:
+                    - generic [ref=f1e601]: Vk
+                    - textbox "Vk" [ref=f1e610]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e613]:
+                      - generic [ref=f1e614]: https://vk.com/id
+                  - generic [ref=f1e617]:
+                    - generic [ref=f1e618]: Linkedin
+                    - textbox "Linkedin" [ref=f1e627]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e630]:
+                      - generic [ref=f1e631]: https://www.linkedin.com/
+                  - generic [ref=f1e634]:
+                    - generic [ref=f1e635]: Tumblr
+                    - textbox "Tumblr" [ref=f1e644]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e647]:
+                      - generic [ref=f1e648]: http://shopify.tumblr.com
+                  - generic [ref=f1e651]:
+                    - generic [ref=f1e652]: Snapchat
+                    - textbox "Snapchat" [ref=f1e661]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e664]:
+                      - generic [ref=f1e665]: https://www.snapchat.com/add/shopify
+                  - generic [ref=f1e668]:
+                    - generic [ref=f1e669]: YouTube
+                    - textbox "YouTube" [ref=f1e678]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e681]:
+                      - generic [ref=f1e682]: https://www.youtube.com/shopify
+                  - generic [ref=f1e685]:
+                    - generic [ref=f1e686]: Vimeo
+                    - textbox "Vimeo" [ref=f1e695]:
+                      - /placeholder: ""
+                    - paragraph [ref=f1e698]:
+                      - generic [ref=f1e699]: https://vimeo.com/shopify
+          - button "Collection page" [ref=f1e250] [cursor=pointer]:
+            - heading "Collection page" [level=3] [ref=f1e251]
+          - button "Collection Filters" [ref=f1e257] [cursor=pointer]:
+            - heading "Collection Filters" [level=3] [ref=f1e258]
+          - button "Product card item" [ref=f1e264] [cursor=pointer]:
+            - heading "Product card item" [level=3] [ref=f1e265]
+          - button "Product page" [ref=f1e271] [cursor=pointer]:
+            - heading "Product page" [level=3] [ref=f1e272]
+          - button "Product Option style" [ref=f1e278] [cursor=pointer]:
+            - heading "Product Option style" [level=3] [ref=f1e279]
+          - button "Sticky Add to Cart Button" [ref=f1e285] [cursor=pointer]:
+            - heading "Sticky Add to Cart Button" [level=3] [ref=f1e286]
+          - button "Product Quickview" [ref=f1e292] [cursor=pointer]:
+            - heading "Product Quickview" [level=3] [ref=f1e293]
+          - button "Search" [ref=f1e299] [cursor=pointer]:
+            - heading "Search" [level=3] [ref=f1e300]
+          - button "Blog page" [ref=f1e306] [cursor=pointer]:
+            - heading "Blog page" [level=3] [ref=f1e307]
+          - button "Account page" [ref=f1e313] [cursor=pointer]:
+            - heading "Account page" [level=3] [ref=f1e314]
+          - button "Typography" [ref=f1e320] [cursor=pointer]:
+            - heading "Typography" [level=3] [ref=f1e321]
+          - button "(Upsell) Real time Visitor" [ref=f1e327] [cursor=pointer]:
+            - heading "(Upsell) Real time Visitor" [level=3] [ref=f1e328]
+          - button "(Upsell) Shipping rates" [ref=f1e334] [cursor=pointer]:
+            - heading "(Upsell) Shipping rates" [level=3] [ref=f1e335]
+          - button "(Upsell) Delivery time" [ref=f1e341] [cursor=pointer]:
+            - heading "(Upsell) Delivery time" [level=3] [ref=f1e342]
+          - button "(Upsell) Suggest Products" [ref=f1e348] [cursor=pointer]:
+            - heading "(Upsell) Suggest Products" [level=3] [ref=f1e349]
+          - button "(Upsell) Stock countdown" [ref=f1e355] [cursor=pointer]:
+            - heading "(Upsell) Stock countdown" [level=3] [ref=f1e356]
+          - button "(Upsell) Cart Shipping Threshold" [ref=f1e362] [cursor=pointer]:
+            - heading "(Upsell) Cart Shipping Threshold" [level=3] [ref=f1e363]
+          - button "(Upsell) Countdown cart" [ref=f1e369] [cursor=pointer]:
+            - heading "(Upsell) Countdown cart" [level=3] [ref=f1e370]
+          - button "(Upsell) Frequently Bought Together" [ref=f1e376] [cursor=pointer]:
+            - heading "(Upsell) Frequently Bought Together" [level=3] [ref=f1e377]
+          - button "Custom" [ref=f1e383] [cursor=pointer]:
+            - heading "Custom" [level=3] [ref=f1e384]
+          - button "Google SEO JSON-LD" [ref=f1e390] [cursor=pointer]:
+            - heading "Google SEO JSON-LD" [level=3] [ref=f1e391]
+          - button "Progressive Web Apps(Beta)" [ref=f1e397] [cursor=pointer]:
+            - heading "Progressive Web Apps(Beta)" [level=3] [ref=f1e398]
+          - button "Custom CSS" [ref=f1e404] [cursor=pointer]:
+            - heading "Custom CSS" [level=3] [ref=f1e405]
+      - iframe [ref=f1e417]:
+        - generic [ref=f3e1]:
+          - generic [ref=f3e2]:
+            - generic:
+              - banner:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - 'link " Call: (215) 821-2577"':
+                                    - /url: tel:(215)821-2577
+                                    - text: 
+                                    - generic: "Call: (215) 821-2577"
+                            - generic:
+                              - generic:
+                                - link "Visit Our Flagship Location in Northeast Philadelphia":
+                                  - /url: /pages/contact
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - 'link " Email: sales@integrityhomesupply.com"':
+                                    - /url: mailto:sales@integrityhomesupply.com
+                                    - text: 
+                                    - generic: "Email: sales@integrityhomesupply.com"
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic:
+                                  - generic:
+                                    - generic:
+                                      - generic:
+                                        - textbox "Search in..."
+                                        - button "Search in..."
+                          - generic:
+                            - link "Integrity Home Supply":
+                              - /url: /
+                              - img "Integrity Home Supply"
+                          - generic:
+                            - generic:
+                              - generic:
+                                - link "Account":
+                                  - /url: https://integrityhomesupply.com/customer_authentication/redirect?locale=en
+                              - generic:
+                                - link "0 $0.00":
+                                  - /url: /cart
+                                  - generic: "0"
+                                  - generic: $0.00
+                    - generic:
+                      - generic:
+                        - generic:
+                          - navigation:
+                            - generic:
+                              - list:
+                                - listitem:
+                                  - link "Kitchen Cabinet ":
+                                    - /url: /pages/kitchens
+                                    - generic: Kitchen Cabinet
+                                    - text: 
+                                - listitem:
+                                  - link "Countertops":
+                                    - /url: /pages/countertops
+                                - listitem:
+                                  - link "Flooring ":
+                                    - /url: /pages/flooring
+                                    - generic: Flooring
+                                    - text: 
+                                - listitem:
+                                  - link "Bathroom":
+                                    - /url: /pages/bathrooms
+                                - listitem:
+                                  - link "Faucets":
+                                    - /url: /pages/faucets
+                                - listitem:
+                                  - link "Kitchen Design":
+                                    - /url: /pages/kitchen-design
+            - generic:
+              - complementary
+            - generic [ref=f3e3]:
+              - generic [ref=f3e4]:
+                - generic [ref=f3e5]:
+                  - generic [ref=f3e6]:
+                    - button "Close" [ref=f3e7] [cursor=pointer]: 
+                    - heading "You have (0 items) in your bag" [level=3] [ref=f3e8]
+                  - generic [ref=f3e9]:
+                    - paragraph [ref=f3e15]: Your bag is currently empty.
+                    - list [ref=f3e17]
+                - text:   
+              - generic:
+                - generic [ref=f3e19]:
+                  - generic [ref=f3e20]:
+                    - generic [ref=f3e21]: Special instructions for seller
+                    - textbox "Special instructions for seller" [ref=f3e22]
+                  - button "Update" [ref=f3e23] [cursor=pointer]
+                  - link "Close" [ref=f3e25] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f3e26]:
+                  - generic [ref=f3e29]:
+                    - generic [ref=f3e30]:
+                      - generic [ref=f3e31]: Country name
+                      - combobox "Country name" [ref=f3e32]
+                    - generic [ref=f3e33]:
+                      - generic [ref=f3e34]: Zip code
+                      - textbox "Zip code" [ref=f3e35]:
+                        - /placeholder: Zip/Postal Code
+                    - generic "Click on Calculate shipping" [ref=f3e37] [cursor=pointer]: Calculate
+                  - table:
+                    - rowgroup
+                  - link "Close" [ref=f3e39] [cursor=pointer]:
+                    - /url: "#"
+                - generic [ref=f3e41]:
+                  - generic [ref=f3e42]:
+                    - generic [ref=f3e43]: Coupon discount
+                    - textbox "Coupon discount" [ref=f3e44]:
+                      - /placeholder: Your code here
+                  - paragraph [ref=f3e45]: Coupon code calculated at checkout
+                  - button "Save Code" [ref=f3e46] [cursor=pointer]
+                  - link "Close" [ref=f3e48] [cursor=pointer]:
+                    - /url: "#"
+            - main [ref=f3e49]:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img "fotile-display-1_e8397fa7-5949-4363-8726-40be0e2a4e6e-ezgif.com-resize"
+                        - generic:
+                          - img "Integrity Home Supply showroom entrance with illuminated logo sign above a modern kitchen cabinetry display"
+                        - generic:
+                          - img "Showroom kitchen with gray and wood-grain cabinetry, gold hardware, and geometric tile backsplash"
+                        - generic:
+                          - img "shower-doors-display"
+                        - generic:
+                          - img "fotile-display-1_e8397fa7-5949-4363-8726-40be0e2a4e6e-ezgif.com-resize"
+                        - generic:
+                          - img "Integrity Home Supply showroom entrance with illuminated logo sign above a modern kitchen cabinetry display"
+                      - generic:
+                        - heading "Integrity Home Supply" [level=2]
+                        - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                      - generic:
+                        - heading "Integrity Home Supply" [level=2]
+                        - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                      - generic:
+                        - heading "Integrity Home Supply" [level=2]
+                        - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                      - generic:
+                        - heading "Integrity Home Supply" [level=2]
+                        - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                      - generic:
+                        - heading "Integrity Home Supply" [level=2]
+                        - paragraph: Shop Kitchen Cabinets, Floor, and Countertops and more
+                      - button "Previous slide"
+                      - button "Next slide"
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - link "Integrity Home Supply":
+                                - /url: /pages/msi
+                            - generic:
+                              - link "Integrity Home Supply":
+                                - /url: /pages/kitchens-craft-cabinetrys
+                            - generic:
+                              - link "Integrity Home Supply":
+                                - /url: /pages/durato
+                            - generic:
+                              - link "Integrity Home Supply":
+                                - /url: /pages/appliances
+                            - generic:
+                              - link "Integrity Home Supply":
+                                - /url: /
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading "See Our Showroom" [level=3]
+                            - paragraph: Walk around our store right from your home. Click on the circles to move around.
+                      - generic: Click to Launch 3D Showroom Tour
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading "Checkout Our Categories" [level=3]
+                            - paragraph: As an authorized dealer for every brand we carry, we proudly serve homeowners, contractors, designers, and builders with genuine products backed by manufacturer warranties.
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading "Kitchen Cabinetry" [level=3]
+                            - generic: Designed for the Heart of Your Home.
+                          - generic: Discover beautifully crafted kitchen cabinetry tailored to every style and space. From traditional framed cabinets to sleek frameless designs, our collection ranges from timeless classic looks to clean modern aesthetics. Built with quality craftsmanship and functional storage in mind, our kitchens are designed to bring style, organization, and lasting value to your home. Visit our showroom to explore finishes, layouts, and design options in person.
+                          - generic:
+                            - link "SEE ALL COLLECTIONS":
+                              - /url: /pages/kitchens
+                        - generic:
+                          - link "Integrity Home Supply":
+                            - /url: /pages/kitchens
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading "Flooring" [level=3]
+                            - generic: Style That Starts from the Ground Up.
+                          - generic: Explore a wide selection of premium flooring options designed to bring comfort, durability, and character to every space. From luxury vinyl plank (LVP) available for convenient online purchase to timeless hardwood, elegant tile, and other high-quality flooring materials available exclusively in store, we offer styles for every design vision and lifestyle. Visit our showroom to experience textures, colors, and finishes in person
+                          - generic:
+                            - link "SEE ALL COLLECTIONS":
+                              - /url: /pages/flooring
+                        - generic:
+                          - link "Integrity Home Supply":
+                            - /url: /pages/flooring
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading "Countertop" [level=3]
+                            - generic: Crafted for Beauty. Engineered to Last.
+                          - generic: Discover premium countertops designed to elevate every kitchen and bathroom space with timeless style, durability, and exceptional craftsmanship. From elegant quartz and natural granite to modern marble-inspired finishes, our selection combines beauty with everyday performance. Available exclusively for in-store purchase, allowing you to explore materials, colors, and finishes in person with expert guidance from our team.
+                          - generic:
+                            - link "SEE ALL COLLECTIONS":
+                              - /url: /pages/countertops
+                        - generic:
+                          - link "Integrity Home Supply":
+                            - /url: /pages/countertops
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - heading "Bathroom" [level=3]
+                            - generic: Elevate Your Everyday Routine.
+                          - generic: Create a bathroom that blends comfort, functionality, and modern style with our carefully selected collections. Shop bathroom vanities online with a variety of sizes, finishes, and designs to fit any space, while exploring mirrors, faucets, and additional bathroom fixtures exclusively in store. From sleek contemporary looks to timeless classics, we offer quality pieces designed to complete your perfect bathroom.
+                          - generic:
+                            - link "SEE ALL COLLECTIONS":
+                              - /url: /pages/bathrooms
+                        - generic:
+                          - link "Integrity Home Supply":
+                            - /url: /pages/bathrooms
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - heading "See what our customers say" [level=2]
+                      - generic:
+                        - generic:
+                          - list
+            - generic:
+              - contentinfo:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - link "Integrity Home Supply":
+                              - /url: https://integrityhomesupply.com
+                              - img "Integrity Home Supply"
+                      - generic:
+                        - generic:
+                          - heading "Company" [level=4]
+                          - list:
+                            - listitem:
+                              - link "About Us":
+                                - /url: /pages/about-us
+                            - listitem:
+                              - link "Showrooms":
+                                - /url: /pages/showroom
+                            - listitem:
+                              - link "Craft Cabinetry":
+                                - /url: /pages/kitchens-craft-cabinetrys
+                            - listitem:
+                              - link "21st Century Cabinetry":
+                                - /url: /pages/21st-century-cabinets
+                            - listitem:
+                              - link "MSI":
+                                - /url: /pages/msi
+                            - listitem:
+                              - link "Durato":
+                                - /url: /pages/durato
+                      - generic:
+                        - generic:
+                          - heading "Support" [level=4]
+                          - list:
+                            - listitem:
+                              - link "Check Order Status":
+                                - /url: /pages/contact
+                            - listitem:
+                              - link "Contact Us":
+                                - /url: /pages/contact
+                            - listitem:
+                              - link "Help Center":
+                                - /url: /pages/contact
+                            - listitem:
+                              - link "Design Services":
+                                - /url: /pages/kitchen-design
+                      - generic:
+                        - generic:
+                          - heading "Policies" [level=4]
+                          - list:
+                            - listitem:
+                              - link "Return & Damages Policy":
+                                - /url: /policies/refund-policy
+                            - listitem:
+                              - link "Shipping, Storage & Pick Up":
+                                - /url: /policies/shipping-policy
+                            - listitem:
+                              - link "Terms & Conditions":
+                                - /url: /policies/terms-of-service
+                            - listitem:
+                              - link "Privacy Policy":
+                                - /url: /policies/privacy-policy
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: 
+                          - link "(215) 821-2577":
+                            - /url: tel:(215)821-2577
+                        - generic:
+                          - generic: 
+                          - link "Sales@Integrityhomesupply.com":
+                            - /url: mailto:Sales@Integrityhomesupply.com
+                        - generic:
+                          - generic: 
+                          - generic: 2590 Grant Ave, Philadelphia PA 19114
+                        - generic:
+                          - list:
+                            - listitem:
+                              - link "":
+                                - /url: https://www.facebook.com/people/Integrity-Home-Supply/61587777576058/
+                            - listitem:
+                              - link "":
+                                - /url: https://www.instagram.com/integrityhomesupplyphilly/
+                  - generic:
+                    - generic:
+                      - generic:
+                        - paragraph: © 2026 Integrity Home Supply. All Rights Reserved.
+                      - generic:
+                        - img "Amazon"
+                        - img "American Express"
+                        - img "Apple Pay"
+                        - img "Diners Club"
+                        - img "Discover"
+                        - img "Google Pay"
+                        - img "Mastercard"
+                        - img "Shop Pay"
+                        - img "Visa"
+          - generic: 
+          - button "Toolkit" [ref=f3e52] [cursor=pointer]
+          - button "Chat. Open chat" [ref=f3e57] [cursor=pointer]:
+            - generic [ref=f3e61]: Chat
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - button "Brands logo" [ref=f3e62] [cursor=pointer]
+                    - button:
+                      - generic [ref=f3e73] [cursor=pointer]
+                    - button:
+                      - generic [ref=f3e76] [cursor=pointer]

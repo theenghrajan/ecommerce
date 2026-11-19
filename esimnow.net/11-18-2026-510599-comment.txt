@@ -29,7 +29,7 @@ The sheet uses the Aug 19 prices for now, with the Sep 4 price shown next to eac
 
 Re: Nov 12 bulk update: Please check the Shopify admin (installed apps, bulk edit or import history) to see what ran on Nov 12, and let us know if anything could overwrite our changes.
 ...
-2. We checked the installed apps, the import history and the store activity. Nothing in the admin shows what ran on Nov 12. The same update ran again today (Nov 18), and it touched every product in the store, not only the Daily Unlimited ones. It didn't change any titles, URLs or prices, and our earlier Prepaid changes are still in place. The only outside connection we could find is the client's order system, which adds notes to orders. Could you please ask the client if their system also updates products on a schedule? We have taken a full product export as a backup and will spot-check the products the day after the import.
+2. We checked the installed apps, the import history and the store activity. Nothing in the admin shows what ran on Nov 12. The same update ran again early on Nov 18 and Nov 19, so it now looks like a daily job. It touches every product in the store, not only the Daily Unlimited ones. It didn't change any titles, URLs or prices, and our earlier Prepaid changes are still in place. The only outside connection we could find is the client's order system, which adds notes to orders. Could you please ask the client if their system also updates products on a schedule? We have taken a full product export as a backup and will spot-check the products the day after the import.
 
 3. In the CSV, 5 Daily Unlimited products are split into two products each. The second product has only one plan size, and two of them have typos in the name:
 - China → China + China (nonhkip) (3GB/Day plans)
@@ -40,10 +40,17 @@ Re: Nov 12 bulk update: Please check the Shopify admin (installed apps, bulk edi
 On the live site, each of these is one product with all plan sizes. We suggest keeping them as one product. Could you please confirm with the client? These are in the "7 HOLD - Split Products" tab and are not in the import yet.
 
 4. A few other things to review in the sheet:
-- New products: 30 in total (15 Daily Unlimited + 15 Prepaid). The CSV already has a description, image and tags for each, so we used those. The collection is copied from the closest product, and the "Copied From" column shows which one.
+- New products: 30 in total (15 Daily Unlimited + 15 Prepaid). The CSV already has a description, image and tags for each, so we used those. The collection is copied from the closest product, and the "Collection copied from" column shows which one.
 - Prepaid: 17 new plans on 13 existing Prepaid products are in the CSV but weren't in IBM's list. We have added them.
 - Prepaid Philippines 3GB 30Days isn't in the client's CSV. Should we remove it? It is marked in the "5 Removals" tab.
 - Removals: the 16 variants include the 8 plans on Oceania Orange, so it is 8 Vietnam plans plus Oceania Orange. Oceania Orange will redirect to the Oceania collection.
 - Redirects: some old redirects point to URLs we are changing. We will point them straight to the new URLs, so no visitor goes through two redirects.
+
+5. Some Prepaid pages show a "from $" price at the top of the page that doesn't match the current plan prices. This text is written into each page, so it doesn't update when prices change:
+- Antigua and Barbuda: says "1GB from $10.77", current price is $9.97
+- Israel: says "1GB from $2.44", current price is $1.93
+- Malaysia: says "100MB from $0.31", current price is $0.91
+- Japan: says "50GB from $38", current price is $29.30
+If the Sep 4 list is final, Antigua and Israel will match again. Malaysia and Japan don't match either list. Shall we update these to the final prices after the import?
 
 Thanks!

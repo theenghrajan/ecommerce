@@ -1,0 +1,265 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div#kt--psgl-js.kt--psgl-js",
+  "sections": {
+    "17775747356eff4caf": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_0a06b18_4NKGaX": {
+          "type": "ai_gen_block_0a06b18",
+          "settings": {
+            "section_height": 500,
+            "max_width": 1200,
+            "full_width": false,
+            "background_color": "#ffffff",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "margin_top": 0,
+            "margin_bottom": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0,
+            "margin_top_mobile": 0,
+            "margin_bottom_mobile": 0,
+            "show_vendor": true,
+            "show_price": true,
+            "show_description": true,
+            "show_quantity": true,
+            "show_variants": true,
+            "variant_style": "pills",
+            "variant_label_color": "#000000",
+            "variant_pill_color": "#ffffff",
+            "variant_pill_text_color": "#000000",
+            "variant_pill_active_color": "#000000",
+            "variant_pill_active_text_color": "#ffffff",
+            "text_align": "left",
+            "title_size": 36,
+            "title_weight": "600",
+            "price_size": 28,
+            "price_color": "#e53939",
+            "price_suffix": "",
+            "price_suffix_size": 16,
+            "price_suffix_secondary": "/case",
+            "price_suffix_color": "#666666",
+            "compare_price_color": "#999999",
+            "description_size": 16,
+            "line_height": 1.6,
+            "text_color": "#000000",
+            "show_button": true,
+            "button_text": "Add to Cart",
+            "button_color": "#000000",
+            "button_hover_color": "#222222",
+            "button_text_color": "#ffffff",
+            "button_radius": 4,
+            "show_nav_arrows": true,
+            "show_nav_dots": false,
+            "nav_button_style": "circle",
+            "nav_button_size": 60,
+            "nav_button_radius": 4,
+            "nav_button_color": "#ffffff",
+            "nav_button_text_color": "#000000",
+            "nav_button_opacity": 0.5,
+            "nav_button_hover_opacity": 1,
+            "nav_dot_size": 10,
+            "nav_dot_active_color": "#000000",
+            "nav_dot_inactive_color": "#ffffff80",
+            "show_divider": false,
+            "divider_height": 1,
+            "divider_color": "#e0e0e0",
+            "divider_spacing_top": 30,
+            "show_meta_description": true,
+            "meta_description_size": 16,
+            "meta_description_color": "#666666",
+            "meta_description_alignment": "center",
+            "meta_description_spacing_top": 30,
+            "meta_description_spacing_bottom": 30,
+            "show_quote_button": false,
+            "quote_button_text": "Request a Quote",
+            "quote_button_link": "",
+            "quote_button_color": "#000000",
+            "quote_button_text_color": "#ffffff",
+            "quote_button_hover_color": "#333333",
+            "quote_button_hover_text_color": "#ffffff",
+            "divider_spacing_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_0a06b18_4NKGaX"
+      ],
+      "settings": {}
+    },
+    "kt_related-products": {
+      "type": "kt_related-products",
+      "settings": {
+        "title": "Related Products",
+        "off_section": false,
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "w-100",
+        "width_content": true,
+        "section_margin_top": "60px",
+        "section_margin_bottom": "60px",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "title_section": "You May Also Like",
+        "stitle_section": "",
+        "reverse": false,
+        "title_align": "text-center",
+        "margin_btitle": 3,
+        "recommendations_enable": false,
+        "product_related_collection": "",
+        "product_items": 8,
+        "autoplay": false,
+        "use_navigation": false,
+        "nav_style": "-default",
+        "nav_mode": "default",
+        "nav_position": "nav-default",
+        "use_dots": true,
+        "dots_mode": "primary",
+        "dots_position": "outside",
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1.3,\n    \"spaceBetween\": 20\n  },\n  \"375\": {\n    \"slidesPerView\": 2,\n    \"spaceBetween\": 20\n  },\n  \"768\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  },\n  \"992\": {\n    \"slidesPerView\": 4,\n    \"spaceBetween\": 20\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  },\n  \"1500\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  }\n}"
+      }
+    },
+    "md_banner_with_text_1_LaXWNd": {
+      "type": "md_banner_with_text_1",
+      "blocks": {
+        "1_H7xrbj": {
+          "type": "1",
+          "settings": {
+            "banner_align": "",
+            "image_banner": "shopify://shop_images/integrity-home-supply-showroom.webp",
+            "image_link": "shopify://pages/contact",
+            "text_align": "text-center",
+            "title_section": "Shop From Our Showroom",
+            "stitle_section": "2590 Grant Ave, Philadelphia, PA 19114",
+            "reverse": true,
+            "content_text": "Please visit our Northeast Philadelphia showroom for many home improvement products. Certain items are in-store only.",
+            "color_title": "#222222",
+            "color_sub_title": "#ed6428",
+            "color_desc": "#666666",
+            "name_btn": "CONTACT OR VISIT US",
+            "style_btn": "btn-primary",
+            "style_btn_rounded": "",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "1_H7xrbj"
+      ],
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Our Showroom",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "css": ""
+      }
+    },
+    "main": {
+      "type": "product-template",
+      "blocks": {
+        "bff05202-1be8-4055-997c-43d939b52504": {
+          "type": "tb_description",
+          "settings": {
+            "show_tab": true,
+            "tab_title": "Description",
+            "tab_width": "container"
+          }
+        },
+        "aca72470-33d6-4838-9b5b-0d1d9184a25a": {
+          "type": "tb_details",
+          "disabled": true,
+          "settings": {
+            "show_tab": true,
+            "tab_title": "Additional information",
+            "show_vendor": true,
+            "show_type": true,
+            "show_sku": true,
+            "show_weight": true
+          }
+        },
+        "66e69a7f-4c15-4450-928a-80df1e930dfe": {
+          "type": "tb_shipping",
+          "disabled": true,
+          "settings": {
+            "show_tab": true,
+            "tab_title": "Shipping & Returns",
+            "use_shipping_info": true,
+            "use_delivery_time": true
+          }
+        },
+        "63e2b185-f4e8-4401-a5e5-0beda8f8d18a": {
+          "type": "tb_review",
+          "disabled": true,
+          "settings": {
+            "show_tab": true,
+            "tab_title": "Review(s)"
+          }
+        }
+      },
+      "block_order": [
+        "bff05202-1be8-4055-997c-43d939b52504",
+        "aca72470-33d6-4838-9b5b-0d1d9184a25a",
+        "66e69a7f-4c15-4450-928a-80df1e930dfe",
+        "63e2b185-f4e8-4401-a5e5-0beda8f8d18a"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "1",
+        "layout_tabs": "1",
+        "use_d_c_b": false
+      }
+    },
+    "kt_recently-viewed-products": {
+      "type": "kt_recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "title": "Recently viewed Products",
+        "off_section": false,
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "container",
+        "width_content": true,
+        "section_margin_top": "4rem",
+        "section_margin_bottom": "6rem",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "product_recently_title": "Recently viewed",
+        "product_recently_stitle": "",
+        "autoplay": false,
+        "use_navigation": false,
+        "nav_style": "-default",
+        "nav_mode": "default",
+        "nav_position": "nav-default",
+        "use_dots": true,
+        "dots_mode": "primary",
+        "dots_position": "outside",
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 0\n  },\n  \"375\": {\n    \"slidesPerView\": 2,\n    \"spaceBetween\": 10\n  },\n  \"768\": {\n    \"slidesPerView\": 3,\n    \"spaceBetween\": 20\n  },\n  \"992\": {\n    \"slidesPerView\": 4,\n    \"spaceBetween\": 20\n  },\n  \"1200\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  },\n  \"1500\": {\n    \"slidesPerView\": 5,\n    \"spaceBetween\": 20\n  }\n}"
+      }
+    }
+  },
+  "order": [
+    "17775747356eff4caf",
+    "kt_related-products",
+    "md_banner_with_text_1_LaXWNd",
+    "main",
+    "kt_recently-viewed-products"
+  ]
+}

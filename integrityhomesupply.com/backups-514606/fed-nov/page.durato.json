@@ -1,0 +1,206 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "blocks_aAcXVK": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_746fd33_3nhpXF": {
+          "type": "ai_gen_block_746fd33",
+          "settings": {
+            "image_1": "shopify://shop_images/PANZU-16_Oslo.png",
+            "heading_1": "Durato",
+            "subheading_1": "Engineered for durability, our innovative technologies provide exceptional protection and stability in any environment.",
+            "image_2": "shopify://shop_images/AT-24_Santorini.png",
+            "heading_2": "Breathe Easy",
+            "subheading_2": "Enjoy cleaner indoor air with LEED and FloorScore certified, VOC-free flooring.",
+            "image_3": "shopify://shop_images/VMD-04_Wentworth.png",
+            "heading_3": "Quantum X™ Technology",
+            "subheading_3": "Diamond-Enhanced Quantum X™ Wear Layer delivers superior resistance to scratches, stains, dents, and fading for lasting beauty.",
+            "image_4": "shopify://shop_images/XL-04_Oyster_Room.png",
+            "heading_4": "Click Locking System",
+            "subheading_4": "Engineered with an advanced locking system for faster installation, stronger performance, and long-term reliability.",
+            "image_5": "shopify://shop_images/VMD-10_Savoye.png",
+            "heading_5": "IXPE PAD",
+            "subheading_5": "Built-in IXPE underlayment delivers superior sound reduction, comfort, moisture protection, and 100% waterproof performance.",
+            "aspect_ratio": "16/9",
+            "carousel_width": 1200,
+            "carousel_height": 500,
+            "text_color": "#ffffff",
+            "heading_size": 48,
+            "subheading_size": 20,
+            "text_spacing": 16,
+            "heading_weight": "700",
+            "subheading_weight": "400",
+            "text_shadow_x": 0,
+            "text_shadow_y": 2,
+            "text_shadow_blur": 10,
+            "text_shadow_color": "#000000",
+            "show_navigation": true,
+            "nav_size": 50,
+            "nav_offset": 20,
+            "nav_bg_color": "#ffffffcc",
+            "nav_hover_bg_color": "#ffffff",
+            "nav_icon_color": "#000000",
+            "show_dots": false,
+            "dots_size": 6,
+            "dots_spacing": 6,
+            "dots_offset": 15,
+            "dots_color": "#ffffff80",
+            "dots_active_color": "#ffffff",
+            "autoplay": true,
+            "autoplay_speed": 7
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_746fd33_3nhpXF"
+      ],
+      "name": "Image carousel",
+      "settings": {}
+    },
+    "md_product_section_show_RXNmJw": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_yLy3rC": {
+          "type": "item",
+          "settings": {
+            "title_section": "<br>Panzu",
+            "stitle_section": "4.7mm Thickness | 12mil Wear Layer | 7\" x 48\" Planks   Strength. Elegance. Panzu",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/panzu",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "panzu",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "See Panzu Colors",
+            "load_btn": true,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false
+          }
+        },
+        "item_zWEPUq": {
+          "type": "item",
+          "settings": {
+            "title_section": "<br>Azul Tortuga",
+            "stitle_section": "5.0mm Thickness | 20mil with QXT Wear Layer | 7\" x 48\" Planks   You Don't Need To Shell Out For A Great Floor.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/azul-tortuga",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "azul-tortuga",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "See Azul Tortuga Colors",
+            "load_btn": true,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false
+          }
+        },
+        "item_dBJ8cQ": {
+          "type": "item",
+          "settings": {
+            "title_section": "<br>V-EVO MAX",
+            "stitle_section": "7.0mm Thickness | 20mil with QXT Wear Layer | 7\" x 48\" Planks MAX Performance. MAX Appearance. MAX Value.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/vevo-max",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "vevo-max",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "See V-EVO MAX Colors",
+            "load_btn": true,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false
+          }
+        },
+        "item_3TBntQ": {
+          "type": "item",
+          "settings": {
+            "title_section": "<br>V-EVO XL",
+            "stitle_section": "7.0mm Thickness | 20mil with QXT Wear Layer | 8.97\" x 70.86\" Planks  XL Design. Peak Durability. Ultimate Luxury.",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "shopify://pages/vevo-xl",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "vevo-xl",
+            "limit_per_row": 4,
+            "limit": 4,
+            "range_row": 1,
+            "name_btn": "See V-EVO XL Colors",
+            "load_btn": true,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_yLy3rC",
+        "item_zWEPUq",
+        "item_dBJ8cQ",
+        "item_3TBntQ"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": false,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "blocks_aAcXVK",
+    "md_product_section_show_RXNmJw"
+  ]
+}

@@ -1,0 +1,235 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content": {
+      "type": "main-page",
+      "settings": {
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": ""
+      }
+    },
+    "blocks_XpzJ6F": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_746fd33_tMJHJc": {
+          "type": "ai_gen_block_746fd33",
+          "settings": {
+            "image_1": "shopify://shop_images/wildwood_kitchen.jpg",
+            "heading_1": "21st Century Cabinetry",
+            "subheading_1": "HIGH-QUALITY, ALL WOOD CABINETRY <br>Elegant Cabinets To Complement Any Home",
+            "heading_2": "",
+            "subheading_2": "",
+            "heading_3": "",
+            "subheading_3": "",
+            "heading_4": "",
+            "subheading_4": "",
+            "heading_5": "",
+            "subheading_5": "",
+            "aspect_ratio": "16/9",
+            "carousel_width": 1200,
+            "carousel_height": 500,
+            "text_color": "#ffffff",
+            "heading_size": 48,
+            "subheading_size": 20,
+            "text_spacing": 16,
+            "heading_weight": "700",
+            "subheading_weight": "400",
+            "text_shadow_x": 0,
+            "text_shadow_y": 2,
+            "text_shadow_blur": 4,
+            "text_shadow_color": "#00000080",
+            "show_navigation": true,
+            "nav_size": 50,
+            "nav_offset": 20,
+            "nav_bg_color": "#ffffffcc",
+            "nav_hover_bg_color": "#ffffff",
+            "nav_icon_color": "#000000",
+            "show_dots": true,
+            "dots_size": 6,
+            "dots_spacing": 6,
+            "dots_offset": 15,
+            "dots_color": "#ffffff80",
+            "dots_active_color": "#ffffff",
+            "autoplay": true,
+            "autoplay_speed": 5
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_746fd33_tMJHJc"
+      ],
+      "name": "Image carousel",
+      "settings": {}
+    },
+    "md_banner_with_text_3_KJ9gHg": {
+      "type": "md_banner_with_text_3",
+      "blocks": {
+        "1_4EMceA": {
+          "type": "1",
+          "settings": {
+            "banner_align": "above",
+            "title": "See Our Cabinet Construction",
+            "html_content": "See our colors and catalog below"
+          }
+        }
+      },
+      "block_order": [
+        "1_4EMceA"
+      ],
+      "name": "Banner with text 3 (text bottom)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Banner with text 3",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "css": ""
+      }
+    },
+    "kt_slideshow_nHVKWw": {
+      "type": "kt_slideshow",
+      "blocks": {
+        "image_KthTXK": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2026-06-29_135546.png",
+            "lazypreload": false,
+            "heading": "",
+            "font_heading": "poppins_n7",
+            "subheading": "",
+            "font_subheading": "poppins_n7",
+            "description": "",
+            "font_description": "poppins_n4",
+            "text_alignment_top": 16,
+            "text_alignment_left": 16,
+            "text_alignment": "center",
+            "text_alignment_top_mb": 16,
+            "text_alignment_left_mb": 16,
+            "text_alignment_mb": "center",
+            "style_btn_1": "btn-primary",
+            "style_btn_rounded_1": "",
+            "btn_shadow_1": false,
+            "link_1": "",
+            "textBtn_1": "",
+            "style_btn_2": "btn-outline-primary-2",
+            "style_btn_rounded_2": "",
+            "btn_shadow_2": false,
+            "link_2": "",
+            "textBtn_2": "",
+            "turnoff": false,
+            "title": "Item image",
+            "width_section": true,
+            "css_block": ".block_id {}"
+          }
+        }
+      },
+      "block_order": [
+        "image_KthTXK"
+      ],
+      "name": "Master",
+      "settings": {
+        "title": "Slideshow Master",
+        "off_mobile": false,
+        "off_desktop": false,
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "0 0 2rem 0",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "no_overflow": false,
+        "fullscreen": false,
+        "autoplay": true,
+        "use_navigation": true,
+        "nav_style": "-default",
+        "nav_mode": "default",
+        "nav_position": "nav-default",
+        "use_dots": false,
+        "dots_mode": "default",
+        "use_scrollbar": false,
+        "h_reponsive": "",
+        "h_reponsive_768": "",
+        "h_reponsive_992": "",
+        "h_reponsive_1200": "",
+        "h_reponsive_1400": "",
+        "autoplay_speed": 7,
+        "responsive": "{\n  \"0\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 10\n  },\n  \"320\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 10\n  },\n  \"768\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 10\n  },\n  \"992\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 10\n  },\n  \"1200\": {\n    \"slidesPerView\": 1,\n    \"spaceBetween\": 10\n  }\n}",
+        "content_type": "type-1",
+        "css_section": ""
+      }
+    },
+    "md_product_section_show_RXNmJw": {
+      "type": "md_product_section_show",
+      "blocks": {
+        "item_yLy3rC": {
+          "type": "item",
+          "settings": {
+            "title_section": "",
+            "stitle_section": "",
+            "reverse": false,
+            "title_align": "text-center",
+            "link_to": "https://cdn.shopify.com/s/files/1/0633/5378/2410/files/21st_Century_Catalog.pdf?v=1787677579",
+            "name_link": "",
+            "style_link": "",
+            "margin_btitle": 3,
+            "products": "21st-century-cabinets",
+            "limit_per_row": 4,
+            "limit": 16,
+            "range_row": 1,
+            "name_btn": "See Catalog",
+            "load_btn": true,
+            "margin_tbutton": 1,
+            "style_btn": "btn-outline-darker",
+            "style_btn_rounded": "btn-rounded",
+            "btn_shadow": false
+          }
+        }
+      },
+      "block_order": [
+        "item_yLy3rC"
+      ],
+      "name": "Show(grid)",
+      "settings": {
+        "off_mobile": false,
+        "off_desktop": false,
+        "title": "Show(grid)",
+        "width_section": "container",
+        "width_content": false,
+        "section_margin_top": "",
+        "section_margin_bottom": "",
+        "section_padding": "",
+        "section_bg": "",
+        "section_bg_op": 1,
+        "use_lazyload": true,
+        "product_grid_layout": "",
+        "use_nospace": false
+      }
+    }
+  },
+  "order": [
+    "content",
+    "blocks_XpzJ6F",
+    "md_banner_with_text_3_KJ9gHg",
+    "kt_slideshow_nHVKWw",
+    "md_product_section_show_RXNmJw"
+  ]
+}
