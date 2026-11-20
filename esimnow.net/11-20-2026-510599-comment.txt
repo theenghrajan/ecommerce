@@ -1,0 +1,38 @@
+Charlie Myhran
+As per comment #12,
+
+We have updated the import sheet as per your direction:
+https://docs.google.com/spreadsheets/d/13buiMEw9QdFuDjiIyaXpK0S_PBCma2kl3fHr4QuDbi0/edit
+
+Re: Prices: Please treat the Sep 4 list as final for both Daily Unlimited and Prepaid. Use the Sep 4 price wherever a variant is in that list, and the Aug 19 price only for variants that are only in the Aug 19 CSV. For Prepaid, please change the 168 variants back to Sep 4. Please list the other 8 separately so we can review them first. Before importing, please flag the Samoa prices (both plans) for a quick check, since they differ a lot between the two lists.
+...
+1. All prices in the sheet now use the Sep 4 list. The Aug 19 price is used only for plans that aren't in the Sep 4 list (mostly the new 3GB/Day plans and the new products).
+
+2. Prepaid: 164 of the 168 variants are in the "7 Prepaid Back to Sep 4" tab. The other 4 are Samoa, so we moved them to the "9 Review Before Import" tab with the other Samoa prices.
+
+3. The other 8 Prepaid variants are also in the "9 Review Before Import" tab:
+- Qatar (4 plans): the Sep 4 price is higher than the current price and has never been live. Example: Qatar 1GB 7Days is $2.95 now and $3.17 in the Sep 4 list.
+- Central Asia (4 areas) (4 plans): these were at the Sep 4 price before Oct 6, the same as the 168. The Sep 4 list just calls this product "Central Asia", so they didn't match at first. Example: 1GB 7Days was $4.22 before Oct 6 and in the Sep 4 list, and is $2.78 now. We suggest treating these the same as the 168.
+
+4. Samoa:
+- Daily Unlimited: no price change. The live site already has the Sep 4 prices (the Aug 19 CSV had much higher prices for the 10GB/Day plans).
+- Prepaid: the Sep 4 prices are about 5 times the current prices. Example: Samoa 1GB 7Days is $5.11 now and $27.12 in the Sep 4 list. These were the prices before Oct 6.
+- Samoa 5GB 30Days is $119.20 in both lists and on the live site. This fits the Sep 4 prices, but on the live site it costs more than the 10GB 30Days plan ($38.58 now).
+- Samoa 3GB 30Days is a new plan that is only in the Aug 19 CSV, at $79.21. This is also close to the Sep 4 prices, not the other Aug 19 Samoa prices (3GB 15Days is $12.95 in the Aug 19 CSV).
+Could you please confirm the Samoa Prepaid prices with the client? Until then, all Samoa changes are held out of the import.
+
+Re: Split products: Agreed. Keep each as one product with all plan sizes, and fix the typos.
+...
+5. Done. China, Macao, Thailand, Cayman Islands and Philippines stay as one product each, with all plan sizes. The plan names are fixed ("Philippine 3GB/Day" is now "Philippines 3GB/Day" and "Cayman lslands 10GB/Day" is now "Cayman Islands 10GB/Day").
+
+Re: Philippines Prepaid 3GB 30Days: Remove it only if it's also missing from the Sep 4 Prepaid list. Otherwise keep it at the Sep 4 price.
+...
+6. It isn't in the Sep 4 list either (the Sep 4 list has Philippines 3GB 15Days only), so it is in the "5 Removals" tab.
+
+Re: "From $" text: Yes, please update it after the import to the lowest live price on each page, including Malaysia and Japan.
+...
+7. Noted. We will update these after the import.
+
+Once you confirm the 8 Prepaid variants and the Samoa prices, we will take a fresh backup, run the import and spot-check the products the next day.
+
+Thanks!
